@@ -1,0 +1,28 @@
+# Disable directory browsing
+Options -Indexes
+
+# Rewrite rule to remove file extensions
+RewriteEngine On
+
+# Rewrite rule to internally rewrite requests without extensions to their corresponding .html files
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Rewrite rule to internally rewrite requests without extensions to their corresponding .php files
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# Return 404 error if the extension is modified (for .html files)
+RewriteCond %{THE_REQUEST} \.html?\s [NC]
+RewriteRule ^ - [R=404,L]
+
+# Return 404 error if the extension is modified (for .php files)
+RewriteCond %{THE_REQUEST} \.php\s [NC]
+RewriteRule ^ - [R=404,L]
+
+# Set caching headers for fonts, images, and videos
+<FilesMatch "\.(woff|woff2|ttf|otf|svg|eot|jpg|jpeg|png|gif|ico|webp|mp4|webm)$">
+    Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
