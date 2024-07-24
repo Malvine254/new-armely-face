@@ -42,6 +42,10 @@
 <link rel="stylesheet" href="css/normalize.css">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
 
 </head>
 <body>
@@ -75,19 +79,53 @@
 <div class="row">
 <div class="col-lg-6 col-md-5 col-12">
 	<!-- Contact -->
+	<style>
+		.serach-container{
+			border: solid 1px #2f5597;
+			width: 400px;
+			padding: 6px;
+			background: #fff;
+			border-radius: 5px;
+		}
+		.serach-container input{
+			border: none;
+			font-size: 20px;
+			width: 355px;
+			background: transparent;
+			color: black !important;
+		}
+		.serach-container input:focus {
+    border: transparent;
+    outline: none; /* Optional: Removes the default outline */
+}
+.icon{
+	font-size: 20px;
+	color: #2f5597;
+}
+.serach-container input::placeholder {
+		font-size: 20px;
+    color: #2f5597; /* Replace #888 with your desired color */
+    opacity: 1;  /* Optional: Ensures the placeholder color is fully opaque */
+}
+
+
+	</style>
 	<ul class="top-link">
-		<li><a href="#">About</a></li>
-		<li><a href="#">Doctors</a></li>
-		<li><a href="#">Contact</a></li>
-		<li><a href="#">FAQ</a></li>
+		<li>
+			<div class="serach-container">
+			    <i class="fa fa-search search-icon icon"></i>
+			    <input type="text" class="search-input" placeholder="Search...">
+			</div>
+		</li>
+	
 	</ul>
 	<!-- End Contact -->
 </div>
 <div class="col-lg-6 col-md-7 col-12">
 	<!-- Top Contact -->
 	<ul class="top-contact">
-		<li><i class="fa fa-phone"></i>+880 1234 56789</li>
-		<li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">support@yourmail.com</a></li>
+		<li><i class="fa fa-phone"></i>+1 972 460 0643</li>
+		<li><i class="fa fa-envelope"></i><a href="mailto:info@armely.com">info@armely.com</a></li>
 	</ul>
 	<!-- End Top Contact -->
 </div>
@@ -146,7 +184,7 @@
 	</div>
 	<div class="col-lg-2 col-12">
 		<div class="get-quote">
-			<a href="appointment.html" class="btn">Book Appointment</a>
+			
 		</div>
 	</div>
 </div>
@@ -223,113 +261,13 @@
 <div class="container">
 <div class="schedule-inner">
 <div class="row">
-<div class="col-lg-4 col-md-6 col-12 ">
-	<!-- single-schedule -->
-	<div class="single-schedule first">
-		<div class="inner">
-			<div class="icon">
-				<i class="fa fa-data"></i>
-			</div>
-			<div class="single-content">
-				<h4>AI Services</h4>
-				<p>Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus convallis sodales.</p>
-				<a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="col-lg-4 col-md-6 col-12">
-	<!-- single-schedule -->
-	<div class="single-schedule middle">
-		<div class="inner">
-			<div class="icon">
-				<i class="icofont-prescription"></i>
-			</div>
-			<div class="single-content">
-				<h4>Data Services</h4>
-				<p>Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus convallis sodales.</p>
-				<a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="col-lg-4 col-md-12 col-12">
-	<!-- single-schedule -->
-	<div class="single-schedule last">
-		<div class="inner">
-			<div class="icon">
-				<i class="icofont-ui-clock"></i>
-			</div>
-			<div class="single-content">
-				<h4>Data Services</h4>
-				<p>Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus convallis sodales.</p>
-				<a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
-			</div>
-		</div>
-	</div>
-</div>
+
+<?php displayCustomerStoriesTestimonialsShort(); ?>
 </div>
 </div>
 </div>
 </section>
 <!--/End Start schedule Area -->
-
-
-
-<!-- Start Fun-facts -->
-<div id="fun-facts" class="fun-facts section overlay">
-<div class="container">
-<div class="row">
-<div class="col-lg-3 col-md-6 col-12">
-<!-- Start Single Fun -->
-<div class="single-fun">
-	<i class="icofont icofont-home"></i>
-	<div class="content">
-		<span class="counter">72</span>
-		<p>Community Commitment Hours</p>
-	</div>
-</div>
-<!-- End Single Fun -->
-</div>
-<div class="col-lg-3 col-md-6 col-12">
-<!-- Start Single Fun -->
-<div class="single-fun">
-	<i class="icofont icofont-user-alt-3"></i>
-	<div class="content">
-		<span class="counter">82</span>
-		<p>Customer Satisfaction</p>
-	</div>
-</div>
-<!-- End Single Fun -->
-</div>
-<div class="col-lg-3 col-md-6 col-12">
-<!-- Start Single Fun -->
-<div class="single-fun">
-	<i class="icofont-simple-smile"></i>
-	<div class="content">
-		<span class="counter">300</span>
-		<p>Community Commitment Hours</p>
-	</div>
-</div>
-<!-- End Single Fun -->
-</div>
-<div class="col-lg-3 col-md-6 col-12">
-<!-- Start Single Fun -->
-<div class="single-fun">
-	<i class="icofont icofont-table"></i>
-	<div class="content">
-		<span class="counter">32</span>
-		<p>Years of Experience</p>
-	</div>
-</div>
-<!-- End Single Fun -->
-</div>
-</div>
-</div>
-</div>
-<!--/ End Fun-facts -->
-
-
 
 <!-- Start portfolio -->
 <section class="portfolio section" >
@@ -339,7 +277,6 @@
 <div class="section-title">
 	<h2>Case Studies</h2>
 	<center><hr class="default-background hr" ></center>
-	<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
 </div>
 </div>
 </div>
@@ -348,44 +285,114 @@
 <div class="row">
 <div class="col-lg-12 col-12">
 <div class="owl-carousel portfolio-slider">
-	<div class="single-pf">
-		<img src="img/pf1.jpg" alt="#">
-		<a href="portfolio-details.html" class="btn">View Details</a>
-	</div>
-	<div class="single-pf">
-		<img src="img/pf2.jpg" alt="#">
-		<a href="portfolio-details.html" class="btn">View Details</a>
-	</div>
-	<div class="single-pf">
-		<img src="img/pf3.jpg" alt="#">
-		<a href="portfolio-details.html" class="btn">View Details</a>
-	</div>
-	<div class="single-pf">
-		<img src="img/pf4.jpg" alt="#">
-		<a href="portfolio-details.html" class="btn">View Details</a>
-	</div>
-	<div class="single-pf">
-		<img src="img/pf1.jpg" alt="#">
-		<a href="portfolio-details.html" class="btn">View Details</a>
-	</div>
-	<div class="single-pf">
-		<img src="img/pf2.jpg" alt="#">
-		<a href="portfolio-details.html" class="btn">View Details</a>
-	</div>
-	<div class="single-pf">
-		<img src="img/pf3.jpg" alt="#">
-		<a href="portfolio-details.html" class="btn">View Details</a>
-	</div>
-	<div class="single-pf">
-		<img src="img/pf4.jpg" alt="#">
-		<a href="portfolio-details.html" class="btn">View Details</a>
-	</div>
+	
+	<?php displayRecentIndustryListings() ?>
 </div>
 </div>
 </div>
 </div>
 </section>
 <!--/ End portfolio -->
+
+<!-- Start clients -->
+<!-- <div class="marquee-container">
+    <div class="marquee-content">
+     <?php displayPartnersLogo();?>
+     <?php displayPartnersLogo();?>
+    </div>
+  </div> -->
+<section class="blog section" id="blog">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<div class="section-title">
+	<h2>Our Partners</h2>
+	<p>Your Reliable Hub for Digital Excellence, Committed to Caring, Building Relationships, Backed by Industry Expertise and Recognized for Award-Winning Achievements.</p>
+	<a class="default-color" href="#">READ MORE<i class="fa fa-long-arrow-right"></i></a>
+</div>
+</div>
+</div>
+<div class="row align-items-center justify-content-center" data-aos="fade-in">
+    <div class="col-md-12 p-4 col-sm-4 d-flex justify-content-center">
+      <div class="marquee-container">
+        <div class="marquee-content">
+         <?php echo displayPartnersLogo(); ?>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!--/Ens clients -->
+<!-- Start Fun-facts -->
+<div  id="fun-facts" class="fun-facts default-background section overlay">
+<div class="container default-background">
+<div class="row">
+<div class="col-lg-4 col-md-6 col-12">
+<!-- Start Single Fun -->
+<div class="single-fun">
+	<i class="icofont icofont-ui-user-group"></i>
+	<div class="content">
+		<span class="counter plus">72</span>
+		<p>Community Commitment Hours</p>
+	</div>
+</div>
+<!-- End Single Fun -->
+</div>
+<div class="col-lg-4 col-md-6 col-12">
+<!-- Start Single Fun -->
+<div class="single-fun">
+	<i class="icofont icofont-users-social"></i>
+	<div class="content">
+		<span class="counter percent">82</span>
+		<p>Customer Satisfaction</p>
+	</div>
+</div>
+<!-- End Single Fun -->
+</div>
+<div class="col-lg-4 col-md-6 col-12">
+<!-- Start Single Fun -->
+<div class="single-fun">
+	<i class="icofont-simple-smile"></i>
+	<div class="content">
+		<span>Very Easy</span>
+		<p>Community Commitment Hours</p>
+	</div>
+</div>
+<!-- End Single Fun -->
+</div>
+<div class="col-lg-4 col-md-6 col-12">
+
+</div>
+</div>
+</div>
+</div>
+<!--/ End Fun-facts -->
+<!-- Start Blog Area -->
+<section class="blog section" id="blog">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<div class="section-title">
+	<h2>Our Most Recent Blog Articles.</h2>
+		<center><hr class="default-background hr" ></center>
+</div>
+</div>
+</div>
+<div class="row">
+
+<!-- Single Blog -->
+<?php displayRecentBlogs(); ?>
+
+<!-- End Single Blog -->
+</div>
+
+</div>
+</section>
+<!-- End Blog Area -->
+
+
+
 
 
 
@@ -395,9 +402,8 @@
 <div class="row">
 <div class="col-lg-12">
 <div class="section-title">
-	<h2>See Our Pricing Tears</h2>
+	<h2>See Our Pricing Tiers</h2>
 		<center><hr class="default-background hr" ></center>
-	<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
 </div>
 </div>
 </div>
@@ -424,7 +430,7 @@
 		<li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
 	</ul>
 	<div class="table-bottom">
-		<a class="btn" href="#">Book Now</a>
+		<a class="btn default-button" href="#">Book Now</a>
 	</div>
 	<!-- Table Bottom -->
 </div>
@@ -452,7 +458,7 @@
 		<li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
 	</ul>
 	<div class="table-bottom">
-		<a class="btn" href="#">Book Now</a>
+		<a class="btn default-button" href="#">Book Now</a>
 	</div>
 	<!-- Table Bottom -->
 </div>
@@ -480,7 +486,7 @@
 		<li><i class="icofont icofont-ui-check"></i>Pellentesque eget nibh</li>
 	</ul>
 	<div class="table-bottom">
-		<a class="btn" href="#">Book Now</a>
+		<a class="btn default-button" href="#">Book Now</a>
 	</div>
 	<!-- Table Bottom -->
 </div>
@@ -493,97 +499,9 @@
 
 
 
-<!-- Start Blog Area -->
-<section class="blog section" id="blog">
-<div class="container">
-<div class="row">
-<div class="col-lg-12">
-<div class="section-title">
-	<h2>Our Most Recent Blog Articles.</h2>
-		<center><hr class="default-background hr" ></center>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-lg-4 col-md-6 col-12">
-<!-- Single Blog -->
-<div class="single-news">
-	<div class="news-head">
-		<img src="img/blog1.jpg" alt="#">
-	</div>
-	<div class="news-body">
-		<div class="news-content">
-			<div class="date">22 Aug, 2020</div>
-			<h2><a href="blog-single.html">We have annnocuced our new product.</a></h2>
-			<h6 class="text-muted">Martin Irungu</h6>
-			<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
-			<a href="#">READ MORE<i class="fa fa-long-arrow-right default-color"></i></a>
-		</div>
-	</div>
-</div>
-<!-- End Single Blog -->
-</div>
-<div class="col-lg-4 col-md-6 col-12">
-<!-- Single Blog -->
-<div class="single-news">
-	<div class="news-head">
-		<img src="img/blog2.jpg" alt="#">
-	</div>
-	<div class="news-body">
-		<div class="news-content">
-			<div class="date">15 Jul, 2020</div>
-			<h2><a href="blog-single.html">Top five way for solving teeth problems.</a></h2>
-				<h6 class="text-muted">Martin Irungu</h6>
-			<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
-			<a href="#">READ MORE<i class="fa fa-long-arrow-right default-color"></i></a>
-		</div>
-	</div>
-</div>
-<!-- End Single Blog -->
-</div>
-<div class="col-lg-4 col-md-6 col-12">
-<!-- Single Blog -->
-<div class="single-news">
-	<div class="news-head">
-		<img src="img/blog3.jpg" alt="#">
-	</div>
-	<div class="news-body">
-		<div class="news-content">
-			<div class="date">05 Jan, 2020</div>
-			<h2><a href="blog-single.html">We provide highly business soliutions.</a></h2>
-				<h6 class="text-muted">Martin Irungu</h6>
-			<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
-			<a href="#">READ MORE<i class="fa fa-long-arrow-right default-color"></i></a>
-		</div>
-	</div>
-</div>
-<!-- End Single Blog -->
-</div>
-</div>
-</div>
-</section>
-<!-- End Blog Area -->
 
-<!-- Start clients -->
-<section class="blog section" id="blog">
-<div class="container">
-<div class="row">
-<div class="col-lg-12">
-<div class="section-title">
-	<h2>Our Partners</h2>
-	<p>Your Reliable Hub for Digital Excellence, Committed to Caring, Building Relationships, Backed by Industry Expertise and Recognized for Award-Winning Achievements.</p>
-	<a class="default-color" href="#">READ MORE<i class="fa fa-long-arrow-right"></i></a>
-</div>
-</div>
-</div>
-<div class="marquee-container">
-    <div class="marquee-content">
-     <?php displayPartnersLogo();displayPartnersLogo(); ?>
-    </div>
-  </div>
-</div>
-</section>
-<!--/Ens clients -->
+
+
 
 <!-- Start Appointment -->
 <section class="appointment">
@@ -596,19 +514,13 @@
 </div>
 </div>
 </div>
-<style type="text/css">
-	input,select,textarea,.form-group{
-		background-color: transparent !important;
 
-
-	}
-</style>
 <div class="row">
 <div class="col-lg-12 col-md-6 col-12 d-flex text-center default-background mb-5">
 <form class="form p-5" action="#">
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-12">
-			<div class="form-group">
+			<div class="form-group input-with-background">
 				<input name="name" type="text" placeholder="Name">
 			</div>
 		</div>
@@ -624,28 +536,7 @@
 		</div>
 		<div class="col-lg-6 col-md-6 col-12">
 			<div class="form-group">
-				<div class="nice-select form-control wide" tabindex="0"><span class="current">Department</span>
-					<ul class="list">
-						<li data-value="1" class="option selected ">Department</li>
-						<li data-value="2" class="option">Cardiac Clinic</li>
-						<li data-value="3" class="option">Neurology</li>
-						<li data-value="4" class="option">Dentistry</li>
-						<li data-value="5" class="option">Gastroenterology</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="col-lg-6 col-md-6 col-12">
-			<div class="form-group">
-				<select class="form-control" tabindex="0">
-					<option>Option One</option>
-				
-				</select>
-			</div>
-		</div>
-		<div class="col-lg-6 col-md-6 col-12">
-			<div class="form-group">
-				<input type="text" placeholder="Date" id="datepicker">
+				<input name="phone" type="text" placeholder="Orginazation Name">
 			</div>
 		</div>
 		<div class="col-lg-12 col-md-12 col-12">
@@ -722,7 +613,7 @@
 		<ul>
 			<li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> +1 972 460 0643</a></li>
 			<li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>2831 Eldorado Pkwy Suite 103-128 Frisco TX 75033</a></li>
-			<li><a href="#"><i class="fa fa-paper-plane" aria-hidden="true"></i>info@armely.com</a></li>
+			<li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>info@armely.com</a></li>
 		</ul>
 	</div>
 </div>
@@ -730,7 +621,7 @@
 	<div class="single-footer">
 		<h2>Follow Us</h2>
 		<ul class="social">
-			<li><a href="#"><i class="icofont-facebook"></i></a></li>
+			<li><a href="#"><i class="icofont-linkedin"></i></a></li>
 			<li><a href="#"><i class="icofont-github"></i></a></li>
 			<li><a href="#"><i class="icofont-twitter"></i></a></li>
 			<li><a href="#"><i class="icofont-youtube"></i></a></li>

@@ -136,7 +136,7 @@ function selectFromBlog($condition){
 	if ($select->num_rows>0) {
 		while ($row=$select->fetch_assoc()) {
 			echo "
-		<div  style='display: none;' class='row align-items-center blog-article' data-aos='fade-up'>
+		<div  style='display: none;' class='row align-items-center blog-article'>
     <div class='col-2'>
         <h6 class='lead h1 text-muted text-center'>".stringLength($numbering++)."</h6>
     </div>
@@ -199,18 +199,21 @@ function displayRecentBlogs(){
 	$select = $conn->query("SELECT * FROM blogs ORDER BY id DESC LIMIT 3");
 	if ($select->num_rows>0) {
 		while ($row=$select->fetch_assoc()) {
-			echo "<div class='col-md-4' data-aos='fade-in'>
-	        <div class='card bg-primary mb-3 transparent-card shadow'>
-	          <img style='max-height: 250px; min-height: 250px;' class='card-img-top img-fluid' src='".$row['image_path']."' alt='Card image cap'>
-	          <div class='card-body'>
-	              <h6 class='text-muted'>".$row['title']."</h6>
-	             <p style='font-size: 14px;' class='mt-0 text-sm'>".$row['author']."
-	                <br><span class='text-muted'>".$row['date']." • ". estimateReadingTime($row['body'])." min read</span>
-	                 <a href='blog?blogId=".$row['blog_id']."' class='btn btn-outline-primary ml-2'>Read more</a>
-	              </p>
-	          </div>
-	      </div> 
-	      </div>";
+			echo '<div class="col-lg-4 col-md-6 col-12" data-aos="fade-in">
+			<div class="single-news" style="min-height: 430px;">
+					<div class="news-head">
+						<img src="'.$row['image_path'].'" alt="#">
+					</div>
+					<div class="news-body">
+						<div class="news-content">
+							<div class="date">'.$row['date'].', 2024.</div>
+							<h6 class="text-muted">'.$row['author'].' |<span>'.estimateReadingTime($row['body']).' min read</span></h6>
+							<h2><a href="blog?blogId='.$row['blog_id'].'">'.$row['title'].'</a></h2>
+							<a class="default-color" href="blog?blogId='.$row['blog_id'].'">READ MORE<i class="fa fa-long-arrow-right "></i></a>
+						</div>
+					</div>
+				</div></div>';
+		
 		}
 	}else{
 		echo "<div class='shadow align-items-center blog-id'>
@@ -243,11 +246,11 @@ function displayCustomerStoriesTestimonials(){
         while ($row=$select->fetch_assoc()) {
 
         	echo '<div class="col-md-4 mb-2 mb-md-2 card-item">
-        <div class="card border-dark transparent-card" style="min-height: 300px !important;" data-aos="fade-in">
+        <div data-aos="fade-right" class="card border-dark transparent-card" style="min-height: 300px !important;">
           <div class="card-body py-4 mt-2">
             <div class="d-flex justify-content-center mb-4">
               <img src="images/customer-stories/'.$row['profile'].'"
-                class="rounded-circle shadow-1-strong" width="60" height="60" />
+                class="rounded-circle shadow-1-strong lazyload" width="150" height="150" />
             </div>
             <h6 class="font-weight-bold">'.$row['name'].'</h6>
             <p class="font-weight-bold my-3">'.$row['position'].'</p>
@@ -266,6 +269,38 @@ function displayCustomerStoriesTestimonials(){
     }
 
 }
+function displayCustomerStoriesTestimonialsShort(){
+    include 'config.php';
+     $select = $conn->query("SELECT * FROM customer_stories LIMIT 3");
+     if ($select->num_rows>0) {
+        while ($row=$select->fetch_assoc()) {
+        	echo '<div class="col-lg-4 col-md-6 col-12" >
+				<!-- single-schedule -->
+				<div class="single-schedule first " style="min-height: 380px; max-height: 380px;">
+					<div class="inner">
+						<div class="icon">
+							<i class="fa fa-data"></i>
+						</div>
+						<div class="single-content">
+							<center><img style="width: 70px; height: 70px;" src="images/customer-stories/'.$row['profile'].'" class="img-fluid rounded-circle"></center>
+							<div class="text-center">
+								<h4 >'.$row['name'].'</h4><br>
+								<strong class="text-light">'.$row['position'].'</strong>
+							</div>
+							<p>'.substr($row['body_content'],0,150) .'</p>
+							<a href="#">READ MORE<i class="fa fa-long-arrow-right"></i></a>
+						</div>
+					</div>
+				</div>
+				</div>';
+
+        	
+        }
+    }else{
+        echo "No records found!";
+    }
+
+}
 
 function displayCoreValues(){
     include 'config.php';
@@ -273,9 +308,9 @@ function displayCoreValues(){
      if ($select->num_rows>0) {
         while ($row=$select->fetch_assoc()) {
 
-        	echo '<div class="col-md-4 column card-item" data-aos="fade-right">
+        	echo '<div class="col-md-4 column card-item">
             <div class=" p-4" style="min-height: 320px !important;">
-                <img width="100" height="100" src="images/company/'.$row['icon'].' " alt="" class="img-fluid rounded-circle  bg-light p-1 mt-2 mb-1 p-2">
+                <img width="100" height="100" src="images/company/'.$row['icon'].' " alt="" class="img-fluid rounded-circle  lazyload bg-light p-1 mt-2 mb-1 p-2">
                 <h5>'.$row['title'].'</h5>
                 <p class="mb-4 truncated-text">'.$row['body'].'</p>
                  <button class="btn btn-outline-primary read-more-btn">Read More</button>
@@ -292,20 +327,27 @@ function displayCoreValues(){
 
 function displayServicesList(){
     include 'config.php';
+    function readMoreText($text){
+    	if (strlen($text)>=50) {
+    		return substr($text, 0,100)."...";
+    	}else{
+    		return $text;
+    	}
+    }
      $select = $conn->query("SELECT * FROM services_lists ");
      if ($select->num_rows>0) {
         while ($row=$select->fetch_assoc()) {
 
-        	echo ' <div class="col-md-4 mb-4 mb-md-0 card-item" data-aos="fade-left">
-				        <div class="card transparent-card">
-				          <div class="card-body py-4 mt-2">
+        	echo ' <div class="col-md-4 mb-4 card-item">
+				        <div style="min-height: 450px;height: auto;" class="card transparent-card">
+				          <div class="card-body py-4 mt-1">
 				            <div class="d-flex justify-content-start mb-4">
 				              <img src="images/services/'.$row['image'].'"
-				                class=" shadow-1-strong" width="100%" height="240"/>
+				                class=" shadow-1-strong lazyload" width="100%" height="240"/>
 				            </div>
 				            <h5 class="font-weight-bold my-3">'.$row['title'].'</h5>
 				            <p class="mb-2">
-				              <i class="fas fa-quote-left pe-2"></i>'.$row['body'].' <a href="data">Learn More</a>
+				              <i class="fas fa-quote-left pe-2"></i>'.readMoreText($row['body']).' <a href="service_details?service_name='.$row['title'].'">Learn More</a>
 				            </p>
 				          </div>
 				        </div>
@@ -316,16 +358,54 @@ function displayServicesList(){
         echo "No records found!";
     }
 
+    
+
+}
+
+function displayMoreServicesList(){
+    include 'config.php';
+    function readMoreText($text){
+    	if (strlen($text)>=50) {
+    		return substr($text, 0,100)."...";
+    	}else{
+    		return $text;
+    	}
+    }
+     $select = $conn->query("SELECT * FROM services_lists ORDER BY id DESC LIMIT 3");
+     if ($select->num_rows>0) {
+        while ($row=$select->fetch_assoc()) {
+
+        	echo ' <div class="col-md-4 mb-4 card-item">
+				        <div style="min-height: 450px;height: auto;" class="card transparent-card">
+				          <div class="card-body py-4 mt-1">
+				            <div class="d-flex justify-content-start mb-4">
+				              <img src="images/services/'.$row['image'].'"
+				                class=" shadow-1-strong lazyload" width="100%" height="240"/>
+				            </div>
+				            <h5 class="font-weight-bold my-3">'.$row['title'].'</h5>
+				            <p class="mb-2">
+				              <i class="fas fa-quote-left pe-2"></i>'.readMoreText($row['body']).' <a href="service_details?service_name='.$row['title'].'">Learn More</a>
+				            </p>
+				          </div>
+				        </div>
+				      </div>';
+      
+        }
+    }else{
+        echo "No records found!";
+    }
+
+    
+
 }
 
 //display industry contents
 
 function displayIndustriesRecords($arrayString){
 	
-	if (count(explode("$",$arrayString))>=2) {
-		$id = explode("$", $arrayString)[0];
-		$category = strtolower(explode("$", $arrayString)[1]) ;
-		//echo "<script>alert('ID: ".$id." Category: ".$category."')</script>";
+	if (count(explode(",",$arrayString))>=2) {
+		$id = explode(",", $arrayString)[0];
+		$category = strtolower(explode(",", $arrayString)[1]) ;
 		 include 'config.php';
 	     $select = $conn->query("SELECT * FROM industry_listings WHERE id ='$id' AND LOWER(category) ='$category' ");
 	     if ($select->num_rows>0) {
@@ -355,18 +435,13 @@ function displayIndustryListings(){
 
         	echo '<div class="col-md-4 mb-4 p-1">
                 <div class="customer-story-card shadow m-1" data-aos="fade-right">
-                    <img style="min-height: 250px; max-height: 250px;" src="images/services/'.$row['listing_image'].'" class="d-block img-fluid" alt="">
+                    <img style="min-height: 300px;" src="images/case-study/'.$row['listing_image'].'" class="d-block img-fluid lazyload" alt="">
                     <div class="p-3">
-                        <small id="'.$row['id'].'" class="text-muted">'.$row['category'].'</small>
+                       <strong> <p id="'.$row['id'].'" class="text-muted">Industry: '.$row['category'].'</p></strong>
                         <p>'.substr($row['body'], 0,120) .'...</p>
-                           <div class="mb-2 row">
-                            <div class="col-md-6 col-sm-12">
-                               <img width="auto" height="40" src="'.$row['logo_link'].'">
-                          </div>
-                           <div class="col-md-6 col-sm-12">
-                             <h5><a class="readMoreLink" id="'.$row['id'].'">Read More <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i> </a></h5>
+                          <div class="col">
+                             <h6><a target="_blank" href="case_docs/'.$row['pdf_url'].'" id="'.$row['id'].'">Read More <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i> </a></h6>
                            </div>
-                         </div>
                     </div>
                 </div>
             </div>';
@@ -376,15 +451,42 @@ function displayIndustryListings(){
         echo "No records found!";
     }
 
+    // function placeholderImages($count){
+	// 	// Check if the count is divisible by 3
+	// 	if ($count % 3 != 0) {
+	// 	    // Calculate the number of records to add
+	// 	    $remainder = $count % 3;
+	// 	    $recordsToAdd = 3 - $remainder;
+
+	// 	   for ($i = 0; $i < $recordsToAdd; $i++) {
+	// 	   	return '';
+           
+    // }
+	// 	} else {
+	// 	    echo "The count is already divisible by 3.";
+	// 	}
+
+
+    // }
+
 }
 
-function displayPartnersLogo(){
+function displayIndustryListingsSlider(){
     include 'config.php';
-     $select = $conn->query("SELECT * FROM partners_logo ");
+     $select = $conn->query("SELECT * FROM industry_listings  ");
      if ($select->num_rows>0) {
         while ($row=$select->fetch_assoc()) {
 
-        	echo '<a href="'.$row['site_url'].'" class="ml-5"><img class="svg-img" src="'.$row['logo_url'].'" alt=""></a>';
+        	echo '   <div class="carousel-item active">
+         <img src="https://images.pexels.com/photos/3025005/pexels-photo-3025005.jpeg" class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 bg-danger lazyload" width="800" height="500" alt="First slide">
+         <img src="https://images.pexels.com/photos/1642770/pexels-photo-1642770.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 bg-danger" width="800" height="500" alt="First slide">
+
+          <div class="carousel-caption d-none d-md-block">
+            <button class="btn btn-warning">Read Full Report</button>
+            <h5>Industry: Health</h5>
+            <p>Automating data sharing with Health Agencies, Insurance Companies, Pharmaceuticals and Other Providers significantly improves Swope health efficiency and accuracy allowing for better care coordination, faster diagnoses, and more personalized treatment plans.</p>
+          </div>
+        </div>';
       
         }
     }else{
@@ -393,15 +495,37 @@ function displayPartnersLogo(){
 
 }
 
-function displayIndustriesCategories($category){
-	
-	if (count(explode("$",$arrayString))>=2) {
-		$id = explode("$", $arrayString)[0];
-		$category = strtolower(explode("$", $arrayString)[1]) ;
-		//echo "<script>alert('ID: ".$id." Category: ".$category."')</script>";
-		
-	}
-   
+function displayRecentIndustryListings(){
+    include 'config.php';
+     $select = $conn->query("SELECT * FROM industry_listings ORDER BY id DESC ");
+     if ($select->num_rows>0) {
+        while ($row=$select->fetch_assoc()) {
+        	echo '<div class="single-pf card shadow p-2" style="min-height: 400px;">
+				<img src="images/case-study/'.$row['listing_image'].'" alt="#">
+				<a href="case_docs/'.$row['pdf_url'].'" id="'.$row['id'].'" class="btn" target="_blank">View Details</a>
+				<h5 class="text-muted default-color" ><strong>Industry: '.$row['category'].'</strong></h5>
+				<p>'.substr($row['body'], 0,120) .'...</p></div>';
+      
+        }
+    }else{
+        echo "No records found!";
+    }
+
+}
+
+
+function displayPartnersLogo(){
+    include 'config.php';
+     $select = $conn->query("SELECT * FROM partners_logo ");
+     if ($select->num_rows>0) {
+        while ($row=$select->fetch_assoc()) {
+
+        	echo '<a href="'.$row['site_url'].'" class="ml-5"><img class="svg-img lazyload" src="'.$row['logo_url'].'"  alt="" ></a>';
+      
+        }
+    }else{
+        echo "No records found!";
+    }
 
 }
 
