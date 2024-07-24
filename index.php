@@ -166,7 +166,7 @@
 <div class="row">
 	<div class="col-lg-7">
 		<div class="text">
-			<h1><span>Your Trusted Source For Digital Excellence</span>  </h1>
+			<h1><span class="text-light">Your Trusted Source For Digital Excellence</span>  </h1>
 			<p class="text-light">Beyond Imagination </p>
 			<div class="button">
 				<a href="#" class="btn">Get Appointment</a>
@@ -184,7 +184,7 @@
 <div class="row">
 	<div class="col-lg-7">
 		<div class="text">
-			<h1><span> We Provide AI Services That You Can Trust!</span></h1>
+			<h1><span class="text-light"> We Provide AI Services That You Can Trust!</span></h1>
 			<p class="text-light">Beyond Imagination </p>
 			<div class="button">
 				<a href="#" class="btn">Get Appointment</a>
@@ -202,7 +202,7 @@
 <div class="row">
 	<div class="col-lg-7">
 		<div class="text">
-			<h1><span>We Provide Data Services That You Can Trust!</span></h1>
+			<h1><span class="text-light">We Provide Data Services That You Can Trust!</span></h1>
 			<p class="text-light">Beyond Imagination </p>
 			<div class="button">
 				<a href="#" class="btn">Get Appointment</a>
@@ -591,15 +591,21 @@
 <div class="row">
 <div class="col-lg-12">
 <div class="section-title">
-	<h2>We Are Always Ready to Help You. Book An Appointment</h2>
-	<img src="img/section-img.png" alt="#">
-	<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+	<h2>Contact Us</h2>
+	<center><hr class="default-background hr" ></center>
 </div>
 </div>
 </div>
+<style type="text/css">
+	input,select,textarea,.form-group{
+		background-color: transparent !important;
+
+
+	}
+</style>
 <div class="row">
-<div class="col-lg-6 col-md-6 col-12">
-<form class="form" action="#">
+<div class="col-lg-12 col-md-6 col-12 d-flex text-center default-background mb-5">
+<form class="form p-5" action="#">
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-12">
 			<div class="form-group">
@@ -631,14 +637,10 @@
 		</div>
 		<div class="col-lg-6 col-md-6 col-12">
 			<div class="form-group">
-				<div class="nice-select form-control wide" tabindex="0"><span class="current">Doctor</span>
-					<ul class="list">
-						<li data-value="1" class="option selected ">Doctor</li>
-						<li data-value="2" class="option">Dr. Akther Hossain</li>
-						<li data-value="3" class="option">Dr. Dery Alex</li>
-						<li data-value="4" class="option">Dr. Jovis Karon</li>
-					</ul>
-				</div>
+				<select class="form-control" tabindex="0">
+					<option>Option One</option>
+				
+				</select>
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-12">
@@ -652,7 +654,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row">
+	<div class="">
 		<div class="col-lg-5 col-md-4 col-12">
 			<div class="form-group">
 				<div class="button">
@@ -660,13 +662,11 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-7 col-md-8 col-12">
-			<p>( We will be confirm by an Text Message )</p>
-		</div>
 	</div>
 </form>
 </div>
 </div>
+
 </div>
 </section>
 <!-- End Appointment -->
@@ -680,66 +680,62 @@
 <div class="footer-top">
 <div class="container">
 <div class="row">
-<div class="col-lg-3 col-md-6 col-12">
+<div class="col-lg-2 col-md-6 col-12">
 	<div class="single-footer">
-		<h2>About Us</h2>
-		<p>Lorem ipsum dolor sit am consectetur adipisicing elit do eiusmod tempor incididunt ut labore dolore magna.</p>
-		<!-- Social -->
-		<ul class="social">
-			<li><a href="#"><i class="icofont-facebook"></i></a></li>
-			<li><a href="#"><i class="icofont-google-plus"></i></a></li>
-			<li><a href="#"><i class="icofont-twitter"></i></a></li>
-			<li><a href="#"><i class="icofont-vimeo"></i></a></li>
-			<li><a href="#"><i class="icofont-pinterest"></i></a></li>
-		</ul>
-		<!-- End Social -->
+		<h2>armely</h2>
+		
 	</div>
 </div>
-<div class="col-lg-3 col-md-6 col-12">
+<div class="col-lg-2 col-md-6 col-12">
 	<div class="single-footer f-link">
-		<h2>Quick Links</h2>
+		<h2>About</h2>
 		<div class="row">
-			<div class="col-lg-6 col-md-6 col-12">
+			<div class="col-lg-12 col-md-12 col-12">
 				<ul>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a></li>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a></li>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Services</a></li>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Our Cases</a></li>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Other Links</a></li>	
+					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Case Studies</a></li>
+					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Job Board</a></li>
+					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Company Overview</a></li>
+					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Blog Articles </a></li>	
 				</ul>
 			</div>
-			<div class="col-lg-6 col-md-6 col-12">
+		</div>
+	</div>
+</div>
+<div class="col-lg-2 col-md-6 col-12">
+	<div class="single-footer f-link">
+		<h2>Services</h2>
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-12">
 				<ul>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Consuling</a></li>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Finance</a></li>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Testimonials</a></li>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>FAQ</a></li>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact Us</a></li>	
+					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Data Services</a></li>
+					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Advisory Services</a></li>
+					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Managed Services</a></li>
+					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Artificial intelligence</a></li>	
 				</ul>
 			</div>
 		</div>
 	</div>
 </div>
 <div class="col-lg-3 col-md-6 col-12">
-	<div class="single-footer">
-		<h2>Open Hours</h2>
-		<p>Lorem ipsum dolor sit ame consectetur adipisicing elit do eiusmod tempor incididunt.</p>
-		<ul class="time-sidual">
-			<li class="day">Monday - Fridayp <span>8.00-20.00</span></li>
-			<li class="day">Saturday <span>9.00-18.30</span></li>
-			<li class="day">Monday - Thusday <span>9.00-15.00</span></li>
+	<div class="single-footer f-link">
+		<h2>Contact Us</h2>
+		<ul>
+			<li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> +1 972 460 0643</a></li>
+			<li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>2831 Eldorado Pkwy Suite 103-128 Frisco TX 75033</a></li>
+			<li><a href="#"><i class="fa fa-paper-plane" aria-hidden="true"></i>info@armely.com</a></li>
 		</ul>
 	</div>
 </div>
 <div class="col-lg-3 col-md-6 col-12">
 	<div class="single-footer">
-		<h2>Newsletter</h2>
-		<p>subscribe to our newsletter to get allour news in your inbox.. Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
-		<form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
-			<input name="email" placeholder="Email Address" class="common-input" onfocus="this.placeholder = ''"
-				onblur="this.placeholder = 'Your email address'" required="" type="email">
-			<button class="button"><i class="icofont icofont-paper-plane"></i></button>
-		</form>
+		<h2>Follow Us</h2>
+		<ul class="social">
+			<li><a href="#"><i class="icofont-facebook"></i></a></li>
+			<li><a href="#"><i class="icofont-github"></i></a></li>
+			<li><a href="#"><i class="icofont-twitter"></i></a></li>
+			<li><a href="#"><i class="icofont-youtube"></i></a></li>
+			<li><a href="#"><i class="icofont-instagram"></i></a></li>
+		</ul>
 	</div>
 </div>
 </div>
@@ -752,7 +748,7 @@
 <div class="row">
 <div class="col-lg-12 col-md-12 col-12">
 	<div class="copyright-content">
-		<p>© Copyright 2018  |  All Rights Reserved by <a href="https://www.wpthemesgrid.com" target="_blank">wpthemesgrid.com</a> </p>
+		<p>&copy; 2024 ARMELY LLC., ALL RIGHTS RESERVED</p>
 	</div>
 </div>
 </div>
