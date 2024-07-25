@@ -80,42 +80,11 @@
 <div class="col-lg-6 col-md-5 col-12">
 	<!-- Contact -->
 	<style>
-		.serach-container{
-			border: solid 1px #2f5597;
-			width: 400px;
-			padding: 6px;
-			background: #fff;
-			border-radius: 5px;
-		}
-		.serach-container input{
-			border: none;
-			font-size: 20px;
-			width: 355px;
-			background: transparent;
-			color: black !important;
-		}
-		.serach-container input:focus {
-    border: transparent;
-    outline: none; /* Optional: Removes the default outline */
-}
-.icon{
-	font-size: 20px;
-	color: #2f5597;
-}
-.serach-container input::placeholder {
-		font-size: 20px;
-    color: #2f5597; /* Replace #888 with your desired color */
-    opacity: 1;  /* Optional: Ensures the placeholder color is fully opaque */
-}
-
 
 	</style>
 	<ul class="top-link">
 		<li>
-			<div class="serach-container">
-			    <i class="fa fa-search search-icon icon"></i>
-			    <input type="text" class="search-input" placeholder="Search...">
-			</div>
+			
 		</li>
 	
 	</ul>
@@ -141,14 +110,14 @@
 	<div class="col-lg-3 col-md-3 col-12">
 		<!-- Start Logo -->
 		<div class="logo">
-			<a href="index.html"><img style="height: 60px;" src="img/logo/logo.svg" alt="#"></a>
+			<a href="index"><img style="height: 60px;" src="img/logo/logo.svg" alt="#"></a>
 		</div>
 		<!-- End Logo -->
 		<!-- Mobile Nav -->
 		<div class="mobile-nav"></div>
 		<!-- End Mobile Nav -->
 	</div>
-	<div class="col-lg-7 col-md-9 col-12">
+	<div class="col-lg-9 col-md-9 col-12">
 		<!-- Main Menu -->
 		<div class="main-menu">
 			<nav class="navigation">
@@ -177,6 +146,15 @@
 						</ul>
 					</li>
 					<li><a href="contact.html">Contact Us</a></li>
+					<li><a  >
+						<i data-toggle="modal" data-target="#exampleModal" style="display: block !important;" class="fa fa-search p-1"></i>	
+					 </a>
+					</li>
+					<li><a  >
+						<i style="display: block !important;" class="icofont icofont-moon p-1"></i>	
+						<!-- <i style="display: block !important;" class="icofont icofont-sun p-1"></i>	 -->
+					 </a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -521,37 +499,38 @@
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-12">
 			<div class="form-group input-with-background">
-				<input name="name" type="text" placeholder="Name">
+				<input class="remove-input-background" name="name" type="text" placeholder="Name">
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-12">
 			<div class="form-group">
-				<input name="email" type="email" placeholder="Email">
+				<input class="remove-input-background" name="email" type="email" placeholder="Email">
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-12">
 			<div class="form-group">
-				<input name="phone" type="text" placeholder="Phone">
+				<input class="remove-input-background" name="phone" type="text" placeholder="Phone">
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-12">
 			<div class="form-group">
-				<input name="phone" type="text" placeholder="Orginazation Name">
+				<input class="remove-input-background" name="phone" type="text" placeholder="Orginazation Name">
 			</div>
 		</div>
 		<div class="col-lg-12 col-md-12 col-12">
 			<div class="form-group">
-				<textarea name="message" placeholder="Write Your Message Here....."></textarea>
+				<textarea class="remove-input-background" name="message" placeholder="Write Your Message Here....."></textarea>
+			</div>
+		</div>
+		<div class="form-group ml-3">
+			<div class="button">
+				<button type="submit" class="btn send-message-btn">Send Message</button>
 			</div>
 		</div>
 	</div>
-	<div class="">
+	<div class="row">
 		<div class="col-lg-5 col-md-4 col-12">
-			<div class="form-group">
-				<div class="button">
-					<button type="submit" class="btn">Book An Appointment</button>
-				</div>
-			</div>
+			
 		</div>
 	</div>
 </form>
@@ -562,6 +541,34 @@
 </section>
 <!-- End Appointment -->
 
+<!-- start of searchbar modal -->
+<div class="container mt-5">
+<!-- Button to Open the Modal -->
+
+<!-- The Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+       <div class="modal-content">
+          <div class="modal-header default-background">
+            <div class="serach-container col-md-12 col-lg-12">
+            	<i class="fa fa-search icon"></i>
+            	<input  name="name" type="text" placeholder="Search here..."> 
+            </div>
+             
+              <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body search-results-section">
+               <p>Search results will appear here....</p>
+            </div>
+            
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- end of search bar modal -->
 
 
 <!-- chatbot section -->

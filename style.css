@@ -4292,3 +4292,49 @@ z-index: 1000; /* Set the z-index to ensure the button appears above other eleme
     color: #fff; /* Set color as needed */
     margin-left: 5px; /* Space between the text and the icon */
 }
+
+
+.serach-container{
+border: none;
+max-width: 400px;
+padding: 6px;
+background: #fff;
+border-radius: 5px;
+}
+.serach-container input{
+border: none;
+max-width: 400px;
+background: transparent;
+}
+.serach-container input:focus {
+border: none;
+outline: none; /* Optional: Removes the default outline */
+}
+.icon{
+	font-size: 38px;
+
+}
+.serach-container input::placeholder {
+ /* Replace #888 with your desired color */
+opacity: 1;  /* Optional: Ensures the placeholder color is fully opaque */
+}
+
+.remove-input-background{
+background: transparent;
+border: solid #fff;
+}
+
+.remove-input-background::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+color: #fff;
+}
+.remove-input-background::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+color: #fff;
+}
+.send-message-btn{
+background: #fff;
+border: solid 1px #fff;
+color: #2f5597;
+}
+.search-results-section{
+	min-height: 40vh;
+}
