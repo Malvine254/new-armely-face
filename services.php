@@ -79,6 +79,9 @@
 <div class="row">
 <div class="col-lg-6 col-md-5 col-12">
 	<!-- Contact -->
+	<style>
+
+	</style>
 	<ul class="top-link">
 		<li>
 			
@@ -170,209 +173,50 @@
 </header>
 <!-- End Header Area -->
 
-<!-- Slider Area -->
-<section class="slider">
-<div class="hero-slider">
-<!-- Start Single Slider -->
-<div class="single-slider" style="background-image:url('https://images.pexels.com/photos/257904/pexels-photo-257904.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')">
-<div class="container">
-<div class="row">
-	<div class="col-lg-7">
-		<div class="text">
-			<h1><span class="text-light">Your Trusted Source For Digital Excellence</span>  </h1>
-			<p class="text-light">Beyond Imagination </p>
-			<div class="button">
-				<a href="#" class="btn">Get Appointment</a>
-				<a href="#" class="btn primary">Learn More</a>
+<!-- Breadcrumbs -->
+		<div class="breadcrumbs overlay">
+			<div class="container">
+				<div class="bread-inner">
+					<div class="row">
+						<div class="col-12">
+							<h2>Services</h2>
+							<ul class="bread-list">
+								<li><a href="index.html">Home</a></li>
+								<li><i class="icofont-simple-right"></i></li>
+								<li class="active">Blog Single</li>
+							</ul>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-</div>
-</div>
-</div>
-<!-- End Single Slider -->
-<!-- Start Single Slider -->
-<div class="single-slider" style="background-image:url('https://images.pexels.com/photos/8294608/pexels-photo-8294608.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')">
-<div class="container">
-<div class="row">
-	<div class="col-lg-7">
-		<div class="text">
-			<h1><span class="text-light"> We Provide AI Services That You Can Trust!</span></h1>
-			<p class="text-light">Beyond Imagination </p>
-			<div class="button">
-				<a href="#" class="btn">Get Appointment</a>
-				<a href="#" class="btn primary">About Us</a>
-			</div>
-		</div>
-	</div>
-</div>
-</div>
-</div>
-<!-- Start End Slider -->
-<!-- Start Single Slider -->
-<div class="single-slider" style="background-image:url('https://images.pexels.com/photos/633409/pexels-photo-633409.jpeg')">
-<div class="container">
-<div class="row">
-	<div class="col-lg-7">
-		<div class="text">
-			<h1><span class="text-light">We Provide Data Services That You Can Trust!</span></h1>
-			<p class="text-light">Beyond Imagination </p>
-			<div class="button">
-				<a href="#" class="btn">Get Appointment</a>
-				<a href="#" class="btn primary">Conatct Now</a>
-			</div>
-		</div>
-	</div>
-</div>
-</div>
-</div>
-<!-- End Single Slider -->
-</div>
-</section>
-<!--/ End Slider Area -->
-
-<!-- Start Schedule Area -->
-<section class="schedule">
-<div class="container">
-<div class="schedule-inner">
-<div class="row">
-
-<?php displayCustomerStoriesTestimonialsShort(); ?>
-</div>
-</div>
-</div>
-</section>
-<!--/End Start schedule Area -->
-
-<!-- Start portfolio -->
-<section class="portfolio section" >
-<div class="container">
-<div class="row">
-<div class="col-lg-12">
-<div class="section-title">
-	<h2>Case Studies</h2>
-	<center><hr class="default-background hr" ></center>
-</div>
-</div>
-</div>
-</div>
-<div class="container-fluid">
-<div class="row">
-<div class="col-lg-12 col-12">
-<div class="owl-carousel portfolio-slider">
-	
-	<?php displayRecentIndustryListings() ?>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!--/ End portfolio -->
-
-<!-- Start clients -->
-<!-- <div class="marquee-container">
-    <div class="marquee-content">
-     <?php displayPartnersLogo();?>
-     <?php displayPartnersLogo();?>
-    </div>
-  </div> -->
-<section class="blog section" id="blog">
-<div class="container">
-<div class="row">
-<div class="col-lg-12">
-<div class="section-title">
-	<h2>Our Partners</h2>
-	<p>Your Reliable Hub for Digital Excellence, Committed to Caring, Building Relationships, Backed by Industry Expertise and Recognized for Award-Winning Achievements.</p>
-	<a class="default-color" href="#">READ MORE<i class="fa fa-long-arrow-right"></i></a>
-</div>
-</div>
-</div>
-<div class="row align-items-center justify-content-center" data-aos="fade-in">
-    <div class="col-md-12 p-4 col-sm-4 d-flex justify-content-center">
-      <div class="marquee-container">
-        <div class="marquee-content">
-         <?php echo displayPartnersLogo(); ?>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</section>
-<!--/Ens clients -->
-<!-- Start Fun-facts -->
-<div  id="fun-facts" class="fun-facts default-background section overlay">
-<div class="container default-background">
-<div class="row">
-<div class="col-lg-4 col-md-6 col-12">
-<!-- Start Single Fun -->
-<div class="single-fun">
-	<i class="icofont icofont-ui-user-group"></i>
-	<div class="content">
-		<span class="counter plus">72</span>
-		<p>Community Commitment Hours</p>
-	</div>
-</div>
-<!-- End Single Fun -->
-</div>
-<div class="col-lg-4 col-md-6 col-12">
-<!-- Start Single Fun -->
-<div class="single-fun">
-	<i class="icofont icofont-users-social"></i>
-	<div class="content">
-		<span class="counter percent">82</span>
-		<p>Customer Satisfaction</p>
-	</div>
-</div>
-<!-- End Single Fun -->
-</div>
-<div class="col-lg-4 col-md-6 col-12">
-<!-- Start Single Fun -->
-<div class="single-fun">
-	<i class="icofont-simple-smile"></i>
-	<div class="content">
-		<span>Very Easy</span>
-		<p>Community Commitment Hours</p>
-	</div>
-</div>
-<!-- End Single Fun -->
-</div>
-<div class="col-lg-4 col-md-6 col-12">
-
-</div>
-</div>
-</div>
-</div>
-<!--/ End Fun-facts -->
-<!-- Start Blog Area -->
-<section class="blog section" id="blog">
-<div class="container">
-<div class="row">
-<div class="col-lg-12">
-<div class="section-title">
-	<h2>Our Most Recent Blog Articles.</h2>
-		<center><hr class="default-background hr" ></center>
-</div>
-</div>
-</div>
-<div class="row">
-
-<!-- Single Blog -->
-<?php displayRecentBlogs(); ?>
-
-<!-- End Single Blog -->
-</div>
-
-</div>
-</section>
-<!-- End Blog Area -->
-
-
-
-
+		<!-- End Breadcrumbs -->
 
 
 <!-- Pricing Table -->
 <section class="pricing-table section">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<div class="section-title">
+	<h2>Empowering Your Tech Journey</h2>
+		<center><hr class="default-background hr" ></center>
+		<p>Our experts provide tailored guidance in areas such as business planning, product development, marketing, financial management, and risk management, ensuring your company's competitiveness and sustainable growth.</p>
+</div>
+</div>
+</div>
+<div class="row">
+<!-- Single Table -->
+<?php displayServicesList(); ?>
+<!-- End Single Table-->
+
+</div>	
+</div>	
+</section>	
+<!--/ End Pricing Table -->
+
+<!-- Pricing Table -->
+<section class="pricing-table ">
 <div class="container">
 <div class="row">
 <div class="col-lg-12">
@@ -477,14 +321,13 @@
 
 
 
-
 <!-- Start Appointment -->
 <section class="appointment">
 <div class="container">
 <div class="row">
 <div class="col-lg-12">
 <div class="section-title">
-	<h2>Contact Us</h2>
+	<h2>Schedule a Consultation Today</h2>
 	<center><hr class="default-background hr" ></center>
 </div>
 </div>
@@ -540,6 +383,7 @@
 
 <!-- start of searchbar modal -->
 <div class="container mt-5">
+<!-- Button to Open the Modal -->
 
 <!-- The Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

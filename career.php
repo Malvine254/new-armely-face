@@ -1,116 +1,108 @@
 <?php include 'php/actions.php'; ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
-    <head>
-        <!-- Meta Tags -->
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="keywords" content="Site keywords here">
-		<meta name="description" content="">
-		<meta name='copyright' content=''>
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		
-		<!-- Title -->
-        <title>armely</title>
-		
-		<!-- Favicon -->
-       <link rel="icon" href="img/logo/logo1.png">
-		
-		<!-- Google Fonts -->
-		<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+<head>
+<!-- Meta Tags -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="career" content="jobs employment tasks hiring">
+<meta name="description" content="">
+<meta name='career' content=''>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<!-- Nice Select CSS -->
-		<link rel="stylesheet" href="css/nice-select.css">
-		<!-- Font Awesome CSS -->
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-		<!-- icofont CSS -->
-        <link rel="stylesheet" href="css/icofont.css">
-		<!-- Slicknav -->
-		<link rel="stylesheet" href="css/slicknav.min.css">
-		<!-- Owl Carousel CSS -->
-        <link rel="stylesheet" href="css/owl-carousel.css">
-		<!-- Datepicker CSS -->
-		<link rel="stylesheet" href="css/datepicker.css">
-		<!-- Animate CSS -->
-        <link rel="stylesheet" href="css/animate.min.css">
-		<!-- Magnific Popup CSS -->
-        <link rel="stylesheet" href="css/magnific-popup.css">
-		
-		<!-- Medipro CSS -->
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="css/responsive.css">
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		
-    </head>
-    <body>
+<!-- Title -->
+<title>career</title>
+
+<!-- Favicon -->
+<link rel="icon" href="img/logo/logo1.png">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- Nice Select CSS -->
+<link rel="stylesheet" href="css/nice-select.css">
+<!-- Font Awesome CSS -->
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<!-- icofont CSS -->
+<link rel="stylesheet" href="css/icofont.css">
+<!-- Slicknav -->
+<link rel="stylesheet" href="css/slicknav.min.css">
+<!-- Owl Carousel CSS -->
+<link rel="stylesheet" href="css/owl-carousel.css">
+<!-- Datepicker CSS -->
+<link rel="stylesheet" href="css/datepicker.css">
+<!-- Animate CSS -->
+<link rel="stylesheet" href="css/animate.min.css">
+<!-- Magnific Popup CSS -->
+<link rel="stylesheet" href="css/magnific-popup.css">
+
+<!-- Medipro CSS -->
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+</head>
+<body>
+
+
+
+<section>	
+<!-- Floating Action Button -->
+   <div class="floating-btn">
+    <button id="myBtn"  style="border-radius: 50%; height: 60px; width: 60px; background-color: rgb(47,85,151);"  type="button" class="btn btn-primary btn-lg h1">
+      <i class="fa fa-comments "></i>
+    </button>
+  </div>
+<div id="myModal" class="modal-chat">
+
+  <!-- Modal content -->
+  <div class="modal-content-chat col-lg-4">
+    <span class="close">&times;</span>
+    <iframe src="https://copilotstudio.microsoft.com/environments/Default-588cadf4-9902-4465-86c0-8bcf04f4f102/bots/crc65_armelyCom/webchat?__version__=2"
+    frameborder="0" style="width: 100%; height: 80%;"></iframe>  
+  </div>
+
+</div>
+</section>
+
+<!-- Header Area -->
+<header class="header" >
+<!-- Topbar -->
+<div class="topbar">
+<div class="container">
+<div class="row">
+<div class="col-lg-6 col-md-5 col-12">
+	<!-- Contact -->
+	<style>
+
+	</style>
+	<ul class="top-link">
+		<li>
+			
+		</li>
 	
-		<!-- Preloader -->
-        <!-- <div class="preloader">
-            <div class="loader">
-                <div class="loader-outter"></div>
-                <div class="loader-inner"></div>
-
-                <div class="indicator"> 
-                    <svg width="16px" height="12px">
-                        <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
-                        <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
-                    </svg>
-                </div>
-            </div>
-        </div> -->
-        <!-- End Preloader -->
-		
-		<section>	
-		<!-- Floating Action Button -->
-		   <div class="floating-btn">
-		    <button id="myBtn"  style="border-radius: 50%; height: 60px; width: 60px; background-color: rgb(47,85,151);"  type="button" class="btn btn-primary btn-lg h1">
-		      <i class="fa fa-comments "></i>
-		    </button>
-		  </div>
-		<div id="myModal" class="modal-chat">
-
-		  <!-- Modal content -->
-		  <div class="modal-content-chat col-lg-4">
-		    <span class="close">&times;</span>
-		    <iframe src="https://copilotstudio.microsoft.com/environments/Default-588cadf4-9902-4465-86c0-8bcf04f4f102/bots/crc65_armelyCom/webchat?__version__=2"
-		    frameborder="0" style="width: 100%; height: 80%;"></iframe>  
-		  </div>
-
-		</div>
-		</section>
-	
-		<!-- Header Area -->
-		<header class="header" >
-			<!-- Topbar -->
-			<div class="topbar">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-6 col-md-5 col-12">
-							<!-- Contact -->
-							<ul class="top-link">
-								<li><a href="#">About</a></li>
-								<li><a href="#">Doctors</a></li>
-								<li><a href="#">Contact</a></li>
-								<li><a href="#">FAQ</a></li>
-							</ul>
-							<!-- End Contact -->
-						</div>
-						<div class="col-lg-6 col-md-7 col-12">
-							<!-- Top Contact -->
-							<ul class="top-contact">
-								<li><i class="fa fa-phone"></i>+880 1234 56789</li>
-								<li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">support@yourmail.com</a></li>
-							</ul>
-							<!-- End Top Contact -->
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- End Topbar -->
-			<!-- Header Inner -->
+	</ul>
+	<!-- End Contact -->
+</div>
+<div class="col-lg-6 col-md-7 col-12">
+	<!-- Top Contact -->
+	<ul class="top-contact">
+		<li><i class="fa fa-phone"></i>+1 972 460 0643</li>
+		<li><i class="fa fa-envelope"></i><a href="mailto:info@armely.com">info@armely.com</a></li>
+	</ul>
+	<!-- End Top Contact -->
+</div>
+</div>
+</div>
+</div>
+<!-- End Topbar -->
+<!-- Header Inner -->
 <div class="header-inner">
 <div class="container">
 <div class="inner">
@@ -118,7 +110,7 @@
 	<div class="col-lg-3 col-md-3 col-12">
 		<!-- Start Logo -->
 		<div class="logo">
-			<a href="index"><img style="max-height: 60px; height: auto;" src="img/logo/logo.svg" class="pb-2" alt="#"></a>
+			<a href="index"><img style="height: 60px;" src="img/logo/logo.svg" alt="#"></a>
 		</div>
 		<!-- End Logo -->
 		<!-- Mobile Nav -->
@@ -178,20 +170,20 @@
 </div>
 </div>
 <!--/ End Header Inner -->
-		</header>
-		<!-- End Header Area -->
-		
-		<!-- Breadcrumbs -->
+</header>
+<!-- End Header Area -->
+
+<!-- Breadcrumbs -->
 		<div class="breadcrumbs overlay">
 			<div class="container">
 				<div class="bread-inner">
 					<div class="row">
 						<div class="col-12">
-							<h2>Blog Single</h2>
+							<h2>Career Opportunities</h2>
 							<ul class="bread-list">
-								<li><a href="index.html">Home</a></li>
+								<li><a href="index">Home</a></li>
 								<li><i class="icofont-simple-right"></i></li>
-								<li class="active">Blog Single</li>
+								<li class="active">Career</li>
 							</ul>
 						</div>
 					</div>
@@ -199,70 +191,48 @@
 			</div>
 		</div>
 		<!-- End Breadcrumbs -->
-		
-		<!-- Single News -->
-		<section class="news-single section">
-			<div class="container col-lg-11">
-				<div class="row">
-					<div class="col-lg-8 col-12">
-						<div class="row">
-							<div class="col-12">
-
-							<?php if (isset($_GET['blogId'])) {
-								displayBlogFullDetals();
-							} ?>
 
 
+<!-- Pricing Table -->
+<section class="pricing-table section">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<div class="section-title">
+	<h2>Find Your Future Here!</h2>
+		<center><hr class="default-background hr" ></center>
+		<p>We are always looking forward to having the right resources join our growing team. We offer competitive pay and benefits along with a great working environment. Our full-time positions offer employment benefits including paid holidays, paid vacations, annual performance bonuses, and project-driven bonuses.</p>
+</div>
+</div>
+</div>
+<div class="justify-content-between">
+	<div class="default-color justify-content-between">
+    <a class="h5 p-2" href="#">Browsing Based</a>
+    <a class="h5 p-2"  href="#">Recently Viewed</a>
+    <a class="h5 p-2"  href="#">Be the First</a>
+ </div>
 
-							</div>
+</div>	
+<div class="row">
+<!-- Single Table -->
+<?php displayCareerListings(); ?>
 
-						</div>
-					</div>
-					<div class="col-lg-4 col-12">
-						<div class="main-sidebar">
-							<!-- Single Widget -->
-							<div class="single-widget search">
-								<div class="form">
-									<input type="email" placeholder="Search Here...">
-									<a class="button default-background" href="#"><i class="fa fa-search"></i></a>
-								</div>
-							</div>
-							<!--/ End Single Widget -->
-							
-							<!-- Single Widget -->
-							<div class="single-widget recent-post">
-								<h3 class="title">Recent post</h3>
-								<!-- Single Post -->
-								<?php displayRecentBlogsOthers() ?>
-								<!-- End Single Post -->
-								
-								
-							</div>
-							<!--/ End Single Widget -->
-							<!-- Single Widget -->
-							<!--/ End Single Widget -->
-							<!-- Single Widget -->
-							<div class="single-widget side-tags">
-								<h3 class="title">Tags</h3>
-								<ul class="tag">
-									<li><a href="#">business</a></li>
-									<li><a href="#">wordpress</a></li>
-									<li><a href="#">html</a></li>
-									<li><a href="#">multipurpose</a></li>
-									<li><a href="#">education</a></li>
-									<li><a href="#">template</a></li>
-									<li><a href="#">Ecommerce</a></li>
-								</ul>
-							</div>
-							<!--/ End Single Widget -->
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!--/ End Single News -->
-		<!-- start of searchbar modal -->
+
+
+<!-- End Single Table-->
+
+</div>	
+</div>
+<div class="d-flex justify-content-center ">
+    <button type="button" class="btn default-button col-md-1 col-sm-6">View More</button>
+</div>	
+</section>	
+<!--/ End Pricing Table -->
+
+
+<!-- start of searchbar modal -->
 <div class="container mt-5">
+<!-- Button to Open the Modal -->
 
 <!-- The Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -290,7 +260,10 @@
 </div>
 
 <!-- end of search bar modal -->
-		<!-- Footer Area -->
+
+
+<!-- chatbot section -->
+<!-- Footer Area -->
 <footer id="footer" class="footer ">
 <!-- Footer Top -->
 <div class="footer-top">
@@ -358,7 +331,22 @@
 </div>
 </div>
 <!--/ End Footer Top -->
-		
+<!-- Copyright -->
+<div class="copyright">
+<div class="container">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-12">
+	<div class="copyright-content">
+		<p>&copy; 2024 ARMELY LLC., ALL RIGHTS RESERVED</p>
+	</div>
+</div>
+</div>
+</div>
+</div>
+<!--/ End Copyright -->
+</footer>
+<!--/ End Footer Area -->
+
 <!-- jquery Min JS -->
 <script src="js/jquery.min.js"></script>
 <!-- jquery Migrate JS -->
@@ -401,5 +389,7 @@
 <script src="js/main.js"></script>
 <!-- more settings  -->
 <script src="js/more-options.js"></script>
+
+
 </body>
 </html>

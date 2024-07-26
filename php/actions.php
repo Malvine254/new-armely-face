@@ -406,8 +406,8 @@ function displayCoreValues(){
 function displayServicesList(){
     include 'config.php';
     function readMoreText($text){
-    	if (strlen($text)>=50) {
-    		return substr($text, 0,100)."...";
+    	if (strlen($text)>=200) {
+    		return substr($text, 0,200)."...";
     	}else{
     		return $text;
     	}
@@ -415,22 +415,59 @@ function displayServicesList(){
      $select = $conn->query("SELECT * FROM services_lists ");
      if ($select->num_rows>0) {
         while ($row=$select->fetch_assoc()) {
+        	echo '<div class="col-lg-4 col-md-12 col-12">
+					<div class="single-table">
+						<!-- Table Head -->
+						<div class="table-head">
+							<div class="icon">
+								<i class="icofont '.$row['image'].'"></i>
+							</div>
+							<a href="service_details?service_name='.$row['title'].'"><h4 class="title">'.$row['title'].'</h4>
+							<div class="price">
+								<p> '.readMoreText($row['body']).'</p>
+							</div>	
+						</div>
+						
+					</div>
+					</div>';
+        	
 
-        	echo ' <div class="col-md-4 mb-4 card-item">
-				        <div style="min-height: 450px;height: auto;" class="card transparent-card">
-				          <div class="card-body py-4 mt-1">
-				            <div class="d-flex justify-content-start mb-4">
-				              <img src="images/services/'.$row['image'].'"
-				                class=" shadow-1-strong lazyload" width="100%" height="240"/>
-				            </div>
-				            <h5 class="font-weight-bold my-3">'.$row['title'].'</h5>
-				            <p class="mb-2">
-				              <i class="fas fa-quote-left pe-2"></i>'.readMoreText($row['body']).' <a href="service_details?service_name='.$row['title'].'">Learn More</a>
-				            </p>
-				          </div>
-				        </div>
-				      </div>';
-      
+        }
+    }else{
+        echo "No records found!";
+    }
+
+    
+
+}
+
+function displayCareerListings(){
+    include 'config.php';
+   
+     $select = $conn->query("SELECT * FROM career ");
+     if ($select->num_rows>0) {
+        while ($row=$select->fetch_assoc()) {
+        	echo '<div class="col-lg-4 col-md-12 col-12">
+					<div class="single-table shadow">
+						<!-- Table Head -->
+						<div class="table-head">
+							<a href="career_details?id='.$row['id'].'"><h4 class="title">'.$row['job_title'].'</h4>
+							<div class="price">
+								<span> <i class="fa fa-map-marker"></i> Location:  '.$row['job_location'].'</span>
+								<div>
+									<span> <i class="fa fa-list"></i> Category:  '.$row['job_type'].'</span>
+
+								</div>
+								<div>
+								<span> <i class="fa fa-clock-o"></i> Deadline:  '.$row['job_deadline'].'</span>
+								</div>
+							</div>	
+						</div>
+						
+					</div>
+					</div>';
+        	
+
         }
     }else{
         echo "No records found!";
