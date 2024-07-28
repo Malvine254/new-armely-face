@@ -1,6 +1,9 @@
 # Disable directory browsing
 Options -Indexes
 
+# Custom 404 Error Document
+ErrorDocument 404 /404.html
+
 # Rewrite rule to remove file extensions
 RewriteEngine On
 

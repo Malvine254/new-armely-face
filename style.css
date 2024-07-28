@@ -4338,3 +4338,6 @@ color: #2f5597;
 .search-results-section{
 	min-height: 40vh;
 }
+.lowercase{
+	text-transform: lowercase;
+}

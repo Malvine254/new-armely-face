@@ -79,9 +79,6 @@
 <div class="row">
 <div class="col-lg-6 col-md-5 col-12">
 	<!-- Contact -->
-	<style>
-
-	</style>
 	<ul class="top-link">
 		<li>
 			
@@ -543,7 +540,6 @@
 
 <!-- start of searchbar modal -->
 <div class="container mt-5">
-<!-- Button to Open the Modal -->
 
 <!-- The Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -552,7 +548,7 @@
           <div class="modal-header default-background">
             <div class="serach-container col-md-12 col-lg-12">
             	<i class="fa fa-search icon"></i>
-            	<input  name="name" type="text" placeholder="Search here..."> 
+            	<input id="searchInput"  name="name" type="text" placeholder="Search here..."> 
             </div>
              
               <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
@@ -560,7 +556,9 @@
               </button>
             </div>
             <div class="modal-body search-results-section">
-               <p>Search results will appear here....</p>
+              <div id="searchResults">
+              	 <p>Search results will appear here....</p>
+              </div>
             </div>
             
         </div>
@@ -620,7 +618,7 @@
 		<ul>
 			<li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> +1 972 460 0643</a></li>
 			<li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>2831 Eldorado Pkwy Suite 103-128 Frisco TX 75033</a></li>
-			<li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>info@armely.com</a></li>
+			<li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span class="lowercase">info@armely.com</span></a></li>
 		</ul>
 	</div>
 </div>
@@ -696,6 +694,8 @@
 <script src="js/bootstrap.min.js"></script>
 <!-- Main JS -->
 <script src="js/main.js"></script>
+<!-- more settings  -->
+<script src="js/more-options.js"></script>
 
 
 </body>

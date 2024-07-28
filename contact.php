@@ -1,4 +1,3 @@
-<?php include 'php/actions.php'; ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
@@ -11,10 +10,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		
 		<!-- Title -->
-        <title>armely</title>
+        <title>contact</title>
 		
 		<!-- Favicon -->
-       <link rel="icon" href="img/logo/logo1.png">
+        <link rel="icon" href="img/favicon.png">
 		
 		<!-- Google Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
@@ -43,74 +42,44 @@
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="css/responsive.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 		
     </head>
     <body>
-	
-		<!-- Preloader -->
-        <!-- <div class="preloader">
-            <div class="loader">
-                <div class="loader-outter"></div>
-                <div class="loader-inner"></div>
-
-                <div class="indicator"> 
-                    <svg width="16px" height="12px">
-                        <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
-                        <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
-                    </svg>
-                </div>
-            </div>
-        </div> -->
-        <!-- End Preloader -->
 		
-		<section>	
-		<!-- Floating Action Button -->
-		   <div class="floating-btn">
-		    <button id="myBtn"  style="border-radius: 50%; height: 60px; width: 60px; background-color: rgb(47,85,151);"  type="button" class="btn btn-primary btn-lg h1">
-		      <i class="fa fa-comments "></i>
-		    </button>
-		  </div>
-		<div id="myModal" class="modal-chat">
-
-		  <!-- Modal content -->
-		  <div class="modal-content-chat col-lg-4">
-		    <span class="close">&times;</span>
-		    <iframe src="https://copilotstudio.microsoft.com/environments/Default-588cadf4-9902-4465-86c0-8bcf04f4f102/bots/crc65_armelyCom/webchat?__version__=2"
-		    frameborder="0" style="width: 100%; height: 80%;"></iframe>  
-		  </div>
-
-		</div>
-		</section>
 	
-		<!-- Header Area -->
-		<header class="header" >
-			<!-- Topbar -->
-			<div class="topbar">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-6 col-md-5 col-12">
-							<!-- Contact -->
-							<ul class="top-link">
-								<li><a href="#">About</a></li>
-								<li><a href="#">Doctors</a></li>
-								<li><a href="#">Contact</a></li>
-								<li><a href="#">FAQ</a></li>
-							</ul>
-							<!-- End Contact -->
-						</div>
-						<div class="col-lg-6 col-md-7 col-12">
-							<!-- Top Contact -->
-							<ul class="top-contact">
-								<li><i class="fa fa-phone"></i>+880 1234 56789</li>
-								<li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">support@yourmail.com</a></li>
-							</ul>
-							<!-- End Top Contact -->
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- End Topbar -->
-			<!-- Header Inner -->
+<!-- Header Area -->
+<header class="header" >
+
+<!-- Header Area -->
+<header class="header" >
+<!-- Topbar -->
+<div class="topbar">
+<div class="container">
+<div class="row">
+<div class="col-lg-6 col-md-5 col-12">
+	<!-- Contact -->
+	<ul class="top-link">
+		<li>
+			
+		</li>
+	
+	</ul>
+	<!-- End Contact -->
+</div>
+<div class="col-lg-6 col-md-7 col-12">
+	<!-- Top Contact -->
+	<ul class="top-contact">
+		<li><i class="fa fa-phone"></i>+1 972 460 0643</li>
+		<li><i class="fa fa-envelope"></i><a href="mailto:info@armely.com">info@armely.com</a></li>
+	</ul>
+	<!-- End Top Contact -->
+</div>
+</div>
+</div>
+</div>
+<!-- End Topbar -->
+<!-- Header Inner -->
 <div class="header-inner">
 <div class="container">
 <div class="inner">
@@ -118,7 +87,7 @@
 	<div class="col-lg-3 col-md-3 col-12">
 		<!-- Start Logo -->
 		<div class="logo">
-			<a href="index"><img style="max-height: 60px; height: auto;" src="img/logo/logo.svg" class="pb-2" alt="#"></a>
+			<a href="index"><img style="height: 60px;" src="img/logo/logo.svg" alt="#"></a>
 		</div>
 		<!-- End Logo -->
 		<!-- Mobile Nav -->
@@ -178,20 +147,20 @@
 </div>
 </div>
 <!--/ End Header Inner -->
-		</header>
-		<!-- End Header Area -->
-		
+</header>
+<!-- End Header Area -->
+	
 		<!-- Breadcrumbs -->
 		<div class="breadcrumbs overlay">
 			<div class="container">
 				<div class="bread-inner">
 					<div class="row">
 						<div class="col-12">
-							<h2>Blog Single</h2>
+							<h2>Contact Us</h2>
 							<ul class="bread-list">
 								<li><a href="index.html">Home</a></li>
 								<li><i class="icofont-simple-right"></i></li>
-								<li class="active">Blog Single</li>
+								<li class="active">Contact Us</li>
 							</ul>
 						</div>
 					</div>
@@ -199,69 +168,105 @@
 			</div>
 		</div>
 		<!-- End Breadcrumbs -->
-		
-		<!-- Single News -->
-		<section class="news-single section">
-			<div class="container col-lg-11">
-				<div class="row">
-					<div class="col-lg-8 col-12">
+				
+<!-- Start Contact Us -->
+<section class="contact-us section ">
+<div class="container col-12 col-lg-10 col-md-10">
+	<div class="inner">
+		<div class="row"> 
+			<div class="col-lg-6">
+				<div class="contact-us-left">
+					<!--Start Google-map -->
+					<div id="myMap"></div>
+					<!--/End Google-map -->
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="contact-us-form">
+					<h2>Contact With Us</h2>
+					<p>If you have any questions please feel free to contact with us.</p>
+					<!-- Form -->
+					<form class="form" method="post" action="mail/mail.php">
 						<div class="row">
-							<div class="col-12">
-
-							<?php if (isset($_GET['blogId'])) {
-								displayBlogFullDetals();
-							} ?>
-
-
-
-							</div>
-
-						</div>
-					</div>
-					<div class="col-lg-4 col-12">
-						<div class="main-sidebar">
-							<!-- Single Widget -->
-							<div class="single-widget search">
-								<div class="form">
-									<input type="email" placeholder="Search Here...">
-									<a class="button default-background" href="#"><i class="fa fa-search"></i></a>
+							<div class="col-lg-6">
+								<div class="form-group">
+									<input type="text" name="name" placeholder="Name" required="">
 								</div>
 							</div>
-							<!--/ End Single Widget -->
-							
-							<!-- Single Widget -->
-							<div class="single-widget recent-post">
-								<h3 class="title">Recent post</h3>
-								<!-- Single Post -->
-								<?php displayRecentBlogsOthers() ?>
-								<!-- End Single Post -->
-								
-								
+							<div class="col-lg-6">
+								<div class="form-group">
+									<input type="email" name="email" placeholder="Email" required="">
+								</div>
 							</div>
-							<!--/ End Single Widget -->
-							<!-- Single Widget -->
-							<!--/ End Single Widget -->
-							<!-- Single Widget -->
-							<div class="single-widget side-tags">
-								<h3 class="title">Tags</h3>
-								<ul class="tag">
-									<li><a href="#">business</a></li>
-									<li><a href="#">wordpress</a></li>
-									<li><a href="#">html</a></li>
-									<li><a href="#">multipurpose</a></li>
-									<li><a href="#">education</a></li>
-									<li><a href="#">template</a></li>
-									<li><a href="#">Ecommerce</a></li>
-								</ul>
+							<div class="col-lg-6">
+								<div class="form-group">
+									<input type="text" name="phone" placeholder="Phone" required="">
+								</div>
 							</div>
-							<!--/ End Single Widget -->
+							<div class="col-lg-6">
+								<div class="form-group">
+									<input type="text" name="subject" placeholder="Subject" required="">
+								</div>
+							</div>
+							<div class="col-lg-12">
+								<div class="form-group">
+									<textarea name="message" placeholder="Your Message" required=""></textarea>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="form-group login-btn">
+									<button class="btn default-background" type="submit">Send</button>
+								</div>
+							</div>
 						</div>
+					</form>
+					<!--/ End Form -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="contact-info">
+		<div class="row">
+			<!-- single-info -->
+			<div class="col-lg-4 col-12 ">
+				<div class="single-info">
+					<i class="icofont icofont-ui-call"></i>
+					<div class="content">
+						<h3>+(1)  972 460 0643</h3>
+						<p>info@armely.com</p>
 					</div>
 				</div>
 			</div>
-		</section>
-		<!--/ End Single News -->
-		<!-- start of searchbar modal -->
+			<!--/End single-info -->
+			<!-- single-info -->
+			<div class="col-lg-4 col-12 ">
+				<div class="single-info">
+					<i class="icofont-google-map"></i>
+					<div class="content">
+						<h3>2831 Eldorado Pkwy</h3>
+						<p>Suite 103-128 Frisco TX 75033</p>
+					</div>
+				</div>
+			</div>
+			<!--/End single-info -->
+			<!-- single-info -->
+			<div class="col-lg-4 col-12 ">
+				<div class="single-info">
+					<i class="icofont icofont-wall-clock"></i>
+					<div class="content">
+						<h3>Mon - Sat: 8am - 5pm</h3>
+						<p>Sunday Closed</p>
+					</div>
+				</div>
+			</div>
+			<!--/End single-info -->
+		</div>
+	</div>
+</div>
+</section>
+<!--/ End Contact Us -->
+
+<!-- start of searchbar modal -->
 <div class="container mt-5">
 
 <!-- The Modal -->
@@ -290,7 +295,8 @@
 </div>
 
 <!-- end of search bar modal -->
-		<!-- Footer Area -->
+		
+<!-- Footer Area -->
 <footer id="footer" class="footer ">
 <!-- Footer Top -->
 <div class="footer-top">
@@ -358,6 +364,21 @@
 </div>
 </div>
 <!--/ End Footer Top -->
+<!-- Copyright -->
+<div class="copyright">
+<div class="container">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-12">
+	<div class="copyright-content">
+		<p>&copy; 2024 ARMELY LLC., ALL RIGHTS RESERVED</p>
+	</div>
+</div>
+</div>
+</div>
+</div>
+<!--/ End Copyright -->
+</footer>
+<!--/ End Footer Area -->
 		
 <!-- jquery Min JS -->
 <script src="js/jquery.min.js"></script>
@@ -395,11 +416,15 @@
 <script src="js/jquery.magnific-popup.min.js"></script>
 <!-- Counter Up CDN JS -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<!-- Google Map API Key JS -->
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyDGqTyqoPIvYxhn_Sa7ZrK5bENUWhpCo0w"></script>
+<!-- Gmaps JS -->
+<script src="js/gmaps.min.js"></script>
+<!-- Map Active JS -->
+<script src="js/map-active.js"></script>
 <!-- Bootstrap JS -->
 <script src="js/bootstrap.min.js"></script>
 <!-- Main JS -->
 <script src="js/main.js"></script>
-<!-- more settings  -->
-<script src="js/more-options.js"></script>
-</body>
+    </body>
 </html>
