@@ -223,7 +223,7 @@
 							<!-- Single Widget -->
 							<div class="single-widget search">
 								<div class="form">
-									<input type="email" placeholder="Search Here...">
+									<input id="searchBar" type="email" placeholder="Search Here...">
 									<a class="button default-background" href="#"><i class="fa fa-search"></i></a>
 								</div>
 							</div>
@@ -233,6 +233,7 @@
 							<div class="single-widget recent-post">
 								<h3 class="title">Recent post</h3>
 								<!-- Single Post -->
+								<p class="alert alert-danger" id="noResults">No results found!!</p>
 								<?php displayRecentBlogsOthers() ?>
 								<!-- End Single Post -->
 								
@@ -401,5 +402,6 @@
 <script src="js/main.js"></script>
 <!-- more settings  -->
 <script src="js/more-options.js"></script>
+
 </body>
 </html>

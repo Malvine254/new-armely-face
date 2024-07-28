@@ -48,4 +48,29 @@ function getSnippets(content, searchText) {
     
     return snippets.join(' ... ');
 }
+// search bar for blogs
+$('#searchBar').on('input', function() {
+    var filter = $(this).val().toLowerCase();
+    var matchedItems = 0;
+    $('#noResults').hide();
+
+    $('.data-item').each(function() {
+        var text = $(this).text().toLowerCase();
+        if (text.includes(filter)) {
+            $(this).show();
+            matchedItems++;
+        } else {
+            $(this).hide();
+        }
+    });
+
+    // Show or hide the "No results found" message
+    if (matchedItems === 0) {
+        $('#noResults').show();
+    } else {
+        $('#noResults').hide();
+    }
+});
+
+
 })
