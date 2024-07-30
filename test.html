@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Tabs</title>
+    <style>
+        /* Basic styling for tabs */
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            background-color: #f5f5f5;
+            transition: background-color 0.3s ease;
+        }
+        .tab.active {
+            background-color: #ffffff;
+            border-bottom: 2px solid #fff;
+            font-weight: bold;
+        }
+        .tab-content {
+            display: none;
+            border: 1px solid #ddd;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="tabs">
+    <div class="tab active" data-tab="tab1">Tab 1</div>
+    <div class="tab" data-tab="tab2">Tab 2</div>
+    <div class="tab" data-tab="tab3">Tab 3</div>
+</div>
+
+<div class="tab-content active" id="tab1">
+    <h2>Tab 1 Content</h2>
+    <p>This is the content for Tab 1.</p>
+</div>
+<div class="tab-content" id="tab2">
+    <h2>Tab 2 Content</h2>
+    <p>This is the content for Tab 2.</p>
+</div>
+<div class="tab-content" id="tab3">
+    <h2>Tab 3 Content</h2>
+    <p>This is the content for Tab 3.</p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.tab').click(function() {
+            var tabId = $(this).attr('data-tab');
+
+            // Remove active class from all tabs and contents
+            $('.tab').removeClass('active');
+            $('.tab-content').removeClass('active');
+
+            // Add active class to the clicked tab and corresponding content
+            $(this).addClass('active');
+            $('#' + tabId).addClass('active');
+        });
+    });
+</script>
+
+</body>
+</html>
