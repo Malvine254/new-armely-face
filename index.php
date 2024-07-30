@@ -310,16 +310,21 @@
 </div>
 </div>
 </div>
-<div class="row align-items-center justify-content-center" data-aos="fade-in">
-    <div class="col-md-12 p-4 col-sm-4 d-flex justify-content-center">
-      <div class="marquee-container">
-        <div class="marquee-content">
-         <?php echo displayPartnersLogo(); ?>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+
+<div class="clients overlay">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-12">
+						<div class="owl-carousel clients-slider">
+							 <?php echo displayPartnersLogo(); ?>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/Ens clients -->
 </section>
 <!--/Ens clients -->
 <!-- Start Fun-facts -->
@@ -591,8 +596,6 @@
 
 <!-- end of search bar modal -->
 
-
-<!-- chatbot section -->
 <!-- Footer Area -->
 <footer id="footer" class="footer ">
 <!-- Footer Top -->

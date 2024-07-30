@@ -418,16 +418,17 @@ function displayServicesList(){
         	echo '<div class="col-lg-4 col-md-12 col-12">
 					<div class="single-table">
 						<!-- Table Head -->
+						<a href="service-details?title='.$row['title'].'">
 						<div class="table-head">
 							<div class="icon">
 								<i class="icofont '.$row['image'].'"></i>
 							</div>
-							<a href="service_details?service_name='.$row['title'].'"><h4 class="title">'.$row['title'].'</h4>
+							<h4 class="title">'.$row['title'].'</h4>
 							<div class="price">
 								<p> '.readMoreText($row['body']).'</p>
 							</div>	
 						</div>
-						
+						</a>
 					</div>
 					</div>';
         	
@@ -491,7 +492,7 @@ function displayMoreServicesList(){
         while ($row=$select->fetch_assoc()) {
 
         	echo ' <div class="col-md-4 mb-4 card-item">
-				        <div style="min-height: 450px;height: auto;" class="card transparent-card">
+				        <div style="min-height: 430px;height: auto;" class="card transparent-card">
 				          <div class="card-body py-4 mt-1">
 				            <div class="d-flex justify-content-start mb-4">
 				              <img src="images/services/'.$row['image'].'"
@@ -634,8 +635,11 @@ function displayPartnersLogo(){
      $select = $conn->query("SELECT * FROM partners_logo ");
      if ($select->num_rows>0) {
         while ($row=$select->fetch_assoc()) {
+        	echo '<div class="single-clients">
+					<a href="'.$row['site_url'].'"><img src="'.$row['logo_url'].'" alt="#">
+					</div>';
 
-        	echo '<a href="'.$row['site_url'].'" class="ml-5"><img class="svg-img lazyload" src="'.$row['logo_url'].'"  alt="" ></a>';
+        	
       
         }
     }else{
