@@ -55,7 +55,7 @@ $('#searchBar').on('input', function() {
     $('#noResults').hide();
 
     $('.data-item').each(function() {
-        var text = $(this).text().toLowerCase();
+        var text = $(this).text().toLowerCase(); 
         if (text.includes(filter)) {
             $(this).show();
             matchedItems++;
@@ -74,3 +74,14 @@ $('#searchBar').on('input', function() {
 
 
 })
+
+//start of cookies 
+// Automatically show the snackbar after a delay 
+setTimeout(function() {
+    $('#snackbar').addClass('show');
+}, 1000);
+
+// Close button functionality
+$('.btn-close').click(function() {
+    $('#snackbar').removeClass('show');
+});
