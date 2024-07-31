@@ -210,7 +210,11 @@
 
 							<?php if (isset($_GET['blogId'])) {
 								displayBlogFullDetals();
-							} ?>
+							} else{
+								selectblogByDefault();
+							}
+
+							?>
 
 
 
@@ -233,7 +237,7 @@
 							<div class="single-widget recent-post">
 								<h3 class="title">Recent post</h3>
 								<!-- Single Post -->
-								<p class="alert alert-danger" id="noResults">No results found!!</p>
+								<p style="display: none;" class="alert alert-danger" id="noResults">No results found!!</p>
 								<?php displayRecentBlogsOthers() ?>
 								<!-- End Single Post -->
 								

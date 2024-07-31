@@ -277,6 +277,57 @@ function displayBlogFullDetals(){
 		echo "";
 	}
 }
+function selectblogByDefault(){
+	require 'config.php';
+	$select = $conn->query("SELECT * FROM blogs ORDER BY id DESC LIMIT 1");
+	if ($select->num_rows>0) {
+		while ($row=$select->fetch_assoc()) {
+			echo '
+			<div class="single-main">
+				<!-- News Head -->
+				<div class="news-head">
+					<img src="'.$row['image_path'].'" alt="#">
+				</div>
+				<!-- News Title -->
+				<h1 class="news-title"><a >'.$row['title'].'</a></h1>
+				<!-- Meta -->
+				<div class="meta">
+					<div class="meta-left">
+						<span class="author"><a href="#"><img src="img/author1.jpg" alt="#">'.$row['author'].'</a></span>
+						<span class="date"><i class="fa fa-clock-o"></i>'.$row['date'].' 2024</span>
+					</div>
+					<div class="meta-right">
+						<span class="comments"><a href="#"><i class="fa fa-comments"></i>05 Comments</a></span>
+						<span class="views"><i class="fa fa-eye"></i>33K Views</span>
+					</div>
+				</div>
+				<!-- News Text -->
+				<div class="news-text">
+					'.$row['body'].'
+				</div>
+				<div class="blog-bottom">
+					<!-- Social Share -->
+					<ul class="social-share">
+						<li class="facebook"><a href="#"><i class="fa fa-facebook"></i><span>Facebook</span></a></li>
+						<li class="twitter"><a href="#"><i class="fa fa-twitter"></i><span>Twitter</span></a></li>
+						<li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+						<li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+						<li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
+					</ul>
+					<!-- Next Prev -->
+					<ul class="prev-next">
+						<li class="prev"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
+						<li class="next"><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+					</ul>
+					<!--/ End Next Prev -->
+				</div>
+			</div>';
+		}
+		
+	}else{
+		echo "";
+	}
+}
 
 function readMore(){
 	require 'config.php';
