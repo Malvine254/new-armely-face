@@ -197,7 +197,7 @@
 			<div class="col-12">
 				<div class="date">
 						<ul>
-							<li><span>AI Consulting</span> </li>
+							<li><span></span> </li>
 							<li><span>AI Advisory</span> </li>
 							<li><span>Generative AI</span></li>
 						</ul>
@@ -212,7 +212,17 @@
 					</div>
 					
 					<div class="body-text">
-						<h3>AI Consulting</h3>
+						<?php if ($_GET['name']=="ai-advisory"): ?>
+						<h3>AI Service: AI Advisory</h3>
+						<p>Artificial Intelligence (AI) has emerged as a game-changing technology, empowering organizations to drive innovation, enhance efficiency, and gain a competitive edge. However, navigating the complexities of AI can be a daunting challenge. That's where our AI advisory services come in.</p>
+						<p>As your trusted AI advisory partner, we're committed to empowering your organization with the knowledge, tools, and strategies necessary to harness the transformative power of artificial intelligence. Together, we'll embark on a journey of innovation and growth, unlocking new possibilities and driving sustainable success.</p>
+						<p>Explore our AI advisory services and take the first step towards an AI-powered future. Contact us today to schedule a consultation and discover how we can help your organization thrive in the age of artificial intelligence.</p>
+						<?php endif ?>
+
+
+
+						<?php if ($_GET['name']=="ai-consulting"): ?>
+						<h3>AI Services: AI Consulting</h3>
 						<p>Uncertain how Artificial Intelligence (AI) can transform your business? You're not alone. AI holds immense potential for innovation and growth, but navigating its complexities can be daunting. That's where we come in.</p>
 						<p>We offer a comprehensive AI consulting service designed to empower your business to leverage the transformative power of AI. Our team of experts will guide you through every step of the AI adoption journey, ensuring a smooth and successful integration that delivers real results.</p>
 						<!-- Pricing Table -->
@@ -231,7 +241,7 @@
 						<div class="col-lg-4 col-md-12 col-12">
 						<div class="single-table">
 							<!-- Table Head -->
-							<div class="table-head" style="min-height: 270px;">
+							<div class="table-head" style="min-height: 300px; max-height: 300px;">
 								<h4 class="title"><i class="icofont-hand-drag2"></i> Assessment</h4>	
 								<p>We begin by collaborating with your team to understand your unique business goals, challenges and data landscape. We collaborate with all the stakeholders to identify use case and priorities considering cost, time, and revenue impact. We are developing a customized AI Strategy that aligns with your business objectives.</p>
 							</div>
@@ -245,7 +255,7 @@
 						<div class="col-lg-4 col-md-12 col-12">
 						<div class="single-table">
 							<!-- Table Head -->
-							<div class="table-head" style="min-height: 270px;">
+							<div class="table-head" style="min-height: 300px; max-height: 300px;">
 								<h4 class="title"><i class="icofont-brainstorming"></i> Define Technology</h4>	
 								<p>Following the assessment, we gain a deep understanding of your business which helps our vendor agnostic approach recommendation of the best AI technology.</p>
 							</div>
@@ -259,7 +269,7 @@
 						<div class="col-lg-4 col-md-12 col-12">
 						<div class="single-table">
 							<!-- Table Head -->
-							<div class="table-head" style="min-height: 270px;">
+							<div class="table-head" style="min-height: 300px; max-height: 300px;">
 								<h4 class="title"><i class="icofont-computer"></i> Data Management</h4>	
 								<p>AI thrives on data, our team assists with identifying the right, clean, formatted, complete and ready to use data for effective model development.</p>
 							</div>
@@ -273,7 +283,7 @@
 						<div class="col-lg-4 col-md-12 col-12">
 						<div class="single-table">
 							<!-- Table Head -->
-							<div class="table-head" style="min-height: 270px;">
+							<div class="table-head" style="min-height: 300px; max-height: 300px;">
 								<h4 class="title"><i class="icofont-upload"></i> Model Deployment</h4>	
 								<p>Our team in collaboration with your organization develops and trains custom AI models or guides in selection of pre-trained AI models that can easily be customized to meet your needs.</p>
 							</div>
@@ -287,7 +297,7 @@
 						<div class="col-lg-4 col-md-12 col-12">
 						<div class="single-table">
 							<!-- Table Head -->
-							<div class="table-head" style="min-height: 270px;">
+							<div class="table-head" style="min-height: 300px; max-height: 300px;">
 								<h4 class="title"><i class="icofont-cloud-upload"></i> Deployment</h4>	
 								<p>After development, we deploy the models into your production environment ensuring smooth integration with your existing workflows.</p>
 							</div>
@@ -301,7 +311,7 @@
 						<div class="col-lg-4 col-md-12 col-12">
 						<div class="single-table">
 							<!-- Table Head -->
-							<div class="table-head" style="min-height: 270px;">
+							<div class="table-head" style="min-height: 300px;  max-height: 300px;">
 								<h4 class="title"><i class="icofont-handshake-deal"></i> Ongoing Support</h4>	
 								<p>After deployment, we provide ongoing support and training to your team empowering them to confidently deep dive into AI tools and maximize benefits.</p>
 							</div>
@@ -316,7 +326,7 @@
 						<div class="col">
 						<div class="single-table">
 							<!-- Table Head -->
-							<div class="table-head" style="min-height: 270px;">
+							<div class="table-head" style="min-height: 300px; max-height: 300px;">
 								<h4 class="title"><i class="fa fa-lock"></i> Monitoring & Optimization</h4>	
 								<p>Our support does not stop there, we continue working with you and your team to optimize the models, re-train them to accommodate new datasets and integrate with other sources as data grows.</p>
 							</div>
@@ -331,7 +341,14 @@
 						</blockquote>	
 						</div>	
 						</div>	
+
+						<?php endif ?>
 						</section>	
+
+
+
+
+						<?php if ($_GET['name']=="generative-ai"): ?>
 						<section>
 							<h3>Generative AI</h3>
 							<h5 class="mt-2">Unleash Creativity: The Power of Generative AI</h5>
@@ -378,6 +395,10 @@
 								</tr>
 							</table>
 						</section>
+						<?php endif ?>
+
+
+
 						<style type="text/css">
 							*{
 								 font-size: 16px;
@@ -400,7 +421,12 @@
 					            border-left: 4px solid #2f5597;
 					        }
 						</style>
-						<section>
+
+						<!-- start of data services -->
+
+						<section  id="dataServices">
+							<?php if ($_GET['name']=="data-strategy"): ?>
+							<div class="container">
 							<h3>Data Services: Data Strategy</h3>
 							<p>A well-crafted data strategy is the foundation for unlocking transformative business value. Whether you're looking to improve decision-making, enhance customer experiences, or drive operational efficiency, a strategic approach to data is the key to your success. Our holistic Data Strategy Service sets your organization on a winning path by guiding you through every step of the process, from defining your data vision to driving tangible business outcomes.</p>
 
@@ -419,7 +445,9 @@
 							<p><strong>Data Analytics and Insights</strong></p>
 							<ol class="ml-5">
 								<li>Unlock the full potential of your data with advanced analytics and visualization capabilities. We'll help you design and deploy impactful dashboards, reports, and predictive models to drive informed decision-making.</li>
-							</ol>			
+							</ol>
+
+	
 							<p><strong>Data-Driven Culture and Capabilities</strong>
 							<ol class="ml-5">
 								<li>Foster a data-driven culture within your organization by upskilling your workforce and empowering them to make data-informed decisions. We'll help you develop robust data literacy programs and champion data-driven mindsets.</li>
@@ -489,11 +517,28 @@
 
 							</blockquote>
 							<p>Explore our data science and analytics services and take the first step towards a data-driven future. Contact us today to schedule a consultation and discover how we can help your organization thrive in the age of data.</p>	
-							<h3 class="mt-4">Data Services: Fabric</h3>	
-							<p>As a leading Microsoft Fabric consulting partner, we have the expertise to help you navigate the complexities of this powerful platform and unlock its transformative potential for your business. Our team of certified consultants will guide you through every step of your Microsoft Fabric implementation and optimization journey.</p>	
-						</section>
 
-						<section>
+							<?php endif ?>
+							
+							
+							<?php if ($_GET['name']=="fabric"): ?>
+						
+							<div class="container">
+								<h3 class="mt-4">Data Services: Fabric</h3>	
+								<p>As a leading Microsoft Fabric consulting partner, we have the expertise to help you navigate the complexities of this powerful platform and unlock its transformative potential for your business. Our team of certified consultants will guide you through every step of your Microsoft Fabric implementation and optimization journey.</p>
+							</div>
+							<?php endif ?>	
+							</div>
+
+
+						</section>
+						<!-- end of data services -->
+
+						<section  id="freemiums">
+
+							<?php if ($_GET['name']=="freemiums"): ?>
+
+
 							<h3>Fremiums: SQL Server Health Checks</h3>
 							<h5 class="mt-3">Ensuring the Health of Your SQL Server</h5>
 							<p>In today's data-driven world, the reliability and performance of your SQL Server infrastructure is crucial to the success of your business. Regular SQL Server health checks are essential to identify potential issues, optimize performance, and ensure the long-term stability of your mission-critical database systems.</p>
@@ -589,25 +634,33 @@
 							
 														
 							</blockquote>
+
+							<?php endif ?>
+
+							<?php if ($_GET['name']=="coe"): ?>
+							<div class="container">	
 							<h3>Fremiums: Power Platform CoE</h3>
 							<h5 class="mt-2">Optimize Your Power Platform Investment with a Comprehensive a Center of Excellence-Driven Health Check</h5>
 							<p>As organizations increasingly rely on the Microsoft Power Platform to drive digital transformation, establishing a Center of Excellence (CoE) is crucial for ensuring the health and optimal performance of your Power Platform environment. A Power Platform health check, guided by your CoE, can help you identify areas for improvement, unlock greater value, and maximize your return on investment.</p>
 							<h5 class="mt-2">Get the Full Potential of Your Power Platform with Your CoE</h5>
 							<p>By leveraging your Center of Excellence to conduct a comprehensive Power Platform health check, you can elevate your Microsoft 365 and Power Platform ecosystem to new heights. Our team of CoE experts will provide you with actionable insights and a roadmap to optimize your Power Platform investment and unlock greater business value.</p>
+							<?php endif ?>
+							</div>
 
 						</section>
 
-						<section>
-							<h3>Optimize Your Business with Armely Services</h3>
-							<p>Maximize your business potential with Armely's range of industry-leading solutions. Whether it's Data Services, Web Development, Business Intelligence, Managed Services, or Advisory Services, we provide the utmost value to your operations and applications.</p>
-							<!-- Start Appointment -->
+						<!-- Start Appointment -->
 						<section class="appointment">
 						<div class="container">
 						<div class="row">
 						<div class="col-lg-12">
+
 						<div class="section-title">
 							<h2>Schedule a consultation today	</h2>
 							<center><hr class="default-background hr" ></center>
+							<p>Maximize your business potential with Armely's range of industry-leading solutions. Whether it's Data Services, Web Development, Business Intelligence, Managed Services, or Advisory Services, we provide the utmost value to your operations and applications.</p>
+							
+							
 						</div>
 						</div>
 						</div>
@@ -657,7 +710,6 @@
 						</div>
 
 						</div>
-						</section>
 						<!-- End Appointment -->
 						</section>
 						<!--/ End Pricing Table -->

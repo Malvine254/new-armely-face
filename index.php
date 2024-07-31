@@ -128,29 +128,28 @@
 					<li><a>Services <i class="icofont-rounded-down"></i></a>
 					    <ul class="dropdown">
 					        <li><a href="services">All Services</a></li>
-					        <li><a href="blog-single.html">AI Services</a></li>
 					        <li>
 					            <a >Data Services <i class="icofont-rounded-right"></i></a>
 					            <ul class="dropdown">
-					                <li><a href="data-analytics.html">Fabric</a></li>
-					                <li><a href="data-visualization.html">Data Science and Analytics</a></li>
-					                <li><a href="data-management.html">Data Strategy</a></li>
+					                <li><a href="service-details?name=fabric">Fabric</a></li>
+					                <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
+					                <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
 					            </ul>
 					        </li>
 					        <li>
 					        	<a >AI Services <i class="icofont-rounded-right"></i></a>
 					        	<ul class="dropdown">
-					                <li><a href="data-analytics.html">AI Consulting</a></li>
-					                <li><a href="data-visualization.html">AI Advisory</a></li>
-					                <li><a href="data-management.html">Generative AI</a></li>
+					                <li><a href="service-details?name=ai-consulting">AI Consulting</a></li>
+					                <li><a href="service-details?name=ai-advisory">AI Advisory</a></li>
+					                <li><a href="service-details?name=generative-ai">Generative AI</a></li>
 					            </ul>
 
 					        </li>
 					        <li>
 					        	<a>Freemiums <i class="icofont-rounded-right"></i></a>
 					        	<ul class="dropdown">
-					                <li><a href="data-analytics.html">SQL Health Check</a></li>
-					                <li><a href="data-visualization.html">Power Platform COE</a></li>
+					                <li><a href="service-details?name=sql">SQL Health Check</a></li>
+					                <li><a href="service-details?name=coe">Power Platform COE</a></li>
 					            </ul>
 
 					        </li>
