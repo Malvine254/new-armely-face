@@ -407,94 +407,25 @@
 <div class="row">
 <div class="col-lg-12">
 <div class="section-title">
-	<h2>See Our Pricing Tiers</h2>
+	<h2>See Our Most Recent Videos</h2>
 		<center><hr class="default-background hr" ></center>
 </div>
 </div>
 </div>
+<a class="text-right default-color h5 mb-4 link" href="">See all videos >>> </a>
 <div class="row">
 <!-- Single Table -->
 <div class="col-lg-4 col-md-12 col-12">
-<div class="single-table">
-	<!-- Table Head -->
-	<div class="table-head">
-		<div class="icon">
-			<i class="icofont icofont-server"></i>
-		</div>
-		<h4 class="title">SQL Server Maintenance</h4>
-		<div class="price">
-			<p class="amount">$199<span>/ Per Visit</span></p>
-		</div>	
-	</div>
-	<!-- Table List -->
-	<ul class="table-list">
-		<li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-		<li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-		<li class="cross"><i class="icofont icofont-ui-close"></i>Nullam interdum enim</li>
-		<li class="cross"><i class="icofont icofont-ui-close"></i>Donec ultricies metus</li>
-		<li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
-	</ul>
-	<div class="table-bottom">
-		<a class="btn default-button" href="#">Book Now</a>
-	</div>
-	<!-- Table Bottom -->
-</div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9_MpScMnC6I?si=wHVSeoKQ33vtPl_r" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 <!-- End Single Table-->
 <!-- Single Table -->
 <div class="col-lg-4 col-md-12 col-12">
-<div class="single-table">
-	<!-- Table Head -->
-	<div class="table-head">
-		<div class="icon">
-			<i class="icofont icofont-robot"></i>
-		</div>
-		<h4 class="title">AI Services</h4>
-		<div class="price">
-			<p class="amount">$299<span>/ Per Visit</span></p>
-		</div>	
-	</div>
-	<!-- Table List -->
-	<ul class="table-list">
-		<li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-		<li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-		<li><i class="icofont icofont-ui-check"></i>Nullam interdum enim</li>
-		<li class="cross"><i class="icofont icofont-ui-close"></i>Donec ultricies metus</li>
-		<li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
-	</ul>
-	<div class="table-bottom">
-		<a class="btn default-button" href="#">Book Now</a>
-	</div>
-	<!-- Table Bottom -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9_MpScMnC6I?si=wHVSeoKQ33vtPl_r" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
-</div>
-<!-- End Single Table-->
 <!-- Single Table -->
 <div class="col-lg-4 col-md-12 col-12">
-<div class="single-table">
-	<!-- Table Head -->
-	<div class="table-head">
-		<div class="icon">
-			<i class="icofont-data"></i>
-		</div>
-		<h4 class="title">Data Services</h4>
-		<div class="price">
-			<p class="amount">$399<span>/ Per Visit</span></p>
-		</div>	
-	</div>
-	<!-- Table List -->
-	<ul class="table-list">
-		<li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-		<li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-		<li><i class="icofont icofont-ui-check"></i>Nullam interdum enim</li>
-		<li><i class="icofont icofont-ui-check"></i>Donec ultricies metus</li>
-		<li><i class="icofont icofont-ui-check"></i>Pellentesque eget nibh</li>
-	</ul>
-	<div class="table-bottom">
-		<a class="btn default-button" href="#">Book Now</a>
-	</div>
-	<!-- Table Bottom -->
-</div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9_MpScMnC6I?si=wHVSeoKQ33vtPl_r" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 <!-- End Single Table-->
 </div>	
@@ -599,11 +530,7 @@
 <!-- end of search bar modal -->
 
 <!-- start of cookies section -->
-<<<<<<< HEAD
-<div id="snackbar" class="snackbar container shadow bg-light"  >
-=======
 <div id="snackbar" class="snackbar container shadow bg-light">
->>>>>>> 0b4a65118616b08b6d0236f41d2aa250e6f2f277
     <button class="btn-close" aria-label="Close">&times;</button>
     <div class="text-start row">
       <div class="col-md-8">
