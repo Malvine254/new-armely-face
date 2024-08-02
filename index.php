@@ -158,8 +158,6 @@
 					        </li>
 					    </ul>
 					</li>
-
-					<li><a href="industries">Industries</a></li>
 					<li><a >Insights <i class="icofont-rounded-down"></i></a>
 						<ul class="dropdown">
 							<li><a href="blog">Blog Articles</a></li>
@@ -167,14 +165,10 @@
 							<li><a href="case-studies">Case Studies</a></li>
 						</ul>
 					</li>
+					<li><a href="industries">Industries</a></li>
 					<li><a href="contact">Contact Us</a></li>
 					<li><a  >
 						<i data-toggle="modal" data-target="#exampleModal" style="display: block !important;" class="fa fa-search p-1"></i>	
-					 </a>
-					</li>
-					<li><a  >
-						<i style="display: block !important;" class="icofont icofont-moon p-1"></i>	
-						<!-- <i style="display: block !important;" class="icofont icofont-sun p-1"></i>	 -->
 					 </a>
 					</li>
 				</ul>

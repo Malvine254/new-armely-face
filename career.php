@@ -44,9 +44,6 @@
 <link rel="stylesheet" href="css/responsive.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
-
-
 </head>
 <body>
 
@@ -122,37 +119,53 @@
 		<div class="main-menu">
 			<nav class="navigation">
 				<ul class="nav menu">
-					<li class=""><a href="#">Why Us <i class="icofont-rounded-down"></i></a>
+					<li class=""><a >Why Us <i class="icofont-rounded-down"></i></a>
 						<ul class="dropdown">
-							<li><a href="index.html">Company Overview</a></li>
-							<li><a href="index.html">Career Opportunities</a></li>
+							<li><a href="company">Company Overview</a></li>
+							<li><a href="career">Career Opportunities</a></li>
 						</ul>
 					</li>
-					<li><a href="#">Services <i class="icofont-rounded-down"></i></a>
-						<ul class="dropdown">
-							<li><a href="blog-single.html">All Services</a></li>
-							<li><a href="blog-single.html">AI Services</a></li>
-							<li><a href="blog-single.html">Data Services</a></li>
-							<li><a href="blog-single.html">Freemiums</a></li>
+					<li><a>Services <i class="icofont-rounded-down"></i></a>
+					    <ul class="dropdown">
+					        <li><a href="services">All Services</a></li>
+					        <li>
+					            <a >Data Services <i class="icofont-rounded-right"></i></a>
+					            <ul class="dropdown">
+					                <li><a href="service-details?name=fabric">Fabric</a></li>
+					                <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
+					                <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
+					            </ul>
+					        </li>
+					        <li>
+					        	<a >AI Services <i class="icofont-rounded-right"></i></a>
+					        	<ul class="dropdown">
+					                <li><a href="service-details?name=ai-consulting">AI Consulting</a></li>
+					                <li><a href="service-details?name=ai-advisory">AI Advisory</a></li>
+					                <li><a href="service-details?name=generative-ai">Generative AI</a></li>
+					            </ul>
 
-						</ul>
+					        </li>
+					        <li>
+					        	<a>Freemiums <i class="icofont-rounded-right"></i></a>
+					        	<ul class="dropdown">
+					                <li><a href="service-details?name=sql">SQL Health Check</a></li>
+					                <li><a href="service-details?name=coe">Power Platform COE</a></li>
+					            </ul>
+
+					        </li>
+					    </ul>
 					</li>
-					<li><a href="#">Industries</a></li>
-					<li><a href="#">Insights <i class="icofont-rounded-down"></i></a>
+					<li><a >Insights <i class="icofont-rounded-down"></i></a>
 						<ul class="dropdown">
-							<li><a href="404.html">Blog Articles</a></li>
-							<li><a href="404.html">Customer Stories</a></li>
-							<li><a href="404.html">Case Studies</a></li>
+							<li><a href="blog">Blog Articles</a></li>
+							<li><a href="customer-stories">Customer Stories</a></li>
+							<li><a href="case-studies">Case Studies</a></li>
 						</ul>
 					</li>
-					<li><a href="contact.html">Contact Us</a></li>
+					<li><a href="industries">Industries</a></li>
+					<li><a href="contact">Contact Us</a></li>
 					<li><a  >
 						<i data-toggle="modal" data-target="#exampleModal" style="display: block !important;" class="fa fa-search p-1"></i>	
-					 </a>
-					</li>
-					<li><a  >
-						<i style="display: block !important;" class="icofont icofont-moon p-1"></i>	
-						<!-- <i style="display: block !important;" class="icofont icofont-sun p-1"></i>	 -->
 					 </a>
 					</li>
 				</ul>
@@ -260,6 +273,29 @@
 </div>
 
 <!-- end of search bar modal -->
+<!-- start of cookies section -->
+<div id="snackbar" class="snackbar container shadow bg-light">
+    <button class="btn-close" aria-label="Close">&times;</button>
+    <div class="text-start row">
+      <div class="col-md-8">
+      <div class="ml-4">
+        <h5>We Value Your Privacy</h5>
+        <p>We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies, <a href="">see our privacy policy</a>. You can manage your preferences by clicking "customize".</p>
+      </div>
+       
+      </div>
+      <div class="col-md-4">
+         <div class="modal-buttons mt-3" >
+          <button id="acceptAll" class="btn btn-outline-light "> Accept All</button>
+          <button id="openModalBtn4" class="btn btn-outline-secondary">Customize</button>
+          <button id="rejectAll" class="btn btn-danger"> Reject All</button>
+        </div>
+      </div>
+      
+    </div>
+</div>
+<!-- end of cookies section -->
+
 
 
 <!-- chatbot section -->

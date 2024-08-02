@@ -116,68 +116,62 @@
 	</div>
 	<div class="col-lg-9 col-md-9 col-12">
 		<!-- Main Menu -->
-		<div class="main-menu">
-			<nav class="navigation">
-				<ul class="nav menu">
-					<li class=""><a >Why Us <i class="icofont-rounded-down"></i></a>
-						<ul class="dropdown">
-							<li><a href="company">Company Overview</a></li>
-							<li><a href="career">Career Opportunities</a></li>
-						</ul>
-					</li>
-					<li><a>Services <i class="icofont-rounded-down"></i></a>
-					    <ul class="dropdown">
-					        <li><a href="services">All Services</a></li>
-					        <li>
-					            <a >Data Services <i class="icofont-rounded-right"></i></a>
-					            <ul class="dropdown">
-					                <li><a href="service-details?name=fabric">Fabric</a></li>
-					                <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
-					                <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
-					            </ul>
-					        </li>
-					        <li>
-					        	<a >AI Services <i class="icofont-rounded-right"></i></a>
-					        	<ul class="dropdown">
-					                <li><a href="service-details?name=ai-consulting">AI Consulting</a></li>
-					                <li><a href="service-details?name=ai-advisory">AI Advisory</a></li>
-					                <li><a href="service-details?name=generative-ai">Generative AI</a></li>
-					            </ul>
+    <div class="main-menu">
+      <nav class="navigation">
+        <ul class="nav menu">
+          <li class=""><a >Why Us <i class="icofont-rounded-down"></i></a>
+            <ul class="dropdown">
+              <li><a href="company">Company Overview</a></li>
+              <li><a href="career">Career Opportunities</a></li>
+            </ul>
+          </li>
+          <li><a>Services <i class="icofont-rounded-down"></i></a>
+              <ul class="dropdown">
+                  <li><a href="services">All Services</a></li>
+                  <li>
+                      <a >Data Services <i class="icofont-rounded-right"></i></a>
+                      <ul class="dropdown">
+                          <li><a href="service-details?name=fabric">Fabric</a></li>
+                          <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
+                          <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a >AI Services <i class="icofont-rounded-right"></i></a>
+                    <ul class="dropdown">
+                          <li><a href="service-details?name=ai-consulting">AI Consulting</a></li>
+                          <li><a href="service-details?name=ai-advisory">AI Advisory</a></li>
+                          <li><a href="service-details?name=generative-ai">Generative AI</a></li>
+                      </ul>
 
-					        </li>
-					        <li>
-					        	<a>Freemiums <i class="icofont-rounded-right"></i></a>
-					        	<ul class="dropdown">
-					                <li><a href="service-details?name=sql">SQL Health Check</a></li>
-					                <li><a href="service-details?name=coe">Power Platform COE</a></li>
-					            </ul>
+                  </li>
+                  <li>
+                    <a>Freemiums <i class="icofont-rounded-right"></i></a>
+                    <ul class="dropdown">
+                          <li><a href="service-details?name=sql">SQL Health Check</a></li>
+                          <li><a href="service-details?name=coe">Power Platform COE</a></li>
+                      </ul>
 
-					        </li>
-					    </ul>
-					</li>
-
-					<li><a href="industries">Industries</a></li>
-					<li><a >Insights <i class="icofont-rounded-down"></i></a>
-						<ul class="dropdown">
-							<li><a href="blog">Blog Articles</a></li>
-							<li><a href="customer-stories">Customer Stories</a></li>
-							<li><a href="case-studies">Case Studies</a></li>
-						</ul>
-					</li>
-					<li><a href="contact">Contact Us</a></li>
-					<li><a  >
-						<i data-toggle="modal" data-target="#exampleModal" style="display: block !important;" class="fa fa-search p-1"></i>	
-					 </a>
-					</li>
-					<li><a  >
-						<i style="display: block !important;" class="icofont icofont-moon p-1"></i>	
-						<!-- <i style="display: block !important;" class="icofont icofont-sun p-1"></i>	 -->
-					 </a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-		<!--/ End Main Menu -->
+                  </li>
+              </ul>
+          </li>
+          <li><a >Insights <i class="icofont-rounded-down"></i></a>
+            <ul class="dropdown">
+              <li><a href="blog">Blog Articles</a></li>
+              <li><a href="customer-stories">Customer Stories</a></li>
+              <li><a href="case-studies">Case Studies</a></li>
+            </ul>
+          </li>
+          <li><a href="industries">Industries</a></li>
+          <li><a href="contact">Contact Us</a></li>
+          <li><a  >
+            <i data-toggle="modal" data-target="#exampleModal" style="display: block !important;" class="fa fa-search p-1"></i> 
+           </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <!--/ End Main Menu -->
 	</div>
 	<div class="col-lg-2 col-12">
 		<div class="get-quote">
