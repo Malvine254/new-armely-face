@@ -4279,7 +4279,7 @@ cursor: pointer;
 position: fixed;
 bottom: 100px; /* Adjust the distance from the bottom */
 right: 20px; /* Adjust the distance from the left */
-z-index: 1000; /* Set the z-index to ensure the button appears above other elements */
+z-index: 999; /* Set the z-index to ensure the button appears above other elements */
 }
 
 /*default background color and colors */

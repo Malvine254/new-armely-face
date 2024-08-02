@@ -190,18 +190,20 @@
 <!-- End Breadcrumbs -->
 
 <!-- Start Portfolio Details Area -->
+<?php if (isset($_GET['name'])): ?>
+	
 <section class="pf-details section">
 	<div class="container">
 
 		<div class="row">
 			<div class="col-12">
-				<div class="date">
+				<!-- <div class="date">
 						<ul>
 							<li><span></span> </li>
 							<li><span>AI Advisory</span> </li>
 							<li><span>Generative AI</span></li>
 						</ul>
-					</div>
+					</div> -->
 				<div class="inner-content">
 					<div class="image-slider">
 						<div class="pf-details-slider">
@@ -349,7 +351,7 @@
 
 
 						<?php if ($_GET['name']=="generative-ai"): ?>
-						<section>
+						<section class="container">
 							<h3>Generative AI</h3>
 							<h5 class="mt-2">Unleash Creativity: The Power of Generative AI</h5>
 							<p>A transformative field of artificial intelligence that can create entirely new content, from text and images to music and even code. Using the power of GPT-4, LLAMA, PaLM-2 Generative AI transforms how you do business. We help you unlock the potential of your data.</p>
@@ -474,59 +476,63 @@
 									<p><strong>Partner with Us to Elevate Your Data Strategy</strong></p>
 									<p>As your trusted data strategy partner, we'll work closely with you to create a tailored data strategy that aligns with your business objectives and delivers tangible results. Our holistic approach, combined with our deep industry expertise, will enable you to unlock the full potential of your data and drive sustainable growth. Explore our data strategy services and take the first step towards a data-driven future. Contact us today to schedule a consultation and discover how we can help your organization thrive in the age of data.</p>
 								</div>
-								<h3>Data Services: Data Science & Analytics</h3>
-								<p>In today's data-driven world organizations that leverage the power of data science and analytics gain a significant competitive edge. From improving decision-making to driving operational efficiency, our comprehensive data science and analytics solutions can help you transform your business.</p>
-								<p>Our team of data scientists and analytics experts are dedicated to helping you uncover the hidden insights within your data. We'll work closely with you to design and deploy customized solutions that address your unique business challenges.</p>
-							</div>
-							<blockquote>
-								<p> 
-								<h5 class="text-light"><i class="icofont-quote-left"></i><strong> Discover Our Suite of Data Science & Analytics Services:</strong></h5> 
-							</p>
-							<p class="mt-5"><strong>Predictive Modeling</strong></p>
-							<ol class="ml-5">
-								<li>Leverage advanced machine learning techniques to build predictive models that forecast future trends, identify risks, and support strategic decision-making.</li>
-							</ol>	
-							<p><strong>Prescriptive Analytics</strong></p>
-							<ol class="ml-5">
-								<li>Combine data-driven insights with optimization algorithms to generate actionable recommendations that can enhance your business processes and drive better outcomes.</li>
-							</ol>		
-							<p><strong>Data Visualization & Reporting</strong></p>
-							<ol class="ml-5">
-								<li>Bring your data to life with stunning, interactive dashboards and reports that enable data-driven decision-making across your organization.</li>
-							</ol>			
-							<p><strong>Natural Language Processing</strong>
-							<ol class="ml-5">
-								<li>Unlock the value of unstructured data, such as customer feedback and market intelligence, using state-of-the-art NLP techniques to extract meaningful insights.</li>
-							</ol>
-							</p>
-							<p><strong>Computer Vision</strong>
-							<ol class="ml-5">
-								<li>Leverage the power of computer vision to automate visual inspections, enhance product quality, and improve operational efficiency in your organization.</li>
-							</ol>
-							</p>
-							<p><strong>Intelligent Automation</strong>
-							<ol class="ml-5">
-								<li>Integrate data science and analytics into your business workflows to streamline processes, reduce errors, and boost productivity.</li>
-							</ol>
-							</p>
-							<p><strong>Accelerate Your Data-Driven Transformation</strong>
-							<ol class="ml-5">
-								<li>Our data science and analytics solutions are designed to help you navigate the complexities of the data landscape and unlock tangible business value. By partnering with our team of experts, you'll gain the insights, tools, and strategies needed to drive sustainable growth and stay ahead of the competition.</li>
-							</ol>
-							</p>	
+								<?php endif ?>
 
-							</blockquote>
-							<p>Explore our data science and analytics services and take the first step towards a data-driven future. Contact us today to schedule a consultation and discover how we can help your organization thrive in the age of data.</p>	
+								<?php if ($_GET['name']=="data-science"): ?>
+								<div class="container">
+										
+									<h3>Data Services: Data Science & Analytics</h3>
+									<p>In today's data-driven world organizations that leverage the power of data science and analytics gain a significant competitive edge. From improving decision-making to driving operational efficiency, our comprehensive data science and analytics solutions can help you transform your business.</p>
+									<p>Our team of data scientists and analytics experts are dedicated to helping you uncover the hidden insights within your data. We'll work closely with you to design and deploy customized solutions that address your unique business challenges.</p>
+								
+								<blockquote>
+									<p> 
+									<h5 class="text-light"><i class="icofont-quote-left"></i><strong> Discover Our Suite of Data Science & Analytics Services:</strong></h5> 
+								</p>
+								<p class="mt-5"><strong>Predictive Modeling</strong></p>
+								<ol class="ml-5">
+									<li>Leverage advanced machine learning techniques to build predictive models that forecast future trends, identify risks, and support strategic decision-making.</li>
+								</ol>	
+								<p><strong>Prescriptive Analytics</strong></p>
+								<ol class="ml-5">
+									<li>Combine data-driven insights with optimization algorithms to generate actionable recommendations that can enhance your business processes and drive better outcomes.</li>
+								</ol>		
+								<p><strong>Data Visualization & Reporting</strong></p>
+								<ol class="ml-5">
+									<li>Bring your data to life with stunning, interactive dashboards and reports that enable data-driven decision-making across your organization.</li>
+								</ol>			
+								<p><strong>Natural Language Processing</strong>
+								<ol class="ml-5">
+									<li>Unlock the value of unstructured data, such as customer feedback and market intelligence, using state-of-the-art NLP techniques to extract meaningful insights.</li>
+								</ol>
+								</p>
+								<p><strong>Computer Vision</strong>
+								<ol class="ml-5">
+									<li>Leverage the power of computer vision to automate visual inspections, enhance product quality, and improve operational efficiency in your organization.</li>
+								</ol>
+								</p>
+								<p><strong>Intelligent Automation</strong>
+								<ol class="ml-5">
+									<li>Integrate data science and analytics into your business workflows to streamline processes, reduce errors, and boost productivity.</li>
+								</ol>
+								</p>
+								<p><strong>Accelerate Your Data-Driven Transformation</strong>
+								<ol class="ml-5">
+									<li>Our data science and analytics solutions are designed to help you navigate the complexities of the data landscape and unlock tangible business value. By partnering with our team of experts, you'll gain the insights, tools, and strategies needed to drive sustainable growth and stay ahead of the competition.</li>
+								</ol>
+								</p>	
 
-							<?php endif ?>
+								</blockquote>
+								<p>Explore our data science and analytics services and take the first step towards a data-driven future. Contact us today to schedule a consultation and discover how we can help your organization thrive in the age of data.</p>	
+								</div>
+								<?php endif ?>
+								
+								<?php if ($_GET['name']=="fabric"): ?>
 							
-							
-							<?php if ($_GET['name']=="fabric"): ?>
-						
-							<div class="container">
-								<h3 class="mt-4">Data Services: Fabric</h3>	
-								<p>As a leading Microsoft Fabric consulting partner, we have the expertise to help you navigate the complexities of this powerful platform and unlock its transformative potential for your business. Our team of certified consultants will guide you through every step of your Microsoft Fabric implementation and optimization journey.</p>
-							</div>
+								<div class="container">
+									<h3 class="mt-4">Data Services: Fabric</h3>	
+									<p>As a leading Microsoft Fabric consulting partner, we have the expertise to help you navigate the complexities of this powerful platform and unlock its transformative potential for your business. Our team of certified consultants will guide you through every step of your Microsoft Fabric implementation and optimization journey.</p>
+								</div>
 							<?php endif ?>	
 							</div>
 
@@ -534,9 +540,9 @@
 						</section>
 						<!-- end of data services -->
 
-						<section  id="freemiums">
+						<section  class="container">
 
-							<?php if ($_GET['name']=="freemiums"): ?>
+							<?php if ($_GET['name']=="sql"): ?>
 
 
 							<h3>Fremiums: SQL Server Health Checks</h3>
@@ -728,6 +734,19 @@
 	</div>
 </section>
 <!-- End Portfolio Details Area -->
+<?php else: ?>
+<div class="container mt-5">
+	<center>
+		<div class="card text-center col-4 bg-danger  d-flex align-items-center p-2">
+			<h3 class="text-light"><i class="icofont-warning-alt"></i> Warning</h3>
+			<p class="text-light">No data was found!!</p>
+		</div>
+	</center>
+</div>
+<?php endif ?>
+
+
+
 		
 		<section>	
 		<!-- Floating Action Button -->
