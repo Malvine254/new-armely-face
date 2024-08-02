@@ -37,6 +37,9 @@
 <link rel="stylesheet" href="css/animate.min.css">
 <!-- Magnific Popup CSS -->
 <link rel="stylesheet" href="css/magnific-popup.css">
+<!-- Wow animation -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
 
 <!-- Medipro CSS -->
 <link rel="stylesheet" href="css/normalize.css">
@@ -311,7 +314,7 @@
 </div>
 
 
-<div class="clients overlay">
+<div class="  "  style="background: white !important;">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-12">
@@ -381,7 +384,7 @@
 </div>
 </div>
 </div>
-<div class="row">
+<div class="row " >
 
 <!-- Single Blog -->
 <?php displayRecentBlogs(); ?>
@@ -596,7 +599,11 @@
 <!-- end of search bar modal -->
 
 <!-- start of cookies section -->
+<<<<<<< HEAD
 <div id="snackbar" class="snackbar container shadow bg-light"  >
+=======
+<div id="snackbar" class="snackbar container shadow bg-light">
+>>>>>>> 0b4a65118616b08b6d0236f41d2aa250e6f2f277
     <button class="btn-close" aria-label="Close">&times;</button>
     <div class="text-start row">
       <div class="col-md-8">
@@ -607,10 +614,10 @@
        
       </div>
       <div class="col-md-4">
-         <div class="modal-buttons mt-5" >
+         <div class="modal-buttons mt-3" >
           <button id="acceptAll" class="btn btn-outline-light "> Accept All</button>
           <button id="openModalBtn4" class="btn btn-outline-secondary">Customize</button>
-          <button id="rejectAll" class="btn btn-outline-danger"> Reject All</button>
+          <button id="rejectAll" class="btn btn-danger"> Reject All</button>
         </div>
       </div>
       
@@ -744,6 +751,12 @@
 <script src="js/main.js"></script>
 <!-- more settings  -->
 <script src="js/more-options.js"></script>
+<!-- Wow.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.3/wow.min.js"></script>
+<script>
+	new WOW().init();
+
+</script>
 
 
 </body>

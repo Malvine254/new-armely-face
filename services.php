@@ -391,13 +391,8 @@
        <div class="modal-content">
           <div class="modal-header default-background">
             <div class="serach-container col-md-12 col-lg-12">
-<<<<<<< HEAD
-                  <i class="fa fa-search icon"></i>
-                  <input  name="name" type="text" placeholder="Search here..."> 
-=======
             	<i class="fa fa-search icon"></i>
             	<input id="searchInput"  name="name" type="text" placeholder="Search here..."> 
->>>>>>> 3ef7e0a8b80f06efa88ef1555644c9e1746b9f35
             </div>
              
               <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
@@ -405,13 +400,9 @@
               </button>
             </div>
             <div class="modal-body search-results-section">
-<<<<<<< HEAD
-               <p>Search results will appear here....</p>
-=======
               <div id="searchResults">
               	 <p>Search results will appear here....</p>
               </div>
->>>>>>> 3ef7e0a8b80f06efa88ef1555644c9e1746b9f35
             </div>
             
         </div>
@@ -430,64 +421,6 @@
 <div class="container">
 <div class="row">
 <div class="col-lg-2 col-md-6 col-12">
-<<<<<<< HEAD
-      <div class="single-footer">
-            <h2>armely</h2>
-            
-      </div>
-</div>
-<div class="col-lg-2 col-md-6 col-12">
-      <div class="single-footer f-link">
-            <h2>About</h2>
-            <div class="row">
-                  <div class="col-lg-12 col-md-12 col-12">
-                        <ul>
-                              <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Case Studies</a></li>
-                              <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Job Board</a></li>
-                              <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Company Overview</a></li>
-                              <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Blog Articles </a></li>     
-                        </ul>
-                  </div>
-            </div>
-      </div>
-</div>
-<div class="col-lg-2 col-md-6 col-12">
-      <div class="single-footer f-link">
-            <h2>Services</h2>
-            <div class="row">
-                  <div class="col-lg-12 col-md-12 col-12">
-                        <ul>
-                              <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Data Services</a></li>
-                              <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Advisory Services</a></li>
-                              <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Managed Services</a></li>
-                              <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Artificial intelligence</a></li>  
-                        </ul>
-                  </div>
-            </div>
-      </div>
-</div>
-<div class="col-lg-3 col-md-6 col-12">
-      <div class="single-footer f-link">
-            <h2>Contact Us</h2>
-            <ul>
-                  <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> +1 972 460 0643</a></li>
-                  <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>2831 Eldorado Pkwy Suite 103-128 Frisco TX 75033</a></li>
-                  <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>info@armely.com</a></li>
-            </ul>
-      </div>
-</div>
-<div class="col-lg-3 col-md-6 col-12">
-      <div class="single-footer">
-            <h2>Follow Us</h2>
-            <ul class="social">
-                  <li><a href="#"><i class="icofont-linkedin"></i></a></li>
-                  <li><a href="#"><i class="icofont-github"></i></a></li>
-                  <li><a href="#"><i class="icofont-twitter"></i></a></li>
-                  <li><a href="#"><i class="icofont-youtube"></i></a></li>
-                  <li><a href="#"><i class="icofont-instagram"></i></a></li>
-            </ul>
-      </div>
-=======
 	<div class="single-footer">
 		<h2>armely</h2>
 		
@@ -544,7 +477,6 @@
 			<li><a href="#"><i class="icofont-instagram"></i></a></li>
 		</ul>
 	</div>
->>>>>>> 3ef7e0a8b80f06efa88ef1555644c9e1746b9f35
 </div>
 </div>
 </div>
@@ -555,15 +487,9 @@
 <div class="container">
 <div class="row">
 <div class="col-lg-12 col-md-12 col-12">
-<<<<<<< HEAD
-      <div class="copyright-content">
-            <p>&copy; 2024 ARMELY LLC., ALL RIGHTS RESERVED</p>
-      </div>
-=======
 	<div class="copyright-content">
 		<p>&copy; 2024 ARMELY LLC., ALL RIGHTS RESERVED</p>
 	</div>
->>>>>>> 3ef7e0a8b80f06efa88ef1555644c9e1746b9f35
 </div>
 </div>
 </div>
@@ -612,11 +538,8 @@
 <script src="js/bootstrap.min.js"></script>
 <!-- Main JS -->
 <script src="js/main.js"></script>
-<<<<<<< HEAD
-=======
 <!-- more settings  -->
 <script src="js/more-options.js"></script>
->>>>>>> 3ef7e0a8b80f06efa88ef1555644c9e1746b9f35
 
 
 </body>
