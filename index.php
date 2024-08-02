@@ -596,7 +596,7 @@
 <!-- end of search bar modal -->
 
 <!-- start of cookies section -->
-<div id="snackbar" class="snackbar container shadow"  >
+<div id="snackbar" class="snackbar container shadow bg-light"  >
     <button class="btn-close" aria-label="Close">&times;</button>
     <div class="text-start row">
       <div class="col-md-8">
