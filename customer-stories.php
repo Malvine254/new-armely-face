@@ -1,55 +1,75 @@
+<?php include 'php/actions.php'; ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
-    <head>
-        <!-- Meta Tags -->
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="keywords" content="Site keywords here">
-		<meta name="description" content="">
-		<meta name='copyright' content=''>
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		
-		<!-- Title -->
-        <title>contact</title>
-		
-		<!-- Favicon -->
-       <link rel="icon" href="img/logo/logo1.png">
-		
-		<!-- Google Fonts -->
-		<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+<head>
+<!-- Meta Tags -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="keywords" content="Site keywords here">
+<meta name="description" content="">
+<meta name='copyright' content=''>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<!-- Nice Select CSS -->
-		<link rel="stylesheet" href="css/nice-select.css">
-		<!-- Font Awesome CSS -->
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-		<!-- icofont CSS -->
-        <link rel="stylesheet" href="css/icofont.css">
-		<!-- Slicknav -->
-		<link rel="stylesheet" href="css/slicknav.min.css">
-		<!-- Owl Carousel CSS -->
-        <link rel="stylesheet" href="css/owl-carousel.css">
-		<!-- Datepicker CSS -->
-		<link rel="stylesheet" href="css/datepicker.css">
-		<!-- Animate CSS -->
-        <link rel="stylesheet" href="css/animate.min.css">
-		<!-- Magnific Popup CSS -->
-        <link rel="stylesheet" href="css/magnific-popup.css">
-		
-		<!-- Medipro CSS -->
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="css/responsive.css">
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Title -->
+<title>customer stories</title>
 
-		
-    </head>
-    <body>
-		
-	
-<!-- Header Area -->
-<header class="header" >
+<!-- Favicon -->
+<link rel="icon" href="img/logo/logo1.png">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- Nice Select CSS -->
+<link rel="stylesheet" href="css/nice-select.css">
+<!-- Font Awesome CSS -->
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<!-- icofont CSS -->
+<link rel="stylesheet" href="css/icofont.css">
+<!-- Slicknav -->
+<link rel="stylesheet" href="css/slicknav.min.css">
+<!-- Owl Carousel CSS -->
+<link rel="stylesheet" href="css/owl-carousel.css">
+<!-- Datepicker CSS -->
+<link rel="stylesheet" href="css/datepicker.css">
+<!-- Animate CSS -->
+<link rel="stylesheet" href="css/animate.min.css">
+<!-- Magnific Popup CSS -->
+<link rel="stylesheet" href="css/magnific-popup.css">
+
+<!-- Medipro CSS -->
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+</head>
+<body>
+
+
+
+<section>	
+<!-- Floating Action Button -->
+   <div class="floating-btn">
+    <button id="myBtn"  style="border-radius: 50%; height: 60px; width: 60px; background-color: rgb(47,85,151);"  type="button" class="btn btn-primary btn-lg h1">
+      <i class="fa fa-comments "></i>
+    </button>
+  </div>
+<div id="myModal" class="modal-chat">
+
+  <!-- Modal content -->
+  <div class="modal-content-chat col-lg-4">
+    <span class="close">&times;</span>
+    <iframe src="https://copilotstudio.microsoft.com/environments/Default-588cadf4-9902-4465-86c0-8bcf04f4f102/bots/crc65_armelyCom/webchat?__version__=2"
+    frameborder="0" style="width: 100%; height: 80%;"></iframe>  
+  </div>
+
+</div>
+</section>
 
 <!-- Header Area -->
 <header class="header" >
@@ -96,62 +116,62 @@
 	</div>
 	<div class="col-lg-9 col-md-9 col-12">
 		<!-- Main Menu -->
-		<div class="main-menu">
-			<nav class="navigation">
-				<ul class="nav menu">
-					<li class=""><a >Why Us <i class="icofont-rounded-down"></i></a>
-						<ul class="dropdown">
-							<li><a href="company">Company Overview</a></li>
-							<li><a href="career">Career Opportunities</a></li>
-						</ul>
-					</li>
-					<li><a>Services <i class="icofont-rounded-down"></i></a>
-					    <ul class="dropdown">
-					        <li><a href="services">All Services</a></li>
-					        <li>
-					            <a >Data Services <i class="icofont-rounded-right"></i></a>
-					            <ul class="dropdown">
-					                <li><a href="service-details?name=fabric">Fabric</a></li>
-					                <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
-					                <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
-					            </ul>
-					        </li>
-					        <li>
-					        	<a >AI Services <i class="icofont-rounded-right"></i></a>
-					        	<ul class="dropdown">
-					                <li><a href="service-details?name=ai-consulting">AI Consulting</a></li>
-					                <li><a href="service-details?name=ai-advisory">AI Advisory</a></li>
-					                <li><a href="service-details?name=generative-ai">Generative AI</a></li>
-					            </ul>
+    <div class="main-menu">
+      <nav class="navigation">
+        <ul class="nav menu">
+          <li class=""><a >Why Us <i class="icofont-rounded-down"></i></a>
+            <ul class="dropdown">
+              <li><a href="company">Company Overview</a></li>
+              <li><a href="career">Career Opportunities</a></li>
+            </ul>
+          </li>
+          <li><a>Services <i class="icofont-rounded-down"></i></a>
+              <ul class="dropdown">
+                  <li><a href="services">All Services</a></li>
+                  <li>
+                      <a >Data Services <i class="icofont-rounded-right"></i></a>
+                      <ul class="dropdown">
+                          <li><a href="service-details?name=fabric">Fabric</a></li>
+                          <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
+                          <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a >AI Services <i class="icofont-rounded-right"></i></a>
+                    <ul class="dropdown">
+                          <li><a href="service-details?name=ai-consulting">AI Consulting</a></li>
+                          <li><a href="service-details?name=ai-advisory">AI Advisory</a></li>
+                          <li><a href="service-details?name=generative-ai">Generative AI</a></li>
+                      </ul>
 
-					        </li>
-					        <li>
-					        	<a>Freemiums <i class="icofont-rounded-right"></i></a>
-					        	<ul class="dropdown">
-					                <li><a href="service-details?name=sql">SQL Health Check</a></li>
-					                <li><a href="service-details?name=coe">Power Platform COE</a></li>
-					            </ul>
+                  </li>
+                  <li>
+                    <a>Freemiums <i class="icofont-rounded-right"></i></a>
+                    <ul class="dropdown">
+                          <li><a href="service-details?name=sql">SQL Health Check</a></li>
+                          <li><a href="service-details?name=coe">Power Platform COE</a></li>
+                      </ul>
 
-					        </li>
-					    </ul>
-					</li>
-					<li><a >Insights <i class="icofont-rounded-down"></i></a>
-						<ul class="dropdown">
-							<li><a href="blog">Blog Articles</a></li>
-							<li><a href="customer-stories">Customer Stories</a></li>
-							<li><a href="case-studies">Case Studies</a></li>
-						</ul>
-					</li>
-					<li><a href="industries">Industries</a></li>
-					<li><a href="contact">Contact Us</a></li>
-					<li><a  >
-						<i data-toggle="modal" data-target="#exampleModal" style="display: block !important;" class="fa fa-search p-1"></i>	
-					 </a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-		<!--/ End Main Menu -->
+                  </li>
+              </ul>
+          </li>
+          <li><a >Insights <i class="icofont-rounded-down"></i></a>
+            <ul class="dropdown">
+              <li><a href="blog">Blog Articles</a></li>
+              <li><a href="customer-stories">Customer Stories</a></li>
+              <li><a href="case-studies">Case Studies</a></li>
+            </ul>
+          </li>
+          <li><a href="industries">Industries</a></li>
+          <li><a href="contact">Contact Us</a></li>
+          <li><a  >
+            <i data-toggle="modal" data-target="#exampleModal" style="display: block !important;" class="fa fa-search p-1"></i> 
+           </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <!--/ End Main Menu -->
 	</div>
 	<div class="col-lg-2 col-12">
 		<div class="get-quote">
@@ -165,124 +185,69 @@
 <!--/ End Header Inner -->
 </header>
 <!-- End Header Area -->
-	
-		<!-- Breadcrumbs -->
-		<div class="breadcrumbs overlay">
-			<div class="container">
-				<div class="bread-inner">
-					<div class="row">
-						<div class="col-12">
-							<h2>Contact Us</h2>
-							<ul class="bread-list">
-								<li><a href="index.html">Home</a></li>
-								<li><i class="icofont-simple-right"></i></li>
-								<li class="active">Contact Us</li>
-							</ul>
-						</div>
-					</div>
+<!-- Breadcrumbs -->
+<div class="breadcrumbs overlay">
+	<div class="container">
+		<div class="bread-inner">
+			<div class="row">
+				<div class="col-12">
+					<h2>Customer Stories</h2>
+					<ul class="bread-list">
+						<li><a href="index">Home</a></li>
+						<li><i class="icofont-simple-right"></i></li>
+						<li class="active">Customer Stories</li>
+					</ul>
 				</div>
 			</div>
-		</div>
-		<!-- End Breadcrumbs -->
-				
-<!-- Start Contact Us -->
-<section class="contact-us section ">
-<div class="container col-12 col-lg-10 col-md-10">
-	<div class="inner">
-		<div class="row"> 
-			<div class="col-lg-6">
-				<div class="contact-us-left">
-					<!--Start Google-map -->
-					<div id="myMap"></div>
-					<!--/End Google-map -->
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<div class="contact-us-form">
-					<h2>Contact With Us</h2>
-					<p>If you have any questions please feel free to contact with us.</p>
-					<!-- Form -->
-					<form class="form" method="post" action="mail/mail.php">
-						<div class="row">
-							<div class="col-lg-6">
-								<div class="form-group">
-									<input type="text" name="name" placeholder="Name" required="">
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="form-group">
-									<input type="email" name="email" placeholder="Email" required="">
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="form-group">
-									<input type="text" name="phone" placeholder="Phone" required="">
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="form-group">
-									<input type="text" name="subject" placeholder="Subject" required="">
-								</div>
-							</div>
-							<div class="col-lg-12">
-								<div class="form-group">
-									<textarea name="message" placeholder="Your Message" required=""></textarea>
-								</div>
-							</div>
-							<div class="col-12">
-								<div class="form-group login-btn">
-									<button class="btn default-background" type="submit">Send</button>
-								</div>
-							</div>
-						</div>
-					</form>
-					<!--/ End Form -->
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="contact-info">
-		<div class="row">
-			<!-- single-info -->
-			<div class="col-lg-4 col-12 ">
-				<div class="single-info">
-					<i class="icofont icofont-ui-call"></i>
-					<div class="content">
-						<h3>+(1)  972 460 0643</h3>
-						<p>info@armely.com</p>
-					</div>
-				</div>
-			</div>
-			<!--/End single-info -->
-			<!-- single-info -->
-			<div class="col-lg-4 col-12 ">
-				<div class="single-info">
-					<i class="icofont-google-map"></i>
-					<div class="content">
-						<h3>2831 Eldorado Pkwy</h3>
-						<p>Suite 103-128 Frisco TX 75033</p>
-					</div>
-				</div>
-			</div>
-			<!--/End single-info -->
-			<!-- single-info -->
-			<div class="col-lg-4 col-12 ">
-				<div class="single-info">
-					<i class="icofont icofont-wall-clock"></i>
-					<div class="content">
-						<h3>Mon - Sat: 8am - 5pm</h3>
-						<p>Sunday Closed</p>
-					</div>
-				</div>
-			</div>
-			<!--/End single-info -->
 		</div>
 	</div>
 </div>
-</section>
-<!--/ End Contact Us -->
+<!-- End Breadcrumbs -->
+<!-- Start Why choose -->
+<section class="why-choose section" >
+<div class="container">
 
-<!-- start of searchbar modal -->
+<div class="row">
+<div class="col-lg-6 col-12">
+<!-- Start Choose Left -->
+<div class="choose-left">
+  <h3>Hear it straight from our thrilled clients</h3>
+  <p>Our success stories are a testament to our dedication to delivering the highest quality solutions, getting it right on the first try.</p>
+  <p>Here, you'll find the voices of our satisfied customers sharing their experiences with our products/services. Dive into these authentic reviews to get a glimpse of the quality, reliability, and exceptional service we strive to deliver. Discover why our customers trust us and why you should too</p>
+
+</div>
+<!-- End Choose Left -->
+</div>
+<div class="col-lg-6 col-12">
+<!-- Start Choose Rights -->
+<img src="images/customer-stories/1.png" class="img-fluid">
+<!-- End Choose Rights -->
+</div>
+</div>
+</div>
+</section>
+<!--/ End Why choose --> 
+<!-- Start Schedule Area -->
+<section class="">
+<div class="container">
+	<div class="row">
+<div class="col-lg-12">
+<div class="section-title">
+  <h2>Testimonials </h2>
+    <center><hr class="default-background hr" ></center>
+</div>
+</div>
+</div>
+<div class="schedule-inner">
+<div class="row">
+
+<?php displayCustomerStoriesTestimonials(); ?>
+</div>
+</div>
+</div>
+</section>
+<!--/End Start schedule Area -->
+
 <div class="container mt-5">
 
 <!-- The Modal -->
@@ -335,7 +300,6 @@
 </div>
 <!-- end of cookies section -->
 
-		
 <!-- Footer Area -->
 <footer id="footer" class="footer ">
 <!-- Footer Top -->
@@ -419,7 +383,7 @@
 <!--/ End Copyright -->
 </footer>
 <!--/ End Footer Area -->
-		
+
 <!-- jquery Min JS -->
 <script src="js/jquery.min.js"></script>
 <!-- jquery Migrate JS -->
@@ -456,17 +420,13 @@
 <script src="js/jquery.magnific-popup.min.js"></script>
 <!-- Counter Up CDN JS -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<!-- Google Map API Key JS -->
-<script src="https://maps.google.com/maps/api/js?key=AIzaSyDGqTyqoPIvYxhn_Sa7ZrK5bENUWhpCo0w"></script>
-<!-- Gmaps JS -->
-<script src="js/gmaps.min.js"></script>
-<!-- Map Active JS -->
-<script src="js/map-active.js"></script>
 <!-- Bootstrap JS -->
 <script src="js/bootstrap.min.js"></script>
 <!-- Main JS -->
 <script src="js/main.js"></script>
 <!-- more settings  -->
 <script src="js/more-options.js"></script>
-    </body>
+
+
+</body>
 </html>

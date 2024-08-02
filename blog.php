@@ -11,7 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		
 		<!-- Title -->
-        <title>armely</title>
+        <title>blog</title>
 		
 		<!-- Favicon -->
        <link rel="icon" href="img/logo/logo1.png">
