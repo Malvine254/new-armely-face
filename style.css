@@ -4345,6 +4345,7 @@ opacity: 1;  /* Optional: Ensures the placeholder color is fully opaque */
 .remove-input-background{
 background: transparent;
 border: solid #fff;
+color: #fff !important;
 }
 
 .remove-input-background::-webkit-input-placeholder { /* Chrome/Opera/Safari */

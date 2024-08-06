@@ -202,7 +202,7 @@
 					<h2>Contact With Us</h2>
 					<p>If you have any questions please feel free to contact with us.</p>
 					<!-- Form -->
-					<form class="form" method="post" action="mail/mail.php">
+					<form class="form" id="contact-form" method="post">
 						<div class="row">
 							<div class="col-lg-6">
 								<div class="form-group">
@@ -224,6 +224,11 @@
 									<input type="text" name="subject" placeholder="Subject" required="">
 								</div>
 							</div>
+								<div class="col-lg-6">
+								<div class="form-group">
+									<input type="text" name="organization" placeholder="Subject" required="">
+								</div>
+							</div>
 							<div class="col-lg-12">
 								<div class="form-group">
 									<textarea name="message" placeholder="Your Message" required=""></textarea>
@@ -231,7 +236,7 @@
 							</div>
 							<div class="col-12">
 								<div class="form-group login-btn">
-									<button class="btn default-background" type="submit">Send</button>
+									<button name="submit_form" class="btn default-background" type="submit">Send</button>
 								</div>
 							</div>
 						</div>
@@ -468,5 +473,5 @@
 <script src="js/main.js"></script>
 <!-- more settings  -->
 <script src="js/more-options.js"></script>
-    </body>
+</body>
 </html>
