@@ -222,7 +222,7 @@
 				<div class="row">
 					<div class="col-lg-8 col-12">
 						<div class="row">
-							<div class="col-12" style="max-height: 60vh;min-height: 60vh;">
+							<div class="col-12">
 
 							<div >
 								<?php if (isset($_GET['blogId'])) {
