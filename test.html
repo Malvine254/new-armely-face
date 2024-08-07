@@ -3,35 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Truncate Text</title>
+    <title>Blog Pagination</title>
+   <style type="text/css">
+       #blog-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#blog-content {
+    border: 1px solid #ccc;
+    padding: 10px;
+    min-height: 300px;
+    max-height: 500px; /* Adjust as needed */
+    overflow: hidden;
+}
+
+#pagination-controls {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#pagination-controls button {
+    padding: 5px 10px;
+    margin: 0 5px;
+}
+
+   </style>
 </head>
 <body>
-    <p class="truncate-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod enim a metus condimentum, vel varius justo gravida. Cras sagittis, purus id ullamcorper egestas, sapien libero ultrices libero, at feugiat ligula lorem a nisi. Nullam in ipsum nec velit mollis efficitur. Aliquam erat volutpat. Etiam faucibus mauris nec mauris ultricies, vel scelerisque nulla elementum. Suspendisse quis tortor a urna suscipit pharetra. Donec condimentum, odio id fermentum aliquam, ligula lacus varius urna, vel gravida purus est non justo. Mauris bibendum sem in tincidunt malesuada. Nunc in tellus vehicula, dapibus nunc non, porta nisi. Aliquam erat volutpat. Morbi euismod ultricies nisi, a varius felis auctor ut. Sed tincidunt fringilla libero, ut fermentum nisl efficitur sit amet.
-    </p>
-    <span class="toggle-text" style="color: blue; cursor: pointer; text-decoration: underline;">Read more</span>
-
+    <div id="blog-container">
+        <div id="blog-content">
+            <!-- Your blog content here -->
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat nulla non est pretium, non vehicula orci semper. Mauris maximus velit at tellus tempor, eget dignissim metus mollis   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat nulla non est pretium, non vehicula orci semper. Mauris maximus velit at tellus tempor, eget dignissim metus mollis  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat nulla non est pretium, non vehicula orci semper. Mauris maximus velit at tellus tempor, eget dignissim metus mollis  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat nulla non est pretium, non vehicula orci semper. Mauris maximus velit at tellus tempor, eget dignissim metus mollis  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat nulla non est pretium, non vehicula orci semper. Mauris maximus velit at tellus tempor, eget dignissim metus mollis  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat nulla non est pretium, non vehicula orci semper. Mauris maximus velit at tellus tempor, eget dignissim metus mollis  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat nulla non est pretium, non vehicula orci semper. Mauris maximus velit at tellus tempor, eget dignissim metus mollis  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat nulla non est pretium, non vehicula orci semper. Mauris maximus velit at tellus tempor, eget dignissim metus mollis  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat nulla non est pretium, non vehicula orci semper. Mauris maximus velit at tellus tempor, eget dignissim metus mollis  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat nulla non est pretium, non vehicula orci semper. Mauris maximus velit at tellus tempor, eget dignissim metus mollis  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat nulla non est pretium, non vehicula orci semper. Mauris maximus velit at tellus tempor, eget dignissim metus mollis. ...
+        </div>
+        <div id="pagination-controls">
+            <button id="prev-page" disabled>Previous</button>
+            <span id="page-info">Page <span id="current-page">1</span> of <span id="total-pages">1</span></span>
+            <button id="next-page">Next</button>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
-            const truncateCharCount = 200;
-            const fullText = $(".truncate-text").text();
-            const truncatedText = fullText.substring(0, truncateCharCount) + "...";
+    var characterLimit = 2000; // Set your character limit here
+    var blogContent = $('#blog-content').html();
+    var pages = [];
+    var currentPage = 1;
 
-            if (fullText.length > truncateCharCount) {
-                $(".truncate-text").text(truncatedText);
-            }
+    function splitContent() {
+        var start = 0;
+        while (start < blogContent.length) {
+            pages.push(blogContent.slice(start, start + characterLimit));
+            start += characterLimit;
+        }
+    }
 
-            $(".toggle-text").click(function() {
-                if ($(this).text() === "Read more") {
-                    $(".truncate-text").text(fullText);
-                    $(this).text("Read less");
-                } else {
-                    $(".truncate-text").text(truncatedText);
-                    $(this).text("Read more");
-                }
-            });
-        });
+    function showPage(page) {
+        $('#blog-content').html(pages[page - 1]);
+        $('#current-page').text(page);
+        $('#total-pages').text(pages.length);
+
+        $('#prev-page').prop('disabled', page === 1);
+        $('#next-page').prop('disabled', page === pages.length);
+    }
+
+    $('#prev-page').click(function() {
+        if (currentPage > 1) {
+            currentPage--;
+            showPage(currentPage);
+        }
+    });
+
+    $('#next-page').click(function() {
+        if (currentPage < pages.length) {
+            currentPage++;
+            showPage(currentPage);
+        }
+    });
+
+    // Split content and show initial page
+    splitContent();
+    showPage(currentPage);
+});
+
     </script>
 </body>
 </html>

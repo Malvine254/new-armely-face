@@ -190,8 +190,8 @@
 	<div class="container">
 		<div class="bread-inner">
 			<div class="row">
-				<div class="col-12">
-					<h2>Customer Stories</h2>
+				<div class="col-12 ">
+					<h2 class=" mt-5">Customer Stories</h2>
 					<ul class="bread-list">
 						<li><a href="index">Home</a></li>
 						<li><i class="icofont-simple-right"></i></li>
@@ -203,38 +203,16 @@
 	</div>
 </div>
 <!-- End Breadcrumbs -->
-<!-- Start Why choose -->
-<section class="why-choose section" >
-<div class="container">
 
-<div class="row">
-<div class="col-lg-6 col-12">
-<!-- Start Choose Left -->
-<div class="choose-left">
-  <h3>Hear it straight from our thrilled clients</h3>
-  <p>Our success stories are a testament to our dedication to delivering the highest quality solutions, getting it right on the first try.</p>
-  <p>Here, you'll find the voices of our satisfied customers sharing their experiences with our products/services. Dive into these authentic reviews to get a glimpse of the quality, reliability, and exceptional service we strive to deliver. Discover why our customers trust us and why you should too</p>
-
-</div>
-<!-- End Choose Left -->
-</div>
-<div class="col-lg-6 col-12">
-<!-- Start Choose Rights -->
-<img src="images/customer-stories/1.png" class="img-fluid">
-<!-- End Choose Rights -->
-</div>
-</div>
-</div>
-</section>
-<!--/ End Why choose --> 
 <!-- Start Schedule Area -->
-<section class="">
+<section class="mt-5">
 <div class="container">
 	<div class="row">
 <div class="col-lg-12">
 <div class="section-title">
   <h2>Testimonials </h2>
     <center><hr class="default-background hr" ></center>
+     <p>Here, you'll find the voices of our satisfied customers sharing their experiences with our products/services. Dive into these authentic reviews to get a glimpse of the quality, reliability, and exceptional service we strive to deliver. Discover why our customers trust us and why you should too</p>
 </div>
 </div>
 </div>

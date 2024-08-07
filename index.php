@@ -264,7 +264,7 @@
 <!--/End Start schedule Area -->
 
 <!-- Start portfolio -->
-<section class="portfolio section" >
+<section class="portfolio" >
 <div class="container">
 <div class="row">
 <div class="col-lg-12">
@@ -281,9 +281,13 @@
 <div class="owl-carousel portfolio-slider">
 	
 	<?php displayRecentIndustryListings() ?>
+	
 </div>
 </div>
 </div>
+<div class="default-color h4 p-2">
+		<a href="case-studies"><strong>Explore all Case Studies >>></strong></a>
+	</div>
 </div>
 </section>
 <!--/ End portfolio -->
@@ -295,7 +299,7 @@
      <?php displayPartnersLogo();?>
     </div>
   </div> -->
-<section class="blog section" id="blog">
+<section class="blog mb-5 mt-5" id="blog">
 <div class="container">
 <div class="row">
 <div class="col-lg-12">
@@ -396,7 +400,7 @@
 
 
 <!-- Pricing Table -->
-<section class="pricing-table section">
+<section class="">
 <div class="container">
 <div class="row">
 <div class="col-lg-12">
@@ -406,23 +410,30 @@
 </div>
 </div>
 </div>
-<a class="text-right default-color h5 mb-4 link" href="">See all videos >>> </a>
 <div class="row">
 <!-- Single Table -->
 <div class="col-lg-4 col-md-12 col-12">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9_MpScMnC6I?si=wHVSeoKQ33vtPl_r" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="
+https://www.youtube.com/embed/-RQjOGa2iIM?si=SLje5Z3IS9uGtW5n"
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 <!-- End Single Table-->
 <!-- Single Table -->
 <div class="col-lg-4 col-md-12 col-12">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9_MpScMnC6I?si=wHVSeoKQ33vtPl_r" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
+<iframe width="560" height="315" src="
+https://www.youtube.com/embed/FJIrwUFK_4w?si=m8tYZ1JEaiJsOqvk"
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
 <!-- Single Table -->
 <div class="col-lg-4 col-md-12 col-12">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9_MpScMnC6I?si=wHVSeoKQ33vtPl_r" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="
+https://www.youtube.com/embed/-flTFzomkdc?si=b37Kgi5G2qkx62-r"
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 <!-- End Single Table-->
 </div>	
+<div class="default-color h4 p-2">
+		<a href="case-studies"><strong>Explore all Videos >>></strong></a>
+	</div>
 </div>	
 </section>	
 <!--/ End Pricing Table -->

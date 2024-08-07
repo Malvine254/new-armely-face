@@ -203,11 +203,11 @@
 				<div class="bread-inner">
 					<div class="row">
 						<div class="col-12">
-							<h2>Blog Single</h2>
+							<h2>Blogs</h2>
 							<ul class="bread-list">
 								<li><a href="index">Home</a></li>
 								<li><i class="icofont-simple-right"></i></li>
-								<li class="active">Blog Single</li>
+								<li class="active">Blogs</li>
 							</ul>
 						</div>
 					</div>
@@ -222,15 +222,17 @@
 				<div class="row">
 					<div class="col-lg-8 col-12">
 						<div class="row">
-							<div class="col-12">
+							<div class="col-12" style="max-height: 60vh;min-height: 60vh;">
 
-							<?php if (isset($_GET['blogId'])) {
+							<div >
+								<?php if (isset($_GET['blogId'])) {
 								displayBlogFullDetals();
 							} else{
 								selectblogByDefault();
 							}
 
 							?>
+							</div>
 
 
 
@@ -422,6 +424,48 @@
 <script src="js/main.js"></script>
 <!-- more settings  -->
 <script src="js/more-options.js"></script>
+<script type="text/javascript">
+	 $(document).ready(function() {
+    var characterLimit = 2500; // Set your character limit here
+    var blogContent = $('#blog-content').html();
+    var pages = [];
+    var currentPage = 1;
 
+    function splitContent() {
+        var start = 0;
+        while (start < blogContent.length) {
+            pages.push(blogContent.slice(start, start + characterLimit));
+            start += characterLimit;
+        }
+    }
+
+    function showPage(page) {
+        $('#blog-content').html(pages[page - 1]);
+        $('#current-page').text(page);
+        $('#total-pages').text(pages.length);
+
+        $('#prev-page').prop('disabled', page === 1);
+        $('#next-page').prop('disabled', page === pages.length);
+    }
+
+    $('#prev-page').click(function() {
+        if (currentPage > 1) {
+            currentPage--;
+            showPage(currentPage);
+        }
+    });
+
+    $('#next-page').click(function() {
+        if (currentPage < pages.length) {
+            currentPage++;
+            showPage(currentPage);
+        }
+    });
+
+    // Split content and show initial page
+    splitContent();
+    showPage(currentPage);
+});	
+</script>
 </body>
 </html>

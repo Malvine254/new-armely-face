@@ -251,7 +251,7 @@ function displayBlogFullDetals(){
 					</div>
 				</div>
 				<!-- News Text -->
-				<div class="news-text">
+				<div class="news-text"  id="blog-content">
 					'.$row['body'].'
 				</div>
 				<div class="blog-bottom">
@@ -265,8 +265,10 @@ function displayBlogFullDetals(){
 					</ul>
 					<!-- Next Prev -->
 					<ul class="prev-next">
-						<li class="prev"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
-						<li class="next"><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+						<li id="prev-page" class="prev"><a ><i class="fa fa-angle-double-left"></i></a></li>
+						<li id="prev-page" class="prev"> <span id="page-info">Page <span id="current-page">1</span> of <span id="total-pages">1</span></span></li>
+
+						<li id="next-page" class="next"><a ><i class="fa fa-angle-double-right"></i></a></li>
 					</ul>
 					<!--/ End Next Prev -->
 				</div>
