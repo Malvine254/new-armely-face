@@ -1,8 +1,8 @@
 <?php 
-if (isset($_GET['jobId'])) {
+if (isset($_GET['job-details'])) {
   require 'config.php';
   $numbering = 1;
-  $id = mysqli_real_escape_string($conn,$_GET['jobId']);
+  $id = mysqli_real_escape_string($conn,$_GET['job-details']);
   $select = $conn->query("SELECT * FROM career WHERE job_id='$id'");
   if ($select->num_rows>0) {
     while ($row=$select->fetch_assoc()) {

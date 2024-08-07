@@ -255,42 +255,42 @@
         </div>
         <div class="row mt-5">
           <div class="col-md-4 mb-3">
-            <div class="shadow p-2" style="min-height: 260px; max-height: 260px;">
+            <div class="card p-2" style="min-height: 260px; max-height: 260px;">
               <img class="img-fluid" width="48" height="48" src="https://www.microsoft.com/content/dam/microsoft/final/en-us/microsoft-brand/icons/Icon-Microsoft-fabric-24x24.svg" alt="microsoft-power-automate-2020"/>
               <h6><strong>Microsoft Fabric in healthcare</strong></h6>
               <p>Unlock powerful analytics in healthcare data. As Microsoft Fabric Partners we empower organizations build data-driven decisions solutions</p>
             </div>
           </div>
            <div class="col-md-4">
-            <div class="shadow p-2" style="min-height: 260px; max-height: 260px;">
+            <div class="card p-2" style="min-height: 260px; max-height: 260px;">
               <img class="img-fluid" width="48" height="48" src="https://www.microsoft.com/content/dam/microsoft/final/en-us/microsoft-brand/icons/Icon-Power-Platform-24x24.svg" alt="microsoft-power-automate-2020"/>
               <h6><strong>Power Platform in healthcare</strong></h6>
               <p>Streamline workflows and automates tasks, building low-code/no-code solutions that empower organizations to transform data into actionable insights.</p>
             </div>
           </div>
            <div class="col-md-4">
-            <div class="shadow p-2" style="min-height: 260px; max-height: 260px;">
+            <div class="card p-2" style="min-height: 260px; max-height: 260px;">
               <img class="img-fluid" width="48" height="48" src="https://www.microsoft.com/content/dam/microsoft/final/en-us/microsoft-brand/icons/Icon-Microsft-Cloud-for-Healthcare-24x24.svg" alt="microsoft-power-automate-2020"/>
               <h6><strong>Microsoft Cloud for healthcare</strong></h6>
               <p>Cloud for healthcare brings together secure, scalable cloud services to empower healthcare organizations with data-driven insights.</p>
             </div>
           </div>
            <div class="col-md-4">
-            <div class="shadow p-2" style="min-height: 260px; max-height: 260px;">
+            <div class="card p-2" style="min-height: 260px; max-height: 260px;">
               <img class="img-fluid" width="48" height="48" src="https://img.icons8.com/fluency/48/microsoft-power-automate-2020.png" alt="microsoft-power-automate-2020"/>
               <h6><strong>Azure AI in healthcare</strong></h6>
               <p>Empowers organizations with intelligent capabilities, enabling tasks like analyzing medical images for faster diagnoses, predicting patient outcomes and extracting insights from unstructured data to improve research and development.</p>
             </div>
           </div>
            <div class="col-md-4">
-            <div class="shadow p-2" style="min-height: 260px; max-height: 260px;">
+            <div class="card p-2" style="min-height: 260px; max-height: 260px;">
               <img class="img-fluid" width="48" height="48" src="https://th.bing.com/th/id/OIP.GIheK6M3kWlHXSMg_2L-nQAAAA?rs=1&pid=ImgDetMain" alt="microsoft-power-automate-2020"/>
               <h6><strong>FHIR Integration</strong></h6>
               <p>Unlocks seamless data exchange within healthcare ecosystems, enabling secure sharing of patient information across different applications and platforms for improved care coordination and decision-making.</p>
             </div>
           </div>
            <div class="col-md-4">
-            <div class="shadow p-2" style="min-height: 260px; max-height: 260px;">
+            <div class="card p-2" style="min-height: 260px; max-height: 260px;">
              <img class="img-fluid" width="48" height="48" src="https://www.microsoft.com/content/dam/microsoft/final/en-us/microsoft-brand/icons/Icon-Azure-AI-24x24-1.svg" alt="tableau-software"/>
               <h6><strong>Tableau in healthcare</strong></h6>
               <p>Transform complex healthcare data into clear, insightful visualizations allowing organization to identify trends, patterns leading to better patient care, optimized resource allocation, and informed decision-making.</p>
@@ -322,28 +322,28 @@
 
       <div class="row mt-5">
       <div class="col-md-3">
-        <div class="shadow p-2" style="min-height: 260px; max-height: 260px;">
+        <div class="card p-2" style="min-height: 260px; max-height: 260px;">
           <img class="img-fluid" width="48" height="48" src="https://www.microsoft.com/content/dam/microsoft/final/en-us/microsoft-brand/icons/Icon-Microsoft-fabric-24x24.svg" alt="microsoft-power-automate-2020"/>
           <h6><strong>Microsoft Fabric in oil & gas </strong></h6>
           <p>Unlock powerful analytics in oil & gas data. As Microsoft Fabric Partners we empower organizations build data-driven decisions solutions </p>
         </div>
       </div>
        <div class="col-md-3">
-        <div class="shadow p-2" style="min-height: 260px; max-height: 260px;">
+        <div class="card p-2" style="min-height: 260px; max-height: 260px;">
           <img class="img-fluid" width="48" height="48" src="https://www.microsoft.com/content/dam/microsoft/final/en-us/microsoft-brand/icons/Icon-Power-Platform-24x24.svg" alt="microsoft-power-automate-2020"/>
           <h6><strong>Power Platform in oil & gas</strong></h6>
           <p>Streamline workflows and automates tasks, building low-code/no-code solutions that empower organizations to transform data into actionable insights</p>
         </div>
       </div>
        <div class="col-md-3">
-        <div class="shadow p-2" style="min-height: 260px; max-height: 260px;">
+        <div class="card p-2" style="min-height: 260px; max-height: 260px;">
           <img class="img-fluid" width="48" height="48" src="https://img.icons8.com/fluency/48/azure-1.png" alt="azure-1"/>
           <h6><strong>Azure AI in oil & gas</strong></h6>
           <p>Empowers organizations with intelligent capabilities, enabling tasks like analyzing medical images for faster diagnoses, predicting patient outcomes and extracting insights from unstructured data to improve research and development.</p>
         </div>
       </div>
        <div class="col-md-3">
-        <div class="shadow p-2" style="min-height: 260px; max-height: 260px;">
+        <div class="card p-2" style="min-height: 260px; max-height: 260px;">
           <img class="img-fluid" width="50" height="50" src="https://img.icons8.com/bubbles/50/azure-api-manager.png" alt="azure-api-manager"/>
           <h6><strong>API Integration</strong></h6>
           <p>Transform complex oil & gas data into clear, insightful visualizations allowing organization to identify trends by integrating with external data</p>
@@ -546,7 +546,7 @@
 <!-- end of search bar modal -->
 
 <!-- start of cookies section -->
-<div id="snackbar" class="snackbar container shadow bg-light">
+<div id="snackbar" class="snackbar container card bg-light">
     <button class="btn-close" aria-label="Close">&times;</button>
     <div class="text-start row">
       <div class="col-md-8">

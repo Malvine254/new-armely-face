@@ -376,15 +376,15 @@ function displayCustomerStoriesTestimonials(){
 
         	echo '<div class="col-lg-4 col-md-6 col-12 " >
 				<!-- single-schedule -->
-				<div class="single-schedule first card p-2" style="min-height: 350px; max-height: 350px;">
+				<div class="single-schedule first card p-2" style="min-height: 340px; max-height: 340px;">
 					<div class="inner ">
 						<div class="icon">
 							<i class="fa fa-data"></i>
 						</div>
-						<div class="single-content">
+						<div class="single-content p-2">
 							<center><img style="width: 70px; height: 70px;" src="images/customer-stories/'.$row['profile'].'" class="img-fluid rounded-circle"></center>
 							<div class="text-center">
-								<h4 >'.$row['name'].'</h4>
+								<h5 class="mt-2">'.$row['name'].'</h5>
 								<strong 	>'.$row['position'].'</strong>
 							</div>
 							<p>'.substr($row['body_content'],0,200) .'...</p>
@@ -505,7 +505,7 @@ function displayCareerListings(){
 					<div class="single-table shadow">
 						<!-- Table Head -->
 						<div class="table-head">
-							<a href="career_details?id='.$row['id'].'"><h4 class="title">'.$row['job_title'].'</h4>
+							<a href="job-board?job-details='.$row['job_id'].'"><h4 class="title">'.$row['job_title'].'</h4>
 							<div class="price">
 								<span> <i class="fa fa-map-marker"></i> Location:  '.$row['job_location'].'</span>
 								<div>
@@ -726,6 +726,70 @@ function displayPartnersLogo(){
     }
 
 }
+
+#''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+#Beginning of submit consultation form
+#''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['organization'])&& isset($_POST['phone']) && isset($_POST['message']) && isset($_POST['service_type'])) {
+   echo submitConsultationForm();
+}
+function submitConsultationForm(){
+include 'config.php';
+function dateFormat(){
+// Your date
+$date =  date('y-m-d');
+// Convert the date to a timestamp
+$timestamp = strtotime($date);
+// Format the date
+$formattedDate = date("j M Y", $timestamp);
+return $formattedDate;
+}
+$date_now = dateFormat();
+// Sanitize and validate user input
+$name = isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '';
+$email = isset($_POST['email']) ? filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) : '';
+$organization = isset($_POST['organization']) ? htmlspecialchars($_POST['organization']) : '';
+$phone = isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) : '';
+$message = isset($_POST['message']) ? htmlspecialchars($_POST['message']) : '';
+$service_type  = isset($_POST['service_type']) ? htmlspecialchars($_POST['service_type']) : '';
+
+// Validate phone number format
+if ($phone && !preg_match('/(\d{1})(\d{3})(\d{3})(\d{4})/', $phone)) {
+    // Invalid phone number format
+    return "Invalid phone format, use this format +19724600643";
+} else {
+    // Check if required fields are not empty
+    if ($name && $email && $organization && $phone && $message && $service_type) {
+        // Prepare and bind the SQL statement
+        $stmt = $conn->prepare("INSERT INTO consultation (name, email, organization, phone, message,service_type,date_now) VALUES (?, ?, ?, ?, ?,?,?)");
+        $stmt->bind_param("sssssss", $name, $email, $organization, $phone, $message,$service_type,$date_now);
+
+        // Execute the statement
+        if ($stmt->execute()) {
+            echo 1;
+        } else {
+            // Log the error securely
+            error_log('Failed to insert contact form data into the database');
+
+            // Display a generic error message
+            return "Failed to submit the form. Please try again later";
+        }
+
+        // Close the statement
+        $stmt->close();
+    } else {
+        // Display an error message if required fields are not provided
+        return "Please fill in all the required fields";
+    }
+}
+}
+#''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+#End of submit consultation form
+#''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+
+
 
 
 ?>

@@ -187,13 +187,15 @@
 				
 <!-- Start Contact Us -->
 <section class="contact-us section ">
-<div class="container col-12 col-lg-10 col-md-10">
+<div class="container col-12 col-lg-11 col-md-11">
 	<div class="inner">
 		<div class="row"> 
 			<div class="col-lg-6">
 				<div class="contact-us-left">
 					<!--Start Google-map -->
-					<div id="myMap"></div>
+					<div class="p-3 mt-2">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3339.393990831668!2d-96.88709372452247!3d33.177533073498864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c39992307da29%3A0x2c2a76b897ebb224!2s2831%20Eldorado%20Pkwy%20103%20128%2C%20Frisco%2C%20TX%2075033%2C%20USA!5e0!3m2!1sen!2ske!4v1723048538377!5m2!1sen!2ske" width="900" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					</div>
 					<!--/End Google-map -->
 				</div>
 			</div>
@@ -224,9 +226,9 @@
 									<input type="text" name="subject" placeholder="Subject" required="">
 								</div>
 							</div>
-								<div class="col-lg-6">
+								<div class="col-lg-12">
 								<div class="form-group">
-									<input type="text" name="organization" placeholder="Subject" required="">
+									<input type="text" name="organization" placeholder="Organization" required="">
 								</div>
 							</div>
 							<div class="col-lg-12">
@@ -473,5 +475,7 @@
 <script src="js/main.js"></script>
 <!-- more settings  -->
 <script src="js/more-options.js"></script>
+<!-- sweet alerts -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js"></script>
 </body>
 </html>
