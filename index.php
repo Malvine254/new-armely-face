@@ -447,36 +447,36 @@
 
 <div class="row">
 <div class="col-lg-12 col-md-6 col-12 d-flex text-center default-background mb-5">
-<form class="form p-5" action="#">
+<form class="form p-5" id="contact-form" method="post">
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-12">
 			<div class="form-group input-with-background">
-				<input class="remove-input-background" name="name" type="text" placeholder="Name">
+				<input required class="remove-input-background" name="name" type="text" placeholder="Name">
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-12">
 			<div class="form-group">
-				<input class="remove-input-background" name="email" type="email" placeholder="Email">
+				<input required class="remove-input-background" name="email" type="email" placeholder="Email">
+			</div> 
+		</div>
+		<div class="col-lg-6 col-md-6 col-12">
+			<div class="form-group">
+				<input required class="remove-input-background" name="phone" type="text" placeholder="Phone">
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-12">
 			<div class="form-group">
-				<input class="remove-input-background" name="phone" type="text" placeholder="Phone">
-			</div>
-		</div>
-		<div class="col-lg-6 col-md-6 col-12">
-			<div class="form-group">
-				<input class="remove-input-background" name="phone" type="text" placeholder="Orginazation Name">
+				<input required class="remove-input-background" name="organization" type="text" placeholder="Orginazation Name">
 			</div>
 		</div>
 		<div class="col-lg-12 col-md-12 col-12">
 			<div class="form-group">
-				<textarea class="remove-input-background" name="message" placeholder="Write Your Message Here....."></textarea>
+				<textarea required class="remove-input-background" name="message" placeholder="Write Your Message Here....."></textarea>
 			</div>
 		</div>
 		<div class="form-group ml-3">
 			<div class="button">
-				<button type="submit" class="btn send-message-btn">Send Message</button>
+				<button type="submit" class="btn send-message-btn" name="submit_form">Send Message</button>
 			</div>
 		</div>
 	</div>
@@ -672,11 +672,12 @@
 <script src="js/main.js"></script>
 <!-- more settings  -->
 <script src="js/more-options.js"></script>
-<!-- Wow.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.3/wow.min.js"></script>
+<!-- sweet alerts -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js"></script>
 <script>
 	new WOW().init();
-
+	
+  
 </script>
 
 

@@ -3,37 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Styled List</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .checklist {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .checklist li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-        .checklist li i {
-            color: #3498db;
-            margin-right: 10px;
-        }
-    </style>
+    <title>Truncate Text</title>
 </head>
 <body>
-    <ul class="checklist">
-        <li><i class="fas fa-check-circle"></i> Scientific Skills For getting a better result</li>
-        <li><i class="fas fa-check-circle"></i> Communication Skills to getting in touch</li>
-        <li><i class="fas fa-check-circle"></i> A Career Overview opportunity Available</li>
-        <li><i class="fas fa-check-circle"></i> A good Work Environment For work</li>
-        <li><i class="fas fa-check-circle"></i> Scientific Skills For getting a better result</li>
-        <li><i class="fas fa-check-circle"></i> Communication Skills to getting in touch</li>
-    </ul>
+    <p class="truncate-text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod enim a metus condimentum, vel varius justo gravida. Cras sagittis, purus id ullamcorper egestas, sapien libero ultrices libero, at feugiat ligula lorem a nisi. Nullam in ipsum nec velit mollis efficitur. Aliquam erat volutpat. Etiam faucibus mauris nec mauris ultricies, vel scelerisque nulla elementum. Suspendisse quis tortor a urna suscipit pharetra. Donec condimentum, odio id fermentum aliquam, ligula lacus varius urna, vel gravida purus est non justo. Mauris bibendum sem in tincidunt malesuada. Nunc in tellus vehicula, dapibus nunc non, porta nisi. Aliquam erat volutpat. Morbi euismod ultricies nisi, a varius felis auctor ut. Sed tincidunt fringilla libero, ut fermentum nisl efficitur sit amet.
+    </p>
+    <span class="toggle-text" style="color: blue; cursor: pointer; text-decoration: underline;">Read more</span>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const truncateCharCount = 200;
+            const fullText = $(".truncate-text").text();
+            const truncatedText = fullText.substring(0, truncateCharCount) + "...";
+
+            if (fullText.length > truncateCharCount) {
+                $(".truncate-text").text(truncatedText);
+            }
+
+            $(".toggle-text").click(function() {
+                if ($(this).text() === "Read more") {
+                    $(".truncate-text").text(fullText);
+                    $(this).text("Read less");
+                } else {
+                    $(".truncate-text").text(truncatedText);
+                    $(this).text("Read more");
+                }
+            });
+        });
+    </script>
 </body>
 </html>

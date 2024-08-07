@@ -420,8 +420,9 @@ function displayCustomerStoriesTestimonialsShort(){
 								<h4 >'.$row['name'].'</h4><br>
 								<strong class="text-light">'.$row['position'].'</strong>
 							</div>
-							<p>'.substr($row['body_content'],0,150) .'...</p>
-							<a href="#">READ MORE<i class="fa fa-long-arrow-right"></i></a>
+							<p id="trancated-'.$row['id'].'" class="truncate-text">'.substr($row['body_content'], 0,150)
+							 .'</p>
+							<a id="load-'.$row['id'].'" class="load toggle-text">READ MORE<i class="fa fa-long-arrow-right"></i></a>
 						</div>
 					</div>
 				</div>
