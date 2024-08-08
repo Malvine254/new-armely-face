@@ -258,11 +258,10 @@ function displayBlogFullDetals(){
 				<div class="blog-bottom">
 					<!-- Social Share -->
 					<ul class="social-share">
-						<li class="facebook"><a href="#"><i class="fa fa-facebook"></i><span>Facebook</span></a></li>
-						<li class="twitter"><a href="#"><i class="fa fa-twitter"></i><span>Twitter</span></a></li>
-						<li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-						<li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-						<li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
+						<li class="facebook"><a class="shareBtn"  data-social="facebook"><i class="fa-brands fa-facebook"></i><span>Facebook</span></a></li>
+						<li class="twitter"><a class="shareBtn" data-social="twitter"><i class="fa-brands fa-x-twitter"></i><span>Twitter</span></a></li>
+						<li class="google-plus"><a class="shareBtn"  data-social="instagram"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a></li>
+						<li class="linkedin"><a class="shareBtn"  data-social="linkedin"><i class="fa-brands fa-linkedin"></i> <span>LinkedIn</span></a> </li>
 					</ul>
 					<!-- Next Prev -->
 					<ul class="prev-next">
