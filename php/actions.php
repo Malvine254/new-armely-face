@@ -235,7 +235,7 @@ function displayBlogFullDetals(){
 			<div class="single-main">
 				<!-- News Head -->
 				<div class="news-head">
-					<img src="'.$row['image_path'].'" alt="#">
+					<img style="min-height: 400px; max-height: 400px;" src="'.$row['image_path'].'" alt="#">
 				</div>
 				<!-- News Title -->
 				<h1 class="news-title"><a >'.$row['title'].'</a></h1>
@@ -251,9 +251,10 @@ function displayBlogFullDetals(){
 					</div>
 				</div>
 				<!-- News Text -->
-				<div class="news-text"  id="blog-content">
+				<div style="height: 935px; overflow: scroll;" class="news-text scrollable-div"  id="content">
 					'.$row['body'].'
-				</div>
+				</div><br>
+
 				<div class="blog-bottom">
 					<!-- Social Share -->
 					<ul class="social-share">
@@ -265,10 +266,8 @@ function displayBlogFullDetals(){
 					</ul>
 					<!-- Next Prev -->
 					<ul class="prev-next">
-						<li id="prev-page" class="prev"><a ><i class="fa fa-angle-double-left"></i></a></li>
-						<li id="prev-page" class="prev"> <span id="page-info">Page <span id="current-page">1</span> of <span id="total-pages">1</span></span></li>
-
-						<li id="next-page" class="next"><a ><i class="fa fa-angle-double-right"></i></a></li>
+						<li id="show-more" class="show-more-button"><button class="btn btn-warning">Scroll to Read all More <i class="icofont-long-arrow-down"></i></button></li>
+						
 					</ul>
 					<!--/ End Next Prev -->
 				</div>
@@ -304,22 +303,23 @@ function selectblogByDefault(){
 					</div>
 				</div>
 				<!-- News Text -->
-				<div class="news-text">
+				<div style="height: 935px; overflow-y: scroll;" class="news-text scrollable-div"  id="content">
 					'.$row['body'].'
-				</div>
+				</div><br>
+
 				<div class="blog-bottom">
 					<!-- Social Share -->
 					<ul class="social-share">
-						<li class="facebook"><a href="#"><i class="fa fa-facebook"></i><span>Facebook</span></a></li>
-						<li class="twitter"><a href="#"><i class="fa fa-twitter"></i><span>Twitter</span></a></li>
-						<li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-						<li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-						<li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
+						<li class="facebook"><a href="#"><i class="fa-brands fa-facebook"></i><span>Facebook</span></a></li>
+						<li class="twitter"><a href="#"><i class="fa-brands fa-x-twitter"></i><span>Twitter</span></a></li>
+						<li class="google-plus"><a href="#"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a></li>
+						<li class="linkedin"><a href="#"><i class="fa-brands fa-linkedin"></i> <span>LinkedIn</span></a> </li>
+						
 					</ul>
 					<!-- Next Prev -->
 					<ul class="prev-next">
-						<li class="prev"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
-						<li class="next"><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+						<li id="show-more" class="show-more-button"><button class="btn btn-warning">Scroll to Read all More <i class="icofont-long-arrow-down"></i></button></li>
+						
 					</ul>
 					<!--/ End Next Prev -->
 				</div>

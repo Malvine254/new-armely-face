@@ -42,7 +42,7 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="css/responsive.css">
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 		
     </head>
     <body>
@@ -222,18 +222,14 @@
 				<div class="row">
 					<div class="col-lg-8 col-12">
 						<div class="row">
-							<div class="col-12">
-
-							<div >
-								<?php if (isset($_GET['blogId'])) {
+							<div class="col-12" >
+							<?php if (isset($_GET['blogId'])) {
 								displayBlogFullDetals();
 							} else{
 								selectblogByDefault();
 							}
 
 							?>
-							</div>
-
 
 
 							</div>
@@ -424,48 +420,64 @@
 <script src="js/main.js"></script>
 <!-- more settings  -->
 <script src="js/more-options.js"></script>
-<script type="text/javascript">
+<script>
 	 $(document).ready(function() {
-    var characterLimit = 2500; // Set your character limit here
-    var blogContent = $('#blog-content').html();
-    var pages = [];
-    var currentPage = 1;
+        var contentDiv = $('#content');
+        var showMoreButton = $('#show-more');
 
-    function splitContent() {
-        var start = 0;
-        while (start < blogContent.length) {
-            pages.push(blogContent.slice(start, start + characterLimit));
-            start += characterLimit;
+        // Check if the content is scrollable
+        if (contentDiv[0].scrollHeight > contentDiv.innerHeight()) {
+            showMoreButton.show(); // Show the button if scrollable
         }
-    }
 
-    function showPage(page) {
-        $('#blog-content').html(pages[page - 1]);
-        $('#current-page').text(page);
-        $('#total-pages').text(pages.length);
+        // Scroll down when the button is clicked
+        showMoreButton.on('click', function() {
+            contentDiv.animate({
+                scrollTop: contentDiv[0].scrollHeight
+            }, 800);
+        });
 
-        $('#prev-page').prop('disabled', page === 1);
-        $('#next-page').prop('disabled', page === pages.length);
-    }
+        // Optionally, hide the button after scrolling to the bottom
+        contentDiv.on('scroll', function() {
+            if (contentDiv.scrollTop() + contentDiv.innerHeight() >= contentDiv[0].scrollHeight) {
+                showMoreButton.hide();
+            }
+        });	
 
-    $('#prev-page').click(function() {
-        if (currentPage > 1) {
-            currentPage--;
-            showPage(currentPage);
-        }
+
+        // Share button click event
+	    $(".shareBtn").click(function(){
+	      var social = $(this).data("social");
+	      var url = encodeURIComponent(window.location.href);
+	      var title = $("#blogTitle").text();
+	      var shareURL;
+
+	      switch(social) {
+	        case "facebook":
+	          shareURL = "https://www.facebook.com/sharer/sharer.php?u=" + url;
+	          break;
+	        case "twitter":
+	          shareURL = "https://twitter.com/intent/tweet?url=" + url + "&text=" + title;
+	          break;
+	        case "linkedin":
+	          shareURL = "https://www.linkedin.com/shareArticle?url=" + url + "&title=" + title;
+	          break;
+	           case "whatsapp":
+	          shareURL = "https://api.whatsapp.com/send?text=" + title + "%20" + url;
+	          break;
+	           case "reddit":
+	          shareURL = "https://reddit.com/submit?url=" + url + "&title=" + title;
+	          break;
+
+
+	      }
+
+	    // Open share URL in new window
+	    window.open(shareURL, "_blank");
+	  });
     });
 
-    $('#next-page').click(function() {
-        if (currentPage < pages.length) {
-            currentPage++;
-            showPage(currentPage);
-        }
-    });
-
-    // Split content and show initial page
-    splitContent();
-    showPage(currentPage);
-});	
+	 
 </script>
 </body>
 </html>

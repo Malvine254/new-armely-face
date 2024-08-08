@@ -3,90 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Pagination</title>
-   <style type="text/css">
-       #blog-container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-}
+    <title>Scrollable Div with Show More Button</title>
+    <style>
+        .scrollable-div {
+            max-height: 200px; /* Adjust this height as needed */
+            overflow-y: auto;
+            position: relative;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
 
-#blog-content {
-    border: 1px solid #ccc;
-    padding: 10px;
-    min-height: 300px;
-    max-height: 500px; /* Adjust as needed */
-    overflow: hidden;
-}
+        .show-more-button {
+            display: none; /* Initially hidden */
+            position: absolute;
+            bottom: 10px; /* Adjust positioning as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
 
-#pagination-controls {
-    text-align: center;
-    margin-top: 10px;
-}
-
-#pagination-controls button {
-    padding: 5px 10px;
-    margin: 0 5px;
-}
-
-   </style>
+        .show-more-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <div id="blog-container">
-        <div id="blog-content">
-            <!-- Your blog content here -->
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat nulla non est pretium, non vehicula orci semper. Mauris maximus velit at tellus tempor, eget dignissim metus mollis   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat nulla non est pretium, non vehicula orci semper. Mauris maximus velit at tellus tempor, eget dignissim metus mollis  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat nulla non est pretium, non vehicula orci semper. Mauris maximus velit at tellus tempor, eget dignissim metus mollis  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat nulla non est pretium, non vehicula orci semper. Mauris maximus velit at tellus tempor, eget dignissim metus mollis  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat nulla non est pretium, non vehicula orci semper. Mauris maximus velit at tellus tempor, eget dignissim metus mollis  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat nulla non est pretium, non vehicula orci semper. Mauris maximus velit at tellus tempor, eget dignissim metus mollis  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat nulla non est pretium, non vehicula orci semper. Mauris maximus velit at tellus tempor, eget dignissim metus mollis  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat nulla non est pretium, non vehicula orci semper. Mauris maximus velit at tellus tempor, eget dignissim metus mollis  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat nulla non est pretium, non vehicula orci semper. Mauris maximus velit at tellus tempor, eget dignissim metus mollis  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat nulla non est pretium, non vehicula orci semper. Mauris maximus velit at tellus tempor, eget dignissim metus mollis  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat nulla non est pretium, non vehicula orci semper. Mauris maximus velit at tellus tempor, eget dignissim metus mollis. ...
-        </div>
-        <div id="pagination-controls">
-            <button id="prev-page" disabled>Previous</button>
-            <span id="page-info">Page <span id="current-page">1</span> of <span id="total-pages">1</span></span>
-            <button id="next-page">Next</button>
-        </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-    var characterLimit = 2000; // Set your character limit here
-    var blogContent = $('#blog-content').html();
-    var pages = [];
-    var currentPage = 1;
 
-    function splitContent() {
-        var start = 0;
-        while (start < blogContent.length) {
-            pages.push(blogContent.slice(start, start + characterLimit));
-            start += characterLimit;
+<div id="content" class="scrollable-div">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi eu congue facilisis, quam enim dictum risus, nec tincidunt ligula nisi eu lorem. Integer eget orci nec felis lacinia bibendum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi eu congue facilisis, quam enim dictum risus, nec tincidunt ligula nisi eu lorem. Integer eget orci nec felis lacinia bibendum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi eu congue facilisis, quam enim dictum risus, nec tincidunt ligula nisi eu lorem. Integer eget orci nec felis lacinia bibendum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi eu congue facilisis, quam enim dictum risus, nec tincidunt ligula nisi eu lorem. Integer eget orci nec felis lacinia bibendum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi eu congue facilisis, quam enim dictum risus, nec tincidunt ligula nisi eu lorem. Integer eget orci nec felis lacinia bibendum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi eu congue facilisis, quam enim dictum risus, nec tincidunt ligula nisi eu lorem. Integer eget orci nec felis lacinia bibendum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi eu congue facilisis, quam enim dictum risus, nec tincidunt ligula nisi eu lorem. Integer eget orci nec felis lacinia bibendum.</p>
+    <!-- Add more content as needed -->
+</div>
+<button id="show-more" class="show-more-button">Show More</button>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var contentDiv = $('#content');
+        var showMoreButton = $('#show-more');
+
+        // Check if the content is scrollable
+        if (contentDiv[0].scrollHeight > contentDiv.innerHeight()) {
+            showMoreButton.show(); // Show the button if scrollable
         }
-    }
 
-    function showPage(page) {
-        $('#blog-content').html(pages[page - 1]);
-        $('#current-page').text(page);
-        $('#total-pages').text(pages.length);
+        // Scroll down when the button is clicked
+        showMoreButton.on('click', function() {
+            contentDiv.animate({
+                scrollTop: contentDiv[0].scrollHeight
+            }, 800);
+        });
 
-        $('#prev-page').prop('disabled', page === 1);
-        $('#next-page').prop('disabled', page === pages.length);
-    }
-
-    $('#prev-page').click(function() {
-        if (currentPage > 1) {
-            currentPage--;
-            showPage(currentPage);
-        }
+        // Optionally, hide the button after scrolling to the bottom
+        contentDiv.on('scroll', function() {
+            if (contentDiv.scrollTop() + contentDiv.innerHeight() >= contentDiv[0].scrollHeight) {
+                showMoreButton.hide();
+            }
+        });
     });
+</script>
 
-    $('#next-page').click(function() {
-        if (currentPage < pages.length) {
-            currentPage++;
-            showPage(currentPage);
-        }
-    });
-
-    // Split content and show initial page
-    splitContent();
-    showPage(currentPage);
-});
-
-    </script>
 </body>
 </html>
