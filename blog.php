@@ -462,12 +462,12 @@
 	        case "linkedin":
 	          shareURL = "https://www.linkedin.com/shareArticle?url=" + url + "&title=" + title;
 	          break;
-	           case "whatsapp":
-	          shareURL = "https://api.whatsapp.com/send?text=" + title + "%20" + url;
-	          break;
-	           case "reddit":
-	          shareURL = "https://reddit.com/submit?url=" + url + "&title=" + title;
-	          break;
+	          case "instagram":
+			    shareURL = "https://www.instagram.com/";
+			   
+			    break;
+	         
+	          
 
 
 	      }
