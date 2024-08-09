@@ -390,7 +390,7 @@
 
 </div>
 	<div class="default-color h4 p-2">
-		<a class="animated-text" href="blog"><strong>Explore all Videos >>></strong></a>
+		<a class="animated-text" href="blog"><strong>Explore all Blogs >>></strong></a>
 	</div>
 </div>
 </section>
