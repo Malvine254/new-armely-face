@@ -203,33 +203,6 @@
 	</div>
 </div>
 <!-- End Breadcrumbs -->
-<!-- Start Why choose -->
-<section class="why-choose section" >
-<div class="container">
-
-<div class="row">
-<div class="col-lg-6 col-12">
-<!-- Start Choose Left -->
-<div class="choose-left">
-  <h3>Turn your data into insightful business solutions</h3>
-  <p>Intuition or gut feeling business decisions don’t work anymore. In an era where consumer preferences constantly evolve and market dynamics shift rapidly, relying solely on intuition can lead to missed opportunities and costly missteps. We help your organization leverage data to make insightful decisions becomes paramount. </p>
-
-</div>
-<!-- End Choose Left -->
-</div>
-<div class="col-lg-6 col-12">
-<!-- Start Choose Rights -->
-<img src="images/company/company.png" class="img-fluid">
-<!-- End Choose Rights -->
-</div>
-</div>
-<div class="mt-3">
-  <p>Our proven end-to-end track record of data management positions us as your strategic partner. By handling data at every stage of its lifecycle, from collection and storage to analysis and utilization, we ensure that our clients have the insights they need to make informed decisions and drive their business forward. </p>
-  <p>Our expertise in data management not only enhances operational efficiency but also enables us to provide tailored solutions that align with our clients' objectives. With a focus on accuracy, security, and compliance, we establish trust and reliability in our partnerships. As a result, our clients view us not just as service providers, but as indispensable collaborators who contribute to their long-term success.</p>
-</div>
-</div>
-</section>
-<!--/ End Why choose --> 
 
 <!-- Start service -->
 <section class="services">
