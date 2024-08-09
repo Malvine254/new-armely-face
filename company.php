@@ -205,7 +205,7 @@
 <!-- End Breadcrumbs -->
 
 <!-- Start service -->
-<section class="services">
+<section class="services section">
 <div class="container">
 <div class="row">
 <div class="col-lg-12">
