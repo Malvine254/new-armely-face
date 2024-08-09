@@ -169,7 +169,7 @@ var formData = $(this).serialize();
 // Perform an AJAX request to submit the form data
 $.ajax({
   type: 'POST',
-  url: 'php/submit_contact', // Replace with your actual server-side endpoint
+  url: 'php/actions', // Replace with your actual server-side endpoint
   data: formData,
   success: function(response) {
     // Handle the success response
@@ -246,3 +246,31 @@ $('#consultation-form').submit(function(event) {
       }
     });
   });
+
+//start of read more for cards
+ $(document).ready(function(){
+    $('.shorten-content').each(function(){
+        const contentElement = $(this);
+        const fullContent = contentElement.html().trim();
+        const maxLength = 170;
+        let shortContent = fullContent;
+
+        if (fullContent.length > maxLength) {
+            shortContent = fullContent.substring(0, maxLength) + '...';
+            contentElement.html(shortContent);
+        }
+
+        contentElement.next('.read-more-btn').click(function(e){
+            e.preventDefault();
+            
+            if(contentElement.text().includes('...')) {
+                contentElement.html(fullContent);
+                $(this).html('<strong>READ LESS<i class="fa fa-long-arrow-right"></i></strong>');
+            } else {
+                contentElement.html(shortContent);
+                $(this).html('<strong>READ MORE<i class="fa fa-long-arrow-right"></i></strong>');
+            }
+        });
+    });
+});
+ // end of read more

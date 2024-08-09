@@ -224,7 +224,7 @@
 <div class="container col-lg-12 p-4">
         <div class="row">
             <div class="col-md-7" data-aos="fade-fade">
-                <?php include 'php/job_description_preview.php'; ?>  
+                <?php displayJobDescriptions(); ?>  
             </div>
             <div class="col-md-5">
               <h1>Job Board</h1>
@@ -305,7 +305,7 @@
 
 
 <!-- Start Appointment -->
-<section class="appointment">
+<section class="appointment mt-0">
 <div class="container">
 <div class="row">
 <div class="col-lg-12">

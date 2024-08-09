@@ -377,7 +377,7 @@ function displayCustomerStoriesTestimonials(){
 
         	echo '<div class="col-lg-4 col-md-6 col-12 " >
 				<!-- single-schedule -->
-				<div class="single-schedule first card p-2" style="min-height: 340px; max-height: 340px;">
+				<div class="single-schedule first card p-2" style="min-height: 340px; height: auto;">
 					<div class="inner ">
 						<div class="icon">
 							<i class="fa fa-data"></i>
@@ -388,8 +388,8 @@ function displayCustomerStoriesTestimonials(){
 								<h5 class="mt-2">'.$row['name'].'</h5>
 								<strong 	>'.$row['position'].'</strong>
 							</div>
-							<p>'.substr($row['body_content'],0,200) .'...</p>
-							<a class="default-color" href="#"><strong>READ MORE<i class="fa fa-long-arrow-right"></i></strong></a>
+							<span class="shorten-content">'.$row['body_content'] .'</span>
+							<a id="'.$row['id'].'" class="default-color read-more-btn" href="#"><strong>READ MORE<i class="fa fa-long-arrow-right"></i></strong></a>
 						</div>
 					</div>
 				</div>
@@ -405,25 +405,24 @@ function displayCustomerStoriesTestimonials(){
 }
 function displayCustomerStoriesTestimonialsShort(){
     include 'config.php';
-     $select = $conn->query("SELECT * FROM customer_stories LIMIT 3");
+     $select = $conn->query("SELECT * FROM offers ORDER BY id LIMIT 3");
      if ($select->num_rows>0) {
         while ($row=$select->fetch_assoc()) {
         	echo '<div class="col-lg-4 col-md-6 col-12" >
 				<!-- single-schedule -->
-				<div class="single-schedule first " style="min-height: 380px; max-height: 380px;">
+				<div class="single-schedule first " style="min-height: 380px; height: auto;">
 					<div class="inner">
 						<div class="icon">
 							<i class="fa fa-data"></i>
 						</div>
 						<div class="single-content">
-							<center><img style="width: 70px; height: 70px;" src="images/customer-stories/'.$row['profile'].'" class="img-fluid rounded-circle"></center>
-							<div class="text-center">
-								<h4 >'.$row['name'].'</h4><br>
-								<strong class="text-light">'.$row['position'].'</strong>
+						<img src="images/offers/'.$row['image'].'" class="img-fluid">
+							<div class="">
+								<h4 >'.$row['title'].'</h4>
 							</div>
-							<p id="trancated-'.$row['id'].'" class="truncate-text">'.substr($row['body_content'], 0,150)
+							<p class="shorten-content">'.$row['body']
 							 .'</p>
-							<a id="load-'.$row['id'].'" class="load toggle-text">READ MORE<i class="fa fa-long-arrow-right"></i></a>
+							<a href=""  class="read-more-btn">READ MORE<i class="fa fa-long-arrow-right"></i></a>
 						</div>
 					</div>
 				</div>
@@ -789,7 +788,109 @@ if ($phone && !preg_match('/(\d{1})(\d{3})(\d{3})(\d{4})/', $phone)) {
 #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 
+#''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+#Beginning of submit contact form
+#''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['organization'])&& isset($_POST['phone']) && isset($_POST['message'])) {
+   echo submitContactUsForm();
+}
+function submitContactUsForm(){
+include 'config.php';
+function dateFormat(){
+// Your date
+$date =  date('y-m-d');
+// Convert the date to a timestamp
+$timestamp = strtotime($date);
+// Format the date
+$formattedDate = date("j M Y", $timestamp);
+return $formattedDate;
+}
+$date_now = dateFormat();
+// Sanitize and validate user input
+$name = isset($_POST['name']) ? htmlspecialchars(trim($_POST['name'])) : '';
+$email = isset($_POST['email']) ? filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL) : '';
+$organization = isset($_POST['organization']) ? htmlspecialchars(trim($_POST['organization'])) : '';
+$phone = isset($_POST['phone']) ? htmlspecialchars(trim($_POST['phone'])) : '';
+$message = isset($_POST['message']) ? htmlspecialchars(trim($_POST['message'])) : '';
 
+// Validate phone number format
+if ($phone && !preg_match('/^\+?\d{1,4}?[\d\s]{3,}$/', $phone)) {
+    // Invalid phone number format
+    echo "Invalid phone format, use this format +19724600643";
+    exit;
+}
+
+// Check if required fields are not empty and valid
+if (!empty($name) && !empty($email) && !empty($organization) && !empty($phone) && !empty($message)) {
+    // Prepare and bind the SQL statement
+    $stmt = $conn->prepare("INSERT INTO contacts (name, email, organization, phone, message,sent_date) VALUES (?, ?, ?, ?, ?,?)");
+    if ($stmt) {
+        $stmt->bind_param("ssssss", $name, $email, $organization, $phone, $message, $date_now);
+
+        // Execute the statement
+        if ($stmt->execute()) {
+            return 1;
+        } else {
+            // Log the error securely
+            error_log('Failed to insert contact form data into the database: ' . $stmt->error);
+
+            // Display a generic error message
+            return "Failed to submit the form. Please try again later";
+        }
+
+        // Close the statement
+        $stmt->close();
+    } else {
+        // Log the error securely
+        error_log('Failed to prepare SQL statement: ' . $conn->error);
+
+        // Display a generic error message
+        return "Failed to submit the form. Please try again later";
+    }
+} else {
+    // Display an error message if required fields are not provided
+    return "Please fill in all the required fields";
+}
+}
+#''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+#End of submit contact form
+#''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+#''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+#Start of job description display
+#''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+function displayJobDescriptions(){
+if (isset($_GET['job-details'])) {
+  require 'config.php';
+  $numbering = 1;
+  $id = mysqli_real_escape_string($conn,$_GET['job-details']);
+  $select = $conn->query("SELECT * FROM career WHERE job_id='$id'");
+  if ($select->num_rows>0) {
+    while ($row=$select->fetch_assoc()) {
+      $job_type = $row['job_type'];
+       $job_title = $row['job_title'];
+      echo "
+        <h4>Job Title: ".$row['job_title']."</h4>
+        <h6>Job Location: ".$row['job_location']."</h6>
+        ".$row['job_description']."
+      ";
+    }
+  }else{
+    echo "Nothing was found!!";
+  }
+  function joblistingNumbering($length){
+    if (strlen($length)===1) {
+      return "0".$length;
+    }else{
+      return $length;
+    }
+  }
+}
+}
+
+#''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+#End of job description display
+#''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 
 

@@ -262,13 +262,12 @@
 </div>
 </section>
 <!--/End Start schedule Area -->
-
 <!-- Start portfolio -->
 <section class="portfolio" >
 <div class="container">
 <div class="row">
 <div class="col-lg-12">
-<div class="section-title">
+<div class="section-title mt-5">
 	<h2>Case Studies</h2>
 	<center><hr class="default-background hr" ></center>
 </div>
@@ -286,7 +285,7 @@
 </div>
 </div>
 <div class="default-color h4 p-2">
-		<a href="case-studies"><strong>Explore all Case Studies >>></strong></a>
+		<a class="animated-text" href="case-studies"><strong>Explore all Case Studies >>></strong></a>
 	</div>
 </div>
 </section>
@@ -337,7 +336,7 @@
 	<i class="icofont icofont-ui-user-group"></i>
 	<div class="content">
 		<span class="counter plus">72</span>
-		<p>Community Commitment Hours</p>
+		<p>Customer Retention Rate</p>
 	</div>
 </div>
 <!-- End Single Fun -->
@@ -359,7 +358,7 @@
 	<i class="icofont-simple-smile"></i>
 	<div class="content">
 		<span>Very Easy</span>
-		<p>Community Commitment Hours</p>
+		<p>Customer Effort Score</p>
 	</div>
 </div>
 <!-- End Single Fun -->
@@ -388,8 +387,11 @@
 <?php displayRecentBlogs(); ?>
 
 <!-- End Single Blog -->
-</div>
 
+</div>
+	<div class="default-color h4 p-2">
+		<a class="animated-text" href="blog"><strong>Explore all Videos >>></strong></a>
+	</div>
 </div>
 </section>
 <!-- End Blog Area -->
@@ -405,7 +407,7 @@
 <div class="row">
 <div class="col-lg-12">
 <div class="section-title">
-	<h2>See Our Most Recent Videos</h2>
+	<h2	>See Our Most Recent Videos</h2>
 		<center><hr class="default-background hr" ></center>
 </div>
 </div>
@@ -432,7 +434,7 @@ title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; cli
 <!-- End Single Table-->
 </div>	
 <div class="default-color h4 p-2">
-		<a href="case-studies"><strong>Explore all Videos >>></strong></a>
+		<a class="animated-text" href="https://www.youtube.com/@armelyarmely"><strong>Explore all Videos >>></strong></a>
 	</div>
 </div>	
 </section>	

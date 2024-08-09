@@ -4404,3 +4404,20 @@ color: #2f5597;
   color: white;
   }
 /*   cookies modal*/
+
+/* Initial style for the text */
+.animated-text {
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and transform */
+    display: inline-block; /* Inline-block allows scaling and other transformations */
+}
+
+/* Style for text on hover */
+.animated-text:hover {
+    color: #3498db; /* Change text color */
+    transform: scale(1.1); /* Slightly enlarge the text */
+}
+
+/* Optional: Additional hover effect for text shadow */
+.animated-text:hover {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow on hover */
+}
