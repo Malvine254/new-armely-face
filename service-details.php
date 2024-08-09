@@ -186,7 +186,7 @@
 <!-- Start Portfolio Details Area -->
 <?php if (isset($_GET['name'])): ?>
 	
-<section class="pf-details">
+<section class="pf-details mt-5">
 	<div class="container">
 
 		<div class="row">
