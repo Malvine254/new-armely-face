@@ -274,3 +274,12 @@ $('#consultation-form').submit(function(event) {
     });
 });
  // end of read more
+
+ //start of google analytics code
+ window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4301EZWQ4C');
+
+//end of google analytics code

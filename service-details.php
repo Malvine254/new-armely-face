@@ -885,7 +885,7 @@
 		<!-- jquery Ui JS -->
 		<script src="js/jquery-ui.min.js"></script>
 		<!-- Easing JS -->
-        <script src="js/easing.js"></script>
+    <script src="js/easing.js"></script>
 		<!-- Color JS -->
 		<script src="js/colors.js"></script>
 		<!-- Popper JS -->
@@ -914,6 +914,8 @@
 		<script src="js/jquery.magnific-popup.min.js"></script>
 		<!-- Counter Up CDN JS -->
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-4301EZWQ4C"></script>
 		<!-- Bootstrap JS -->
 		<script src="js/bootstrap.min.js"></script>
 		<!-- Main JS -->

@@ -470,6 +470,8 @@
 <script src="js/map-active.js"></script>
 <!-- Bootstrap JS -->
 <script src="js/bootstrap.min.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4301EZWQ4C"></script>
 <!-- Main JS -->
 <script src="js/main.js"></script>
 <!-- more settings  -->
