@@ -647,7 +647,7 @@
 							<p>By leveraging your Center of Excellence to conduct a comprehensive Power Platform health check, you can elevate your Microsoft 365 and Power Platform ecosystem to new heights. Our team of CoE experts will provide you with actionable insights and a roadmap to optimize your Power Platform investment and unlock greater business value.</p>
 							<?php endif ?>
 							</div>
-
+							
 						</section>
 
 						<!-- Start Appointment -->
@@ -712,16 +712,10 @@
 
 						</div>
 						<!-- End Appointment -->
+
 						</section>
 						<!--/ End Pricing Table -->
-						<div class="share">
-							<h4>Share Now -</h4>
-							<ul>
-								<li><a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
+						
 					</div>
 				</div>
 			</div>
