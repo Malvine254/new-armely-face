@@ -714,9 +714,11 @@ function displayPartnersLogo(){
      $select = $conn->query("SELECT * FROM partners_logo ");
      if ($select->num_rows>0) {
         while ($row=$select->fetch_assoc()) {
-        	echo '<div class="single-clients">
-					<a href="'.$row['site_url'].'"><img src="'.$row['logo_url'].'" alt="#">
-					</div>';
+        	// echo '<div class="single-clients">
+			// 		<a href="'.$row['site_url'].'"><img src="'.$row['logo_url'].'" alt="#">
+			// 		</div>';
+
+		echo '<div  class="m-4"><a href="'.$row['site_url'].'"><img src="'.$row['logo_url'].'" alt="#"></div>';			
 
         	
       

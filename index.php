@@ -40,15 +40,19 @@
 <!-- Wow animation -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
+<!-- Libraries CSS Files -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet">
+
 
 <!-- Medipro CSS -->
 <link rel="stylesheet" href="css/normalize.css">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="css/responsive.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
 
 </head>
 <body>
@@ -291,40 +295,22 @@
 </section>
 <!--/ End portfolio -->
 
-<!-- Start clients -->
-<!-- <div class="marquee-container">
-    <div class="marquee-content">
-     <?php displayPartnersLogo();?>
-     <?php displayPartnersLogo();?>
-    </div>
-  </div> -->
-<section class="blog mb-5 mt-5" id="blog">
-<div class="container">
-<div class="row">
-<div class="col-lg-12">
-<div class="section-title">
-	<h2>Our Partners</h2>
-	<p>Your Reliable Hub for Digital Excellence, Committed to Caring, Building Relationships, Backed by Industry Expertise and Recognized for Award-Winning Achievements.</p>
-	<a class="default-color" href="#">READ MORE<i class="fa fa-long-arrow-right"></i></a>
-</div>
-</div>
-</div>
 
+   <section id="clients" class="wow fadeInUp blog">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title"><b>Our Partners</b><center><hr class="default-background hr" ></center></h2>
 
-<div class="  "  style="background: white !important;">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-12">
-						<div class="owl-carousel clients-slider">
-							 <?php echo displayPartnersLogo(); ?>
-							
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--/Ens clients -->
-</section>
+         	<p class="text-center">Your Reliable Hub for Digital Excellence, Committed to Caring, Building Relationships, Backed by Industry Expertise and Recognized for Award-Winning Achievements.</p>
+        </div>
+
+        <div class="owl-carousel clients-carousel">
+          <?php echo displayPartnersLogo(); ?>
+        </div>
+      </div>
+
+    </section>
+
 <!--/Ens clients -->
 <!-- Start Fun-facts -->
 <div  id="fun-facts" class="fun-facts default-background section overlay">
@@ -395,10 +381,6 @@
 </div>
 </section>
 <!-- End Blog Area -->
-
-
-
-
 
 
 <!-- Pricing Table -->
@@ -685,10 +667,21 @@ title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; cli
 <script src="js/bootstrap.min.js"></script>
 <!-- Main JS -->
 <script src="js/main.js"></script>
-<!-- more settings  -->
-<script src="js/more-options.js"></script>
 <!-- sweet alerts -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js"></script>
+<!-- JavaScript Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.2/jquery-migrate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/superfish/1.7.10/js/hoverIntent.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/superfish/1.7.10/js/superfish.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.min.js"></script>
+<!-- more settings  -->
+<script src="js/more-options.js"></script>
 <script>
 	new WOW().init();
 	

@@ -283,3 +283,24 @@ $('#consultation-form').submit(function(event) {
   gtag('config', 'G-4301EZWQ4C');
 
 //end of google analytics code
+
+
+
+ // start of partner slider
+  $(".clients-carousel").owlCarousel({
+    autoplay: true,
+    dots: true,
+    loop: true,
+    responsive: {
+      0: {
+        items: 2
+      },
+      768: {
+        items: 4
+      },
+      900: {
+        items: 6
+      }
+    }
+  });
+// end of partner slider
