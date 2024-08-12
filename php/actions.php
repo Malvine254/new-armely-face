@@ -242,7 +242,7 @@ function displayBlogFullDetals(){
 				<!-- Meta -->
 				<div class="meta">
 					<div class="meta-left">
-						<span class="author"><a href="#"><img src="img/author1.jpg" alt="#">'.$row['author'].'</a></span>
+						<span class="author"><a href="#"><img src="images/blog/default.svg" alt="#">'.$row['author'].'</a></span>
 						<span class="date"><i class="fa fa-clock-o"></i>'.$row['date'].' 2024</span>
 					</div>
 					<div class="meta-right">
