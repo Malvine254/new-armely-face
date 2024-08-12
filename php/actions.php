@@ -892,6 +892,23 @@ if (isset($_GET['job-details'])) {
 #End of job description display
 #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
+#''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+#Start of display services details 
+#''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+function displayServicesDetails(){
+	include 'config.php';
+		$title = mysqli_real_escape_string($conn, $_GET['title']);
+		$select = $conn->query("SELECT * FROM services_lists WHERE title='$title'");
+		while ($row=$select->fetch_assoc()) {
+			echo "<h2 class='mb-3 default-color'>".$title."</h2>";
+			echo $row['intro_content'];
+			echo $row['other_contents'];
+		}
 
 
+}
+
+#''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+#Start of display services details 
+#''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ?>

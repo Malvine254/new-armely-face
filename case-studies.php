@@ -295,10 +295,10 @@
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-12">
 				<ul>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Case Studies</a></li>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Job Board</a></li>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Company Overview</a></li>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Blog Articles </a></li>	
+					<li><a href="case-studies"><i class="fa fa-caret-right" aria-hidden="true"></i>Case Studies</a></li>
+					<li><a href="career"><i class="fa fa-caret-right" aria-hidden="true"></i>Job Board</a></li>
+					<li><a href="company"><i class="fa fa-caret-right" aria-hidden="true"></i>Company Overview</a></li>
+					<li><a href="blog"><i class="fa fa-caret-right" aria-hidden="true"></i>Blog Articles </a></li>	
 				</ul>
 			</div>
 		</div>
@@ -310,10 +310,10 @@
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-12">
 				<ul>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Data Services</a></li>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Advisory Services</a></li>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Managed Services</a></li>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Artificial intelligence</a></li>	
+					<li><a href="services"><i class="fa fa-caret-right" aria-hidden="true"></i>Data Services</a></li>
+					<li><a href="services"><i class="fa fa-caret-right" aria-hidden="true"></i>Advisory Services</a></li>
+					<li><a href="services"><i class="fa fa-caret-right" aria-hidden="true"></i>Managed Services</a></li>
+					<li><a href="services"><i class="fa fa-caret-right" aria-hidden="true"></i>Artificial intelligence</a></li>	
 				</ul>
 			</div>
 		</div>
@@ -323,9 +323,9 @@
 	<div class="single-footer f-link">
 		<h2>Contact Us</h2>
 		<ul>
-			<li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> +1 972 460 0643</a></li>
-			<li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>2831 Eldorado Pkwy Suite 103-128 Frisco TX 75033</a></li>
-			<li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span class="lowercase">info@armely.com</span></a></li>
+			<li><a href="tel: +1 972 460 0643" target="_blank"><i class="fa fa-phone" aria-hidden="true" ></i> +1 972 460 0643</a></li>
+			<li><a href="https://maps.app.goo.gl/GvH42mM2LwDaRdEg8" target="_blank"><i class="fa fa-map-marker" aria-hidden="true"></i>2831 Eldorado Pkwy Suite 103-128 Frisco TX 75033</a></li>
+			<li><a href="mailto:info@armely.com" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i><span class="lowercase">info@armely.com</span></a></li>
 		</ul>
 	</div>
 </div>
@@ -333,11 +333,11 @@
 	<div class="single-footer">
 		<h2>Follow Us</h2>
 		<ul class="social">
-			<li><a href="#"><i class="icofont-linkedin"></i></a></li>
-			<li><a href="#"><i class="icofont-github"></i></a></li>
-			<li><a href="#"><i class="icofont-twitter"></i></a></li>
-			<li><a href="#"><i class="icofont-youtube"></i></a></li>
-			<li><a href="#"><i class="icofont-instagram"></i></a></li>
+			<li><a href="https://www.linkedin.com/company/armely/mycompany/" target="_blank"><i class="icofont-linkedin"></i></a></li>
+			<li><a href="https://github.com/armely" target="_blank"><i class="icofont-github"></i></a></li>
+			<li><a href="https://twitter.com/armelyData" target="_blank"><i class="icofont-twitter"></i></a></li>
+			<li><a href="https://www.youtube.com/@armelyarmely" target="_blank"><i class="icofont-youtube"></i></a></li>
+			<li><a href="https://www.linkedin.com/company/armely/mycompany/" target="_blank"><i class="icofont-instagram"></i></a></li>
 		</ul>
 	</div>
 </div>

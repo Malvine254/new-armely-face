@@ -203,36 +203,9 @@
 	</div>
 </div>
 <!-- End Breadcrumbs -->
-<!-- Start Why choose -->
-<section class="why-choose section" >
-<div class="container">
-
-<div class="row">
-<div class="col-lg-6 col-12">
-<!-- Start Choose Left -->
-<div class="choose-left">
-  <h3>Turn your data into insightful business solutions</h3>
-  <p>Intuition or gut feeling business decisions don’t work anymore. In an era where consumer preferences constantly evolve and market dynamics shift rapidly, relying solely on intuition can lead to missed opportunities and costly missteps. We help your organization leverage data to make insightful decisions becomes paramount. </p>
-
-</div>
-<!-- End Choose Left -->
-</div>
-<div class="col-lg-6 col-12">
-<!-- Start Choose Rights -->
-<img src="images/company/company.png" class="img-fluid">
-<!-- End Choose Rights -->
-</div>
-</div>
-<div class="mt-3">
-  <p>Our proven end-to-end track record of data management positions us as your strategic partner. By handling data at every stage of its lifecycle, from collection and storage to analysis and utilization, we ensure that our clients have the insights they need to make informed decisions and drive their business forward. </p>
-  <p>Our expertise in data management not only enhances operational efficiency but also enables us to provide tailored solutions that align with our clients' objectives. With a focus on accuracy, security, and compliance, we establish trust and reliability in our partnerships. As a result, our clients view us not just as service providers, but as indispensable collaborators who contribute to their long-term success.</p>
-</div>
-</div>
-</section>
-<!--/ End Why choose --> 
 
 <!-- Start service -->
-<section class="services">
+<section class="services section">
 <div class="container">
 <div class="row">
 <div class="col-lg-12">
@@ -312,62 +285,62 @@
 <div class="container">
 <div class="row">
 <div class="col-lg-2 col-md-6 col-12">
-	<div class="single-footer">
-		<h2>armely</h2>
-		
-	</div>
+  <div class="single-footer">
+    <h2>armely</h2>
+    
+  </div>
 </div>
 <div class="col-lg-2 col-md-6 col-12">
-	<div class="single-footer f-link">
-		<h2>About</h2>
-		<div class="row">
-			<div class="col-lg-12 col-md-12 col-12">
-				<ul>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Case Studies</a></li>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Job Board</a></li>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Company Overview</a></li>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Blog Articles </a></li>	
-				</ul>
-			</div>
-		</div>
-	</div>
+  <div class="single-footer f-link">
+    <h2>About</h2>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-12">
+        <ul>
+          <li><a href="case-studies"><i class="fa fa-caret-right" aria-hidden="true"></i>Case Studies</a></li>
+          <li><a href="career"><i class="fa fa-caret-right" aria-hidden="true"></i>Job Board</a></li>
+          <li><a href="company"><i class="fa fa-caret-right" aria-hidden="true"></i>Company Overview</a></li>
+          <li><a href="blog"><i class="fa fa-caret-right" aria-hidden="true"></i>Blog Articles </a></li>  
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="col-lg-2 col-md-6 col-12">
-	<div class="single-footer f-link">
-		<h2>Services</h2>
-		<div class="row">
-			<div class="col-lg-12 col-md-12 col-12">
-				<ul>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Data Services</a></li>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Advisory Services</a></li>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Managed Services</a></li>
-					<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Artificial intelligence</a></li>	
-				</ul>
-			</div>
-		</div>
-	</div>
+  <div class="single-footer f-link">
+    <h2>Services</h2>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-12">
+        <ul>
+          <li><a href="services"><i class="fa fa-caret-right" aria-hidden="true"></i>Data Services</a></li>
+          <li><a href="services"><i class="fa fa-caret-right" aria-hidden="true"></i>Advisory Services</a></li>
+          <li><a href="services"><i class="fa fa-caret-right" aria-hidden="true"></i>Managed Services</a></li>
+          <li><a href="services"><i class="fa fa-caret-right" aria-hidden="true"></i>Artificial intelligence</a></li> 
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="col-lg-3 col-md-6 col-12">
-	<div class="single-footer f-link">
-		<h2>Contact Us</h2>
-		<ul>
-			<li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> +1 972 460 0643</a></li>
-			<li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>2831 Eldorado Pkwy Suite 103-128 Frisco TX 75033</a></li>
-			<li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span class="lowercase">info@armely.com</span></a></li>
-		</ul>
-	</div>
+  <div class="single-footer f-link">
+    <h2>Contact Us</h2>
+    <ul>
+      <li><a href="tel: +1 972 460 0643" target="_blank"><i class="fa fa-phone" aria-hidden="true" ></i> +1 972 460 0643</a></li>
+      <li><a href="https://maps.app.goo.gl/GvH42mM2LwDaRdEg8" target="_blank"><i class="fa fa-map-marker" aria-hidden="true"></i>2831 Eldorado Pkwy Suite 103-128 Frisco TX 75033</a></li>
+      <li><a href="mailto:info@armely.com" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i><span class="lowercase">info@armely.com</span></a></li>
+    </ul>
+  </div>
 </div>
 <div class="col-lg-3 col-md-6 col-12">
-	<div class="single-footer">
-		<h2>Follow Us</h2>
-		<ul class="social">
-			<li><a href="#"><i class="icofont-linkedin"></i></a></li>
-			<li><a href="#"><i class="icofont-github"></i></a></li>
-			<li><a href="#"><i class="icofont-twitter"></i></a></li>
-			<li><a href="#"><i class="icofont-youtube"></i></a></li>
-			<li><a href="#"><i class="icofont-instagram"></i></a></li>
-		</ul>
-	</div>
+  <div class="single-footer">
+    <h2>Follow Us</h2>
+    <ul class="social">
+      <li><a href="https://www.linkedin.com/company/armely/mycompany/" target="_blank"><i class="icofont-linkedin"></i></a></li>
+      <li><a href="https://github.com/armely" target="_blank"><i class="icofont-github"></i></a></li>
+      <li><a href="https://twitter.com/armelyData" target="_blank"><i class="icofont-twitter"></i></a></li>
+      <li><a href="https://www.youtube.com/@armelyarmely" target="_blank"><i class="icofont-youtube"></i></a></li>
+      <li><a href="https://www.linkedin.com/company/armely/mycompany/" target="_blank"><i class="icofont-instagram"></i></a></li>
+    </ul>
+  </div>
 </div>
 </div>
 </div>
@@ -378,9 +351,9 @@
 <div class="container">
 <div class="row">
 <div class="col-lg-12 col-md-12 col-12">
-	<div class="copyright-content">
-		<p>&copy; 2024 ARMELY LLC., ALL RIGHTS RESERVED</p>
-	</div>
+  <div class="copyright-content">
+    <p>&copy; 2024 ARMELY LLC., ALL RIGHTS RESERVED</p>
+  </div>
 </div>
 </div>
 </div>
