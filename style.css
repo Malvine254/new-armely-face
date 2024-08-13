@@ -4458,3 +4458,20 @@ color: #2f5597;
 #clients .owl-dot.active {
   background-color: #50d8af;
 }
+/*logo font */
+@font-face {
+    font-family: 'armely-font'; /* The name you will use to reference the font */
+    src: url('fonts/armely.ttf') format('truetype'); /* Path to the font file */
+    font-style: normal;
+
+}
+.logo-font{
+	font-family: 'armely-font', sans-serif !important; 
+	font-size: 55px ; 
+	color: #2f5597 !important;
+}
+.footer-logo-font{
+	font-family: 'armely-font', sans-serif !important; 
+	color: #fff!important;
+	letter-spacing: 2px;
+}

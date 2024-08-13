@@ -107,7 +107,7 @@
 	<div class="col-lg-3 col-md-3 col-12">
 		<!-- Start Logo -->
 		<div class="logo">
-			<a href="index"><img style="height: 60px;" src="img/logo/logo.svg" alt="#"></a>
+		  <a href="index"><span class="logo-font">armely</span></a>
 		</div>
 		<!-- End Logo -->
 		<!-- Mobile Nav -->
@@ -496,7 +496,7 @@
       <div class="col-md-2 col-sm-12"></div>
       <div class="col-md-8 col-sm-12">
           <h5>Get started today, work with Armely to extend and develop solutions that will transform your business today. Using our knowledge and expertise in the industry, we will partner in transform your business</h5>
-         <a href="contact-us" class="btn btn-lg btn-outline-info default-button-color mt-2"> <i class="fa fa-phone fa-1x"></i> Contact Us</a>
+         <a href="contact" class="btn text-light btn-lg btn-outline-info default-button-color mt-2"> <i class="fa fa-phone fa-1x"></i>  Contact Us</a>
        </div>
       <div class="col-md-2 col-sm-12"></div>
 
@@ -576,7 +576,7 @@
 <div class="row">
 <div class="col-lg-2 col-md-6 col-12">
   <div class="single-footer">
-    <h2>armely</h2>
+    <h2 class="footer-logo-font">armely</h2>
     
   </div>
 </div>

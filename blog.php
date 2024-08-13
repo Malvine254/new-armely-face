@@ -47,22 +47,6 @@
     </head>
     <body>
 	
-		<!-- Preloader -->
-        <!-- <div class="preloader">
-            <div class="loader">
-                <div class="loader-outter"></div>
-                <div class="loader-inner"></div>
-
-                <div class="indicator"> 
-                    <svg width="16px" height="12px">
-                        <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
-                        <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
-                    </svg>
-                </div>
-            </div>
-        </div> -->
-        <!-- End Preloader -->
-		
 		<section>	
 		<!-- Floating Action Button -->
 		   <div class="floating-btn">
@@ -118,7 +102,7 @@
 	<div class="col-lg-3 col-md-3 col-12">
 		<!-- Start Logo -->
 		<div class="logo">
-			<a href="index"><img style="max-height: 60px; height: auto;" src="img/logo/logo.svg" class="pb-2" alt="#"></a>
+			<a href="index"><span class="logo-font">armely</span></a>
 		</div>
 		<!-- End Logo -->
 		<!-- Mobile Nav -->
@@ -317,7 +301,7 @@
 <div class="row">
 <div class="col-lg-2 col-md-6 col-12">
 	<div class="single-footer">
-		<h2>armely</h2>
+		<h2 class="footer-logo-font">armely</h2>
 		
 	</div>
 </div>

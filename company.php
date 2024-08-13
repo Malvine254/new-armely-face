@@ -107,7 +107,7 @@
 	<div class="col-lg-3 col-md-3 col-12">
 		<!-- Start Logo -->
 		<div class="logo">
-			<a href="index"><img style="height: 60px;" src="img/logo/logo.svg" alt="#"></a>
+		  <a href="index"><span class="logo-font">armely</span></a>
 		</div>
 		<!-- End Logo -->
 		<!-- Mobile Nav -->
@@ -212,10 +212,10 @@
     <center><hr class="default-background hr" ></center>
    
 </div>
- <p style="font-size: 16px; color: black;">What started as a small operation serving a single client has blossomed into a thriving enterprise delivering a wide range of cutting-edge solutions. Our company began humbly in 2006, providing specialized data management services to local businesses. However, it wasn't long before word of our expertise and personalized approach spread, leading to rapid growth. 
+ <p style="font-size: 16px; ">What started as a small operation serving a single client has blossomed into a thriving enterprise delivering a wide range of cutting-edge solutions. Our company began humbly in 2006, providing specialized data management services to local businesses. However, it wasn't long before word of our expertise and personalized approach spread, leading to rapid growth. 
  </p><br>
- <p style="font-size: 16px; color: black;">Today, we proudly serve over 50 clients across multiple industries, offering innovative capabilities in data analytics, artificial intelligence, digital collaboration tools, and large-scale digital transformation projects. This remarkable expansion has been fueled by strategic partnerships with leading technology providers, allowing us to integrate best-in-class solutions and stay at the forefront of the ever-evolving business landscape.</p><br>
- <p style="font-size: 16px; color: black;"> Our goal is to become an extension of your team, striving to be a trusted strategic partner that helps you navigate complex challenges and unlock new opportunities. Through our collaborative approach and commitment to delivering measurable results, we've become a trusted advisor to organizations seeking to harness the power of data, automation, and digital enablement. Our story is one of humble beginnings, tireless innovation, and a relentless pursuit of client success.</p>
+ <p style="font-size: 16px;">Today, we proudly serve over 50 clients across multiple industries, offering innovative capabilities in data analytics, artificial intelligence, digital collaboration tools, and large-scale digital transformation projects. This remarkable expansion has been fueled by strategic partnerships with leading technology providers, allowing us to integrate best-in-class solutions and stay at the forefront of the ever-evolving business landscape.</p><br>
+ <p style="font-size: 16px;"> Our goal is to become an extension of your team, striving to be a trusted strategic partner that helps you navigate complex challenges and unlock new opportunities. Through our collaborative approach and commitment to delivering measurable results, we've become a trusted advisor to organizations seeking to harness the power of data, automation, and digital enablement. Our story is one of humble beginnings, tireless innovation, and a relentless pursuit of client success.</p>
 </div>
 </div>
 
@@ -306,7 +306,7 @@
 <div class="row">
 <div class="col-lg-2 col-md-6 col-12">
   <div class="single-footer">
-    <h2>armely</h2>
+    <h2 class="footer-logo-font">armely</h2>
     
   </div>
 </div>

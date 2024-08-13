@@ -689,10 +689,10 @@ function displayRecentIndustryListingsAll(){
         while ($row=$select->fetch_assoc()) {
 
         	echo '<div class="col-md-4 mb-4 p-1">
-                <div class="customer-story-card card m-1" >
+                <div class="customer-story-card card m-1" style="min-height: 450px; max-height: 450px;">
                     <img  src="images/case-study/'.$row['listing_image'].'" class="d-block img-fluid lazyload" alt="">
                     <div class="p-3">
-                       <strong> <p id="'.$row['id'].'" class="text-muted">Industry: '.$row['category'].'</p></strong>
+                       <strong> <p id="'.$row['id'].'" class="text-muted h5">Industry: '.$row['category'].'</p></strong>
                         <p>'.substr($row['body'], 0,120) .'...</p>
                           <div class="mt-1">
                              <strong><a class="default-color h6" target="_blank" href="case_docs/'.$row['pdf_url'].'" id="'.$row['id'].'">Read More <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i> </a></strong>
@@ -703,11 +703,36 @@ function displayRecentIndustryListingsAll(){
       
         }
     }else{
-        echo "No records found!";
+       echo "<span class='text-center col-md-12 text-danger p-5'>No records found!</span>";
     }
 
 }
 
+function displayWhitePaperListings(){
+    include 'config.php';
+     $select = $conn->query("SELECT * FROM white_paper ORDER BY id DESC ");
+     if ($select->num_rows>0) {
+        while ($row=$select->fetch_assoc()) {
+
+        	echo '<div class="col-md-4 mb-4 p-1">
+                <div class="customer-story-card card m-1" style="min-height: 450px; max-height: 450px;">
+                    <img  src="images/white-papers/'.$row['images'].'" class="d-block img-fluid lazyload" alt="">
+                    <div class="p-3">
+                    	 <strong> <p class="text-muted h5"> '.$row['title'].'</p></strong>
+                        <p>'.substr($row['body'], 0,120) .'...</p>
+                          <div class="mt-1">
+                             <strong><a class="default-color h6" target="_blank" href="white_paper_docs/'.$row['pdf'].'" id="'.$row['id'].'">Read More <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i> </a></strong>
+                           </div>
+                    </div>
+                </div>
+            </div>';
+      
+        }
+    }else{
+        echo "<span class='text-center col-md-12 text-danger p-5'>No records found!</span>";
+    }
+
+}
 
 function displayPartnersLogo(){
     include 'config.php';

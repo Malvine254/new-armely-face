@@ -114,13 +114,14 @@
 	<div class="col-lg-3 col-md-3 col-12">
 		<!-- Start Logo -->
 		<div class="logo">
-			<a href="index"><img style="height: 60px;" src="img/logo/logo.svg" alt="#"></a>
+			<a href="index"><span class="logo-font">armely</span></a>
 		</div>
 		<!-- End Logo -->
 		<!-- Mobile Nav -->
 		<div class="mobile-nav"></div>
 		<!-- End Mobile Nav -->
 	</div>
+
 	<div class="col-lg-9 col-md-9 col-12">
 		<!-- Main Menu -->
 		<div class="main-menu">
@@ -549,7 +550,7 @@ title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; cli
 <div class="row">
 <div class="col-lg-2 col-md-6 col-12">
 	<div class="single-footer">
-		<h2>armely</h2>
+		<h2 class="footer-logo-font">armely</h2>
 		
 	</div>
 </div>
