@@ -552,7 +552,7 @@
       <div class="col-md-8">
       <div class="ml-4">
         <h5>We Value Your Privacy</h5>
-        <p>We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies, <a href="">see our privacy policy</a>. You can manage your preferences by clicking "customize".</p>
+        <p>We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies, <a class="default-color" href="privacy-policy">see our privacy policy</a>. You can manage your preferences by clicking "customize".</p>
       </div>
        
       </div>

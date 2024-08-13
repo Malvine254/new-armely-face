@@ -167,14 +167,14 @@
 <!-- End Header Area -->
 	
 		<!-- Breadcrumbs -->
-		<div class="breadcrumbs overlay">
+		<div class="breadcrumbs-contact overlay">
 			<div class="container">
-				<div class="bread-inner">
+				<div class="bread-inner" >
 					<div class="row">
 						<div class="col-12">
 							<h2>Contact Us</h2>
 							<ul class="bread-list">
-								<li><a href="index.html">Home</a></li>
+								<li><a href="index">Home</a></li>
 								<li><i class="icofont-simple-right"></i></li>
 								<li class="active">Contact Us</li>
 							</ul>
@@ -275,10 +275,10 @@
 			<!-- single-info -->
 			<div class="col-lg-4 col-12 ">
 				<div class="single-info">
-					<i class="icofont icofont-wall-clock"></i>
+					<i class="icofont icofont-google-map"></i>
 					<div class="content">
-						<h3>Mon - Sat: 8am - 5pm</h3>
-						<p>Sunday Closed</p>
+						<h3>Nairobi, Kenya</h3>
+						<p>Highpoint</p>
 					</div>
 				</div>
 			</div>
@@ -326,7 +326,7 @@
       <div class="col-md-8">
       <div class="ml-4">
         <h5>We Value Your Privacy</h5>
-        <p>We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies, <a href="">see our privacy policy</a>. You can manage your preferences by clicking "customize".</p>
+        <p>We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies, <a class="default-color" href="privacy-policy">see our privacy policy</a>. You can manage your preferences by clicking "customize".</p>
       </div>
        
       </div>

@@ -206,8 +206,8 @@
 			<h1><span class="text-light">Your Trusted Source For Digital Excellence</span>  </h1>
 			<p class="text-light">Beyond Imagination </p>
 			<div class="button">
-				<a href="#" class="btn">Get Appointment</a>
-				<a href="#" class="btn primary">Learn More</a>
+				<a href="services#consultation-form" class="btn">Get Appointment</a>
+				<a href="company" class="btn primary">Learn More</a>
 			</div>
 		</div>
 	</div>
@@ -224,8 +224,8 @@
 			<h1><span class="text-light"> We Provide AI Services That You Can Trust!</span></h1>
 			<p class="text-light">Beyond Imagination </p>
 			<div class="button">
-				<a href="#" class="btn">Get Appointment</a>
-				<a href="#" class="btn primary">About Us</a>
+				<a href="services#consultation-form" class="btn">Get Appointment</a>
+				<a href="company" class="btn primary">About Us</a>
 			</div>
 		</div>
 	</div>
@@ -242,8 +242,8 @@
 			<h1><span class="text-light">We Provide Data Services That You Can Trust!</span></h1>
 			<p class="text-light">Beyond Imagination </p>
 			<div class="button">
-				<a href="#" class="btn">Get Appointment</a>
-				<a href="#" class="btn primary">Conatct Now</a>
+				<a href="services#consultation-form" class="btn">Get Appointment</a>
+				<a href="contact" class="btn primary">Contact Us</a>
 			</div>
 		</div>
 	</div>
@@ -526,7 +526,7 @@ title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; cli
       <div class="col-md-8">
       <div class="ml-4">
         <h5>We Value Your Privacy</h5>
-        <p>We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies, <a href="">see our privacy policy</a>. You can manage your preferences by clicking "customize".</p>
+        <p>We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies, <a class="default-color" href="privacy-policy">see our privacy policy</a>. You can manage your preferences by clicking "customize".</p>
       </div>
        
       </div>

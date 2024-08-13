@@ -224,8 +224,37 @@
     <!-- <button type="button" class="btn default-button col-md-1 col-sm-6">View More</button> -->
 </div>  
 </section>  
+
+<!-- Start portfolio -->
+<section class="portfolio section" >
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<div class="section-title">
+  <h2>Our Affiliations</h2>
+  <center><hr class="default-background hr" ></center>
+</div>
+</div>
+</div>
+</div>
+<div class="container-fluid col-lg-10">
+<div class=" ">
+<center>
+  <div class="row">
+<div class="col-md-6">
+  <img width="300" height="300"  class="img-fluid" src="images/affiliation/mbe.svg">
+</div>
+<div class="col-md-6">
+  <img width="300" height="300" class="img-fluid" src="images/affiliation/smb.svg">
+</div>
+</center>
+</div>
+</div>
+</div>
+</section>
+<!--/ End portfolio -->
 <!-- Start service -->
-<section class="services p-5">
+<section class="services p-0">
 <div class="container">
 <div class="row">
 <div class="col-lg-12">
@@ -282,7 +311,7 @@
       <div class="col-md-8">
       <div class="ml-4">
         <h5>We Value Your Privacy</h5>
-        <p>We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies, <a href="">see our privacy policy</a>. You can manage your preferences by clicking "customize".</p>
+        <p>We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies, <a class="default-color" href="privacy-policy">see our privacy policy</a>. You can manage your preferences by clicking "customize".</p>
       </div>
        
       </div>
