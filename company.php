@@ -17,7 +17,7 @@
 <link rel="icon" href="img/logo/logo1.png">
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins:200i,250,250i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -241,11 +241,14 @@
 <div class=" ">
 <center>
   <div class="row">
-<div class="col-md-6">
-  <img width="300" height="300"  class="img-fluid" src="images/affiliation/mbe.svg">
+<div class="col-md-4">
+  <img width="250" height="250"  class="img-fluid" src="images/affiliation/mbe.svg">
 </div>
-<div class="col-md-6">
-  <img width="300" height="300" class="img-fluid" src="images/affiliation/smb.svg">
+<div class="col-md-4">
+  <img width="230" height="230"  class="img-fluid" src="images/affiliation/affliation.png">
+</div>
+<div class="col-md-4">
+  <img width="250" height="250" class="img-fluid" src="images/affiliation/smb.svg">
 </div>
 </center>
 </div>
