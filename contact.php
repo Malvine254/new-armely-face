@@ -475,9 +475,9 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4301EZWQ4C"></script>
 <!-- Main JS -->
 <script src="js/main.js"></script>
-<!-- more settings  -->
-<script src="js/more-options.js"></script>
 <!-- sweet alerts -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js"></script>
+<!-- more settings  -->
+<script src="js/more-options.js"></script>
 </body>
 </html>
