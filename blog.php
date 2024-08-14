@@ -297,23 +297,90 @@
     <div class="text-start row">
       <div class="col-md-8">
       <div class="ml-4">
-        <h5>We Value Your Privacy</h5>
+        <h4>We Value Your Privacy</h5>
         <p>We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies, <a class="default-color" href="privacy-policy">see our privacy policy</a>. You can manage your preferences by clicking "customize".</p>
       </div>
        
       </div>
       <div class="col-md-4">
          <div class="modal-buttons mt-3" >
-          <button id="acceptAll" class="btn btn-outline-light "> Accept All</button>
-          <button id="openModalBtn4" class="btn btn-outline-secondary">Customize</button>
-          <button id="rejectAll" class="btn btn-danger"> Reject All</button>
+          <button id="acceptAll" class="btn btn-light "> Accept All</button>
+          <button data-toggle="modal" data-target="#cookieModal" class="btn btn-outline-secondary bg-dark">Customize</button>
         </div>
       </div>
       
     </div>
 </div>
 <!-- end of cookies section -->
-<!-- end of search bar modal -->
+<!-- Cookies Preferences-->
+<div class="modal fade" id="cookieModal">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Cookie Preferences</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <div class="cookie-option">
+								    <label class="h5">Essential Cookies</label>
+								    <label class="switch">
+								        <input type="checkbox" checked disabled>
+								        <span class="slider round"></span>
+								    </label>
+								</div>
+                <p class="text-muted">These cookies are necessary for the website to function and cannot be switched off.</p>
+                
+                <div class="cookie-option">
+                    <label  class="h5">Performance Cookies</label>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <p class="text-muted">These cookies collect information about how you use the website to help improve its performance.</p>
+
+                <div class="cookie-option">
+                    <label  class="h5">Functionality Cookies</label>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <p class="text-muted">These cookies remember your preferences and provide enhanced, personalized features.</p>
+
+                <div class="cookie-option">
+                    <label  class="h5">Targeting/Advertising Cookies</label>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <p class="text-muted">These cookies are used to deliver ads more relevant to you and your interests.</p>
+
+                <div class="cookie-option">
+                    <label  class="h5">Analytics Cookies</label>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <p class="text-muted">These cookies help website owners understand how visitors interact with the site.</p>
+
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveAllPreferences">Save Preferences</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Cookies Preferences -->
 	<!-- Footer Area -->
 <footer id="footer" class="footer ">
 <!-- Footer Top -->
@@ -442,64 +509,6 @@
 <script src="js/main.js"></script>
 <!-- more settings  -->
 <script src="js/more-options.js"></script>
-<script>
-	 $(document).ready(function() {
-        var contentDiv = $('#content');
-        var showMoreButton = $('#show-more');
 
-        // Check if the content is scrollable
-        if (contentDiv[0].scrollHeight > contentDiv.innerHeight()) {
-            showMoreButton.show(); // Show the button if scrollable
-        }
-
-        // Scroll down when the button is clicked
-        showMoreButton.on('click', function() {
-            contentDiv.animate({
-                scrollTop: contentDiv[0].scrollHeight
-            }, 800);
-        });
-
-        // Optionally, hide the button after scrolling to the bottom
-        contentDiv.on('scroll', function() {
-            if (contentDiv.scrollTop() + contentDiv.innerHeight() >= contentDiv[0].scrollHeight) {
-                showMoreButton.hide();
-            }
-        });	
-
-
-        // Share button click event
-	    $(".shareBtn").click(function(){
-	      var social = $(this).data("social");
-	      var url = encodeURIComponent(window.location.href);
-	      var title = $("#blogTitle").text();
-	      var shareURL;
-
-	      switch(social) {
-	        case "facebook":
-	          shareURL = "https://www.facebook.com/sharer/sharer.php?u=" + url;
-	          break;
-	        case "twitter":
-	          shareURL = "https://twitter.com/intent/tweet?url=" + url + "&text=" + title;
-	          break;
-	        case "linkedin":
-	          shareURL = "https://www.linkedin.com/shareArticle?url=" + url + "&title=" + title;
-	          break;
-	          case "instagram":
-			    shareURL = "https://www.instagram.com/";
-			   
-			    break;
-	         
-	          
-
-
-	      }
-
-	    // Open share URL in new window
-	    window.open(shareURL, "_blank");
-	  });
-    });
-
-	 
-</script>
 </body>
 </html>

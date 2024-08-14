@@ -3,75 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scrollable Div with Show More Button</title>
+    <title>Cookie Customization</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .scrollable-div {
-            max-height: 200px; /* Adjust this height as needed */
-            overflow-y: auto;
+        .cookie-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        /* Toggle switch styles */
+        .switch {
             position: relative;
-            border: 1px solid #ccc;
-            padding: 10px;
+            display: inline-block;
+            width: 34px;
+            height: 20px;
         }
 
-        .show-more-button {
-            display: none; /* Initially hidden */
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
             position: absolute;
-            bottom: 10px; /* Adjust positioning as needed */
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
-            padding: 5px 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
             cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 20px;
         }
 
-        .show-more-button:hover {
-            background-color: #0056b3;
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(14px);
+        }
+
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
         }
     </style>
 </head>
 <body>
 
-<div id="content" class="scrollable-div">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi eu congue facilisis, quam enim dictum risus, nec tincidunt ligula nisi eu lorem. Integer eget orci nec felis lacinia bibendum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi eu congue facilisis, quam enim dictum risus, nec tincidunt ligula nisi eu lorem. Integer eget orci nec felis lacinia bibendum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi eu congue facilisis, quam enim dictum risus, nec tincidunt ligula nisi eu lorem. Integer eget orci nec felis lacinia bibendum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi eu congue facilisis, quam enim dictum risus, nec tincidunt ligula nisi eu lorem. Integer eget orci nec felis lacinia bibendum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi eu congue facilisis, quam enim dictum risus, nec tincidunt ligula nisi eu lorem. Integer eget orci nec felis lacinia bibendum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi eu congue facilisis, quam enim dictum risus, nec tincidunt ligula nisi eu lorem. Integer eget orci nec felis lacinia bibendum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi eu congue facilisis, quam enim dictum risus, nec tincidunt ligula nisi eu lorem. Integer eget orci nec felis lacinia bibendum.</p>
-    <!-- Add more content as needed -->
+<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cookieModal">
+    Customize Cookies
+</button>
+
+<!-- Cookies Preferences-->
+<div class="modal fade" id="cookieModal">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Cookie Preferences</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <div class="cookie-option">
+                    <label>Essential Cookies</label>
+                    <input type="checkbox" checked disabled>
+                </div>
+                <p class="text-muted">These cookies are necessary for the website to function and cannot be switched off.</p>
+                
+                <div class="cookie-option">
+                    <label>Performance Cookies</label>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <p class="text-muted">These cookies collect information about how you use the website to help improve its performance.</p>
+
+                <div class="cookie-option">
+                    <label>Functionality Cookies</label>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <p class="text-muted">These cookies remember your preferences and provide enhanced, personalized features.</p>
+
+                <div class="cookie-option">
+                    <label>Targeting/Advertising Cookies</label>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <p class="text-muted">These cookies are used to deliver ads more relevant to you and your interests.</p>
+
+                <div class="cookie-option">
+                    <label>Analytics Cookies</label>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <p class="text-muted">These cookies help website owners understand how visitors interact with the site.</p>
+
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Save Preferences</button>
+            </div>
+
+        </div>
+    </div>
 </div>
-<button id="show-more" class="show-more-button">Show More</button>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        var contentDiv = $('#content');
-        var showMoreButton = $('#show-more');
-
-        // Check if the content is scrollable
-        if (contentDiv[0].scrollHeight > contentDiv.innerHeight()) {
-            showMoreButton.show(); // Show the button if scrollable
-        }
-
-        // Scroll down when the button is clicked
-        showMoreButton.on('click', function() {
-            contentDiv.animate({
-                scrollTop: contentDiv[0].scrollHeight
-            }, 800);
-        });
-
-        // Optionally, hide the button after scrolling to the bottom
-        contentDiv.on('scroll', function() {
-            if (contentDiv.scrollTop() + contentDiv.innerHeight() >= contentDiv[0].scrollHeight) {
-                showMoreButton.hide();
-            }
-        });
-    });
-</script>
+<!-- End Cookies Preferences -->
+<!-- jQuery, Popper.js, and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>

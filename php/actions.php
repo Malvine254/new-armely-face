@@ -246,7 +246,7 @@ function displayBlogFullDetals(){
 						<span class="date"><i class="fa fa-clock-o"></i>'.$row['date'].' 2024</span>
 					</div>
 					<div class="meta-right">
-						<span class="comments"><a href="#"><i class="fa fa-comments"></i>05 Comments</a></span>
+						<span id="toggleSpeech" class="comments"><a ><i class="fa-solid fa-volume-high" id="volume-icons"></i>Read Aloud</a></span>
 						<span class="views"><i class="fa fa-eye"></i>33K Views</span>
 					</div>
 				</div>
@@ -286,7 +286,7 @@ function selectblogByDefault(){
 			<div class="single-main">
 				<!-- News Head -->
 				<div class="news-head">
-					<img src="'.$row['image_path'].'" alt="#">
+					<img style="min-height: 400px; max-height: 400px;" src="'.$row['image_path'].'" alt="#">
 				</div>
 				<!-- News Title -->
 				<h1 class="news-title"><a >'.$row['title'].'</a></h1>
@@ -297,12 +297,12 @@ function selectblogByDefault(){
 						<span class="date"><i class="fa fa-clock-o"></i>'.$row['date'].' 2024</span>
 					</div>
 					<div class="meta-right">
-						<span class="comments"><a href="#"><i class="fa fa-comments"></i>05 Comments</a></span>
+						<span id="toggleSpeech" class="comments"><a ><i class="fa-solid fa-volume-high" id="volume-icons"></i>Read Aloud</a></span>
 						<span class="views"><i class="fa fa-eye"></i>33K Views</span>
 					</div>
 				</div>
 				<!-- News Text -->
-				<div style="height: 935px; overflow-y: scroll;" class="news-text scrollable-div"  id="content">
+				<div style="height: 935px; overflow: scroll;" class="news-text scrollable-div"  id="content">
 					'.$row['body'].'
 				</div><br>
 
@@ -313,7 +313,6 @@ function selectblogByDefault(){
 						<li class="twitter"><a class="shareBtn" data-social="twitter"><i class="fa-brands fa-x-twitter"></i><span>Twitter</span></a></li>
 						<li class="google-plus"><a class="shareBtn"  data-social="instagram"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a></li>
 						<li class="linkedin"><a class="shareBtn"  data-social="linkedin"><i class="fa-brands fa-linkedin"></i> <span>LinkedIn</span></a> </li>
-						
 					</ul>
 					<!-- Next Prev -->
 					<ul class="prev-next">
