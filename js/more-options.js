@@ -467,13 +467,14 @@ $('#job-form').submit(function(event) {
     formData.append('state', $('#state').val());
     formData.append('address', $('#address').val());
     formData.append('position', $('#position').val());
+     formData.append('type', $('#type').val());
 
 
     // Perform an AJAX request to submit the form data
     $.ajax({
       type: 'POST',
       url: 'php/actions', // Replace with your actual server-side endpoint
-      data: formData,
+      data: formData, 
       processData: false, // Prevent jQuery from automatically processing data
       contentType: false,
       success: function(response) {
@@ -481,11 +482,11 @@ $('#job-form').submit(function(event) {
         if (response==="1") {
             Swal.fire({
             title: 'Success!',
-            text: "Message was sent successfully",
+            text: "Applicatioin was Successfully",
             confirmButtonColor: 'rgb(47,85,151)', 
             icon: 'success',
           });
-            $("#submit_job_application-form")[0].reset();
+            $("#job-form")[0].reset();
         }else{
             Swal.fire({
               title: 'Warning',

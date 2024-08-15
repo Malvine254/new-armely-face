@@ -901,7 +901,7 @@ if (isset($_GET['job-details'])) {
         </div>
         ".$row['job_description']."
          <div class='p-5'>
-                        <a href='applications?job-details=".$row['job_id']."&application=true' class='btn btn-primary col-lg-2 col-sm-6'>Apply Now</a>
+                        <a href='applications?job-details=".$row['job_id']."&application=true&title=".$job_title."' class='btn btn-primary col-lg-2 col-sm-6'>Apply Now</a>
                    </div>
       ";
     }
@@ -957,9 +957,13 @@ function submitJobAppForm(){
     $final_role = strtolower($role);
     $position = isset($_POST['position']) ? htmlspecialchars($_POST['position']) : '';
     $cv = isset($_FILES['cv']['name']) ? htmlspecialchars($_FILES['cv']['name'] ) : '';
-    $new_file_name = $email.basename($cv);
-    $target = "../pdf/".$email.basename($cv); 
+    $random_name = rand(100000,3000000);
+    $new_file_name = $random_name.".pdf";
+    $target = "../pdf/".$random_name.".pdf"; 
     $check_if_applied = $conn->query("SELECT * FROM job_applications WHERE LOWER(email)='$final_email' AND LOWER(role)='$final_role' ORDER BY id DESC");
+    while ($row=$check_if_applied->fetch_assoc()) {
+    	$job_title = $row['job_title'];
+    }
     if ($check_if_applied->num_rows>0) {
             echo "You have already made an application";
         }else{
@@ -992,7 +996,7 @@ function submitJobAppForm(){
 
 }
 
-if (isset($_POST['role']) && isset($_POST['zip']) && isset($_POST['state']) && isset($_POST['address']) && isset($_POST['phone']) && isset($_POST['city']) && isset($_POST['email']) && isset($_POST['name'])) {
+if ( isset($_POST['zip']) && isset($_POST['state']) && isset($_POST['address']) && isset($_POST['phone']) && isset($_POST['city']) && isset($_POST['email']) && isset($_POST['name'])) {
 	submitJobAppForm();
 }
 
