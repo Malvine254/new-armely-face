@@ -163,6 +163,7 @@
               <li><a href="blog">Blog Articles</a></li>
               <li><a href="customer-stories">Customer Stories</a></li>
               <li><a href="case-studies">Case Studies</a></li>
+              <li><a href="case-studies#white-papers">White Papers</a></li>
             </ul>
           </li>
           <li><a href="industries">Industries</a></li>
@@ -218,53 +219,53 @@
     <?php if (isset($_GET['job-details']) && $_GET['application']=='true' && $_GET['application']!=""): ?>
         <div class="row">
 <div class="col-lg-12 col-md-8 col-12 d-flex text-center default-background mb-5">
-<form class="form p-4" id="consultation-form" method="post">
+<form class="form p-4" id="job-form" method="post" enctype="multipart/form-data">
     <h2 class="text-light mt-2 mb-3">Complete the following form</h2>
     <div class="row">
         <div class="col-lg-6 col-md-6 col-12">
             <div class="form-group input-with-background">
-                <input required class="remove-input-background" name="name" type="text" placeholder="Name">
+                <input id="name" required class="remove-input-background" name="name" type="text" placeholder="Name">
             </div>
         </div>
         <div class="col-lg-6 col-md-6 col-12">
             <div class="form-group">
-                <input required class="remove-input-background" name="email" type="email" placeholder="Email">
+                <input id="email" required class="remove-input-background" name="email" type="email" placeholder="Email">
             </div>
         </div>
         <div class="col-lg-6 col-md-6 col-12">
             <div class="form-group">
-                <input required class="remove-input-background" name="phone" type="text" placeholder="Phone">
+                <input id="phone" required class="remove-input-background" name="phone" type="text" placeholder="Phone">
             </div>
         </div>
         <div class="col-lg-6 col-md-6 col-12">
             <div class="form-group">
-                <input required class="remove-input-background" name="address" type="text" placeholder="Address">
+                <input id="address" required class="remove-input-background" name="address" type="text" placeholder="Address">
             </div>
         </div>
         <div class="col-lg-6 col-md-6 col-12">
             <div class="form-group">
-                <input required class="remove-input-background" name="city" type="text" placeholder="City">
+                <input id="city" required class="remove-input-background" name="city" type="text" placeholder="City">
             </div>
         </div>
         <div class="col-lg-6 col-md-6 col-12">
             <div class="form-group">
-                <input required class="remove-input-background" name="zip" type="text" placeholder="Zip Code">
+                <input id="zip" required class="remove-input-background" name="zip" type="text" placeholder="Zip Code">
             </div>
         </div>
          <div class="col-lg-6 col-md-6 col-12">
             <div class="form-group">
-                <input required class="remove-input-background" name="state" type="text" placeholder="State">
+                <input id="state" required class="remove-input-background" name="state" type="text" placeholder="State">
             </div>
         </div>
          <div class="col-lg-6 col-md-6 col-12">
             <div class="form-group">
-                <input required class="remove-input-background" name="zip" type="text" placeholder="Zip Code">
+                <input id="zip" required class="remove-input-background" name="zip" type="text" placeholder="Zip Code">
             </div>
             
         </div>
-        <div class="col-lg-6 col-md-4 col-12">
+        <div class="col-lg-4 col-md-4 col-12">
             <div class="form-group">
-                <select required name="service_type"  class="form-control remove-input-background" id="validationServer03" placeholder="Organization Name">
+                <select required name="position"   class="form-control remove-input-background" id="position" placeholder="Organization Name">
           <option value="" disabled selected>Position</option> 
           <option value="Data Services">Full Time</option>
           <option value="Web Development">Part Time</option>
@@ -274,14 +275,19 @@
         </div>
         
                      
-    <div class="col-lg-6 col-md-4 col-12">
+    <div class="col-lg-4 col-md-4 col-12">
         <div class="form-group">
-            <select required name="service_type"  class="form-control remove-input-background" id="validationServer03" placeholder="Organization Name">
+            <select required name="service_type"  class="form-control remove-input-background" id="service_type" placeholder="Organization Name">
                 <option value="" disabled selected>Job Title</option> 
                 <option value="Data Services">Full Time</option>
                 <option value="Web Development">Part Time</option>
              
             </select>
+            </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-12">
+        <div class="form-group">
+             <input id="cv" required class="remove-input-background" name="cv" type="text" placeholder="Zip Code">
             </div>
     </div>
         <div class="form-group ml-3">

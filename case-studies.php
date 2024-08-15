@@ -160,6 +160,7 @@
               <li><a href="blog">Blog Articles</a></li>
               <li><a href="customer-stories">Customer Stories</a></li>
               <li><a href="case-studies">Case Studies</a></li>
+              <li><a href="case-studies#white-papers">White Papers</a></li>
             </ul>
           </li>
           <li><a href="industries">Industries</a></li>
@@ -231,7 +232,7 @@
 <div class="row">
 <div class="col-lg-12">
 <div class="section-title">
-	<h2 class="mt-5">White Papers</h2>
+	<h2 id="white-papers" class="mt-5">White Papers</h2>
 	<center><hr class="default-background hr" ></center>
 </div>
 </div>

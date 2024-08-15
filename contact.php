@@ -141,6 +141,7 @@
 							<li><a href="blog">Blog Articles</a></li>
 							<li><a href="customer-stories">Customer Stories</a></li>
 							<li><a href="case-studies">Case Studies</a></li>
+							<li><a href="case-studies#white-papers">White Papers</a></li>
 						</ul>
 					</li>
 					<li><a href="industries">Industries</a></li>
@@ -191,16 +192,7 @@
 <div class="container col-12 col-lg-11 col-md-11">
 	<div class="inner">
 		<div class="row"> 
-			<div class="col-lg-6">
-				<div class="contact-us-left">
-					<!--Start Google-map -->
-					<div class="p-3 mt-2">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3339.393990831668!2d-96.88709372452247!3d33.177533073498864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c39992307da29%3A0x2c2a76b897ebb224!2s2831%20Eldorado%20Pkwy%20103%20128%2C%20Frisco%2C%20TX%2075033%2C%20USA!5e0!3m2!1sen!2ske!4v1723048538377!5m2!1sen!2ske" width="900" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-					</div>
-					<!--/End Google-map -->
-				</div>
-			</div>
-			<div class="col-lg-6">
+			<div class="col-lg-12">
 				<div class="contact-us-form">
 					<h2>Contact With Us</h2>
 					<p>If you have any questions please feel free to contact with us.</p>
@@ -237,7 +229,7 @@
 									<textarea name="message" placeholder="Your Message" required=""></textarea>
 								</div>
 							</div>
-							<div class="col-12">
+							<div class="col-md-2 col-sm-6">
 								<div class="form-group login-btn">
 									<button name="submit_form" class="btn default-background" type="submit">Send</button>
 								</div>

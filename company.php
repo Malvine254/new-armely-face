@@ -160,6 +160,7 @@
               <li><a href="blog">Blog Articles</a></li>
               <li><a href="customer-stories">Customer Stories</a></li>
               <li><a href="case-studies">Case Studies</a></li>
+              <li><a href="case-studies#white-papers">White Papers</a></li>
             </ul>
           </li>
           <li><a href="industries">Industries</a></li>
@@ -259,7 +260,7 @@
 </section>
 <!--/ End portfolio -->
 <!-- Start service -->
-<section class="services p-0">
+<section class="services">
 <div class="container">
 <div class="row">
 <div class="col-lg-12">

@@ -155,6 +155,7 @@
 							<li><a href="blog">Blog Articles</a></li>
 							<li><a href="customer-stories">Customer Stories</a></li>
 							<li><a href="case-studies">Case Studies</a></li>
+							<li><a href="case-studies#white-papers">White Papers</a></li>
 						</ul>
 					</li>
 					<li><a href="industries">Industries</a></li>
