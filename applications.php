@@ -195,11 +195,11 @@
 				<div class="bread-inner">
 					<div class="row">
 						<div class="col-12">
-							<h2>Services</h2>
+							<h2>Job Board</h2>
 							<ul class="bread-list">
 								<li><a href="index">Home</a></li>
 								<li><i class="icofont-simple-right"></i></li>
-								<li class="active">Services</li>
+								<li class="active">Job Board</li>
 							</ul>
 						</div>
 					</div>
@@ -209,98 +209,99 @@
 		<!-- End Breadcrumbs -->
 
 
-<!-- Pricing Table -->
-<section class="pricing-table section">
-<div class="container">
-<div class="row">
-<div class="col-lg-12">
-<div class="section-title">
-	<h2>Empowering Your Tech Journey</h2>
-		<center><hr class="default-background hr" ></center>
-		<p>Our experts provide tailored guidance in areas such as business planning, product development, marketing, financial management, and risk management, ensuring your company's competitiveness and sustainable growth.</p>
-</div>
-</div>
-</div>
-<div class="row">
-<!-- Single Table -->
-<?php displayServicesList(); ?>
-<!-- End Single Table-->
 
-</div>	
-</div>	
-</section>	
-<!--/ End Pricing Table -->
 
 
 <!-- Start Appointment -->
-<section class="appointment">
+<section class="appointment mt-0">
 <div class="container">
-<div class="row">
-<div class="col-lg-12">
-<div class="section-title">
-	<h2 id="consultation-form">Schedule a Consultation Today</h2>
-	<center><hr class="default-background hr" ></center>
-</div>
-</div>
-</div>
-
-<div class="row">
-<div class="col-lg-12 col-md-6 col-12 d-flex text-center default-background mb-5">
-<form class="form p-5" id="consultation-form" method="post">
-	<div class="row">
-		<div class="col-lg-6 col-md-6 col-12">
-			<div class="form-group input-with-background">
-				<input required class="remove-input-background" name="name" type="text" placeholder="Name">
-			</div>
-		</div>
-		<div class="col-lg-6 col-md-6 col-12">
-			<div class="form-group">
-				<input required class="remove-input-background" name="email" type="email" placeholder="Email">
-			</div>
-		</div>
-		<div class="col-lg-4 col-md-4 col-12">
-			<div class="form-group">
-				<input required class="remove-input-background" name="phone" type="text" placeholder="Phone">
-			</div>
-		</div>
-		<div class="col-lg-4 col-md-4 col-12">
-			<div class="form-group">
-				<input required class="remove-input-background" name="organization" type="text" placeholder="Organization Name">
-			</div>
-		</div>
-		<div class="col-lg-4 col-md-4 col-12">
-			<div class="form-group">
-				<select required name="service_type"  class="form-control remove-input-background" id="validationServer03" placeholder="Organization Name">
-          <option value="" disabled selected>Select Service of Interest</option> 
-          <option value="Data Services">Data Services</option>
-          <option value="Web Development">Web Development</option>
-          <option value="Business Intelligence">Business Intelligence</option>
-          <option value="Managed Services">Managed Services</option>
-          <option value="Advisory Services">Advisory Services</option>
+    <?php if (isset($_GET['job-details']) && $_GET['application']=='true' && $_GET['application']!=""): ?>
+        <div class="row">
+<div class="col-lg-12 col-md-8 col-12 d-flex text-center default-background mb-5">
+<form class="form p-4" id="consultation-form" method="post">
+    <h2 class="text-light mt-2 mb-3">Complete the following form</h2>
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-12">
+            <div class="form-group input-with-background">
+                <input required class="remove-input-background" name="name" type="text" placeholder="Name">
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12">
+            <div class="form-group">
+                <input required class="remove-input-background" name="email" type="email" placeholder="Email">
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12">
+            <div class="form-group">
+                <input required class="remove-input-background" name="phone" type="text" placeholder="Phone">
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12">
+            <div class="form-group">
+                <input required class="remove-input-background" name="address" type="text" placeholder="Address">
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12">
+            <div class="form-group">
+                <input required class="remove-input-background" name="city" type="text" placeholder="City">
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12">
+            <div class="form-group">
+                <input required class="remove-input-background" name="zip" type="text" placeholder="Zip Code">
+            </div>
+        </div>
+         <div class="col-lg-6 col-md-6 col-12">
+            <div class="form-group">
+                <input required class="remove-input-background" name="state" type="text" placeholder="State">
+            </div>
+        </div>
+         <div class="col-lg-6 col-md-6 col-12">
+            <div class="form-group">
+                <input required class="remove-input-background" name="zip" type="text" placeholder="Zip Code">
+            </div>
+            
+        </div>
+        <div class="col-lg-6 col-md-4 col-12">
+            <div class="form-group">
+                <select required name="service_type"  class="form-control remove-input-background" id="validationServer03" placeholder="Organization Name">
+          <option value="" disabled selected>Position</option> 
+          <option value="Data Services">Full Time</option>
+          <option value="Web Development">Part Time</option>
+         
       </select>
-			</div>
-		</div>
-		
+            </div>
+        </div>
+        
                      
-		<div class="col-lg-12 col-md-12 col-12">
-			<div class="form-group">
-				<textarea required class="remove-input-background" name="message" placeholder="Write Your Message Here....."></textarea>
-			</div>
-		</div>
-		<div class="form-group ml-3">
-			<div class="button">
-				<button type="submit" name="submit_consultation_form" class="btn send-message-btn">Send Message</button>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-5 col-md-4 col-12">
-			
-		</div>
-	</div>
+    <div class="col-lg-6 col-md-4 col-12">
+        <div class="form-group">
+            <select required name="service_type"  class="form-control remove-input-background" id="validationServer03" placeholder="Organization Name">
+                <option value="" disabled selected>Job Title</option> 
+                <option value="Data Services">Full Time</option>
+                <option value="Web Development">Part Time</option>
+             
+            </select>
+            </div>
+    </div>
+        <div class="form-group ml-3">
+            <div class="button">
+                <button type="submit" name="submit_consultation_form" class="btn send-message-btn">Complete Application</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5 col-md-4 col-12">
+            
+        </div>
+    </div>
 </form>
 </div>
 </div>
+        
+    <?php endif ?>
+
+
 
 </div>
 </section>
@@ -371,12 +372,12 @@
             <!-- Modal Body -->
             <div class="modal-body">
                 <div class="cookie-option">
-								    <label class="h5">Essential Cookies</label>
-								    <label class="switch">
-								        <input type="checkbox" checked disabled>
-								        <span class="slider-two round"></span>
-								    </label>
-								</div>
+                                    <label class="h5">Essential Cookies</label>
+                                    <label class="switch">
+                                        <input type="checkbox" checked disabled>
+                                        <span class="slider-two round"></span>
+                                    </label>
+                                </div>
                 <p class="text-muted">These cookies are necessary for the website to function and cannot be switched off.</p>
                 
                 <div class="cookie-option">
@@ -426,6 +427,8 @@
     </div>
 </div>
 <!-- End Cookies Preferences -->
+
+<!-- chatbot section -->
 <!-- Footer Area -->
 <footer id="footer" class="footer ">
 <!-- Footer Top -->

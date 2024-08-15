@@ -210,82 +210,19 @@
 
 
 <!-- Pricing Table -->
-<section class="pricing-table section">
-<div class="container">
-<div class="row">
-<div class="col-lg-12">
-<div class="section-title">
-	<h2>Empowering Your Tech Journey</h2>
-		<center><hr class="default-background hr" ></center>
-		<p>Our experts provide tailored guidance in areas such as business planning, product development, marketing, financial management, and risk management, ensuring your company's competitiveness and sustainable growth.</p>
-</div>
-</div>
-</div>
-<div class="container col-lg-12 p-4">
+<section class="pricing-table mt-5 p-5">
+<div class="container col-lg-10">
+
+<div class="">
         <div class="row">
-            <div class="col-md-7" data-aos="fade-fade">
-                <?php displayJobDescriptions(); ?>  
+            <div class="col-md-12" data-aos="fade-fade ">
+                <div class="card p-3 d-flex">
+                    <?php displayJobDescriptions(); ?> 
+                  
+                </div> 
+
             </div>
-            <div class="col-md-5">
-              <h1>Job Board</h1>
-            <h2>Complete the following form</h2>
-            <form class="form" id="job-form" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" class="form-control edit-input" id="name" name="name" placeholder="Name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control edit-input" id="email" name="email" placeholder="Email" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone Number:</label>
-                <input type="tel" class="form-control edit-input" id="phone" name="phone" placeholder="Phone Number" required>
-            </div> 
-            <div class="form-group">
-                <label for="address">Address:</label>
-                <input type="text" class="form-control edit-input" id="address" name="address" placeholder="Address" required>
-            </div>
-            <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="city">City:</label>
-                <input type="text" class="form-control edit-input" id="city" name="city" placeholder="City" required>
-            </div>
-            <div class="form-group col-md-4">
-                <label for="state">State:</label>
-                <input type="text" class="form-control edit-input" id="state" name="state" placeholder="State" required>
-            </div>
-            <div class="form-group col-md-2">
-                <label for="zip">Zip Code:</label>
-                <input type="text" class="form-control edit-input" id="zip" name="zip" placeholder="Zip Code" required>
-            </div>
-            </div>
-        <div class="form-group">
-            <label for="position">Position:</label>
-            <select  class="form-control edit-input" id="position" name="position">
-                <option selected value=""><?php if (isset($_GET['jobId'])) {
-                    echo $job_type;
-                } ?></option>
-                <option>Part Time</option>
-                 <!-- Default option -->
-            </select>
-        </div>
-        <div class="form-group">
-        <label for="role">Role:</label>
-        <select class="form-control edit-input" id="role" name="role">
-            <option selected value=""><?php if (isset($_GET['jobId'])) {
-                echo $job_title;
-            } ?>
-            </option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="cv">Upload CV or Resume (PDF)*:</label>
-        <input type="file" class="form-control edit-input" id="cv" name="cv" accept=".pdf" required>
-    </div>
-    <button name="submit_applications_btn" type="submit" class="btn default-button-color btn-primary text-center">Submit Form</button>
-    </form>
-    </div>
+            
 
        <!-- Floating Action Button -->
        <div class="floating-btn">
@@ -446,7 +383,7 @@
                                     <label class="h5">Essential Cookies</label>
                                     <label class="switch">
                                         <input type="checkbox" checked disabled>
-                                        <span class="slider round"></span>
+                                        <span class="slider-two round"></span>
                                     </label>
                                 </div>
                 <p class="text-muted">These cookies are necessary for the website to function and cannot be switched off.</p>
@@ -455,7 +392,7 @@
                     <label  class="h5">Performance Cookies</label>
                     <label class="switch">
                         <input type="checkbox">
-                        <span class="slider round"></span>
+                        <span class="slider-two round"></span>
                     </label>
                 </div>
                 <p class="text-muted">These cookies collect information about how you use the website to help improve its performance.</p>
@@ -464,7 +401,7 @@
                     <label  class="h5">Functionality Cookies</label>
                     <label class="switch">
                         <input type="checkbox">
-                        <span class="slider round"></span>
+                        <span class="slider-two round"></span>
                     </label>
                 </div>
                 <p class="text-muted">These cookies remember your preferences and provide enhanced, personalized features.</p>
@@ -473,7 +410,7 @@
                     <label  class="h5">Targeting/Advertising Cookies</label>
                     <label class="switch">
                         <input type="checkbox">
-                        <span class="slider round"></span>
+                        <span class="slider-two round"></span>
                     </label>
                 </div>
                 <p class="text-muted">These cookies are used to deliver ads more relevant to you and your interests.</p>
@@ -482,7 +419,7 @@
                     <label  class="h5">Analytics Cookies</label>
                     <label class="switch">
                         <input type="checkbox">
-                        <span class="slider round"></span>
+                        <span class="slider-two round"></span>
                     </label>
                 </div>
                 <p class="text-muted">These cookies help website owners understand how visitors interact with the site.</p>

@@ -293,7 +293,7 @@
 								    <label class="h5">Essential Cookies</label>
 								    <label class="switch">
 								        <input type="checkbox" checked disabled>
-								        <span class="slider round"></span>
+								        <span class="slider-two round"></span>
 								    </label>
 								</div>
                 <p class="text-muted">These cookies are necessary for the website to function and cannot be switched off.</p>
@@ -302,7 +302,7 @@
                     <label  class="h5">Performance Cookies</label>
                     <label class="switch">
                         <input type="checkbox">
-                        <span class="slider round"></span>
+                        <span class="slider-two round"></span>
                     </label>
                 </div>
                 <p class="text-muted">These cookies collect information about how you use the website to help improve its performance.</p>
@@ -311,7 +311,7 @@
                     <label  class="h5">Functionality Cookies</label>
                     <label class="switch">
                         <input type="checkbox">
-                        <span class="slider round"></span>
+                        <span class="slider-two round"></span>
                     </label>
                 </div>
                 <p class="text-muted">These cookies remember your preferences and provide enhanced, personalized features.</p>
@@ -320,7 +320,7 @@
                     <label  class="h5">Targeting/Advertising Cookies</label>
                     <label class="switch">
                         <input type="checkbox">
-                        <span class="slider round"></span>
+                        <span class="slider-two round"></span>
                     </label>
                 </div>
                 <p class="text-muted">These cookies are used to deliver ads more relevant to you and your interests.</p>
@@ -329,7 +329,7 @@
                     <label  class="h5">Analytics Cookies</label>
                     <label class="switch">
                         <input type="checkbox">
-                        <span class="slider round"></span>
+                        <span class="slider-two round"></span>
                     </label>
                 </div>
                 <p class="text-muted">These cookies help website owners understand how visitors interact with the site.</p>

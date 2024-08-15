@@ -896,9 +896,13 @@ if (isset($_GET['job-details'])) {
       $job_type = $row['job_type'];
        $job_title = $row['job_title'];
       echo "
-        <h4>Job Title: ".$row['job_title']."</h4>
-        <h6>Job Location: ".$row['job_location']."</h6>
+        <div class='section-title mt-5'><h3 class='default-color'>".$row['job_title']."[<i class='fa fa-map-marker'></i> ".$row['job_location'].",<i class='fa fa-clock-o'></i> ".$row['job_type']."] <center><hr class='default-background hr' ></center></h3>
+        	
+        </div>
         ".$row['job_description']."
+         <div class='p-5'>
+                        <a href='applications?job-details=".$row['job_id']."&application=true' class='btn btn-primary col-lg-2 col-sm-6'>Apply Now</a>
+                   </div>
       ";
     }
   }else{

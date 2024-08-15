@@ -4484,7 +4484,7 @@ color: #2f5597;
             margin: 10px 0;
         }
 
-        /* Toggle switch styles */
+      
         .switch {
             position: relative;
             display: inline-block;
@@ -4498,7 +4498,7 @@ color: #2f5597;
             height: 0;
         }
 
-        .slider {
+        .slider-two {
             position: absolute;
             cursor: pointer;
             top: 0;
@@ -4510,7 +4510,7 @@ color: #2f5597;
             border-radius: 20px;
         }
 
-        .slider:before {
+        .slider-two:before {
             position: absolute;
             content: "";
             height: 16px;
@@ -4522,18 +4522,18 @@ color: #2f5597;
             border-radius: 50%;
         }
 
-        input:checked + .slider {
+        input:checked + .slider-two {
             background-color: #2196F3;
         }
 
-        input:checked + .slider:before {
+        input:checked + .slider-two:before {
             transform: translateX(14px);
         }
 
-        .slider.round {
+        .slider-two.round {
             border-radius: 34px;
         }
 
-        .slider.round:before {
+        .slider-two.round:before {
             border-radius: 50%;
         }
