@@ -285,7 +285,7 @@
     </div>
         <div class="form-group ml-3">
             <div class="button">
-                <button type="submit" name="submit_consultation_form" class="btn send-message-btn">Complete Application</button>
+                <button type="submit" name="submit_consultation_form" class="btn send-message-btn text-light">Complete Application</button>
             </div>
         </div>
     </div>

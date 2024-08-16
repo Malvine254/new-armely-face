@@ -42,7 +42,7 @@
 <link rel="stylesheet" href="css/normalize.css">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="css/responsive.css">
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 
 
@@ -211,13 +211,13 @@
 
 
 <!-- Pricing Table -->
-<section class="pricing-table mt-5 p-5">
-<div class="container col-lg-10">
+<section class="pricing-table mt-5 pb-5 pt-5">
+<div class="container col-lg-11 col-sm-12">
 
 <div class="">
         <div class="row">
             <div class="col-md-12" data-aos="fade-fade ">
-                <div class="card p-3 d-flex">
+                <div class="card p-3 col-sm-12">
                     <?php displayJobDescriptions(); ?> 
                   
                 </div> 

@@ -227,12 +227,12 @@
 </section>  
 
 <!-- Start portfolio -->
-<section class="portfolio section" >
+<section class="portfolio" >
 <div class="container">
 <div class="row">
 <div class="col-lg-12">
 <div class="section-title">
-  <h2>Our Affiliations</h2>
+  <h2 class="mt-5">Our Affiliations</h2>
   <center><hr class="default-background hr" ></center>
 </div>
 </div>

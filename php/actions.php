@@ -761,7 +761,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['organizatio
 }
 function submitConsultationForm(){
 include 'config.php';
-function dateFormat(){
+function dateFormatTwo(){
 // Your date
 $date =  date('y-m-d');
 // Convert the date to a timestamp
@@ -770,7 +770,7 @@ $timestamp = strtotime($date);
 $formattedDate = date("j M Y", $timestamp);
 return $formattedDate;
 }
-$date_now = dateFormat();
+$date_now = dateFormatTwo();
 // Sanitize and validate user input
 $name = isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '';
 $email = isset($_POST['email']) ? filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) : '';
@@ -792,7 +792,7 @@ if ($phone && !preg_match('/(\d{1})(\d{3})(\d{3})(\d{4})/', $phone)) {
 
         // Execute the statement
         if ($stmt->execute()) {
-            echo 1;
+            return 1;
         } else {
             // Log the error securely
             error_log('Failed to insert contact form data into the database');
@@ -900,7 +900,7 @@ if (isset($_GET['job-details'])) {
         	
         </div>
         ".$row['job_description']."
-         <div class='p-5'>
+         <div class='m-5'>
                         <a href='applications?job-details=".$row['job_id']."&application=true&title=".$job_title."' class='btn btn-primary col-lg-2 col-sm-6'>Apply Now</a>
                    </div>
       ";
@@ -957,6 +957,7 @@ function submitJobAppForm(){
     $final_role = strtolower($role);
     $position = isset($_POST['position']) ? htmlspecialchars($_POST['position']) : '';
     $cv = isset($_FILES['cv']['name']) ? htmlspecialchars($_FILES['cv']['name'] ) : '';
+    $application_date = date("d-m-y h:i:sa");
     $random_name = rand(100000,3000000);
     $new_file_name = $random_name.".pdf";
     $target = "../pdf/".$random_name.".pdf"; 
@@ -969,8 +970,8 @@ function submitJobAppForm(){
         }else{
             if (move_uploaded_file($_FILES['cv']['tmp_name'], $target)) {
             // Prepare and bind the SQL statement
-            $stmt = $conn->prepare("INSERT INTO job_applications (name, email, city, phone, address,state,zip,role,position,cv) VALUES (?, ?, ?, ?, ?,?,?,?,?,?)");
-            $stmt->bind_param("ssssssssss", $name, $email, $city, $phone, $address, $state,$zip,$role,$position,$new_file_name);
+            $stmt = $conn->prepare("INSERT INTO job_applications (name, email, city, phone, address,state,zip,role,position,cv,application_date) VALUES (?, ?, ?, ?, ?,?,?,?,?,?,?)");
+            $stmt->bind_param("sssssssssss", $name, $email, $city, $phone, $address, $state,$zip,$role,$position,$new_file_name,$application_date);
 
             // Execute the statement
             if ($stmt->execute()) {

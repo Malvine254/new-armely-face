@@ -218,7 +218,7 @@ $('#consultation-form').submit(function(event) {
       data: formData,
       success: function(response) {
         // Handle the success response
-        if (response==="1") {
+        if (response==="11") {
           Swal.fire({
           title: 'Success!',
           text: "Message was sent successfully",
@@ -467,7 +467,7 @@ $('#job-form').submit(function(event) {
     formData.append('state', $('#state').val());
     formData.append('address', $('#address').val());
     formData.append('position', $('#position').val());
-     formData.append('type', $('#type').val());
+    formData.append('type', $('#type').val());
 
 
     // Perform an AJAX request to submit the form data
