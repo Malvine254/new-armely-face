@@ -896,13 +896,13 @@ if (isset($_GET['job-details'])) {
       $job_type = $row['job_type'];
        $job_title = $row['job_title'];
       echo "
-        <div class='section-title mt-5'><h3 class='default-color'>".$row['job_title']."[<i class='fa fa-map-marker'></i> ".$row['job_location'].",<i class='fa fa-clock-o'></i> ".$row['job_type']."] <center><hr class='default-background hr' ></center></h3>
+        <div class='section-title mt-5'><h3><span class='default-color'>".$row['job_title']." , </span>".$row['job_location']."<center><hr class='default-background hr' ></center></h3>
         	
         </div>
         ".$row['job_description']."
          <div class='m-5'>
-                        <a href='applications?job-details=".$row['job_id']."&application=true&title=".$job_title."' class='btn btn-primary col-lg-2 col-sm-6'>Apply Now</a>
-                   </div>
+            <a href='applications?job-details=".$row['job_id']."&application=true&title=".$job_title."' class='btn btn-primary col-lg-2 col-sm-6 ml-5'>Apply Now</a>
+       </div>
       ";
     }
   }else{
@@ -962,9 +962,9 @@ function submitJobAppForm(){
     $new_file_name = $random_name.".pdf";
     $target = "../pdf/".$random_name.".pdf"; 
     $check_if_applied = $conn->query("SELECT * FROM job_applications WHERE LOWER(email)='$final_email' AND LOWER(role)='$final_role' ORDER BY id DESC");
-    while ($row=$check_if_applied->fetch_assoc()) {
-    	$job_title = $row['job_title'];
-    }
+    // while ($row=$check_if_applied->fetch_assoc()) {
+    // 	$job_title = $row['job_title'];
+    // }
     if ($check_if_applied->num_rows>0) {
             echo "You have already made an application";
         }else{
