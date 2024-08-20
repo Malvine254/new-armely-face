@@ -87,7 +87,7 @@ $message = isset($_POST['message']) ? htmlspecialchars(trim($_POST['message'])) 
 if ($phone && !preg_match('/^\+?\d{1,4}?[\d\s]{3,}$/', $phone)) {
     // Invalid phone number format
     echo "Invalid phone format, use this format +19724600643";
-    exit;
+    // exit;
 }
 
 // Check if required fields are not empty and valid
