@@ -170,7 +170,7 @@ var formData = $(this).serialize();
 // Perform an AJAX request to submit the form data
 $.ajax({
   type: 'POST',
-  url: 'php/actions', // Replace with your actual server-side endpoint
+  url: 'php/forms', // Replace with your actual server-side endpoint
   data: formData,
   success: function(response) {
     // Handle the success response
@@ -214,7 +214,7 @@ $('#consultation-form').submit(function(event) {
     // Perform an AJAX request to submit the form data
     $.ajax({
       type: 'POST',
-      url: 'php/actions', // Replace with your actual server-side endpoint
+      url: 'php/forms', // Replace with your actual server-side endpoint
       data: formData,
       success: function(response) {
         // Handle the success response
@@ -473,7 +473,7 @@ $('#job-form').submit(function(event) {
     // Perform an AJAX request to submit the form data
     $.ajax({
       type: 'POST',
-      url: 'php/actions', // Replace with your actual server-side endpoint
+      url: 'php/forms', // Replace with your actual server-side endpoint
       data: formData, 
       processData: false, // Prevent jQuery from automatically processing data
       contentType: false,

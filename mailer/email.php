@@ -15,14 +15,14 @@ function sendEmailToUsers($email,$name,$subject,$message,$organization){
     $mail = new PHPMailer(true);
 
 try {
-    // Server settings
-    $mail->isSMTP();                                        // Set mailer to use SMTP
-    $mail->Host       = 'smtp.gmail.com';                   // Specify SMTP server
-    $mail->SMTPAuth   = true;                               // Enable SMTP authentication
-    $mail->Username   = 'info.armely@gmail.com';             // SMTP username
-    $mail->Password   = 'mdkh fbjv bsgl ueoc';              // SMTP password (use an app-specific password if using Gmail)
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;        // Enable SSL encryption
-    $mail->Port       = 465;                                // TCP port to connect to (use 587 for TLS)
+   $mail->isSMTP();                                // Set mailer to use SMTP
+    $mail->Host       = 'smtp.gmail.com';           // Specify SMTP server
+    $mail->SMTPAuth   = true;                       // Enable SMTP authentication
+    $mail->Username   = 'info.armely@gmail.com';     // SMTP username
+    $mail->Password   = 'mdkh fbjv bsgl ueoc';      // SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption
+    $mail->Port       = 587;                        // TCP port to connect to
+
 
     // Recipients
     $mail->setFrom('info.armely@gmail.com', 'Armely LLC');
