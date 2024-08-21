@@ -409,7 +409,7 @@ function displayCustomerStoriesTestimonialsShort(){
         while ($row=$select->fetch_assoc()) {
         	echo '<div class="col-lg-4 col-md-6 col-12" >
 				<!-- single-schedule -->
-				<div class="single-schedule first " style="min-height: 380px; height: auto;">
+				<div class="single-schedule first " style="min-height: 400px; height: auto;">
 					<div class="inner">
 						<div class="icon">
 							<i class="fa fa-data"></i>

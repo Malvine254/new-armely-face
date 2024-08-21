@@ -148,14 +148,7 @@
                       </ul>
 
                   </li>
-                  <li>
-                    <a>Freemiums <i class="icofont-rounded-right"></i></a>
-                    <ul class="dropdown">
-                          <li><a href="service-details?name=sql">SQL Health Check</a></li>
-                          <li><a href="service-details?name=coe">Power Platform COE</a></li>
-                      </ul>
-
-                  </li>
+                  <li><a href="service-details?name=freemiums">Freemiums</a></li>
                    <li>
 		                    <a>Digital Services <i class="icofont-rounded-right"></i></a>
 		                    <ul class="dropdown">
@@ -224,7 +217,7 @@
 
 
 <!-- Pricing Table -->
-<section class="pricing-table section">
+<section class="pricing-table mt-5">
 <div class="container">
 <div class="row">
 <div class="col-lg-12">

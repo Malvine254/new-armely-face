@@ -253,7 +253,7 @@ $('#consultation-form').submit(function(event) {
     $('.shorten-content').each(function(){
         const contentElement = $(this);
         const fullContent = contentElement.html().trim();
-        const maxLength = 170;
+        const maxLength = 200;
         let shortContent = fullContent;
 
         if (fullContent.length > maxLength) {

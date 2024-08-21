@@ -121,14 +121,7 @@
 					            </ul>
 
 					        </li>
-					        <li>
-					        	<a>Freemiums <i class="icofont-rounded-right"></i></a>
-					        	<ul class="dropdown">
-					                <li><a href="service-details?name=sql">SQL Health Check</a></li>
-					                <li><a href="service-details?name=coe">Power Platform COE</a></li>
-					            </ul>
-
-					        </li>
+					       <li><a href="service-details?name=freemiums">Freemiums</a></li>
 					    </ul>
 					</li>
 					<li><a >Insights <i class="icofont-rounded-down"></i></a>
@@ -171,7 +164,7 @@
 						<!-- Error Inner -->
 						<div class="error-inner">
 							<h1>404<span>Oop's  sorry we can't find that page!</span></h1>
-							<p><a href="index" class="btn btn-primary">Back to Home Page</a></p>
+							<p><a href="index" class="btn btn-primary text-light">Back to Home Page</a></p>
 							
 						</div>
 						<!--/ End Error Inner -->

@@ -123,14 +123,7 @@
                       </ul>
 
                   </li>
-                  <li>
-                    <a>Freemiums <i class="icofont-rounded-right"></i></a>
-                    <ul class="dropdown">
-                          <li><a href="service-details?name=sql">SQL Health Check</a></li>
-                          <li><a href="service-details?name=coe">Power Platform COE</a></li>
-                      </ul>
-
-                  </li>
+                  <li><a href="service-details?name=freemiums">Freemiums</a></li>
                    <li>
 		                    <a>Digital Services <i class="icofont-rounded-right"></i></a>
 		                    <ul class="dropdown">
@@ -184,11 +177,19 @@
 		<div class="bread-inner">
 			<div class="row">
 				<div class="col-12">
-					<h2>Services Details</h2>
+					<?php if (isset($_GET['name'])): echo "<h2>".$_GET['name']."</h2>";?>
+					<?php else: echo "<h2>Service Details</h2>";?>	
+					<?php endif ?>
+					
 					<ul class="bread-list">
 						<li><a href="index">Home</a></li>
 						<li><i class="icofont-simple-right"></i></li>
-						<li class="active">Services Details</li>
+						<li class="active">
+							<?php if (isset($_GET['name'])): echo $_GET['name'];?>
+							<?php else: echo "Service Details";?>	
+							<?php endif ?>
+						
+					</li>
 					</ul>
 				</div>
 			</div>
@@ -196,7 +197,67 @@
 	</div>
 </div>
 <!-- End Breadcrumbs -->
+<?php if (isset($_GET['name']) && $_GET['name']==="freemiums"): ?>
+	
+<section class="schedule">
+<div class="container">
+<div class="schedule-inner">
+<div class="row">
+<div class="col-lg-4 col-md-6 col-12" >
+	<!-- single-schedule -->
+	<div class="single-schedule first " style="min-height: 380px; height: auto;">
+		<div class="inner">
+			<div class="icon">
+				<i class="fa fa-data"></i>
+			</div>
+			<div class="single-content">
+				<a href="images/offers/sqloffer.png" target="_blank"><img src="images/offers/aioffer.png" class="img-fluid" style="height: 170px;"></a>
+				<h4 >SQL Health Check</h4>
+				<p class="shorten-content">Ensure your database is optimized and running smoothly with a comprehensive analysis that identifies potential issues, improves performance, and enhances stability. Our expert service examines key metrics like query performance, indexing, and resource usage to provide actionable insights tailored to your specific environment. Proactively address bottlenecks, reduce downtime, and keep your systems running at peak efficiency—all at no cost. Stay ahead of database challenges and ensure your SQL infrastructure is performing at its best.</p>
+				<a class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#offersModal">Get for free<i class="fa fa-caret-right"></i></a>
+			</div>
+		</div>
+	</div>
+	</div>
 
+	<div class="col-lg-4 col-md-6 col-12" style="min-height: 380px; height: auto;">
+	<!-- single-schedule -->
+	<div class="single-schedule first ">
+		<div class="inner">
+			<div class="icon">
+				<i class="fa fa-data"></i>
+			</div>
+			<div class="single-content">
+				<a href="images/offers/aioffer.png" target="_blank"><img src="images/offers/managedoffer.png" class="img-fluid" style="height: 170px;"></a>
+				<h4 >Power Platform-CEO</h4>
+				<p class="shorten-content">Integrate Power BI reports into your dashboard and gain a comprehensive view of your business operations at no cost. Make informed, strategic decisions with real-time insights, streamline processes, and boost productivity across your organization. From data-driven analytics to automated workflows, leverage the full potential of the Power Platform to enhance business performance and stay ahead in the market—all designed with the needs of executives in mind.</p>
+				<a class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#offersModal">Get for free<i class="fa fa-caret-right"></i></a>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<div class="col-lg-4 col-md-6 col-12" style="min-height: 380px; height: auto;">
+	<!-- single-schedule -->
+	<div class="single-schedule first ">
+		<div class="inner">
+			<div class="icon">
+				<i class="fa fa-data"></i>
+			</div>
+			<div class="single-content">
+			<a href="images/freemiums/sql-check.png" target="_blank"><img src="images/freemiums/sql-check.png" class="img-fluid" style="height: 170px;"></a>
+				<h4 >PowerBI Activity</h4>
+				<p class="shorten-content">Get free access to powerful insights with our service that allows you to seamlessly integrate Power BI reports into your dashboard. Unlock enhanced data visualization and analysis tools to drive smarter decision-making and elevate business performance—all at no cost. Our solution offers an easy and efficient way to consolidate multiple data sources into a single, visually appealing dashboard, enabling you to track key metrics, identify trends, and make informed decisions. Experience the full potential of your data with rich, interactive reports, all available to you for free. </p><br>
+					<a class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#offersModal">Get for free<i class="fa fa-caret-right"></i></a>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+</div>
+</div>
+</section>
+<?php endif ?>
 <!-- Start Portfolio Details Area -->
 <?php if (isset($_GET['name'])): ?>
 	
@@ -1048,6 +1109,35 @@
     </div>
 </div>
 <!-- End Cookies Preferences -->
+
+<!-- start offers modal -->
+<!-- Modal Structure -->
+<div class="modal " id="offersModal" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Send Request/Get Download Link</h5>
+        <button type="button" class="btn-close P-2" data-bs-dismiss="modal" aria-label="Close">X</button>
+      </div>
+      <!-- Modal Body with Form -->
+      <div class="modal-body">
+        <form class="form-group">
+          <div class="mb-3">
+            <label for="inputName" class="form-label">Email Address</label>
+            <input type="text" class="form-control p-2" id="inputName" placeholder="Enter email address">
+          </div>
+         
+        </form>
+      </div>
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Get Download Link <i class="fa fa-download"></i> </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end offers modal -->
 <!-- end of search bar modal -->
 <!-- Footer Area -->
 <footer id="footer" class="footer ">
@@ -1133,7 +1223,7 @@
 </footer>
 <!--/ End Footer Area -->
 		<!-- jquery Min JS -->
-        <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
 		<!-- jquery Migrate JS -->
 		<script src="js/jquery-migrate-3.0.0.js"></script>
 		<!-- jquery Ui JS -->
@@ -1172,6 +1262,7 @@
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-4301EZWQ4C"></script>
 		<!-- Bootstrap JS -->
 		<script src="js/bootstrap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 		<!-- sweet alerts -->
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js"></script>
 
