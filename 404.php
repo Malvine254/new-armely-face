@@ -171,7 +171,7 @@
 						<!-- Error Inner -->
 						<div class="error-inner">
 							<h1>404<span>Oop's  sorry we can't find that page!</span></h1>
-							<p><a href="index" class="btn btn-primary">Back to Home Page</a></p>
+							<p><a href="index" class="btn btn-primary text-light">Back to Home Page</a></p>
 							
 						</div>
 						<!--/ End Error Inner -->
