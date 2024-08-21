@@ -131,6 +131,19 @@
                       </ul>
 
                   </li>
+                   <li>
+		                    <a>Digital Services <i class="icofont-rounded-right"></i></a>
+		                    <ul class="dropdown">
+		                        <li><a href="service-details?name=powerapps"> Powerapps</a></li>
+		                        <li><a href="service-details?name=powerautomate">Power Automate</a></li>
+		                         <li><a href="service-details?name=virtualagents">Power Virtual Agents</a></li>
+		                          <li><a href="service-details?name=powerplatform">Power Platform</a></li>
+		                         <li><a href="service-details?name=roboticprocessing">Robotic Processing Automation</a></li>
+		                         <li><a href="service-details?name=sharepointonline">Sharepont Online</a></li>
+		                         <li><a href="service-details?name=copilot">Copilot</a></li>
+		                    </ul>
+
+		                  </li>   
               </ul>
           </li>
           <li><a >Insights <i class="icofont-rounded-down"></i></a>
@@ -173,7 +186,7 @@
 				<div class="col-12">
 					<h2>Services Details</h2>
 					<ul class="bread-list">
-						<li><a href="index.html">Home</a></li>
+						<li><a href="index">Home</a></li>
 						<li><i class="icofont-simple-right"></i></li>
 						<li class="active">Services Details</li>
 					</ul>
@@ -639,9 +652,175 @@
 							<p>As organizations increasingly rely on the Microsoft Power Platform to drive digital transformation, establishing a Center of Excellence (CoE) is crucial for ensuring the health and optimal performance of your Power Platform environment. A Power Platform health check, guided by your CoE, can help you identify areas for improvement, unlock greater value, and maximize your return on investment.</p>
 							<h5 class="mt-2">Get the Full Potential of Your Power Platform with Your CoE</h5>
 							<p>By leveraging your Center of Excellence to conduct a comprehensive Power Platform health check, you can elevate your Microsoft 365 and Power Platform ecosystem to new heights. Our team of CoE experts will provide you with actionable insights and a roadmap to optimize your Power Platform investment and unlock greater business value.</p>
-							<?php endif ?>
-							</div>
 							
+							</div>
+							<?php endif ?>
+
+							<!-- start of power apps for digital services -->
+								<?php if ($_GET['name']=="powerapps"): ?>
+							<div class="container">	
+							<h3 class="">Digital Services: Power Apps - Build Apps Without Coding 	<center><hr class="default-background hr" ></center></h3>
+							<h5 class="mt-2"> "Power Apps empowers you to build custom applications tailored to your business needs without writing a single line of code. Whether you're automating a workflow or creating a complex business application, Power Apps enables you to do it all with a drag-and-drop interface and pre-built templates.</p>
+							<blockquote>
+								<p> 
+								<h5 class="text-light"><i class="icofont-quote-left"></i><strong> Key Benefits</strong></h5> 
+							</p>
+							
+							<ol class="ml-5">
+								<li class="mt-1">No Coding Required: Develop apps quickly with an intuitive drag-and-drop interface.</li>
+								<li class="mt-1">Seamless Integration: Connect with Microsoft 365, Dynamics 365, and other services. </li>
+								<li class="mt-1">Mobile Ready: Build responsive apps that work on any device, anywhere.</li>
+								<li class="mt-1">Call to Action: Start Building with Power Apps</li>
+								<li class="mt-1">Ensure compliance with industry regulations and best practices</li>
+							</ol>	
+														
+							</blockquote>
+							
+							</div>
+							<?php endif ?>
+
+
+							<!-- start of power automate for digital services -->
+							<?php if ($_GET['name']=="powerautomate"): ?>
+							<div class="container">	
+							<h3 class="">Digital Services: Power Automate - Automate Workflows and Boost Productivity  	<center><hr class="default-background hr" ></center></h3>
+							<h5 class="mt-2 mb-2">Work Smarter, Not Harder with Power Automate</h5>
+							<p>Power Automate allows you to automate repetitive tasks and workflows, saving time and increasing efficiency across your organization. From simple automations to complex business processes, Power Automate makes it easy to streamline your operations and focus on what matters most. </p>
+							<blockquote>
+								<p> 
+								<h5 class="text-light"><i class="icofont-quote-left"></i><strong>Key Capabilities</strong></h5> 
+							</p>
+							
+							<ol class="ml-5">
+								<li class="mt-1">Automate Repetitive Tasks: Save time by automating routine tasks and processes. </li>
+								<li class="mt-1">AI-Powered Workflows: Leverage AI to enhance decision-making and optimize workflows. </li>
+								<li class="mt-1">Integrations: Connect with hundreds of apps and services to create powerful automation.</li>
+								<li class="mt-1">Call to Action: Automate Your Workflows with Power Automate </li>
+								
+							</ol>	
+														
+							</blockquote>
+							
+							</div>
+							<?php endif ?>
+
+							<!-- start of power pages for digital services -->
+							<?php if ($_GET['name']=="virtualagents"): ?>
+							<div class="container">	
+							<h3 class="">Digital Services: Power Virtual Agents - Engage Customers with Intelligent Chatbots <center><hr class="default-background hr" ></center></h3>
+							<h5 class="mt-2 mb-2">Create Smart Chatbots to Enhance Customer Engagement</h5>
+							<p>Power Virtual Agents allows you to create powerful AI-driven chatbots that can interact with customers, answer questions, and resolve issues—all without the need for coding. These chatbots can be deployed across multiple channels, including websites, Microsoft Teams, and social media, making it easier than ever to provide consistent support. </p>
+							<blockquote>
+								<p> 
+								<h5 class="text-light"><i class="icofont-quote-left"></i><strong>Key Features</strong></h5> 
+							</p>
+							
+							<ol class="ml-5">
+								<li class="mt-1">No-Code Bot Building: Design chatbots with a simple drag-and-drop interface.  </li>
+								<li class="mt-1">AI-Powered Conversations: Utilize AI to understand and respond to customer inquiries effectively.  </li>
+								<li class="mt-1">Omni-Channel Deployment: Deploy your chatbot on websites, messaging platforms, and more. </li>
+							
+								
+							</ol>	
+														
+							</blockquote>
+							
+							</div>
+							<?php endif ?>
+
+							<!-- start of power roboticprocessing for digital services -->
+							<?php if ($_GET['name']=="roboticprocessing"): ?>
+							<div class="container">	
+							<h3 class="">Digital Services: Robotic Process Automation (RPA) - Automate Manual Tasks with Ease 	<center><hr class="default-background hr" ></center></h3>
+							<h5 class="mt-2 mb-2">Streamline Your Business Processes with RPA</h5>
+							<p>Robotic Process Automation (RPA) with Microsoft Power Automate enables you to automate repetitive, rule-based tasks by mimicking human interactions with digital systems. RPA bots can handle high-volume, manual tasks such as data entry, report generation, and transaction processing, reducing errors and saving valuable time.</p>
+							<blockquote>
+								<p> 
+								<h5 class="text-light"><i class="icofont-quote-left"></i><strong>Key Capabilities</strong></h5> 
+							</p>
+							
+							<ol class="ml-5">
+								<li class="mt-1">Automate Manual Processes: Create bots that perform repetitive tasks quickly and accurately.  </li>
+								<li class="mt-1">Increase Efficiency: Free up employees to focus on more strategic work.  </li>
+								<li class="mt-1">Scalable Automation: Deploy RPA bots across your organization, regardless of scale. </li>
+								
+							</ol>	
+														
+							</blockquote>
+							
+							</div>
+							<?php endif ?>
+
+							<!-- start of power sharepointonline for digital services -->
+							<?php if ($_GET['name']=="sharepointonline"): ?>
+							<div class="container">	
+							<h3 class="">Digital Services: SharePoint Online - Collaborate and Manage Content Securely <center><hr class="default-background hr" ></center></h3>
+							<h5 class="mt-2 mb-2">Empower Team Collaboration and Content Management</h5>
+							<p>SharePoint Online is your go-to platform for secure content management, document sharing, and team collaboration. With SharePoint Online, you can create intranets, manage documents, and collaborate in real-time, all while ensuring your data remains secure and compliant.</p>
+							<blockquote>
+								<p> 
+								<h5 class="text-light"><i class="icofont-quote-left"></i><strong>Key Features</strong></h5> 
+							</p>
+							
+							<ol class="ml-5">
+								<li class="mt-1">Document Management: Store, organize, and share documents with ease. </li>
+								<li class="mt-1">Intranet Solutions: Build company intranets that facilitate communication and information sharing. </li>
+								<li class="mt-1">Integration: Seamlessly integrate with Microsoft 365 for enhanced productivity. </li>
+								
+							</ol>	
+														
+							</blockquote>
+							
+							</div>
+							<?php endif ?>
+							<!-- start of power copilot for digital services -->
+							<?php if ($_GET['name']=="copilot"): ?>
+							<div class="container">	
+							<h3 class="">Digital Services: Your AI-Powered Assistant in Microsoft 365 	<center><hr class="default-background hr" ></center></h3>
+							<h5 class="mt-2 mb-2">Work Smarter with CoPilot - AI-Powered Assistance</h5>
+							<p>CoPilot is the AI-driven assistant integrated into Microsoft 365 apps, designed to help you work more efficiently. Whether you're drafting documents, creating presentations, or analyzing data, CoPilot can suggest ideas, automate tasks, and provide insights, allowing you to focus on what matters most.</p>
+							<blockquote>
+								<p> 
+								<h5 class="text-light"><i class="icofont-quote-left"></i><strong>Key Features</strong></h5> 
+							</p>
+							
+							<ol class="ml-5">
+								<li class="mt-1">Automate Manual Processes: Create bots that perform repetitive tasks quickly and accurately.  </li>
+								<li class="mt-1">Intelligent Suggestions: Receive AI-powered recommendations while you work. </li>
+								<li class="mt-1">Task Automation: Let CoPilot handle routine tasks, from email drafting to data analysis.  </li>
+								<li class="mt-1">Data-Driven Insights: Get real-time insights to make informed decisions quickly. </li>
+								
+							</ol>	
+														
+							</blockquote>
+							
+							</div>
+							<?php endif ?>
+
+							<!-- start of power powerplatform for digital services -->
+							<?php if ($_GET['name']=="powerplatform"): ?>
+							<div class="container">	
+							<h3 class="">Digital Services: Power Pages - Create Engaging Websites Effortlessly  	<center><hr class="default-background hr" ></center></h3>
+							<h5 class="mt-2 mb-2">Build and Launch Websites with No Limits</h5>
+							<p>Power Pages provides the tools you need to create professional, responsive websites that meet your business goals. Whether you're showcasing a product, offering services, or connecting with customers, Power Pages makes it easy to design and deploy websites that deliver impact. </p>
+							<blockquote>
+								<p> 
+								<h5 class="text-light"><i class="icofont-quote-left"></i><strong>Key Features</strong></h5> 
+							</p>
+							
+							<ol class="ml-5">
+								<li class="mt-1">Customizable Templates: Choose from a variety of templates designed for different industries. </li>
+								<li class="mt-1">Responsive Design: Ensure your website looks great on any device. </li>
+								<li class="mt-1">Secure and Scalable: Built-in security and compliance features to protect your data. </li>
+								<li class="mt-1">Data-Driven Insights: Get real-time insights to make informed decisions quickly. </li>
+
+								
+							</ol>	
+									<strong class="mt-5">Call to Action: "Design Your Website with Power Pages" </strong>					
+							</blockquote>
+							
+							</div>
+							<?php endif ?>
 						</section>
 
 						<!-- Start Appointment -->
@@ -653,8 +832,6 @@
 						<div class="section-title">
 							<h2>Schedule a consultation today	</h2>
 							<center><hr class="default-background hr" ></center>
-							<p>Maximize your business potential with Armely's range of industry-leading solutions. Whether it's Data Services, Web Development, Business Intelligence, Managed Services, or Advisory Services, we provide the utmost value to your operations and applications.</p>
-							
 							
 						</div>
 						</div>
