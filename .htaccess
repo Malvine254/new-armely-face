@@ -19,12 +19,12 @@ RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
 
 # Return 404 error if the extension is modified (for .html files)
-RewriteCond %{THE_REQUEST} \.html?\s [NC]
-RewriteRule ^ - [R=404,L]
+#RewriteCond %{THE_REQUEST} \.html?\s [NC]
+#RewriteRule ^ - [R=404,L]
 
 # Return 404 error if the extension is modified (for .php files)
-RewriteCond %{THE_REQUEST} \.php\s [NC]
-RewriteRule ^ - [R=404,L]
+#RewriteCond %{THE_REQUEST} \.php\s [NC]
+#RewriteRule ^ - [R=404,L]
 
 # Set caching headers for fonts, images, and videos
 <FilesMatch "\.(woff|woff2|ttf|otf|svg|eot|jpg|jpeg|png|gif|ico|webp|mp4|webm)$">
