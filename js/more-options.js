@@ -170,7 +170,7 @@ var formData = $(this).serialize();
 // Perform an AJAX request to submit the form data
 $.ajax({
   type: 'POST',
-  url: 'php/forms', // Replace with your actual server-side endpoint
+  url: 'php/actions', // Replace with your actual server-side endpoint
   data: formData,
   success: function(response) {
     // Handle the success response
@@ -214,7 +214,7 @@ $('#consultation-form').submit(function(event) {
     // Perform an AJAX request to submit the form data
     $.ajax({
       type: 'POST',
-      url: 'php/forms', // Replace with your actual server-side endpoint
+      url: 'php/actions', // Replace with your actual server-side endpoint
       data: formData,
       success: function(response) {
         // Handle the success response
@@ -304,148 +304,6 @@ $('#consultation-form').submit(function(event) {
       }
     }
   });
-// end of partner slider
-
-// $(document).ready(function() {
-// var contentDiv = $('#content');
-// var showMoreButton = $('#show-more');
-
-// // Check if the content is scrollable
-// if (contentDiv[0].scrollHeight > contentDiv.innerHeight()) {
-//     showMoreButton.show(); // Show the button if scrollable
-// }
-
-// // Scroll down when the button is clicked
-// showMoreButton.on('click', function() {
-//     contentDiv.animate({
-//         scrollTop: contentDiv[0].scrollHeight
-//     }, 800);
-// });
-
-// // Optionally, hide the button after scrolling to the bottom
-// contentDiv.on('scroll', function() {
-//     if (contentDiv.scrollTop() + contentDiv.innerHeight() >= contentDiv[0].scrollHeight) {
-//         showMoreButton.hide();
-//     }
-// }); 
-
-
-// // Share button click event
-// $(".shareBtn").click(function(){
-//   var social = $(this).data("social");
-//   var url = encodeURIComponent(window.location.href);
-//   var title = $("#blogTitle").text();
-//   var shareURL;
-
-//   switch(social) {
-//     case "facebook":
-//       shareURL = "https://www.facebook.com/sharer/sharer.php?u=" + url;
-//       break;
-//     case "twitter":
-//       shareURL = "https://twitter.com/intent/tweet?url=" + url + "&text=" + title;
-//       break;
-//     case "linkedin":
-//       shareURL = "https://www.linkedin.com/shareArticle?url=" + url + "&title=" + title;
-//       break;
-//       case "instagram":
-//         shareURL = "https://www.instagram.com/";
-       
-//         break;
-     
-      
-
-
-//   }
-
-// // Open share URL in new window
-// window.open(shareURL, "_blank");
-// });
-// });
-
-
-// $(document).ready(function() {
-// let speechSynthesis = window.speechSynthesis;
-// let voices = speechSynthesis.getVoices();
-// let isSpeaking = false;
-// let isPaused = false;
-// let words;
-// let currentIndex = 0;
-// let currentUtterance;
-
-// $('#toggleSpeech').click(function() {
-// if (!isSpeaking) {
-//     speak();
-// } else if (!isPaused) {
-//     pause();
-// } else {
-//     resume();
-// }
-// });
-
-// function speak() {
-// let text = $('#content').html(); // Use .html() to retain formatting
-// words = text.split(/\s+/);
-// currentIndex = 0;
-// speakChunk();
-// }
-
-// function speakChunk() {
-// let endIndex = currentIndex;
-// let chunk = '';
-// while (endIndex < words.length && !/[.!?]/.test(words[endIndex])) {
-//     endIndex++;
-// }
-// chunk = words.slice(currentIndex, endIndex + 1).join(' ');
-// let utterance = new SpeechSynthesisUtterance(chunk);
-// utterance.voice = voices[0]; // Set the voice
-// utterance.onstart = function(event) {
-//     highlightCurrentWord(currentIndex, endIndex);
-// };
-// utterance.onend = function(event) {
-//     currentIndex = endIndex + 1;
-//     if (currentIndex < words.length && !isPaused) {
-//         speakChunk();
-//     } else {
-//         isSpeaking = false;
-//         isPaused = false;
-//     }
-// };
-// currentUtterance = utterance;
-// isSpeaking = true;
-// isPaused = false;
-// $('#volume-icons').removeClass('fa fa-volume-high');
-// $('#volume-icons').addClass('fa fa-volume-xmark');
-
-// speechSynthesis.speak(utterance);
-// }
-
-// function pause() {
-// if (speechSynthesis.speaking) {
-//     speechSynthesis.pause();
-//     isPaused = true;
-//     $('#volume-icons').removeClass('fa fa-volume-xmark');
-//     $('#volume-icons').addClass('fa fa-volume-high');
-// }
-// }
-
-// function resume() {
-// if (isPaused) {
-//     speechSynthesis.resume();
-//     isPaused = false;
-//     $('#volume-icons').removeClass('fa fa-volume-high');
-//     $('#volume-icons').addClass('fa fa-volume-xmark');
-// }
-// }
-
-// function highlightCurrentWord(startIndex, endIndex) {
-// let content = $('#content').html(); // Get the original content with formatting
-// let highlightedWords = words.slice(startIndex, endIndex + 1).join(' ');
-// let regex = new RegExp('\\b' + highlightedWords + '\\b', 'g');
-// let highlightedText = content.replace(regex, '<span class="bg-warning">' + highlightedWords + '</span>');
-// $('#content').html(highlightedText);
-// }
-// });  
-
 
 $('#job-form').submit(function(event) {
     event.preventDefault(); // Prevent the default form submission
@@ -473,7 +331,7 @@ $('#job-form').submit(function(event) {
     // Perform an AJAX request to submit the form data
     $.ajax({
       type: 'POST',
-      url: 'php/forms', // Replace with your actual server-side endpoint
+      url: 'php/actions', // Replace with your actual server-side endpoint
       data: formData, 
       processData: false, // Prevent jQuery from automatically processing data
       contentType: false,
@@ -508,3 +366,49 @@ $('#job-form').submit(function(event) {
       }
     });
   }); 
+
+
+// submit offers form
+$('#offersForm').submit(function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Retrieve the form data
+    var formData2 = $(this).serialize();
+
+    // Perform an AJAX request to submit the form data
+    $.ajax({
+      type: 'POST',
+      url: 'php/actions', // Replace with your actual server-side endpoint
+      data: formData2,
+      success: function(response) {
+        alert(response)
+        // Handle the success response
+        if (response.trim()==="1") {
+          Swal.fire({
+          title: 'Success!',
+          text: "Message was sent successfully",
+          confirmButtonColor: 'rgb(47,85,151)', 
+          icon: 'success',
+        });
+          $("#offersForm")[0].reset();
+        }else{
+          Swal.fire({
+          title: 'Warning',
+          text: response,
+          icon: 'warning',
+          confirmButtonText: 'OK',
+           confirmButtonColor: 'rgb(47,85,151)'
+        });
+        }
+
+
+         
+        console.log(response); // You can do something with the response data
+      },
+      error: function(error) {
+        // Handle the error response
+        console.error('Form submission error');
+        console.error(error); // You can display an error message or perform other actions
+      }
+    });
+  });

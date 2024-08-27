@@ -1003,4 +1003,51 @@ if ( isset($_POST['zip']) && isset($_POST['state']) && isset($_POST['address']) 
 	submitJobAppForm();
 }
 
+//actions
+function listCountries(){
+	$apiUrl = 'https://restcountries.com/v3.1/all';
+	$response = file_get_contents($apiUrl);
+	$countries = json_decode($response, true);
+
+	foreach ($countries as $country) {
+	    echo "<option>".$country['name']['common']."</option>";
+	}
+}
+
+// submit offers form
+function submitOffersForm() {
+    require 'config.php';
+    
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $fname = mysqli_real_escape_string($conn, $_POST['fname'] ?? '');
+        $lname = mysqli_real_escape_string($conn, $_POST['lname'] ?? '');
+        $email = mysqli_real_escape_string($conn, $_POST['email2'] ?? '');
+        $phone = mysqli_real_escape_string($conn, $_POST['phone2'] ?? '');
+        $country = mysqli_real_escape_string($conn, $_POST['country'] ?? '');
+
+        // Debugging output
+        var_dump($fname, $lname, $email, $phone, $country);
+
+        if ($fname && $lname && $email && $phone && $country) {
+            $insert = $conn->query("INSERT INTO offers_form (fname, lname, email, phone, country) VALUES ('$fname', '$lname', '$email', '$phone', '$country')");
+            if ($insert) {
+                echo "1";
+            } else {
+                echo "Failed to submit the form";
+            }
+        } else {
+            echo "Incomplete form data";
+        }
+    } else {
+        echo "Invalid request method";
+    }
+}
+
+if (isset($_POST['submit_offers_form'])) {
+    submitOffersForm();
+} else {
+    echo "Form not submitted";
+}
+
+
 ?>

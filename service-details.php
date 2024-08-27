@@ -311,16 +311,14 @@
 					        </div>
 					        <div class="col-md-5">
 					        	<h5 class="mb-5">Get the download link</h5>
-					        	<form class="form-group">
-					        		<input class="form-control p-3" type="text" name="name" placeholder="First Name"><br>
-					        		<input class="form-control p-3" type="text" name="name" placeholder="Last Name"><br>
-					        		<input class="form-control p-3" type="text" name="name" placeholder="Company Email"><br>
-					        		<input class="form-control p-3   " type="text" name="name" placeholder="Company Name"><br>
-					        		<select  class="form-control w-100  p-4"  name="name">
-					        			<option class="h-200   w-100">Select Country</option>
-					        			
-					        		</select>
-					        		<button class="btn btn-primary col-lg-12">Download Now</button>
+					        	<form class="form-group" method="post" id="offersForm">
+					        		<input required class="form-control p-3" type="text" name="fname"  placeholder="First Name"><br>
+					        		<input required class="form-control p-3" type="text" name="lname" placeholder="Last Name"><br>
+					        		<input required class="form-control p-3" type="text" name="email2" placeholder="Company Email"><br>
+					        		<input required  class="form-control p-3   " type="text" name="phone2" placeholder="Phone Number"><br>
+					        		<input required  class="form-control p-3   " type="text" name="country" placeholder="Country"><br>
+					        	
+					        		<button type="submit" name="submit_offers_form" class="btn btn-primary col-lg-12">Download Now</button>
 					        	</form>
 					        </div>
 					    </div>
