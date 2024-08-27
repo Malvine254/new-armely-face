@@ -394,7 +394,7 @@ $('#offersForm').submit(function(event) {
         }else{
           Swal.fire({
           title: 'Warning',
-          text: response,
+          text: 'Coming soon.....',
           icon: 'warning',
           confirmButtonText: 'OK',
            confirmButtonColor: 'rgb(47,85,151)'
