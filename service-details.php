@@ -177,18 +177,12 @@
 		<div class="bread-inner">
 			<div class="row">
 				<div class="col-12">
-					<?php if (isset($_GET['name'])): echo "<h2>".$_GET['name']."</h2>";?>
-					<?php else: echo "<h2>Service Details</h2>";?>	
-					<?php endif ?>
-					
+					<h2>Service Details</h2>
 					<ul class="bread-list">
 						<li><a href="index">Home</a></li>
 						<li><i class="icofont-simple-right"></i></li>
 						<li class="active">
-							<?php if (isset($_GET['name'])): echo $_GET['name'];?>
-							<?php else: echo "Service Details";?>	
-							<?php endif ?>
-						
+						Service Details		
 					</li>
 					</ul>
 				</div>
@@ -198,65 +192,74 @@
 </div>
 <!-- End Breadcrumbs -->
 <?php if (isset($_GET['name']) && $_GET['name']==="freemiums"): ?>
-	
-<section class="schedule">
+
+<!-- Pricing Table -->
+<section class="pricing-table">
 <div class="container">
-<div class="schedule-inner">
 <div class="row">
-<div class="col-lg-4 col-md-6 col-12" >
-	<!-- single-schedule -->
-	<div class="single-schedule first " style="min-height: 380px; height: auto;">
-		<div class="inner">
-			<div class="icon">
-				<i class="fa fa-data"></i>
+<div class="col-lg-12">
+<div class="section-title mt-5"> 
+	<h2><?php if (isset($_GET['name'])): echo $_GET['name'];?><?php else: echo "Service Details";?>	<?php endif ?></h2>
+		<center><hr class="default-background hr" ></center>
+</div>
+</div>
+</div>
+<div class="row">
+<!-- Single Table -->
+<div class="col-lg-4 col-md-12 col-12">
+		<div class="single-table">
+			<!-- Table Head -->
+			<a href="service-details?name=sql">
+			<div class="table-head">
+				<div class="icon">
+				<img src="images/offers/sqloffer.png" style="height: 150px;">
+				</div>
+				<h4 class="title">SQL Health Check</h4>
+				<p>Get a free SQL health check for optimized performance. Identify issues, improve stability, and reduce downtime with tailored insights for peak database efficiency.</p>
 			</div>
-			<div class="single-content">
-				<a href="images/offers/sqloffer.png" target="_blank"><img src="images/offers/aioffer.png" class="img-fluid" style="height: 170px;"></a>
-				<h4 >SQL Health Check</h4>
-				<p class="shorten-content">Ensure your database is optimized and running smoothly with a comprehensive analysis that identifies potential issues, improves performance, and enhances stability. Our expert service examines key metrics like query performance, indexing, and resource usage to provide actionable insights tailored to your specific environment. Proactively address bottlenecks, reduce downtime, and keep your systems running at peak efficiency—all at no cost. Stay ahead of database challenges and ensure your SQL infrastructure is performing at its best.</p>
-				<a class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#offersModal">Get for free<i class="fa fa-caret-right"></i></a>
-			</div>
+			</a>
 		</div>
-	</div>
-	</div>
+</div>
 
-	<div class="col-lg-4 col-md-6 col-12" style="min-height: 380px; height: auto;">
-	<!-- single-schedule -->
-	<div class="single-schedule first ">
-		<div class="inner">
-			<div class="icon">
-				<i class="fa fa-data"></i>
+<div class="col-lg-4 col-md-12 col-12">
+		<div class="single-table">
+			<!-- Table Head -->
+			<a href="service-details?name=coe">
+			<div class="table-head">
+				<div class="icon">
+				<img src="images/white-papers/coewhitepaper.png" style="height: 150px;">
+				</div>
+				<h4 class="title">Power Platform-COE</h4>
+				<p>Get free Power BI integration for real-time insights, streamlined processes, and better decisions. Enhance business performance and boost productivity with tailored dashboards.</p>
 			</div>
-			<div class="single-content">
-				<a href="images/offers/aioffer.png" target="_blank"><img src="images/offers/managedoffer.png" class="img-fluid" style="height: 170px;"></a>
-				<h4 >Power Platform-CEO</h4>
-				<p class="shorten-content">Integrate Power BI reports into your dashboard and gain a comprehensive view of your business operations at no cost. Make informed, strategic decisions with real-time insights, streamline processes, and boost productivity across your organization. From data-driven analytics to automated workflows, leverage the full potential of the Power Platform to enhance business performance and stay ahead in the market—all designed with the needs of executives in mind.</p>
-				<a class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#offersModal">Get for free<i class="fa fa-caret-right"></i></a>
-			</div>
+			</a>
 		</div>
-	</div>
-	</div>
+</div>
+<div class="col-lg-4 col-md-12 col-12">
+		<div class="single-table">
+			<!-- Table Head -->
+			<a href="service-details?name=powerbi">
+			<div class="table-head">
+				<div class="icon">
+				<img src="images/freemiums/sql-check.png" style="height: 150px;">
+				</div>
+				<h4 class="title">PowerBI Activity</h4>
+				<p>Get free access to seamless Power BI integration for enhanced data visualization, smarter decisions, and better business performance with interactive, insightful dashboards.</p>
+			</div>
+			</a>
+		</div>
+</div>
+<!-- End Single Table-->
 
-	<div class="col-lg-4 col-md-6 col-12" style="min-height: 380px; height: auto;">
-	<!-- single-schedule -->
-	<div class="single-schedule first ">
-		<div class="inner">
-			<div class="icon">
-				<i class="fa fa-data"></i>
-			</div>
-			<div class="single-content">
-			<a href="images/freemiums/sql-check.png" target="_blank"><img src="images/freemiums/sql-check.png" class="img-fluid" style="height: 170px;"></a>
-				<h4 >PowerBI Activity</h4>
-				<p class="shorten-content">Get free access to powerful insights with our service that allows you to seamlessly integrate Power BI reports into your dashboard. Unlock enhanced data visualization and analysis tools to drive smarter decision-making and elevate business performance—all at no cost. Our solution offers an easy and efficient way to consolidate multiple data sources into a single, visually appealing dashboard, enabling you to track key metrics, identify trends, and make informed decisions. Experience the full potential of your data with rich, interactive reports, all available to you for free. </p><br>
-					<a class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#offersModal">Get for free<i class="fa fa-caret-right"></i></a>
-			</div>
-		</div>
-	</div>
-	</div>
-</div>
-</div>
-</div>
-</section>
+</div>	
+</div>	
+</section>	
+<!--/ End Pricing Table -->
+
+
+
+
+
 <?php endif ?>
 <!-- Start Portfolio Details Area -->
 <?php if (isset($_GET['name'])): ?>
@@ -276,6 +279,53 @@
 				<div class="inner-content " >
 					
 					<div class="body-text">
+					<?php if ($_GET['name']=="powerbi"): ?>
+						<section class="container">
+							<h3 class="default-color">PowerBI Activity </h3>
+							
+							<p> The Power BI Activity Dashboard is designed to give a comprehensive view of user interactions within the Power BI environment. This dashboard helps stakeholders monitor usage, identify trends, and make informed decisions regarding report distribution and access management. Here’s what it covers:</p>
+						 <div class="container mt-3 row">
+					        <div class="col-md-7">
+					        	<!-- Section 1 -->
+					        <div class="mb-4">
+					            <h4><strong>1. User Activity Tracking</strong></h4>
+					            <p><strong>What it Monitors:</strong> Track who is accessing reports, when, and how frequently.</p>
+					            <p><strong>Insights Gained:</strong> Identify key users, spot unusual access patterns, and understand report consumption trends.</p>
+					        </div>
+
+					        <!-- Section 2 -->
+					        <div class="mb-4">
+					            <h4><strong>2. Report Usage Patterns</strong></h4>
+					            <p><strong>What it Monitors:</strong> Detailed breakdown of report views, edits, and shares.</p>
+					            <p><strong>Insights Gained:</strong> Determine which reports are driving engagement and which may need updates or further promotion.</p>
+					        </div>
+
+					        <!-- Section 3 -->
+					        <div class="mb-4">
+					            <h4><strong>3. Access and Sharing Analytics</strong></h4>
+					            <p><strong>What it Monitors:</strong> Activities like sharing reports, publishing content, and granting access.</p>
+					            <p><strong>Insights Gained:</strong> Understand collaboration levels within teams and identify potential data governance issues.</p>
+					        </div>
+
+					       
+					        </div>
+					        <div class="col-md-5">
+					        	<h5 class="mb-5">Get the download link</h5>
+					        	<form class="form-group">
+					        		<input class="form-control p-3" type="text" name="name" placeholder="First Name"><br>
+					        		<input class="form-control p-3" type="text" name="name" placeholder="Last Name"><br>
+					        		<input class="form-control p-3" type="text" name="name" placeholder="Company Email"><br>
+					        		<input class="form-control p-3   " type="text" name="name" placeholder="Company Name"><br>
+					        		<select  class="form-control w-100  p-4"  name="name">
+					        			<option class="h-200   w-100">Select Country</option>
+					        			
+					        		</select>
+					        		<button class="btn btn-primary col-lg-12">Download Now</button>
+					        	</form>
+					        </div>
+					    </div>
+						</section>
+						<?php endif ?>
 					
 						<?php if ($_GET['name']=="ai-advisory"): ?>
 						<h3>AI Service: AI Advisory</h3>

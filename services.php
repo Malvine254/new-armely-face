@@ -221,7 +221,7 @@
 <div class="container">
 <div class="row">
 <div class="col-lg-12">
-<div class="section-title">
+<div class="section-title"> 
 	<h2>Empowering Your Tech Journey</h2>
 		<center><hr class="default-background hr" ></center>
 		<p>Our experts provide tailored guidance in areas such as business planning, product development, marketing, financial management, and risk management, ensuring your company's competitiveness and sustainable growth.</p>
