@@ -1045,9 +1045,7 @@ function submitOffersForm() {
 
 if (isset($_POST['submit_offers_form'])) {
     submitOffersForm();
-} else {
-    echo "Form not submitted";
-}
+} 
 
 
 ?>
