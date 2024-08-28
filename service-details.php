@@ -209,44 +209,44 @@
 <div class="col-lg-4 col-md-12 col-12">
 		<div class="single-table">
 			<!-- Table Head -->
-			<a href="service-details?name=sql">
+			
 			<div class="table-head">
 				<div class="icon">
-				<img src="images/offers/sqloffer.png" style="height: 150px;">
+				<a href="images/offers/sqloffer.png" target="_blank"><img src="images/offers/sqloffer.png" style="height: 150px;"></a>
 				</div>
 				<h4 class="title">SQL Health Check</h4>
 				<p>Get a free SQL health check for optimized performance. Identify issues, improve stability, and reduce downtime with tailored insights for peak database efficiency.</p>
+				<a href="service-details?name=sql" class="btn btn-primary">Get now</a>
 			</div>
-			</a>
 		</div>
 </div>
 
 <div class="col-lg-4 col-md-12 col-12">
 		<div class="single-table">
 			<!-- Table Head -->
-			<a href="service-details?name=coe">
 			<div class="table-head">
 				<div class="icon">
-				<img src="images/white-papers/coewhitepaper.png" style="height: 150px;">
+					<a href="images/white-papers/coewhitepaper.png" target="_blank">
+						<img src="images/white-papers/coewhitepaper.png" style="height: 150px;"></a>
 				</div>
 				<h4 class="title">Power Platform-COE</h4>
 				<p>Get free Power BI integration for real-time insights, streamlined processes, and better decisions. Enhance business performance and boost productivity with tailored dashboards.</p>
+				<a href="service-details?name=coe" class="btn btn-primary">Get now</a>
 			</div>
-			</a>
 		</div>
 </div>
 <div class="col-lg-4 col-md-12 col-12">
 		<div class="single-table">
 			<!-- Table Head -->
-			<a href="service-details?name=powerbi">
 			<div class="table-head">
 				<div class="icon">
-				<img src="images/freemiums/sql-check.png" style="height: 150px;">
+				<a href="images/freemiums/sql-check.png" target="_blank"><img src="images/freemiums/sql-check.png" style="height: 150px;"></a>
 				</div>
 				<h4 class="title">PowerBI Activity</h4>
 				<p>Get free access to seamless Power BI integration for enhanced data visualization, smarter decisions, and better business performance with interactive, insightful dashboards.</p>
+					<a href="service-details?name=powerbi" class="btn btn-primary">Get now</a>
 			</div>
-			</a>
+			
 		</div>
 </div>
 <!-- End Single Table-->
@@ -659,34 +659,52 @@
 							<h3>Fremiums: SQL Server Health Checks</h3>
 							<h5 class="mt-3">Ensuring the Health of Your SQL Server</h5>
 							<p>In today's data-driven world, the reliability and performance of your SQL Server infrastructure is crucial to the success of your business. Regular SQL Server health checks are essential to identify potential issues, optimize performance, and ensure the long-term stability of your mission-critical database systems.</p>
-							<blockquote>
-								<p> 
-								<h5 class="text-light"><i class="icofont-quote-left"></i><strong> Why Perform a SQL Server Health Check?</strong></h5> 
-							</p>
-							<p class="mt-5">A comprehensive SQL Server health check can provide valuable insights into the overall health and configuration of your SQL Server environment. By identifying and addressing potential problems early, you can:</p>
-							<ol class="ml-5">
-								<li>Improve database performance and responsiveness</li>
-								<li>Prevent unplanned downtime and ensure high availability</li>
-								<li>Identify and resolve security vulnerabilities</li>
-								<li>Optimize resource utilization and reduce operational costs</li>
-								<li>Ensure compliance with industry regulations and best practices</li>
-							</ol>	
-							<p><strong>Data Architecture and Integration</strong></p>
-							<ol class="ml-5">
-								<li>Design a scalable, resilient, and integrated data architecture that connects disparate data sources and enables seamless data flows. We'll help you leverage the right technologies and tools to power your data-driven initiatives.</li>
-							</ol>		
-							<p><strong>Data Analytics and Insights</strong></p>
-							<ol class="ml-5">
-								<li>Unlock the full potential of your data with advanced analytics and visualization capabilities. We'll help you design and deploy impactful dashboards, reports, and predictive models to drive informed decision-making.</li>
-							</ol>			
-							<p><strong>Data-Driven Culture and Capabilities</strong>
-							<ol class="ml-5">
-								<li>Foster a data-driven culture within your organization by upskilling your workforce and empowering them to make data-informed decisions. We'll help you develop robust data literacy programs and champion data-driven mindsets.</li>
-							</ol>
-							
-							</p>
+							<div class="row">
+							 
+					        <div class="col-md-6">
+					        	<blockquote>
+										<p> 
+										<h5 class="text-light"><i class="icofont-quote-left"></i><strong> Why Perform a SQL Server Health Check?</strong></h5> 
+										</p>
+										<p class="mt-5">A comprehensive SQL Server health check can provide valuable insights into the overall health and configuration of your SQL Server environment. By identifying and addressing potential problems early, you can:</p>
+										<ol class="ml-5">
+											<li>Improve database performance and responsiveness</li>
+											<li>Prevent unplanned downtime and ensure high availability</li>
+											<li>Identify and resolve security vulnerabilities</li>
+											<li>Optimize resource utilization and reduce operational costs</li>
+											<li>Ensure compliance with industry regulations and best practices</li>
+										</ol>	
+										<p><strong>Data Architecture and Integration</strong></p>
+										<ol class="ml-5">
+											<li>Design a scalable, resilient, and integrated data architecture that connects disparate data sources and enables seamless data flows. We'll help you leverage the right technologies and tools to power your data-driven initiatives.</li>
+										</ol>		
+										<!-- <p><strong>Data Analytics and Insights</strong></p>
+										<ol class="ml-5">
+											<li>Unlock the full potential of your data with advanced analytics and visualization capabilities. We'll help you design and deploy impactful dashboards, reports, and predictive models to drive informed decision-making.</li>
+										</ol>			
+										<p><strong>Data-Driven Culture and Capabilities</strong>
+										<ol class="ml-5">
+											<li>Foster a data-driven culture within your organization by upskilling your workforce and empowering them to make data-informed decisions. We'll help you develop robust data literacy programs and champion data-driven mindsets.</li>
+										</ol>
+										
+										</p> -->
 														
 							</blockquote>
+					   </div>
+					   <div class="col-md-6">
+					        	<h5 class="mb-5">Request for SQL Server Health Check for Free</h5>
+					        	<form class="form-group" method="post" id="sql-offer-form" >
+					        		<input id="fname" required class="form-control p-3" type="text" name="fname1"  placeholder="First Name"><br>
+					        		<input required class="form-control p-3" type="text" name="lname1" placeholder="Last Name"><br>
+					        		<input required class="form-control p-3" type="email" name="email1" placeholder="Company Email"><br>
+					        		<input required  class="form-control p-3   " type="tel" name="phone1" placeholder="Phone Number"><br>
+					        		<input required  class="form-control p-3   " type="text" name="country1" placeholder="Country"><br>
+					        	
+					        		<button type="submit" name="submit_sql_offers_form" class="btn btn-primary col-lg-12">Request Now</button>
+					        	</form>
+					        </div>
+					 </div>
+							
 							<table class="table table-bordered mt-5">
 								<tr class="default-color">
 									
@@ -755,12 +773,31 @@
 							<?php endif ?>
 
 							<?php if ($_GET['name']=="coe"): ?>
-							<div class="container">	
-							<h3>Fremiums: Power Platform CoE</h3>
-							<h5 class="mt-2">Optimize Your Power Platform Investment with a Comprehensive a Center of Excellence-Driven Health Check</h5>
-							<p>As organizations increasingly rely on the Microsoft Power Platform to drive digital transformation, establishing a Center of Excellence (CoE) is crucial for ensuring the health and optimal performance of your Power Platform environment. A Power Platform health check, guided by your CoE, can help you identify areas for improvement, unlock greater value, and maximize your return on investment.</p>
-							<h5 class="mt-2">Get the Full Potential of Your Power Platform with Your CoE</h5>
-							<p>By leveraging your Center of Excellence to conduct a comprehensive Power Platform health check, you can elevate your Microsoft 365 and Power Platform ecosystem to new heights. Our team of CoE experts will provide you with actionable insights and a roadmap to optimize your Power Platform investment and unlock greater business value.</p>
+							<div class="container card">	
+							<div class="p-3">
+								<div class="row">
+									<div class="col-md-6">
+								<h3>Fremiums: Power Platform CoE</h3>
+								<h5 class="mt-2">Optimize Your Power Platform Investment with a Comprehensive a Center of Excellence-Driven Health Check</h5>
+								<p>As organizations increasingly rely on the Microsoft Power Platform to drive digital transformation, establishing a Center of Excellence (CoE) is crucial for ensuring the health and optimal performance of your Power Platform environment. A Power Platform health check, guided by your CoE, can help you identify areas for improvement, unlock greater value, and maximize your return on investment.</p>
+								<h5 class="mt-2">Get the Full Potential of Your Power Platform with Your CoE</h5>
+								<p>By leveraging your Center of Excellence to conduct a comprehensive Power Platform health check, you can elevate your Microsoft 365 and Power Platform ecosystem to new heights. Our team of CoE experts will provide you with actionable insights and a roadmap to optimize your Power Platform investment and unlock greater business value.</p>
+							</div>
+
+							<div class="col-md-6">
+					        	<h5 class="mb-5">Request for COE Integration for Free</h5>
+					        	<form class="form-group" method="post" id="coe-offer-form" >
+					        		<input id="fname" required class="form-control p-3" type="text" name="fname3"  placeholder="First Name"><br>
+					        		<input required class="form-control p-3" type="text" name="lname3" placeholder="Last Name"><br>
+					        		<input required class="form-control p-3" type="email" name="email3" placeholder="Company Email"><br>
+					        		<input required  class="form-control p-3   " type="tel" name="phone3" placeholder="Phone Number"><br>
+					        		<input required  class="form-control p-3   " type="text" name="country3" placeholder="Country"><br>
+					        	
+					        		<button type="submit" name="submit_coe_offers_form" class="btn btn-primary col-lg-12">Request Now</button>
+					        	</form>
+					        </div>
+								</div>
+							</div>
 							
 							</div>
 							<?php endif ?>

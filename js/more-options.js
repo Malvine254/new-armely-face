@@ -428,3 +428,87 @@ $.ajax({
   }
 });
 });
+
+// submit sql offers form
+$('#sql-offer-form').submit(function(event) {
+event.preventDefault(); // Prevent the default form submission
+// Retrieve the form data
+var formData2 = $(this).serialize();
+
+// Perform an AJAX request to submit the form data
+$.ajax({
+  type: 'POST',
+  url: 'php/offers', // Replace with your actual server-side endpoint
+  data: formData2,
+  success: function(e) {
+  // Handle the success response
+  if (e === "1") {
+    $("#sql-offer-form")[0].reset();
+    Swal.fire({
+      title: 'Thank you!',
+      text: "Request sent successfully..",
+      confirmButtonColor: 'rgb(47,85,151)', 
+      icon: 'success',
+    })
+  } else {
+    Swal.fire({
+      title: 'Warning',
+      text: e,
+      icon: 'warning',
+      confirmButtonText: 'OK',
+      confirmButtonColor: 'rgb(47,85,151)'
+    });
+  }
+
+  console.log(e); // You can do something with the response data
+},
+
+  error: function(error) {
+    // Handle the error response
+    console.error('Form submission error');
+    console.error(error); // You can display an error message or perform other actions
+  }
+});
+});
+
+// submit sql offers form
+$('#coe-offer-form').submit(function(event) {
+event.preventDefault(); // Prevent the default form submission
+// Retrieve the form data
+var formData2 = $(this).serialize();
+
+// Perform an AJAX request to submit the form data
+$.ajax({
+  type: 'POST',
+  url: 'php/offers', // Replace with your actual server-side endpoint
+  data: formData2,
+  success: function(e) {
+  // Handle the success response
+  if (e === "1") {
+    $("#coe-offer-form")[0].reset();
+    Swal.fire({
+      title: 'Thank you!',
+      text: "Request sent successfully..",
+      confirmButtonColor: 'rgb(47,85,151)', 
+      icon: 'success',
+    })
+  } else {
+    Swal.fire({
+      title: 'Warning',
+      text: e,
+      icon: 'warning',
+      confirmButtonText: 'OK',
+      confirmButtonColor: 'rgb(47,85,151)'
+    });
+  }
+
+  console.log(e); // You can do something with the response data
+},
+
+  error: function(error) {
+    // Handle the error response
+    console.error('Form submission error');
+    console.error(error); // You can display an error message or perform other actions
+  }
+});
+});
