@@ -2,7 +2,7 @@
 // submit offers form
 if (isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['email2']) && isset($_POST['phone2']) && isset($_POST['country'])) {
 
-function sendEmail($sender, $name, $phone, $email, $country, $subject) {
+function sendEmail($sender, $name, $phone, $country, $subject) {
     $to = $sender;
     $subject = $subject;
 
@@ -109,7 +109,7 @@ function sendEmail($sender, $name, $phone, $email, $country, $subject) {
 
             // Execute the query
             if ($stmt->execute()) {
-                sendEmail($sender, $fname." ".$lname, $phone, $email, $country, $subject);
+                sendEmail($email, $fname." ".$lname, $phone,$country, $category);
             } else {
                 echo "Failed to submit the form";
             }
