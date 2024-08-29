@@ -402,7 +402,7 @@ $.ajax({
 
         let file2 = document.createElement('a');
         file2.href = 'downloads/PowerBI_Activity_v2.ps1';
-        file2.download = 'PowerBI_Activity_v2.ps1';
+        file2.download = 'downloads/ActivityTemplate_v2.pbit';
         document.body.appendChild(file2);
         file2.click();
         document.body.removeChild(file2);
