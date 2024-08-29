@@ -384,7 +384,7 @@ $.ajax({
   if (e === "1") {
     Swal.fire({
       title: 'Thank you!',
-      text: "Please check your email for ownload link.",
+      text: "Please check your email for download link.",
       confirmButtonColor: 'rgb(47,85,151)', 
       icon: 'success',
     }).then((result) => {
