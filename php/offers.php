@@ -59,7 +59,7 @@ function sendEmail($sender, $name, $phone, $country, $subject) {
                 <p><strong>Phone:</strong> $phone</p>
                 <p><strong>Email:</strong> $sender</p>
                 <p><strong>Country:</strong> $country</p>
-                <p><strong>Message:</strong></p>
+               
               
             </div>
             <div class='footer'>
@@ -71,7 +71,7 @@ function sendEmail($sender, $name, $phone, $country, $subject) {
     ";
 
     // Headers
-    $headers = "From: info@armely.com\r\n";
+    $headers = "Armely LLC";
     $headers .= "Reply-To: info@armely.com\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-type: text/html; charset=UTF-8\r\n";
