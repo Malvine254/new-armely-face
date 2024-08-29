@@ -155,7 +155,7 @@ function sendDownloadLink($sender, $subject,$name) {
     $headers .= "X-Mailer: PHP/" . phpversion();
 
     // Send the email
-    if (mail($to, $subject, $headers,$message)) {
+    if (mail($to, $subject,$message, $headers)) {
         echo 1;
     } else {
         echo 'Failed to send email.';
