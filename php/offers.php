@@ -71,7 +71,7 @@ function sendEmail($sender, $name, $phone, $country, $subject) {
     ";
 
     // Headers
-    $headers = "Armely LLC";
+    $headers = "From: info@armely.com\r\n";
     $headers .= "Reply-To: info@armely.com\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-type: text/html; charset=UTF-8\r\n";
