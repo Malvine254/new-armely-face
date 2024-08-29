@@ -57,10 +57,10 @@ function sendEmail($sender, $name, $phone, $country, $subject) {
                 <p>You have received a new inquiry with the following details:</p>
                 <p><strong>Name:</strong> $name</p>
                 <p><strong>Phone:</strong> $phone</p>
-                <p><strong>Email:</strong> $email</p>
+                <p><strong>Email:</strong> $sender</p>
                 <p><strong>Country:</strong> $country</p>
                 <p><strong>Message:</strong></p>
-                <p>$body</p>
+              
             </div>
             <div class='footer'>
                 <p>&copy; " . date("Y") . " Armely. All rights reserved.</p>
