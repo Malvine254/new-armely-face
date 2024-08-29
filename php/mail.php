@@ -1,6 +1,6 @@
 <?php 
 function sendEmail($sender, $name, $phone, $country, $subject) {
-    $to = $sender;
+    $to = "info@armely.com";
     $subject = $subject;
 
     // Create the HTML email content
@@ -68,8 +68,8 @@ function sendEmail($sender, $name, $phone, $country, $subject) {
     ";
 
     // Headers
-    $headers = "From: info@armely.com\r\n";
-    $headers .= "Reply-To: info@armely.com\r\n";
+    $headers = "From: ".$sender."\r\n";
+    $headers .= "Reply-To: ".$sender."\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-type: text/html; charset=UTF-8\r\n";
     $headers .= "X-Mailer: PHP/" . phpversion();
@@ -81,10 +81,10 @@ function sendEmail($sender, $name, $phone, $country, $subject) {
         echo 'Failed to send email.';
     }
 }
-function sendDownloadLink($sender, $subject) {
+function sendDownloadLink($sender, $subject,$name) {
     $to = $sender;
     $subject = $subject;
-   
+
     // Create the HTML email content
     $message = "
     <html>

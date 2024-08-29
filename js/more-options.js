@@ -384,7 +384,7 @@ $.ajax({
   if (e === "1") {
     Swal.fire({
       title: 'Thank you!',
-      text: "Your download will start shortly...",
+      text: "Please check your email for ownload link.",
       confirmButtonColor: 'rgb(47,85,151)', 
       icon: 'success',
     }).then((result) => {
@@ -393,19 +393,19 @@ $.ajax({
         $("#offers-form")[0].reset();
 
         // Create hidden link elements for each file and trigger the download
-        let file1 = document.createElement('a');
-        file1.href = 'downloads/PowerBI_Activity_v2.ps1';
-        file1.download = 'PowerBI_Activity_v2.ps1';
-        document.body.appendChild(file1);
-        file1.click();
-        document.body.removeChild(file1);
+        // let file1 = document.createElement('a');
+        // file1.href = 'downloads/PowerBI_Activity_v2.ps1';
+        // file1.download = 'PowerBI_Activity_v2.ps1';
+        // document.body.appendChild(file1);
+        // file1.click();
+        // document.body.removeChild(file1);
 
-        let file2 = document.createElement('a');
-        file2.href = 'downloads/PowerBI_Activity_v2.ps1';
-        file2.download = 'downloads/ActivityTemplate_v2.pbit';
-        document.body.appendChild(file2);
-        file2.click();
-        document.body.removeChild(file2);
+        // let file2 = document.createElement('a');
+        // file2.href = 'downloads/PowerBI_Activity_v2.ps1';
+        // file2.download = 'downloads/ActivityTemplate_v2.pbit';
+        // document.body.appendChild(file2);
+        // file2.click();
+        // document.body.removeChild(file2);
       }
     });
   } else {

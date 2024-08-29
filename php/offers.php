@@ -28,7 +28,7 @@ if (isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['email2']) 
             // Execute the query
             if ($stmt->execute()) {
                 sendEmail($email, $fname." ".$lname, $phone,$country, $category);
-                sendDownloadLink($email, $category);
+                sendDownloadLink($email, $category,$fname." ". $lname);
             } else {
                 echo "Failed to submit the form";
             }
