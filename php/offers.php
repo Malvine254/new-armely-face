@@ -109,7 +109,7 @@ function sendEmail($sender, $name, $phone, $email, $country, $subject) {
 
             // Execute the query
             if ($stmt->execute()) {
-                sendEmail($sender, $fname." ".$lname, $phone, $email, $country, $subject)
+                sendEmail($sender, $fname." ".$lname, $phone, $email, $country, $subject);
             } else {
                 echo "Failed to submit the form";
             }
