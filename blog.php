@@ -435,7 +435,7 @@
 		<h2>Contact Us</h2>
 		<ul>
 			<li><a href="tel: +1 972 460 0643" target="_blank"><i class="fa fa-phone" aria-hidden="true" ></i> +1 972 460 0643</a></li>
-			<li><a href="https://maps.app.goo.gl/GvH42mM2LwDaRdEg8" target="_blank"><i class="fa fa-map-marker" aria-hidden="true"></i>2831 Eldorado Pkwy Suite 103-128 Frisco TX 75033</a></li>
+			<li><a href="https://maps.app.goo.gl/GvH42mM2LwDaRdEg8" target="_blank"><i class="fa fa-map-marker" aria-hidden="true"></i>17400 Dallas Pkwy, Suite 111 Dallas, TX 752483</a></li>
 			<li><a href="mailto:info@armely.com" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i><span class="lowercase">info@armely.com</span></a></li>
 		</ul>
 	</div>

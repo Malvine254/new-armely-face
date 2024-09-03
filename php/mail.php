@@ -135,8 +135,8 @@ function sendDownloadLink($sender, $subject,$name) {
             <div class='content'>
                 <h2>Hello, ".htmlspecialchars($name)."</h2>
                 <p>Click the download link below:</p>
-               <p>File 1: <a class='btn btn-info' href='https://armely.com/downloads/ActivityTemplate_v2.pbit' download>Click to download ActivityTemplate_v2 file</a></p>
-            <p>File 2: <a class='btn btn-info' href='https://armely.com/downloads/PowerBI_Activity_v2.ps1' download>Click to download PowerBI_Activity_v2 file</a></p>  
+               <p><strong>File 1: <a class='btn btn-info' href='https://armely.com/downloads/ActivityTemplate_v2.pbit' download>Click to download ActivityTemplate_v2 file</a></strong></p>
+            <p><strong>File 2: <a class='btn btn-info' href='https://armely.com/downloads/PowerBI_Activity_v2.ps1' download>Click to download PowerBI_Activity_v2 file</a><strong></p>  
               
             </div>
             <div class='footer'>
