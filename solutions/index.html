@@ -63,9 +63,29 @@
 	               
 	              </ul>
 		          </li>
-		          
-		        <!--   <li>
-	              <a href="#">Contact</a>
+		          <li>
+	              <a href="#aiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Computer Vision</a>
+	              <ul class="collapse list-unstyled" id="aiSubmenu">
+	                <li>
+	                	<a class="nav-item-one" href="#" data-target="#content8">Image Classification</a>
+	                </li>
+	                <li>
+	                   <a class="nav-item-one" href="#" data-target="#content9">Object Detection</a>
+	                </li>
+	                 <li>
+	                   <a class="nav-item-one" href="#" data-target="#content10">OCR</a>
+	                </li>
+	                 <li>
+	                   <a class="nav-item-one" href="#" data-target="#content11">Facial Recognition</a>
+	                </li>
+	               
+	              </ul>
+		          </li>
+
+
+		         <!--  
+		          <li>
+	              	<a href="#">Computer Vision</a>
 		          </li> -->
 		        </ul>
 
@@ -121,8 +141,72 @@
 	        <p class="text-danger">Coming Soon...</p>
 	      </div>
 
-	<!-- Page Content3  -->
+		  <!-- Page Content3  -->
 	      <div id="content7" class="content-section p-4 p-md-5 pt-5" style="display: none; height: 100vh; width: 100vw;">
+
+	        <h2 id="title" class="mb-4 ">Rag App</h2>
+	        <p class="text-danger">Coming Soon...</p>
+	      </div>
+
+
+		  <!-- Page Content3  -->
+	      <div id="content8" class="content-section p-4 p-md-5 pt-5" style="display: none; height: 100vh; width: 100vw;">
+
+	        <h2 id="title" class="mb-4 ">Image Classification</h2>
+	       
+	        <!-- Image URL form -->
+		    <div>
+		    	<select id="option-choice" class="form-control col-md-4">
+		    		<option selected disabled>Upload/paste Url</option>
+		    		<option value="1">Url</option>
+		    		<option value="2">Upload</option>
+
+		    	</select>
+		        <!-- <h3>Classify using an Image URL</h3> -->
+		       
+		    </div><br><br>
+
+		    <!-- File upload form -->
+		    <div id="urlOption" style="display: none;">
+		    	 <input class="form-control col-md-6" type="text" id="imageUrl" placeholder="Enter image URL"><br>
+		        <button class="btn btn-primary" onclick="predictFromUrl()">Submit</button>
+		    </div>
+		    <div id="uploadOptions" style="display: none;">
+		        <h3>Classify using an Image File</h3>
+		        <input class="form-control col-md-6" type="file" id="imageFile"><br>
+		        <button class="btn btn-primary" onclick="predictFromFile()">Upload</button>
+		    </div>
+
+		    <div id="result"></div>
+
+
+
+
+
+
+
+
+
+	      </div>
+
+
+		  <!-- Page Content3  -->
+	      <div id="content9" class="content-section p-4 p-md-5 pt-5" style="display: none; height: 100vh; width: 100vw;">
+
+	        <h2 id="title" class="mb-4 ">Object Detection</h2>
+	        <p class="text-danger">Coming Soon...</p>
+	      </div>
+
+
+		  <!-- Page Content3  -->
+	      <div id="content10" class="content-section p-4 p-md-5 pt-5" style="display: none; height: 100vh; width: 100vw;">
+
+	        <h2 id="title" class="mb-4 ">OCR</h2>
+	        <p class="text-danger">Facial Recognition</p>
+	      </div>
+
+		  <!-- Page Content3  -->
+	      <div id="content11" class="content-section p-4 p-md-5 pt-5" style="display: none; height: 100vh; width: 100vw;">
 
 	        <h2 id="title" class="mb-4 ">Rag App</h2>
 	        <p class="text-danger">Coming Soon...</p>
@@ -136,5 +220,63 @@
 	    <script src="js/bootstrap.min.js"></script>
 	    <script src="js/main.js"></script>
 	    <script src="js/paging.js"></script>
+	    <script type="text/javascript">
+	    	 const predictionUrl = "https://democustomimage-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/18f9801b-0418-4955-bb6a-a063f40e6e0c/classify/iterations/micro%20organisms%20model/";
+        const predictionKey = "2528943c9d204dc6b375cd851ae730c1";
+
+        async function predictFromUrl() {
+            const url = document.getElementById('imageUrl').value;
+            const response = await fetch(predictionUrl + 'url', {
+                method: 'POST',
+                headers: {
+                    'Prediction-Key': predictionKey,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ Url: url })
+            });
+            const result = await response.json();
+            displayPlainResult(result);
+        }
+
+        async function predictFromFile() {
+            const fileInput = document.getElementById('imageFile');
+            const file = fileInput.files[0];
+            const formData = new FormData();
+            formData.append('image', file);
+
+            const response = await fetch(predictionUrl + 'image', {
+                method: 'POST',
+                headers: {
+                    'Prediction-Key': predictionKey
+                },
+                body: file
+            });
+            const result = await response.json();
+            displayPlainResult(result);
+        }
+
+        function displayPlainResult(result) {
+            const resultDiv = document.getElementById('result');
+            const predictions = result.predictions;
+            
+            let output = '<h3>Prediction Results:</h3>';
+            predictions.forEach(prediction => {
+                output += `<p><strong>${prediction.tagName}</strong>: ${Math.round(prediction.probability * 100)}% confidence</p>`;
+            });
+            
+            resultDiv.innerHTML = output;
+        }
+
+        $("#option-choice").change(()=>{
+        	if ($("#option-choice").val()==1) {
+        		
+        		$("#uploadOptions").css("display","none")
+        		$("#urlOption").css("display","block")
+        	}else if($("#option-choice").val()==2){
+        		$("#uploadOptions").css("display","block")
+        		$("#urlOption").css("display","none")
+        	}
+        })
+	    </script>
 	  </body>
 	</html>
