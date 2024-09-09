@@ -349,7 +349,7 @@ function displayRecentBlogsOthers(){
         while ($row=$select->fetch_assoc()) {
 
         	echo '<div class="single-post data-item">
-				<div class="image">
+				<div class="image" style="height: auto !important;">
 					<img style="height: auto !important;" src="'.$row['image_path'].'" alt="#">
 				</div>
 				<div class="content">
