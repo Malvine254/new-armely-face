@@ -265,8 +265,8 @@
 				<div class="single-info">
 					<i class="icofont-google-map"></i>
 					<div class="content">
-						<h3>2831 Eldorado Pkwy</h3>
-						<p>Suite 103-128 Frisco TX 75033</p>
+						<h3>17400 Dallas Pkwy</h3>
+						<p>Suite 111 Dallas, TX 75248</p>
 					</div>
 				</div>
 			</div>
