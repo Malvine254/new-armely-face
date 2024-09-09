@@ -1050,7 +1050,7 @@ if (isset($_GET['blogId'])) {
         // Check if the current blogId exists in the cookie array
         if (isset($clicks[$id])) {
             // If the blogId exists in the cookie, do not update the database
-            echo "This blog post has already been clicked by this user!";
+            //echo "This blog post has already been clicked by this user!";
         } else {
             // If the blogId does not exist in the cookie, update the database
             $update = $conn->query("UPDATE blogs SET clicks='$row_count' WHERE blog_id='$id'");
