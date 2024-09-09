@@ -356,7 +356,7 @@ function displayRecentBlogsOthers(){
 					<h5><a href="?blogId='.$row['blog_id'].'">'.$row['title'].'</a></h5>
 					<ul class="comment">
 						<li><i class="fa fa-calendar" aria-hidden="true"></i>'.$row['date'].', 2024</li>
-						<li><i class="fa fa-commenting-o" aria-hidden="true"></i>35</li>
+						<li><i class="fa fa-eye" aria-hidden="true"></i>'.$row['clicks'].'</li>
 					</ul>
 				</div>
 			</div>';
@@ -1012,6 +1012,58 @@ function listCountries(){
 	foreach ($countries as $country) {
 	    echo "<option>".$country['name']['common']."</option>";
 	}
+}
+
+
+// add conts to blog clicks
+
+if (isset($_GET['blogId'])) {
+    include 'config.php';
+    $id = mysqli_real_escape_string($conn, $_GET['blogId']);
+    
+    // Default expiration time for the cookie (30 days)
+    $expiration_days = 30;
+
+    // Initialize clicks array
+    $clicks = [];
+
+    // Check if the 'clicks' cookie exists
+    if (isset($_COOKIE['clicks'])) {
+        $cookie_data = $_COOKIE['clicks'];
+
+        // Decode the cookie value (it should be a JSON array)
+        $clicks = json_decode($cookie_data, true);
+        print_r($clicks);
+
+        // If the cookie data isn't an array, reset it to an empty array
+        if (!is_array($clicks)) {
+            $clicks = [];
+        }
+    }
+
+    // Fetch the blog data from the database
+    $select = $conn->query("SELECT * FROM blogs WHERE blog_id='$id'");
+    if ($select->num_rows > 0) {
+        $row = $select->fetch_assoc();
+        $row_count = $row['clicks'] + 1;
+
+        // Check if the current blogId exists in the cookie array
+        if (isset($clicks[$id])) {
+            // If the blogId exists in the cookie, do not update the database
+            echo "This blog post has already been clicked by this user!";
+        } else {
+            // If the blogId does not exist in the cookie, update the database
+            $update = $conn->query("UPDATE blogs SET clicks='$row_count' WHERE blog_id='$id'");
+
+            // Add this blogId to the clicks array to mark it as clicked
+            $clicks[$id] = $id;
+
+            // Encode the updated array back to JSON and set it in the cookie
+            setcookie('clicks', json_encode($clicks), time() + ($expiration_days * 24 * 60 * 60), "/");
+
+            //echo "Click registered for blog post ID: $id!";
+        }
+    }
 }
 
 
