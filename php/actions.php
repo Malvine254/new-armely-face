@@ -688,7 +688,7 @@ function displayRecentIndustryListingsAll(){
         while ($row=$select->fetch_assoc()) {
 
         	echo '<div class="col-md-4 mb-4 p-1">
-                <div class="customer-story-card card m-1" style="min-height: 450px; max-height: 450px;">
+                <div class="customer-story-card card m-1" style="min-height: 450px; max-height: 700px;">
                     <img  src="images/case-study/'.$row['listing_image'].'" class="d-block img-fluid lazyload" alt="">
                     <div class="p-3">
                        <strong> <p id="'.$row['id'].'" class="text-muted h5">Industry: '.$row['category'].'</p></strong>
