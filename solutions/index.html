@@ -94,16 +94,40 @@
 	    	</nav>
 
 	        <!-- Page Content  -->
-	      <div id="content1" class="content-section  p-4 p-md-5 pt-5" style="display: none; height: 100vh; width: 100vw;">
-			    <div class="form-group shadow bg-white p-5">
-			        <h2>Speech to Text</h2>
-			        <textarea style="height: 50vh !important;" class="form-control" id="transcription" rows="6" placeholder="Your transcribed text will appear here..."></textarea><br>
-			        <button id="startRec" class="btn btn-primary">Start Recording</button>
-			        <button id="stopRec" class="btn btn-danger">Stop Recording</button>
-			        <button id="resumeRec" class="btn btn-info">Resume Recording</button>
-			        <button id="downloadTranscription" class="btn btn-dark">Download Transcription</button>
+	      <div id="content1" class="content-section  p-4 p-md-4 pt-5" style="display: none; height: 100vh; width: 100vw;">
+			   <div class="row shadow  p-4">
+			   	<div class="col-md-4" style="border-right:solid #2f5597 5px;">
+			   		<h4>Transcription History</h4>
+			   		<ol>
+			   		<li>
+			   		 	<a href="">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+			   		 </li>
+			   		 <li>
+			   		 	<a href="">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+			   		 </li>
+			   		 <li>
+			   		 	<a href="">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+			   		 </li>
+			   	</ol>
+			   		
+			   	</div>
+			   	 <div class="col-md-8">
+			   	 	 <h6 class="text-right"><i class="fa fa-upload text-primary ml-5"> Publish </i> 
+			   	 	 	<i id="downloadTranscription"  class="fa fa-upload text-primary"> Download </i>
+
+
+			   	 	 </h6>
+			   	 	 <!-- <h6 id="downloadTranscription" class="text-right"><i id="downloadTranscription"  class="fa fa-upload text-primary"> Download </i>  </h6> -->
+			   	 	<div class="form-group bg-white p-5">
+			        <textarea style="height: 40vh !important; border: solid 1px;" class="form-control" id="transcription" rows="6" placeholder="Your transcribed text will appear here..."></textarea><br>
+			        <button id="startRec" class="btn btn-primary">Start</button>
+			        <button id="stopRec" class="btn btn-danger">Stop</button>
+			        <button id="resumeRec" class="btn btn-info">Resume</button>
+			        
 			        
 			    </div>
+			   	 </div>
+			   </div>
 	      </div>
 	       <!-- Page Content2  -->
 	      <div id="content2" class="content-section p-4 p-md-5 pt-5" style="display: none; height: 100vh; width: 100vw;">
