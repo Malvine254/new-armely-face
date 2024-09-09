@@ -1033,7 +1033,7 @@ if (isset($_GET['blogId'])) {
 
         // Decode the cookie value (it should be a JSON array)
         $clicks = json_decode($cookie_data, true);
-        print_r($clicks);
+        // print_r($clicks);
 
         // If the cookie data isn't an array, reset it to an empty array
         if (!is_array($clicks)) {
