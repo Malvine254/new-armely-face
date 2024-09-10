@@ -1,3 +1,4 @@
+<?php include 'php/actions.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,27 +38,28 @@
 <body>
     <div class="register-container">
         <h3>Create a New Account</h3>
-        <form>
-            <div class="mb-3">
-                <label for="name" class="form-label">Full Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter your full name">
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email">
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Enter password">
-            </div>
-            <div class="mb-3">
-                <label for="confirmPassword" class="form-label">Confirm Password</label>
-                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password">
-            </div>
-            <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-primary">Sign Up</button>
-            </div>
-        </form>
+        <form method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Enter password" required>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="Confirm password" required>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" name="register" class="btn btn-primary">Sign Up</button>
+                </div>
+            </form>
+
         <div class="login-link">
             <p>Already have an account? <a href="login">Login here</a></p>
         </div>

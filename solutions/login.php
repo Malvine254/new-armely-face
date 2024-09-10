@@ -1,3 +1,4 @@
+<?php include 'php/actions.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,20 +43,21 @@
 <body>
     <div class="login-container">
         <h3>Login to Your Account</h3>
-        <form>
+       <form  method="POST">
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" required>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Enter password">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Enter password" required>
             </div>
             <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button name="login" type="submit" class="btn btn-primary">Login</button>
             </div>
             <a href="#" class="forgot-password">Forgot password?</a>
         </form>
+
         <div class="register-link">
             <p>Don't have an account? <a href="register">Sign up here</a></p>
         </div>

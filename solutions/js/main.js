@@ -34,12 +34,30 @@ $(document).ready(function() {
 
         recognizer.recognizing = (s, e) => {
             $('#transcription').val(transcription + e.result.text);
+
         };
 
         recognizer.recognized = (s, e) => {
             if (e.result.reason === SpeechSDK.ResultReason.RecognizedSpeech) {
                 transcription += e.result.text + " ";
                 $('#transcription').val(transcription);
+                 var fd = new FormData();
+                fd.append('transcription',(transcription));
+                //console.log(transcription)
+
+                $.ajax({
+                        url: 'php/actions', // Replace with your backend URL
+                        type: 'POST',
+                        processData: false, // Prevent jQuery from automatically processing data
+                        contentType: false,
+                        data: fd,
+                        success: function(response) {
+                           console.log(response);
+                        },
+                        error: function(error) {
+                            console.error('Error saving transcription:', error);
+                        }
+                    });
             }
         };
     }
@@ -71,6 +89,8 @@ $(document).ready(function() {
         $('#stopRec').prop('disabled', false);
         $('#resumeRec').prop('disabled', true);
     });
+
+    
 
     // Download the transcription as a .txt file
     $('#downloadTranscription').on('click', function() {
