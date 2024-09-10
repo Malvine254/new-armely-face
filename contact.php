@@ -195,7 +195,7 @@
 				
 <!-- Start Contact Us -->
 <section class="contact-us section ">
-<div class="container col-12 col-lg-11 col-md-11">
+<div class="container col-12 col-lg-8 col-md-11">
 	<div class="inner">
 		<div class="row"> 
 			<div class="col-lg-12">
@@ -266,7 +266,7 @@
 					<i class="icofont-google-map"></i>
 					<div class="content">
 						<h3>17400 Dallas Pkwy</h3>
-						<p>Dallas, TX 75287</p>
+						<p>Suite 111 Dallas, TX 75287</p>
 					</div>
 				</div>
 			</div>
@@ -456,7 +456,7 @@
 		<h2>Contact Us</h2>
 		<ul>
 			<li><a href="tel: +1 972 460 0643" target="_blank"><i class="fa fa-phone" aria-hidden="true" ></i> +1 972 460 0643</a></li>
-			<li><a href="https://maps.app.goo.gl/GvH42mM2LwDaRdEg8" target="_blank"><i class="fa fa-map-marker" aria-hidden="true"></i>17400 Dallas Pkwy, Dallas, TX 75287</a></li>
+			<li><a href="https://maps.app.goo.gl/8T4Q4kYEQkoGkmtdA" target="_blank"><i class="fa fa-map-marker" aria-hidden="true"></i>17400 Dallas Pkwy, Suite 111 Dallas, TX 75287</a></li>
 			<li><a href="mailto:info@armely.com" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i><span class="lowercase">info@armely.com</span></a></li>
 		</ul>
 	</div>

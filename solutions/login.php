@@ -57,7 +57,7 @@
             <a href="#" class="forgot-password">Forgot password?</a>
         </form>
         <div class="register-link">
-            <p>Don't have an account? <a href="register.html">Sign up here</a></p>
+            <p>Don't have an account? <a href="register">Sign up here</a></p>
         </div>
     </div>
 

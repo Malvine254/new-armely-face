@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Registration Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             background-color: #f7f8fa;
         }
-        .login-container {
-            max-width: 400px;
+        .register-container {
+            max-width: 500px;
             margin: auto;
             margin-top: 100px;
             padding: 40px;
@@ -18,7 +18,7 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }
-        .login-container h3 {
+        .register-container h3 {
             text-align: center;
             margin-bottom: 20px;
         }
@@ -28,21 +28,20 @@
         .btn-primary {
             border-radius: 50px;
         }
-        .forgot-password {
-            text-align: center;
-            display: block;
-            margin-top: 10px;
-        }
-        .register-link {
+        .login-link {
             text-align: center;
             margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <h3>Login to Your Account</h3>
+    <div class="register-container">
+        <h3>Create a New Account</h3>
         <form>
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your full name">
+            </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
                 <input type="email" class="form-control" id="email" placeholder="Enter email">
@@ -51,13 +50,16 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="password" placeholder="Enter password">
             </div>
-            <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-primary">Login</button>
+            <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password">
             </div>
-            <a href="#" class="forgot-password">Forgot password?</a>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </div>
         </form>
-        <div class="register-link">
-            <p>Don't have an account? <a href="register.html">Sign up here</a></p>
+        <div class="login-link">
+            <p>Already have an account? <a href="login">Login here</a></p>
         </div>
     </div>
 
