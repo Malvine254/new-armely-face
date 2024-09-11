@@ -513,6 +513,63 @@ Preloader Area CSS
 	position: relative;
 	padding: 120px 0px;
 }
+.breadcrumbs-contact {
+	background-image: url('../images/contact/dallasskyline.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+	padding: 120px 0px;
+}
+.breadcrumbs-contact h2{
+	color: #fff;
+	text-transform:capitalize;
+	font-size: 38px;
+	font-weight: 700;
+	margin: 0;
+	padding: 0;
+}
+.breadcrumbs-contact .bread-list {
+	display: inline-block;
+	margin-top: 20px;
+}
+.breadcrumbs-contact ul li{
+	display: inline-block;
+	position: relative;
+	color: #fff;
+	font-size: 15px;
+	font-weight: 500;
+	text-transform: capitalize;
+}
+.breadcrumbs-contact ul li i {
+	margin: 0px 10px;
+	font-size: 14px;
+	font-weight: 600;
+	color:#fff;
+}
+.breadcrumbs-contact ul li a {
+	color: #fff;
+	font-size: 15px;
+	font-weight: 500;
+	text-transform: capitalize;
+	margin:0;
+	padding:0;
+}
+.breadcrumbs-contact ul li a:hover{
+	color:#2C2D3F;
+}
+.breadcrumbs-contact ul li.active a {
+	color: #fff;
+	display: inline-block;
+}
+.breadcrumbs-contact .bread-inner{
+	z-index:22;
+	text-align:center;
+}
+
+
+
+
 .breadcrumbs .bread-inner{
 	z-index:22;
 	text-align:center;

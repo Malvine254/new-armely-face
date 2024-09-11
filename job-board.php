@@ -42,34 +42,11 @@
 <link rel="stylesheet" href="css/normalize.css">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="css/responsive.css">
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 </head>
 <body>
 
-
-
-<section>	
-<!-- Floating Action Button -->
-   <div class="floating-btn">
-    <button id="myBtn"  style="border-radius: 50%; height: 60px; width: 60px; background-color: rgb(47,85,151);"  type="button" class="btn btn-primary btn-lg h1">
-      <i class="fa fa-comments "></i>
-    </button>
-  </div>
-<div id="myModal" class="modal-chat">
-
-  <!-- Modal content -->
-  <div class="modal-content-chat col-lg-4">
-    <span class="close">&times;</span>
-    <iframe src="https://copilotstudio.microsoft.com/environments/Default-588cadf4-9902-4465-86c0-8bcf04f4f102/bots/crc65_armelyCom/webchat?__version__=2"
-    frameborder="0" style="width: 100%; height: 80%;"></iframe>  
-  </div>
-
-</div>
-</section>
 
 <!-- Header Area -->
 <header class="header" >
@@ -79,9 +56,6 @@
 <div class="row">
 <div class="col-lg-6 col-md-5 col-12">
 	<!-- Contact -->
-	<style>
-
-	</style>
 	<ul class="top-link">
 		<li>
 			
@@ -110,7 +84,7 @@
 	<div class="col-lg-3 col-md-3 col-12">
 		<!-- Start Logo -->
 		<div class="logo">
-			<a href="index"><img style="height: 60px;" src="img/logo/logo.svg" alt="#"></a>
+			<a href="index"><span class="logo-font">armely</span></a>
 		</div>
 		<!-- End Logo -->
 		<!-- Mobile Nav -->
@@ -148,14 +122,21 @@
                       </ul>
 
                   </li>
-                  <li>
-                    <a>Freemiums <i class="icofont-rounded-right"></i></a>
-                    <ul class="dropdown">
-                          <li><a href="service-details?name=sql">SQL Health Check</a></li>
-                          <li><a href="service-details?name=coe">Power Platform COE</a></li>
-                      </ul>
+                   <li><a href="service-details?name=freemiums">Freemiums</a></li>
 
-                  </li>
+                   <li>
+                            <a>Digital Services <i class="icofont-rounded-right"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="service-details?name=powerapps"> Powerapps</a></li>
+                                <li><a href="service-details?name=powerautomate">Power Automate</a></li>
+                                 <li><a href="service-details?name=virtualagents">Power Virtual Agents</a></li>
+                                  <li><a href="service-details?name=powerplatform">Power Platform</a></li>
+                                 <li><a href="service-details?name=roboticprocessing">Robotic Processing Automation</a></li>
+                                 <li><a href="service-details?name=sharepointonline">Sharepont Online</a></li>
+                                 <li><a href="service-details?name=copilot">Copilot</a></li>
+                            </ul>
+
+                          </li>   
               </ul>
           </li>
           <li><a >Insights <i class="icofont-rounded-down"></i></a>
@@ -163,6 +144,7 @@
               <li><a href="blog">Blog Articles</a></li>
               <li><a href="customer-stories">Customer Stories</a></li>
               <li><a href="case-studies">Case Studies</a></li>
+              <li><a href="case-studies#white-papers">White Papers</a></li>
             </ul>
           </li>
           <li><a href="industries">Industries</a></li>
@@ -208,84 +190,36 @@
 		</div>
 		<!-- End Breadcrumbs -->
 
+<section>   
+<!-- Floating Action Button -->
+   <div class="floating-btn">
+      </div>
+    <div id="myModal" class="modal-chat">
+
+      <!-- Modal content -->
+      <div class="modal-content-chat col-lg-4">
+        <span class="close">&times;</span>
+        <iframe src="https://copilotstudio.microsoft.com/environments/Default-588cadf4-9902-4465-86c0-8bcf04f4f102/bots/crc65_armelyCom/webchat?__version__=2"
+        frameborder="0" style="width: 100%; height: 80%;"></iframe>  
+      </div>
+
+    </div>
+</section>
 
 <!-- Pricing Table -->
-<section class="pricing-table section">
-<div class="container">
-<div class="row">
-<div class="col-lg-12">
-<div class="section-title">
-	<h2>Empowering Your Tech Journey</h2>
-		<center><hr class="default-background hr" ></center>
-		<p>Our experts provide tailored guidance in areas such as business planning, product development, marketing, financial management, and risk management, ensuring your company's competitiveness and sustainable growth.</p>
-</div>
-</div>
-</div>
-<div class="container col-lg-12 p-4">
+<section class="pricing-table mt-5 pb-5 pt-5">
+<div class="container col-lg-11 col-sm-12">
+
+<div class="">
         <div class="row">
-            <div class="col-md-7" data-aos="fade-fade">
-                <?php displayJobDescriptions(); ?>  
+            <div class="col-md-12" data-aos="fade-fade ">
+                <div class="card p-3 col-sm-12">
+                    <?php displayJobDescriptions(); ?> 
+                  
+                </div> 
+
             </div>
-            <div class="col-md-5">
-              <h1>Job Board</h1>
-            <h2>Complete the following form</h2>
-            <form class="form" id="job-form" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" class="form-control edit-input" id="name" name="name" placeholder="Name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control edit-input" id="email" name="email" placeholder="Email" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone Number:</label>
-                <input type="tel" class="form-control edit-input" id="phone" name="phone" placeholder="Phone Number" required>
-            </div> 
-            <div class="form-group">
-                <label for="address">Address:</label>
-                <input type="text" class="form-control edit-input" id="address" name="address" placeholder="Address" required>
-            </div>
-            <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="city">City:</label>
-                <input type="text" class="form-control edit-input" id="city" name="city" placeholder="City" required>
-            </div>
-            <div class="form-group col-md-4">
-                <label for="state">State:</label>
-                <input type="text" class="form-control edit-input" id="state" name="state" placeholder="State" required>
-            </div>
-            <div class="form-group col-md-2">
-                <label for="zip">Zip Code:</label>
-                <input type="text" class="form-control edit-input" id="zip" name="zip" placeholder="Zip Code" required>
-            </div>
-            </div>
-        <div class="form-group">
-            <label for="position">Position:</label>
-            <select  class="form-control edit-input" id="position" name="position">
-                <option selected value=""><?php if (isset($_GET['jobId'])) {
-                    echo $job_type;
-                } ?></option>
-                <option>Part Time</option>
-                 <!-- Default option -->
-            </select>
-        </div>
-        <div class="form-group">
-        <label for="role">Role:</label>
-        <select class="form-control edit-input" id="role" name="role">
-            <option selected value=""><?php if (isset($_GET['jobId'])) {
-                echo $job_title;
-            } ?>
-            </option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="cv">Upload CV or Resume (PDF)*:</label>
-        <input type="file" class="form-control edit-input" id="cv" name="cv" accept=".pdf" required>
-    </div>
-    <button name="submit_applications_btn" type="submit" class="btn default-button-color btn-primary text-center">Submit Form</button>
-    </form>
-    </div>
+            
 
        <!-- Floating Action Button -->
        <div class="floating-btn">
@@ -408,7 +342,96 @@
 </div>
 
 <!-- end of search bar modal -->
+<!-- start of cookies section -->
+<div id="snackbar" class="snackbar container shadow bg-light">
+    <button class="btn-close" aria-label="Close">&times;</button>
+    <div class="text-start row">
+      <div class="col-md-8">
+      <div class="ml-4">
+        <h4>We Value Your Privacy</h5>
+        <p>We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies, <a class="default-color" href="privacy-policy">see our privacy policy</a>. You can manage your preferences by clicking "customize".</p>
+      </div>
+       
+      </div>
+      <div class="col-md-4">
+         <div class="modal-buttons mt-3" >
+          <button id="acceptAll" class="btn btn-light "> Accept All</button>
+          <button data-toggle="modal" data-target="#cookieModal" class="btn btn-outline-secondary bg-dark">Customize</button>
+        </div>
+      </div>
+      
+    </div>
+</div>
+<!-- end of cookies section -->
+<!-- Cookies Preferences-->
+<div class="modal fade" id="cookieModal">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
 
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Cookie Preferences</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <div class="cookie-option">
+                                    <label class="h5">Essential Cookies</label>
+                                    <label class="switch">
+                                        <input type="checkbox" checked disabled>
+                                        <span class="slider-two round"></span>
+                                    </label>
+                                </div>
+                <p class="text-muted">These cookies are necessary for the website to function and cannot be switched off.</p>
+                
+                <div class="cookie-option">
+                    <label  class="h5">Performance Cookies</label>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider-two round"></span>
+                    </label>
+                </div>
+                <p class="text-muted">These cookies collect information about how you use the website to help improve its performance.</p>
+
+                <div class="cookie-option">
+                    <label  class="h5">Functionality Cookies</label>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider-two round"></span>
+                    </label>
+                </div>
+                <p class="text-muted">These cookies remember your preferences and provide enhanced, personalized features.</p>
+
+                <div class="cookie-option">
+                    <label  class="h5">Targeting/Advertising Cookies</label>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider-two round"></span>
+                    </label>
+                </div>
+                <p class="text-muted">These cookies are used to deliver ads more relevant to you and your interests.</p>
+
+                <div class="cookie-option">
+                    <label  class="h5">Analytics Cookies</label>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider-two round"></span>
+                    </label>
+                </div>
+                <p class="text-muted">These cookies help website owners understand how visitors interact with the site.</p>
+
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveAllPreferences">Save Preferences</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Cookies Preferences -->
 
 <!-- chatbot section -->
 <!-- Footer Area -->
@@ -419,7 +442,7 @@
 <div class="row">
 <div class="col-lg-2 col-md-6 col-12">
 	<div class="single-footer">
-		<h2>armely</h2>
+		<h2 class="footer-logo-font">armely</h2>
 		
 	</div>
 </div>
@@ -458,7 +481,7 @@
 		<h2>Contact Us</h2>
 		<ul>
 			<li><a href="tel: +1 972 460 0643" target="_blank"><i class="fa fa-phone" aria-hidden="true" ></i> +1 972 460 0643</a></li>
-			<li><a href="https://maps.app.goo.gl/GvH42mM2LwDaRdEg8" target="_blank"><i class="fa fa-map-marker" aria-hidden="true"></i>2831 Eldorado Pkwy Suite 103-128 Frisco TX 75033</a></li>
+			<li><a href="https://maps.app.goo.gl/8T4Q4kYEQkoGkmtdA" target="_blank"><i class="fa fa-map-marker" aria-hidden="true"></i>17400 Dallas Pkwy, Suite 111 Dallas, TX 75287</a></li>
 			<li><a href="mailto:info@armely.com" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i><span class="lowercase">info@armely.com</span></a></li>
 		</ul>
 	</div>
@@ -535,12 +558,13 @@
 <script src="js/bootstrap.min.js"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4301EZWQ4C"></script>
+<!-- sweet alerts -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js"></script>
 <!-- Main JS -->
 <script src="js/main.js"></script>
 <!-- more settings  -->
 <script src="js/more-options.js"></script>
-<!-- sweet alerts -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js"></script>
+
 
 
 </body>

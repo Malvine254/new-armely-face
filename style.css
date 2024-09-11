@@ -4458,3 +4458,82 @@ color: #2f5597;
 #clients .owl-dot.active {
   background-color: #50d8af;
 }
+/*logo font */
+@font-face {
+    font-family: 'armely-font'; /* The name you will use to reference the font */
+    src: url('fonts/armely.ttf') format('truetype'); /* Path to the font file */
+    font-style: normal;
+
+}
+.logo-font{
+	font-family: 'armely-font', sans-serif !important; 
+	font-size: 55px ; 
+	color: #2f5597 !important;
+}
+.footer-logo-font{
+	font-family: 'armely-font', sans-serif !important; 
+	color: #fff!important;
+	letter-spacing: 2px;
+}
+
+/*cookies customizations stylings*/
+ .cookie-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+      
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 34px;
+            height: 20px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider-two {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 20px;
+        }
+
+        .slider-two:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider-two {
+            background-color: #2196F3;
+        }
+
+        input:checked + .slider-two:before {
+            transform: translateX(14px);
+        }
+
+        .slider-two.round {
+            border-radius: 34px;
+        }
+
+        .slider-two.round:before {
+            border-radius: 50%;
+        }

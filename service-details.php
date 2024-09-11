@@ -85,7 +85,7 @@
 	<div class="col-lg-3 col-md-3 col-12">
 		<!-- Start Logo -->
 		<div class="logo">
-			<a href="index"><img style="height: 60px;" src="img/logo/logo.svg" alt="#"></a>
+				<a href="index"><span class="logo-font">armely</span></a>
 		</div>
 		<!-- End Logo -->
 		<!-- Mobile Nav -->
@@ -123,14 +123,20 @@
                       </ul>
 
                   </li>
-                  <li>
-                    <a>Freemiums <i class="icofont-rounded-right"></i></a>
-                    <ul class="dropdown">
-                          <li><a href="service-details?name=sql">SQL Health Check</a></li>
-                          <li><a href="service-details?name=coe">Power Platform COE</a></li>
-                      </ul>
+                  <li><a href="service-details?name=freemiums">Freemiums</a></li>
+                   <li>
+		                    <a>Digital Services <i class="icofont-rounded-right"></i></a>
+		                    <ul class="dropdown">
+		                        <li><a href="service-details?name=powerapps"> Powerapps</a></li>
+		                        <li><a href="service-details?name=powerautomate">Power Automate</a></li>
+		                         <li><a href="service-details?name=virtualagents">Power Virtual Agents</a></li>
+		                          <li><a href="service-details?name=powerplatform">Power Platform</a></li>
+		                         <li><a href="service-details?name=roboticprocessing">Robotic Processing Automation</a></li>
+		                         <li><a href="service-details?name=sharepointonline">Sharepont Online</a></li>
+		                         <li><a href="service-details?name=copilot">Copilot</a></li>
+		                    </ul>
 
-                  </li>
+		                  </li>   
               </ul>
           </li>
           <li><a >Insights <i class="icofont-rounded-down"></i></a>
@@ -138,6 +144,7 @@
               <li><a href="blog">Blog Articles</a></li>
               <li><a href="customer-stories">Customer Stories</a></li>
               <li><a href="case-studies">Case Studies</a></li>
+              <li><a href="case-studies#white-papers">White Papers</a></li>
             </ul>
           </li>
           <li><a href="industries">Industries</a></li>
@@ -170,11 +177,13 @@
 		<div class="bread-inner">
 			<div class="row">
 				<div class="col-12">
-					<h2>Services Details</h2>
+					<h2>Service Details</h2>
 					<ul class="bread-list">
-						<li><a href="index.html">Home</a></li>
+						<li><a href="index">Home</a></li>
 						<li><i class="icofont-simple-right"></i></li>
-						<li class="active">Services Details</li>
+						<li class="active">
+						Service Details		
+					</li>
 					</ul>
 				</div>
 			</div>
@@ -182,7 +191,76 @@
 	</div>
 </div>
 <!-- End Breadcrumbs -->
+<?php if (isset($_GET['name']) && $_GET['name']==="freemiums"): ?>
 
+<!-- Pricing Table -->
+<section class="pricing-table">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<div class="section-title mt-5"> 
+	<h2><?php if (isset($_GET['name'])): echo $_GET['name'];?><?php else: echo "Service Details";?>	<?php endif ?></h2>
+		<center><hr class="default-background hr" ></center>
+</div>
+</div>
+</div>
+<div class="row">
+<!-- Single Table -->
+<div class="col-lg-4 col-md-12 col-12">
+		<div class="single-table">
+			<!-- Table Head -->
+			
+			<div class="table-head">
+				<div class="icon">
+				<a href="images/offers/sqloffer.png" target="_blank"><img src="images/offers/sqloffer.png" style="height: 150px;"></a>
+				</div>
+				<h4 class="title">SQL Health Check</h4>
+				<p>Get a free SQL health check for optimized performance. Identify issues, improve stability, and reduce downtime with tailored insights for peak database efficiency.</p>
+				<a href="service-details?name=sql" class="btn btn-primary">Get now</a>
+			</div>
+		</div>
+</div>
+
+<div class="col-lg-4 col-md-12 col-12">
+		<div class="single-table">
+			<!-- Table Head -->
+			<div class="table-head">
+				<div class="icon">
+					<a href="images/white-papers/coewhitepaper.png" target="_blank">
+						<img src="images/white-papers/coewhitepaper.png" style="height: 150px;"></a>
+				</div>
+				<h4 class="title">Power Platform-COE</h4>
+				<p>Get free Power BI integration for real-time insights, streamlined processes, and better decisions. Enhance business performance and boost productivity with tailored dashboards.</p>
+				<a href="service-details?name=coe" class="btn btn-primary">Get now</a>
+			</div>
+		</div>
+</div>
+<div class="col-lg-4 col-md-12 col-12">
+		<div class="single-table">
+			<!-- Table Head -->
+			<div class="table-head">
+				<div class="icon">
+				<a href="images/freemiums/sql-check.png" target="_blank"><img src="images/freemiums/sql-check.png" style="height: 150px;"></a>
+				</div>
+				<h4 class="title">PowerBI Activity</h4>
+				<p>Get free access to seamless Power BI integration for enhanced data visualization, smarter decisions, and better business performance with interactive, insightful dashboards.</p>
+					<a href="service-details?name=powerbi" class="btn btn-primary">Get now</a>
+			</div>
+			
+		</div>
+</div>
+<!-- End Single Table-->
+
+</div>	
+</div>	
+</section>	
+<!--/ End Pricing Table -->
+
+
+
+
+
+<?php endif ?>
 <!-- Start Portfolio Details Area -->
 <?php if (isset($_GET['name'])): ?>
 	
@@ -199,15 +277,53 @@
 						</ul>
 					</div> -->
 				<div class="inner-content " >
-					<!-- <div class="image-slider " >
-						<div class="pf-details-slider col-md-12">
-							<img style="width: 100vw !important; height: 80vh;" src="images/services/casey.png" alt="#">
-							<img src="images/services/casey.png" alt="#">
-							<img src="images/services/casey.png" alt="#">
-						</div>
-					</div> -->
 					
 					<div class="body-text">
+					<?php if ($_GET['name']=="powerbi"): ?>
+						<section class="container">
+							<h3 class="default-color">PowerBI Activity </h3>
+							
+							<p> The Power BI Activity Dashboard is designed to give a comprehensive view of user interactions within the Power BI environment. This dashboard helps stakeholders monitor usage, identify trends, and make informed decisions regarding report distribution and access management. Here’s what it covers:</p>
+						 <div class="container mt-3 row">
+					        <div class="col-md-7">
+					        	<!-- Section 1 -->
+					        <div class="mb-4">
+					            <h4><strong>1. User Activity Tracking</strong></h4>
+					            <p><strong>What it Monitors:</strong> Track who is accessing reports, when, and how frequently.</p>
+					            <p><strong>Insights Gained:</strong> Identify key users, spot unusual access patterns, and understand report consumption trends.</p>
+					        </div>
+
+					        <!-- Section 2 -->
+					        <div class="mb-4">
+					            <h4><strong>2. Report Usage Patterns</strong></h4>
+					            <p><strong>What it Monitors:</strong> Detailed breakdown of report views, edits, and shares.</p>
+					            <p><strong>Insights Gained:</strong> Determine which reports are driving engagement and which may need updates or further promotion.</p>
+					        </div>
+
+					        <!-- Section 3 -->
+					        <div class="mb-4">
+					            <h4><strong>3. Access and Sharing Analytics</strong></h4>
+					            <p><strong>What it Monitors:</strong> Activities like sharing reports, publishing content, and granting access.</p>
+					            <p><strong>Insights Gained:</strong> Understand collaboration levels within teams and identify potential data governance issues.</p>
+					        </div>
+
+					       
+					        </div>
+					        <div class="col-md-5">
+					        	<h5 class="mb-5">Get the download link</h5>
+					        	<form class="form-group" method="post" id="offers-form" >
+					        		<input id="fname" required class="form-control p-3" type="text" name="fname"  placeholder="First Name"><br>
+					        		<input required class="form-control p-3" type="text" name="lname" placeholder="Last Name"><br>
+					        		<input required class="form-control p-3" type="email" name="email2" placeholder="Company Email"><br>
+					        		<input required  class="form-control p-3   " type="tel" name="phone2" placeholder="Phone Number"><br>
+					        		<input required  class="form-control p-3   " type="text" name="country" placeholder="Country"><br>
+					        	
+					        		<button type="submit" name="submit_offers_form" class="btn btn-primary col-lg-12">Download Now</button>
+					        	</form>
+					        </div>
+					    </div>
+						</section>
+						<?php endif ?>
 					
 						<?php if ($_GET['name']=="ai-advisory"): ?>
 						<h3>AI Service: AI Advisory</h3>
@@ -543,34 +659,52 @@
 							<h3>Fremiums: SQL Server Health Checks</h3>
 							<h5 class="mt-3">Ensuring the Health of Your SQL Server</h5>
 							<p>In today's data-driven world, the reliability and performance of your SQL Server infrastructure is crucial to the success of your business. Regular SQL Server health checks are essential to identify potential issues, optimize performance, and ensure the long-term stability of your mission-critical database systems.</p>
-							<blockquote>
-								<p> 
-								<h5 class="text-light"><i class="icofont-quote-left"></i><strong> Why Perform a SQL Server Health Check?</strong></h5> 
-							</p>
-							<p class="mt-5">A comprehensive SQL Server health check can provide valuable insights into the overall health and configuration of your SQL Server environment. By identifying and addressing potential problems early, you can:</p>
-							<ol class="ml-5">
-								<li>Improve database performance and responsiveness</li>
-								<li>Prevent unplanned downtime and ensure high availability</li>
-								<li>Identify and resolve security vulnerabilities</li>
-								<li>Optimize resource utilization and reduce operational costs</li>
-								<li>Ensure compliance with industry regulations and best practices</li>
-							</ol>	
-							<p><strong>Data Architecture and Integration</strong></p>
-							<ol class="ml-5">
-								<li>Design a scalable, resilient, and integrated data architecture that connects disparate data sources and enables seamless data flows. We'll help you leverage the right technologies and tools to power your data-driven initiatives.</li>
-							</ol>		
-							<p><strong>Data Analytics and Insights</strong></p>
-							<ol class="ml-5">
-								<li>Unlock the full potential of your data with advanced analytics and visualization capabilities. We'll help you design and deploy impactful dashboards, reports, and predictive models to drive informed decision-making.</li>
-							</ol>			
-							<p><strong>Data-Driven Culture and Capabilities</strong>
-							<ol class="ml-5">
-								<li>Foster a data-driven culture within your organization by upskilling your workforce and empowering them to make data-informed decisions. We'll help you develop robust data literacy programs and champion data-driven mindsets.</li>
-							</ol>
-							
-							</p>
+							<div class="row">
+							 
+					        <div class="col-md-6">
+					        	<blockquote>
+										<p> 
+										<h5 class="text-light"><i class="icofont-quote-left"></i><strong> Why Perform a SQL Server Health Check?</strong></h5> 
+										</p>
+										<p class="mt-5">A comprehensive SQL Server health check can provide valuable insights into the overall health and configuration of your SQL Server environment. By identifying and addressing potential problems early, you can:</p>
+										<ol class="ml-5">
+											<li>Improve database performance and responsiveness</li>
+											<li>Prevent unplanned downtime and ensure high availability</li>
+											<li>Identify and resolve security vulnerabilities</li>
+											<li>Optimize resource utilization and reduce operational costs</li>
+											<li>Ensure compliance with industry regulations and best practices</li>
+										</ol>	
+										<p><strong>Data Architecture and Integration</strong></p>
+										<ol class="ml-5">
+											<li>Design a scalable, resilient, and integrated data architecture that connects disparate data sources and enables seamless data flows. We'll help you leverage the right technologies and tools to power your data-driven initiatives.</li>
+										</ol>		
+										<!-- <p><strong>Data Analytics and Insights</strong></p>
+										<ol class="ml-5">
+											<li>Unlock the full potential of your data with advanced analytics and visualization capabilities. We'll help you design and deploy impactful dashboards, reports, and predictive models to drive informed decision-making.</li>
+										</ol>			
+										<p><strong>Data-Driven Culture and Capabilities</strong>
+										<ol class="ml-5">
+											<li>Foster a data-driven culture within your organization by upskilling your workforce and empowering them to make data-informed decisions. We'll help you develop robust data literacy programs and champion data-driven mindsets.</li>
+										</ol>
+										
+										</p> -->
 														
 							</blockquote>
+					   </div>
+					   <div class="col-md-6">
+					        	<h5 class="mb-5">Request for SQL Server Health Check for Free</h5>
+					        	<form class="form-group" method="post" id="sql-offer-form" >
+					        		<input id="fname" required class="form-control p-3" type="text" name="fname1"  placeholder="First Name"><br>
+					        		<input required class="form-control p-3" type="text" name="lname1" placeholder="Last Name"><br>
+					        		<input required class="form-control p-3" type="email" name="email1" placeholder="Company Email"><br>
+					        		<input required  class="form-control p-3   " type="tel" name="phone1" placeholder="Phone Number"><br>
+					        		<input required  class="form-control p-3   " type="text" name="country1" placeholder="Country"><br>
+					        	
+					        		<button type="submit" name="submit_sql_offers_form" class="btn btn-primary col-lg-12">Request Now</button>
+					        	</form>
+					        </div>
+					 </div>
+							
 							<table class="table table-bordered mt-5">
 								<tr class="default-color">
 									
@@ -639,15 +773,200 @@
 							<?php endif ?>
 
 							<?php if ($_GET['name']=="coe"): ?>
-							<div class="container">	
-							<h3>Fremiums: Power Platform CoE</h3>
-							<h5 class="mt-2">Optimize Your Power Platform Investment with a Comprehensive a Center of Excellence-Driven Health Check</h5>
-							<p>As organizations increasingly rely on the Microsoft Power Platform to drive digital transformation, establishing a Center of Excellence (CoE) is crucial for ensuring the health and optimal performance of your Power Platform environment. A Power Platform health check, guided by your CoE, can help you identify areas for improvement, unlock greater value, and maximize your return on investment.</p>
-							<h5 class="mt-2">Get the Full Potential of Your Power Platform with Your CoE</h5>
-							<p>By leveraging your Center of Excellence to conduct a comprehensive Power Platform health check, you can elevate your Microsoft 365 and Power Platform ecosystem to new heights. Our team of CoE experts will provide you with actionable insights and a roadmap to optimize your Power Platform investment and unlock greater business value.</p>
-							<?php endif ?>
+							<div class="container card">	
+							<div class="p-3">
+								<div class="row">
+									<div class="col-md-6">
+								<h3>Fremiums: Power Platform CoE</h3>
+								<h5 class="mt-2">Optimize Your Power Platform Investment with a Comprehensive a Center of Excellence-Driven Health Check</h5>
+								<p>As organizations increasingly rely on the Microsoft Power Platform to drive digital transformation, establishing a Center of Excellence (CoE) is crucial for ensuring the health and optimal performance of your Power Platform environment. A Power Platform health check, guided by your CoE, can help you identify areas for improvement, unlock greater value, and maximize your return on investment.</p>
+								<h5 class="mt-2">Get the Full Potential of Your Power Platform with Your CoE</h5>
+								<p>By leveraging your Center of Excellence to conduct a comprehensive Power Platform health check, you can elevate your Microsoft 365 and Power Platform ecosystem to new heights. Our team of CoE experts will provide you with actionable insights and a roadmap to optimize your Power Platform investment and unlock greater business value.</p>
+							</div>
+
+							<div class="col-md-6">
+					        	<h5 class="mb-5">Request for COE Integration for Free</h5>
+					        	<form class="form-group" method="post" id="coe-offer-form" >
+					        		<input id="fname" required class="form-control p-3" type="text" name="fname3"  placeholder="First Name"><br>
+					        		<input required class="form-control p-3" type="text" name="lname3" placeholder="Last Name"><br>
+					        		<input required class="form-control p-3" type="email" name="email3" placeholder="Company Email"><br>
+					        		<input required  class="form-control p-3   " type="tel" name="phone3" placeholder="Phone Number"><br>
+					        		<input required  class="form-control p-3   " type="text" name="country3" placeholder="Country"><br>
+					        	
+					        		<button type="submit" name="submit_coe_offers_form" class="btn btn-primary col-lg-12">Request Now</button>
+					        	</form>
+					        </div>
+								</div>
 							</div>
 							
+							</div>
+							<?php endif ?>
+
+							<!-- start of power apps for digital services -->
+								<?php if ($_GET['name']=="powerapps"): ?>
+							<div class="container">	
+							<h3 class="">Digital Services: Power Apps - Build Apps Without Coding 	<center><hr class="default-background hr" ></center></h3>
+							<h5 class="mt-2"> "Power Apps empowers you to build custom applications tailored to your business needs without writing a single line of code. Whether you're automating a workflow or creating a complex business application, Power Apps enables you to do it all with a drag-and-drop interface and pre-built templates.</p>
+							<blockquote>
+								<p> 
+								<h5 class="text-light"><i class="icofont-quote-left"></i><strong> Key Benefits</strong></h5> 
+							</p>
+							
+							<ol class="ml-5">
+								<li class="mt-1">No Coding Required: Develop apps quickly with an intuitive drag-and-drop interface.</li>
+								<li class="mt-1">Seamless Integration: Connect with Microsoft 365, Dynamics 365, and other services. </li>
+								<li class="mt-1">Mobile Ready: Build responsive apps that work on any device, anywhere.</li>
+								<li class="mt-1">Call to Action: Start Building with Power Apps</li>
+								<li class="mt-1">Ensure compliance with industry regulations and best practices</li>
+							</ol>	
+														
+							</blockquote>
+							
+							</div>
+							<?php endif ?>
+
+
+							<!-- start of power automate for digital services -->
+							<?php if ($_GET['name']=="powerautomate"): ?>
+							<div class="container">	
+							<h3 class="">Digital Services: Power Automate - Automate Workflows and Boost Productivity  	<center><hr class="default-background hr" ></center></h3>
+							<h5 class="mt-2 mb-2">Work Smarter, Not Harder with Power Automate</h5>
+							<p>Power Automate allows you to automate repetitive tasks and workflows, saving time and increasing efficiency across your organization. From simple automations to complex business processes, Power Automate makes it easy to streamline your operations and focus on what matters most. </p>
+							<blockquote>
+								<p> 
+								<h5 class="text-light"><i class="icofont-quote-left"></i><strong>Key Capabilities</strong></h5> 
+							</p>
+							
+							<ol class="ml-5">
+								<li class="mt-1">Automate Repetitive Tasks: Save time by automating routine tasks and processes. </li>
+								<li class="mt-1">AI-Powered Workflows: Leverage AI to enhance decision-making and optimize workflows. </li>
+								<li class="mt-1">Integrations: Connect with hundreds of apps and services to create powerful automation.</li>
+								<li class="mt-1">Call to Action: Automate Your Workflows with Power Automate </li>
+								
+							</ol>	
+														
+							</blockquote>
+							
+							</div>
+							<?php endif ?>
+
+							<!-- start of power pages for digital services -->
+							<?php if ($_GET['name']=="virtualagents"): ?>
+							<div class="container">	
+							<h3 class="">Digital Services: Power Virtual Agents - Engage Customers with Intelligent Chatbots <center><hr class="default-background hr" ></center></h3>
+							<h5 class="mt-2 mb-2">Create Smart Chatbots to Enhance Customer Engagement</h5>
+							<p>Power Virtual Agents allows you to create powerful AI-driven chatbots that can interact with customers, answer questions, and resolve issues—all without the need for coding. These chatbots can be deployed across multiple channels, including websites, Microsoft Teams, and social media, making it easier than ever to provide consistent support. </p>
+							<blockquote>
+								<p> 
+								<h5 class="text-light"><i class="icofont-quote-left"></i><strong>Key Features</strong></h5> 
+							</p>
+							
+							<ol class="ml-5">
+								<li class="mt-1">No-Code Bot Building: Design chatbots with a simple drag-and-drop interface.  </li>
+								<li class="mt-1">AI-Powered Conversations: Utilize AI to understand and respond to customer inquiries effectively.  </li>
+								<li class="mt-1">Omni-Channel Deployment: Deploy your chatbot on websites, messaging platforms, and more. </li>
+							
+								
+							</ol>	
+														
+							</blockquote>
+							
+							</div>
+							<?php endif ?>
+
+							<!-- start of power roboticprocessing for digital services -->
+							<?php if ($_GET['name']=="roboticprocessing"): ?>
+							<div class="container">	
+							<h3 class="">Digital Services: Robotic Process Automation (RPA) - Automate Manual Tasks with Ease 	<center><hr class="default-background hr" ></center></h3>
+							<h5 class="mt-2 mb-2">Streamline Your Business Processes with RPA</h5>
+							<p>Robotic Process Automation (RPA) with Microsoft Power Automate enables you to automate repetitive, rule-based tasks by mimicking human interactions with digital systems. RPA bots can handle high-volume, manual tasks such as data entry, report generation, and transaction processing, reducing errors and saving valuable time.</p>
+							<blockquote>
+								<p> 
+								<h5 class="text-light"><i class="icofont-quote-left"></i><strong>Key Capabilities</strong></h5> 
+							</p>
+							
+							<ol class="ml-5">
+								<li class="mt-1">Automate Manual Processes: Create bots that perform repetitive tasks quickly and accurately.  </li>
+								<li class="mt-1">Increase Efficiency: Free up employees to focus on more strategic work.  </li>
+								<li class="mt-1">Scalable Automation: Deploy RPA bots across your organization, regardless of scale. </li>
+								
+							</ol>	
+														
+							</blockquote>
+							
+							</div>
+							<?php endif ?>
+
+							<!-- start of power sharepointonline for digital services -->
+							<?php if ($_GET['name']=="sharepointonline"): ?>
+							<div class="container">	
+							<h3 class="">Digital Services: SharePoint Online - Collaborate and Manage Content Securely <center><hr class="default-background hr" ></center></h3>
+							<h5 class="mt-2 mb-2">Empower Team Collaboration and Content Management</h5>
+							<p>SharePoint Online is your go-to platform for secure content management, document sharing, and team collaboration. With SharePoint Online, you can create intranets, manage documents, and collaborate in real-time, all while ensuring your data remains secure and compliant.</p>
+							<blockquote>
+								<p> 
+								<h5 class="text-light"><i class="icofont-quote-left"></i><strong>Key Features</strong></h5> 
+							</p>
+							
+							<ol class="ml-5">
+								<li class="mt-1">Document Management: Store, organize, and share documents with ease. </li>
+								<li class="mt-1">Intranet Solutions: Build company intranets that facilitate communication and information sharing. </li>
+								<li class="mt-1">Integration: Seamlessly integrate with Microsoft 365 for enhanced productivity. </li>
+								
+							</ol>	
+														
+							</blockquote>
+							
+							</div>
+							<?php endif ?>
+							<!-- start of power copilot for digital services -->
+							<?php if ($_GET['name']=="copilot"): ?>
+							<div class="container">	
+							<h3 class="">Digital Services: Your AI-Powered Assistant in Microsoft 365 	<center><hr class="default-background hr" ></center></h3>
+							<h5 class="mt-2 mb-2">Work Smarter with CoPilot - AI-Powered Assistance</h5>
+							<p>CoPilot is the AI-driven assistant integrated into Microsoft 365 apps, designed to help you work more efficiently. Whether you're drafting documents, creating presentations, or analyzing data, CoPilot can suggest ideas, automate tasks, and provide insights, allowing you to focus on what matters most.</p>
+							<blockquote>
+								<p> 
+								<h5 class="text-light"><i class="icofont-quote-left"></i><strong>Key Features</strong></h5> 
+							</p>
+							
+							<ol class="ml-5">
+								<li class="mt-1">Automate Manual Processes: Create bots that perform repetitive tasks quickly and accurately.  </li>
+								<li class="mt-1">Intelligent Suggestions: Receive AI-powered recommendations while you work. </li>
+								<li class="mt-1">Task Automation: Let CoPilot handle routine tasks, from email drafting to data analysis.  </li>
+								<li class="mt-1">Data-Driven Insights: Get real-time insights to make informed decisions quickly. </li>
+								
+							</ol>	
+														
+							</blockquote>
+							
+							</div>
+							<?php endif ?>
+
+							<!-- start of power powerplatform for digital services -->
+							<?php if ($_GET['name']=="powerplatform"): ?>
+							<div class="container">	
+							<h3 class="">Digital Services: Power Pages - Create Engaging Websites Effortlessly  	<center><hr class="default-background hr" ></center></h3>
+							<h5 class="mt-2 mb-2">Build and Launch Websites with No Limits</h5>
+							<p>Power Pages provides the tools you need to create professional, responsive websites that meet your business goals. Whether you're showcasing a product, offering services, or connecting with customers, Power Pages makes it easy to design and deploy websites that deliver impact. </p>
+							<blockquote>
+								<p> 
+								<h5 class="text-light"><i class="icofont-quote-left"></i><strong>Key Features</strong></h5> 
+							</p>
+							
+							<ol class="ml-5">
+								<li class="mt-1">Customizable Templates: Choose from a variety of templates designed for different industries. </li>
+								<li class="mt-1">Responsive Design: Ensure your website looks great on any device. </li>
+								<li class="mt-1">Secure and Scalable: Built-in security and compliance features to protect your data. </li>
+								<li class="mt-1">Data-Driven Insights: Get real-time insights to make informed decisions quickly. </li>
+
+								
+							</ol>	
+									<strong class="mt-5">Call to Action: "Design Your Website with Power Pages" </strong>					
+							</blockquote>
+							
+							</div>
+							<?php endif ?>
 						</section>
 
 						<!-- Start Appointment -->
@@ -659,8 +978,6 @@
 						<div class="section-title">
 							<h2>Schedule a consultation today	</h2>
 							<center><hr class="default-background hr" ></center>
-							<p>Maximize your business potential with Armely's range of industry-leading solutions. Whether it's Data Services, Web Development, Business Intelligence, Managed Services, or Advisory Services, we provide the utmost value to your operations and applications.</p>
-							
 							
 						</div>
 						</div>
@@ -668,36 +985,36 @@
 
 						<div class="row">
 						<div class="col-lg-12 col-md-6 col-12 d-flex text-center default-background mb-5">
-						<form class="form p-5" action="#">
+						<form class="form p-5" id="contact-form" method="post">
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group input-with-background">
-										<input class="remove-input-background" name="name" type="text" placeholder="Name">
+										<input required class="remove-input-background" name="name" type="text" placeholder="Name">
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
-										<input class="remove-input-background" name="email" type="email" placeholder="Email">
+										<input required class="remove-input-background" name="email" type="email" placeholder="Email">
+									</div> 
+								</div>
+								<div class="col-lg-6 col-md-6 col-12">
+									<div class="form-group">
+										<input required class="remove-input-background" name="phone" type="text" placeholder="Phone">
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
-										<input class="remove-input-background" name="phone" type="text" placeholder="Phone">
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<input class="remove-input-background" name="phone" type="text" placeholder="Orginazation Name">
+										<input required class="remove-input-background" name="organization" type="text" placeholder="Orginazation Name">
 									</div>
 								</div>
 								<div class="col-lg-12 col-md-12 col-12">
 									<div class="form-group">
-										<textarea class="remove-input-background" name="message" placeholder="Write Your Message Here....."></textarea>
+										<textarea required class="remove-input-background" name="message" placeholder="Write Your Message Here....."></textarea>
 									</div>
 								</div>
 								<div class="form-group ml-3">
 									<div class="button">
-										<button type="submit" class="btn send-message-btn">Send Message</button>
+										<button type="submit" class="btn send-message-btn" name="submit_form">Send Message</button>
 									</div>
 								</div>
 							</div>
@@ -787,7 +1104,125 @@
 		    </div>
 		</div>
 		</div>
+	<!-- start of cookies section -->
+<div id="snackbar" class="snackbar container shadow bg-light">
+    <button class="btn-close" aria-label="Close">&times;</button>
+    <div class="text-start row">
+      <div class="col-md-8">
+      <div class="ml-4">
+        <h4>We Value Your Privacy</h5>
+        <p>We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies, <a class="default-color" href="privacy-policy">see our privacy policy</a>. You can manage your preferences by clicking "customize".</p>
+      </div>
+       
+      </div>
+      <div class="col-md-4">
+         <div class="modal-buttons mt-3" >
+          <button id="acceptAll" class="btn btn-light "> Accept All</button>
+          <button data-toggle="modal" data-target="#cookieModal" class="btn btn-outline-secondary bg-dark">Customize</button>
+        </div>
+      </div>
+      
+    </div>
+</div>
+<!-- end of cookies section -->
+<!-- Cookies Preferences-->
+<div class="modal fade" id="cookieModal">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
 
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Cookie Preferences</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <div class="cookie-option">
+								    <label class="h5">Essential Cookies</label>
+								    <label class="switch">
+								        <input type="checkbox" checked disabled>
+								        <span class="slider-two round"></span>
+								    </label>
+								</div>
+                <p class="text-muted">These cookies are necessary for the website to function and cannot be switched off.</p>
+                
+                <div class="cookie-option">
+                    <label  class="h5">Performance Cookies</label>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider-two round"></span>
+                    </label>
+                </div>
+                <p class="text-muted">These cookies collect information about how you use the website to help improve its performance.</p>
+
+                <div class="cookie-option">
+                    <label  class="h5">Functionality Cookies</label>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider-two round"></span>
+                    </label>
+                </div>
+                <p class="text-muted">These cookies remember your preferences and provide enhanced, personalized features.</p>
+
+                <div class="cookie-option">
+                    <label  class="h5">Targeting/Advertising Cookies</label>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider-two round"></span>
+                    </label>
+                </div>
+                <p class="text-muted">These cookies are used to deliver ads more relevant to you and your interests.</p>
+
+                <div class="cookie-option">
+                    <label  class="h5">Analytics Cookies</label>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider-two round"></span>
+                    </label>
+                </div>
+                <p class="text-muted">These cookies help website owners understand how visitors interact with the site.</p>
+
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveAllPreferences">Save Preferences</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Cookies Preferences -->
+
+<!-- start offers modal -->
+<!-- Modal Structure -->
+<div class="modal " id="offersModal" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Send Request/Get Download Link</h5>
+        <button type="button" class="btn-close P-2" data-bs-dismiss="modal" aria-label="Close">X</button>
+      </div>
+      <!-- Modal Body with Form -->
+      <div class="modal-body">
+        <form class="form-group">
+          <div class="mb-3">
+            <label for="inputName" class="form-label">Email Address</label>
+            <input type="text" class="form-control p-2" id="inputName" placeholder="Enter email address">
+          </div>
+         
+        </form>
+      </div>
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Get Download Link <i class="fa fa-download"></i> </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end offers modal -->
 <!-- end of search bar modal -->
 <!-- Footer Area -->
 <footer id="footer" class="footer ">
@@ -797,7 +1232,7 @@
 <div class="row">
 <div class="col-lg-2 col-md-6 col-12">
 	<div class="single-footer">
-		<h2>armely</h2>
+		<h2 class="footer-logo-font">armely</h2>
 		
 	</div>
 </div>
@@ -836,7 +1271,7 @@
 		<h2>Contact Us</h2>
 		<ul>
 			<li><a href="tel: +1 972 460 0643" target="_blank"><i class="fa fa-phone" aria-hidden="true" ></i> +1 972 460 0643</a></li>
-			<li><a href="https://maps.app.goo.gl/GvH42mM2LwDaRdEg8" target="_blank"><i class="fa fa-map-marker" aria-hidden="true"></i>2831 Eldorado Pkwy Suite 103-128 Frisco TX 75033</a></li>
+			<li><a href="https://maps.app.goo.gl/8T4Q4kYEQkoGkmtdA" target="_blank"><i class="fa fa-map-marker" aria-hidden="true"></i>17400 Dallas Pkwy, Suite 111 Dallas, TX 75287</a></li>
 			<li><a href="mailto:info@armely.com" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i><span class="lowercase">info@armely.com</span></a></li>
 		</ul>
 	</div>
@@ -873,7 +1308,7 @@
 </footer>
 <!--/ End Footer Area -->
 		<!-- jquery Min JS -->
-        <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
 		<!-- jquery Migrate JS -->
 		<script src="js/jquery-migrate-3.0.0.js"></script>
 		<!-- jquery Ui JS -->
@@ -912,6 +1347,10 @@
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-4301EZWQ4C"></script>
 		<!-- Bootstrap JS -->
 		<script src="js/bootstrap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+		<!-- sweet alerts -->
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js"></script>
+
 		<!-- Main JS -->
 		<script src="js/main.js"></script>
 		<script src="js/more-options.js"></script>

@@ -3,75 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scrollable Div with Show More Button</title>
+    <title>Login Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .scrollable-div {
-            max-height: 200px; /* Adjust this height as needed */
-            overflow-y: auto;
-            position: relative;
-            border: 1px solid #ccc;
-            padding: 10px;
+        body {
+            background-color: #f7f8fa;
         }
-
-        .show-more-button {
-            display: none; /* Initially hidden */
-            position: absolute;
-            bottom: 10px; /* Adjust positioning as needed */
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
-            padding: 5px 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
+        .login-container {
+            max-width: 400px;
+            margin: auto;
+            margin-top: 100px;
+            padding: 40px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
         }
-
-        .show-more-button:hover {
-            background-color: #0056b3;
+        .login-container h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-control {
+            border-radius: 50px;
+        }
+        .btn-primary {
+            border-radius: 50px;
+        }
+        .forgot-password {
+            text-align: center;
+            display: block;
+            margin-top: 10px;
+        }
+        .register-link {
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
+    <div class="login-container">
+        <h3>Login to Your Account</h3>
+        <form>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter password">
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+            <a href="#" class="forgot-password">Forgot password?</a>
+        </form>
+        <div class="register-link">
+            <p>Don't have an account? <a href="register.html">Sign up here</a></p>
+        </div>
+    </div>
 
-<div id="content" class="scrollable-div">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi eu congue facilisis, quam enim dictum risus, nec tincidunt ligula nisi eu lorem. Integer eget orci nec felis lacinia bibendum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi eu congue facilisis, quam enim dictum risus, nec tincidunt ligula nisi eu lorem. Integer eget orci nec felis lacinia bibendum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi eu congue facilisis, quam enim dictum risus, nec tincidunt ligula nisi eu lorem. Integer eget orci nec felis lacinia bibendum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi eu congue facilisis, quam enim dictum risus, nec tincidunt ligula nisi eu lorem. Integer eget orci nec felis lacinia bibendum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi eu congue facilisis, quam enim dictum risus, nec tincidunt ligula nisi eu lorem. Integer eget orci nec felis lacinia bibendum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi eu congue facilisis, quam enim dictum risus, nec tincidunt ligula nisi eu lorem. Integer eget orci nec felis lacinia bibendum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi eu congue facilisis, quam enim dictum risus, nec tincidunt ligula nisi eu lorem. Integer eget orci nec felis lacinia bibendum.</p>
-    <!-- Add more content as needed -->
-</div>
-<button id="show-more" class="show-more-button">Show More</button>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        var contentDiv = $('#content');
-        var showMoreButton = $('#show-more');
-
-        // Check if the content is scrollable
-        if (contentDiv[0].scrollHeight > contentDiv.innerHeight()) {
-            showMoreButton.show(); // Show the button if scrollable
-        }
-
-        // Scroll down when the button is clicked
-        showMoreButton.on('click', function() {
-            contentDiv.animate({
-                scrollTop: contentDiv[0].scrollHeight
-            }, 800);
-        });
-
-        // Optionally, hide the button after scrolling to the bottom
-        contentDiv.on('scroll', function() {
-            if (contentDiv.scrollTop() + contentDiv.innerHeight() >= contentDiv[0].scrollHeight) {
-                showMoreButton.hide();
-            }
-        });
-    });
-</script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

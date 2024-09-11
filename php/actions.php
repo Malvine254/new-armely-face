@@ -235,7 +235,7 @@ function displayBlogFullDetals(){
 			<div class="single-main">
 				<!-- News Head -->
 				<div class="news-head">
-					<img style="min-height: 400px; max-height: 400px;" src="'.$row['image_path'].'" alt="#">
+					<img style="height: auto; min-height: 400px;" src="'.$row['image_path'].'" alt="#">
 				</div>
 				<!-- News Title -->
 				<h1 class="news-title"><a >'.$row['title'].'</a></h1>
@@ -246,7 +246,7 @@ function displayBlogFullDetals(){
 						<span class="date"><i class="fa fa-clock-o"></i>'.$row['date'].' 2024</span>
 					</div>
 					<div class="meta-right">
-						<span class="comments"><a href="#"><i class="fa fa-comments"></i>05 Comments</a></span>
+						<span id="toggleSpeech" class="comments"><a ><i class="fa-solid fa-volume-high" id="volume-icons"></i>Read Aloud</a></span>
 						<span class="views"><i class="fa fa-eye"></i>33K Views</span>
 					</div>
 				</div>
@@ -286,7 +286,7 @@ function selectblogByDefault(){
 			<div class="single-main">
 				<!-- News Head -->
 				<div class="news-head">
-					<img src="'.$row['image_path'].'" alt="#">
+					<img style="height: auto; min-height: 400px;" src="'.$row['image_path'].'" alt="#">
 				</div>
 				<!-- News Title -->
 				<h1 class="news-title"><a >'.$row['title'].'</a></h1>
@@ -297,12 +297,12 @@ function selectblogByDefault(){
 						<span class="date"><i class="fa fa-clock-o"></i>'.$row['date'].' 2024</span>
 					</div>
 					<div class="meta-right">
-						<span class="comments"><a href="#"><i class="fa fa-comments"></i>05 Comments</a></span>
+						<span id="toggleSpeech" class="comments"><a ><i class="fa-solid fa-volume-high" id="volume-icons"></i>Read Aloud</a></span>
 						<span class="views"><i class="fa fa-eye"></i>33K Views</span>
 					</div>
 				</div>
 				<!-- News Text -->
-				<div style="height: 935px; overflow-y: scroll;" class="news-text scrollable-div"  id="content">
+				<div style="height: 935px; overflow: scroll;" class="news-text scrollable-div"  id="content">
 					'.$row['body'].'
 				</div><br>
 
@@ -313,7 +313,6 @@ function selectblogByDefault(){
 						<li class="twitter"><a class="shareBtn" data-social="twitter"><i class="fa-brands fa-x-twitter"></i><span>Twitter</span></a></li>
 						<li class="google-plus"><a class="shareBtn"  data-social="instagram"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a></li>
 						<li class="linkedin"><a class="shareBtn"  data-social="linkedin"><i class="fa-brands fa-linkedin"></i> <span>LinkedIn</span></a> </li>
-						
 					</ul>
 					<!-- Next Prev -->
 					<ul class="prev-next">
@@ -350,14 +349,14 @@ function displayRecentBlogsOthers(){
         while ($row=$select->fetch_assoc()) {
 
         	echo '<div class="single-post data-item">
-				<div class="image">
-					<img src="'.$row['image_path'].'" alt="#">
+				<div class="image" style="height: auto !important;">
+					<img style="height: auto !important;" src="'.$row['image_path'].'" alt="#">
 				</div>
 				<div class="content">
 					<h5><a href="?blogId='.$row['blog_id'].'">'.$row['title'].'</a></h5>
 					<ul class="comment">
 						<li><i class="fa fa-calendar" aria-hidden="true"></i>'.$row['date'].', 2024</li>
-						<li><i class="fa fa-commenting-o" aria-hidden="true"></i>35</li>
+						<li><i class="fa fa-eye" aria-hidden="true"></i>'.$row['clicks'].'</li>
 					</ul>
 				</div>
 			</div>';
@@ -410,7 +409,7 @@ function displayCustomerStoriesTestimonialsShort(){
         while ($row=$select->fetch_assoc()) {
         	echo '<div class="col-lg-4 col-md-6 col-12" >
 				<!-- single-schedule -->
-				<div class="single-schedule first " style="min-height: 380px; height: auto;">
+				<div class="single-schedule first " style="min-height: 400px; height: auto;">
 					<div class="inner">
 						<div class="icon">
 							<i class="fa fa-data"></i>
@@ -689,10 +688,10 @@ function displayRecentIndustryListingsAll(){
         while ($row=$select->fetch_assoc()) {
 
         	echo '<div class="col-md-4 mb-4 p-1">
-                <div class="customer-story-card card m-1" >
+                <div class="customer-story-card card m-1" style="min-height: 450px; max-height: 700px;">
                     <img  src="images/case-study/'.$row['listing_image'].'" class="d-block img-fluid lazyload" alt="">
                     <div class="p-3">
-                       <strong> <p id="'.$row['id'].'" class="text-muted">Industry: '.$row['category'].'</p></strong>
+                       <strong> <p id="'.$row['id'].'" class="text-muted h5">Industry: '.$row['category'].'</p></strong>
                         <p>'.substr($row['body'], 0,120) .'...</p>
                           <div class="mt-1">
                              <strong><a class="default-color h6" target="_blank" href="case_docs/'.$row['pdf_url'].'" id="'.$row['id'].'">Read More <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i> </a></strong>
@@ -703,11 +702,36 @@ function displayRecentIndustryListingsAll(){
       
         }
     }else{
-        echo "No records found!";
+       echo "<span class='text-center col-md-12 text-danger p-5'>No records found!</span>";
     }
 
 }
 
+function displayWhitePaperListings(){
+    include 'config.php';
+     $select = $conn->query("SELECT * FROM white_paper ORDER BY id DESC ");
+     if ($select->num_rows>0) {
+        while ($row=$select->fetch_assoc()) {
+
+        	echo '<div class="col-md-4 mb-4 p-1">
+                <div class="customer-story-card card m-1" style="min-height: 450px; max-height: 450px;">
+                    <img  src="images/white-papers/'.$row['images'].'" class="d-block img-fluid lazyload" alt="">
+                    <div class="p-3">
+                    	 <strong> <p class="text-muted h5"> '.$row['title'].'</p></strong>
+                        <p>'.substr($row['body'], 0,120) .'...</p>
+                          <div class="mt-1">
+                             <strong><a class="default-color h6" target="_blank" href="white_paper_docs/'.$row['pdf'].'" id="'.$row['id'].'">Read More <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i> </a></strong>
+                           </div>
+                    </div>
+                </div>
+            </div>';
+      
+        }
+    }else{
+        echo "<span class='text-center col-md-12 text-danger p-5'>No records found!</span>";
+    }
+
+}
 
 function displayPartnersLogo(){
     include 'config.php';
@@ -737,7 +761,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['organizatio
 }
 function submitConsultationForm(){
 include 'config.php';
-function dateFormat(){
+function dateFormatTwo(){
 // Your date
 $date =  date('y-m-d');
 // Convert the date to a timestamp
@@ -746,7 +770,7 @@ $timestamp = strtotime($date);
 $formattedDate = date("j M Y", $timestamp);
 return $formattedDate;
 }
-$date_now = dateFormat();
+$date_now = dateFormatTwo();
 // Sanitize and validate user input
 $name = isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '';
 $email = isset($_POST['email']) ? filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) : '';
@@ -768,7 +792,7 @@ if ($phone && !preg_match('/(\d{1})(\d{3})(\d{3})(\d{4})/', $phone)) {
 
         // Execute the statement
         if ($stmt->execute()) {
-            echo 1;
+            return 1;
         } else {
             // Log the error securely
             error_log('Failed to insert contact form data into the database');
@@ -793,9 +817,7 @@ if ($phone && !preg_match('/(\d{1})(\d{3})(\d{3})(\d{4})/', $phone)) {
 #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 #Beginning of submit contact form
 #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['organization'])&& isset($_POST['phone']) && isset($_POST['message'])) {
-   echo submitContactUsForm();
-}
+
 function submitContactUsForm(){
 include 'config.php';
 function dateFormat(){
@@ -854,6 +876,10 @@ if (!empty($name) && !empty($email) && !empty($organization) && !empty($phone) &
     return "Please fill in all the required fields";
 }
 }
+
+if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['organization'])&& isset($_POST['phone']) && isset($_POST['message'])) {
+   echo submitContactUsForm();
+}
 #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 #End of submit contact form
 #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -872,9 +898,13 @@ if (isset($_GET['job-details'])) {
       $job_type = $row['job_type'];
        $job_title = $row['job_title'];
       echo "
-        <h4>Job Title: ".$row['job_title']."</h4>
-        <h6>Job Location: ".$row['job_location']."</h6>
+        <div class='section-title mt-5'><h3><span class='default-color'>".$row['job_title']." , </span>".$row['job_location']."<center><hr class='default-background hr' ></center></h3>
+        	
+        </div>
         ".$row['job_description']."
+         <div class='m-5'>
+            <a href='applications?job-details=".$row['job_id']."&application=true&title=".$job_title."' class='btn btn-primary col-lg-2 col-sm-6 ml-5'>Apply Now</a>
+       </div>
       ";
     }
   }else{
@@ -911,6 +941,132 @@ function displayServicesDetails(){
 }
 
 #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-#Start of display services details 
+#Start of submit job app form
 #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+function submitJobAppForm(){
+	if($_FILES["cv"]["error"] == UPLOAD_ERR_OK) {
+    include 'config.php';
+    // Sanitize and validate user input
+    $name = isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '';
+    $email =  isset($_POST['email']) ? filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) : '';
+    $final_email = strtolower($email);
+    $city = isset($_POST['city']) ? htmlspecialchars($_POST['city']) : '';
+    $phone = isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) : '';
+    $address = isset($_POST['address']) ? htmlspecialchars($_POST['address']) : '';
+    $state = isset($_POST['state']) ? htmlspecialchars($_POST['state']) : '';
+    $zip = isset($_POST['zip']) ? htmlspecialchars($_POST['zip']) : '';
+    $role = isset($_POST['role']) ? htmlspecialchars($_POST['role']) : '';
+    $final_role = strtolower($role);
+    $position = isset($_POST['position']) ? htmlspecialchars($_POST['position']) : '';
+    $cv = isset($_FILES['cv']['name']) ? htmlspecialchars($_FILES['cv']['name'] ) : '';
+    $application_date = date("d-m-y h:i:sa");
+    $random_name = rand(100000,3000000);
+    $new_file_name = $random_name.".pdf";
+    $target = "../pdf/".$random_name.".pdf"; 
+    $check_if_applied = $conn->query("SELECT * FROM job_applications WHERE LOWER(email)='$final_email' AND LOWER(role)='$final_role' ORDER BY id DESC");
+    // while ($row=$check_if_applied->fetch_assoc()) {
+    // 	$job_title = $row['job_title'];
+    // }
+    if ($check_if_applied->num_rows>0) {
+            echo "You have already made an application";
+        }else{
+            if (move_uploaded_file($_FILES['cv']['tmp_name'], $target)) {
+            // Prepare and bind the SQL statement
+            $stmt = $conn->prepare("INSERT INTO job_applications (name, email, city, phone, address,state,zip,role,position,cv,application_date) VALUES (?, ?, ?, ?, ?,?,?,?,?,?,?)");
+            $stmt->bind_param("sssssssssss", $name, $email, $city, $phone, $address, $state,$zip,$role,$position,$new_file_name,$application_date);
+
+            // Execute the statement
+            if ($stmt->execute()) {
+             echo 1;
+            } else {
+                // Log the error securely
+                error_log('Failed to insert contact form data into the database');
+
+                // Display a generic error message
+                echo "Failed to submit the form. Please try again later";
+            }
+
+            // Close the statement
+            $stmt->close();
+
+    } else{
+        echo "Failed to upload pdf, try again";
+    }
+        }    
+    
+
+}
+
+}
+
+if ( isset($_POST['zip']) && isset($_POST['state']) && isset($_POST['address']) && isset($_POST['phone']) && isset($_POST['city']) && isset($_POST['email']) && isset($_POST['name'])) {
+	submitJobAppForm();
+}
+
+//actions
+function listCountries(){
+	$apiUrl = 'https://restcountries.com/v3.1/all';
+	$response = file_get_contents($apiUrl);
+	$countries = json_decode($response, true);
+
+	foreach ($countries as $country) {
+	    echo "<option>".$country['name']['common']."</option>";
+	}
+}
+
+
+// add conts to blog clicks
+
+if (isset($_GET['blogId'])) {
+    include 'config.php';
+    $id = mysqli_real_escape_string($conn, $_GET['blogId']);
+    
+    // Default expiration time for the cookie (30 days)
+    $expiration_days = 30;
+
+    // Initialize clicks array
+    $clicks = [];
+
+    // Check if the 'clicks' cookie exists
+    if (isset($_COOKIE['clicks'])) {
+        $cookie_data = $_COOKIE['clicks'];
+
+        // Decode the cookie value (it should be a JSON array)
+        $clicks = json_decode($cookie_data, true);
+        // print_r($clicks);
+
+        // If the cookie data isn't an array, reset it to an empty array
+        if (!is_array($clicks)) {
+            $clicks = [];
+        }
+    }
+
+    // Fetch the blog data from the database
+    $select = $conn->query("SELECT * FROM blogs WHERE blog_id='$id'");
+    if ($select->num_rows > 0) {
+        $row = $select->fetch_assoc();
+        $row_count = $row['clicks'] + 1;
+
+        // Check if the current blogId exists in the cookie array
+        if (isset($clicks[$id])) {
+            // If the blogId exists in the cookie, do not update the database
+            //echo "This blog post has already been clicked by this user!";
+        } else {
+            // If the blogId does not exist in the cookie, update the database
+            $update = $conn->query("UPDATE blogs SET clicks='$row_count' WHERE blog_id='$id'");
+
+            // Add this blogId to the clicks array to mark it as clicked
+            $clicks[$id] = $id;
+
+            // Encode the updated array back to JSON and set it in the cookie
+            setcookie('clicks', json_encode($clicks), time() + ($expiration_days * 24 * 60 * 60), "/");
+
+            //echo "Click registered for blog post ID: $id!";
+        }
+    }
+}
+
+
+
+
 ?>

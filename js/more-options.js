@@ -111,8 +111,9 @@ $('.btn-close').click(function() {
         
     });
 
-    $('#rejectAll').on('click', function() {
-        setCookie('userConsent', 'rejected', 365);
+    $('#saveAllPreferences').on('click', function() {
+        setCookie('userConsent', 'accepted', 365);
+        trackUser();
     });
 
     function setCookie(name, value, days) {
@@ -217,7 +218,7 @@ $('#consultation-form').submit(function(event) {
       data: formData,
       success: function(response) {
         // Handle the success response
-        if (response==="1") {
+        if (response==="11") {
           Swal.fire({
           title: 'Success!',
           text: "Message was sent successfully",
@@ -252,7 +253,7 @@ $('#consultation-form').submit(function(event) {
     $('.shorten-content').each(function(){
         const contentElement = $(this);
         const fullContent = contentElement.html().trim();
-        const maxLength = 170;
+        const maxLength = 200;
         let shortContent = fullContent;
 
         if (fullContent.length > maxLength) {
@@ -303,4 +304,259 @@ $('#consultation-form').submit(function(event) {
       }
     }
   });
-// end of partner slider
+
+$('#job-form').submit(function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Create FormData object
+    var formData = new FormData();
+
+    // Append file to FormData object
+    var file = $('#cv')[0].files[0]; // Assuming 'cv' is the id of your file input
+   
+
+    // Append other form fields to FormData object
+    formData.append('name', $('#name').val());
+    formData.append('email', $('#email').val());
+    formData.append('cv', file);
+    formData.append('city', $('#city').val());
+    formData.append('zip', $('#zip').val());
+    formData.append('phone', $('#phone').val());
+    formData.append('state', $('#state').val());
+    formData.append('address', $('#address').val());
+    formData.append('position', $('#position').val());
+    formData.append('type', $('#type').val());
+
+
+    // Perform an AJAX request to submit the form data
+    $.ajax({
+      type: 'POST',
+      url: 'php/actions', // Replace with your actual server-side endpoint
+      data: formData, 
+      processData: false, // Prevent jQuery from automatically processing data
+      contentType: false,
+      success: function(response) {
+        // Handle the success response
+        if (response==="1") {
+            Swal.fire({
+            title: 'Success!',
+            text: "Applicatioin was Successfully",
+            confirmButtonColor: 'rgb(47,85,151)', 
+            icon: 'success',
+          });
+            $("#job-form")[0].reset();
+        }else{
+            Swal.fire({
+              title: 'Warning',
+              text: response,
+              icon: 'warning',
+              confirmButtonText: 'OK',
+               confirmButtonColor: 'rgb(47,85,151)'
+            });
+        }
+
+
+         
+        console.log(response); // You can do something with the response data
+      },
+      error: function(error) {
+        // Handle the error response
+        console.error('Form submission error');
+        console.error(error); // You can display an error message or perform other actions
+      }
+    });
+  }); 
+
+
+// submit offers form
+$('#offers-form').submit(function(event) {
+event.preventDefault(); // Prevent the default form submission
+// Retrieve the form data
+var formData2 = $(this).serialize();
+
+// Display loading message before AJAX request
+Swal.fire({
+  title: 'Loading...',
+  text: 'Please wait while we process your request.',
+  allowOutsideClick: false,
+  didOpen: () => {
+    Swal.showLoading();
+  }
+});
+
+// Perform an AJAX request to submit the form data
+$.ajax({
+  type: 'POST',
+  url: 'php/offers', // Replace with your actual server-side endpoint
+  data: formData2,
+  success: function(e) {
+    Swal.close(); // Close the loading message before showing the next one
+    
+    // Handle the success response
+    if (e === "1") {
+      $("#offers-form")[0].reset();
+      Swal.fire({
+        title: 'Thank you!',
+        text: "Please check your email for the download link.",
+        confirmButtonColor: 'rgb(47,85,151)', 
+        icon: 'success',
+      });
+    } else {
+      Swal.fire({
+        title: 'Warning',
+        text: e,
+        icon: 'warning',
+        confirmButtonText: 'OK',
+        confirmButtonColor: 'rgb(47,85,151)'
+      });
+    }
+
+    console.log(e); // You can do something with the response data
+  },
+  
+  error: function(error) {
+    Swal.close(); // Close the loading message in case of an error
+    // Handle the error response
+    Swal.fire({
+      title: 'Error',
+      text: 'Form submission failed. Please try again.',
+      icon: 'error',
+      confirmButtonText: 'OK',
+      confirmButtonColor: 'rgb(47,85,151)'
+    });
+    console.error('Form submission error');
+    console.error(error); // You can display an error message or perform other actions
+  }
+});
+
+
+
+});
+
+// submit sql offers form
+$('#sql-offer-form').submit(function(event) {
+event.preventDefault(); // Prevent the default form submission
+// Retrieve the form data
+var formData2 = $(this).serialize();
+
+// Display loading message before AJAX request
+Swal.fire({
+  title: 'Loading...',
+  text: 'Please wait while we process your request.',
+  allowOutsideClick: false,
+  didOpen: () => {
+    Swal.showLoading();
+  }
+});
+
+// Perform an AJAX request to submit the form data
+$.ajax({
+  type: 'POST',
+  url: 'php/offers', // Replace with your actual server-side endpoint
+  data: formData2,
+  success: function(e) {
+    Swal.close(); // Close the loading message before showing the next one
+    
+    // Handle the success response
+    if (e === "1") {
+      $("#sql-offer-form")[0].reset(); // Reset the form after successful submission
+      Swal.fire({
+        title: 'Thank you!',
+        text: "Request sent successfully.",
+        confirmButtonColor: 'rgb(47,85,151)', 
+        icon: 'success',
+      });
+    } else {
+      Swal.fire({
+        title: 'Warning',
+        text: e,
+        icon: 'warning',
+        confirmButtonText: 'OK',
+        confirmButtonColor: 'rgb(47,85,151)'
+      });
+    }
+
+    console.log(e); // You can do something with the response data
+  },
+  
+  error: function(error) {
+    Swal.close(); // Close the loading message in case of an error
+    // Handle the error response
+    Swal.fire({
+      title: 'Error',
+      text: 'Form submission failed. Please try again.',
+      icon: 'error',
+      confirmButtonText: 'OK',
+      confirmButtonColor: 'rgb(47,85,151)'
+    });
+    console.error('Form submission error');
+    console.error(error); // You can display an error message or perform other actions
+  }
+});
+
+
+
+});
+
+// submit sql offers form
+$('#coe-offer-form').submit(function(event) {
+event.preventDefault(); // Prevent the default form submission
+// Retrieve the form data
+var formData2 = $(this).serialize();
+
+// Display loading message before AJAX request
+Swal.fire({
+  title: 'Loading...',
+  text: 'Please wait while we process your request.',
+  allowOutsideClick: false,
+  didOpen: () => {
+    Swal.showLoading();
+  }
+});
+
+// Perform an AJAX request to submit the form data
+$.ajax({
+  type: 'POST',
+  url: 'php/offers', // Replace with your actual server-side endpoint
+  data: formData2,
+  success: function(e) {
+    Swal.close(); // Close the loading message before showing the next one
+    
+    // Handle the success response
+    if (e === "1") {
+      $("#coe-offer-form")[0].reset(); // Reset the form after successful submission
+      Swal.fire({
+        title: 'Thank you!',
+        text: "Request sent successfully.",
+        confirmButtonColor: 'rgb(47,85,151)', 
+        icon: 'success',
+      });
+    } else {
+      Swal.fire({
+        title: 'Warning',
+        text: e,
+        icon: 'warning',
+        confirmButtonText: 'OK',
+        confirmButtonColor: 'rgb(47,85,151)'
+      });
+    }
+
+    console.log(e); // You can do something with the response data
+  },
+  
+  error: function(error) {
+    Swal.close(); // Close the loading message in case of an error
+    // Handle the error response
+    Swal.fire({
+      title: 'Error',
+      text: 'Form submission failed. Please try again.',
+      icon: 'error',
+      confirmButtonText: 'OK',
+      confirmButtonColor: 'rgb(47,85,151)'
+    });
+    console.error('Form submission error');
+    console.error(error); // You can display an error message or perform other actions
+  }
+});
+
+});
