@@ -1,4 +1,5 @@
-	<!doctype html>
+<?php include 'php/check_session.php'; ?>
+<!doctype html>
 	<html lang="en">
 	  <head>
 	  	<title>Solutions</title>
@@ -10,7 +11,7 @@
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 			<link rel="stylesheet" href="css/style.css">
 			<!-- Favicon -->
-		<link rel="icon" href="../img/logo/logo1.png">
+		<link rel="icon" href="../img/logo/logo1.png"> 
 	  </head>
 	  <body>
 			
@@ -105,10 +106,9 @@
 			   	<div class="col-md-4" style="border-right:solid #2f5597 5px;">
 			   		<h4>Transcription History </h4>
 			   		<hr>
-			   		<h5 class=" text-right text-primary"><a href="#">New Chat <i class="fa fa-plus-square "></i></a></h5>
-			   		<h6>Today, 10.00pm</h6>
-			   		<a href="" class="text-link"><h6>Lorem ipsum dolor sit amet, consectetur ></h6></a>
-			   		<hr>
+			   		<h5 class=" text-right text-primary" ><a href="#" id="addNewChats">New Chat <i class="fa fa-plus-square "></i></a></h5>
+			   		
+			   		<div id="transcribedContents"></div>
 			   		
 			   		
 			   	</div>
@@ -333,6 +333,9 @@
 				        $("#urlOption").css("display", "none");
 				    }
 				});
+
+
+
 
 	    </script>
 	  </body>

@@ -52,6 +52,7 @@ $(document).ready(function() {
                         contentType: false,
                         data: fd,
                         success: function(response) {
+                            $("#transcribedContents").html(response)
                            console.log(response);
                         },
                         error: function(error) {
@@ -132,3 +133,28 @@ $(document).ready(function() {
     });
 
 });
+
+
+// add new chat button
+$("#addNewChats").click((e)=>{
+    e.preventDefault();
+    var fd = new FormData();
+    fd.append('new_chat_set',"true");
+    //console.log(transcription)
+
+    $.ajax({
+            url: 'php/actions', // Replace with your backend URL
+            type: 'POST',
+            processData: false, // Prevent jQuery from automatically processing data
+            contentType: false,
+            data: fd,
+            success: function(response) {
+               console.log(response);
+            },
+            error: function(error) {
+                console.error('Error saving transcription:', error);
+            }
+        });
+
+})
+
