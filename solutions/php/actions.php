@@ -108,23 +108,52 @@ if (isset($_POST['new_chat_set'])) {
 }
 
 if (isset($_POST['transcription'])) {
-     session_start();
+    session_start();
     require '../../php/config.php';
     $current_session_id =  $_SESSION['chat_id'];
     $user_id = mysqli_real_escape_string($conn, $_SESSION['user_name']);
 	$transcribed_text = mysqli_real_escape_string($conn,$_POST['transcription']) ;
     $update = $conn->query("UPDATE transcription SET transcribed_text='$transcribed_text' WHERE user_id='$user_id' AND chat_id='$current_session_id'");
-    $select=$conn->query("SELECT * FROM transcription  WHERE user_id='$user_id' ORDER BY id DESC LIMIT 1");
-    if ($select->num_rows>0) {
-        while ($row=$select->fetch_assoc()) {
-            echo '<h6>'.$row['date'].'</h6><a href="" class="text-link"><h6>'.substr($row['transcribed_text'], 0,80).'></h6></a>
+    if ($update) {
+         $select=$conn->query("SELECT * FROM transcription  WHERE user_id='$user_id' ORDER BY id DESC LIMIT 1");
+        if ($select->num_rows>0) {
+            while ($row=$select->fetch_assoc()) {
+            echo '<h6>'.$row['date'].'</h6><a href=""  id="'.$row['id'].'" class="text-link clickedFullInfo"><h6>'.substr($row['transcribed_text'], 0,80).'></h6></a>
                     <hr>';
         }
     }
+    }
+   
 
 
 }
 
+if (isset($_POST['diaplay_all_history'])) {
+    session_start();
+    require '../../php/config.php';
+    function checkifNull($text){
+    if ($text==="null") {
+        return "typing...";
+    }else{
+        return $text;
+    }
+}
+    $user_id = mysqli_real_escape_string($conn, $_SESSION['user_name']);
+     $select=$conn->query("SELECT * FROM transcription  WHERE user_id='$user_id' ORDER BY id DESC");
+        if ($select->num_rows>0) {
+            while ($row=$select->fetch_assoc()) {
+            echo '
+            <h6>'.$row['date'].'</h6>
+                <a href="#" id="'.$row['id'].'" class="text-link clickedFullInfo">
+                    <h6>'.checkifNull(substr($row['transcribed_text'], 0,80)).' ></h6> 
+                    <span id="text-'.$row['id'].'" style="display: none;"class="">'.$row['transcribed_text'].'</span>
+                </a>
+            <hr>';
+        }
+    }
+   
 
+
+}
 
  ?>

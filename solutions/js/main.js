@@ -43,6 +43,7 @@ $(document).ready(function() {
                 $('#transcription').val(transcription);
                  var fd = new FormData();
                 fd.append('transcription',(transcription));
+                displayAllHistory();
                 //console.log(transcription)
 
                 $.ajax({
@@ -52,7 +53,7 @@ $(document).ready(function() {
                         contentType: false,
                         data: fd,
                         success: function(response) {
-                            $("#transcribedContents").html(response)
+                            //$("#transcribedContents").html(response)
                            console.log(response);
                         },
                         error: function(error) {
@@ -65,6 +66,7 @@ $(document).ready(function() {
 
     // Start Recording
     $('#startRec').on('click', function() {
+         displayAllHistory();
         initSpeechRecognizer();
         recognizer.startContinuousRecognitionAsync();
         $('#startRec').prop('disabled', true);
@@ -78,6 +80,7 @@ $(document).ready(function() {
     // Stop Recording
     $('#stopRec').on('click', function() {
         recognizer.stopContinuousRecognitionAsync();
+         displayAllHistory();
         $('#startRec').prop('disabled', true);
         $('#stopRec').prop('disabled', true);
         $('#resumeRec').prop('disabled', false);
@@ -85,6 +88,7 @@ $(document).ready(function() {
 
     // Resume Recording
     $('#resumeRec').on('click', function() {
+         displayAllHistory();
         recognizer.startContinuousRecognitionAsync();
         $('#startRec').prop('disabled', true);
         $('#stopRec').prop('disabled', false);
@@ -107,6 +111,7 @@ $(document).ready(function() {
 
     // Text-to-Speech Functionality
     $('#speakText').on('click', function() {
+         displayAllHistory();
         const textToSynthesize = $('#textToSpeech').val();
         if (!textToSynthesize) {
             alert("Please enter text to convert to speech");
@@ -136,7 +141,11 @@ $(document).ready(function() {
 
 
 // add new chat button
+
 $("#addNewChats").click((e)=>{
+    $("#unhideContents").css("display","block");
+    displayAllHistory();
+    $("#transcription").val("");
     e.preventDefault();
     var fd = new FormData();
     fd.append('new_chat_set',"true");
@@ -157,4 +166,40 @@ $("#addNewChats").click((e)=>{
         });
 
 })
+
+//display all the details for converstion history
+
+function displayAllHistory(){
+    $("#unhideContents").css("display","block");
+    var setIt = new FormData();
+    setIt.append('diaplay_all_history',"true");
+    $.ajax({
+        url: 'php/actions', // Replace with your backend URL
+        type: 'POST',
+        processData: false, // Prevent jQuery from automatically processing data
+        contentType: false,
+        data: setIt,
+        success: function(response) {
+            $("#transcribedContents").html(response)
+        },
+        error: function(error) {
+            console.error('Error saving transcription:', error);
+        }
+});
+}
+displayAllHistory();
+
+
+// Use event delegation to handle dynamically loaded content
+$(document).on('click', '.clickedFullInfo', function(e) {
+    e.preventDefault();
+     $("#unhideContents").css("display","block");
+    //recognizer.stopContinuousRecognitionAsync();
+    id = $(this).attr('id');
+    $("#transcription").val($("#text-"+id).text())
+    $('#startRec').prop('disabled', false);
+    $('#stopRec').prop('disabled', true);
+    $('#resumeRec').prop('disabled', true);
+});
+
 

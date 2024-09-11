@@ -107,16 +107,16 @@
 			   		<h4>Transcription History </h4>
 			   		<hr>
 			   		<h5 class=" text-right text-primary" ><a href="#" id="addNewChats">New Chat <i class="fa fa-plus-square "></i></a></h5>
-			   		
-			   		<div id="transcribedContents"></div>
+			   		<hr>
+			   		<div style="height: 60vh; overflow-y: scroll;" id="transcribedContents"></div>
 			   		
 			   		
 			   	</div>
 			   	 <div class="col-md-8">
 
 			   	 	 <!-- <h6 id="downloadTranscription" class="text-right"><i id="downloadTranscription"  class="fa fa-upload text-primary"> Download </i>  </h6> -->
-			   	 	<div class="form-group bg-white p-5">
-			        <textarea style="height: 40vh !important;" class="form-control" id="transcription" rows="6" placeholder="Your transcribed text will appear here..."></textarea><br>
+			   	 	<div id="unhideContents" style="display: none;" class="form-group bg-white p-5">
+			        <textarea style="height: 60vh !important;" class="form-control" id="transcription" rows="6" placeholder="Your transcribed text will appear here..."></textarea><br>
 			        <hr>
 			       <button id="startRec" class="btn btn-primary ">Start Transcription</button>
 			        	<button id="stopRec" class="btn btn-danger ">Stop Transcription</button>
