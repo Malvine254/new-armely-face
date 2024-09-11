@@ -18,13 +18,11 @@
 
 })(jQuery);
 
-
-$(document).ready(function() {
     const speechKey = "adff6f8e12d24ecf8f12cacb35b9ed12";
     const serviceRegion = "eastus"; // For example, "eastus"
 
-    let recognizer;
-    let transcription = "";
+    var recognizer;
+    var transcription = "";
 
     // Initialize Speech-to-Text Recognizer
     function initSpeechRecognizer() {
@@ -33,16 +31,18 @@ $(document).ready(function() {
         recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
 
         recognizer.recognizing = (s, e) => {
-            $('#transcription').val(transcription + e.result.text);
+            current_content =  $('#transcription').val();
+            $('#transcription').val(current_content + transcription + e.result.text);
 
         };
 
         recognizer.recognized = (s, e) => {
             if (e.result.reason === SpeechSDK.ResultReason.RecognizedSpeech) {
                 transcription += e.result.text + " ";
-                $('#transcription').val(transcription);
+                $('#transcription').val(current_content+" "+transcription);
+                 current_content =  $('#transcription').val();
                  var fd = new FormData();
-                fd.append('transcription',(transcription));
+                fd.append('transcription',(current_content));
                 displayAllHistory();
                 //console.log(transcription)
 
@@ -137,14 +137,15 @@ $(document).ready(function() {
             });
     });
 
-});
+
 
 
 // add new chat button
 
 $("#addNewChats").click((e)=>{
-    $("#unhideContents").css("display","block");
+     $("#unhideContents").css("display","block");
     displayAllHistory();
+    transcription = "";
     $("#transcription").val("");
     e.preventDefault();
     var fd = new FormData();
@@ -170,7 +171,7 @@ $("#addNewChats").click((e)=>{
 //display all the details for converstion history
 
 function displayAllHistory(){
-    $("#unhideContents").css("display","block");
+    transcription = "";
     var setIt = new FormData();
     setIt.append('diaplay_all_history',"true");
     $.ajax({
@@ -193,13 +194,31 @@ displayAllHistory();
 // Use event delegation to handle dynamically loaded content
 $(document).on('click', '.clickedFullInfo', function(e) {
     e.preventDefault();
+    transcription = "";
      $("#unhideContents").css("display","block");
     //recognizer.stopContinuousRecognitionAsync();
     id = $(this).attr('id');
+    var setIt = new FormData();
+    setIt.append('old_session_id',id);
+    $.ajax({
+        url: 'php/actions', // Replace with your backend URL
+        type: 'POST',
+        processData: false, // Prevent jQuery from automatically processing data
+        contentType: false,
+        data: setIt,
+        success: function(response) {
+           //alert(response) 
+        },
+        error: function(error) {
+            console.error('Error saving transcription:', error);
+        }
+});
+    $('#stopRec').click();
     $("#transcription").val($("#text-"+id).text())
     $('#startRec').prop('disabled', false);
     $('#stopRec').prop('disabled', true);
     $('#resumeRec').prop('disabled', true);
+
 });
 
 

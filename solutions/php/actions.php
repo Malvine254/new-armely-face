@@ -107,6 +107,21 @@ if (isset($_POST['new_chat_set'])) {
 
 }
 
+if (isset($_POST['old_session_id'])) {
+    session_start();
+     require '../../php/config.php';
+    $id = mysqli_real_escape_string($conn, $_POST['old_session_id']);
+    $select=$conn->query("SELECT * FROM transcription  WHERE id='$id' ");
+        if ($select->num_rows>0) {
+            while ($row=$select->fetch_assoc()) {
+                $_SESSION['chat_id']=$row['chat_id'];
+                echo $_SESSION['chat_id'];
+                 // $update = $conn->query("UPDATE transcription SET chat_id='$transcribed_text' WHERE id='$id'");
+            }
+        }
+   
+}
+
 if (isset($_POST['transcription'])) {
     session_start();
     require '../../php/config.php';
@@ -128,6 +143,8 @@ if (isset($_POST['transcription'])) {
 
 }
 
+
+
 if (isset($_POST['diaplay_all_history'])) {
     session_start();
     require '../../php/config.php';
@@ -140,8 +157,10 @@ if (isset($_POST['diaplay_all_history'])) {
 }
     $user_id = mysqli_real_escape_string($conn, $_SESSION['user_name']);
      $select=$conn->query("SELECT * FROM transcription  WHERE user_id='$user_id' ORDER BY id DESC");
+
         if ($select->num_rows>0) {
             while ($row=$select->fetch_assoc()) {
+                //$_SESSION['chat_id']=$row['chat_id'];
             echo '
             <h6>'.$row['date'].'</h6>
                 <a href="#" id="'.$row['id'].'" class="text-link clickedFullInfo">
@@ -155,5 +174,4 @@ if (isset($_POST['diaplay_all_history'])) {
 
 
 }
-
  ?>

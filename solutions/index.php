@@ -119,8 +119,8 @@
 			        <textarea style="height: 60vh !important;" class="form-control" id="transcription" rows="6" placeholder="Your transcribed text will appear here..."></textarea><br>
 			        <hr>
 			       <button id="startRec" class="btn btn-primary ">Start Transcription</button>
-			        	<button id="stopRec" class="btn btn-danger ">Stop Transcription</button>
-			        	<button id="resumeRec" class="btn btn-info ">Resume Transcription</button>
+		        	<button id="stopRec" class="btn btn-danger ">Stop Transcription</button>
+		        	<button id="resumeRec" class="btn btn-info ">Resume Transcription</button>
 	     
 			    </div>
 			   	 </div>
