@@ -43,7 +43,7 @@
 /*logo font */
 @font-face {
     font-family: 'armely-font'; /* The name you will use to reference the font */
-    src: url('../fonts/armely.ttf') format('truetype'); /* Path to the font file */
+    src: url('../../fonts/armely.ttf') format('truetype'); /* Path to the font file */
     font-style: normal;
 
 }

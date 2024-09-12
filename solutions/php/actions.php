@@ -165,7 +165,8 @@ if (isset($_POST['diaplay_all_history'])) {
             <h6>'.$row['date'].'</h6>
                 <a href="#" id="'.$row['id'].'" class="text-link clickedFullInfo">
                     <h6>'.checkifNull(substr($row['transcribed_text'], 0,80)).' ></h6> 
-                    <span id="text-'.$row['id'].'" style="display: none;"class="">'.$row['transcribed_text'].'</span>
+                    <span id="text-'.$row['id'].'" style="display: none;" class="">'.$row['transcribed_text'].'</span>
+                    <span style="display: none;" id="temporaryStore">'.$row['transcribed_text'].'</span>
                 </a>
             <hr>';
         }

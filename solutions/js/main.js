@@ -19,206 +19,199 @@
 })(jQuery);
 
     const speechKey = "adff6f8e12d24ecf8f12cacb35b9ed12";
-    const serviceRegion = "eastus"; // For example, "eastus"
+const serviceRegion = "eastus"; // For example, "eastus"
 
-    var recognizer;
-    var transcription = "";
+var recognizer;
+var transcription = "";
 
-    // Initialize Speech-to-Text Recognizer
-    function initSpeechRecognizer() {
-        const speechConfig = SpeechSDK.SpeechConfig.fromSubscription(speechKey, serviceRegion);
-        const audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
-        recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
+// Initialize Speech-to-Text Recognizer
+function initSpeechRecognizer() {
+    const speechConfig = SpeechSDK.SpeechConfig.fromSubscription(speechKey, serviceRegion);
+    const audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
+    recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
 
-        recognizer.recognizing = (s, e) => {
-            current_content =  $('#transcription').val();
-            $('#transcription').val(current_content + transcription + e.result.text);
+    recognizer.recognizing = (s, e) => {
+        displayAllHistory();
+        // Retrieve the existing content from the textarea
+        //let current_content = $('#temporaryStore').text();
+        //console.log(current_content)
+        // Append the newly transcribed text to the existing content
+        $('#transcription').val(e.result.text);
+        //console.log(current_content + e.result.text);
+    };
 
-        };
+    recognizer.recognized = (s, e) => {
+        displayAllHistory();
+        if (e.result.reason === SpeechSDK.ResultReason.RecognizedSpeech) {
+            transcription += e.result.text + " ";
+            let current_content = $('#temporaryStore').text();
+            // Get the current textarea value (including newly appended content)
+            //let text = $('#transcription').val();
+            var fd = new FormData();
+            fd.append('transcription', (current_content+ transcription));
+            displayAllHistory();
+            // Send the transcription data to the server
+            $.ajax({
+                url: 'php/actions', // Replace with your backend URL
+                type: 'POST',
+                processData: false, // Prevent jQuery from automatically processing data
+                contentType: false,
+                data: fd,
+                success: function(response) {
+                    $("#transcribedContents").html(response);
+                    
+                },
+                error: function(error) {
+                    console.error('Error saving transcription:', error);
+                }
+            });
+        }
+    };
+}
 
-        recognizer.recognized = (s, e) => {
-            if (e.result.reason === SpeechSDK.ResultReason.RecognizedSpeech) {
-                transcription += e.result.text + " ";
-                $('#transcription').val(current_content+" "+transcription);
-                 current_content =  $('#transcription').val();
-                 var fd = new FormData();
-                fd.append('transcription',(current_content));
-                displayAllHistory();
-                //console.log(transcription)
+// Start Recording
+$('#startRec').on('click', function() {
+    displayAllHistory();
+    initSpeechRecognizer();
+    recognizer.startContinuousRecognitionAsync();
+    $('#startRec').prop('disabled', true);
+    $('#stopRec').prop('disabled', false);
+    $('#resumeRec').prop('disabled', true);
+});
 
-                $.ajax({
-                        url: 'php/actions', // Replace with your backend URL
-                        type: 'POST',
-                        processData: false, // Prevent jQuery from automatically processing data
-                        contentType: false,
-                        data: fd,
-                        success: function(response) {
-                            //$("#transcribedContents").html(response)
-                           console.log(response);
-                        },
-                        error: function(error) {
-                            console.error('Error saving transcription:', error);
-                        }
-                    });
-            }
-        };
+// Stop Recording
+$('#stopRec').on('click', function() {
+    displayAllHistory();
+    recognizer.stopContinuousRecognitionAsync();
+    $('#startRec').prop('disabled', true);
+    $('#stopRec').prop('disabled', true);
+    $('#resumeRec').prop('disabled', false);
+});
+
+// Resume Recording
+$('#resumeRec').on('click', function() {
+    displayAllHistory();
+    recognizer.startContinuousRecognitionAsync();
+    $('#startRec').prop('disabled', true);
+    $('#stopRec').prop('disabled', false);
+    $('#resumeRec').prop('disabled', true);
+});
+
+// Download the transcription as a .txt file
+$('#downloadTranscription').on('click', function() {
+    $('#startRec').prop('disabled', false);
+    $('#stopRec').prop('disabled', true);
+    $('#resumeRec').prop('disabled', true);
+    const blob = new Blob([transcription], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = 'transcription.txt';
+    link.click();
+});
+
+// Text-to-Speech Functionality
+$('#speakText').on('click', function() {
+    displayAllHistory();
+    const textToSynthesize = $('#textToSpeech').val();
+    if (!textToSynthesize) {
+        alert("Please enter text to convert to speech");
+        return;
     }
 
-    // Start Recording
-    $('#startRec').on('click', function() {
-         displayAllHistory();
-        initSpeechRecognizer();
-        recognizer.startContinuousRecognitionAsync();
-        $('#startRec').prop('disabled', true);
-        $('#stopRec').prop('disabled', false);
-        $('#resumeRec').prop('disabled', true);
+    const speechConfig = SpeechSDK.SpeechConfig.fromSubscription(speechKey, serviceRegion);
+    const audioConfig = SpeechSDK.AudioConfig.fromDefaultSpeakerOutput();
+    const synthesizer = new SpeechSDK.SpeechSynthesizer(speechConfig, audioConfig);
 
-
-
-    });
-
-    // Stop Recording
-    $('#stopRec').on('click', function() {
-        recognizer.stopContinuousRecognitionAsync();
-         displayAllHistory();
-        $('#startRec').prop('disabled', true);
-        $('#stopRec').prop('disabled', true);
-        $('#resumeRec').prop('disabled', false);
-    });
-
-    // Resume Recording
-    $('#resumeRec').on('click', function() {
-         displayAllHistory();
-        recognizer.startContinuousRecognitionAsync();
-        $('#startRec').prop('disabled', true);
-        $('#stopRec').prop('disabled', false);
-        $('#resumeRec').prop('disabled', true);
-    });
-
-    
-
-    // Download the transcription as a .txt file
-    $('#downloadTranscription').on('click', function() {
-    	$('#startRec').prop('disabled', false);
-        $('#stopRec').prop('disabled', true);
-        $('#resumeRec').prop('disabled', true);
-        const blob = new Blob([transcription], { type: 'text/plain' });
-        const link = document.createElement('a');
-        link.href = window.URL.createObjectURL(blob);
-        link.download = 'transcription.txt';
-        link.click();
-    });
-
-    // Text-to-Speech Functionality
-    $('#speakText').on('click', function() {
-         displayAllHistory();
-        const textToSynthesize = $('#textToSpeech').val();
-        if (!textToSynthesize) {
-            alert("Please enter text to convert to speech");
-            return;
+    synthesizer.speakTextAsync(textToSynthesize,
+        result => {
+            if (result.reason === SpeechSDK.ResultReason.SynthesizingAudioCompleted) {
+                console.log("Speech synthesis succeeded.");
+            }
+            synthesizer.close();
+        },
+        error => {
+            console.error(error);
+            synthesizer.close();
         }
+    );
+});
 
-        const speechConfig = SpeechSDK.SpeechConfig.fromSubscription(speechKey, serviceRegion);
-        const audioConfig = SpeechSDK.AudioConfig.fromDefaultSpeakerOutput();
-        const synthesizer = new SpeechSDK.SpeechSynthesizer(speechConfig, audioConfig);
-
-        synthesizer.speakTextAsync(textToSynthesize,
-            result => {
-                if (result.reason === SpeechSDK.ResultReason.SynthesizingAudioCompleted) {
-                    console.log("Speech synthesis succeeded.");
-                    //$('#speakText').prop('disabled', true);
-
-                }
-                synthesizer.close();
-            },
-            error => {
-                console.error(error);
-                synthesizer.close();
-            });
-    });
-
-
-
-
-// add new chat button
-
-$("#addNewChats").click((e)=>{
-     $("#unhideContents").css("display","block");
-    displayAllHistory();
+// Add new chat button
+$("#addNewChats").click((e) => {
     transcription = "";
+    displayAllHistory();
+    $('#stopRec').click();
+    $('#startRec').prop('disabled', false);
+    $('#stopRec').prop('disabled', true);
+    $('#resumeRec').prop('disabled', true);
+    $("#unhideContents").css("display", "block");
     $("#transcription").val("");
     e.preventDefault();
     var fd = new FormData();
-    fd.append('new_chat_set',"true");
-    //console.log(transcription)
+    fd.append('new_chat_set', "true");
 
-    $.ajax({
-            url: 'php/actions', // Replace with your backend URL
-            type: 'POST',
-            processData: false, // Prevent jQuery from automatically processing data
-            contentType: false,
-            data: fd,
-            success: function(response) {
-               console.log(response);
-            },
-            error: function(error) {
-                console.error('Error saving transcription:', error);
-            }
-        });
-
-})
-
-//display all the details for converstion history
-
-function displayAllHistory(){
-    transcription = "";
-    var setIt = new FormData();
-    setIt.append('diaplay_all_history',"true");
     $.ajax({
         url: 'php/actions', // Replace with your backend URL
         type: 'POST',
-        processData: false, // Prevent jQuery from automatically processing data
+        processData: false,
         contentType: false,
-        data: setIt,
+        data: fd,
         success: function(response) {
-            $("#transcribedContents").html(response)
+            console.log(response);
         },
         error: function(error) {
             console.error('Error saving transcription:', error);
         }
+    });
 });
+
+// Display all the details for conversation history
+function displayAllHistory() {
+    var setIt = new FormData();
+    setIt.append('diaplay_all_history', "true");
+    $.ajax({
+        url: 'php/actions', // Replace with your backend URL
+        type: 'POST',
+        processData: false,
+        contentType: false,
+        data: setIt,
+        success: function(response) {
+            $("#transcribedContents").html(response);
+        },
+        error: function(error) {
+            console.error('Error saving transcription:', error);
+        }
+    });
 }
 displayAllHistory();
-
 
 // Use event delegation to handle dynamically loaded content
 $(document).on('click', '.clickedFullInfo', function(e) {
     e.preventDefault();
-    transcription = "";
-     $("#unhideContents").css("display","block");
-    //recognizer.stopContinuousRecognitionAsync();
+    $("#unhideContents").css("display", "block");
     id = $(this).attr('id');
+    $("#transcription").val($("#text-" + id).text());
+    $("#temporaryStore").html($("#text-" + id).text());
     var setIt = new FormData();
-    setIt.append('old_session_id',id);
+    setIt.append('old_session_id', id);
     $.ajax({
         url: 'php/actions', // Replace with your backend URL
         type: 'POST',
-        processData: false, // Prevent jQuery from automatically processing data
+        processData: false,
         contentType: false,
         data: setIt,
         success: function(response) {
-           //alert(response) 
+            // Handle response if needed
         },
         error: function(error) {
             console.error('Error saving transcription:', error);
         }
-});
+    });
     $('#stopRec').click();
-    $("#transcription").val($("#text-"+id).text())
     $('#startRec').prop('disabled', false);
     $('#stopRec').prop('disabled', true);
     $('#resumeRec').prop('disabled', true);
-
 });
+
 
 
