@@ -53,7 +53,7 @@
 	              </ul>
 		          </li>
 		          <li>
-	              <a href="#aiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Artificial Intelligence</a>
+	              <a href="#aiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">AI & ML</a>
 	              <ul class="collapse list-unstyled" id="aiSubmenu">
 	                <li>
 	                	<a class="nav-item-one" href="#" data-target="#content6">Copilot</a>

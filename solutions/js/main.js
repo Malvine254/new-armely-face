@@ -33,10 +33,10 @@ function initSpeechRecognizer() {
     recognizer.recognizing = (s, e) => {
         displayAllHistory();
         // Retrieve the existing content from the textarea
-        //let current_content = $('#temporaryStore').text();
+        let current_content = $('#temporaryStore').text();
         //console.log(current_content)
         // Append the newly transcribed text to the existing content
-        $('#transcription').val(e.result.text);
+        $('#transcription').val(current_content+" "+e.result.text);
         //console.log(current_content + e.result.text);
     };
 
@@ -46,9 +46,10 @@ function initSpeechRecognizer() {
             transcription += e.result.text + " ";
             let current_content = $('#temporaryStore').text();
             // Get the current textarea value (including newly appended content)
-            //let text = $('#transcription').val();
+            // let text = $('#transcription').val();
             var fd = new FormData();
-            fd.append('transcription', (current_content+ transcription));
+            fd.append('transcription', (transcription));
+            $("#transcribedContents").html(current_content+" "+ transcription);
             displayAllHistory();
             // Send the transcription data to the server
             $.ajax({
@@ -58,7 +59,7 @@ function initSpeechRecognizer() {
                 contentType: false,
                 data: fd,
                 success: function(response) {
-                    $("#transcribedContents").html(response);
+                 
                     
                 },
                 error: function(error) {
@@ -71,6 +72,7 @@ function initSpeechRecognizer() {
 
 // Start Recording
 $('#startRec').on('click', function() {
+     transcription = "";
     displayAllHistory();
     initSpeechRecognizer();
     recognizer.startContinuousRecognitionAsync();
@@ -138,12 +140,8 @@ $('#speakText').on('click', function() {
 
 // Add new chat button
 $("#addNewChats").click((e) => {
-    transcription = "";
+     transcription = "";
     displayAllHistory();
-    $('#stopRec').click();
-    $('#startRec').prop('disabled', false);
-    $('#stopRec').prop('disabled', true);
-    $('#resumeRec').prop('disabled', true);
     $("#unhideContents").css("display", "block");
     $("#transcription").val("");
     e.preventDefault();
