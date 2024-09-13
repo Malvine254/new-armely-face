@@ -50,7 +50,7 @@ function initSpeechRecognizer() {
             var fd = new FormData();
             fd.append('transcription', (transcription));
             $("#transcribedContents").html(current_content+" "+ transcription);
-            displayAllHistory();
+            // displayAllHistory();
             // Send the transcription data to the server
             $.ajax({
                 url: 'php/actions', // Replace with your backend URL
