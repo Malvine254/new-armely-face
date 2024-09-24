@@ -162,7 +162,7 @@ function sendDownloadLink($sender, $subject,$name) {
     }
 }
 
-function senDEmailForContact($sender, $subject,$name) {
+function sendEmailForContact($sender, $subject,$name) {
     $to = $sender;
     $subject = $subject;
 
