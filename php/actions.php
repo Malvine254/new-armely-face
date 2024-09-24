@@ -1,7 +1,7 @@
 <?php
 require 'config.php'; 
-include 'mail.php'
 function submitContactForm(){
+	include 'mail.php';
 	global $conn;
 	$name = $_POST['name'];
 	$email = $_POST['email'];
