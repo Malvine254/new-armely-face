@@ -1,6 +1,6 @@
 <?php
 require 'config.php'; 
-include 'mail.php';
+include 'mail.php'
 function submitContactForm(){
 	global $conn;
 	$name = $_POST['name'];
@@ -15,11 +15,8 @@ function submitContactForm(){
 	
 	// Execute the statement
 	if ($stmt->execute()) {
-		$send = senDEmailForContact($email, "Your query was received",$name);
-		if ($send) {
-			echo "<script>alert('Message was sent Successfully')</script>";
-		}
-		
+		sendEmailForContact($email, "Your query was received",$name)
+		echo "<script>alert('Message was sent Successfully')</script>";
 	} else {
 		echo "<script>alert('Failed')</script>";
 	}
