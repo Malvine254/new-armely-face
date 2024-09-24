@@ -163,7 +163,15 @@ $('.btn-close').click(function() {
 // submit contact form
 $('#contact-form').submit(function(event) {
 event.preventDefault(); // Prevent the default form submission
-
+// Display loading message before AJAX request
+Swal.fire({
+  title: 'Loading...',
+  text: 'Please wait while we process your request.',
+  allowOutsideClick: false,
+  didOpen: () => {
+    Swal.showLoading();
+  }
+});
 // Retrieve the form data
 var formData = $(this).serialize();
 
@@ -175,6 +183,7 @@ $.ajax({
   success: function(response) {
     // Handle the success response
     if (response==="1") {
+      Swal.close(); // Close the loading message before showing the next one
       Swal.fire({
       title: 'Success!',
       text: "Message was sent successfully",
@@ -207,7 +216,15 @@ $.ajax({
 
 $('#consultation-form').submit(function(event) {
     event.preventDefault(); // Prevent the default form submission
-
+    // Display loading message before AJAX request
+      Swal.fire({
+        title: 'Loading...',
+        text: 'Please wait while we process your request.',
+        allowOutsideClick: false,
+        didOpen: () => {
+          Swal.showLoading();
+        }
+      });
     // Retrieve the form data
     var formData = $(this).serialize();
 
@@ -217,6 +234,7 @@ $('#consultation-form').submit(function(event) {
       url: 'php/actions', // Replace with your actual server-side endpoint
       data: formData,
       success: function(response) {
+         Swal.close(); // Close the loading message before showing the next one
         // Handle the success response
         if (response==="11") {
           Swal.fire({
@@ -326,7 +344,15 @@ $('#job-form').submit(function(event) {
     formData.append('address', $('#address').val());
     formData.append('position', $('#position').val());
     formData.append('type', $('#type').val());
-
+    // Display loading message before AJAX request
+    Swal.fire({
+      title: 'Loading...',
+      text: 'Please wait while we process your request.',
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
 
     // Perform an AJAX request to submit the form data
     $.ajax({
@@ -338,6 +364,7 @@ $('#job-form').submit(function(event) {
       success: function(response) {
         // Handle the success response
         if (response==="1") {
+          Swal.close(); // Close the loading message before showing the next one
             Swal.fire({
             title: 'Success!',
             text: "Applicatioin was Successfully",
