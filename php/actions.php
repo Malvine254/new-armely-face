@@ -1,7 +1,7 @@
 <?php
 require 'config.php'; 
 function submitContactForm(){
-	include 'mail.php';
+	include '../mail.php';
 	global $conn;
 	$name = $_POST['name'];
 	$email = $_POST['email'];
@@ -15,8 +15,11 @@ function submitContactForm(){
 	
 	// Execute the statement
 	if ($stmt->execute()) {
-		sendEmailForContact($email, "Your query was received",$name);
-		echo "<script>alert('Message was sent Successfully')</script>";
+		$confirm_email = sendEmailForContact($email, "Your query was received",$name);
+		if ($confirm_email==="1") {
+			echo "<script>alert('Message was sent Successfully')</script>";
+		}
+		
 	} else {
 		echo "<script>alert('Failed')</script>";
 	}
