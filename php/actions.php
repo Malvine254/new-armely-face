@@ -15,7 +15,7 @@ function submitContactForm(){
 	
 	// Execute the statement
 	if ($stmt->execute()) {
-		sendEmailForContact($email, "Your query was received",$name)
+		sendEmailForContact($email, "Your query was received",$name);
 		echo "<script>alert('Message was sent Successfully')</script>";
 	} else {
 		echo "<script>alert('Failed')</script>";
