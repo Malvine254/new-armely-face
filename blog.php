@@ -126,7 +126,7 @@
 					        <li>
 					            <a >Data Services <i class="icofont-rounded-right"></i></a>
 					            <ul class="dropdown">
-					                <li><a href="service-details?name=fabric">Fabric</a></li>
+					                <li><a href="service-details?name=fabric">Microsoft Fabric</a></li>
 					                <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
 					                <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
 					            </ul>
@@ -252,7 +252,7 @@
 							<!-- Single Widget -->
 							<!--/ End Single Widget -->
 							<!-- Single Widget -->
-							<div class="single-widget side-tags">
+							<!-- <div class="single-widget side-tags">
 								<h3 class="title">Tags</h3>
 								<ul class="tag">
 									<li><a href="#">business</a></li>
@@ -263,7 +263,7 @@
 									<li><a href="#">template</a></li>
 									<li><a href="#">Ecommerce</a></li>
 								</ul>
-							</div>
+							</div> -->
 							<!--/ End Single Widget -->
 						</div>
 					</div>

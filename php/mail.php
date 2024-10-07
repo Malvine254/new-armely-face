@@ -167,7 +167,7 @@ function sendEmailForContact($sender, $subject,$name) {
 
     // Send the email
     if (mail($to, $subject,$message, $headers)) {
-        return 1;
+        return "3";
     } else {
         return 'Failed to send email.';
     }

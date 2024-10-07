@@ -109,7 +109,7 @@
                   <li>
                       <a >Data Services <i class="icofont-rounded-right"></i></a>
                       <ul class="dropdown">
-                          <li><a href="service-details?name=fabric">Fabric</a></li>
+                          <li><a href="service-details?name=fabric">Microsoft Fabric</a></li>
                           <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
                           <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
                       </ul>
@@ -210,12 +210,16 @@
 		<div class="single-table">
 			<!-- Table Head -->
 			
-			<div class="table-head">
+			<div class="table-head" style="min-height:500px">
 				<div class="icon">
 				<a href="images/offers/sqloffer.png" target="_blank"><img src="images/offers/sqloffer.png" style="height: 150px;"></a>
 				</div>
 				<h4 class="title">SQL Health Check</h4>
 				<p>Get a free SQL health check for optimized performance. Identify issues, improve stability, and reduce downtime with tailored insights for peak database efficiency.</p>
+				<br>
+				<br>
+				<br>
+				<br>
 				<a href="service-details?name=sql" class="btn btn-primary">Get now</a>
 			</div>
 		</div>
@@ -224,13 +228,17 @@
 <div class="col-lg-4 col-md-12 col-12">
 		<div class="single-table">
 			<!-- Table Head -->
-			<div class="table-head">
+			<div class="table-head" style="min-height:500px">
 				<div class="icon">
 					<a href="images/white-papers/coewhitepaper.png" target="_blank">
 						<img src="images/white-papers/coewhitepaper.png" style="height: 150px;"></a>
 				</div>
 				<h4 class="title">Power Platform-COE</h4>
 				<p>Get free Power BI integration for real-time insights, streamlined processes, and better decisions. Enhance business performance and boost productivity with tailored dashboards.</p>
+				<br>
+				<br>
+				<br>
+				<br>
 				<a href="service-details?name=coe" class="btn btn-primary">Get now</a>
 			</div>
 		</div>
@@ -238,12 +246,12 @@
 <div class="col-lg-4 col-md-12 col-12">
 		<div class="single-table">
 			<!-- Table Head -->
-			<div class="table-head">
+			<div class="table-head" style="min-height:500px">
 				<div class="icon">
 				<a href="images/freemiums/sql-check.png" target="_blank"><img src="images/freemiums/sql-check.png" style="height: 150px;"></a>
 				</div>
-				<h4 class="title">PowerBI Activity</h4>
-				<p>Get free access to seamless Power BI integration for enhanced data visualization, smarter decisions, and better business performance with interactive, insightful dashboards.</p>
+				<h4 class="title">PowerBI Inventory</h4>
+				<p>Get a free inventory assessment of your Power BI environment to identify usage patterns and optimize performance. This evaluation helps uncover insights into report engagement and data accessibility. Leverage built-in tools and community resources to enhance your Power BI strategy effectively.</p>
 					<a href="service-details?name=powerbi" class="btn btn-primary">Get now</a>
 			</div>
 			

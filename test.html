@@ -1,69 +1,127 @@
- <html>
-    <head>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                color: #333;
-                line-height: 1.6;
-            }
-            .container {
-                width: auto;
-                min-width: 600px;
-                margin: 0 auto;
-                padding: 20px;
-                border: 1px solid #ddd;
-                background-color: #f9f9f9;
-            }
-            .header {
-                background-color: #007bff;
-                color: white;
-                padding: 10px;
-                text-align: center;
-            }
-            .content {
-                padding: 20px;
-            }
-            .content h2 {
-                color: #007bff;
-            }
-            .content p {
-                margin-bottom: 10px;
-            }
-            .footer {
-                text-align: center;
-                padding: 10px;
-                font-size: 12px;
-                color: #777;
-            }
-            .btn{
-                background: #007bff;
-                padding: 15px;
-                color: white;
-                text-decoration: none;
-                border-radius: 5px;
-            }
-            .btn:hover{
-                background: black;
-                padding: 15px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class='container'>
-            <div class='header'>
-                <h1>Thank you for contacting armely LLC</h1>
-            </div>
-            <div class='content'>
-                <h2>Dear, ".htmlspecialchars($name)."</h2>
-                <p>Thank you for reaching out to Armely! We have received your inquiry and our team is excited to assist you. One of our representatives will review your request and get back to you within the next 24 hours.</p>
-                <p>If your request is urgent, please feel free to reply to this email or contact us at <a href="tel:  +1 972 460 0643"> +1 972 460 0643</a> for immediate assistance.</p>
-                <p>Meanwhile, you can explore our services to get full insight.</p>
-               <p><strong><a class='btn btn-info' href='https://armely.com/' download>Check all Serives</a></strong></p>
-              
-            </div>
-            <div class='footer'>
-                <p>&copy; " . date("Y") . " Armely. All rights reserved.</p>
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .event-card {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+        .event-card:hover {
+            transform: scale(1.05);
+        }
+        .event-header {
+            background-color: #f8f9fa;
+            padding: 50px 0;
+            text-align: center;
+        }
+        .event-header h1 {
+            color: #007bff;
+            font-size: 2.5rem;
+        }
+        .event-details {
+            padding: 1rem;
+        }
+        .btn-register {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn-register:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<section class="event-header">
+    <div class="container">
+        <h1>Upcoming Events</h1>
+        <p>Join us for exciting events happening soon!</p>
+    </div>
+</section>
+
+<!-- Events List -->
+<section class="py-5">
+    <div class="container">
+        <div class="row" id="events">
+            <!-- Event Cards will be appended here by jQuery -->
         </div>
-    </body>
-    </html>
+    </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Sample event data
+    const events = [
+        {
+            title: "AI Conference 2024",
+            date: "October 15, 2024",
+            description: "Join the top minds in AI and Machine Learning for an incredible conference filled with keynotes, workshops, and networking opportunities.",
+            location: "Tech City Convention Center",
+            image: "https://via.placeholder.com/400x250",
+            link: "#"
+        },
+        {
+            title: "Cloud Computing Workshop",
+            date: "November 1, 2024",
+            description: "A hands-on workshop focusing on cloud architecture, deployment, and best practices.",
+            location: "Virtual Event",
+            image: "https://via.placeholder.com/400x250",
+            link: "#"
+        },
+        {
+            title: "Data Analytics Summit",
+            date: "December 7, 2024",
+            description: "A summit dedicated to exploring the latest trends and innovations in data analytics.",
+            location: "Grand Hyatt, Downtown",
+            image: "https://via.placeholder.com/400x250",
+            link: "#"
+        }
+    ];
+
+    // Function to display events on the page
+    function displayEvents(events) {
+        const eventsContainer = $('#events');
+        events.forEach(event => {
+            const eventCard = `
+                <div class="col-md-4 mb-4">
+                    <div class="card event-card">
+                        <img src="${event.image}" class="card-img-top" alt="${event.title}">
+                        <div class="card-body event-details">
+                            <h5 class="card-title">${event.title}</h5>
+                            <p class="card-text">${event.description}</p>
+                            <p><strong>Date:</strong> ${event.date}</p>
+                            <p><strong>Location:</strong> ${event.location}</p>
+                            <a href="${event.link}" class="btn btn-register">Register Now</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            eventsContainer.append(eventCard);
+        });
+    }
+
+    // On document ready, load the events
+    $(document).ready(function () {
+        displayEvents(events);
+    });
+</script>
+
+</body>
+</html>

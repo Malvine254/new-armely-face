@@ -131,7 +131,7 @@
                   <li>
                       <a >Data Services <i class="icofont-rounded-right"></i></a>
                       <ul class="dropdown">
-                          <li><a href="service-details?name=fabric">Fabric</a></li>
+                          <li><a href="service-details?name=fabric">Microsoft Fabric</a></li>
                           <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
                           <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
                       </ul>

@@ -1,7 +1,7 @@
 <?php
 require 'config.php'; 
 function submitContactForm(){
-	include '../mail.php';
+	include 'mail.php';
 	global $conn;
 	$name = $_POST['name'];
 	$email = $_POST['email'];
@@ -16,7 +16,8 @@ function submitContactForm(){
 	// Execute the statement
 	if ($stmt->execute()) {
 		$confirm_email = sendEmailForContact($email, "Your query was received",$name);
-		if ($confirm_email==="1") {
+		echo $confirm_email;
+		if ($confirm_email==="3") {
 			echo "<script>alert('Message was sent Successfully')</script>";
 		}
 		
@@ -252,7 +253,7 @@ function displayBlogFullDetals(){
 					</div>
 					<div class="meta-right">
 						<span id="toggleSpeech" class="comments"><a ><i class="fa-solid fa-volume-high" id="volume-icons"></i>Read Aloud</a></span>
-						<span class="views"><i class="fa fa-eye"></i>33K Views</span>
+						<span class="views"><i class="fa fa-eye"></i>'.$row['clicks'].' Views</span>
 					</div>
 				</div>
 				<!-- News Text -->
@@ -303,7 +304,7 @@ function selectblogByDefault(){
 					</div>
 					<div class="meta-right">
 						<span id="toggleSpeech" class="comments"><a ><i class="fa-solid fa-volume-high" id="volume-icons"></i>Read Aloud</a></span>
-						<span class="views"><i class="fa fa-eye"></i>33K Views</span>
+						<span class="views"><i class="fa fa-eye"></i>'.$row['clicks'].' Views</span>
 					</div>
 				</div>
 				<!-- News Text -->
@@ -349,7 +350,7 @@ function readMore(){
 
 function displayRecentBlogsOthers(){
     include 'config.php';
-     $select = $conn->query("SELECT * FROM blogs ORDER BY id DESC LIMIT 10");
+     $select = $conn->query("SELECT * FROM blogs ORDER BY id DESC LIMIT 14");
      if ($select->num_rows>0) {
         while ($row=$select->fetch_assoc()) {
 
@@ -361,7 +362,7 @@ function displayRecentBlogsOthers(){
 					<h5><a href="?blogId='.$row['blog_id'].'">'.$row['title'].'</a></h5>
 					<ul class="comment">
 						<li><i class="fa fa-calendar" aria-hidden="true"></i>'.$row['date'].', 2024</li>
-						<li><i class="fa fa-eye" aria-hidden="true"></i>'.$row['clicks'].'</li>
+						<li><i class="fa fa-eye" aria-hidden="true"></i>'.$row['clicks'].' Views</li>
 					</ul>
 				</div>
 			</div>';

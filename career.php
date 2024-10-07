@@ -131,7 +131,7 @@
 					        <li>
 					            <a >Data Services <i class="icofont-rounded-right"></i></a>
 					            <ul class="dropdown">
-					                <li><a href="service-details?name=fabric">Fabric</a></li>
+								<li><a href="service-details?name=fabric">Microsoft Fabric</a></li>
 					                <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
 					                <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
 					            </ul>
@@ -225,15 +225,19 @@
 </div>
 </div>
 </div>
-<div class="justify-content-between">
+<!-- <div class="justify-content-between">
 	<div class="default-color justify-content-between">
     <a class="h5 p-2" href="#">Browsing Based</a>
     <a class="h5 p-2"  href="#">Recently Viewed</a>
     <a class="h5 p-2"  href="#">Be the First</a>
- </div>
+ </div> -->
 
 </div>	
-<div class="row">
+
+</div>
+<div class="d-flex justify-content-center ">
+    <!-- <button type="button" class="btn default-button col-md-1 col-sm-6">View More</button> -->
+    <div class="row col-md-10">
 <!-- Single Table -->
 <?php displayCareerListings(); ?>
 
@@ -242,9 +246,6 @@
 <!-- End Single Table-->
 
 </div>	
-</div>
-<div class="d-flex justify-content-center ">
-    <!-- <button type="button" class="btn default-button col-md-1 col-sm-6">View More</button> -->
 </div>	
 </section>	
 <!--/ End Pricing Table -->
