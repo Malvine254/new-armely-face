@@ -322,7 +322,7 @@ function displayRecentBlogsOthers(){
 
         	echo '<div class="single-post data-item">
 				<div class="image" style="height: auto !important; min-height: 400px;">
-					<img style="height: auto !important;" src="'.$row['image_path'].'" alt="#">
+					<img style="height: auto !important; max-height: 200px; min-height: 200px;" src="'.$row['image_path'].'" alt="#">
 				</div>
 				<div class="content">
 					<h5><a href="?blogId='.$row['blog_id'].'">'.$row['title'].'</a></h5>
