@@ -92,6 +92,7 @@
 	<ul class="top-contact">
 		<li><i class="fa fa-phone"></i>+1 972 460 0643</li>
 		<li><i class="fa fa-envelope"></i><a href="mailto:info@armely.com">info@armely.com</a></li>
+    <li><i class="fa fa-user"></i><a href="https://armely.powerappsportals.com/">Customer support</a></li>
 	</ul>
 	<!-- End Top Contact -->
 </div>
@@ -131,7 +132,7 @@
                   <li>
                       <a >Data Services <i class="icofont-rounded-right"></i></a>
                       <ul class="dropdown">
-                          <li><a href="service-details?name=fabric">Fabric</a></li>
+                          <li><a href="service-details?name=fabric">Microsoft Fabric</a></li>
                           <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
                           <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
                       </ul>

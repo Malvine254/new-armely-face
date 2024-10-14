@@ -99,6 +99,7 @@
 	<ul class="top-contact">
 		<li><i class="fa fa-phone"></i>+1 972 460 0643</li>
 		<li><i class="fa fa-envelope"></i><a href="mailto:info@armely.com">info@armely.com</a></li>
+		<li><i class="fa fa-user"></i><a href="https://armely.powerappsportals.com/">Customer support</a></li>
 	</ul>
 	<!-- End Top Contact -->
 </div>
@@ -206,7 +207,7 @@
 <section class="slider">
 <div class="hero-slider">
 <!-- Start Single Slider -->
-<div class="single-slider" style="background-image:url('https://images.pexels.com/photos/257904/pexels-photo-257904.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')">
+<div class="single-slider" style="background-image:url('images/sliders/slider-1.jpg')">
 <div class="container">
 <div class="row">
 	<div class="col-lg-7">
@@ -224,7 +225,7 @@
 </div>
 <!-- End Single Slider -->
 <!-- Start Single Slider -->
-<div class="single-slider" style="background-image:url('https://images.pexels.com/photos/8294608/pexels-photo-8294608.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')">
+<div class="single-slider" style="background-image:url('images/sliders/slider-2.jpg')">
 <div class="container">
 <div class="row">
 	<div class="col-lg-7">
@@ -242,7 +243,7 @@
 </div>
 <!-- Start End Slider -->
 <!-- Start Single Slider -->
-<div class="single-slider" style="background-image:url('https://images.pexels.com/photos/633409/pexels-photo-633409.jpeg')">
+<div class="single-slider" style="background-image:url('images/sliders/slider-3.jpg')">
 <div class="container">
 <div class="row">
 	<div class="col-lg-7">
@@ -407,19 +408,19 @@
 <!-- Single Table -->
 <div class="col-lg-4 col-md-12 col-12">
 <iframe width="560" height="315" src="
-https://www.youtube.com/embed/-RQjOGa2iIM?si=SLje5Z3IS9uGtW5n"
+https://www.youtube.com/embed/IQQQchLo5mE?si=MPLZB2lcbwRzwHwg"
 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 <!-- End Single Table-->
 <!-- Single Table -->
 <div class="col-lg-4 col-md-12 col-12">
 <iframe width="560" height="315" src="
-https://www.youtube.com/embed/FJIrwUFK_4w?si=m8tYZ1JEaiJsOqvk"
+https://www.youtube.com/embed/AAzBlkuyLR8?si=YjBark9lq5YGao2m"
 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
 <!-- Single Table -->
 <div class="col-lg-4 col-md-12 col-12">
 <iframe width="560" height="315" src="
-https://www.youtube.com/embed/-flTFzomkdc?si=b37Kgi5G2qkx62-r"
+https://www.youtube.com/embed/h1BX6aAPFCU?si=d4H62defNNIWLmJE"
 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 <!-- End Single Table-->

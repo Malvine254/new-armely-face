@@ -64,42 +64,8 @@ if (isset($_POST['submit_form'])) {
 	submitContactForm();
 }
 
-function displayHeader(){
-	include 'config.php';
-	$select = $conn->query("SELECT * FROM header_footer_contents LIMIT 1");
-	if ($select->num_rows>0) {
-		while ($row=$select->fetch_assoc()) {
-			return  $row['header'];
-		}
-	}
-	
-}
-function displayFooter(){
-	include 'config.php';
-	$select = $conn->query("SELECT * FROM header_footer_contents LIMIT 1");
-	if ($select->num_rows>0) {
-		while ($row=$select->fetch_assoc()) {
-			return  $row['footer'];
-		}
-	}
-}
 
-function displayFloatingButton(){
-	return "
-<div class='d-flex justify-content-center' >
-  <div style='overflow: hidden;' id='floatingItem' class='floating-item floatingItemTwo container col-md-12 shadow bg-light'>
-    <div class='m-5 '>
-      <div style='overflow: scroll; height: 60vh;'>  
-        <h4>Search Results</h4>
-         <div id='searchResults'></div>
-      </div>
-       
-   
-    </div>
-  </div>
-</div>
-";
-}
+
 
 function displayBlogs(){
 	function stringLength($length){
@@ -138,7 +104,7 @@ function estimateReadingTime($htmlText) {
 function selectFromBlog($condition){
 	require 'config.php';
 	$numbering = 1;
-	$select = $conn->query("SELECT * FROM blogs $condition");
+	$select = $conn->query("SELECT blog_id,title,author,`date`,body FROM blogs $condition");
 	if ($select->num_rows>0) {
 		while ($row=$select->fetch_assoc()) {
 			echo "

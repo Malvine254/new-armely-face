@@ -9,6 +9,8 @@
 <meta name="description" content="">
 <meta name='copyright' content=''>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="Cache-Control" content="public, max-age=31536000">
+
 
 <!-- Title -->
 <title>services</title>
@@ -95,6 +97,7 @@
 	<ul class="top-contact">
 		<li><i class="fa fa-phone"></i>+1 972 460 0643</li>
 		<li><i class="fa fa-envelope"></i><a href="mailto:info@armely.com">info@armely.com</a></li>
+		<li><i class="fa fa-user"></i><a href="https://armely.powerappsportals.com/">Customer support</a></li>
 	</ul>
 	<!-- End Top Contact -->
 </div>
