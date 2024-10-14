@@ -174,7 +174,7 @@ function displayRecentBlogs(){
 			echo '<div class="col-lg-4 col-md-6 col-12" data-aos="fade-in">
 			<div class="single-news" style="min-height: 430px; max-height: 430px;">
 					<div class="news-head">
-						<img src="'.$row['image_path'].'" alt="#">
+						<img style="min-height: 200px; max-height: 200px;" src="'.$row['image_path'].'" alt="#">
 					</div>
 					<div class="news-body">
 						<div class="news-content">
