@@ -172,7 +172,7 @@ function displayRecentBlogs(){
 	if ($select->num_rows>0) {
 		while ($row=$select->fetch_assoc()) {
 			echo '<div class="col-lg-4 col-md-6 col-12" data-aos="fade-in">
-			<div class="single-news" style="min-height: 430px;">
+			<div class="single-news" style="min-height: 430px; max-height: 430px;">
 					<div class="news-head">
 						<img src="'.$row['image_path'].'" alt="#">
 					</div>
@@ -321,8 +321,8 @@ function displayRecentBlogsOthers(){
         while ($row=$select->fetch_assoc()) {
 
         	echo '<div class="single-post data-item">
-				<div class="image" style="height: auto !important; min-height: 400px;">
-					<img style="height: auto !important; max-height: 200px; min-height: 200px;" src="'.$row['image_path'].'" alt="#">
+				<div class="image" style="height: auto !important;">
+					<img style="height: auto !important;" src="'.$row['image_path'].'" alt="#">
 				</div>
 				<div class="content">
 					<h5><a href="?blogId='.$row['blog_id'].'">'.$row['title'].'</a></h5>
