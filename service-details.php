@@ -113,6 +113,7 @@
                           <li><a href="service-details?name=fabric">Microsoft Fabric</a></li>
                           <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
                           <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
+                          <li><a href="service-details?name=databricks">Databricks</a></li>
                       </ul>
                   </li>
                   <li>
@@ -974,6 +975,38 @@
 									<strong class="mt-5">Call to Action: "Design Your Website with Power Pages" </strong>					
 							</blockquote>
 							
+							</div>
+							<?php endif ?>
+
+							<!-- start of power powerplatform for digital services -->
+							<?php if ($_GET['name']=="databricks"): ?>
+							<div class="container">	
+							<h3 class="text-center">Digital Services: Databricks	<center><hr class="default-background hr" ></center></h3>
+							<center><img width="100" height="100" class="img-fluid p-2" src="https://cdn.brandfetch.io/idSUrLOWbH/theme/dark/symbol.svg?k=bfHSJFAPEG"></center>
+							<p>In today’s fast-paced digital landscape, leveraging data effectively is crucial for business success. At armely, we specialize in Databricks consulting services that empower organizations to harness the full potential of their data. Our expert team is dedicated to helping you streamline your data workflows, enhance analytics capabilities, and drive innovation through data-driven insights. </p>
+							<blockquote>
+								<p> 
+								<h5 class="text-light"><i class="icofont-quote-left"></i><strong> Our Services </strong></h5> 
+							</p>
+							
+							<ol class="ml-5">
+								<li class="mt-1">Databricks Implementation.</li>
+								<li class="mt-1">Data Engineering</li>
+								<li class="mt-1">Data Analytics & Visualization</li>
+								<li class="mt-1">Support</li>
+								<li class="mt-1">Training and Development</li>
+
+								
+							</ol>	
+											
+							</blockquote>
+							<h5 class="mt-2 mb-2">Why Choose us?</h5>
+							<p>
+								Every organization is unique, we architect and implement tailored solutions that fit your goal and address your challenges. Our experienced data engineers works with our customers to guide through each step of implementation, orchestration and customization. 
+							</p><br>
+							<p>
+								Our partnership with Databricks positions us greatly to ensure you get the best out the platform. 
+							</p>
 							</div>
 							<?php endif ?>
 						</section>

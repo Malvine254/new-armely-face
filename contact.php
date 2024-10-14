@@ -115,6 +115,7 @@
 					                <li><a href="service-details?name=fabric">Microsoft Fabric</a></li>
 					                <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
 					                <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
+					                <li><a href="service-details?name=databricks">Databricks</a></li>
 					            </ul>
 					        </li>
 					        <li>

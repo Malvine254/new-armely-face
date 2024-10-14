@@ -1,57 +1,94 @@
 <?php
 require 'config.php'; 
-function submitContactForm(){
-	include 'mail.php';
-	global $conn;
-	$name = $_POST['name'];
-	$email = $_POST['email'];
-	$organization = $_POST['organization'];
-	$phone = $_POST['phone'];
-	$message = $_POST['message'];
-	
-	// Prepare and bind the SQL statement
-	$stmt = $conn->prepare("INSERT INTO contacts (name, email, organization, phone, message) VALUES (?, ?, ?, ?, ?)");
-	$stmt->bind_param("sssss", $name, $email, $organization, $phone, $message);
-	
-	// Execute the statement
-	if ($stmt->execute()) {
-		$confirm_email = sendEmailForContact($email, "Your query was received",$name);
-		echo $confirm_email;
-		if ($confirm_email==="3") {
-			echo "<script>alert('Message was sent Successfully')</script>";
-		}
-		
-	} else {
-		echo "<script>alert('Failed')</script>";
-	}
-	
-	// Close the statement
-	$stmt->close();
+function submitContactForm() {
+    include 'mail.php';
+    global $conn;
+
+    // Use filter_input() to sanitize input and trim to avoid extra spaces
+    $name = trim(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING));
+    $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
+    $organization = trim(filter_input(INPUT_POST, 'organization', FILTER_SANITIZE_STRING));
+    $phone = trim(filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING));
+    $message = trim(filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING));
+
+    // Basic validation to prevent empty submissions (avoiding spam-like behavior)
+    if (empty($name) || empty($email) || empty($message)) {
+        echo "<script>alert('Please fill in all required fields.')</script>";
+        return;
+    }
+
+    // Validate email format
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "<script>alert('Invalid email format.')</script>";
+        return;
+    }
+
+    // Prepare and bind the SQL statement to prevent SQL injection
+    $stmt = $conn->prepare("INSERT INTO contacts (name, email, organization, phone, message) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $name, $email, $organization, $phone, $message);
+
+    // Execute the statement and check for errors
+    if ($stmt->execute()) {
+        // Send a confirmation email securely
+        $confirm_email = sendEmailForContact($email, "Your query was received", htmlspecialchars($name));
+
+        // Check email sending status securely
+        if ($confirm_email === "3") {
+            echo "<script>alert('Message was sent successfully.')</script>";
+        } else {
+            echo "<script>alert('Message sent, but email confirmation failed.')</script>";
+        }
+    } else {
+        // Log errors securely (don't expose SQL errors to the user)
+        error_log("Database Error: " . $stmt->error);
+        echo "<script>alert('Failed to send the message. Please try again.')</script>";
+    }
+
+    // Close the statement
+    $stmt->close();
 }
 
-function scheduleConsultant(){
+
+function scheduleConsultant() {
     global $conn;
-	$name = $_POST['name'];
-	$email = $_POST['email'];
-	$organization = $_POST['organization'];
-	$phone = $_POST['phone'];
-	$message = $_POST['message'];
-	$service_name = $_POST['service_name'];
-	
-	// Prepare and bind the SQL statement
-	$stmt = $conn->prepare("INSERT INTO consultation (name, email, organization, phone, message, service_name) VALUES (?, ?, ?, ?, ?,?)");       
-	$stmt->bind_param("ssssss", $name, $email, $organization, $phone, $message,$service_name);
-	
-	// Execute the statement
-	if ($stmt->execute()) {
-		echo "<script>alert('Message was sent Successfully')</script>";
-	} else {
-		echo "<script>alert('Failed')</script>";
-	}
-	
-	// Close the statement
-	$stmt->close();
+
+    // Use filter_input() to sanitize and trim user inputs
+    $name = trim(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING));
+    $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
+    $organization = trim(filter_input(INPUT_POST, 'organization', FILTER_SANITIZE_STRING));
+    $phone = trim(filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING));
+    $message = trim(filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING));
+    $service_name = trim(filter_input(INPUT_POST, 'service_name', FILTER_SANITIZE_STRING));
+
+    // Validate critical fields (name, email, and service name are required)
+    if (empty($name) || empty($email) || empty($service_name)) {
+        echo "<script>alert('Please fill in all required fields.')</script>";
+        return;
+    }
+
+    // Validate email format
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "<script>alert('Invalid email format.')</script>";
+        return;
+    }
+
+    // Prepare and bind the SQL statement to prevent SQL injection
+    $stmt = $conn->prepare("INSERT INTO consultation (name, email, organization, phone, message, service_name) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssss", $name, $email, $organization, $phone, $message, $service_name);
+
+    // Execute the statement and handle success or failure
+    if ($stmt->execute()) {
+        echo "<script>alert('Message was sent successfully.')</script>";
+    } else {
+        // Log the error for debugging without exposing it to users
+        error_log("Database Error: " . $stmt->error);
+        echo "<script>alert('Failed to send the message. Please try again.')</script>";
+    }
+
+    // Close the prepared statement
+    $stmt->close();
 }
+
 
 if (isset($_POST['submit_form'])) {
 	submitContactForm();
@@ -174,7 +211,7 @@ function displayRecentBlogs(){
 			echo '<div class="col-lg-4 col-md-6 col-12" data-aos="fade-in">
 			<div class="single-news" style="min-height: 430px; max-height: 430px;">
 					<div class="news-head">
-						<img src="'.$row['image_path'].'" alt="#">
+						<img style="min-height: 200px; max-height: 200px;" src="'.$row['image_path'].'" alt="#">
 					</div>
 					<div class="news-body">
 						<div class="news-content">
@@ -301,429 +338,769 @@ function selectblogByDefault(){
 	}
 }
 
-function readMore(){
-	require 'config.php';
-	$select = $conn->query("SELECT * FROM career ");
-	if ($select->num_rows>4) {
-		echo " <div class='mt-3 row justify-content-center'>
-	    <button type='button' id='see_all_btn' class='btn btn-outline-primary'>Browse all Jobs</button>
-	    <button style='display: none;' type='button' id='see_less_btn' class='btn btn-outline-primary'>Browse Less Jobs</button>
-	  </div>";
-	}else{
-		echo "";
-	}
-}
+function readMore() {
+    require 'config.php';
 
-function displayRecentBlogsOthers(){
-    include 'config.php';
-     $select = $conn->query("SELECT * FROM blogs ORDER BY id DESC LIMIT 14");
-     if ($select->num_rows>0) {
-        while ($row=$select->fetch_assoc()) {
-
-        	echo '<div class="single-post data-item">
-				<div class="image" style="height: auto !important;">
-					<img style="height: auto !important;" src="'.$row['image_path'].'" alt="#">
-				</div>
-				<div class="content">
-					<h5><a href="?blogId='.$row['blog_id'].'">'.$row['title'].'</a></h5>
-					<ul class="comment">
-						<li><i class="fa fa-calendar" aria-hidden="true"></i>'.$row['date'].', 2024</li>
-						<li><i class="fa fa-eye" aria-hidden="true"></i>'.$row['clicks'].' Views</li>
-					</ul>
-				</div>
-			</div>';
-      
+    try {
+        // Use a prepared statement to query the number of rows
+        $stmt = $conn->prepare("SELECT COUNT(*) as job_count FROM career");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        
+        // Check if the number of rows is greater than 4
+        if ($row['job_count'] > 4) {
+            echo "
+            <div class='mt-3 row justify-content-center'>
+                <button type='button' id='see_all_btn' class='btn btn-outline-primary'>Browse all Jobs</button>
+                <button style='display: none;' type='button' id='see_less_btn' class='btn btn-outline-primary'>Browse Less Jobs</button>
+            </div>";
         }
-    }else{
-        echo "No records found!";
-    }
 
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        // Log the error and avoid displaying sensitive information to the user
+        error_log("Database Error: " . $e->getMessage());
+        echo "<p>Unable to retrieve job data at this time. Please try again later.</p>";
+    }
 }
 
-function displayCustomerStoriesTestimonials(){
+
+function displayRecentBlogsOthers() {
     include 'config.php';
-     $select = $conn->query("SELECT * FROM customer_stories");
-     if ($select->num_rows>0) {
-        while ($row=$select->fetch_assoc()) {
 
-        	echo '<div class="col-lg-4 col-md-6 col-12 " >
-				<!-- single-schedule -->
-				<div class="single-schedule first card p-2" style="min-height: 340px; height: auto;">
-					<div class="inner ">
-						<div class="icon">
-							<i class="fa fa-data"></i>
-						</div>
-						<div class="single-content p-2">
-							<center><img style="width: 70px; height: 70px;" src="images/customer-stories/'.$row['profile'].'" class="img-fluid rounded-circle"></center>
-							<div class="text-center">
-								<h5 class="mt-2">'.$row['name'].'</h5>
-								<strong 	>'.$row['position'].'</strong>
-							</div>
-							<span class="shorten-content">'.$row['body_content'] .'</span>
-							<a id="'.$row['id'].'" class="default-color read-more-btn" href="#"><strong>READ MORE<i class="fa fa-long-arrow-right"></i></strong></a>
-						</div>
-					</div>
-				</div>
-				<br>
-				</div>';
+    try {
+        // Use a prepared statement to fetch the recent 14 blogs, selecting only the needed columns
+        $stmt = $conn->prepare("SELECT blog_id, title, image_path, date, clicks FROM blogs ORDER BY id DESC LIMIT 14");
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-      
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Sanitize output to prevent XSS attacks
+                $blog_id = htmlspecialchars($row['blog_id']);
+                $title = htmlspecialchars($row['title']);
+                $image_path = htmlspecialchars($row['image_path']);
+                $date = htmlspecialchars($row['date']);
+                $clicks = htmlspecialchars($row['clicks']);
+
+                // Display the blog post
+                echo '<div class="single-post data-item">
+                    <div class="image" style="height: auto !important;">
+                        <img style="height: auto !important;" src="' . $image_path . '" alt="Blog Image">
+                    </div>
+                    <div class="content">
+                        <h5><a href="?blogId=' . $blog_id . '">' . $title . '</a></h5>
+                        <ul class="comment">
+                            <li><i class="fa fa-calendar" aria-hidden="true"></i>' . $date . ', 2024</li>
+                            <li><i class="fa fa-eye" aria-hidden="true"></i>' . $clicks . ' Views</li>
+                        </ul>
+                    </div>
+                </div>';
+            }
+        } else {
+            echo "No records found!";
         }
-    }else{
-        echo "No records found!";
-    }
 
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        // Log the error for debugging without exposing it to users
+        error_log("Database Error: " . $e->getMessage());
+        echo "<p>Unable to retrieve blogs at this time. Please try again later.</p>";
+    }
 }
-function displayCustomerStoriesTestimonialsShort(){
+
+
+function displayCustomerStoriesTestimonials() {
     include 'config.php';
-     $select = $conn->query("SELECT * FROM offers ORDER BY id LIMIT 3");
-     if ($select->num_rows>0) {
-        while ($row=$select->fetch_assoc()) {
-        	echo '<div class="col-lg-4 col-md-6 col-12" >
-				<!-- single-schedule -->
-				<div class="single-schedule first " style="min-height: 400px; height: auto;">
-					<div class="inner">
-						<div class="icon">
-							<i class="fa fa-data"></i>
-						</div>
-						<div class="single-content">
-						<img src="images/offers/'.$row['image'].'" class="img-fluid">
-							<div class="">
-								<h4 >'.$row['title'].'</h4>
-							</div>
-							<p class="shorten-content">'.$row['body']
-							 .'</p>
-							<a href=""  class="read-more-btn">READ MORE<i class="fa fa-long-arrow-right"></i></a>
-						</div>
-					</div>
-				</div>
-				</div>';
 
-        	
+    try {
+        // Use a prepared statement to fetch customer stories (best practice)
+        $stmt = $conn->prepare("SELECT id, name, position, body_content, profile FROM customer_stories");
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Sanitize output to prevent XSS attacks
+                $id = htmlspecialchars($row['id']);
+                $name = htmlspecialchars($row['name']);
+                $position = htmlspecialchars($row['position']);
+                $body_content = htmlspecialchars($row['body_content']);
+                $profile = htmlspecialchars($row['profile']);
+
+                // Check if the profile image exists, use a default if not
+                $profile_path = "images/customer-stories/" . $profile;
+                if (!file_exists($profile_path) || empty($profile)) {
+                    $profile_path = "images/default-profile.png";  // Default image
+                }
+
+                // Output the customer story securely
+                echo '<div class="col-lg-4 col-md-6 col-12">
+                    <div class="single-schedule first card p-2" style="min-height: 340px; height: auto;">
+                        <div class="inner">
+                            <div class="icon">
+                                <i class="fa fa-data"></i>
+                            </div>
+                            <div class="single-content p-2">
+                                <center>
+                                    <img style="width: 70px; height: 70px;" src="' . $profile_path . '" 
+                                    class="img-fluid rounded-circle" alt="Profile Image">
+                                </center>
+                                <div class="text-center">
+                                    <h5 class="mt-2">' . $name . '</h5>
+                                    <strong>' . $position . '</strong>
+                                </div>
+                                <span class="shorten-content">' . $body_content . '</span>
+                                <a id="' . $id . '" class="default-color read-more-btn" href="#">
+                                    <strong>READ MORE <i class="fa fa-long-arrow-right"></i></strong>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </div>';
+            }
+        } else {
+            echo "No records found!";
         }
-    }else{
-        echo "No records found!";
-    }
 
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        // Log the error securely without exposing details to the user
+        error_log("Database Error: " . $e->getMessage());
+        echo "<p>Unable to load customer stories at this time. Please try again later.</p>";
+    }
 }
 
-function displayCoreValues(){
+function displayCustomerStoriesTestimonialsShort() {
     include 'config.php';
-     $select = $conn->query("SELECT * FROM core_values ");
-     if ($select->num_rows>0) {
-        while ($row=$select->fetch_assoc()) {
-        	echo '<div class="col-lg-4 col-md-6 col-12">
-					<div class="single-service">
-				  <i class="icofont '.$row['icon-font'].'"></i>
-				  <h4><a href="service-details.html">'.$row['title'].'</a></h4>
-				  <p>'.$row['body'].' </p> 
-				</div>
-				</div>';
 
+    try {
+        // Use a prepared statement for fetching offers
+        $stmt = $conn->prepare("SELECT id, title, body, image FROM offers ORDER BY id LIMIT 3");
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Sanitize output to prevent XSS attacks
+                $id = htmlspecialchars($row['id']);
+                $title = htmlspecialchars($row['title']);
+                $body = htmlspecialchars($row['body']);
+                $image = htmlspecialchars($row['image']);
+
+                // Check if the image exists, use a default if not
+                $image_path = "images/offers/" . $image;
+                if (!file_exists($image_path) || empty($image)) {
+                    $image_path = "images/default-offer.png";  // Default image path
+                }
+
+                // Output the offer securely
+                echo '<div class="col-lg-4 col-md-6 col-12">
+                    <div class="single-schedule first" style="min-height: 400px; height: auto;">
+                        <div class="inner">
+                            <div class="icon">
+                                <i class="fa fa-data"></i>
+                            </div>
+                            <div class="single-content">
+                                <img src="' . $image_path . '" class="img-fluid" alt="Offer Image">
+                                <div class="">
+                                    <h4>' . $title . '</h4>
+                                </div>
+                                <p class="shorten-content">' . $body . '</p>
+                                <a href="#" class="read-more-btn">READ MORE <i class="fa fa-long-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>';
+            }
+        } else {
+            echo "No records found!";
         }
-    }else{
-        echo "No records found!";
-    }
 
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        // Log the error for debugging without exposing it to the user
+        error_log("Database Error: " . $e->getMessage());
+        echo "<p>Unable to load offers at this time. Please try again later.</p>";
+    }
 }
 
-function displayServicesList(){
+
+function displayCoreValues() {
     include 'config.php';
-    function readMoreText($text){
-    	if (strlen($text)>=200) {
-    		return substr($text, 0,200)."...";
-    	}else{
-    		return $text;
-    	}
-    }
-     $select = $conn->query("SELECT * FROM services_lists ");
-     if ($select->num_rows>0) {
-        while ($row=$select->fetch_assoc()) {
-        	echo '<div class="col-lg-4 col-md-12 col-12">
-					<div class="single-table">
-						<!-- Table Head -->
-						<a href="service-details?title='.$row['title'].'">
-						<div class="table-head">
-							<div class="icon">
-								<i class="icofont '.$row['image'].'"></i>
-							</div>
-							<h4 class="title">'.$row['title'].'</h4>
-							<div class="price">
-								<p> '.readMoreText($row['body']).'</p>
-							</div>	
-						</div>
-						</a>
-					</div>
-					</div>';
-        	
 
+    try {
+        // Use prepared statement for consistent secure querying
+        $stmt = $conn->prepare("SELECT `icon-font`, title, body FROM core_values");
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Sanitize the data to prevent XSS
+                $icon_font = htmlspecialchars($row['icon-font']);
+                $title = htmlspecialchars($row['title']);
+                $body = htmlspecialchars($row['body']);
+
+                // Output the core value item securely
+                echo '<div class="col-lg-4 col-md-6 col-12">
+                    <div class="single-service">
+                        <i class="icofont ' . $icon_font . '"></i>
+                        <h4><a href="service-details.html">' . $title . '</a></h4>
+                        <p>' . $body . '</p>
+                    </div>
+                </div>';
+            }
+        } else {
+            echo "No records found!";
         }
-    }else{
-        echo "No records found!";
+
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        // Log the error and display a user-friendly message
+        error_log("Database Error: " . $e->getMessage());
+        echo "<p>Unable to load core values at this time. Please try again later.</p>";
     }
-
-    
-
 }
 
-function displayCareerListings(){
+
+function displayServicesList() {
     include 'config.php';
-   
-     $select = $conn->query("SELECT * FROM career ");
-     if ($select->num_rows>0) {
-        while ($row=$select->fetch_assoc()) {
-        	echo '<div class="col-lg-4 col-md-12 col-12">
-					<div class="single-table shadow">
-						<!-- Table Head -->
-						<div class="table-head">
-							<a href="job-board?job-details='.$row['job_id'].'"><h4 class="title">'.$row['job_title'].'</h4>
-							<div class="price">
-								<span> <i class="fa fa-map-marker"></i> Location:  '.$row['job_location'].'</span>
-								<div>
-									<span> <i class="fa fa-list"></i> Category:  '.$row['job_type'].'</span>
 
-								</div>
-								<div>
-								<span> <i class="fa fa-clock-o"></i> Deadline:  '.$row['job_deadline'].'</span>
-								</div>
-							</div>	
-						</div>
-						
-					</div>
-					</div>';
-        	
-
-        }
-    }else{
-        echo "No records found!";
+    // Helper function to limit text length
+    function readMoreText($text) {
+        $text = htmlspecialchars($text); // Prevent XSS attacks
+        return (strlen($text) >= 200) ? substr($text, 0, 200) . "..." : $text;
     }
 
-    
+    try {
+        // Use a prepared statement to fetch the data
+        $stmt = $conn->prepare("SELECT title, image, body FROM services_lists");
+        $stmt->execute();
+        $result = $stmt->get_result();
 
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Sanitize output to prevent XSS attacks
+                $title = htmlspecialchars($row['title']);
+                $icon = htmlspecialchars($row['image']);
+                $body = readMoreText($row['body']);
+
+                // Output the service securely
+                echo '<div class="col-lg-4 col-md-12 col-12">
+                    <div class="single-table">
+                        <a href="service-details?title=' . urlencode($title) . '">
+                            <div class="table-head">
+                                <div class="icon">
+                                    <i class="icofont ' . $icon . '"></i>
+                                </div>
+                                <h4 class="title">' . $title . '</h4>
+                                <div class="price">
+                                    <p>' . $body . '</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>';
+            }
+        } else {
+            echo "No records found!";
+        }
+
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        // Log the error without exposing details to the user
+        error_log("Database Error: " . $e->getMessage());
+        echo "<p>Unable to load services at this time. Please try again later.</p>";
+    }
 }
 
-function displayMoreServicesList(){
+
+function displayCareerListings() {
     include 'config.php';
-    function readMoreText($text){
-    	if (strlen($text)>=50) {
-    		return substr($text, 0,100)."...";
-    	}else{
-    		return $text;
-    	}
-    }
-     $select = $conn->query("SELECT * FROM services_lists ORDER BY id DESC LIMIT 3");
-     if ($select->num_rows>0) {
-        while ($row=$select->fetch_assoc()) {
 
-        	echo ' <div class="col-md-4 mb-4 card-item">
-				        <div style="min-height: 430px;height: auto;" class="card transparent-card">
-				          <div class="card-body py-4 mt-1">
-				            <div class="d-flex justify-content-start mb-4">
-				              <img src="images/services/'.$row['image'].'"
-				                class=" shadow-1-strong lazyload" width="100%" height="240"/>
-				            </div>
-				            <h5 class="font-weight-bold my-3">'.$row['title'].'</h5>
-				            <p class="mb-2">
-				              <i class="fas fa-quote-left pe-2"></i>'.readMoreText($row['body']).' <a href="service_details?service_name='.$row['title'].'">Learn More</a>
-				            </p>
-				          </div>
-				        </div>
-				      </div>';
-      
+    try {
+        // Use prepared statement for secure querying
+        $stmt = $conn->prepare("SELECT job_id, job_title, job_location, job_type, job_deadline FROM career");
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Sanitize output to prevent XSS attacks
+                $job_id = htmlspecialchars($row['job_id']);
+                $job_title = htmlspecialchars($row['job_title']);
+                $job_location = htmlspecialchars($row['job_location']);
+                $job_type = htmlspecialchars($row['job_type']);
+                $job_deadline = htmlspecialchars($row['job_deadline']);
+
+                // Output the job listing securely
+                echo '<div class="col-lg-4 col-md-12 col-12">
+                    <div class="single-table shadow">
+                        <div class="table-head">
+                            <a href="job-board?job-details=' . urlencode($job_id) . '">
+                                <h4 class="title">' . $job_title . '</h4>
+                                <div class="price">
+                                    <span><i class="fa fa-map-marker"></i> Location: ' . $job_location . '</span>
+                                    <div>
+                                        <span><i class="fa fa-list"></i> Category: ' . $job_type . '</span>
+                                    </div>
+                                    <div>
+                                        <span><i class="fa fa-clock-o"></i> Deadline: ' . $job_deadline . '</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>';
+            }
+        } else {
+            echo "No records found!";
         }
-    }else{
-        echo "No records found!";
+
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        // Log the error for debugging without exposing it to the user
+        error_log("Database Error: " . $e->getMessage());
+        echo "<p>Unable to load career listings at this time. Please try again later.</p>";
+    }
+}
+
+
+function displayMoreServicesList() {
+    include 'config.php';
+
+    // Helper function to truncate text safely
+    function readMoreText($text) {
+        $text = htmlspecialchars($text); // Prevent XSS attacks
+        return (strlen($text) >= 100) ? substr($text, 0, 97) . "..." : $text;
     }
 
-    
+    try {
+        // Use prepared statement to fetch the data securely
+        $stmt = $conn->prepare("SELECT id, title, body, image FROM services_lists ORDER BY id DESC LIMIT 3");
+        $stmt->execute();
+        $result = $stmt->get_result();
 
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Sanitize output to prevent XSS attacks
+                $title = htmlspecialchars($row['title']);
+                $body = readMoreText($row['body']);
+                $image = htmlspecialchars($row['image']);
+
+                // Validate image path or assign a default image
+                $image_path = "images/services/" . $image;
+                if (!file_exists($image_path) || empty($image)) {
+                    $image_path = "images/default-service.png";  // Default image
+                }
+
+                // Output the service securely
+                echo '<div class="col-md-4 mb-4 card-item">
+                    <div style="min-height: 430px; height: auto;" class="card transparent-card">
+                        <div class="card-body py-4 mt-1">
+                            <div class="d-flex justify-content-start mb-4">
+                                <img src="' . $image_path . '" class="shadow-1-strong lazyload" width="100%" height="240" alt="Service Image" />
+                            </div>
+                            <h5 class="font-weight-bold my-3">' . $title . '</h5>
+                            <p class="mb-2">
+                                <i class="fas fa-quote-left pe-2"></i>' . $body . ' 
+                                <a href="service_details?service_name=' . urlencode($title) . '">Learn More</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>';
+            }
+        } else {
+            echo "No records found!";
+        }
+
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        // Log the error for debugging without exposing it to the user
+        error_log("Database Error: " . $e->getMessage());
+        echo "<p>Unable to load services at this time. Please try again later.</p>";
+    }
 }
+
 
 //display industry contents
 
-function displayIndustriesRecords($arrayString){
-	
-	if (count(explode(",",$arrayString))>=2) {
-		$id = explode(",", $arrayString)[0];
-		$category = strtolower(explode(",", $arrayString)[1]) ;
-		 include 'config.php';
-	     $select = $conn->query("SELECT * FROM industry_listings WHERE id ='$id' AND LOWER(category) ='$category' ");
-	     if ($select->num_rows>0) {
-	        while ($row=$select->fetch_assoc()) {
+function displayIndustriesRecords($arrayString) {
+    // Validate and sanitize the input array
+    $parts = explode(",", $arrayString);
 
-	    	echo $row['full_content'];
-	      
-	        }
-	    }else{
-	        echo "No records found!";
-	    }
-	}
-   
+    if (count($parts) >= 2) {
+        // Extract ID and category and sanitize them
+        $id = intval($parts[0]);  // Ensure ID is an integer
+        $category = strtolower(trim($parts[1]));  // Sanitize and normalize category
 
+        include 'config.php';
+
+        try {
+            // Use a prepared statement to prevent SQL injection
+            $stmt = $conn->prepare("SELECT full_content FROM industry_listings WHERE id = ? AND LOWER(category) = ?");
+            $stmt->bind_param("is", $id, $category);  // 'i' for integer, 's' for string
+
+            // Execute the statement
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            // Check if records are found
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    // Sanitize output to prevent XSS attacks
+                    echo htmlspecialchars($row['full_content']);
+                }
+            } else {
+                echo "No records found!";
+            }
+
+            // Close the statement and connection
+            $stmt->close();
+            $conn->close();
+        } catch (Exception $e) {
+            // Log the error for debugging without exposing details to the user
+            error_log("Database Error: " . $e->getMessage());
+            echo "<p>Unable to load industry records at this time. Please try again later.</p>";
+        }
+    } else {
+        echo "<p>Invalid input. Please provide the correct parameters.</p>";
+    }
 }
+
+
+
 if (isset($_POST['arrayString'])) {
 
 	displayIndustriesRecords($_POST['arrayString']);
 }
 
 
-function displayIndustryListings(){ 
+function displayIndustryListings() {
     include 'config.php';
-     $select = $conn->query("SELECT * FROM industry_listings ");
-     if ($select->num_rows>0) {
-        while ($row=$select->fetch_assoc()) {
 
-        	echo '<div class="col-md-4 mb-4 p-1">
-                <div class="customer-story-card shadow m-1" data-aos="fade-right">
-                    <img style="min-height: 300px;" src="images/case-study/'.$row['listing_image'].'" class="d-block img-fluid lazyload" alt="">
-                    <div class="p-3">
-                       <strong> <p id="'.$row['id'].'" class="text-muted">Industry: '.$row['category'].'</p></strong>
-                        <p>'.substr($row['body'], 0,120) .'...</p>
-                          <div class="col">
-                             <h6><a target="_blank" href="case_docs/'.$row['pdf_url'].'" id="'.$row['id'].'">Read More <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i> </a></h6>
-                           </div>
+    try {
+        // Use a prepared statement to query the database
+        $stmt = $conn->prepare("SELECT id, category, listing_image, body, pdf_url FROM industry_listings");
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Sanitize output to prevent XSS attacks
+                $id = htmlspecialchars($row['id']);
+                $category = htmlspecialchars($row['category']);
+                $body = htmlspecialchars(substr($row['body'], 0, 120)) . '...';
+                $image = htmlspecialchars($row['listing_image']);
+                $pdf_url = htmlspecialchars($row['pdf_url']);
+
+                // Validate and set default image if necessary
+                $image_path = "images/case-study/" . $image;
+                if (!file_exists($image_path) || empty($image)) {
+                    $image_path = "images/default-image.png";  // Use a default image
+                }
+
+                // Validate PDF link
+                $pdf_link = !empty($pdf_url) ? "case_docs/" . urlencode($pdf_url) : "#";
+
+                // Output the industry listing securely
+                echo '<div class="col-md-4 mb-4 p-1">
+                    <div class="customer-story-card shadow m-1" data-aos="fade-right">
+                        <img style="min-height: 300px;" src="' . $image_path . '" class="d-block img-fluid lazyload" alt="Industry Image">
+                        <div class="p-3">
+                            <strong><p id="' . $id . '" class="text-muted">Industry: ' . $category . '</p></strong>
+                            <p>' . $body . '</p>
+                            <div class="col">
+                                <h6><a target="_blank" href="' . $pdf_link . '" id="' . $id . '">
+                                    Read More <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i>
+                                </a></h6>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>';
-      
+                </div>';
+            }
+        } else {
+            echo "No records found!";
         }
-    }else{
-        echo "No records found!";
+
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        // Log the error for debugging without exposing it to the user
+        error_log("Database Error: " . $e->getMessage());
+        echo "<p>Unable to load industry listings at this time. Please try again later.</p>";
     }
-
-    // function placeholderImages($count){
-	// 	// Check if the count is divisible by 3
-	// 	if ($count % 3 != 0) {
-	// 	    // Calculate the number of records to add
-	// 	    $remainder = $count % 3;
-	// 	    $recordsToAdd = 3 - $remainder;
-
-	// 	   for ($i = 0; $i < $recordsToAdd; $i++) {
-	// 	   	return '';
-           
-    // }
-	// 	} else {
-	// 	    echo "The count is already divisible by 3.";
-	// 	}
-
-
-    // }
-
 }
 
-function displayIndustryListingsSlider(){
-    include 'config.php';
-     $select = $conn->query("SELECT * FROM industry_listings  ");
-     if ($select->num_rows>0) {
-        while ($row=$select->fetch_assoc()) {
 
-        	echo '   <div class="carousel-item active">
-         <img src="https://images.pexels.com/photos/3025005/pexels-photo-3025005.jpeg" class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 bg-danger lazyload" width="800" height="500" alt="First slide">
-         <img src="https://images.pexels.com/photos/1642770/pexels-photo-1642770.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 bg-danger" width="800" height="500" alt="First slide">
 
-          <div class="carousel-caption d-none d-md-block">
-            <button class="btn btn-warning">Read Full Report</button>
-            <h5>Industry: Health</h5>
-            <p>Automating data sharing with Health Agencies, Insurance Companies, Pharmaceuticals and Other Providers significantly improves Swope health efficiency and accuracy allowing for better care coordination, faster diagnoses, and more personalized treatment plans.</p>
-          </div>
-        </div>';
+
+
+
+
+
+// function displayIndustryListingsSlider(){
+//     include 'config.php';
+//      $select = $conn->query("SELECT * FROM industry_listings  ");
+//      if ($select->num_rows>0) {
+//         while ($row=$select->fetch_assoc()) {
+
+//         	echo '   <div class="carousel-item active">
+//          <img src="https://images.pexels.com/photos/3025005/pexels-photo-3025005.jpeg" class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 bg-danger lazyload" width="800" height="500" alt="First slide">
+//          <img src="https://images.pexels.com/photos/1642770/pexels-photo-1642770.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 bg-danger" width="800" height="500" alt="First slide">
+
+//           <div class="carousel-caption d-none d-md-block">
+//             <button class="btn btn-warning">Read Full Report</button>
+//             <h5>Industry: Health</h5>
+//             <p>Automating data sharing with Health Agencies, Insurance Companies, Pharmaceuticals and Other Providers significantly improves Swope health efficiency and accuracy allowing for better care coordination, faster diagnoses, and more personalized treatment plans.</p>
+//           </div>
+//         </div>';
       
-        }
-    }else{
-        echo "No records found!";
-    }
+//         }
+//     }else{
+//         echo "No records found!";
+//     }
 
+// }
+
+function displayRecentIndustryListings() {
+    include 'config.php';
+
+    try {
+        // Use a prepared statement to fetch recent industry listings
+        $stmt = $conn->prepare("SELECT id, category, listing_image, body, pdf_url FROM industry_listings ORDER BY id DESC");
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Sanitize output to prevent XSS attacks
+                $id = htmlspecialchars($row['id']);
+                $category = htmlspecialchars($row['category']);
+                $body = htmlspecialchars(substr($row['body'], 0, 120)) . '...';
+                $image = htmlspecialchars($row['listing_image']);
+                $pdf_url = htmlspecialchars($row['pdf_url']);
+
+                // Validate and set default image if necessary
+                $image_path = "images/case-study/" . $image;
+                if (!file_exists($image_path) || empty($image)) {
+                    $image_path = "images/default-image.png";  // Use a default image
+                }
+
+                // Validate PDF link
+                $pdf_link = !empty($pdf_url) ? "case_docs/" . urlencode($pdf_url) : "#";
+
+                // Output the listing securely
+                echo '<div class="single-pf card shadow p-2" style="min-height: 360px;">
+                    <img src="' . $image_path . '" alt="Industry Image" class="img-fluid">
+                    <a href="' . $pdf_link . '" id="' . $id . '" class="btn" target="_blank">View Details</a>
+                    <h6 class="text-muted default-color mt-2">
+                        <strong>Industry: ' . $category . '</strong>
+                    </h6>
+                    <p>' . $body . '</p>
+                </div>';
+            }
+        } else {
+            echo "No records found!";
+        }
+
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        // Log the error for debugging without exposing sensitive details to users
+        error_log("Database Error: " . $e->getMessage());
+        echo "<p>Unable to load industry listings at this time. Please try again later.</p>";
+    }
 }
 
-function displayRecentIndustryListings(){
+
+function displayRecentIndustryListingsAll() {
     include 'config.php';
-     $select = $conn->query("SELECT * FROM industry_listings ORDER BY id DESC ");
-     if ($select->num_rows>0) {
-        while ($row=$select->fetch_assoc()) {
-        	echo '<div class="single-pf card shadow p-2" style="min-height: 360px;">
-				<img src="images/case-study/'.$row['listing_image'].'" alt="#">
-				<a href="case_docs/'.$row['pdf_url'].'" id="'.$row['id'].'" class="btn" target="_blank">View Details</a>
-				<h6 class="text-muted default-color mt-2" ><strong>Industry: '.$row['category'].'</strong></h6>
-				<p>'.substr($row['body'], 0,120) .'...</p></div>';
-      
-        }
-    }else{
-        echo "No records found!";
-    }
 
-}
+    try {
+        // Use prepared statements for secure querying
+        $stmt = $conn->prepare("SELECT id, category, listing_image, body, pdf_url FROM industry_listings ORDER BY id DESC");
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-function displayRecentIndustryListingsAll(){
-    include 'config.php';
-     $select = $conn->query("SELECT * FROM industry_listings ORDER BY id DESC ");
-     if ($select->num_rows>0) {
-        while ($row=$select->fetch_assoc()) {
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Sanitize output to prevent XSS attacks
+                $id = htmlspecialchars($row['id']);
+                $category = htmlspecialchars($row['category']);
+                $body = htmlspecialchars(substr($row['body'], 0, 120)) . '...';
+                $image = htmlspecialchars($row['listing_image']);
+                $pdf_url = htmlspecialchars($row['pdf_url']);
 
-        	echo '<div class="col-md-4 mb-4 p-1">
-                <div class="customer-story-card card m-1" style="min-height: 450px; max-height: 700px;">
-                    <img  src="images/case-study/'.$row['listing_image'].'" class="d-block img-fluid lazyload" alt="">
-                    <div class="p-3">
-                       <strong> <p id="'.$row['id'].'" class="text-muted h5">Industry: '.$row['category'].'</p></strong>
-                        <p>'.substr($row['body'], 0,120) .'...</p>
-                          <div class="mt-1">
-                             <strong><a class="default-color h6" target="_blank" href="case_docs/'.$row['pdf_url'].'" id="'.$row['id'].'">Read More <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i> </a></strong>
-                           </div>
+                // Validate image path and use a default image if necessary
+                $image_path = "images/case-study/" . $image;
+                if (!file_exists($image_path) || empty($image)) {
+                    $image_path = "images/default-image.png";  // Default fallback image
+                }
+
+                // Validate PDF link
+                $pdf_link = !empty($pdf_url) ? "case_docs/" . urlencode($pdf_url) : "#";
+
+                // Output the industry listing securely
+                echo '<div class="col-md-4 mb-4 p-1">
+                    <div class="customer-story-card card m-1" style="min-height: 450px; max-height: 700px;">
+                        <img src="' . $image_path . '" class="d-block img-fluid lazyload" alt="Industry Image">
+                        <div class="p-3">
+                            <strong>
+                                <p id="' . $id . '" class="text-muted h5">Industry: ' . $category . '</p>
+                            </strong>
+                            <p>' . $body . '</p>
+                            <div class="mt-1">
+                                <strong>
+                                    <a class="default-color h6" target="_blank" href="' . $pdf_link . '" id="' . $id . '">
+                                        Read More <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i>
+                                    </a>
+                                </strong>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>';
-      
+                </div>';
+            }
+        } else {
+            echo "<span class='text-center col-md-12 text-danger p-5'>No records found!</span>";
         }
-    }else{
-       echo "<span class='text-center col-md-12 text-danger p-5'>No records found!</span>";
-    }
 
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        // Log the error for debugging and display a friendly message
+        error_log("Database Error: " . $e->getMessage());
+        echo "<p>Unable to load industry listings at this time. Please try again later.</p>";
+    }
 }
 
-function displayWhitePaperListings(){
-    include 'config.php';
-     $select = $conn->query("SELECT * FROM white_paper ORDER BY id DESC ");
-     if ($select->num_rows>0) {
-        while ($row=$select->fetch_assoc()) {
 
-        	echo '<div class="col-md-4 mb-4 p-1">
-                <div class="customer-story-card card m-1" style="min-height: 450px; max-height: 450px;">
-                    <img  src="images/white-papers/'.$row['images'].'" class="d-block img-fluid lazyload" alt="">
-                    <div class="p-3">
-                    	 <strong> <p class="text-muted h5"> '.$row['title'].'</p></strong>
-                        <p>'.substr($row['body'], 0,120) .'...</p>
-                          <div class="mt-1">
-                             <strong><a class="default-color h6" target="_blank" href="white_paper_docs/'.$row['pdf'].'" id="'.$row['id'].'">Read More <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i> </a></strong>
-                           </div>
+function displayWhitePaperListings() {
+    include 'config.php';
+
+    try {
+        // Use a prepared statement to query the database
+        $stmt = $conn->prepare("SELECT id, title, body, images, pdf FROM white_paper ORDER BY id DESC");
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Sanitize output to prevent XSS attacks
+                $id = htmlspecialchars($row['id']);
+                $title = htmlspecialchars($row['title']);
+                $body = htmlspecialchars(substr($row['body'], 0, 120)) . '...';
+                $image = htmlspecialchars($row['images']);
+                $pdf = htmlspecialchars($row['pdf']);
+
+                // Validate image path and use a default if necessary
+                $image_path = "images/white-papers/" . $image;
+                if (!file_exists($image_path) || empty($image)) {
+                    $image_path = "images/default-image.png";  // Use a fallback image
+                }
+
+                // Validate PDF link and set a fallback if necessary
+                $pdf_link = !empty($pdf) ? "white_paper_docs/" . urlencode($pdf) : "#";
+
+                // Output the white paper listing securely
+                echo '<div class="col-md-4 mb-4 p-1">
+                    <div class="customer-story-card card m-1" style="min-height: 450px; max-height: 450px;">
+                        <img src="' . $image_path . '" class="d-block img-fluid lazyload" alt="White Paper Image">
+                        <div class="p-3">
+                            <strong>
+                                <p class="text-muted h5">' . $title . '</p>
+                            </strong>
+                            <p>' . $body . '</p>
+                            <div class="mt-1">
+                                <strong>
+                                    <a class="default-color h6" target="_blank" href="' . $pdf_link . '" id="' . $id . '">
+                                        Read More <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i>
+                                    </a>
+                                </strong>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>';
-      
+                </div>';
+            }
+        } else {
+            echo "<span class='text-center col-md-12 text-danger p-5'>No records found!</span>";
         }
-    }else{
-        echo "<span class='text-center col-md-12 text-danger p-5'>No records found!</span>";
-    }
 
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        // Log the error for debugging and display a user-friendly message
+        error_log("Database Error: " . $e->getMessage());
+        echo "<p>Unable to load white paper listings at this time. Please try again later.</p>";
+    }
 }
 
-function displayPartnersLogo(){
+
+function displayPartnersLogo() {
     include 'config.php';
-     $select = $conn->query("SELECT * FROM partners_logo ");
-     if ($select->num_rows>0) {
-        while ($row=$select->fetch_assoc()) {
-        	// echo '<div class="single-clients">
-			// 		<a href="'.$row['site_url'].'"><img src="'.$row['logo_url'].'" alt="#">
-			// 		</div>';
 
-		echo '<div  class="m-4"><a href="'.$row['site_url'].'"><img src="'.$row['logo_url'].'" alt="#"></div>';			
+    try {
+        // Use a prepared statement to query the partners logo data
+        $stmt = $conn->prepare("SELECT site_url, logo_url FROM partners_logo");
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-        	
-      
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Sanitize the output to prevent XSS attacks
+                $site_url = htmlspecialchars($row['site_url']);
+                $logo_url = htmlspecialchars($row['logo_url']);
+
+                // Validate image path and set default if needed
+                $logo_path = !empty($logo_url) ? $logo_url : "images/default-logo.png";
+
+                // Validate site URL and provide a fallback
+                $safe_site_url = !empty($site_url) ? $site_url : "#";
+
+                // Output the partner logo securely
+                echo '<div class="m-4">
+                        <a href="' . $safe_site_url . '" target="_blank" rel="noopener noreferrer">
+                            <img src="' . $logo_path . '" alt="Partner Logo" class="img-fluid">
+                        </a>
+                      </div>';
+            }
+        } else {
+            echo "<span class='text-center col-md-12 text-danger p-5'>No records found!</span>";
         }
-    }else{
-        echo "No records found!";
-    }
 
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        // Log the error and display a user-friendly message
+        error_log("Database Error: " . $e->getMessage());
+        echo "<p>Unable to load partner logos at this time. Please try again later.</p>";
+    }
 }
+
 
 #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 #Beginning of submit consultation form
@@ -731,56 +1108,64 @@ function displayPartnersLogo(){
 if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['organization'])&& isset($_POST['phone']) && isset($_POST['message']) && isset($_POST['service_type'])) {
    echo submitConsultationForm();
 }
-function submitConsultationForm(){
-include 'config.php';
-function dateFormatTwo(){
-// Your date
-$date =  date('y-m-d');
-// Convert the date to a timestamp
-$timestamp = strtotime($date);
-// Format the date
-$formattedDate = date("j M Y", $timestamp);
-return $formattedDate;
-}
-$date_now = dateFormatTwo();
-// Sanitize and validate user input
-$name = isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '';
-$email = isset($_POST['email']) ? filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) : '';
-$organization = isset($_POST['organization']) ? htmlspecialchars($_POST['organization']) : '';
-$phone = isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) : '';
-$message = isset($_POST['message']) ? htmlspecialchars($_POST['message']) : '';
-$service_type  = isset($_POST['service_type']) ? htmlspecialchars($_POST['service_type']) : '';
 
-// Validate phone number format
-if ($phone && !preg_match('/(\d{1})(\d{3})(\d{3})(\d{4})/', $phone)) {
-    // Invalid phone number format
-    return "Invalid phone format, use this format +19724600643";
-} else {
-    // Check if required fields are not empty
+
+function submitConsultationForm() {
+    include 'config.php';
+
+    // Helper function to format the date
+    function dateFormatTwo() {
+        return date("j M Y", strtotime(date('y-m-d')));
+    }
+
+    $date_now = dateFormatTwo();
+
+    // Sanitize and validate user input
+    $name = isset($_POST['name']) ? trim(htmlspecialchars($_POST['name'])) : '';
+    $email = isset($_POST['email']) ? filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) : '';
+    $organization = isset($_POST['organization']) ? trim(htmlspecialchars($_POST['organization'])) : '';
+    $phone = isset($_POST['phone']) ? trim(htmlspecialchars($_POST['phone'])) : '';
+    $message = isset($_POST['message']) ? trim(htmlspecialchars($_POST['message'])) : '';
+    $service_type = isset($_POST['service_type']) ? trim(htmlspecialchars($_POST['service_type'])) : '';
+
+    // Validate phone number format
+    if ($phone && !preg_match('/^\+\d{1}\d{3}\d{3}\d{4}$/', $phone)) {
+        return "Invalid phone format, use this format: +19724600643";
+    }
+
+    // Check if all required fields are filled
     if ($name && $email && $organization && $phone && $message && $service_type) {
-        // Prepare and bind the SQL statement
-        $stmt = $conn->prepare("INSERT INTO consultation (name, email, organization, phone, message,service_type,date_now) VALUES (?, ?, ?, ?, ?,?,?)");
-        $stmt->bind_param("sssssss", $name, $email, $organization, $phone, $message,$service_type,$date_now);
+        try {
+            // Prepare the SQL statement to prevent SQL injection
+            $stmt = $conn->prepare(
+                "INSERT INTO consultation (name, email, organization, phone, message, service_type, date_now) 
+                 VALUES (?, ?, ?, ?, ?, ?, ?)"
+            );
 
-        // Execute the statement
-        if ($stmt->execute()) {
-            return 1;
-        } else {
-            // Log the error securely
-            error_log('Failed to insert contact form data into the database');
+            $stmt->bind_param(
+                "sssssss", 
+                $name, $email, $organization, $phone, $message, $service_type, $date_now
+            );
 
-            // Display a generic error message
-            return "Failed to submit the form. Please try again later";
+            // Execute the statement and return success or failure
+            if ($stmt->execute()) {
+                $stmt->close();
+                $conn->close();
+                return "Form submitted successfully!";
+            } else {
+                error_log("Database Error: " . $stmt->error);
+                return "Failed to submit the form. Please try again later.";
+            }
+        } catch (Exception $e) {
+            error_log("Exception: " . $e->getMessage());
+            return "An error occurred. Please try again later.";
         }
-
-        // Close the statement
-        $stmt->close();
     } else {
-        // Display an error message if required fields are not provided
-        return "Please fill in all the required fields";
+        return "Please fill in all the required fields.";
     }
 }
-}
+
+
 #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 #End of submit consultation form
 #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -790,64 +1175,67 @@ if ($phone && !preg_match('/(\d{1})(\d{3})(\d{3})(\d{4})/', $phone)) {
 #Beginning of submit contact form
 #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-function submitContactUsForm(){
-include 'config.php';
-function dateFormat(){
-// Your date
-$date =  date('y-m-d');
-// Convert the date to a timestamp
-$timestamp = strtotime($date);
-// Format the date
-$formattedDate = date("j M Y", $timestamp);
-return $formattedDate;
-}
-$date_now = dateFormat();
-// Sanitize and validate user input
-$name = isset($_POST['name']) ? htmlspecialchars(trim($_POST['name'])) : '';
-$email = isset($_POST['email']) ? filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL) : '';
-$organization = isset($_POST['organization']) ? htmlspecialchars(trim($_POST['organization'])) : '';
-$phone = isset($_POST['phone']) ? htmlspecialchars(trim($_POST['phone'])) : '';
-$message = isset($_POST['message']) ? htmlspecialchars(trim($_POST['message'])) : '';
+function submitContactUsForm() {
+    include 'config.php';
 
-// Validate phone number format
-if ($phone && !preg_match('/^\+?\d{1,4}?[\d\s]{3,}$/', $phone)) {
-    // Invalid phone number format
-    echo "Invalid phone format, use this format +19724600643";
-    exit;
-}
-
-// Check if required fields are not empty and valid
-if (!empty($name) && !empty($email) && !empty($organization) && !empty($phone) && !empty($message)) {
-    // Prepare and bind the SQL statement
-    $stmt = $conn->prepare("INSERT INTO contacts (name, email, organization, phone, message,sent_date) VALUES (?, ?, ?, ?, ?,?)");
-    if ($stmt) {
-        $stmt->bind_param("ssssss", $name, $email, $organization, $phone, $message, $date_now);
-
-        // Execute the statement
-        if ($stmt->execute()) {
-            return 1;
-        } else {
-            // Log the error securely
-            error_log('Failed to insert contact form data into the database: ' . $stmt->error);
-
-            // Display a generic error message
-            return "Failed to submit the form. Please try again later";
-        }
-
-        // Close the statement
-        $stmt->close();
-    } else {
-        // Log the error securely
-        error_log('Failed to prepare SQL statement: ' . $conn->error);
-
-        // Display a generic error message
-        return "Failed to submit the form. Please try again later";
+    // Helper function to format the date
+    function dateFormat() {
+        return date("j M Y", strtotime(date('y-m-d')));
     }
-} else {
-    // Display an error message if required fields are not provided
-    return "Please fill in all the required fields";
+
+    $date_now = dateFormat();
+
+    // Sanitize and validate user input
+    $name = isset($_POST['name']) ? htmlspecialchars(trim($_POST['name'])) : '';
+    $email = isset($_POST['email']) ? filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL) : '';
+    $organization = isset($_POST['organization']) ? htmlspecialchars(trim($_POST['organization'])) : '';
+    $phone = isset($_POST['phone']) ? htmlspecialchars(trim($_POST['phone'])) : '';
+    $message = isset($_POST['message']) ? htmlspecialchars(trim($_POST['message'])) : '';
+
+    // Validate phone number format
+    if ($phone && !preg_match('/^\+?\d{1,4}?[\d\s]{3,}$/', $phone)) {
+        echo "Invalid phone format, use this format +19724600643";
+        exit;
+    }
+
+    // Check if all required fields are filled
+    if (!empty($name) && !empty($email) && !empty($organization) && !empty($phone) && !empty($message)) {
+        try {
+            // Prepare the SQL statement to prevent SQL injection
+            $stmt = $conn->prepare(
+                "INSERT INTO contacts (name, email, organization, phone, message, sent_date) 
+                 VALUES (?, ?, ?, ?, ?, ?)"
+            );
+
+            if (!$stmt) {
+                // Log and return a user-friendly error if statement preparation fails
+                error_log("Failed to prepare SQL statement: " . $conn->error);
+                return "Failed to submit the form. Please try again later.";
+            }
+
+            // Bind parameters to the SQL query
+            $stmt->bind_param("ssssss", $name, $email, $organization, $phone, $message, $date_now);
+
+            // Execute the query and handle success or failure
+            if ($stmt->execute()) {
+                $stmt->close();
+                $conn->close();
+                return "Form submitted successfully!";
+            } else {
+                // Log the error for debugging purposes
+                error_log("Failed to execute SQL statement: " . $stmt->error);
+                return "Failed to submit the form. Please try again later.";
+            }
+        } catch (Exception $e) {
+            // Log any exceptions for debugging
+            error_log("Exception caught: " . $e->getMessage());
+            return "An error occurred. Please try again later.";
+        }
+    } else {
+        return "Please fill in all the required fields.";
+    }
 }
-}
+
 
 if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['organization'])&& isset($_POST['phone']) && isset($_POST['message'])) {
    echo submitContactUsForm();
@@ -859,38 +1247,59 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['organizatio
 #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 #Start of job description display
 #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-function displayJobDescriptions(){
-if (isset($_GET['job-details'])) {
-  require 'config.php';
-  $numbering = 1;
-  $id = mysqli_real_escape_string($conn,$_GET['job-details']);
-  $select = $conn->query("SELECT * FROM career WHERE job_id='$id'");
-  if ($select->num_rows>0) {
-    while ($row=$select->fetch_assoc()) {
-      $job_type = $row['job_type'];
-       $job_title = $row['job_title'];
-      echo "
-        <div class='section-title mt-5'><h3><span class='default-color'>".$row['job_title']." , </span>".$row['job_location']."<center><hr class='default-background hr' ></center></h3>
-        	
-        </div>
-        ".$row['job_description']."
-         <div class='m-5'>
-            <a href='applications?job-details=".$row['job_id']."&application=true&title=".$job_title."' class='btn btn-primary col-lg-2 col-sm-6 ml-5'>Apply Now</a>
-       </div>
-      ";
+function displayJobDescriptions() {
+    if (isset($_GET['job-details'])) {
+        require 'config.php';
+
+        // Sanitize the input to prevent SQL injection
+        $id = filter_var($_GET['job-details'], FILTER_SANITIZE_STRING);
+
+        // Prepare the SQL statement to prevent SQL injection
+        $stmt = $conn->prepare("SELECT * FROM career WHERE job_id = ?");
+        $stmt->bind_param("s", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Sanitize output to prevent XSS attacks
+                $job_id = htmlspecialchars($row['job_id']);
+                $job_title = htmlspecialchars($row['job_title']);
+                $job_location = htmlspecialchars($row['job_location']);
+                $job_description = htmlspecialchars($row['job_description']);
+                $job_type = htmlspecialchars($row['job_type']);
+
+                // Output the job description
+                echo "
+                    <div class='section-title mt-5'>
+                        <h3>
+                            <span class='default-color'>{$job_title}, </span>{$job_location}
+                            <center><hr class='default-background hr'></center>
+                        </h3>
+                    </div>
+                    <div>{$job_description}</div>
+                    <div class='m-5'>
+                        <a href='applications?job-details={$job_id}&application=true&title=" . urlencode($job_title) . "' 
+                           class='btn btn-primary col-lg-2 col-sm-6 ml-5'>
+                            Apply Now
+                        </a>
+                    </div>";
+            }
+        } else {
+            echo "<p class='text-center text-danger'>Nothing was found!</p>";
+        }
+
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
     }
-  }else{
-    echo "Nothing was found!!";
-  }
-  function joblistingNumbering($length){
-    if (strlen($length)===1) {
-      return "0".$length;
-    }else{
-      return $length;
-    }
-  }
 }
+
+// Helper function to format job listing numbers
+function joblistingNumbering($length) {
+    return (strlen($length) === 1) ? "0" . $length : $length;
 }
+
 
 #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 #End of job description display
@@ -899,18 +1308,43 @@ if (isset($_GET['job-details'])) {
 #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 #Start of display services details 
 #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-function displayServicesDetails(){
-	include 'config.php';
-		$title = mysqli_real_escape_string($conn, $_GET['title']);
-		$select = $conn->query("SELECT * FROM services_lists WHERE title='$title'");
-		while ($row=$select->fetch_assoc()) {
-			echo "<h2 class='mb-3 default-color'>".$title."</h2>";
-			echo $row['intro_content'];
-			echo $row['other_contents'];
-		}
+function displayServicesDetails() {
+    include 'config.php';
 
+    if (isset($_GET['title'])) {
+        // Sanitize and validate the input to prevent SQL injection and XSS
+        $title = filter_var(trim($_GET['title']), FILTER_SANITIZE_STRING);
 
+        // Use prepared statements to prevent SQL injection
+        $stmt = $conn->prepare("SELECT intro_content, other_contents FROM services_lists WHERE title = ?");
+        $stmt->bind_param("s", $title);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Sanitize output to prevent XSS
+                $sanitized_title = htmlspecialchars($title);
+                $intro_content = htmlspecialchars($row['intro_content']);
+                $other_contents = htmlspecialchars($row['other_contents']);
+
+                // Display the service details
+                echo "<h2 class='mb-3 default-color'>{$sanitized_title}</h2>";
+                echo "<div>{$intro_content}</div>";
+                echo "<div>{$other_contents}</div>";
+            }
+        } else {
+            echo "<p class='text-center text-danger'>Service details not found!</p>";
+        }
+
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    } else {
+        echo "<p class='text-center text-warning'>No service selected.</p>";
+    }
 }
+
 
 #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 #Start of submit job app form
@@ -991,50 +1425,61 @@ function listCountries(){
 
 if (isset($_GET['blogId'])) {
     include 'config.php';
-    $id = mysqli_real_escape_string($conn, $_GET['blogId']);
-    
+
+    // Sanitize the input to prevent SQL injection
+    $id = filter_var($_GET['blogId'], FILTER_SANITIZE_STRING);
+
     // Default expiration time for the cookie (30 days)
     $expiration_days = 30;
+    $clicks = []; // Initialize clicks array
 
-    // Initialize clicks array
-    $clicks = [];
-
-    // Check if the 'clicks' cookie exists
+    // Check if the 'clicks' cookie exists and decode it
     if (isset($_COOKIE['clicks'])) {
-        $cookie_data = $_COOKIE['clicks'];
+        $clicks = json_decode($_COOKIE['clicks'], true);
 
-        // Decode the cookie value (it should be a JSON array)
-        $clicks = json_decode($cookie_data, true);
-        // print_r($clicks);
-
-        // If the cookie data isn't an array, reset it to an empty array
+        // Reset to an empty array if decoding fails or result isn't an array
         if (!is_array($clicks)) {
             $clicks = [];
         }
     }
 
-    // Fetch the blog data from the database
-    $select = $conn->query("SELECT * FROM blogs WHERE blog_id='$id'");
-    if ($select->num_rows > 0) {
-        $row = $select->fetch_assoc();
-        $row_count = $row['clicks'] + 1;
+    try {
+        // Use a prepared statement to fetch the blog data securely
+        $stmt = $conn->prepare("SELECT clicks FROM blogs WHERE blog_id = ?");
+        $stmt->bind_param("s", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-        // Check if the current blogId exists in the cookie array
-        if (isset($clicks[$id])) {
-            // If the blogId exists in the cookie, do not update the database
-            //echo "This blog post has already been clicked by this user!";
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $row_count = $row['clicks'] + 1;
+
+            // If the blogId is not in the clicks array, update the clicks
+            if (!isset($clicks[$id])) {
+                $update_stmt = $conn->prepare("UPDATE blogs SET clicks = ? WHERE blog_id = ?");
+                $update_stmt->bind_param("is", $row_count, $id);
+
+                if ($update_stmt->execute()) {
+                    // Add the blogId to the clicks array and update the cookie
+                    $clicks[$id] = $id;
+                    setcookie('clicks', json_encode($clicks), time() + ($expiration_days * 86400), "/");
+                } else {
+                    error_log("Failed to update clicks for blog ID: $id");
+                }
+
+                $update_stmt->close();
+            }
         } else {
-            // If the blogId does not exist in the cookie, update the database
-            $update = $conn->query("UPDATE blogs SET clicks='$row_count' WHERE blog_id='$id'");
-
-            // Add this blogId to the clicks array to mark it as clicked
-            $clicks[$id] = $id;
-
-            // Encode the updated array back to JSON and set it in the cookie
-            setcookie('clicks', json_encode($clicks), time() + ($expiration_days * 24 * 60 * 60), "/");
-
-            //echo "Click registered for blog post ID: $id!";
+            echo "<p>Blog post not found!</p>";
         }
+
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        // Log any exceptions and display a friendly message
+        error_log("Database Error: " . $e->getMessage());
+        echo "<p>Unable to load the blog post. Please try again later.</p>";
     }
 }
 
