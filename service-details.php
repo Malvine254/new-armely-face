@@ -981,7 +981,7 @@
 							<!-- start of power powerplatform for digital services -->
 							<?php if ($_GET['name']=="databricks"): ?>
 							<div class="container">	
-							<h3 class="text-center">Digital Services: Databricks	<center><hr class="default-background hr" ></center></h3>
+							<h3 class="text-center">Data Services: Databricks	<center><hr class="default-background hr" ></center></h3>
 							<center><img width="100" height="100" class="img-fluid p-2" src="https://cdn.brandfetch.io/idSUrLOWbH/theme/dark/symbol.svg?k=bfHSJFAPEG"></center>
 							<p>In today’s fast-paced digital landscape, leveraging data effectively is crucial for business success. At armely, we specialize in Databricks consulting services that empower organizations to harness the full potential of their data. Our expert team is dedicated to helping you streamline your data workflows, enhance analytics capabilities, and drive innovation through data-driven insights. </p>
 							<blockquote>
