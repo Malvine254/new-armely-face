@@ -409,7 +409,7 @@
 <!-- Single Table -->
 <div class="col-lg-4 col-md-12 col-12">
 <iframe width="560" height="315" src="
-https://www.youtube.com/embed/IQQQchLo5mE?si=MPLZB2lcbwRzwHwg"
+https://www.youtube.com/embed/97e3X2rz1eQ?si=3WyntbzdH8nCbdI0"
 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 <!-- End Single Table-->
@@ -679,7 +679,7 @@ title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; cli
 			<li><a href="https://github.com/armely" target="_blank"><i class="icofont-github"></i></a></li>
 			<li><a href="https://twitter.com/armelyData" target="_blank"><i class="icofont-twitter"></i></a></li>
 			<li><a href="https://www.youtube.com/@armelyarmely" target="_blank"><i class="icofont-youtube"></i></a></li>
-			<li><a href="https://www.linkedin.com/company/armely/mycompany/" target="_blank"><i class="icofont-instagram"></i></a></li>
+			<li><a href="https://www.instagram.com/armelyconsulting/" target="_blank"><i class="icofont-instagram"></i></a></li>
 		</ul>
 	</div>
 </div>

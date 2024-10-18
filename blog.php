@@ -450,7 +450,7 @@
 			<li><a href="https://github.com/armely" target="_blank"><i class="icofont-github"></i></a></li>
 			<li><a href="https://twitter.com/armelyData" target="_blank"><i class="icofont-twitter"></i></a></li>
 			<li><a href="https://www.youtube.com/@armelyarmely" target="_blank"><i class="icofont-youtube"></i></a></li>
-			<li><a href="https://www.linkedin.com/company/armely/mycompany/" target="_blank"><i class="icofont-instagram"></i></a></li>
+			<li><a href="https://www.instagram.com/armelyconsulting/" target="_blank"><i class="icofont-instagram"></i></a></li>
 		</ul>
 	</div>
 </div>

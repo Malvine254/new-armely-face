@@ -3,125 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events Page</title>
+    <title>Professional Event Page</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <style>
         body {
+            background-color: #f8f9fa;
             font-family: 'Arial', sans-serif;
         }
+
         .event-card {
-            border: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease-in-out;
         }
+
         .event-card:hover {
             transform: scale(1.05);
         }
-        .event-header {
-            background-color: #f8f9fa;
-            padding: 50px 0;
-            text-align: center;
+
+        .event-image {
+            height: 200px;
+            object-fit: cover;
         }
-        .event-header h1 {
+
+        .event-date {
+            font-size: 1.2rem;
+            font-weight: bold;
             color: #007bff;
-            font-size: 2.5rem;
         }
-        .event-details {
-            padding: 1rem;
+
+        .event-title {
+            font-size: 1.5rem;
+            font-weight: bold;
         }
+
+        .event-description {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+
         .btn-register {
             background-color: #007bff;
-            color: #fff;
-            border: none;
-            transition: background-color 0.3s ease;
-        }
-        .btn-register:hover {
-            background-color: #0056b3;
+            color: white;
         }
     </style>
 </head>
 <body>
 
-<!-- Header Section -->
-<section class="event-header">
-    <div class="container">
-        <h1>Upcoming Events</h1>
-        <p>Join us for exciting events happening soon!</p>
-    </div>
-</section>
-
-<!-- Events List -->
-<section class="py-5">
-    <div class="container">
-        <div class="row" id="events">
-            <!-- Event Cards will be appended here by jQuery -->
+    <div class="container my-5">
+        <div class="text-center">
+            <h1>Upcoming Professional Event</h1>
+            <p class="lead text-muted">Join us for an insightful session on the latest trends and opportunities in the industry.</p>
         </div>
-    </div>
-</section>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-    // Sample event data
-    const events = [
-        {
-            title: "AI Conference 2024",
-            date: "October 15, 2024",
-            description: "Join the top minds in AI and Machine Learning for an incredible conference filled with keynotes, workshops, and networking opportunities.",
-            location: "Tech City Convention Center",
-            image: "https://via.placeholder.com/400x250",
-            link: "#"
-        },
-        {
-            title: "Cloud Computing Workshop",
-            date: "November 1, 2024",
-            description: "A hands-on workshop focusing on cloud architecture, deployment, and best practices.",
-            location: "Virtual Event",
-            image: "https://via.placeholder.com/400x250",
-            link: "#"
-        },
-        {
-            title: "Data Analytics Summit",
-            date: "December 7, 2024",
-            description: "A summit dedicated to exploring the latest trends and innovations in data analytics.",
-            location: "Grand Hyatt, Downtown",
-            image: "https://via.placeholder.com/400x250",
-            link: "#"
-        }
-    ];
-
-    // Function to display events on the page
-    function displayEvents(events) {
-        const eventsContainer = $('#events');
-        events.forEach(event => {
-            const eventCard = `
-                <div class="col-md-4 mb-4">
-                    <div class="card event-card">
-                        <img src="${event.image}" class="card-img-top" alt="${event.title}">
-                        <div class="card-body event-details">
-                            <h5 class="card-title">${event.title}</h5>
-                            <p class="card-text">${event.description}</p>
-                            <p><strong>Date:</strong> ${event.date}</p>
-                            <p><strong>Location:</strong> ${event.location}</p>
-                            <a href="${event.link}" class="btn btn-register">Register Now</a>
+        <div class="row mt-4">
+            <div class="col-md-6 mx-auto">
+                <div class="card event-card shadow-lg">
+                    <img src="https://via.placeholder.com/600x200" alt="Event Image" class="card-img-top event-image">
+                    <div class="card-body">
+                        <p class="event-date">October 25, 2024</p>
+                        <h5 class="event-title">AI in Decision Making</h5>
+                        <p class="event-description">
+                            Explore how artificial intelligence is transforming decision-making processes across industries. Learn practical AI use cases and how they can be implemented in business environments.
+                        </p>
+                        <div class="text-center mt-3">
+                            <a href="#" class="btn btn-register">Register Now</a>
                         </div>
                     </div>
                 </div>
-            `;
-            eventsContainer.append(eventCard);
-        });
-    }
+            </div>
+        </div>
+    </div>
 
-    // On document ready, load the events
-    $(document).ready(function () {
-        displayEvents(events);
-    });
-</script>
-
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
