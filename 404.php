@@ -134,6 +134,7 @@
 							<li><a href="case-studies#white-papers">White Papers</a></li>
 						</ul>
 					</li>
+					<li><a href="events">Events</a></li>
 					<li><a href="industries">Industries</a></li>
 					<li><a href="contact">Contact Us</a></li>
 					<li><a  >
@@ -323,6 +324,16 @@
 <div class="col-lg-2 col-md-6 col-12">
 	<div class="single-footer">
 		<h2 class="footer-logo-font">armely</h2>
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-12">
+				<ul class="text-light">
+					<li><a href="privacy-policy"><i class="fa fa-caret-right" aria-hidden="true"></i> Privacy Policy</a></li>
+					<li><a href="customer-stories"><i class="fa fa-caret-right mt-2" aria-hidden="true"></i> Customer Stories</a></li>
+					<li><a href="blog"><i class="fa fa-caret-right mt-2" aria-hidden="true"></i> Blog Articles</a></li>
+					<li><a href="industries"><i class="fa fa-caret-right mt-2" aria-hidden="true"></i> Industries</a></li>
+				</ul>
+			</div>
+		</div>
 		
 	</div>
 </div>

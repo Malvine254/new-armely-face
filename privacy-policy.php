@@ -151,6 +151,7 @@
 							<li><a href="case-studies#white-papers">White Papers</a></li>
 						</ul>
 					</li>
+					<li><a href="events">Events</a></li>
 					<li><a href="industries">Industries</a></li>
 					<li><a href="contact">Contact Us</a></li>
 					<li><a  >
@@ -196,10 +197,10 @@
 				
 <!-- Start Contact Us -->
 <section class="contact-us mt-4">
-<div class="container col-12 col-lg-11 col-md-11">
+<div class="container col-lg-10 col-md-10">
 	<div class="">
 		<div class="row"> 
-	<div class="col-md-12 ">
+	<div class="col-md-10 ">
       <h3 class="default-color" class="">Our Privacy Policy</h3 class="default-color">
       <p>Armely, LLC operates the <a href="https://armely.com/">www.armely.com</a> website, which provides the SERVICE.</p>
       <p>This page is used to inform website visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service, the Armely website.</p>
@@ -367,6 +368,16 @@
 <div class="col-lg-2 col-md-6 col-12">
 	<div class="single-footer">
 		<h2 class="footer-logo-font">armely</h2>
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-12">
+				<ul class="text-light">
+					<li><a href="privacy-policy"><i class="fa fa-caret-right" aria-hidden="true"></i> Privacy Policy</a></li>
+					<li><a href="customer-stories"><i class="fa fa-caret-right mt-2" aria-hidden="true"></i> Customer Stories</a></li>
+					<li><a href="blog"><i class="fa fa-caret-right mt-2" aria-hidden="true"></i> Blog Articles</a></li>
+					<li><a href="industries"><i class="fa fa-caret-right mt-2" aria-hidden="true"></i> Industries</a></li>
+				</ul>
+			</div>
+		</div>
 		
 	</div>
 </div>

@@ -430,7 +430,7 @@ function displayCustomerStoriesTestimonials() {
                 $id = htmlspecialchars($row['id']);
                 $name = htmlspecialchars($row['name']);
                 $position = htmlspecialchars($row['position']);
-                $body_content = htmlspecialchars($row['body_content']);
+                $body_content = $row['body_content'];
                 $profile = htmlspecialchars($row['profile']);
 
                 // Check if the profile image exists, use a default if not
@@ -574,6 +574,127 @@ function displayCoreValues() {
         echo "<p>Unable to load core values at this time. Please try again later.</p>";
     }
 }
+
+
+function displayEvents() {
+    include 'config.php';
+    function formatDateWithSuffix($start_date) {
+    // Convert the string date (d/m/Y) to a DateTime object
+    $dateTime = DateTime::createFromFormat('d/m/Y', $start_date);
+    if ($dateTime === false) {
+        // If the format doesn't match or the date is invalid, return false
+        return false;
+    }
+
+    // Get the day, month, and year components
+    $day = $dateTime->format('j'); // Day without leading zeros
+    $month = $dateTime->format('M'); // Short month name (e.g., Jan, Feb)
+    $year = $dateTime->format('Y'); // Full year (e.g., 2024)
+
+    // Determine the appropriate suffix for the day
+    if (!in_array(($day % 100), [11, 12, 13])) {
+        switch ($day % 10) {
+            case 1: $suffix = 'st'; break;
+            case 2: $suffix = 'nd'; break;
+            case 3: $suffix = 'rd'; break;
+            default: $suffix = 'th'; break;
+        }
+    } else {
+        $suffix = 'th'; // Default suffix is 'th'
+    }
+
+    // Return the formatted date string
+    return $day . $suffix . ' ' . $month . ' ' . $year;
+}
+
+// Example usage:
+$start_date = "23/01/2024"; // Example date in d/m/Y format
+$formattedDate = formatDateWithSuffix($start_date);
+if ($formattedDate !== false) {
+    // echo "Formatted date: " . $formattedDate; // Output: 23rd Jan 2024
+} else {
+    // echo "Invalid date format!";
+}
+
+    function trimText($text){
+        if (strlen($text) <= 200) {
+            return $text;
+        } else {
+            return substr($text, 0, 210) . "...";
+        }
+    }
+
+    function parseDate($dateString) {
+        // Create a DateTime object from the d/m/Y format
+        $dateTime = DateTime::createFromFormat('d/m/Y', $dateString);
+        // Return the timestamp for comparison
+        return $dateTime ? $dateTime->getTimestamp() : false;
+    }
+
+    try {
+        // Use prepared statement for consistent secure querying
+        $stmt = $conn->prepare("SELECT start_date, title, body FROM events");
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Sanitize the data to prevent XSS
+                $title = htmlspecialchars($row['title']);
+                $body = htmlspecialchars(trimText($row['body']));
+                $start_date = trim($row['start_date']); // Trim any extra spaces
+
+                // Convert the start date from d/m/Y format to a timestamp
+                $eventTimestamp = parseDate($start_date);
+                $currentTimestamp = time();
+                $background2 = "";
+
+                // If the date format is invalid, skip the event
+                if ($eventTimestamp === false) {
+                    continue;
+                }
+
+                // Determine if the registration button should be disabled
+                if ($eventTimestamp > $currentTimestamp) {
+                    $buttonText = "Register";
+                    $buttonDisabled = "href=''";
+                    $background = "btn btn-danger ";
+                } else {
+                    $buttonText = "Deadline Passed";
+                    $buttonDisabled = "";
+                    $background = "btn btn-danger ";
+                    $background2 = 'style="background: red !important;"';
+
+                }
+
+                // Output the core value item securely
+                echo '<div class="col-lg-4 col-md-6 col-12">
+                    <div class="single-service card">
+                      <div class="p-2"><br>
+                       <i class="icofont-calendar m-2"></i>
+                       <strong class="default-color">' . formatDateWithSuffix($start_date) . '</strong>
+                        <p><a href="service-details.html"><b>' . $title . '</b></a></p>
+                        <p>' . $body . '</p>
+                        <a '.$background2.' ' . $buttonDisabled . ' class="'.$background.' p-2 text-light d col-10" >' . $buttonText . '</a>
+                        <br><br>
+                      </div>
+                    </div>
+                </div>';
+            }
+        } else {
+            echo "No records found!";
+        }
+
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        // Log the error and display a user-friendly message
+        error_log("Database Error: " . $e->getMessage());
+        echo "<p>Unable to load core values at this time. Please try again later.</p>";
+    }
+}
+
 
 
 function displayServicesList() {
@@ -1266,7 +1387,7 @@ function displayJobDescriptions() {
                 $job_id = htmlspecialchars($row['job_id']);
                 $job_title = htmlspecialchars($row['job_title']);
                 $job_location = htmlspecialchars($row['job_location']);
-                $job_description = htmlspecialchars($row['job_description']);
+                $job_description = $row['job_description'];
                 $job_type = htmlspecialchars($row['job_type']);
 
                 // Output the job description
@@ -1279,10 +1400,10 @@ function displayJobDescriptions() {
                     </div>
                     <div>{$job_description}</div>
                     <div class='m-5'>
-                        <a href='applications?job-details={$job_id}&application=true&title=" . urlencode($job_title) . "' 
+                        <center><a href='applications?job-details={$job_id}&application=true&title=" . urlencode($job_title) . "' 
                            class='btn btn-primary col-lg-2 col-sm-6 ml-5'>
                             Apply Now
-                        </a>
+                        </a></center>
                     </div>";
             }
         } else {
