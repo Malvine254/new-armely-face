@@ -855,7 +855,7 @@
 							        </div>
 							        <div class="col-md-11">
 							            <h4 class="font-weight-bold">Contact Us</h4>
-							            <p>Chat with our Power Apps experts about what you want to automate or digitize. We then review your needs and make recommendations based on the best Microsoft solutions and latest technologies.</p>
+							            <p>Start by connecting with our Power Apps experts to discuss what you’re looking to automate or digitize. We'll assess your requirements and suggest the best solutions from Microsoft’s suite, leveraging the latest technologies to meet your needs.</p>
 							        </div>
 							    </div>
 							    
@@ -865,8 +865,8 @@
 							            <div class="step-circle">2</div>
 							        </div>
 							        <div class="col-md-11">
-							            <h4 class="font-weight-bold">Determine Power Apps Consulting Services You Want</h4>
-							            <p>You can choose a discovery engagement, block of time, an ongoing plan or a flexible agreement. We then create a timeline and start prototyping your app (our U.S. team can usually begin within 1-2 weeks). You receive detailed documentation, regular check-ins and complete transparency every step of the way.</p>
+							            <h4 class="font-weight-bold">Choose Your Power Apps Consulting Services</h4>
+							            <p>Select from a range of services, including a discovery engagement, a block of time, an ongoing plan, or a flexible agreement. After choosing the best fit, we’ll establish a timeline and begin prototyping and deliver a proof of concept. You’ll receive comprehensive documentation, regular updates, and full transparency throughout the process.</p>
 							        </div>
 							    </div>
 
@@ -876,8 +876,8 @@
 							            <div class="step-circle">3</div>
 							        </div>
 							        <div class="col-md-11">
-							            <h4 class="font-weight-bold">Bring Your Application to Life</h4>
-							            <p>You will have your app fully tested and integrated into your live environment after your confirmed approval. Boosting productivity of your business processes with your Power Apps solution is as simple as that.</p>
+							            <h4 class="font-weight-bold">Launch Your Application</h4>
+							            <p>Upon your approval, your app will be thoroughly tested and seamlessly integrated into your live environment. From there, enjoy enhanced productivity with a Power Apps solution tailored to optimize your business processes. It’s that easy to bring your vision to life!</p>
 							        </div>
 							    </div>
 							</div>
