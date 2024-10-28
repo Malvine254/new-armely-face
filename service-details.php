@@ -817,23 +817,226 @@
 								<?php if ($_GET['name']=="powerapps"): ?>
 							<div class="container">	
 							<h3 class="">Digital Services: Power Apps - Build Apps Without Coding 	<center><hr class="default-background hr" ></center></h3>
-							<h5 class="mt-2"> "Power Apps empowers you to build custom applications tailored to your business needs without writing a single line of code. Whether you're automating a workflow or creating a complex business application, Power Apps enables you to do it all with a drag-and-drop interface and pre-built templates.</p>
-							<blockquote>
-								<p> 
-								<h5 class="text-light"><i class="icofont-quote-left"></i><strong> Key Benefits</strong></h5> 
-							</p>
-							
-							<ol class="ml-5">
-								<li class="mt-1">No Coding Required: Develop apps quickly with an intuitive drag-and-drop interface.</li>
-								<li class="mt-1">Seamless Integration: Connect with Microsoft 365, Dynamics 365, and other services. </li>
-								<li class="mt-1">Mobile Ready: Build responsive apps that work on any device, anywhere.</li>
-								<li class="mt-1">Call to Action: Start Building with Power Apps</li>
-								<li class="mt-1">Ensure compliance with industry regulations and best practices</li>
-							</ol>	
-														
-							</blockquote>
 							
 							</div>
+
+							<div class="container-fluid mt-5">
+							    <div class="row">
+							        <!-- Left Column -->
+							        <div class=" left-column text-light p-5">
+							        	 <h2 class="text-light">Microsoft Power Apps</h2>
+							            <h4 class="font-weight-bold text-light mt-2 mb-2">Key Benefits</h4>
+							            <p class="text-light">Power Apps empowers you to build custom applications tailored to your business needs without writing a single line of code. Whether you're automating a workflow or creating a complex business application, Power Apps enables you to do it all with a drag-and-drop interface and pre-built templates.</p>
+							            <h4 class="text-light mt-2 mb-2">Microsoft Power Apps</h4>
+							            <ul class="benefits-list">
+							                <li><span class="checkmark">✓</span> No Coding Required: Develop apps quickly with an intuitive drag-and-drop interface.</li>
+							                <li><span class="checkmark">✓</span> Seamless Integration: Connect with Microsoft 365, Dynamics 365, and other services.</li>
+							                <li><span class="checkmark">✓</span>Mobile Ready: Build responsive apps that work on any device, anywhere.</li>
+							                <li><span class="checkmark">✓</span> Call to Action: Start Building with Power Apps.</li>
+							                <li><span class="checkmark">✓</span>Ensure compliance with industry regulations and best practices.</li>
+							            </ul>
+							            <p class="mt-4 text-light">Over 1500 Happy Clients – SMB to Government & Corporations</p>
+							            <div class="clients-logos">
+							                <!-- Replace these with actual client logos as needed -->
+							                <img src="client1.png" alt="Client Logo">
+							                <img src="client2.png" alt="Client Logo">
+							                <img src="client3.png" alt="Client Logo">
+							            </div>
+							        </div>
+
+							       
+							    </div>
+							</div>
+
+							<div class="container my-5">
+							    <h2 class=" font-weight-bold mb-5">How Does Microsoft Power Apps Consulting Work?</h2>
+							    
+							    <div class="row step-section">
+							        <!-- Step 1 -->
+							        <div class="col-md-1 text-center">
+							            <div class="step-circle">1</div>
+							        </div>
+							        <div class="col-md-11">
+							            <h4 class="font-weight-bold">Contact Us</h4>
+							            <p>Chat with our Power Apps experts about what you want to automate or digitize. We then review your needs and make recommendations based on the best Microsoft solutions and latest technologies.</p>
+							        </div>
+							    </div>
+							    
+							    <div class="row step-section">
+							        <!-- Step 2 -->
+							        <div class="col-md-1 text-center">
+							            <div class="step-circle">2</div>
+							        </div>
+							        <div class="col-md-11">
+							            <h4 class="font-weight-bold">Determine Power Apps Consulting Services You Want</h4>
+							            <p>You can choose a discovery engagement, block of time, an ongoing plan or a flexible agreement. We then create a timeline and start prototyping your app (our U.S. team can usually begin within 1-2 weeks). You receive detailed documentation, regular check-ins and complete transparency every step of the way.</p>
+							        </div>
+							    </div>
+
+							    <div class="row step-section">
+							        <!-- Step 3 -->
+							        <div class="col-md-1 text-center">
+							            <div class="step-circle">3</div>
+							        </div>
+							        <div class="col-md-11">
+							            <h4 class="font-weight-bold">Bring Your Application to Life</h4>
+							            <p>You will have your app fully tested and integrated into your live environment after your confirmed approval. Boosting productivity of your business processes with your Power Apps solution is as simple as that.</p>
+							        </div>
+							    </div>
+							</div>
+
+
+
+
+
+
+							<div class="container-fluid solutions-section text-white py-5">
+						    <div class="row align-items-center">
+						        <!-- Text Column -->
+						        <div class="col-md-6  text-center text-md-left">
+						           <div class="m-5">
+							            <h2 class="text-light">Microsoft Power Apps Solutions</h2>
+							            <p class="text-light">Below are several Power Apps solutions. Each one can be customized for you. All solutions come with detailed visualizations, data and security requirements, integration points, and more.</p>
+							            <a  href="#consultation" class="btn btn-outline-light mt-3 text-light">Request A Power Apps Solution</a>
+						          	</div>
+						        </div>
+						        
+						        <!-- Image Column -->
+						        <div class="col-md-6 text-center">
+						            <img src="https://www.eswcompany.com/wp-content/uploads/2019/10/unsplash_376KN_ISplE.png.webp" alt="Team collaboration" class="img-fluid rounded">
+						        </div>
+						    </div>
+						</div>
+
+						<div class="container my-5">
+						    <div class="row align-items-center">
+						        <!-- Text Section -->
+						        <div class="col-md-6">
+						            <h2 class="font-weight-bold">Inventory management app</h2><br>
+						            <p>Take control of your store’s inventory with ease using Power Apps.  With our custom inventory management app, you can quickly view stock levels across all your products, browse through an organized inventory list, and stay on top of items that need refilling. </p><br>
+						            <p>Set email alerts to notify yourself when stock runs low, ensuring you’re always prepared. With intuitive features and real-time updates, managing your inventory has never been more efficient or user-friendly. Explore streamlined, smart inventory management today!</p>
+						        </div>
+						        
+						        <!-- Image Section -->
+						        <div class="col-md-6 text-center">
+						        	<div class="video-container">
+						        		<video width="640" height="360" controls>
+										        <source src="videos/inventory.mp4" type="video/mp4">
+										        <source src="your-video.webm" type="video/webm">
+										        <source src="your-video.ogv" type="video/ogg">
+										        Your browser does not support the video tag.
+										    </video>
+						        	</div>
+						           
+									  </div>
+						    </div>
+						</div>
+
+
+						<div class="container my-5">
+						    <div class="row align-items-center">
+						    	<!-- Image Section -->
+						        <div class="col-md-6 text-center">
+						        	<div class="video-container">
+						        		<video width="640" height="360" controls>
+										        <source src="videos/leave.mp4" type="video/mp4">
+										        <source src="your-video.webm" type="video/webm">
+										        <source src="your-video.ogv" type="video/ogg">
+										        Your browser does not support the video tag.
+										    </video>
+						        	</div>
+						           
+									  </div>
+						        <!-- Text Section -->
+						        <div class="col-md-6">
+						            <h2 class="font-weight-bold">Leave request app</h2><br>
+						            <p>Effortlessly submit vacation requests and streamline your time-off management with Power Apps! Choose your desired date ranges, add personalized notes for your manager, and keep track of your time off—all in one easy-to-use platform. Gain better control over your vacation planning and stay updated on request approvals, making time-off management simpler and more transparent than ever. Managers get an easy time with approvals.</p><br>
+						           
+						        </div>
+						        
+						        
+						    </div>
+						</div>
+
+							<div class="container my-5">
+						    <div class="row align-items-center">
+						        <!-- Text Section -->
+						        <div class="col-md-6">
+						            <h2 class="font-weight-bold">Onboarding </h2><br>
+						            <p>Enhance your onboarding process with our Power Apps Onboarding App! New team members can seamlessly update their Office 365 user profiles, access a personalized onboarding checklist, and get an overview of their team. With quick links to essential team content, resources, and contacts, new hires will have everything they need to integrate smoothly and start contributing from day one. Simplify onboarding, foster connection, and empower your team with a streamlined experience. </p><br>
+						          
+						        </div>
+						        
+						        <!-- Image Section -->
+						        <div class="col-md-6 text-center">
+						        	<div class="video-container">
+						        		<video width="640" height="360" controls>
+										        <source src="videos/onboarding.mp4" type="video/mp4">
+										        <source src="your-video.webm" type="video/webm">
+										        <source src="your-video.ogv" type="video/ogg">
+										        Your browser does not support the video tag.
+										    </video>
+						        	</div>
+						           
+									  </div>
+						    </div>
+						</div>
+
+
+						<div class="container my-5">
+						    <div class="row align-items-center">
+						    	  <!-- Image Section -->
+						        <div class="col-md-6 text-center">
+						        	<div class="video-container">
+						        		<video width="640" height="360" controls>
+										        <source src="videos/service.mp4" type="video/mp4">
+										        <source src="your-video.webm" type="video/webm">
+										        <source src="your-video.ogv" type="video/ogg">
+										        Your browser does not support the video tag.
+										    </video>
+						        	</div>
+						           
+									  </div>
+						        <!-- Text Section -->
+						        <div class="col-md-6">
+						            <h2 class="font-weight-bold">Service Desk app</h2><br>
+						            <p>Stay on top of service requests with the Power Apps Service Desk! Track assignments, monitor job statuses, and manage tasks across your team—all from anywhere, no desk required. Quickly prioritize jobs, add real-time notes, and view tasks by technician for efficient follow-up. The app opens with sample data, making it easy to explore its capabilities before going live. Streamline your service management for better productivity and team coordination today! </p><br>
+						          
+						        </div>
+						        
+						      
+						    </div>
+						</div>
+
+						<div class="container my-5">
+						    <div class="row align-items-center">
+						    	
+						        <!-- Text Section -->
+						        <div class="col-md-6">
+						            <h2 class="font-weight-bold">Property Management app</h2><br>
+						            <p>Simplify property management with our Power Apps solution! Property managers can easily track available and occupied units, reserve units for prospective tenants, and manage tenant information in real time. With intuitive features to streamline reservations and occupancy updates, this app makes managing properties efficient and hassle-free. Effortlessly stay on top of unit availability, streamline tenant onboarding, and keep your properties running smoothly.</p><br>
+						          
+						        </div>
+						          <!-- Image Section -->
+						        <div class="col-md-6 text-center">
+						        	<div class="video-container">
+						        		<video width="640" height="360" controls>
+										        <source src="videos/project.mp4" type="video/mp4">
+										        <source src="your-video.webm" type="video/webm">
+										        <source src="your-video.ogv" type="video/ogg">
+										        Your browser does not support the video tag.
+										    </video>
+						        	</div>
+						           
+									  </div>
+						        
+						      
+						    </div>
+						</div>
+
+
+
+
 							<?php endif ?>
 
 
@@ -1019,7 +1222,7 @@
 						<div class="col-lg-12">
 
 						<div class="section-title">
-							<h2>Schedule a consultation today	</h2>
+							<h2 id="consultation">Schedule a consultation today	</h2>
 							<center><hr class="default-background hr" ></center>
 							
 						</div>
@@ -1027,6 +1230,7 @@
 						</div>
 
 						<div class="row">
+
 						<div class="col-lg-12 col-md-6 col-12 d-flex text-center default-background mb-5">
 						<form class="form p-5" id="contact-form" method="post">
 							<div class="row">
