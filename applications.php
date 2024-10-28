@@ -131,16 +131,7 @@
           </li>
           <li><a>Services <i class="icofont-rounded-down"></i></a>
               <ul class="dropdown">
-                  <li><a href="services">All Services</a></li>
-                  <li>
-                      <a >Data Services <i class="icofont-rounded-right"></i></a>
-                      <ul class="dropdown">
-                          <li><a href="service-details?name=fabric">Microsoft Fabric</a></li>
-                          <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
-                          <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
-                          <li><a href="service-details?name=databricks">Databricks</a></li>
-                      </ul>
-                  </li>
+                 <li><a href="services">All Services</a></li>
                   <li>
                     <a >AI Services <i class="icofont-rounded-right"></i></a>
                     <ul class="dropdown">
@@ -150,7 +141,16 @@
                       </ul>
 
                   </li>
-                  <li><a href="service-details?name=freemiums">Freemiums</a></li>
+                   
+                   <li>
+                      <a >Data Services <i class="icofont-rounded-right"></i></a>
+                      <ul class="dropdown">
+                          <li><a href="service-details?name=fabric">Microsoft Fabric</a></li>
+                          <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
+                          <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
+                          <li><a href="service-details?name=databricks">Databricks</a></li>
+                      </ul>
+                  </li>
                   <li>
                     <a>Digital Services <i class="icofont-rounded-right"></i></a>
                     <ul class="dropdown">
@@ -164,6 +164,7 @@
                     </ul>
 
                   </li>   
+                   <li><a href="service-details?name=freemiums">Freemiums</a></li>
 
               </ul>
           </li>

@@ -96,7 +96,7 @@
 	<div class="col-lg-9 col-md-9 col-12">
 		<!-- Main Menu -->
     <div class="main-menu">
-      <nav class="navigation">
+       <nav class="navigation">
         <ul class="nav menu">
           <li class=""><a >Why Us <i class="icofont-rounded-down"></i></a>
             <ul class="dropdown">
@@ -106,16 +106,7 @@
           </li>
           <li><a>Services <i class="icofont-rounded-down"></i></a>
               <ul class="dropdown">
-                  <li><a href="services">All Services</a></li>
-                  <li>
-                      <a >Data Services <i class="icofont-rounded-right"></i></a>
-                      <ul class="dropdown">
-                          <li><a href="service-details?name=fabric">Microsoft Fabric</a></li>
-                          <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
-                          <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
-                          <li><a href="service-details?name=databricks">Databricks</a></li>
-                      </ul>
-                  </li>
+                 <li><a href="services">All Services</a></li>
                   <li>
                     <a >AI Services <i class="icofont-rounded-right"></i></a>
                     <ul class="dropdown">
@@ -125,20 +116,31 @@
                       </ul>
 
                   </li>
-                  <li><a href="service-details?name=freemiums">Freemiums</a></li>
+                   
                    <li>
-		                    <a>Digital Services <i class="icofont-rounded-right"></i></a>
-		                    <ul class="dropdown">
-		                        <li><a href="service-details?name=powerapps"> Powerapps</a></li>
-		                        <li><a href="service-details?name=powerautomate">Power Automate</a></li>
-		                         <li><a href="service-details?name=virtualagents">Power Virtual Agents</a></li>
-		                          <li><a href="service-details?name=powerplatform">Power Platform</a></li>
-		                         <li><a href="service-details?name=roboticprocessing">Robotic Processing Automation</a></li>
-		                         <li><a href="service-details?name=sharepointonline">Sharepont Online</a></li>
-		                         <li><a href="service-details?name=copilot">Copilot</a></li>
-		                    </ul>
+                      <a >Data Services <i class="icofont-rounded-right"></i></a>
+                      <ul class="dropdown">
+                          <li><a href="service-details?name=fabric">Microsoft Fabric</a></li>
+                          <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
+                          <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
+                          <li><a href="service-details?name=databricks">Databricks</a></li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a>Digital Services <i class="icofont-rounded-right"></i></a>
+                    <ul class="dropdown">
+                        <li><a href="service-details?name=powerapps"> Powerapps</a></li>
+                        <li><a href="service-details?name=powerautomate">Power Automate</a></li>
+                         <li><a href="service-details?name=virtualagents">Power Virtual Agents</a></li>
+                          <li><a href="service-details?name=powerplatform">Power Platform</a></li>
+                         <li><a href="service-details?name=roboticprocessing">Robotic Processing Automation</a></li>
+                         <li><a href="service-details?name=sharepointonline">Sharepont Online</a></li>
+                         <li><a href="service-details?name=copilot">Copilot</a></li>
+                    </ul>
 
-		                  </li>   
+                  </li>   
+                   <li><a href="service-details?name=freemiums">Freemiums</a></li>
+
               </ul>
           </li>
           <li><a >Insights <i class="icofont-rounded-down"></i></a>
@@ -820,6 +822,7 @@
 							
 							</div>
 
+
 							<div class="container-fluid mt-5">
 							    <div class="row">
 							        <!-- Left Column -->
@@ -835,13 +838,7 @@
 							                <li><span class="checkmark">✓</span> Call to Action: Start Building with Power Apps.</li>
 							                <li><span class="checkmark">✓</span>Ensure compliance with industry regulations and best practices.</li>
 							            </ul>
-							            <p class="mt-4 text-light">Over 1500 Happy Clients – SMB to Government & Corporations</p>
-							            <div class="clients-logos">
-							                <!-- Replace these with actual client logos as needed -->
-							                <img src="client1.png" alt="Client Logo">
-							                <img src="client2.png" alt="Client Logo">
-							                <img src="client3.png" alt="Client Logo">
-							            </div>
+							           
 							        </div>
 
 							       
@@ -905,6 +902,27 @@
 						        <div class="col-md-6 text-center">
 						            <img src="https://www.eswcompany.com/wp-content/uploads/2019/10/unsplash_376KN_ISplE.png.webp" alt="Team collaboration" class="img-fluid rounded">
 						        </div>
+						    </div>
+						</div>
+						<div class="container my-5">
+						    <div class="row align-items-center">
+						    	  <!-- Image Section -->
+						        <div class="col-md-6 text-center">
+						        	<div class="video-container">
+						        		<img src="images/services/timesheet.png">
+						        	</div>
+						           
+									  </div>
+						    	
+						        <!-- Text Section -->
+						        <div class="col-md-6">
+						            <h2 class="font-weight-bold">Timesheets app</h2><br>
+						            <p>Efficiently manage your work hours and track project progress with our Power Apps Timesheets! Log daily hours, describe tasks performed, and assign projects or clients all in one intuitive app. With a clean, organized layout, you can easily keep a record of your week, update your entries, and submit them for approval. Streamline time tracking and improve productivity by ensuring all work hours are accurately documented and accessible whenever you need.</p><br>
+						          
+						        </div>
+						        
+						        
+						      
 						    </div>
 						</div>
 
@@ -1035,7 +1053,7 @@
 						</div>
 
 
-
+							
 
 							<?php endif ?>
 

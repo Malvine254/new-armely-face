@@ -105,16 +105,7 @@
           </li>
           <li><a>Services <i class="icofont-rounded-down"></i></a>
               <ul class="dropdown">
-                  <li><a href="services">All Services</a></li>
-                  <li>
-                      <a >Data Services <i class="icofont-rounded-right"></i></a>
-                      <ul class="dropdown">
-                          <li><a href="service-details?name=fabric">Microsoft Fabric</a></li>
-                          <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
-                          <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
-                          <li><a href="service-details?name=databricks">Databricks</a></li>
-                      </ul>
-                  </li>
+                 <li><a href="services">All Services</a></li>
                   <li>
                     <a >AI Services <i class="icofont-rounded-right"></i></a>
                     <ul class="dropdown">
@@ -124,21 +115,31 @@
                       </ul>
 
                   </li>
+                   
+                   <li>
+                      <a >Data Services <i class="icofont-rounded-right"></i></a>
+                      <ul class="dropdown">
+                          <li><a href="service-details?name=fabric">Microsoft Fabric</a></li>
+                          <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
+                          <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
+                          <li><a href="service-details?name=databricks">Databricks</a></li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a>Digital Services <i class="icofont-rounded-right"></i></a>
+                    <ul class="dropdown">
+                        <li><a href="service-details?name=powerapps"> Powerapps</a></li>
+                        <li><a href="service-details?name=powerautomate">Power Automate</a></li>
+                         <li><a href="service-details?name=virtualagents">Power Virtual Agents</a></li>
+                          <li><a href="service-details?name=powerplatform">Power Platform</a></li>
+                         <li><a href="service-details?name=roboticprocessing">Robotic Processing Automation</a></li>
+                         <li><a href="service-details?name=sharepointonline">Sharepont Online</a></li>
+                         <li><a href="service-details?name=copilot">Copilot</a></li>
+                    </ul>
+
+                  </li>   
                    <li><a href="service-details?name=freemiums">Freemiums</a></li>
 
-                   <li>
-                            <a>Digital Services <i class="icofont-rounded-right"></i></a>
-                            <ul class="dropdown">
-                                <li><a href="service-details?name=powerapps"> Powerapps</a></li>
-                                <li><a href="service-details?name=powerautomate">Power Automate</a></li>
-                                 <li><a href="service-details?name=virtualagents">Power Virtual Agents</a></li>
-                                  <li><a href="service-details?name=powerplatform">Power Platform</a></li>
-                                 <li><a href="service-details?name=roboticprocessing">Robotic Processing Automation</a></li>
-                                 <li><a href="service-details?name=sharepointonline">Sharepont Online</a></li>
-                                 <li><a href="service-details?name=copilot">Copilot</a></li>
-                            </ul>
-
-                          </li>   
               </ul>
           </li>
           <li><a >Insights <i class="icofont-rounded-down"></i></a>
