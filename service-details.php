@@ -118,7 +118,7 @@
                   </li>
                    
                    <li>
-                      <a >Data Services <i class="icofont-rounded-right"></i></a>
+                      <a >Data Transformation <i class="icofont-rounded-right"></i></a>
                       <ul class="dropdown">
                           <li><a href="service-details?name=fabric">Microsoft Fabric</a></li>
                           <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
@@ -129,10 +129,10 @@
                   <li>
                     <a>Digital Services <i class="icofont-rounded-right"></i></a>
                     <ul class="dropdown">
-                        <li><a href="service-details?name=powerapps"> Powerapps</a></li>
-                        <li><a href="service-details?name=powerautomate">Power Automate</a></li>
-                         <li><a href="service-details?name=virtualagents">Power Virtual Agents</a></li>
-                          <li><a href="service-details?name=powerplatform">Power Platform</a></li>
+                        <li><a href="service-details?name=powerapps">Microsoft Powerapps</a></li>
+                        <li><a href="service-details?name=powerautomate">Microsoft Power Automate</a></li>
+                         <li><a href="service-details?name=virtualagents">Microsoft Power Virtual Agents</a></li>
+                          <li><a href="service-details?name=powerplatform">Microsoft Power Pages</a></li>
                          <li><a href="service-details?name=roboticprocessing">Robotic Processing Automation</a></li>
                          <li><a href="service-details?name=sharepointonline">Sharepont Online</a></li>
                          <li><a href="service-details?name=copilot">Copilot</a></li>
@@ -844,49 +844,8 @@
 							    </div>
 							</div>
 
-							<div class="container my-5">
-							    <h2 class=" font-weight-bold mb-5">How Does Microsoft Power Apps Consulting Work?</h2>
-							    
-							    <div class="row step-section">
-							        <!-- Step 1 -->
-							        <div class="col-md-1 text-center">
-							            <div class="step-circle">1</div>
-							        </div>
-							        <div class="col-md-11">
-							            <h4 class="font-weight-bold">Contact Us</h4>
-							            <p>Start by connecting with our Power Apps experts to discuss what you’re looking to automate or digitize. We'll assess your requirements and suggest the best solutions from Microsoft’s suite, leveraging the latest technologies to meet your needs.</p>
-							        </div>
-							    </div>
-							    
-							    <div class="row step-section">
-							        <!-- Step 2 -->
-							        <div class="col-md-1 text-center">
-							            <div class="step-circle">2</div>
-							        </div>
-							        <div class="col-md-11">
-							            <h4 class="font-weight-bold">Choose Your Power Apps Consulting Services</h4>
-							            <p>Select from a range of services, including a discovery engagement, a block of time, an ongoing plan, or a flexible agreement. After choosing the best fit, we’ll establish a timeline and begin prototyping and deliver a proof of concept. You’ll receive comprehensive documentation, regular updates, and full transparency throughout the process.</p>
-							        </div>
-							    </div>
-
-							    <div class="row step-section">
-							        <!-- Step 3 -->
-							        <div class="col-md-1 text-center">
-							            <div class="step-circle">3</div>
-							        </div>
-							        <div class="col-md-11">
-							            <h4 class="font-weight-bold">Launch Your Application</h4>
-							            <p>Upon your approval, your app will be thoroughly tested and seamlessly integrated into your live environment. From there, enjoy enhanced productivity with a Power Apps solution tailored to optimize your business processes. It’s that easy to bring your vision to life!</p>
-							        </div>
-							    </div>
-							</div>
-
-
-
-
-
-
-							<div class="container-fluid solutions-section text-white py-5">
+							
+							<div class="container-fluid solutions-section text-white py-5 mt-5">
 						    <div class="row align-items-center">
 						        <!-- Text Column -->
 						        <div class="col-md-6  text-center text-md-left">
@@ -1061,22 +1020,99 @@
 							<?php if ($_GET['name']=="powerautomate"): ?>
 							<div class="container">	
 							<h3 class="">Digital Services: Power Automate - Automate Workflows and Boost Productivity  	<center><hr class="default-background hr" ></center></h3>
-							<h5 class="mt-2 mb-2">Work Smarter, Not Harder with Power Automate</h5>
-							<p>Power Automate allows you to automate repetitive tasks and workflows, saving time and increasing efficiency across your organization. From simple automations to complex business processes, Power Automate makes it easy to streamline your operations and focus on what matters most. </p>
-							<blockquote>
-								<p> 
-								<h5 class="text-light"><i class="icofont-quote-left"></i><strong>Key Capabilities</strong></h5> 
-							</p>
-							
-							<ol class="ml-5">
-								<li class="mt-1">Automate Repetitive Tasks: Save time by automating routine tasks and processes. </li>
-								<li class="mt-1">AI-Powered Workflows: Leverage AI to enhance decision-making and optimize workflows. </li>
-								<li class="mt-1">Integrations: Connect with hundreds of apps and services to create powerful automation.</li>
-								<li class="mt-1">Call to Action: Automate Your Workflows with Power Automate </li>
-								
-							</ol>	
-														
-							</blockquote>
+
+							<div class="container-fluid mt-5">
+							    <div class="row">
+							        <!-- Left Column -->
+							        <div style="background: teal;" class=" p-5">
+							        	 <h2 class="mb-1 text-light">Work Smarter, Not Harder with Power Automate</h2>
+							            <p class="text-light">Power Automate allows you to automate repetitive tasks and workflows, saving time and increasing efficiency across your organization. From simple automations to complex business processes, Power Automate makes it easy to streamline your operations and focus on what matters most.</p>
+							            <h4 class="font-weight-bold text-light mt-2 mb-2">Key Benefits</h4>
+							            <ul class="benefits-list text-light">
+							                <li><span class="checkmark">✓</span> No Coding Required: Automate workflows easily with a user-friendly drag-and-drop interface.</li>
+							                <li><span class="checkmark ">✓</span> Seamless Integration: Connect effortlessly with Microsoft 365, Dynamics 365, and other external services.</li>
+							                <li><span class="checkmark">✓</span> Mobile Ready: Create workflows accessible on any device, enabling productivity on the go.</li>
+							                <li><span class="checkmark">✓</span> Action-Oriented: Begin automating your processes with Power Automate today.</li>
+							                <li><span class="checkmark">✓</span>ECompliance Support: Ensure workflows align with industry standards and regulatory requirements.</li>
+							            </ul>
+
+
+							            <h4 class="font-weight-bold text-light mt-2 mb-2">Key Capabilities</h4>
+							            <ul class="benefits-list text-light">
+							                <li><span class="checkmark">✓</span> Automate Repetitive Tasks: Save time by automating routine tasks and processes.</li>
+							                <li><span class="checkmark">✓</span>AI-Powered Workflows: Leverage AI to enhance decision-making and optimize workflows.</li>
+							                <li><span class="checkmark">✓</span> Integrations: Connect with hundreds of apps and services to create powerful automation.</li>
+							                <li><span class="checkmark">✓</span> Call to Action: Automate Your Workflows with Power Automate to align with industry standards and regulatory requirements.</li>
+							            </ul>
+							           
+							        </div>
+
+							       
+							    </div>
+							</div>
+
+
+								<div class="container-fluid solutions-section text-white py-5 mt-5">
+						    <div class="row align-items-center">
+						        <!-- Text Column -->
+						        <div class="col-md-6  text-center text-md-left">
+						           <div class="m-5">
+							            <h2 class="text-light">Microsoft Power Automate Solutions</h2>
+							            <p class="text-light">Here are a variety of Power Automate solutions, each tailored to meet your specific needs. Every solution includes comprehensive visualizations, data and security protocols, integration options, and more.</p>
+							            <a  href="#consultation" class="btn btn-outline-light mt-3 text-light">Request A Power Automate Solution</a>
+						          	</div>
+						        </div>
+						        
+						        <!-- Image Column -->
+						        <div class="col-md-6 text-center">
+						            <img src="images/services/powerap.png" alt="Team collaboration" class="img-fluid rounded p-4">
+						        </div>
+						    </div>
+						</div>
+
+						<div class="container my-5 mt-4">
+				    <div class="row align-items-center">
+				    	  <!-- Image Section -->
+				        <div class="col-md-6 text-center">
+				        	<div class="video-container">
+				        		<img src="images/services/email_gateway.png">
+				        	</div>
+				           
+							  </div>
+				    	
+				        <!-- Text Section -->
+				        <div class="col-md-6">
+				            <h2 class="font-weight-bold">Saving email attachments locally using gateway</h2><br>
+				            <p>The flow monitors incoming emails and automatically saves attachments from specific messages to a designated local folder. This eliminates the need for manual downloads, ensuring that all attachments are captured consistently and organized in one place.</p><br>
+				          
+				        </div>
+				        
+				        
+				      
+				    </div>
+						</div>
+
+						<div class="container my-5 mt-4">
+				    <div class="row align-items-center">
+				    	
+				        <!-- Text Section -->
+				        <div class="col-md-6">
+				            <h2 class="font-weight-bold">Transforming CSV data into Excel format</h2><br>
+				            <p>This Power Automate flow streamlines the process of transforming CSV data into Excel format, allowing data to be organized and analyzed with ease. By automatically converting and transferring CSV content into a structured Excel file, the flow eliminates the need for manual data handling, which is often repetitive and time-consuming.</p><br>
+				          
+				        </div>
+				         <!-- Image Section -->
+				        <div class="col-md-6 text-center">
+				        	<div class="video-container">
+				        		<img src="images/services/save_email_attachment.png">
+				        	</div>
+				           
+							  </div>
+				        
+				      
+				    </div>
+						</div>
+
 							
 							</div>
 							<?php endif ?>

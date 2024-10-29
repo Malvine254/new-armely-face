@@ -153,13 +153,13 @@
                           <li><a href="service-details?name=databricks">Databricks</a></li>
                       </ul>
                   </li>
-                  <li>
+                   <li>
                     <a>Digital Services <i class="icofont-rounded-right"></i></a>
                     <ul class="dropdown">
-                        <li><a href="service-details?name=powerapps"> Powerapps</a></li>
-                        <li><a href="service-details?name=powerautomate">Power Automate</a></li>
-                         <li><a href="service-details?name=virtualagents">Power Virtual Agents</a></li>
-                          <li><a href="service-details?name=powerplatform">Power Platform</a></li>
+                        <li><a href="service-details?name=powerapps">Microsoft Powerapps</a></li>
+                        <li><a href="service-details?name=powerautomate">Microsoft Power Automate</a></li>
+                         <li><a href="service-details?name=virtualagents">Microsoft Power Virtual Agents</a></li>
+                          <li><a href="service-details?name=powerplatform">Microsoft Power Pages</a></li>
                          <li><a href="service-details?name=roboticprocessing">Robotic Processing Automation</a></li>
                          <li><a href="service-details?name=sharepointonline">Sharepont Online</a></li>
                          <li><a href="service-details?name=copilot">Copilot</a></li>
