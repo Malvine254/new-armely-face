@@ -828,9 +828,8 @@
 							        <!-- Left Column -->
 							        <div class=" left-column text-light p-5">
 							        	 <h2 class="text-light">Microsoft Power Apps</h2>
-							            <h4 class="font-weight-bold text-light mt-2 mb-2">Key Benefits</h4>
 							            <p class="text-light">Power Apps empowers you to build custom applications tailored to your business needs without writing a single line of code. Whether you're automating a workflow or creating a complex business application, Power Apps enables you to do it all with a drag-and-drop interface and pre-built templates.</p>
-							            <h4 class="text-light mt-2 mb-2">Microsoft Power Apps</h4>
+							            <h4 class="font-weight-bold text-light mt-2 mb-2">Key Benefits</h4>
 							            <ul class="benefits-list">
 							                <li><span class="checkmark">✓</span> No Coding Required: Develop apps quickly with an intuitive drag-and-drop interface.</li>
 							                <li><span class="checkmark">✓</span> Seamless Integration: Connect with Microsoft 365, Dynamics 365, and other services.</li>
@@ -893,14 +892,14 @@
 						        <div class="col-md-6  text-center text-md-left">
 						           <div class="m-5">
 							            <h2 class="text-light">Microsoft Power Apps Solutions</h2>
-							            <p class="text-light">Below are several Power Apps solutions. Each one can be customized for you. All solutions come with detailed visualizations, data and security requirements, integration points, and more.</p>
+							            <p class="text-light">Here are a variety of Power Apps solutions, each tailored to meet your specific needs. Every solution includes comprehensive visualizations, data and security protocols, integration options, and more.</p>
 							            <a  href="#consultation" class="btn btn-outline-light mt-3 text-light">Request A Power Apps Solution</a>
 						          	</div>
 						        </div>
 						        
 						        <!-- Image Column -->
 						        <div class="col-md-6 text-center">
-						            <img src="https://www.eswcompany.com/wp-content/uploads/2019/10/unsplash_376KN_ISplE.png.webp" alt="Team collaboration" class="img-fluid rounded">
+						            <img src="images/services/powerap.png" alt="Team collaboration" class="img-fluid rounded p-4">
 						        </div>
 						    </div>
 						</div>

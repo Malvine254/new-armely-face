@@ -4579,24 +4579,8 @@ color: #2f5597;
     margin-bottom: 20px;
 }
 
-.right-column .form-group input,
-.right-column .form-group textarea {
-    background-color: #FFFFFF;
-    border: 1px solid #CCCCCC;
-    padding: 10px;
-}
 
-.right-column button {
-    background-color: #007BFF;
-    color: #FFFFFF;
-    font-weight: bold;
-}
 
-/* Logos */
-.clients-logos img {
-    width: 50px;
-    margin-right: 10px;
-}
 
 
 /* Step Section */
@@ -4605,7 +4589,7 @@ color: #2f5597;
 }
 
 .step-circle {
-    background-color: #00C4CC; /* Match the circle color from the design */
+    background-color: #2f5597; /* Match the circle color from the design */
     color: #FFFFFF;
     font-size: 24px;
     font-weight: bold;
