@@ -260,7 +260,7 @@ function displayBlogFullDetals(){
 					</div>
 				</div>
 				<!-- News Text -->
-				<div style="height: 935px; overflow: scroll;" class="news-text scrollable-div"  id="content">
+				<div style="height: 935px; overflow: scroll;" class="news-text scrollable-div"  id="blog-content">
 					'.$row['body'].'
 				</div><br>
 

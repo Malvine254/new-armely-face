@@ -159,8 +159,8 @@
                          <li><a href="service-details?name=virtualagents">Microsoft Power Virtual Agents</a></li>
                           <li><a href="service-details?name=powerplatform">Microsoft Power Pages</a></li>
                          <li><a href="service-details?name=roboticprocessing">Robotic Processing Automation</a></li>
-                         <li><a href="service-details?name=sharepointonline">Sharepont Online</a></li>
-                         <li><a href="service-details?name=copilot">Copilot</a></li>
+                         <li><a href="service-details?name=sharepointonline">Sharepoint Online</a></li>
+                         <!-- <li><a href="service-details?name=copilot">Copilot</a></li> -->
                     </ul>
 
                   </li>   

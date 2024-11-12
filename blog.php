@@ -151,8 +151,8 @@
                          <li><a href="service-details?name=virtualagents">Microsoft Power Virtual Agents</a></li>
                           <li><a href="service-details?name=powerplatform">Microsoft Power Pages</a></li>
                          <li><a href="service-details?name=roboticprocessing">Robotic Processing Automation</a></li>
-                         <li><a href="service-details?name=sharepointonline">Sharepont Online</a></li>
-                         <li><a href="service-details?name=copilot">Copilot</a></li>
+                         <li><a href="service-details?name=sharepointonline">Sharepoint Online</a></li>
+                         <!-- <li><a href="service-details?name=copilot">Copilot</a></li> -->
                     </ul>
 
                   </li>   
@@ -532,69 +532,62 @@
 <!-- more settings  -->
 <script src="js/more-options.js"></script>
 <script>
-	 $(document).ready(function() {
-        var contentDiv = $('#content');
-        var showMoreButton = $('#show-more');
+	$(document).ready(function() {
+    var contentDiv = $('#content');
+    var showMoreButton = $('#show-more');
 
-        // Check if the content is scrollable
-        if (contentDiv[0].scrollHeight > contentDiv.innerHeight()) {
-            showMoreButton.show(); // Show the button if scrollable
-        }
+    // Check if the content is scrollable
+    if (contentDiv[0].scrollHeight > contentDiv.innerHeight()) {
+        showMoreButton.show(); // Show the button if scrollable
+    }
 
-        // Scroll down when the button is clicked
-        showMoreButton.on('click', function() {
-            contentDiv.animate({
-                scrollTop: contentDiv[0].scrollHeight
-            }, 800);
-        });
-
-        // Optionally, hide the button after scrolling to the bottom
-        contentDiv.on('scroll', function() {
-            if (contentDiv.scrollTop() + contentDiv.innerHeight() >= contentDiv[0].scrollHeight) {
-                showMoreButton.hide();
-            }
-        });	
-
-
-        // Share button click event
-	    $(".shareBtn").click(function(){
-	      var social = $(this).data("social");
-	      var url = encodeURIComponent(window.location.href);
-	      var title = $("#blogTitle").text();
-	      var shareURL;
-
-	      switch(social) {
-	        case "facebook":
-	          shareURL = "https://www.facebook.com/sharer/sharer.php?u=" + url;
-	          break;
-	        case "twitter":
-	          shareURL = "https://twitter.com/intent/tweet?url=" + url + "&text=" + title;
-	          break;
-	        case "linkedin":
-	          shareURL = "https://www.linkedin.com/shareArticle?url=" + url + "&title=" + title;
-	          break;
-	          case "instagram":
-			    shareURL = "https://www.instagram.com/";
-			   
-			    break;
-	         
-	          
-
-
-	      }
-
-	    // Open share URL in new window
-	    window.open(shareURL, "_blank");
-	  });
+    // Scroll down when the button is clicked
+    showMoreButton.on('click', function() {
+        contentDiv.animate({
+            scrollTop: contentDiv[0].scrollHeight
+        }, 800);
     });
 
-	
-	$(document).ready(function() {
+    // Optionally, hide the button after scrolling to the bottom
+    contentDiv.on('scroll', function() {
+        if (contentDiv.scrollTop() + contentDiv.innerHeight() >= contentDiv[0].scrollHeight) {
+            showMoreButton.hide();
+        }
+    });
+
+    // Share button click event
+    $(".shareBtn").click(function(){
+        var social = $(this).data("social");
+        var url = encodeURIComponent(window.location.href);
+        var title = $("#blogTitle").text();
+        var shareURL;
+
+        switch(social) {
+            case "facebook":
+                shareURL = "https://www.facebook.com/sharer/sharer.php?u=" + url;
+                break;
+            case "twitter":
+                shareURL = "https://twitter.com/intent/tweet?url=" + url + "&text=" + title;
+                break;
+            case "linkedin":
+                shareURL = "https://www.linkedin.com/shareArticle?url=" + url + "&title=" + title;
+                break;
+            case "instagram":
+                shareURL = "https://www.instagram.com/";
+                break;
+        }
+
+        // Open share URL in new window
+        window.open(shareURL, "_blank");
+    });
+});
+
+$(document).ready(function() {
     let speechSynthesis = window.speechSynthesis;
     let voices = speechSynthesis.getVoices();
     let isSpeaking = false;
     let isPaused = false;
-    let words;
+    let lines;
     let currentIndex = 0;
     let currentUtterance;
 
@@ -609,48 +602,50 @@
     });
 
     function speak() {
-        let text = $('#content').html(); // Use .html() to retain formatting
-        words = text.split(/\s+/);
+        let text = $('#blog-content').text(); // Get only the visible text
+        // Split text by lines or paragraphs
+        lines = text.split(/\n+/).filter(line => line.trim() !== ''); // Remove empty lines
         currentIndex = 0;
-        speakChunk();
+        speakLine();
     }
 
-    function speakChunk() {
-        let endIndex = currentIndex;
-        let chunk = '';
-        while (endIndex < words.length && !/[.!?]/.test(words[endIndex])) {
-            endIndex++;
-        }
-        chunk = words.slice(currentIndex, endIndex + 1).join(' ');
-        let utterance = new SpeechSynthesisUtterance(chunk);
-        utterance.voice = voices[0]; // Set the voice
-        utterance.onstart = function(event) {
-            highlightCurrentWord(currentIndex, endIndex);
-        };
-        utterance.onend = function(event) {
-            currentIndex = endIndex + 1;
-            if (currentIndex < words.length && !isPaused) {
-                speakChunk();
-            } else {
-                isSpeaking = false;
-                isPaused = false;
-            }
-        };
-        currentUtterance = utterance;
-        isSpeaking = true;
-        isPaused = false;
-        $('#volume-icons').removeClass('fa fa-volume-high');
-        $('#volume-icons').addClass('fa fa-volume-xmark');
+    function speakLine() {
+        if (currentIndex < lines.length) {
+            let line = lines[currentIndex].trim();
+            let utterance = new SpeechSynthesisUtterance(line);
+            utterance.voice = voices[0]; // Set the voice
 
-        speechSynthesis.speak(utterance);
+            // Highlight the current line as it's spoken
+            utterance.onstart = function() {
+                highlightCurrentLine(line);
+            };
+
+            // Move to the next line after speaking the current one
+            utterance.onend = function() {
+                removeHighlight(); // Remove highlight after line is spoken
+                currentIndex++;
+                if (currentIndex < lines.length && !isPaused) {
+                    speakLine();
+                } else {
+                    isSpeaking = false;
+                    isPaused = false;
+                }
+            };
+
+            currentUtterance = utterance;
+            isSpeaking = true;
+            isPaused = false;
+            $('#volume-icons').removeClass('fa fa-volume-high').addClass('fa fa-volume-xmark');
+
+            speechSynthesis.speak(utterance);
+        }
     }
 
     function pause() {
         if (speechSynthesis.speaking) {
             speechSynthesis.pause();
             isPaused = true;
-            $('#volume-icons').removeClass('fa fa-volume-xmark');
-            $('#volume-icons').addClass('fa fa-volume-high');
+            $('#volume-icons').removeClass('fa fa-volume-xmark').addClass('fa fa-volume-high');
         }
     }
 
@@ -658,19 +653,28 @@
         if (isPaused) {
             speechSynthesis.resume();
             isPaused = false;
-            $('#volume-icons').removeClass('fa fa-volume-high');
-            $('#volume-icons').addClass('fa fa-volume-xmark');
+            $('#volume-icons').removeClass('fa fa-volume-high').addClass('fa fa-volume-xmark');
         }
     }
 
-    function highlightCurrentWord(startIndex, endIndex) {
-        let content = $('#content').html(); // Get the original content with formatting
-        let highlightedWords = words.slice(startIndex, endIndex + 1).join(' ');
-        let regex = new RegExp('\\b' + highlightedWords + '\\b', 'g');
-        let highlightedText = content.replace(regex, '<span class="bg-warning">' + highlightedWords + '</span>');
-        $('#content').html(highlightedText);
+    function highlightCurrentLine(line) {
+        removeHighlight(); // Clear previous highlights
+
+        // Escape special characters in the line to avoid regex issues
+        let escapedLine = line.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        
+        // Highlight the current line
+        let content = $('#blog-content').html();
+        let highlightedContent = content.replace(new RegExp(escapedLine, 'g'), `<span class="bg-warning">${line}</span>`);
+        $('#blog-content').html(highlightedContent);
+    }
+
+    function removeHighlight() {
+        $('#blog-content .bg-warning').contents().unwrap(); // Remove previous highlights
     }
 });
+
+
 
 </script>
 </body>
