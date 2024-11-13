@@ -633,7 +633,7 @@ if ($formattedDate !== false) {
 
     try {
         // Use prepared statement for consistent secure querying
-        $stmt = $conn->prepare("SELECT start_date, title, body FROM events");
+        $stmt = $conn->prepare("SELECT start_date, title, body,url FROM events ORDER BY id DESC LIMIT 3");
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -657,7 +657,7 @@ if ($formattedDate !== false) {
                 // Determine if the registration button should be disabled
                 if ($eventTimestamp > $currentTimestamp) {
                     $buttonText = "Register";
-                    $buttonDisabled = "href=''";
+                    $buttonDisabled = "href='".$row['url']."'";
                     $background = "btn btn-danger ";
                 } else {
                     $buttonText = "Deadline Passed";
@@ -673,9 +673,9 @@ if ($formattedDate !== false) {
                       <div class="p-2"><br>
                        <i class="icofont-calendar m-2"></i>
                        <strong class="default-color">' . formatDateWithSuffix($start_date) . '</strong>
-                        <p><a href="service-details.html"><b>' . $title . '</b></a></p>
-                        <p>' . $body . '</p>
-                        <a '.$background2.' ' . $buttonDisabled . ' class="'.$background.' p-2 text-light d col-10" >' . $buttonText . '</a>
+                        <p><a ><b>' . $title . '</b></a></p>
+                        <p>' .substr( $body, 0,200) . '...</p>
+                        <a target="blank" '.$background2.' ' . $buttonDisabled . ' class="'.$background.' p-2 text-light d col-10" >' . $buttonText . '</a>
                         <br><br>
                       </div>
                     </div>
