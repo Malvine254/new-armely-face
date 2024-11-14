@@ -636,6 +636,13 @@ if ($formattedDate !== false) {
         $stmt = $conn->prepare("SELECT start_date, title, body,url FROM events ORDER BY id DESC LIMIT 3");
         $stmt->execute();
         $result = $stmt->get_result();
+         function reduceIt($string){
+                	if ($string>30) {
+                		return "";
+                	}else{
+                		return "<br>";
+                	}
+                }
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -666,17 +673,20 @@ if ($formattedDate !== false) {
                     $background2 = 'style="background: red !important;"';
 
                 }
+               
 
                 // Output the core value item securely
                 echo '<div class="col-lg-4 col-md-6 col-12">
-                    <div class="single-service card">
+                    <div class="single-service card" style="min-height: 350px; max-height: 350px;">
                       <div class="p-2"><br>
                        <i class="icofont-calendar m-2"></i>
                        <strong class="default-color">' . formatDateWithSuffix($start_date) . '</strong>
                         <p><a ><b>' . $title . '</b></a></p>
+                        '.reduceIt(strlen( $title)).'
                         <p>' .substr( $body, 0,200) . '...</p>
+                       
                         <a target="blank" '.$background2.' ' . $buttonDisabled . ' class="'.$background.' p-2 text-light d col-10" >' . $buttonText . '</a>
-                        <br><br>
+                        
                       </div>
                     </div>
                 </div>';
