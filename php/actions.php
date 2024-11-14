@@ -604,7 +604,7 @@ function displayEvents() {
     }
 
     // Return the formatted date string
-    return $day . $suffix . ' ' . $month . ' ' . $year;
+    return  $month.  ' ' . $day . $suffix . '  ' . $year;
 }
 
 // Example usage:
