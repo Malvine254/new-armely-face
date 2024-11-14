@@ -667,7 +667,7 @@ if ($formattedDate !== false) {
                     $buttonDisabled = "href='".$row['url']."'";
                     $background = "btn btn-danger ";
                 } else {
-                    $buttonText = "Deadline Passed";
+                    $buttonText = "Event Ended";
                     $buttonDisabled = "";
                     $background = "btn btn-danger ";
                     $background2 = 'style="background: red !important;"';
