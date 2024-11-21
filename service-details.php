@@ -745,7 +745,7 @@
 				        		<img style="max-height: 480px; min-width: 100%;" src="images/services/fabric_three.png"><br><br>
 				        	</div>
 							            <ul class="benefits-list text-light">
-							            	<h2 class="text-light">3. Lake Centric Open </h2><br>
+							            	<h2 class="text-light">3. Real-Time Analytics </h2><br>
 							            	<p class="text-light">Empower everyone to uncover insights with relevant data, easy-to-use tools, and stunning visuals embedded in Microsoft 365 apps they use every day.</p><br>
 							                <li><span class="checkmark">✓</span> <b>Direct Lake Mode  </b>- Save time for analysts and provide up-to-date insights with a fast, real-time connection to your data in OneLake. </li>
 							                <li><span class="checkmark ">✓</span><b>Built into Microsoft 365</b>- Foster a data-driven culture by seamlessly and securely flowing insights into Microsoft 365 apps, including Teams, Excel, PowerPoint, and Outlook. </li>
@@ -768,7 +768,7 @@
 				        		<img style="max-height: 480px; min-width: 100%;" src="images/services/fabric_four.png"><br><br>
 				        	</div>
 							            <ul class="benefits-list text-light">
-							            	<h2 class="text-light">4. Lake Centric Open </h2><br>
+							            	<h2 class="text-light">4. AI-Driven Insights  </h2><br>
 							            	<p class="text-light">Adopt a data platform that’s infused with AI at every layer to help you get more done, faster.</p><br>
 							                <li><span class="checkmark">✓</span> <b>Create Impactful Reports Faster  </b>- Simply describe what you need—including reports, summaries, and calculations—or ask a question, and Copilot does the rest.</li>
 							                <li><span class="checkmark ">✓</span><b>Do more with Copilot in Fabric</b>- Simply describe what you need including reports, summaries, and calculations—or ask a question, and Copilot does the rest. </li>
