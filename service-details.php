@@ -95,8 +95,8 @@
 	</div>
 	<div class="col-lg-9 col-md-9 col-12">
 		<!-- Main Menu -->
-    <div class="main-menu">
-       <nav class="navigation">
+   <div class="main-menu">
+		 <nav class="navigation">
         <ul class="nav menu">
           <li class=""><a >Why Us <i class="icofont-rounded-down"></i></a>
             <ul class="dropdown">
@@ -118,31 +118,46 @@
                   </li>
                    
                    <li>
-                      <a >Data Transformation <i class="icofont-rounded-right"></i></a>
+                      <a >Data Services <i class="icofont-rounded-right"></i></a>
                       <ul class="dropdown">
                           <li><a href="service-details?name=fabric">Microsoft Fabric</a></li>
                           <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
                           <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
                           <li><a href="service-details?name=databricks">Databricks</a></li>
+                          <li><a href="service-details?name=snowflake">Snowflake</a></li>
+                          <li><a href="service-details?name=sql-data-warehousing">SQL & Data Warehousing</a></li>
                       </ul>
                   </li>
-                  <li>
-                    <a>Digital Services <i class="icofont-rounded-right"></i></a>
+                   <li>
+                    <a>Digital Transformation <i class="icofont-rounded-right"></i></a>
                     <ul class="dropdown">
+                    	 <li><a href="service-details?name=apidataaccess">API Data Access</a></li>
                         <li><a href="service-details?name=powerapps">Microsoft Powerapps</a></li>
                         <li><a href="service-details?name=powerautomate">Microsoft Power Automate</a></li>
                          <li><a href="service-details?name=virtualagents">Microsoft Power Virtual Agents</a></li>
                           <li><a href="service-details?name=powerplatform">Microsoft Power Pages</a></li>
+                           <li><a href="service-details?name=dynamics365">Microsoft Dynamics 365</a></li>
                          <li><a href="service-details?name=roboticprocessing">Robotic Processing Automation</a></li>
                          <li><a href="service-details?name=sharepointonline">Sharepoint Online</a></li>
-                         <!-- <li><a href="service-details?name=copilot">Copilot</a></li> -->
+
+                    </ul>
+                  </li>
+                   <li><a href="service-details?name=freemiums">Freemiums</a></li>
+                   <li>
+                    <a>Managed Services <i class="icofont-rounded-right"></i></a>
+                    <ul class="dropdown">
+                        <li><a href="service-details?name=sqlsupport">SQL Server Support</a></li>
+                        <li><a href="service-details?name=appsupport">Applications Support</a></li>
                     </ul>
 
                   </li>   
-                   <li><a href="service-details?name=freemiums">Freemiums</a></li>
+
+                 
+                  
+                   
 
               </ul>
-          </li>
+            </li>
           <li><a >Insights <i class="icofont-rounded-down"></i></a>
             <ul class="dropdown">
               <li><a href="blog">Blog Articles</a></li>
@@ -160,7 +175,7 @@
           </li>
         </ul>
       </nav>
-    </div>
+		</div>
     <!--/ End Main Menu -->
 	</div>
 	<div class="col-lg-2 col-12">
@@ -651,13 +666,325 @@
 								</div>
 								<?php endif ?>
 								
-								<?php if ($_GET['name']=="fabric"): ?>
+								
+							<!-- start of snowflake for SQL and Data Engineering 	 -->
+							<?php if ($_GET['name']=="fabric"): ?>
+							<div class="container">	
+							<h3 class="text-center">Data Transformation Services: Microsoft Fabric  	<center><hr class="default-background hr" ></center></h3>
+								
+							<div class="container-fluid solutions-section text-white py-5 mt-5">
+						    <div class="row align-items-center">
+						        <!-- Text Column -->
+						        <div class="col-md-6  text-center text-md-left">
+						           <div class="m-5">
+							            <h2 class="text-light">Microsoft Fabric </h2>
+							            <p class="text-light">Microsoft Fabric is an end-to-end analytics platform that provides a single, integrated environment for data professionals and businesses to collaborate on data projects. Fabric provides a set of integrated services that enable you to ingest, store, process, and analyze data in a single environment. </p>
+							            <p class="text-light">DMicrosoft Fabric provides tools for both citizen and professional data practitioners and integrates with tools the business needs to make decisions. Fabric includes the following services:Data engineering Data integration, Data warehousing, Real-time intelligence, Data science and Business intelligence  </p>
+							            <a  href="#consultation" class="btn btn-outline-light mt-3 text-light">Request A Microsoft Fabric Solution</a>
+						          	</div>
+						        </div>
+						        
+						        <!-- Image Column -->
+						        <div class="col-md-6 text-center">
+						            <img src="images/services/fabric_main_header.webp" alt="Team collaboration" class="img-fluid rounded p-4">
+						        </div>
+						    </div>
+						</div>
+
 							
-								<div class="container">
-									<h3 class="mt-4">Data Services: Fabric</h3>	
-									<p>As a leading Microsoft Fabric consulting partner, we have the expertise to help you navigate the complexities of this powerful platform and unlock its transformative potential for your business. Our team of certified consultants will guide you through every step of your Microsoft Fabric implementation and optimization journey.</p>
-								</div>
-							<?php endif ?>	
+
+						<div class="container-fluid mt-5">
+							    <div class="row">
+							        <!-- Left Column -->
+							        <div style="background: teal; " class=" p-5">
+							          <div  class="video-" >
+				        		<img style="max-height: 480px; min-width: 100%;" src="images/services/fabric_main_header.png"><br><br>
+				        	</div>
+							            <ul class="benefits-list text-light">
+							            	<h2 class="text-light">1. Complete Data Platform</h2><br>
+							            	<p class="text-light">Give your data teams all the tools they need in a unified experience that helps reduce the cost and effort of data integration, governance, and security.</p><br>
+							                
+							                <li><span class="checkmark ">✓</span><b>Single experience </b>- Help data engineers, data scientists, analysts, and business users achieve shared goals with software as a service built for collaboration.</li>
+							                <li><span class="checkmark">✓</span><b> Governance and Security</b>- AGain end-to-end visibility, usage and adoption insights, and industry-leading governance and compliance capabilities. </li>
+							                <li><span class="checkmark">✓</span><b>Unified Capacity</b>- Simplify billing and help reduce costs with a single pool of capacity and storage that can be used for every workload.</li>
+							               
+							            </ul>
+  
+							        </div>
+
+							       
+							    </div>
+							</div>
+								<div class="container-fluid mt-5">
+							    <div class="row">
+							        <!-- Left Column -->
+							        <div s class="bg-warning p-5">
+							          <div  class="video-" >
+				        		<img style="max-height: 480px; min-width: 100%;" src="images/services/fabric_two.png"><br><br>
+				        	</div>
+							            <ul class="benefits-list text-light">
+							            	<h2 class="text-light">2. Lake Centric Open </h2><br>
+							            	<p class="text-light">Simplify data integration from nearly any source into a single, multi-cloud data lake for your entire organization, and work from the same copy of data across analytics engines and languages.</p><br>
+							                <li><span class="checkmark ">✓</span><b>No Data Movement </b>- Create shortcuts between data items across clouds like Azure and AWS without duplication, movement, or ownership change. </li>
+							                <li><span class="checkmark">✓</span><b> One Copy Across Engines</b>- Reduce data duplication by using a single copy of data to power all your workloads.</li>
+							                <li><span class="checkmark">✓</span><b>OneLake data hub</b>-  Bring your data together in an intuitive hub that’s automatically indexed for discovery, sharing, governance, and compliance.</li>
+							                <li><span class="checkmark">✓</span><b>Lake Centric Open </b>-  Empower everyone to uncover insights with relevant data, easy-to-use tools, and stunning visuals embedded in Microsoft 365 apps they use every day. </li>
+							               
+							            </ul>
+  
+							        </div>
+
+							       
+							    </div>
+							</div>
+							<div class="container-fluid mt-5">
+							    <div class="row">
+							        <!-- Left Column -->
+							        <div s class="bg-dark p-5">
+							          <div  class="video-" >
+				        		<img style="max-height: 480px; min-width: 100%;" src="images/services/fabric_three.png"><br><br>
+				        	</div>
+							            <ul class="benefits-list text-light">
+							            	<h2 class="text-light">3. Lake Centric Open </h2><br>
+							            	<p class="text-light">Empower everyone to uncover insights with relevant data, easy-to-use tools, and stunning visuals embedded in Microsoft 365 apps they use every day.</p><br>
+							                <li><span class="checkmark">✓</span> <b>Direct Lake Mode  </b>- Save time for analysts and provide up-to-date insights with a fast, real-time connection to your data in OneLake. </li>
+							                <li><span class="checkmark ">✓</span><b>Built into Microsoft 365</b>- Foster a data-driven culture by seamlessly and securely flowing insights into Microsoft 365 apps, including Teams, Excel, PowerPoint, and Outlook. </li>
+							                <li><span class="checkmark">✓</span><b> Data Driven Actions</b>- Easily set up an end-to-end solution so teams can act quickly in response to time-sensitive events.</li>
+							               
+							               
+							            </ul>
+  
+							        </div>
+
+							       
+							    </div>
+							</div>
+
+						<div class="container-fluid mt-5">
+							    <div class="row">
+							        <!-- Left Column -->
+							        <div s class="bg-success p-5">
+							          <div  class="video-" >
+				        		<img style="max-height: 480px; min-width: 100%;" src="images/services/fabric_four.png"><br><br>
+				        	</div>
+							            <ul class="benefits-list text-light">
+							            	<h2 class="text-light">4. Lake Centric Open </h2><br>
+							            	<p class="text-light">Adopt a data platform that’s infused with AI at every layer to help you get more done, faster.</p><br>
+							                <li><span class="checkmark">✓</span> <b>Create Impactful Reports Faster  </b>- Simply describe what you need—including reports, summaries, and calculations—or ask a question, and Copilot does the rest.</li>
+							                <li><span class="checkmark ">✓</span><b>Do more with Copilot in Fabric</b>- Simply describe what you need including reports, summaries, and calculations—or ask a question, and Copilot does the rest. </li>
+							                <li><span class="checkmark">✓</span><b> Build Custom Ai Models</b>- Fuel your own tailor-made generative AI experiences in Azure AI Studio with curated data seamlessly flowing from Fabric.</li>
+							               
+							               
+							            </ul>
+  
+							        </div>
+
+							       
+							    </div>
+							</div>
+
+							
+							</div>
+							<?php endif ?>
+
+
+
+							<!-- start of snowflake for SQL and Data Engineering 	 -->
+							<?php if ($_GET['name']=="sqlsupport"): ?>
+							<div class="container">	
+							<h3 class="text-center">Managed Services: SQL Server Support  	<center><hr class="default-background hr" ></center></h3>
+								
+							<div class="container-fluid solutions-section text-white py-5 mt-5">
+						    <div class="row align-items-center">
+						        <!-- Text Column -->
+						        <div class="col-md-6  text-center text-md-left">
+						           <div class="m-5">
+							            <h2 class="text-light">SQL Server Support </h2>
+							            <p class="text-light">SQL support provides businesses and organizations with technical assistance and expertise in managing and optimizing their SQL-based databases. From query optimization to troubleshooting and maintenance, SQL support ensures that your database operations run smoothly, securely, and efficiently.  </p>
+							            
+							            <a  href="#consultation" class="btn btn-outline-light mt-3 text-light">Request A  SQL Server Support Solution</a>
+						          	</div>
+						        </div>
+						        
+						        <!-- Image Column -->
+						        <div class="col-md-6 text-center">
+						            <img src="images/services/fabric_main_header.webp" alt="Team collaboration" class="img-fluid rounded p-4">
+						        </div>
+						    </div>
+						</div>
+
+							
+
+						<div class="container-fluid mt-5">
+							    <div class="row">
+							        <!-- Left Column -->
+							        <div style="background: teal; " class=" p-5">
+							        
+							            <ul class="benefits-list text-light">
+							            	<h2 class="text-light">Why Do You Need SQL Support?</h2><br>
+							            	<p class="text-light">Databases are at the core of modern businesses, powering applications, analytics, and decision-making. However, managing SQL databases can be complex and resource-intensive. SQL support helps organizations by:</p><br>
+							                
+							                <li><span class="checkmark ">✓</span><b>Optimizing Performance </b>- Enhance database performance through efficient indexing, optimized queries, and resource management.</li>
+							                <li><span class="checkmark">✓</span><b> Troubleshooting Issues</b>- Quickly identify and resolve database errors, slow queries, and connectivity problems.</li>
+							                <li><span class="checkmark">✓</span><b>Ensuring Data Security</b>- Implement robust security measures to protect sensitive data from breaches and unauthorized access.</li>
+							                <li><span class="checkmark">✓</span><b>Supporting Scalability</b>- Design and implement scalable database architectures that grow with your business needs.</li>
+							                <li><span class="checkmark">✓</span><b>Streamlining Maintenance</b>- Automate routine tasks like backups, updates, and performance monitoring.</li>
+							               
+							            </ul>
+  
+							        </div>
+
+							       
+							    </div>
+							</div>
+								<div class="container-fluid mt-5">
+							    <div class="row">
+							        <!-- Left Column -->
+							        <div s class="bg-success p-5">
+							          
+							            <ul class="benefits-list text-light">
+							            	<h2 class="text-light">Key Services Offered in SQL Support</h2><br>
+							            	<p class="text-light">Simplify data integration from nearly any source into a single, multi-cloud data lake for your entire organization, and work from the same copy of data across analytics engines and languages.</p><br>
+							                <li><span class="checkmark ">✓</span><b>Database Administration</b>- Monitoring and managing database health, Configuring and maintaining database servers and performing regular backups and recovery tests. </li>
+							                <li><span class="checkmark">✓</span><b>Performance Tuning</b>- Analyzing and improving SQL queries for faster performance, identifying bottlenecks in query execution.</li>
+							                <li><span class="checkmark">✓</span><b>Query Optimization</b>-  Enhancing indexing strategies and optimizing resource allocation, Resolving slow-loading queries and processes.</li>
+							                <li><span class="checkmark">✓</span><b>Data Security and Compliance </b>-  Migrating data between databases or systems with minimal downtime, connecting your database to external APIs or data sources. </li>
+							                <li><span class="checkmark">✓</span><b>Disaster Recovery Planning</b>-  Creating and implementing recovery strategies for unexpected data loss, setting up high-availability systems for business continuity.</li>
+							               <li><span class="checkmark">✓</span><b>Training and Documentation</b>-  Training your team in SQL best practices, providing detailed documentation for database systems and workflows.</li>
+							            </ul>
+  
+							        </div>
+
+							       
+							    </div>
+							</div>
+							<div class="container-fluid mt-5">
+							    <div class="row">
+							        <!-- Left Column -->
+							        <div s class="bg-primary p-5 col-12">
+							          
+							            <ul class="benefits-list text-light">
+							            	<h2 class="text-light">Common Platforms We Support</h2><br>
+							            	<br>
+							                <li><span class="checkmark ">✓</span><b>MySQL</b> </li>
+							               <li><span class="checkmark ">✓</span><b>Microsoft SQL Server</b> </li>
+							               <li><span class="checkmark ">✓</span><b>Oracle Database</b> </li>
+							               <li><span class="checkmark ">✓</span><b>Snowflake</b> </li>
+							               <li><span class="checkmark ">✓</span><b>Azure SQL Database</b> </li>
+							               <li><span class="checkmark ">✓</span><b>AWS RDS and Aurora</b> </li>
+							               <li><span class="checkmark ">✓</span><b>Google BigQuery</b> </li>
+
+							            </ul>
+  
+							        </div>
+
+							       
+							    </div>
+							</div>
+						
+
+							
+							</div>
+							<?php endif ?>
+
+
+							<!-- start of app support	 -->
+							<?php if ($_GET['name']=="appsupport"): ?>
+							<div class="container">	
+							<h3 class="text-center">Managed Services: Application Support  	<center><hr class="default-background hr" ></center></h3>
+								
+							<div class="container-fluid solutions-section text-white py-5 mt-5">
+						    <div class="row align-items-center">
+						        <!-- Text Column -->
+						        <div class="col-md-6  text-center text-md-left">
+						           <div class="m-5">
+							            <h2 class="text-light">Application Support </h2>
+							            <p class="text-light">Application support is a specialized service that ensures your business-critical applications operate efficiently, securely, and without interruptions. From troubleshooting issues to enhancing performance and providing regular updates, application support helps businesses leverage the full potential of their software systems.</p>
+							            
+							            <a  href="#consultation" class="btn btn-outline-light mt-3 text-light">Request an  Application Support</a>
+						          	</div>
+						        </div>
+						        
+						        <!-- Image Column -->
+						        <div class="col-md-6 text-center">
+						            <img src="images/services/fabric_main_header.webp" alt="Team collaboration" class="img-fluid rounded p-4">
+						        </div>
+						    </div>
+						</div>
+
+							
+
+						<div class="container-fluid mt-5">
+							    <div class="row">
+							        <!-- Left Column -->
+							        <div style="background: teal; " class=" p-5">
+							        
+							            <ul class="benefits-list text-light">
+							            	<h2 class="text-light">Why Your Business Needs Application Support</h2><br>
+							            	<p class="text-light">DApplications are at the heart of modern businesses, powering everything from customer relationship management to inventory tracking and analytics. Here’s why reliable application support is essential:</p><br>
+							                
+							                <li><span class="checkmark ">✓</span><b>Minimized Downtime </b>- Proactive monitoring and quick resolution ensure your business operations are never disrupted.</li>
+							                <li><span class="checkmark">✓</span><b> Improved Performance</b>- Regular updates and patches safeguard against vulnerabilities and protect sensitive data.</li>
+							                <li><span class="checkmark">✓</span><b>Enhanced Security</b>- Implement robust security measures to protect sensitive data from breaches and unauthorized access.</li>
+							                <li><span class="checkmark">✓</span><b>Scalability</b>- Adapt applications to meet growing business demands or integrate with new tools and platforms.</li>
+							                <li><span class="checkmark">✓</span><b>User Satisfaction</b>- Provide seamless experiences to both employees and customers, improving productivity and loyalty.</li>
+							               
+							            </ul>
+  
+							        </div>
+
+							       
+							    </div>
+							</div>
+								<div class="container-fluid mt-5">
+							    <div class="row">
+							        <!-- Left Column -->
+							        <div s class="bg-success p-5">
+							          
+							            <ul class="benefits-list text-light">
+							            	<h2 class="text-light">Core Services in Application Support</h2><br>
+							            	
+							                <li><span class="checkmark ">✓</span><b>Monitoring and Maintenance</b>- Proactive monitoring to detect and resolve issues before they impact users, routine maintenance to keep applications updated and efficient. </li>
+							                <li><span class="checkmark">✓</span><b>Troubleshooting and Bug Fixing</b>- Rapid resolution of application errors, crashes, or slowdowns, addressing software bugs and deploying patches.</li>
+</li>
+							                <li><span class="checkmark">✓</span><b>Performance Optimization</b>-  Streamlining workflows and optimizing application speed, identifying and eliminating bottlenecks in performance.</li>
+							                <li><span class="checkmark">✓</span><b>Upgrades and Enhancements </b>-  Installing new application versions and updates, adding new features and functionality based on business needs. </li>
+							                <li><span class="checkmark">✓</span><b>Integration and Compatibility Support</b>-  Ensuring applications work seamlessly with other systems and tools, resolving compatibility issues with hardware or software upgrades.</li>
+							               <li><span class="checkmark">✓</span><b>Security and Compliance</b>-  Protecting applications from cyber threats with regular updates and audits, ensuring compliance with industry standards and regulations.</li>
+							            </ul>
+  
+							        </div>
+
+							       
+							    </div>
+							</div>
+							<div class="container-fluid mt-5">
+							    <div class="row">
+							        <!-- Left Column -->
+							        <div s class="bg-primary p-5 col-12">
+							          
+							            <ul class="benefits-list text-light">
+							            	<h2 class="text-light">Applications We Support</h2><br>
+							            	<br>
+							                <li><span class="checkmark ">✓</span><b>Enterprise Applications- ERP Systems: SAP, Microsoft Dynamics, Oracle ERP</b> </li>
+							               <li><span class="checkmark ">✓</span><b>Cloud-Based Applications- Microsoft 365, Google Workspace, AWS Applications</b> </li>
+							               <li><span class="checkmark ">✓</span><b>Custom Applications- Tailored software solutions developed specifically for your business.</b> </li>
+							               <li><span class="checkmark ">✓</span><b>Data and Analytics Tools- Power BI, Tableau, QlikView</b> </li>
+							               <li><span class="checkmark ">✓</span><b>Industry-Specific Applications- Healthcare, Retail, Manufacturing, Finance, and Education software</b> </li>
+							               
+
+							            </ul>
+  
+							        </div>
+
+							       
+							    </div>
+							</div>
+						
+
+							
+							</div>
+							<?php endif ?>
 							</div>
 
 
@@ -1104,7 +1431,7 @@
 				         <!-- Image Section -->
 				        <div class="col-md-6 text-center">
 				        	<div class="video-container">
-				        		<img src="images/services/save_email_attachment.png">
+				        		<img src="images/services/ml.webp">
 				        	</div>
 				           
 							  </div>
@@ -1117,6 +1444,423 @@
 							</div>
 							<?php endif ?>
 
+						<!-- start of snowflake for digital services -->
+							<?php if ($_GET['name']=="snowflake"): ?>
+							<div class="container">	
+							<h3 class="text-center">Digital Services: Snowflake 	<center><hr class="default-background hr" ></center></h3>
+								
+							<div class="container-fluid solutions-section text-white py-5 mt-5">
+						    <div class="row align-items-center">
+						        <!-- Text Column -->
+						        <div class="col-md-6  text-center text-md-left">
+						           <div class="m-5">
+							            <h2 class="text-light">Snowflake Solutions</h2>
+							            <p class="text-light">Snowflake is a cloud-based data platform that revolutionizes how businesses manage and analyze their data. With its multi-cloud architecture and unique features, Snowflake offers a scalable, secure, and efficient way to store, process, and analyze vast amounts of structured and semi-structured data. From data warehousing to data lakes and real-time analytics, Snowflake empowers organizations to make data-driven decisions with ease.</p>
+							            <a  href="#consultation" class="btn btn-outline-light mt-3 text-light">Request A Snowflake Solution</a>
+						          	</div>
+						        </div>
+						        
+						        <!-- Image Column -->
+						        <div class="col-md-6 text-center">
+						            <img src="images/services/data_sharing.webp" alt="Team collaboration" class="img-fluid rounded p-4">
+						        </div>
+						    </div>
+						</div>
+
+							<div class="container-fluid mt-5">
+							    <div class="row">
+							        <!-- Left Column -->
+							        <div style="background: teal;" class=" p-5">
+							        	 <h2 class="mb-1 text-light">Key Features of Snowflake</h2>
+							          
+							            <ul class="benefits-list text-light">
+							                <li><span class="checkmark">✓</span> Cloud-Native Architecture: Snowflake is built to run seamlessly on popular cloud platforms like AWS, Azure, and Google Cloud, ensuring flexibility and reliability.</li>
+							                <li><span class="checkmark ">✓</span> Separation of Compute and Storage: Snowflake allows independent scaling of compute and storage resources, making it cost-effective and efficient for various workloads.</li>
+							                <li><span class="checkmark">✓</span> Data Sharing and Collaboration: Snowflake's Secure Data Sharing enables instant, real-time sharing of data across organizations without the need for data replication.</li>
+							                <li><span class="checkmark">✓</span> Support for Structured and Semi-Structured Data: Snowflake natively supports diverse data formats like JSON, Avro, Parquet, and ORC, simplifying the integration of complex datasets.</li>
+							                <li><span class="checkmark">✓</span>Built-in Security and Governance: With robust encryption, role-based access controls, and compliance with industry standards, Snowflake ensures that your data remains secure.</li>
+							            </ul>
+  
+							        </div>
+
+							       
+							    </div>
+							</div>
+
+						<div class="container my-5 mt-4">
+				    <div class="row align-items-center">
+				    	  <!-- Image Section -->
+				        <div class="col-md-6 text-center">
+				        	<div class="video-container">
+				        		<img src="images/services/data_warehouse.webp">
+				        	</div>
+				           
+							  </div>
+				    	
+				        <!-- Text Section -->
+				        <div class="col-md-6">
+				            <h2 class="font-weight-bold">Data Warehousing & Data Lakes</h2><br>
+				            <p>Snowflake’s advanced architecture is ideal for building scalable and high-performing data warehouses that support real-time analytics and reporting.</p>
+				            <p>Simplify your data lake strategy with Snowflake by consolidating structured and semi-structured data into a unified platform for comprehensive analysis.</p>
+				            <br>
+				          
+				        </div>
+				        
+				        
+				      
+				    </div>
+						</div>
+
+						<div class="container my-5 mt-4">
+				    <div class="row align-items-center">
+				    	
+				        <!-- Text Section -->
+				        <div class="col-md-6">
+				            <h2 class="font-weight-bold">Business Intelligence & Real-Time Analytics</h2><br>
+				            <p>Integrate Snowflake with BI tools like Tableau, Power BI, and Looker to uncover actionable insights and enhance decision-making.</p>
+				            <p>Enable real-time monitoring and analytics to drive immediate business decisions, such as customer personalization or operational efficiency.</p><br>
+				          
+				        </div>
+				         <!-- Image Section -->
+				        <div class="col-md-6 text-center">
+				        	<div class="video-container">
+				        		<img src="images/services/header.webp">
+				        	</div>
+				           
+							  </div>
+				        
+				      
+				    </div>
+						</div>
+
+							
+							</div>
+							<?php endif ?>
+
+								<!-- start of snowflake for Microsoft Dynamics 365 	 -->
+							<?php if ($_GET['name']=="dynamics365"): ?>
+							<div class="container">	
+							<h3 class="text-center">Digital Services: Microsoft Dynamics 365 	<center><hr class="default-background hr" ></center></h3>
+								
+							<div class="container-fluid solutions-section text-white py-5 mt-5">
+						    <div class="row align-items-center">
+						        <!-- Text Column -->
+						        <div class="col-md-6  text-center text-md-left">
+						           <div class="m-5">
+							            <h2 class="text-light">Microsoft Dynamics 365 Solutions</h2>
+							            <p class="text-light">Microsoft Dynamics 365 is a cloud-based suite of intelligent business applications that combine CRM (Customer Relationship Management) and ERP (Enterprise Resource Planning) capabilities. It empowers organizations to drive innovation, optimize workflows, and deliver exceptional customer experiences.</p>
+							            <p class="text-light">From sales and marketing to finance and operations, Dynamics 365 unifies data, streamlines processes, and fosters collaboration across teams.</p>
+							            <a  href="#consultation" class="btn btn-outline-light mt-3 text-light">Request A MS Dynamics 365 Solution</a>
+						          	</div>
+						        </div>
+						        
+						        <!-- Image Column -->
+						        <div class="col-md-6 text-center">
+						            <img src="images/services/365_header.webp" alt="Team collaboration" class="img-fluid rounded p-4">
+						        </div>
+						    </div>
+						</div>
+
+							<div class="container-fluid mt-5">
+							    <div class="row">
+							        <!-- Left Column -->
+							        <div style="background: teal;" class=" p-5">
+							        	 <h2 class="mb-1 text-light">Key Features of Microsoft Dynamics 365</h2>
+							          
+							            <ul class="benefits-list text-light">
+							                <li><span class="checkmark">✓</span> Unified Platform- Seamlessly integrates ERP and CRM functionalities, ensuring a connected and streamlined approach to business management.</li>
+							                <li><span class="checkmark ">✓</span> Artificial Intelligence and Insights- Leverages AI-driven analytics and predictive insights to make smarter, faster decisions.</li>
+							                <li><span class="checkmark">✓</span> Customization and Scalability- Tailor solutions to meet your unique business needs, and scale effortlessly as your business grows.</li>
+							                <li><span class="checkmark">✓</span> Cross-Platform Integration- Works harmoniously with Microsoft 365, Power Platform, and third-party applications for a complete digital ecosystem.</li>
+							                <li><span class="checkmark">✓</span>Industry-Specific Solutions- Provides specialized modules for industries such as retail, manufacturing, healthcare, and finance.</li>
+							            </ul>
+  
+							        </div>
+
+							       
+							    </div>
+							</div>
+
+						<div class="container my-5 mt-4">
+				    <div class="row align-items-center">
+				    	  <!-- Image Section -->
+				        <div class="col-md-6 text-center">
+				        	<div class="video-container">
+				        		<img src="images/services/sales_automation.webp">
+				        	</div>
+				           
+							  </div>
+				    	
+				        <!-- Text Section -->
+				        <div class="col-md-6">
+				            <h2 class="font-weight-bold">Sales Automation & Marketing Optimization</h2><br>
+				            <p>Equip sales teams with AI-driven tools to manage pipelines, close deals faster, and deliver personalized customer experiences.</p>
+				            <p>Plan, execute, and analyze campaigns with Dynamics 365 Marketing, enhancing engagement through customer insights.</p>
+				            <br>
+				          
+				        </div>
+				        
+				        
+				      
+				    </div>
+						</div>
+
+						<div class="container my-5 mt-4">
+				    <div class="row align-items-center">
+				    	
+				        <!-- Text Section -->
+				        <div class="col-md-6">
+				            <h2 class="font-weight-bold">Customer Service Excellence & Finance and Operations</h2><br>
+				            <p>Streamline financial processes, automate workflows, and optimize supply chain operations with Dynamics 365 Finance and Supply Chain Management.</p>
+				            <p>Empower support teams to provide seamless and efficient customer service with intuitive tools and real-time insights.</p><br>
+				          
+				        </div>
+				         <!-- Image Section -->
+				        <div class="col-md-6 text-center">
+				        	<div class="video-container">
+				        		<img src="images/services/365_last.webp">
+				        	</div>
+				           
+							  </div>
+				        
+				      
+				    </div>
+						</div>
+
+							<div class="container my-5 mt-4">
+				    <div class="row align-items-center">
+				    	 <!-- Image Section -->
+				        <div class="col-md-6 text-center">
+				        	<div class="video-container">
+				        		<img src="images/services/customer_service.webp">
+				        	</div>
+				           
+							  </div>
+				        <!-- Text Section -->
+				        <div class="col-md-6">
+				            <h2 class="font-weight-bold">Human Resource Management & Project Management</h2><br>
+				            <p>Manage employee lifecycles, performance, and compliance with Dynamics 365 Human Resources.</p>
+				            <p>Plan, track, and execute projects with Dynamics 365 Project Operations, ensuring timely delivery and budget management.</p><br>
+				          
+				        </div>
+				        
+				        
+				      
+				    </div>
+						</div>
+							</div>
+							<?php endif ?>
+
+
+							<!-- start of snowflake for SQL and Data Engineering 	 -->
+							<?php if ($_GET['name']=="sql-data-warehousing"): ?>
+							<div class="container">	
+							<h3 class="text-center">Digital Services: SQL and Data Engineering 	<center><hr class="default-background hr" ></center></h3>
+								
+							<div class="container-fluid solutions-section text-white py-5 mt-5">
+						    <div class="row align-items-center">
+						        <!-- Text Column -->
+						        <div class="col-md-6  text-center text-md-left">
+						           <div class="m-5">
+							            <h2 class="text-light">SQL and Data Engineering Solutions</h2>
+							            <p class="text-light">SQL (Structured Query Language) is the standard programming language for managing and interacting with relational databases. It is the foundation for organizing, storing, retrieving, and analyzing data efficiently. With SQL, organizations can access and manipulate data seamlessly, ensuring that they derive value from their data assets.</p>
+							            <p class="text-light">Data Engineering involves designing, building, and maintaining systems for collecting, storing, and analyzing large sets of data. It is a critical discipline in data-driven organizations, ensuring that data is accessible, reliable, and optimized for use in analytics, machine learning, and business intelligence.</p>
+							            <a  href="#consultation" class="btn btn-outline-light mt-3 text-light">Request SQL and Data Engineering Solution</a>
+						          	</div>
+						        </div>
+						        
+						        <!-- Image Column -->
+						        <div class="col-md-6 text-center">
+						            <img src="images/services/sql_header.webp" alt="Team collaboration" class="img-fluid rounded p-4">
+						        </div>
+						    </div>
+						</div>
+
+							<div class="container-fluid mt-5">
+							    <div class="row">
+							        <!-- Left Column -->
+							        <div style="background: teal;" class=" p-5">
+							        	 <h2 class="mb-1 text-light">The Role of SQL in Data Engineering</h2>
+							          
+							            <ul class="benefits-list text-light">
+							                <li><span class="checkmark">✓</span> Design and Manage Databases- Use SQL to create, modify, and manage database schemas and structures.</li>
+							                <li><span class="checkmark ">✓</span> ETL Processes- Facilitate Extract, Transform, and Load (ETL) pipelines to move data between systems and clean it for analysis.</li>
+							                <li><span class="checkmark">✓</span> Data Integration- Combine data from multiple sources, creating a unified view for analytics and reporting.</li>
+							                <li><span class="checkmark">✓</span> Data Quality Management- Implement SQL queries to identify and resolve data inconsistencies or missing values..</li>
+							                <li><span class="checkmark">✓</span>Performance Optimization- Write optimized SQL queries to enhance database performance and reduce latency.</li>
+							            </ul>
+  
+							        </div>
+
+							       
+							    </div>
+							</div>
+
+						<div class="container my-5 mt-4">
+				    <div class="row align-items-center">
+				    	  <!-- Image Section -->
+				        <div class="col-md-6 text-center">
+				        	<div class="video-container">
+				        		<img src="images/services/sql_business_intel.webp">
+				        	</div>
+				           
+							  </div>
+				    	
+				        <!-- Text Section -->
+				        <div class="col-md-6">
+				            <h2 class="font-weight-bold">Business Intelligence & Machine Learning</h2><br>
+				            <p>Build robust data pipelines that feed into BI tools like Power BI, Tableau, or Looker, enabling real-time decision-making.</p>
+				            <p>Prepare and transform data for machine learning models by integrating SQL with Python or R.</p>
+				            <br>
+				          
+				        </div>
+				        
+				        
+				      
+				    </div>
+						</div>
+
+						<div class="container my-5 mt-4">
+				    <div class="row align-items-center">
+				    	
+				        <!-- Text Section -->
+				        <div class="col-md-6">
+				            <h2 class="font-weight-bold">Data Warehousing & Streaming Data Processing</h2><br>
+				            <p>Design and optimize data warehouses to store historical and transactional data for analysis.</p>
+				            <p>Manage real-time data streams for use cases like fraud detection or personalized recommendations.</p><br>
+				          
+				        </div>
+				         <!-- Image Section -->
+				        <div class="col-md-6 text-center">
+				        	<div class="video-container">
+				        		<img src="images/services/sql_data_warehousing.webp">
+				        	</div>
+				           
+							  </div>
+				        
+				      
+				    </div>
+						</div>
+
+							<div class="container my-5 mt-4">
+				    <div class="row align-items-center">
+				    	 <!-- Image Section -->
+				        <div class="col-md-6 text-center">
+				        	<div class="video-container">
+				        		<img src="images/services/sql_cloud_based.webp">
+				        	</div>
+				           
+							  </div>
+				        <!-- Text Section -->
+				        <div class="col-md-6">
+				            <h2 class="font-weight-bold">Cloud-Based Data Solutions</h2><br>
+				            <p>Work with cloud platforms like AWS, Azure, and Google Cloud to implement scalable and reliable data systems.</p>
+				           <br>
+				          
+				        </div>
+				        
+				        
+				      
+				    </div>
+						</div>
+							</div>
+							<?php endif ?>
+
+
+							<!-- start of snowflake for API Data Access	 	 -->
+							<?php if ($_GET['name']=="apidataaccess"): ?>
+							<div class="container">	
+							<h3 class="text-center">Digital Services: API Data Access	<center><hr class="default-background hr" ></center></h3>
+								
+							<div class="container-fluid solutions-section text-white py-5 mt-5">
+						    <div class="row align-items-center">
+						        <!-- Text Column -->
+						        <div class="col-md-6  text-center text-md-left">
+						           <div class="m-5">
+							            <h2 class="text-light">APIs in Data Access</h2>
+							            <p class="text-light">API (Application Programming Interface) data access allows applications to interact with and retrieve data from external or internal systems, enabling seamless integration and data flow. APIs are the backbone of modern applications, offering developers the ability to access, manipulate, and utilize data from various sources like cloud platforms, databases, and third-party services.</p>
+							            
+							            <a  href="#consultation" class="btn btn-outline-light mt-3 text-light">Request API Data Access Solution</a>
+						          	</div>
+						        </div>
+						        
+						        <!-- Image Column -->
+						        <div class="col-md-6 text-center">
+						            <img src="images/services/api_integration.webp" alt="Team collaboration" class="img-fluid rounded p-4">
+						        </div>
+						    </div>
+						</div>
+
+							<div class="container-fluid mt-5">
+							    <div class="row">
+							        <!-- Left Column -->
+							        <div style="background: teal;" class=" p-5">
+							        	 <h2 class="mb-1 text-light">The Role of APIs in Data Access</h2>
+							          
+							            <ul class="benefits-list text-light">
+							                <li><span class="checkmark">✓</span> Access Real-Time Data- Fetch up-to-date information from systems like databases, cloud platforms, and external services.</li>
+							                <li><span class="checkmark ">✓</span>Enable Seamless Integration- Connect disparate systems, allowing smooth data exchange between applications.</li>
+							                <li><span class="checkmark">✓</span> Support Scalability- APIs allow businesses to scale their operations by integrating additional data sources or applications as needed.</li>
+							                <li><span class="checkmark">✓</span>Enhance Automation- Automate workflows by using APIs to retrieve and process data programmatically.</li>
+							               
+							            </ul>
+  
+							        </div>
+
+							       
+							    </div>
+							</div>
+
+							<div class="container-fluid mt-5">
+							    <div class="row">
+							       
+							        <!-- Left Column -->
+							        <div class="bg-success shadow p-5">
+							        	 <h2 class="mb-1 text-light">API Data Access with Azure</h2>
+							          
+							            <ul class="benefits-list text-light">
+							                <li><span class="checkmark">✓</span> Azure REST APIs- Access Azure resources such as Virtual Machines, Storage Accounts, and Databases using secure REST APIs.</li>
+							                <li><span class="checkmark ">✓</span>Azure Data Factory API- Automate and orchestrate ETL processes to integrate data from various sources into a centralized system.</li>
+							                <li><span class="checkmark">✓</span> Azure OpenAI API- Leverage AI models like GPT for advanced data processing and insights.</li>
+							                <li><span class="checkmark">✓</span>Azure Cognitive Services API- Access pre-built AI models for vision, speech, language, and decision-making.</li>
+							                 <li><span class="checkmark">✓</span>Azure API Management- Securely publish, monitor, and manage APIs at scale.</li>
+							               
+							            </ul>
+  
+							        </div>
+
+
+							       
+							    </div>
+							</div>
+
+							<div class="container-fluid mt-5">
+							    <div class="row">
+							       
+							        <!-- Left Column -->
+							        <div class="bg-secondary shadow  col-lg-12 p-5">
+							        	 <h2 class="mb-1 text-light">Benefits of API Data Access</h2>
+							          
+							            <ul class="benefits-list text-light">
+							                <li><span class="checkmark">✓</span>Real-Time Insights: Access up-to-date information for decision-making.</li>
+							                <li><span class="checkmark ">✓</span>Enhanced Collaboration: Share data seamlessly across platforms and teams.</li>
+							                <li><span class="checkmark">✓</span> Custom Solutions: Build tailored applications leveraging diverse data sources.</li>
+							                <li><span class="checkmark">✓</span>Cost Efficiency: Automate data retrieval and processing, reducing manual effort.</li>
+							                 <li><span class="checkmark">✓</span>Scalability: Integrate additional APIs as business needs grow.</li>
+							               
+							            </ul>
+  
+							        </div>
+
+
+							       
+							    </div>
+							</div>
+							</div>
+
+
+							</div>
+							<?php endif ?>
 							<!-- start of power pages for digital services -->
 							<?php if ($_GET['name']=="virtualagents"): ?>
 							<div class="container">	
@@ -1140,6 +1884,8 @@
 							
 							</div>
 							<?php endif ?>
+
+
 
 							<!-- start of power roboticprocessing for digital services -->
 							<?php if ($_GET['name']=="roboticprocessing"): ?>

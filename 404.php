@@ -94,44 +94,85 @@
 	<div class="col-lg-9 col-md-9 col-12">
 		<!-- Main Menu -->
 		<div class="main-menu">
-			<nav class="navigation">
-				<ul class="nav menu">
-					<li class=""><a >Why Us <i class="icofont-rounded-down"></i></a>
-						<ul class="dropdown">
-							<li><a href="company">Company Overview</a></li>
-							<li><a href="career">Career Opportunities</a></li>
-						</ul>
-					</li>
-					 <li>
-                    <a>Digital Services <i class="icofont-rounded-right"></i></a>
+		 <nav class="navigation">
+        <ul class="nav menu">
+          <li class=""><a >Why Us <i class="icofont-rounded-down"></i></a>
+            <ul class="dropdown">
+              <li><a href="company">Company Overview</a></li>
+              <li><a href="career">Career Opportunities</a></li>
+            </ul>
+          </li>
+          <li><a>Services <i class="icofont-rounded-down"></i></a>
+              <ul class="dropdown">
+                 <li><a href="services">All Services</a></li>
+                  <li>
+                    <a >AI Services <i class="icofont-rounded-right"></i></a>
                     <ul class="dropdown">
+                          <li><a href="service-details?name=ai-consulting">AI Consulting</a></li>
+                          <li><a href="service-details?name=ai-advisory">AI Advisory</a></li>
+                          <li><a href="service-details?name=generative-ai">Generative AI</a></li>
+                      </ul>
+
+                  </li>
+                   
+                   <li>
+                      <a >Data Services <i class="icofont-rounded-right"></i></a>
+                      <ul class="dropdown">
+                          <li><a href="service-details?name=fabric">Microsoft Fabric</a></li>
+                          <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
+                          <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
+                          <li><a href="service-details?name=databricks">Databricks</a></li>
+                          <li><a href="service-details?name=snowflake">Snowflake</a></li>
+                          <li><a href="service-details?name=sql-data-warehousing">SQL & Data Warehousing</a></li>
+                      </ul>
+                  </li>
+                   <li>
+                    <a>Digital Transformation <i class="icofont-rounded-right"></i></a>
+                    <ul class="dropdown">
+                    	 <li><a href="service-details?name=apidataaccess">API Data Access</a></li>
                         <li><a href="service-details?name=powerapps">Microsoft Powerapps</a></li>
                         <li><a href="service-details?name=powerautomate">Microsoft Power Automate</a></li>
                          <li><a href="service-details?name=virtualagents">Microsoft Power Virtual Agents</a></li>
                           <li><a href="service-details?name=powerplatform">Microsoft Power Pages</a></li>
+                           <li><a href="service-details?name=dynamics365">Microsoft Dynamics 365</a></li>
                          <li><a href="service-details?name=roboticprocessing">Robotic Processing Automation</a></li>
-                         <li><a href="service-details?name=sharepointonline">Sharepont Online</a></li>
-                         <li><a href="service-details?name=copilot">Copilot</a></li>
+                         <li><a href="service-details?name=sharepointonline">Sharepoint Online</a></li>
+
+                    </ul>
+                  </li>
+                   <li><a href="service-details?name=freemiums">Freemiums</a></li>
+                   <li>
+                    <a>Managed Services <i class="icofont-rounded-right"></i></a>
+                    <ul class="dropdown">
+                        <li><a href="service-details?name=sqlsupport">SQL Server Support</a></li>
+                        <li><a href="service-details?name=appsupport">Applications Support</a></li>
                     </ul>
 
                   </li>   
-					<li><a >Insights <i class="icofont-rounded-down"></i></a>
-						<ul class="dropdown">
-							<li><a href="blog">Blog Articles</a></li>
-							<li><a href="customer-stories">Customer Stories</a></li>
-							<li><a href="case-studies">Case Studies</a></li>
-							<li><a href="case-studies#white-papers">White Papers</a></li>
-						</ul>
-					</li>
-					<li><a href="events">Events</a></li>
-					<li><a href="industries">Industries</a></li>
-					<li><a href="contact">Contact Us</a></li>
-					<li><a  >
-						<i data-toggle="modal" data-target="#exampleModal" style="display: block !important;" class="fa fa-search p-1"></i>	
-					 </a>
-					</li>
-				</ul>
-			</nav>
+
+                 
+                  
+                   
+
+              </ul>
+            </li>
+          <li><a >Insights <i class="icofont-rounded-down"></i></a>
+            <ul class="dropdown">
+              <li><a href="blog">Blog Articles</a></li>
+              <li><a href="customer-stories">Customer Stories</a></li>
+              <li><a href="case-studies">Case Studies</a></li>
+              <li><a href="case-studies#white-papers">White Papers</a></li>
+            </ul>
+          </li>
+          <li><a href="events">Events</a></li>
+          <li><a href="industries">Industries</a></li>
+          <li><a href="contact">Contact Us</a></li>
+          <li><a  >
+            <i data-toggle="modal" data-target="#exampleModal" style="display: block !important;" class="fa fa-search p-1"></i> 
+           </a>
+          </li>
+        </ul>
+      </nav>
 		</div>
 		<!--/ End Main Menu -->
 	</div>
