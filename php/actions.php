@@ -676,20 +676,25 @@ if ($formattedDate !== false) {
                
 
                 // Output the core value item securely
-                echo '<div class="col-lg-4 col-md-6 col-12">
-                    <div class="single-service card" style="min-height: 350px; max-height: 350px;">
-                      <div class="p-2"><br>
-                       <i class="icofont-calendar m-2"></i>
-                       <strong class="default-color">' . formatDateWithSuffix($start_date) . '</strong>
-                        <p><a ><b>' . $title . '</b></a></p>
-                        '.reduceIt(strlen( $title)).'
-                        <p>' .substr( $body, 0,200) . '...</p>
-                       
-                        <a target="blank" '.$background2.' ' . $buttonDisabled . ' class="'.$background.' p-2 text-light d col-10" >' . $buttonText . '</a>
-                        
-                      </div>
-                    </div>
-                </div>';
+               // Inside the while loop
+                // Inside the while loop
+				echo '<div class="col-lg-4 col-md-6 col-12">
+				    <div class="single-service card" style="min-height: 350px; max-height: 350px;">
+				        <div class="p-2"><br>
+				        <p class="text-danger h1" id="countdown-' . $eventTimestamp . '">Loading countdown...</p>
+				        <i class="icofont-calendar m-2"></i>
+				        <strong class="default-color">' . formatDateWithSuffix($start_date) . '</strong>
+				        <p><a ><b>' . $title . '</b></a></p>
+				        ' . reduceIt(strlen($title)) . '
+				        <p>' . substr($body, 0, 200) . '...</p>
+				        
+				        <a target="blank" ' . $background2 . ' ' . $buttonDisabled . ' class="' . $background . ' p-2 text-light d col-10">' . $buttonText . '</a>
+				        </div>
+				    </div>
+				</div>';
+
+
+
             }
         } else {
             echo "No records found!";

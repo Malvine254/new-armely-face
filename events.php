@@ -512,6 +512,34 @@
 <!-- more settings  -->
 <script src="js/more-options.js"></script>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const updateCountdown = () => {
+            const countdownElements = document.querySelectorAll("[id^='countdown-']");
+            const now = new Date();
+
+            countdownElements.forEach(el => {
+                const timestamp = parseInt(el.id.split('-')[1]) * 1000; // Convert to milliseconds
+                const eventDate = new Date(timestamp);
+                const diffTime = eventDate - now;
+
+                if (diffTime > 0) {
+                    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+                    const diffHours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const diffMinutes = Math.floor((diffTime % (1000 * 60 * 60)) / (1000 * 60));
+                    const diffSeconds = Math.floor((diffTime % (1000 * 60)) / 1000);
+
+                    el.textContent = `${diffDays} day: ${diffHours} hr: ${diffMinutes} min: ${diffSeconds} sec`;
+                } else {
+                    el.textContent = "00 day: 00 hr: 00 min: 00 sec";
+                }
+            });
+        };
+
+        updateCountdown(); // Initial call
+        setInterval(updateCountdown, 1000); // Update every second
+    });
+</script>
 
 </body>
 </html>
