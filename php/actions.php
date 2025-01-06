@@ -769,9 +769,40 @@ function displayServicesList() {
 function displayCareerListings() {
     include 'config.php';
 
+    function isDeadlinePassed($deadline) {
+    // Convert deadline string to a DateTime object
+    $deadlineDate = DateTime::createFromFormat('M d, Y', $deadline);
+    
+    if (!$deadlineDate) {
+        return "Invalid Date"; // Return an error message if the date format is incorrect
+    }
+
+    // Get today's date (without time) for accurate comparison
+    $currentDate = new DateTime(); 
+    $currentDate->setTime(0, 0); // Remove time for accurate date-only comparison
+
+    // Compare deadline with today's date
+    return ($deadlineDate < $currentDate) ? "Closed" : "Open";
+}
+function changeStatusColor($status){
+	if ($status==="Open") {
+		return '<span class="text-primary"><i class="fa fa-circle text-primary"></i> ' . $status . '</span>';
+	}else{
+		return '<span class="text-danger"><i class="fa fa-info-circle text-danger"></i>  ' . $status . '</span>';
+	}
+
+}
+function disableUrl($status,$unicord){
+	if ($status==="Open") {
+		return ' href="job-board?job-details=' . $unicord . '"';
+	}else{
+		return '';
+	}
+}
+
     try {
         // Use prepared statement for secure querying
-        $stmt = $conn->prepare("SELECT job_id, job_title, job_location, job_type, job_deadline FROM career");
+        $stmt = $conn->prepare("SELECT job_id, job_title, job_location, job_type, job_deadline FROM career ORDER BY id DESC");
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -785,24 +816,45 @@ function displayCareerListings() {
                 $job_deadline = htmlspecialchars($row['job_deadline']);
 
                 // Output the job listing securely
-                echo '<div class="col-lg-4 col-md-12 col-12">
-                    <div class="single-table shadow">
-                        <div class="table-head">
-                            <a href="job-board?job-details=' . urlencode($job_id) . '">
-                                <h4 class="title">' . $job_title . '</h4>
-                                <div class="price">
-                                    <span><i class="fa fa-map-marker"></i> Location: ' . $job_location . '</span>
-                                    <div>
-                                        <span><i class="fa fa-list"></i> Category: ' . $job_type . '</span>
-                                    </div>
-                                    <div>
-                                        <span><i class="fa fa-clock-o"></i> Deadline: ' . $job_deadline . '</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                echo '<div class="col-lg-3 col-md-12 col-12">
+        <div class="single-table shadow text-center">
+            <div class="table-head">
+                <a '.disableUrl(isDeadlinePassed($job_deadline),urlencode($job_id)).'>
+                    <h4 class="title">' . $job_title . '</h4>
+                    <div class="price d-flex justify-content-center align-items-center gap-2 flex-wrap">
+                        <span><i class="fa fa-map-marker"></i> ' . $job_location . '</span><br>
+                        <span><i class="fa fa-list"></i> ' . $job_type . '</span><br>
+                        <span><i class="fa fa-clock-o"></i> ' . $job_deadline . '</span><br>
+                        '.changeStatusColor(isDeadlinePassed($job_deadline)).'
                     </div>
-                </div>';
+                </a>
+            </div>
+        </div>
+    </div><style>.single-table {
+    text-align: center; /* Center all text */
+}
+
+.price {
+    display: flex;
+    align-items: center;  /* Align items in the center */
+    justify-content: center;  /* Center horizontally */
+    flex-wrap: wrap; /* Prevents breaking into multiple lines */
+    gap: 10px; /* Adds spacing between items */
+}
+
+.price span {
+    white-space: nowrap; /* Ensures all text remains on one line */
+    display: flex;
+    align-items: center; /* Align icon and text */
+    gap: 5px; /* Small space between icon and text */
+}
+
+.price i {
+    font-size: 14px; /* Adjust icon size */
+    color: #555; /* Adjust icon color */
+}
+</style>';
+
             }
         } else {
             echo "No records found!";
