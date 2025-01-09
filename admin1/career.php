@@ -248,6 +248,7 @@
         <th>Name</th>
         <th>Email</th>
         <th>Address</th>
+        <th>Date</th>
         <th>Phone</th>
         <th>Cv</th>
         <th>Actions</th>

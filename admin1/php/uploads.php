@@ -157,7 +157,7 @@ if ($select->num_rows>0) {
     while ($row=$select->fetch_assoc()) {
     echo  ' <tr class="'.highlightStatus($row['status']).'" id="'.$row['id'].'">
             <td>'.$numbering++.'</td>
-            <td>'.cheIfNullTwo($row['role']).'</td>
+            <td>'.cheIfNullTwo($row['position']).'</td>
             <td> '.$row['name'].'</td>
             <td> <a href="mailto:'.$row['email'].'">'.$row['email'].'</a></td>
             <td> '.$row['address'].'</td>
