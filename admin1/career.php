@@ -200,7 +200,7 @@
         </div>
     </form>
   </div>
-  <div class="tab-pane fade show active" id="ex-with-icons-tabs-1" role="tabpanel" aria-labelledby="ex-with-icons-tab-1" style="height: 90vh; overflow: scroll;">
+  <div class="tab-pane fade show active" id="ex-with-icons-tabs-1" role="tabpanel" aria-labelledby="ex-with-icons-tab-1" style="height: 60vh; overflow: scroll;">
     <table  class="table table-bordered myTable" >
       <div  class="table-responsive" >
         <tr>
@@ -209,6 +209,7 @@
         <th>Name</th>
         <th>Email</th>
         <th>Address</th>
+        <th>Date</th>
         <th>Phone</th>
         <th>Cv</th>
         <th>Actions</th>
@@ -219,7 +220,7 @@
     </table>
   </div>
 
-  <div class="tab-pane fade" id="ex-with-icons-tabs-2" role="tabpanel" aria-labelledby="ex-with-icons-tab-2">
+  <div class="tab-pane fade" id="ex-with-icons-tabs-2" role="tabpanel" aria-labelledby="ex-with-icons-tab-2"  style="height: 60vh; overflow: scroll;">
     <table class="table table-bordered myTable">
         <div  class="table-responsive">
           <tr>
@@ -238,7 +239,7 @@
       </table>
   </div>
 
-<div class="tab-pane fade" id="ex-with-icons-tabs-3" role="tabpanel" aria-labelledby="ex-with-icons-tab-3">
+<div class="tab-pane fade" id="ex-with-icons-tabs-3" role="tabpanel" aria-labelledby="ex-with-icons-tab-3"  style="height: 60vh; overflow: scroll;">
   <table class="table table-bordered myTable">
     <div  class="table-responsive">
       <tr>
@@ -258,7 +259,7 @@
   </table>
 </div>
 
-      <div class="tab-pane fade" id="ex-with-icons-tabs-4" role="tabpanel" aria-labelledby="ex-with-icons-tab-4">
+      <div class="tab-pane fade" id="ex-with-icons-tabs-4" role="tabpanel" aria-labelledby="ex-with-icons-tab-4"  style="height: 60vh; overflow: scroll;">
           <table class="table table-bordered myTable">
             <div  class="table-responsive">
               <tr>

@@ -65,6 +65,7 @@ if ($select->num_rows>0) {
             <td> '.$row['name'].'</td>
             <td> <a href="mailto:'.$row['email'].'">'.$row['email'].'</a></td>
             <td> '.$row['address'].'</td>
+             <td> '.$row['application_date'].'</td>
             <td> <a href="tel:'.$row['phone'].'">'.$row['phone'].'</a></td>
             <td> <a href="../pdf/'.$row['cv'].'" target="_blank">Click here to Preview Cv</a></td>
             <td>
@@ -160,6 +161,7 @@ if ($select->num_rows>0) {
             <td> '.$row['name'].'</td>
             <td> <a href="mailto:'.$row['email'].'">'.$row['email'].'</a></td>
             <td> '.$row['address'].'</td>
+            <td> '.$row['application_date'].'</td>
             <td> <a href="tel:'.$row['phone'].'">'.$row['phone'].'</a></td>
             <td> <a href="../pdf/'.$row['cv'].'" target="_blank">Click here to Preview Cv</a></td>
             <td>
