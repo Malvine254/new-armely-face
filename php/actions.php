@@ -716,7 +716,7 @@ function displayServicesList() {
     include 'config.php';
 
     // Helper function to limit text length
-    function readMoreText($text) {
+    function readMoreText2($text) {
         $text = htmlspecialchars($text); // Prevent XSS attacks
         return (strlen($text) >= 200) ? substr($text, 0, 200) . "..." : $text;
     }
@@ -732,7 +732,7 @@ function displayServicesList() {
                 // Sanitize output to prevent XSS attacks
                 $title = htmlspecialchars($row['title']);
                 $icon = htmlspecialchars($row['image']);
-                $body = readMoreText($row['body']);
+                $body = readMoreText2($row['body']);
 
                 // Output the service securely
                 echo '<div class="col-lg-4 col-md-12 col-12">
