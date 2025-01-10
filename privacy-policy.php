@@ -460,7 +460,7 @@
 <div class="row">
 <div class="col-lg-12 col-md-12 col-12">
 	<div class="copyright-content">
-		<p>&copy; 2024 ARMELY LLC., ALL RIGHTS RESERVED</p>
+		<p>&copy; <?php echo date("Y"); ?> ARMELY LLC., ALL RIGHTS RESERVED</p>
 	</div>
 </div>
 </div>

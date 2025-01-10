@@ -556,7 +556,7 @@ function displayCoreValues() {
                 echo '<div class="col-lg-4 col-md-6 col-12">
                     <div class="single-service">
                         <i class="icofont ' . $icon_font . '"></i>
-                        <h4><a href="service-details.html">' . $title . '</a></h4>
+                        <h4><a href="service-details">' . $title . '</a></h4>
                         <p>' . $body . '</p>
                     </div>
                 </div>';
@@ -1512,9 +1512,9 @@ function displayServicesDetails() {
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 // Sanitize output to prevent XSS
-                $sanitized_title = htmlspecialchars($title);
-                $intro_content = htmlspecialchars($row['intro_content']);
-                $other_contents = htmlspecialchars($row['other_contents']);
+                $sanitized_title = $title;
+                $intro_content = $row['intro_content'];
+                $other_contents = $row['other_contents'];
 
                 // Display the service details
                 echo "<h2 class='mb-3 default-color'>{$sanitized_title}</h2>";
@@ -1669,6 +1669,41 @@ if (isset($_GET['blogId'])) {
         error_log("Database Error: " . $e->getMessage());
         echo "<p>Unable to load the blog post. Please try again later.</p>";
     }
+}
+
+
+#''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+#Start of display youtube videos details 
+#''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+function displayYoutubeVideos() {
+    include 'config.php';
+
+    // Use prepared statements to prevent SQL injection
+    $stmt = $conn->prepare("SELECT url FROM videos ORDER BY id DESC LIMIT 3");
+
+    if (!$stmt) {
+        die("Query preparation failed: " . $conn->error);
+    }
+
+    // Execute the query
+    $stmt->execute();
+
+    // Get the result set
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            // Escape output to prevent XSS
+            echo '<div class="col-lg-4 col-md-12 col-12">
+			 '.$row['url'].'
+			</div>';
+        }
+    } else {
+        echo "No video was found!";
+    }
+
+    // Close the statement
+    $stmt->close();
 }
 
 

@@ -424,24 +424,8 @@
 </div>
 <div class="row">
 <!-- Single Table -->
-<div class="col-lg-4 col-md-12 col-12">
-<iframe width="560" height="315" src="
-https://www.youtube.com/embed/97e3X2rz1eQ?si=3WyntbzdH8nCbdI0"
-title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
-<!-- End Single Table-->
-<!-- Single Table -->
-<div class="col-lg-4 col-md-12 col-12">
-<iframe width="560" height="315" src="
-https://www.youtube.com/embed/AAzBlkuyLR8?si=YjBark9lq5YGao2m"
-title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-<!-- Single Table -->
-<div class="col-lg-4 col-md-12 col-12">
-<iframe width="560" height="315" src="
-https://www.youtube.com/embed/h1BX6aAPFCU?si=d4H62defNNIWLmJE"
-title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
-<!-- End Single Table-->
+<?php displayYoutubeVideos(); ?>
+
 </div>	
 <div class="default-color h4 p-2">
 		<a class="animated-text" href="https://www.youtube.com/@armelyarmely"><strong>Explore all Videos >>></strong></a>
@@ -720,7 +704,8 @@ title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; cli
 <div class="row">
 <div class="col-lg-12 col-md-12 col-12">
 	<div class="copyright-content">
-		<p>&copy; 2024 ARMELY LLC., ALL RIGHTS RESERVED</p>
+		<p>&copy; <?php echo date("Y"); ?> ARMELY LLC., ALL RIGHTS RESERVED</p>
+
 	</div>
 </div>
 </div>
