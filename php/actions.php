@@ -97,9 +97,9 @@ if (isset($_POST['consultation_btn'])) {
 	scheduleConsultant();
 }
 
-if (isset($_POST['submit_form'])) {
-	submitContactForm();
-}
+// if (isset($_POST['submit_form'])) {
+// 	submitContactForm();
+// }
 
 
 
@@ -1370,8 +1370,23 @@ function submitContactUsForm() {
     function dateFormat() {
         return date("j M Y", strtotime(date('y-m-d')));
     }
+    function dateFormatTwo() {
+    // Get the current date in the 'Y-m-d' format (securely generated)
+    $currentDate = date('Y-m-d');
+    
+    // Validate and sanitize the date before formatting it
+    if (DateTime::createFromFormat('Y-m-d', $currentDate)) {
+        // Format the date as 'j M Y' (e.g., '16 Jan 2025')
+        return htmlspecialchars(date("j M Y", strtotime($currentDate)), ENT_QUOTES, 'UTF-8');
+    } else {
+        // Handle any unexpected errors
+        error_log("Invalid date format detected in dateFormatTwo()");
+        return null; // Return null or an error message if validation fails
+    }
+}
 
-    $date_now = dateFormat();
+
+    $date_created = date("j M Y", strtotime(date('y-m-d')));
 
     // Sanitize and validate user input
     $name = isset($_POST['name']) ? htmlspecialchars(trim($_POST['name'])) : '';
@@ -1402,13 +1417,13 @@ function submitContactUsForm() {
             }
 
             // Bind parameters to the SQL query
-            $stmt->bind_param("ssssss", $name, $email, $organization, $phone, $message, $date_now);
+            $stmt->bind_param("ssssss", $name, $email, $organization, $phone, $message, $date_created);
 
             // Execute the query and handle success or failure
             if ($stmt->execute()) {
                 $stmt->close();
                 $conn->close();
-                return "Form submitted successfully!";
+                return "1";
             } else {
                 // Log the error for debugging purposes
                 error_log("Failed to execute SQL statement: " . $stmt->error);
