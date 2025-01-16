@@ -504,7 +504,7 @@ function displayCustomerStoriesTestimonialsShort() {
 
                 // Output the offer securely
                 echo '<div class="col-lg-4 col-md-6 col-12">
-                    <div class="single-schedule first" style="min-height: 400px; height: auto;">
+                    <div class="single-schedule first" style="min-height: 480px; height: auto;">
                         <div class="inner">
                             <div class="icon">
                                 <i class="fa fa-data"></i>
@@ -514,7 +514,7 @@ function displayCustomerStoriesTestimonialsShort() {
                                 <div class="">
                                     <h4>' . $title . '</h4>
                                 </div>
-                                <p class="shorten-content">' . $body . '</p>
+                                <p class="shorten-content">' .substr($body, 0,400)  . '</p>
                                 <a href="#" class="read-more-btn">READ MORE <i class="fa fa-long-arrow-right"></i></a>
                             </div>
                         </div>

@@ -53,6 +53,9 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="css/responsive.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="preconnect" href="https://www.youtube.com">
+<link rel="preconnect" href="https://i.ytimg.com">
+<link rel="preconnect" href="https://www.google.com">
 
 </head>
 <body>
@@ -424,8 +427,8 @@
 </div>
 <div class="row">
 <!-- Single Table -->
-<?php displayYoutubeVideos(); ?>
 
+<?php displayYoutubeVideos(); ?>
 </div>	
 <div class="default-color h4 p-2">
 		<a class="animated-text" href="https://www.youtube.com/@armelyarmely"><strong>Explore all Videos >>></strong></a>
