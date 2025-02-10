@@ -1723,5 +1723,285 @@ function displayYoutubeVideos() {
 
 
 
+function displayNewSocialImpact() {
+    include 'config.php';
+
+    try {
+        // Use a prepared statement to fetch the recent 14 blogs, selecting only the needed columns
+        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category,id,secure_id FROM social_impact WHERE category='new' ORDER BY id DESC LIMIT 3");
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Sanitize output to prevent XSS attacks
+                $body = htmlspecialchars($row['body']);
+                $title = htmlspecialchars($row['title']);
+                $image_url = htmlspecialchars($row['image_url']);
+                $posted_date = htmlspecialchars($row['posted_date']);
+                $category = htmlspecialchars($row['category']);
+
+                // Display the blog post
+                echo ' <a href="social-impact-details?social_id='.$row['secure_id'].'"><div class="blog-post">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="img/social-impact/'.$image_url.'" class="img-fluid blog-image" alt="Blog Image">
+                        </div>
+                        <div class="col-md-8">
+                            <span class="date">'.$posted_date.'</span>
+                            <h3 class="blog-title">'.$title.'</h3>
+                            <p class="blog-desc">4 min read - '.$body.'</p>
+                        </div>
+                    </div>
+                </div></a>';
+            }
+        } else {
+            echo "No records found!";
+        }
+
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        // Log the error for debugging without exposing it to users
+        error_log("Database Error: " . $e->getMessage());
+        echo "<p>Unable to retrieve blogs at this time. Please try again later.</p>";
+    }
+}
+
+function displayFutureSocialImpact() {
+    include 'config.php';
+
+    try {
+        // Use a prepared statement to fetch the recent 14 blogs, selecting only the needed columns
+        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category,secure_id,author_name,author_title FROM social_impact WHERE category='future' ORDER BY id DESC ");
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Sanitize output to prevent XSS attacks
+                $body = htmlspecialchars($row['body']);
+                $title = htmlspecialchars($row['title']);
+                $image_url = htmlspecialchars($row['image_url']);
+                $posted_date = htmlspecialchars($row['posted_date']);
+                $category = htmlspecialchars($row['category']);
+
+                // Display the blog post
+                echo '
+            <!-- Blog Card 5 -->
+            <a href="social-impact-details?social_id='.$row['secure_id'].'">
+            <div class="blog-card">
+                <img src="img/social-impact/'.$image_url.'" alt="Blog Image">
+                <div class="blog-content">
+                    <span class="date">'.$posted_date.'</span>
+                    <h3 class="blog-title">'.$title.'</h3>
+                    <p class="blog-desc">4 min read - '.$body.'</p>
+                </div>
+            </div></a>
+             ';
+            }
+        } else {
+            echo "No records found!";
+        }
+
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        // Log the error for debugging without exposing it to users
+        error_log("Database Error: " . $e->getMessage());
+        echo "<p>Unable to retrieve blogs at this time. Please try again later.</p>";
+    }
+}
+
+function displayAllSocialImpact() {
+    include 'config.php';
+
+    try {
+        // Use a prepared statement to fetch the recent 14 blogs, selecting only the needed columns
+        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category,id,secure_id FROM social_impact WHERE category='new'");
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Sanitize output to prevent XSS attacks
+                $body = htmlspecialchars($row['body']);
+                $title = htmlspecialchars($row['title']);
+                $image_url = htmlspecialchars($row['image_url']);
+                $posted_date = htmlspecialchars($row['posted_date']);
+                $category = htmlspecialchars($row['category']);
+
+                // Display the blog post
+                echo ' <a href="social-impact-details?social_id='.$row['secure_id'].'"><div class="blog-post">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="img/social-impact/'.$image_url.'" class="img-fluid blog-image" alt="Blog Image">
+                        </div>
+                        <div class="col-md-8">
+                            <span class="date">'.$posted_date.'</span>
+                            <h3 class="blog-title">'.$title.'</h3>
+                            <p class="blog-desc">4 min read - '.$body.'</p>
+                        </div>
+                    </div>
+                </div></a>';
+            }
+        } else {
+            echo "No records found!";
+        }
+
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        // Log the error for debugging without exposing it to users
+        error_log("Database Error: " . $e->getMessage());
+        echo "<p>Unable to retrieve blogs at this time. Please try again later.</p>";
+    }
+}
+
+
+
+session_start(); // Start session for better security
+
+// Redirect function
+function redirect($url) {
+    header("Location: $url");
+    exit;
+}
+function moreDetailsForSocialImpactPosts(){
+
+
+// Check if 'social_id' is provided
+if (!isset($_GET['social_id']) || empty($_GET['social_id'])) {
+    redirect("social-impact");
+}
+
+include 'config.php';
+
+// Secure input using type validation
+$social_id = filter_input(INPUT_GET, 'social_id', FILTER_SANITIZE_STRING);
+
+if (!$social_id) {
+    redirect("social-impact");
+}
+
+try {
+    // Use Prepared Statements to Prevent SQL Injection
+    $stmt = $conn->prepare("SELECT secure_id, title, body, category, posted_date, image_url,author_name,author_title 
+                            FROM social_impact 
+                            WHERE secure_id = ?");
+    $stmt->bind_param("s", $social_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+
+        // Sanitize Output
+         return [
+                'body' => htmlspecialchars($row['body'], ENT_QUOTES, 'UTF-8'),
+                'title' => htmlspecialchars($row['title'], ENT_QUOTES, 'UTF-8'),
+                'image_url' => htmlspecialchars($row['image_url'], ENT_QUOTES, 'UTF-8'),
+                'posted_date' => htmlspecialchars($row['posted_date'], ENT_QUOTES, 'UTF-8'),
+                'category' => htmlspecialchars($row['category'], ENT_QUOTES, 'UTF-8'),
+                'author_name' => htmlspecialchars($row['author_name'], ENT_QUOTES, 'UTF-8'),
+                'author_title' => htmlspecialchars($row['author_title'], ENT_QUOTES, 'UTF-8')
+            ];
+       
+
+    } else {
+        redirect("social-impact");
+    }
+
+    $stmt->close();
+    $conn->close();
+
+} catch (Exception $e) {
+    error_log("Database error: " . $e->getMessage());
+    redirect("social-impact");
+}
+
+// Set secure headers
+header("X-Frame-Options: DENY");
+header("X-Content-Type-Options: nosniff");
+header("Referrer-Policy: no-referrer");
+header("Content-Security-Policy: default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self';");
+
+}
+
+function relatedArticles() {
+	include 'config.php';
+    if (!isset($_GET['social_id']) || empty($_GET['social_id'])) {
+        echo "Invalid request!";
+        return;
+    }
+
+    // Secure input using type validation
+    $social_id = filter_input(INPUT_GET, 'social_id', FILTER_SANITIZE_STRING);
+
+    if (!$social_id) {
+        echo "Invalid request!";
+        return;
+    }
+
+    try {
+        // Get category of the current article using Prepared Statement
+        $stmt1 = $conn->prepare("SELECT category FROM social_impact WHERE secure_id = ?");
+        $stmt1->bind_param("s", $social_id);
+        $stmt1->execute();
+        $result1 = $stmt1->get_result();
+
+        if ($result1->num_rows === 0) {
+            echo "No related articles found!";
+            return;
+        }
+
+        $row = $result1->fetch_assoc();
+        $category1 = $row['category'];
+        $stmt1->close();
+
+        // Fetch related articles from the same category (excluding the current article)
+        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category, secure_id 
+                                FROM social_impact 
+                                WHERE category = ? AND secure_id != ? 
+                                ORDER BY posted_date DESC 
+                                LIMIT 5");
+        $stmt->bind_param("ss", $category1, $social_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            
+            while ($row = $result->fetch_assoc()) {
+                // Sanitize output to prevent XSS attacks
+                $body = htmlspecialchars($row['body'], ENT_QUOTES, 'UTF-8');
+                $title = htmlspecialchars($row['title'], ENT_QUOTES, 'UTF-8');
+                $image_url = htmlspecialchars($row['image_url'], ENT_QUOTES, 'UTF-8');
+                $posted_date = htmlspecialchars($row['posted_date'], ENT_QUOTES, 'UTF-8');
+
+                // Display related article
+               echo '
+                <div class="related-article">
+                        <img src="img/social-impact/'.$image_url.'" class="img-fluid" alt="Related Article">
+                       <a href="social-impact-details?social_id='.$row['secure_id'].'" class="related-title text-primary">
+                            '.substr($title, 0,70).'
+                        </a>
+                    </div>
+                   ';
+            }
+           
+        } else {
+            echo "No related articles found!";
+        }
+
+        $stmt->close();
+    } catch (Exception $e) {
+        error_log("Database Error: " . $e->getMessage());
+        echo "<p>Unable to retrieve related articles at this time. Please try again later.</p>";
+    }
+}
+
 
 ?>
