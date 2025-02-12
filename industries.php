@@ -103,14 +103,14 @@
           </div>
            <div class="col-md-4">
             <div class="card p-2" style="min-height: 280px; max-height: 280px;">
-              <img class="img-fluid" width="48" height="48" src="https://th.bing.com/th/id/OIP.GIheK6M3kWlHXSMg_2L-nQAAAA?rs=1&pid=ImgDetMain" alt="microsoft-power-automate-2020"/>
+              <img class="img-fluid" width="48" height="70" src="https://www.bridgeheadsoftware.com/wp-content/uploads/2023/12/FHIR-Logo.png"/><br>
               <h6><strong>FHIR Integration</strong></h6>
               <p>Unlocks seamless data exchange within healthcare ecosystems, enabling secure sharing of patient information across different applications and platforms for improved care coordination and decision-making.</p>
             </div>
           </div>
            <div class="col-md-4">
             <div class="card p-2" style="min-height: 280px; max-height: 280px;">
-             <img class="img-fluid" width="48" height="48" src="https://www.microsoft.com/content/dam/microsoft/final/en-us/microsoft-brand/icons/Icon-Azure-AI-24x24-1.svg" alt="tableau-software"/>
+             <img class="img-fluid" width="55" height="55" src="https://www.microsoft.com/content/dam/microsoft/final/en-us/microsoft-brand/icons/Icon-Azure-AI-24x24-1.svg" alt="tableau-software"/>
               <h6><strong>Tableau in healthcare</strong></h6>
               <p>Transform complex healthcare data into clear, insightful visualizations allowing organization to identify trends, patterns leading to better patient care, optimized resource allocation, and informed decision-making.</p>
             </div>

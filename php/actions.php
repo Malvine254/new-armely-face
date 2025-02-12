@@ -260,7 +260,7 @@ function displayBlogFullDetals(){
 					</div>
 				</div>
 				<!-- News Text -->
-				<div style="height: 935px; overflow-y: scroll;" class="news-text scrollable-div"  id="blog-content">
+				<div style="height: 150vh; overflow-y: scroll;" class="news-text scrollable-div"  id="blog-content">
 					'.$row['body'].'
 				</div><br>
 
@@ -311,7 +311,7 @@ function selectblogByDefault(){
 					</div>
 				</div>
 				<!-- News Text -->
-				<div style="height: 935px; overflow-y: scroll;" class="news-text scrollable-div"  id="content">
+				<div style="height: 87vh; overflow-y: scroll;" class="news-text scrollable-div"  id="content">
 					'.$row['body'].'
 				</div><br>
 
@@ -325,7 +325,7 @@ function selectblogByDefault(){
 					</ul>
 					<!-- Next Prev -->
 					<ul class="prev-next">
-						<li id="show-more" class="show-more-button"><button class="btn btn-warning">Scroll to Read all More <i class="icofont-long-arrow-down"></i></button></li>
+						<li id="show-more" class="show-more-button"><button class="btn btn-warning">Scroll to Read More <i class="icofont-long-arrow-down"></i></button></li>
 						
 					</ul>
 					<!--/ End Next Prev -->
@@ -373,7 +373,7 @@ function displayRecentBlogsOthers() {
 
     try {
         // Use a prepared statement to fetch the recent 14 blogs, selecting only the needed columns
-        $stmt = $conn->prepare("SELECT blog_id, title, image_path, date, clicks FROM blogs ORDER BY id DESC LIMIT 14");
+        $stmt = $conn->prepare("SELECT blog_id, title, image_path, date, clicks FROM blogs ORDER BY id DESC");
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -387,7 +387,7 @@ function displayRecentBlogsOthers() {
                 $clicks = htmlspecialchars($row['clicks']);
 
                 // Display the blog post
-                echo '<div class="single-post data-item">
+                echo '<div class="single-post data-item" >
                     <div class="image" style="height: auto !important;">
                         <img style="height: auto !important;" src="' . $image_path . '" alt="Blog Image">
                     </div>

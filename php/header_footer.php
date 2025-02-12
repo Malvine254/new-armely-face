@@ -85,7 +85,7 @@ function getHeader($pageName) {
 								<li><i class="fa fa-phone"></i>+1 972 460 0643</li>
 								<li><i class="fa fa-envelope"></i><a href="mailto:info@armely.com">info@armely.com</a></li>
 								<li><i class="fa fa-user"></i><a href="https://armely.powerappsportals.com/">Customer support</a></li>
-						        <li><i data-toggle="modal" data-target="#exampleModal"  class="fa fa-search"></i> <a >Search</a> 
+						        <li> <span  data-toggle="modal" data-target="#exampleModal"><i  class="fa fa-search"></i> <a >Search</a> </span>
 						           
 						          </li>
 							</ul>

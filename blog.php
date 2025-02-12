@@ -59,7 +59,7 @@
 						<h3 class="title">Recent post</h3>
 						<!-- Single Post -->
 						<p style="display: none;" class="alert alert-danger" id="noResults">No results found!!</p>
-						<?php displayRecentBlogsOthers() ?>
+						<div style="overflow-y: scroll; height:150vh;"><?php displayRecentBlogsOthers() ?></div>
 						<!-- End Single Post -->
 						
 						
@@ -70,29 +70,42 @@
 		</div>
 	</div>
 </section>
+<!--/ End Single News -->
+<?php echo getFooter(); ?>
 <script>
 	$(document).ready(function() {
-    var contentDiv = $('#content');
-    var showMoreButton = $('#show-more');
+  var contentDiv = $('#content');
+var showMoreButton = $('#show-more');
 
-    // Check if the content is scrollable
+// Check if the content is scrollable
+function checkScrollable() {
     if (contentDiv[0].scrollHeight > contentDiv.innerHeight()) {
         showMoreButton.show(); // Show the button if scrollable
+    } else {
+        showMoreButton.hide(); // Hide if not scrollable
     }
+}
 
-    // Scroll down when the button is clicked
-    showMoreButton.on('click', function() {
-        contentDiv.animate({
-            scrollTop: contentDiv[0].scrollHeight
-        }, 800);
-    });
+// Initial check
+checkScrollable();
 
-    // Optionally, hide the button after scrolling to the bottom
-    contentDiv.on('scroll', function() {
-        if (contentDiv.scrollTop() + contentDiv.innerHeight() >= contentDiv[0].scrollHeight) {
-            showMoreButton.hide();
-        }
+// Scroll down when the button is clicked
+showMoreButton.on('click', function() {
+    contentDiv.animate({
+        scrollTop: contentDiv[0].scrollHeight
+    }, 800, function() {
+        checkScrollable(); // Check if button should be hidden after scroll
     });
+});
+
+// Hide the button when reaching the bottom
+contentDiv.on('scroll', function() {
+    if (contentDiv.scrollTop() + contentDiv.innerHeight() >= contentDiv[0].scrollHeight - 1) {
+        showMoreButton.fadeOut(); // Use fadeOut for smoother effect
+    } else {
+        showMoreButton.fadeIn();
+    }
+});
 
     // Share button click event
     $(".shareBtn").click(function(){
@@ -216,8 +229,7 @@ $(document).ready(function() {
 
 
 </script>
-<!--/ End Single News -->
-<?php echo getFooter(); ?>
+
 
 </body>
 </html>

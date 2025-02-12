@@ -21,7 +21,7 @@
     />
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css" />
-    <script src="https://cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script>
+    <script src="ckeditor3/ckeditor.js"></script>
     <link rel="stylesheet" href="../css/style.css">
     <title></title>
 </head>
