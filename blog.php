@@ -59,7 +59,7 @@
 						<h3 class="title">Recent post</h3>
 						<!-- Single Post -->
 						<p style="display: none;" class="alert alert-danger" id="noResults">No results found!!</p>
-						<div style="overflow-y: scroll; height:150vh;"><?php displayRecentBlogsOthers() ?></div>
+						<div style="overflow-y: scroll; height:183vh;"><?php displayRecentBlogsOthers() ?></div>
 						<!-- End Single Post -->
 						
 						

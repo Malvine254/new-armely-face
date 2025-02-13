@@ -215,7 +215,7 @@ function displayRecentBlogs(){
 					</div>
 					<div class="news-body">
 						<div class="news-content">
-							<div class="date">'.$row['date'].', 2024.</div>
+							<div class="date">'.$row['date'].'.</div>
 							<h6 class="text-muted">'.$row['author'].' |<span>'.estimateReadingTime($row['body']).' min read</span></h6>
 							<h2><a href="blog?blogId='.$row['blog_id'].'">'.$row['title'].'</a></h2>
 							<a class="default-color" href="blog?blogId='.$row['blog_id'].'">READ MORE<i class="fa fa-long-arrow-right "></i></a>
@@ -252,7 +252,7 @@ function displayBlogFullDetals(){
 				<div class="meta">
 					<div class="meta-left">
 						<span class="author"><a href="#"><img src="images/blog/profile.svg" alt="#">'.$row['author'].'</a></span>
-						<span class="date"><i class="fa fa-clock-o"></i>'.$row['date'].' 2024</span>
+						<span class="date"><i class="fa fa-clock-o"></i>'.$row['date'].' </span>
 					</div>
 					<div class="meta-right">
 						<span id="toggleSpeech" class="comments"><a ><i class="fa-solid fa-volume-high" id="volume-icons"></i>Read Aloud</a></span>
@@ -260,7 +260,7 @@ function displayBlogFullDetals(){
 					</div>
 				</div>
 				<!-- News Text -->
-				<div style="height: 150vh; overflow-y: scroll;" class="news-text scrollable-div"  id="blog-content">
+				<div style="height: 120vh; overflow-y: scroll;" class="news-text scrollable-div"  id="blog-content">
 					'.$row['body'].'
 				</div><br>
 
@@ -303,7 +303,7 @@ function selectblogByDefault(){
 				<div class="meta">
 					<div class="meta-left">
 						<span class="author"><a href="#"><img src="images/blog/profile.svg" alt="#">'.$row['author'].'</a></span>
-						<span class="date"><i class="fa fa-clock-o"></i>'.$row['date'].' 2024</span>
+						<span class="date"><i class="fa fa-clock-o"></i>'.$row['date'].'</span>
 					</div>
 					<div class="meta-right">
 						<span id="toggleSpeech" class="comments"><a ><i class="fa-solid fa-volume-high" id="volume-icons"></i>Read Aloud</a></span>
@@ -311,7 +311,7 @@ function selectblogByDefault(){
 					</div>
 				</div>
 				<!-- News Text -->
-				<div style="height: 87vh; overflow-y: scroll;" class="news-text scrollable-div"  id="content">
+				<div style="height: 120vh; overflow-y: scroll;" class="news-text scrollable-div"  id="content">
 					'.$row['body'].'
 				</div><br>
 
@@ -394,7 +394,7 @@ function displayRecentBlogsOthers() {
                     <div class="content">
                         <h5><a href="?blogId=' . $blog_id . '">' . $title . '</a></h5>
                         <ul class="comment">
-                            <li><i class="fa fa-calendar" aria-hidden="true"></i>' . $date . ', 2024</li>
+                            <li><i class="fa fa-calendar" aria-hidden="true"></i>' . $date . '</li>
                             <li><i class="fa fa-eye" aria-hidden="true"></i>' . $clicks . ' Views</li>
                         </ul>
                     </div>
