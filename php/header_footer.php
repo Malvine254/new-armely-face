@@ -1,6 +1,13 @@
 <?php
 function getHeader($pageName) {
 
+ $current_page = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
+
+    function isActive($page) {
+        global $current_page;
+        return ($current_page === $page) ? ' class="active"' : '';
+    }
+echo isActive('index');
     return <<<HTML
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -18,7 +25,9 @@ function getHeader($pageName) {
 		
 		<!-- Favicon -->
        <link rel="icon" href="img/logo/logo1.png">
-		
+       <link rel="preload" as="image" href="images/sliders/slider-1.jpg">
+	   <link rel="preload" as="image" href="images/sliders/slider-2.jpg">
+	   <link rel="preload" as="image" href="images/sliders/slider-3.jpg">
 		<!-- Google Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
@@ -96,113 +105,113 @@ function getHeader($pageName) {
 			</div>
 			<!-- End Topbar -->
 			<!-- Header Inner -->
-<div class="header-inner">
-<div class="container">
-<div class="inner">
-<div class="row">
-	<div class="col-lg-3 col-md-3 col-12">
-		<!-- Start Logo -->
-		<div class="logo">
-			<a href="index"><span class="logo-font">armely</span></a>
-		</div>
-		<!-- End Logo -->
-		<!-- Mobile Nav -->
-		<div class="mobile-nav"></div>
-		<!-- End Mobile Nav -->
-	</div>
-	<div class="col-lg-9 col-md-9 col-12">
-		<!-- Main Menu -->
-		<div class="main-menu">
-		 <nav class="navigation">
-        <ul class="nav menu">
-          <li class=""><a >Why Us <i class="icofont-rounded-down"></i></a>
-            <ul class="dropdown">
-              <li><a href="company">Company Overview</a></li>
-              <li><a href="career">Career Opportunities</a></li>
-            </ul>
-          </li>
-          <li><a>Services <i class="icofont-rounded-down"></i></a>
-              <ul class="dropdown">
-                 <li><a href="services">All Services</a></li>
-                  <li>
-                    <a >AI Services <i class="icofont-rounded-right"></i></a>
-                    <ul class="dropdown">
-                          <li><a href="service-details?name=ai-consulting">AI Consulting</a></li>
-                          <li><a href="service-details?name=ai-advisory">AI Advisory</a></li>
-                          <li><a href="service-details?name=generative-ai">Generative AI</a></li>
-                      </ul>
+			<div class="header-inner">
+			<div class="container">
+			<div class="inner">
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-12">
+					<!-- Start Logo -->
+					<div class="logo">
+						<a href="index"><span class="logo-font">armely</span></a>
+					</div>
+					<!-- End Logo -->
+					<!-- Mobile Nav -->
+					<div class="mobile-nav"></div>
+					<!-- End Mobile Nav -->
+				</div>
+				<div class="col-lg-9 col-md-9 col-12">
+					<!-- Main Menu -->
+					<div class="main-menu">
+					 <nav class="navigation">
+			        <ul class="nav menu">
+			          <li class=""><a >Why Us <i class="icofont-rounded-down"></i></a>
+			            <ul class="dropdown">
+			              <li><a href="company">Company Overview</a></li>
+			              <li><a href="career">Career Opportunities</a></li>
+			            </ul>
+			          </li>
+			          <li><a>Services <i class="icofont-rounded-down"></i></a>
+			              <ul class="dropdown">
+			                 <li><a href="services">All Services</a></li>
+			                  <li>
+			                    <a >AI Services <i class="icofont-rounded-right"></i></a>
+			                    <ul class="dropdown">
+			                          <li><a href="service-details?name=ai-consulting">AI Consulting</a></li>
+			                          <li><a href="service-details?name=ai-advisory">AI Advisory</a></li>
+			                          <li><a href="service-details?name=generative-ai">Generative AI</a></li>
+			                      </ul>
 
-                  </li>
-                   
-                   <li>
-                      <a >Data Services <i class="icofont-rounded-right"></i></a>
-                      <ul class="dropdown">
-                          <li><a href="service-details?name=fabric">Microsoft Fabric</a></li>
-                          <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
-                          <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
-                          <li><a href="service-details?name=databricks">Databricks</a></li>
-                          <li><a href="service-details?name=snowflake">Snowflake</a></li>
-                          <li><a href="service-details?name=sql-data-warehousing">SQL & Data Warehousing</a></li>
-                      </ul>
-                  </li>
-                   <li>
-                    <a>Digital Transformation <i class="icofont-rounded-right"></i></a>
-                    <ul class="dropdown">
-                    	 <li><a href="service-details?name=apidataaccess">API Data Access</a></li>
-                        <li><a href="service-details?name=powerapps">Microsoft Powerapps</a></li>
-                        <li><a href="service-details?name=powerautomate">Microsoft Power Automate</a></li>
-                         <li><a href="service-details?name=virtualagents">Microsoft Power Virtual Agents</a></li>
-                          <li><a href="service-details?name=powerplatform">Microsoft Power Pages</a></li>
-                           <li><a href="service-details?name=dynamics365">Microsoft Dynamics 365</a></li>
-                         <li><a href="service-details?name=roboticprocessing">Robotic Processing Automation</a></li>
-                         <li><a href="service-details?name=sharepointonline">Sharepoint Online</a></li>
+			                  </li>
+			                   
+			                   <li>
+			                      <a >Data Services <i class="icofont-rounded-right"></i></a>
+			                      <ul class="dropdown">
+			                          <li><a href="service-details?name=fabric">Microsoft Fabric</a></li>
+			                          <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
+			                          <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
+			                          <li><a href="service-details?name=databricks">Databricks</a></li>
+			                          <li><a href="service-details?name=snowflake">Snowflake</a></li>
+			                          <li><a href="service-details?name=sql-data-warehousing">SQL & Data Warehousing</a></li>
+			                      </ul>
+			                  </li>
+			                   <li>
+			                    <a>Digital Transformation <i class="icofont-rounded-right"></i></a>
+			                    <ul class="dropdown">
+			                    	 <li><a href="service-details?name=apidataaccess">API Data Access</a></li>
+			                        <li><a href="service-details?name=powerapps">Microsoft Powerapps</a></li>
+			                        <li><a href="service-details?name=powerautomate">Microsoft Power Automate</a></li>
+			                         <li><a href="service-details?name=virtualagents">Microsoft Power Virtual Agents</a></li>
+			                          <li><a href="service-details?name=powerplatform">Microsoft Power Pages</a></li>
+			                           <li><a href="service-details?name=dynamics365">Microsoft Dynamics 365</a></li>
+			                         <li><a href="service-details?name=roboticprocessing">Robotic Processing Automation</a></li>
+			                         <li><a href="service-details?name=sharepointonline">Sharepoint Online</a></li>
 
-                    </ul>
-                  </li>
-                   <li><a href="service-details?name=freemiums">Freemiums</a></li>
-                   <li>
-                    <a>Managed Services <i class="icofont-rounded-right"></i></a>
-                    <ul class="dropdown">
-                        <li><a href="service-details?name=sqlsupport">SQL Server Support</a></li>
-                        <li><a href="service-details?name=appsupport">Applications Support</a></li>
-                    </ul>
+			                    </ul>
+			                  </li>
+			                   <li><a href="service-details?name=freemiums">Freemiums</a></li>
+			                   <li>
+			                    <a>Managed Services <i class="icofont-rounded-right"></i></a>
+			                    <ul class="dropdown">
+			                        <li><a href="service-details?name=sqlsupport">SQL Server Support</a></li>
+			                        <li><a href="service-details?name=appsupport">Applications Support</a></li>
+			                    </ul>
 
-                  </li>   
+			                  </li>   
 
-                 
-                  
-                   
+			                 
+			                  
+			                   
 
-              </ul>
-            </li>
-          <li><a >Insights <i class="icofont-rounded-down"></i></a>
-            <ul class="dropdown">
-              <li><a href="blog">Blog Articles</a></li>
-              <li><a href="customer-stories">Customer Stories</a></li>
-              <li><a href="case-studies">Case Studies</a></li>
-              <li><a href="case-studies#white-papers">White Papers</a></li>
-            </ul>
-          </li>
-          <li><a href="events">Events</a></li>
-          <li><a href="industries">Industries</a></li>
-          <li><a href="social-impact">Social Impact</a></li>
-          <li><a href="contact">Contact Us</a></li>
-          
-        </ul>
-      </nav>
-		</div>
-		<!--/ End Main Menu -->
-	</div>
-	<div class="col-lg-2 col-12">
-		<div class="get-quote">
-			
-		</div>
-	</div>
-</div>
-</div>
-</div>
-</div>
-<!--/ End Header Inner -->
+			              </ul>
+			            </li>
+			          <li><a >Insights <i class="icofont-rounded-down"></i></a>
+			            <ul class="dropdown">
+			              <li><a href="blog">Blog Articles</a></li>
+			              <li><a href="customer-stories">Customer Stories</a></li>
+			              <li><a href="case-studies">Case Studies</a></li>
+			              <li><a href="case-studies#white-papers">White Papers</a></li>
+			            </ul>
+			          </li>
+			          <li><a href="events">Events</a></li>
+			          <li><a href="industries">Industries</a></li>
+			          <li><a href="social-impact">Social Impact</a></li>
+			          <li><a href="contact">Contact Us</a></li>
+			          
+			        </ul>
+			      </nav>
+					</div>
+					<!--/ End Main Menu -->
+				</div>
+				<div class="col-lg-2 col-12">
+					<div class="get-quote">
+						
+					</div>
+				</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			<!--/ End Header Inner -->
 		</header>
 		<!-- End Header Area -->
 <body>
@@ -473,7 +482,8 @@ return <<<HTML
 <!-- sweet alerts -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js"></script>
 <!-- JavaScript Libraries -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- Recommended -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.2/jquery-migrate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>

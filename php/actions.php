@@ -211,7 +211,7 @@ function displayRecentBlogs(){
 			echo '<div class="col-lg-4 col-md-6 col-12" data-aos="fade-in">
 			<div class="single-news" style="min-height: 430px; max-height: 430px;">
 					<div class="news-head">
-						<img style="min-height: 200px; max-height: 200px;" src="'.$row['image_path'].'" alt="#">
+						<img class="lazy-img " style="min-height: 200px; max-height: 200px;" src="'.$row['image_path'].'" alt="#">
 					</div>
 					<div class="news-body">
 						<div class="news-content">
@@ -244,14 +244,14 @@ function displayBlogFullDetals(){
 			<div class="single-main">
 				<!-- News Head -->
 				<div class="news-head">
-					<img style="height: auto; min-height: 400px;" src="'.$row['image_path'].'" alt="#">
+					<img class="lazy-img" style="height: auto; min-height: 400px;" src="'.$row['image_path'].'" alt="#">
 				</div>
 				<!-- News Title -->
 				<h1 class="news-title"><a >'.$row['title'].'</a></h1>
 				<!-- Meta -->
 				<div class="meta">
 					<div class="meta-left">
-						<span class="author"><a href="#"><img src="images/blog/profile.svg" alt="#">'.$row['author'].'</a></span>
+						<span class="author"><a href="#"><img class="lazy-img" src="images/blog/profile.svg" alt="#">'.$row['author'].'</a></span>
 						<span class="date"><i class="fa fa-clock-o"></i>'.$row['date'].' </span>
 					</div>
 					<div class="meta-right">
@@ -295,14 +295,14 @@ function selectblogByDefault(){
 			<div class="single-main">
 				<!-- News Head -->
 				<div class="news-head">
-					<img style="height: auto; min-height: 400px;" src="'.$row['image_path'].'" alt="#">
+					<img class="lazy-img" style="height: auto; min-height: 400px;" src="'.$row['image_path'].'" alt="#">
 				</div>
 				<!-- News Title -->
 				<h1 class="news-title"><a >'.$row['title'].'</a></h1>
 				<!-- Meta -->
 				<div class="meta">
 					<div class="meta-left">
-						<span class="author"><a href="#"><img src="images/blog/profile.svg" alt="#">'.$row['author'].'</a></span>
+						<span class="author"><a href="#"><img class="lazy-img" src="images/blog/profile.svg" alt="#">'.$row['author'].'</a></span>
 						<span class="date"><i class="fa fa-clock-o"></i>'.$row['date'].'</span>
 					</div>
 					<div class="meta-right">
@@ -389,7 +389,7 @@ function displayRecentBlogsOthers() {
                 // Display the blog post
                 echo '<div class="single-post data-item" >
                     <div class="image" style="height: auto !important;">
-                        <img style="height: auto !important;" src="' . $image_path . '" alt="Blog Image">
+                        <img class="lazy-img" style="height: auto !important;" src="' . $image_path . '" alt="Blog Image">
                     </div>
                     <div class="content">
                         <h5><a href="?blogId=' . $blog_id . '">' . $title . '</a></h5>
@@ -449,7 +449,7 @@ function displayCustomerStoriesTestimonials() {
                             <div class="single-content p-2">
                                 <center>
                                     <img style="width: 70px; height: 70px;" src="' . $profile_path . '" 
-                                    class="img-fluid rounded-circle" alt="Profile Image">
+                                    class="img-fluid rounded-circle lazy-img alt="Profile Image">
                                 </center>
                                 <div class="text-center">
                                     <h5 class="mt-2">' . $name . '</h5>
@@ -510,7 +510,7 @@ function displayCustomerStoriesTestimonialsShort() {
                                 <i class="fa fa-data"></i>
                             </div>
                             <div class="single-content">
-                                <img src="' . $image_path . '" class="img-fluid" alt="Offer Image">
+                                <img src="' . $image_path . '" class="img-fluid lazy-img" alt="Offer Image">
                                 <div class="">
                                     <h4>' . $title . '</h4>
                                 </div>
@@ -904,7 +904,7 @@ function displayMoreServicesList() {
                     <div style="min-height: 430px; height: auto;" class="card transparent-card">
                         <div class="card-body py-4 mt-1">
                             <div class="d-flex justify-content-start mb-4">
-                                <img src="' . $image_path . '" class="shadow-1-strong lazyload" width="100%" height="240" alt="Service Image" />
+                                <img src="' . $image_path . '" class="shadow-1-strong lazy-img" width="100%" height="240" alt="Service Image" />
                             </div>
                             <h5 class="font-weight-bold my-3">' . $title . '</h5>
                             <p class="mb-2">
@@ -1013,7 +1013,7 @@ function displayIndustryListings() {
                 // Output the industry listing securely
                 echo '<div class="col-md-4 mb-4 p-1">
                     <div class="customer-story-card shadow m-1" data-aos="fade-right">
-                        <img style="min-height: 300px;" src="' . $image_path . '" class="d-block img-fluid lazyload" alt="Industry Image">
+                        <img style="min-height: 300px;" src="' . $image_path . '" class="d-block img-fluid lazy-img" alt="Industry Image">
                         <div class="p-3">
                             <strong><p id="' . $id . '" class="text-muted">Industry: ' . $category . '</p></strong>
                             <p>' . $body . '</p>
@@ -1100,7 +1100,7 @@ function displayRecentIndustryListings() {
 
                 // Output the listing securely
                 echo '<div class="single-pf card shadow p-2" style="min-height: 360px;">
-                    <img src="' . $image_path . '" alt="Industry Image" class="img-fluid">
+                    <img src="' . $image_path . '" alt="Industry Image" class="img-fluid lazy-img">
                     <a href="' . $pdf_link . '" id="' . $id . '" class="btn" target="_blank">View Details</a>
                     <h6 class="text-muted default-color mt-2">
                         <strong>Industry: ' . $category . '</strong>
@@ -1153,7 +1153,7 @@ function displayRecentIndustryListingsAll() {
                 // Output the industry listing securely
                 echo '<div class="col-md-4 mb-4 p-1">
                     <div class="customer-story-card card m-1" style="min-height: 450px; max-height: 700px;">
-                        <img src="' . $image_path . '" class="d-block img-fluid lazyload" alt="Industry Image">
+                        <img src="' . $image_path . '" class="d-block img-fluid lazy-img" alt="Industry Image">
                         <div class="p-3">
                             <strong>
                                 <p id="' . $id . '" class="text-muted h5">Industry: ' . $category . '</p>
@@ -1215,7 +1215,7 @@ function displayWhitePaperListings() {
                 // Output the white paper listing securely
                 echo '<div class="col-md-4 mb-4 p-1">
                     <div class="customer-story-card card m-1" style="min-height: 450px; max-height: 450px;">
-                        <img src="' . $image_path . '" class="d-block img-fluid lazyload" alt="White Paper Image">
+                        <img src="' . $image_path . '" class="d-block img-fluid lazy-img" alt="White Paper Image">
                         <div class="p-3">
                             <strong>
                                 <p class="text-muted h5">' . $title . '</p>
@@ -1271,7 +1271,7 @@ function displayPartnersLogo() {
                 // Output the partner logo securely
                 echo '<div class="m-4">
                         <a href="' . $safe_site_url . '" target="_blank" rel="noopener noreferrer">
-                            <img src="' . $logo_path . '" alt="Partner Logo" class="img-fluid">
+                            <img src="' . $logo_path . '" alt="Partner Logo" class="img-fluid lazy-img">
                         </a>
                       </div>';
             }
@@ -1690,36 +1690,51 @@ if (isset($_GET['blogId'])) {
 #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 #Start of display youtube videos details 
 #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+function getYouTubeId($url) {
+    $pattern = '/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/';
+    preg_match($pattern, $url, $matches);
+    return $matches[1] ?? '';
+}
+
 function displayYoutubeVideos() {
     include 'config.php';
 
-    // Use prepared statements to prevent SQL injection
     $stmt = $conn->prepare("SELECT url FROM videos ORDER BY id DESC LIMIT 3");
-
     if (!$stmt) {
         die("Query preparation failed: " . $conn->error);
     }
 
-    // Execute the query
     $stmt->execute();
-
-    // Get the result set
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            // Escape output to prevent XSS
-            echo '<div class="col-lg-4 col-md-12 col-12">
-			 '.$row['url'].'
-			</div>';
+            // Extract Video ID from iframe
+            preg_match('/src="([^"]+)"/', $row['url'], $matches);
+            $videoSrc = isset($matches[1]) ? $matches[1] : '';
+
+            $videoId = getYouTubeId($videoSrc);
+
+            if ($videoId) {
+                echo '
+                <div class="col-lg-4 col-md-12 col-12">
+                    <div class="lazy-video" data-src="https://www.youtube.com/embed/' . htmlspecialchars($videoId) . '?autoplay=1">
+                        <div class="play-overlay">
+                            <img src="https://img.youtube.com/vi/' . $videoId . '/hqdefault.jpg" class="lazy-thumb" alt="Video Thumbnail">
+                            <div class="play-button"></div>
+                        </div>
+                    </div>
+                </div>';
+            }
         }
     } else {
-        echo "No video was found!";
+        echo "<p>No video was found!</p>";
     }
 
-    // Close the statement
     $stmt->close();
 }
+
+
 
 
 
@@ -1745,7 +1760,7 @@ function displayNewSocialImpact() {
                 echo ' <a href="social-impact-details?social_id='.$row['secure_id'].'"><div class="blog-post">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="img/social-impact/'.$image_url.'" class="img-fluid blog-image" alt="Blog Image">
+                            <img src="img/social-impact/'.$image_url.'" class="img-fluid lazy-img blog-image" alt="Blog Image">
                         </div>
                         <div class="col-md-8">
                             <span class="date">'.$posted_date.'</span>
@@ -1792,7 +1807,7 @@ function displayFutureSocialImpact() {
             <!-- Blog Card 5 -->
             <a href="social-impact-details?social_id='.$row['secure_id'].'">
             <div class="blog-card">
-                <img src="img/social-impact/'.$image_url.'" alt="Blog Image">
+                <img src="img/social-impact/'.$image_url.'" alt="Blog Image" class="lazy-img">
                 <div class="blog-content">
                     <span class="date">'.$posted_date.'</span>
                     <h3 class="blog-title">'.$title.'</h3>
@@ -1837,7 +1852,7 @@ function displayAllSocialImpact() {
                 echo ' <a href="social-impact-details?social_id='.$row['secure_id'].'"><div class="blog-post">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="img/social-impact/'.$image_url.'" class="img-fluid blog-image" alt="Blog Image">
+                            <img src="img/social-impact/'.$image_url.'" class="img-fluid blog-image lazy-img" alt="Blog Image">
                         </div>
                         <div class="col-md-8">
                             <span class="date">'.$posted_date.'</span>
@@ -1984,7 +1999,7 @@ function relatedArticles() {
                 // Display related article
                echo '
                 <div class="related-article">
-                        <img src="img/social-impact/'.$image_url.'" class="img-fluid" alt="Related Article">
+                        <img src="img/social-impact/'.$image_url.'" class="img-fluid lazy-img" alt="Related Article">
                        <a href="social-impact-details?social_id='.$row['secure_id'].'" class="related-title text-primary">
                             '.substr($title, 0,70).'
                         </a>

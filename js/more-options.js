@@ -1,3 +1,73 @@
+document.addEventListener("DOMContentLoaded", function () {
+    let lazyVideos = document.querySelectorAll(".lazy-video");
+
+    lazyVideos.forEach(video => {
+        video.addEventListener("click", function () {
+            let iframe = document.createElement("iframe");
+            iframe.setAttribute("width", "560");
+            iframe.setAttribute("height", "315");
+            iframe.setAttribute("src", video.getAttribute("data-src"));
+            iframe.setAttribute("frameborder", "0");
+            iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
+            iframe.setAttribute("allowfullscreen", "true");
+
+            // Remove existing children (thumbnail + button)
+            video.innerHTML = "";
+            video.appendChild(iframe);
+        });
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    if (!("IntersectionObserver" in window)) {
+        console.warn("IntersectionObserver not supported. Consider a polyfill.");
+        return;
+    }
+
+    // Lazy load normal images
+    let lazyImages = document.querySelectorAll(".lazy-img");
+    let lazyBGs = document.querySelectorAll(".lazy-bg");
+
+    let observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                let target = entry.target;
+
+                if (target.tagName === "IMG") {
+                    let dataSrc = target.getAttribute("data-src");
+                    
+                    if (dataSrc) {
+                        target.src = dataSrc;
+                        target.removeAttribute("data-src");
+                        target.classList.add("loaded");
+                        
+                        // Optional: Add an error handler for broken images
+                        target.onerror = function () {
+                            console.error("Image failed to load:", dataSrc);
+                            target.classList.add("error"); // Apply error styling if needed
+                        };
+                    }
+                } else {
+                    let dataBg = target.getAttribute("data-bg");
+
+                    if (dataBg) {
+                        target.style.backgroundImage = "url('" + dataBg + "')";
+                        target.removeAttribute("data-bg");
+                        target.classList.add("loaded");
+                    }
+                }
+
+                observer.unobserve(target);
+            }
+        });
+    });
+
+    lazyImages.forEach(img => observer.observe(img));
+    lazyBGs.forEach(bg => observer.observe(bg));
+});
+
+
 $(document).ready(()=>{
 	$('#searchInput').on('keyup', function() {
        

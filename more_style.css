@@ -289,3 +289,23 @@
     border-radius: 8px;
 }
 
+/*lazy loading...*/
+
+/* Lazy load placeholder for images */
+.lazy-img {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.lazy-img.loaded {
+    opacity: 1;
+}
+
+/* Lazy load placeholder for background images */
+.lazy-bg {
+    background-color: #f3f3f3; /* Placeholder before loading */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.5s ease-in-out;
+}

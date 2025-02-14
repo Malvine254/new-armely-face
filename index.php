@@ -1,9 +1,8 @@
-<?php include 'php/actions.php'; include 'php/header_footer.php';?>
+<?php include 'php/actions.php';?>
 
 <!-- Start of Header Area -->
-<?php  echo getHeader("Home"); ?>
+<?php  include 'php/header_footer.php';echo getHeader("Home"); ?>
 <!-- End Header Area -->
-
 <!-- Slider Area -->
 <section class="slider">
 <div class="hero-slider">
@@ -26,41 +25,43 @@
 </div>
 <!-- End Single Slider -->
 <!-- Start Single Slider -->
-<div class="single-slider" style="background-image:url('images/sliders/slider-2.jpg')">
-<div class="container">
-<div class="row">
-	<div class="col-lg-7">
-		<div class="text">
-			<h1><span class="text-light"> We Provide AI Services That You Can Trust!</span></h1>
-			<p class="text-light">Beyond Imagination </p>
-			<div class="button">
-				<a href="services#consultation-form" class="btn">Get Appointment</a>
-				<a href="company" class="btn primary">About Us</a>
-			</div>
-		</div>
-	</div>
-</div>
-</div>
-</div>
-<!-- Start End Slider -->
-<!-- Start Single Slider -->
-<div class="single-slider" style="background-image:url('images/sliders/slider-3.jpg')">
-<div class="container">
-<div class="row">
-	<div class="col-lg-7">
-		<div class="text">
-			<h1><span class="text-light">We Provide Data Services That You Can Trust!</span></h1>
-			<p class="text-light">Beyond Imagination </p>
-			<div class="button">
-				<a href="services#consultation-form" class="btn">Get Appointment</a>
-				<a href="contact" class="btn primary">Contact Us</a>
-			</div>
-		</div>
-	</div>
-</div>
-</div>
+<div class="single-slider lazy-bg" data-bg="images/sliders/slider-2.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="text">
+                    <h1><span class="text-light"> We Provide AI Services That You Can Trust!</span></h1>
+                    <p class="text-light">Beyond Imagination</p>
+                    <div class="button">
+                        <a href="services#consultation-form" class="btn">Get Appointment</a>
+                        <a href="company" class="btn primary">About Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- End Single Slider -->
+
+<!-- Start Single Slider -->
+<div class="single-slider lazy-bg" data-bg="images/sliders/slider-3.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="text">
+                    <h1><span class="text-light">We Provide Data Services That You Can Trust!</span></h1>
+                    <p class="text-light">Beyond Imagination</p>
+                    <div class="button">
+                        <a href="services#consultation-form" class="btn">Get Appointment</a>
+                        <a href="contact" class="btn primary">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Single Slider -->
+
 </div>
 </section>
 <!--/ End Slider Area -->
@@ -276,5 +277,4 @@
 </div>
 </section>
 <!-- End Appointment -->
-
 <?php echo getFooter(); ?>

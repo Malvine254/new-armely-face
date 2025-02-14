@@ -4,6 +4,7 @@
 
 <!-- Start of Header Area -->
 <?php  echo getHeader("blog"); ?>
+<link rel="stylesheet" href="more_style.css">
 <!-- End Header Area -->
         
 <!-- Breadcrumbs -->
