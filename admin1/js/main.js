@@ -175,13 +175,12 @@ $('#careerForm').submit(function(event) {
     var formData = new FormData();
 
     // Append file to FormData object
-    var profile = $('#career_image')[0].files[0]; // Assuming 'cv' is the id of your file input
+    var date = $('#career_image') // Assuming 'cv' is the id of your file input
     var career_body = CKEDITOR.instances['careerBody'].getData();
    
     // Append other form fields to FormData object
     formData.append('career_title', $('#career_title').val());
     formData.append('name', $('#clientName').val())
-    formData.append('career_image', profile);
     formData.append('career_body', career_body);
     //alert(blogBody)
     // Perform an AJAX request to submit the form data
@@ -279,3 +278,58 @@ $('#footerForm').submit(function(event) {
   });
 
 // .........................end of submit new blog articles...........................
+
+$('#youtubeVideoForm').submit(function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Create FormData object
+    var formData = new FormData();
+
+    // Append file to FormData object
+   
+    var iframeContents = $("#iframeContents").val();
+   
+    // Append other form fields to FormData object
+  
+    formData.append('iframeContents', iframeContents);
+    //alert(blogBody)
+    // Perform an AJAX request to submit the form data
+    $.ajax({
+      type: 'POST',
+      url: 'php/uploads', // Replace with your actual server-side endpoint
+      data: formData,
+      processData: false, // Prevent jQuery from automatically processing data
+      contentType: false,
+      success: function(response2) {
+        // Handle the success response
+        if (response2==="1") {
+          Swal.fire({
+          title: 'Success!',
+          text: "Operation was updated successfully",
+          confirmButtonColor: 'rgb(47,85,151)', 
+          icon: 'success',
+        });
+          $("#youtubeVideoForm")[0].reset();
+          CKEDITOR.instances.footerBody.setData(''); 
+        }else{
+          Swal.fire({
+        title: 'Warning',
+        text: response2,
+        icon: 'warning',
+        confirmButtonText: 'OK',
+         confirmButtonColor: 'rgb(47,85,151)'
+      });
+        }
+         
+        console.log(response2); // You can do something with the response data
+      },
+      error: function(error) {
+        // Handle the error response
+        console.error('Form submission error');
+        console.error(error); // You can display an error message or perform other actions
+      }
+    });
+
+
+  });
+

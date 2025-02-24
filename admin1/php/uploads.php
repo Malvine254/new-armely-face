@@ -70,7 +70,7 @@ function uploadNewBlog() {
 
     // Execute query
     if ($stmt->execute()) {
-        echo "Upload successful!";
+        echo "1";
     } else {
         echo "Database error: " . $conn->error;
     }
@@ -83,4 +83,35 @@ function uploadNewBlog() {
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES['blog_image']) && isset($_POST['blog_title']) && isset($_POST['blog_body'])) {
     uploadNewBlog();
 } 
+
+
+
+function uploadNewYoutubeVideo(){
+   include '../../php/config.php'; 
+   $iframeContents = trim($_POST['iframeContents']);
+
+    // Basic validation: Ensure it contains a YouTube embed link
+    if (!preg_match('/^<iframe.*src="https:\/\/www\.youtube\.com\/embed\/[a-zA-Z0-9_-]+".*<\/iframe>$/', $iframeContents)) {
+        echo "Invalid YouTube iframe.";
+        exit;
+    }
+
+    // Securely insert into database using prepared statements
+    $stmt = $conn->prepare("INSERT INTO videos (url) VALUES (?)");
+    $stmt->bind_param("s", $iframeContents);
+
+    echo $stmt->execute() ? "1" : "failed";
+
+    $stmt->close();
+    $conn->close();
+}
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['iframeContents'])) {
+    uploadNewYoutubeVideo();
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['career_title'])) {
+    echo "hey man";
+}
+
 ?>
+

@@ -172,3 +172,46 @@ a.list-group-item, .list-group-item-action {
     background-color: transparent;
     content: '';
 }
+
+ /* Sidebar Styles */
+    #sidebarMenu {
+      width: 250px;
+      position: fixed;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      background: #f8f9fa;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    /* Content Area */
+    .content-area {
+      margin-left: 260px; /* Sidebar width + margin */
+      padding: 20px;
+    }
+
+    /* Sidebar Menu - Fixed Position */
+#sidebarMenu {
+  width: 250px;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: #f8f9fa;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Ensure Content Starts After Sidebar */
+.content-area {
+  margin-left: 260px; /* Prevents content from overlapping the sidebar */
+  padding: 20px;
+}
+
+/* Responsive Fix: On small screens, adjust layout */
+@media (max-width: 991px) {
+  .content-area {
+    margin-left: 0;
+  }
+}

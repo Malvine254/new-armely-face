@@ -1,156 +1,6 @@
-<?php require 'php/check_session.php'; require 'php/uploads.php'?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Material Design for Bootstrap</title>
-    <!-- MDB icon -->
-    <link rel="icon" href="../images/logo/logo1.png" type="image/x-icon">
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+<?php require 'php/check_session.php'; require 'php/uploads.php';include "php/header_footer.php";include "php/users.php";?>
 
-    <!-- Google Fonts Roboto -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
-    />
-    <!-- MDB -->
-    <link rel="stylesheet" href="css/mdb.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title></title>
-</head>
-<body>
-    <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
-  <!-- Container wrapper -->
-  <div class="container-fluid">
-    <!-- Toggle button -->
-    <button
-      data-mdb-collapse-init
-      class="navbar-toggler"
-      type="button"
-      data-mdb-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <!-- Collapsible wrapper -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <!-- Navbar brand -->
-      <a class="navbar-brand mt-2 mt-lg-0" href="#">
-        <img width='130px' height='auto' src='../images/logo/logo.svg'/>
-      </a>
-      <!-- Left links -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link"  href="index">Dashboard</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="actions">Update User Page</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="career">Manage Career</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="admins">Manage Admins</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="reports">Generate Reports</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="tables">Manage User Page</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-info" href="users">Account Settings</a>
-        </li>
-      </ul>
-      <!-- Left links -->
-    </div>
-    <!-- Collapsible wrapper -->
-
-    <!-- Right elements -->
-    <div class="d-flex align-items-center">
-      <!-- Icon -->
-      <a class="link-secondary me-3" href="#">
-        <i class="fas fa-shopping-cart"></i>
-      </a>
-
-      <!-- Notifications -->
-      <div class="dropdown">
-        <a
-          data-mdb-dropdown-init
-          class="link-secondary me-3 dropdown-toggle hidden-arrow"
-          href="#"
-          id="navbarDropdownMenuLink"
-          role="button"
-          aria-expanded="false"
-        >
-          <i class="fas fa-bell"></i>
-          <span class="badge rounded-pill badge-notification bg-danger">1</span>
-        </a>
-        <ul
-          class="dropdown-menu dropdown-menu-end"
-          aria-labelledby="navbarDropdownMenuLink"
-        >
-          <li>
-            <a class="dropdown-item" href="#">Some news</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Another news</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </li>
-        </ul>
-      </div>
-      <!-- Avatar -->
-      <div class="dropdown">
-        <a
-          data-mdb-dropdown-init
-          class="dropdown-toggle d-flex align-items-center hidden-arrow"
-          href="#"
-          id="navbarDropdownMenuAvatar"
-          role="button"
-          aria-expanded="false"
-        >
-          <img
-            src="https://www.svgrepo.com/show/422421/account-avatar-multimedia.svg"
-            class="rounded-circle"
-            height="25"
-            alt="Black and White Portrait of a Man"
-            loading="lazy"
-          />
-        </a>
-        <ul
-          class="dropdown-menu dropdown-menu-end"
-          aria-labelledby="navbarDropdownMenuAvatar"
-        >
-          <li>
-            <a class="dropdown-item" href="#">My profile</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Settings</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Logout</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <!-- Right elements -->
-  </div>
-  <!-- Container wrapper -->
-</nav>
-<!-- Navbar -->
+<?php echo getHeader("Actions"); ?>
 <!-- Tabs navs -->
 <div class="container">
   <ul class="nav nav-tabs mt-3" id="ex-with-icons" role="tablist">
@@ -184,7 +34,11 @@
                     <div class="author-card-avatar"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Daniel Adams">
                     </div>
                     <div class="author-card-details">
-                        <h5 class="author-card-name text-lg">Daniel Adams</h5><span class="author-card-position">Joined February 06, 2017</span>
+                        <h5 class="author-card-name text-lg"><?php if (isset($_SESSION['email'])) {
+                            echo $name;
+                        } ?></h5><span class="author-card-position"><?php if (isset($_SESSION['email'])) {
+                            echo $joined_date;
+                        } ?></span>
                     </div>
                 </div>
             </div>
@@ -197,48 +51,36 @@
                             </div><span class="badge badge-secondary">6</span>
                         </div>
                     </a><a class="list-group-item active" href="#"><i class="fe-icon-user text-muted"></i>Profile Settings</a><a class="list-group-item" href="#"><i class="fe-icon-map-pin text-muted"></i>Addresses</a>
-                    <a class="list-group-item" href="https://www.bootdey.com/snippets/view/bs4-wishlist-profile-page" target="__blank">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div><i class="fe-icon-heart mr-1 text-muted"></i>
-                                <div class="d-inline-block font-weight-medium text-uppercase">My Wishlist</div>
-                            </div><span class="badge badge-secondary">3</span>
-                        </div>
-                    </a>
-                    <a class="list-group-item" href="https://www.bootdey.com/snippets/view/bs4-account-tickets" target="__blank">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div><i class="fe-icon-tag mr-1 text-muted"></i>
-                                <div class="d-inline-block font-weight-medium text-uppercase">My Tickets</div>
-                            </div><span class="badge badge-secondary">4</span>
-                        </div>
-                    </a>
+                 
                 </nav>
             </div>
         </div>
         <!-- Profile Settings-->
         <div class="col-lg-8 pb-5">
             <form class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="form-group">
                         <label for="account-fn">First Name</label>
-                        <input class="form-control" type="text" id="account-fn" value="Daniel" required="">
+                        <input class="form-control" type="text" id="account-fn" value="<?php if (isset($_SESSION['email'])) {
+                            echo $name;
+                        } ?>" required="">
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="account-ln">Last Name</label>
-                        <input class="form-control" type="text" id="account-ln" value="Adams" required="">
-                    </div>
-                </div>
+        
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="account-email">E-mail Address</label>
-                        <input class="form-control" type="email" id="account-email" value="daniel.adams@example.com" disabled="">
+                        <input class="form-control" type="email" id="account-email" value="<?php if (isset($_SESSION['email'])) {
+                            echo $email;
+                        } ?>" disabled="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="account-phone">Phone Number</label>
-                        <input class="form-control" type="text" id="account-phone" value="+7 (805) 348 95 72" required="">
+                        <input class="form-control" type="text" id="account-phone" value="+<?php if (isset($_SESSION['email'])) {
+                            echo $phone;
+                        } ?>" required="">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -256,9 +98,8 @@
                 <div class="col-12">
                     <hr class="mt-2 mb-3">
                     <div class="d-flex flex-wrap justify-content-between align-items-center">
-                        <div class="custom-control custom-checkbox d-block">
-                            <input class="custom-control-input" type="checkbox" id="subscribe_me" checked="">
-                            <label class="custom-control-label" for="subscribe_me">Subscribe me to Newsletter</label>
+                        <div class="custom-control  d-block">
+                          <button class="btn btn-style-1 btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#myModal">Add Admin</button>
                         </div>
                         <button class="btn btn-style-1 btn-primary" type="button" data-toast="" data-toast-position="topRight" data-toast-type="success" data-toast-icon="fe-icon-check-circle" data-toast-title="Success!" data-toast-message="Your profile updated successfuly.">Update Profile</button>
                     </div>
@@ -367,23 +208,43 @@
   </div>
 </div>
 
-
+ <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel">New Admin</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- Modal Body with Form -->
+        <div class="modal-body">
+          <form id="modalForm" method="post">
+            <div class="mb-3">
+              <label for="inputName" class="form-label">Full Name</label>
+              <input required type="text" name="full_name" class="form-control" id="inputName" placeholder="Enter your name">
+            </div>
+            <div class="mb-3">
+              <label  for="inputEmail" class="form-label">Email address</label>
+              <input required name="email_address"  type="email" class="form-control" id="inputEmail" placeholder="name@example.com">
+            </div>
+            <!-- Modal Footer with Action Buttons -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" name="send_invitation_link" >Send Invitation Link</button>
+            </div>
+           
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
 
 
 <!-- Tabs content -->
 
-      <!-- End your project here-->
-    <!-- Bootstrap JS and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <!-- MDB -->
-    <script type="text/javascript" src="js/mdb.umd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-</body>
-</html>
+<?php echo getFooter(); ?>
 
 
   

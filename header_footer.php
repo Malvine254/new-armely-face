@@ -112,7 +112,7 @@ echo isActive('index');
 				<div class="col-lg-3 col-md-3 col-12">
 					<!-- Start Logo -->
 					<div class="logo">
-						<a href="/"><span class="logo-font">armely</span></a>
+						<a href="index"><span class="logo-font">armely</span></a>
 					</div>
 					<!-- End Logo -->
 					<!-- Mobile Nav -->

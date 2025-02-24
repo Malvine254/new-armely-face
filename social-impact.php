@@ -42,7 +42,7 @@
 
             <!-- Right Image Column -->
             <div class="col-lg-4 col-md-12 text-center">
-                <img src="img/blog1.jpg" class="img-fluid impact-image" alt="Social Impact">
+                <img src="img/blog1.jpg" class="img-fluid impact-image lazy-img" alt="Social Impact">
             </div>
         </div>
     </div>
@@ -67,7 +67,7 @@
             <!-- Sidebar (Right Column) -->
             <div class="col-lg-4">
                 <div class="sidebar">
-                    <img src="img/blog1.jpg" class="img-fluid" alt="Sidebar Image">
+                    <img src="img/blog1.jpg" class="img-fluid lazy-img lazy-img" alt="Sidebar Image">
                     <h4 class="sidebar-title">Got 5 minutes?</h4>
                     <p class="sidebar-text">Join thousands of tech leaders and get actionable insights on AI, cloud, cybersecurity, and more delivered to your inbox.</p>
                 </div>
@@ -83,7 +83,7 @@
             <!-- Blog Card 1 -->
             <div class="col-lg-4 col-md-6">
                 <div class="blog-card">
-                    <img src="img/blog3.jpg" class="img-fluid blog-card-image" alt="Blog Image">
+                    <img src="img/blog3.jpg" class="img-fluid blog-card-image lazy-img lazy-img" alt="Blog Image">
                     <div class="blog-content">
                         <span class="date">September 15, 2022</span>
                         <h3 class="blog-title">How IBM SkillsBuild Supercharged a Community College Student’s Career Path</h3>
@@ -95,7 +95,7 @@
             <!-- Blog Card 2 -->
             <div class="col-lg-4 col-md-6">
                 <div class="blog-card">
-                    <img src="img/blog2.jpg" class="img-fluid blog-card-image" alt="Blog Image">
+                    <img src="img/blog2.jpg" class="img-fluid blog-card-image lazy-img lazy-img" alt="Blog Image">
                     <div class="blog-content">
                         <span class="date">September 12, 2022</span>
                         <h3 class="blog-title">People with purpose: Meet 5 IBM volunteers fighting climate change</h3>
@@ -107,7 +107,7 @@
             <!-- Blog Card 3 -->
             <div class="col-lg-4 col-md-6">
                 <div class="blog-card">
-                    <img src="img/blog1.jpg" class="img-fluid blog-card-image" alt="Blog Image">
+                    <img src="img/blog1.jpg" class="img-fluid blog-card-image lazy-img lazy-img" alt="Blog Image">
                     <div class="blog-content">
                         <span class="date">June 9, 2022</span>
                         <h3 class="blog-title">The value of giving back: Honoring IBM volunteers around the world</h3>
@@ -154,6 +154,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- Owl Carousel JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <?php echo getFooter(); ?>
 
 <script>
 $(document).ready(function(){
@@ -184,4 +185,4 @@ $(document).ready(function(){
 });
 </script>
 
-<?php echo getFooter(); ?>
+

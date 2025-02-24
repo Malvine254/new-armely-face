@@ -36,6 +36,154 @@ function displayYoutubeVideos() {
 
     $stmt->close();
 }
+ function checkShortlistingStatus($status,$id){
+        if ($status ==="2") {
+            return '<a class="btn btn-info col-12" >Shortlisted</a>';
+        }elseif ($status==="3") {
+           return '<a class="btn btn-danger col-12" >Rejected</a>';
+        }else{
+            return '<a class="btn btn-warning col-12" href="?listId='.$id.'">Shortlist</a>';
+        }
+    }
+    function revertRejected($status,$id){
+        if ($status ==="1") {
+            return '<a href="?rejectId='.$id.'" class="btn btn-danger col-12" >Reject</a>';
+        }elseif ($status==="3" || $status==="2" ) {
+           return '<a href="?revertId='.$id.'" class="btn btn-danger col-12" >Revert</a>';
+        }
+    }
+    function backgroundColor($status){
+        if ($status ==="2") {
+            return 'bg-info text-light';
+        }elseif ($status==="3") {
+           return 'bg-danger text-light';
+        }else{
+            return 'text-dark';
+        }
+    }
+    function deleteRecords($tableName, $id,$header){
+        require '../php/config.php';
+        $del = $conn->query("DELETE FROM $tableName WHERE id=$id");
+        if ($del) {
+            return header("location:".$header."");
+        }
+    }
+
+
+function displayAllCareerOpoortunities(){
+  
+    require '../php/config.php';
+    $numbering = 1;
+    $select = $conn->query("SELECT * FROM job_applications  ORDER BY id DESC");
+    if ($select->num_rows>0) {
+        while ($row=$select->fetch_assoc()) {
+            echo '
+            <tr class="'.backgroundColor($row['status']).'">
+                <td>'.$numbering++.'</td>
+                <td>'.$row["role"].'</td>
+                <td>'.$row['name'].'</td>
+                <td>'.$row['email'].'</td>
+                <td>'.$row['address'].'</td>
+                <td>'.$row['application_date'].'</td>
+                <td>'.$row['phone'].'</td>
+                <td><a href="../pdf/'.$row['cv'].'" target="_blank">cv</a></td>
+                <td>'.checkShortlistingStatus($row['status'],$row['id']).'<br><br> '.revertRejected($row['status'],$row['id']).'</td>
+            </tr>';
+}
+}
+if (isset($_GET['listId'])) {
+    $id = $_GET['listId'];
+    $update = $conn->query("UPDATE job_applications SET status='2' WHERE id=$id");
+    if ($update) {
+        echo "<script>window.location.assign('career');</script>";
+    }else{
+        echo "Failed";
+    }
+}
+if (isset($_GET['revertId'])) {
+    $id = $_GET['revertId'];
+    $update = $conn->query("UPDATE job_applications SET status='1' WHERE id=$id");
+    if ($update) {
+        echo "<script>window.location.assign('career');</script>";
+    }else{
+        echo "Failed";
+    }
+}
+
+}
+
+//delete records
+if (isset($_GET['delId'])) {
+   $id = $_GET['delId'];
+   deleteRecords('job_applications', $id,'career');
+}
+
+function displayShortlistedCandidates(){
+   
+    require '../php/config.php';
+    $numbering = 1;
+    $select = $conn->query("SELECT * FROM job_applications  WHERE status='2' ORDER BY id DESC");
+    if ($select->num_rows>0) {
+        while ($row=$select->fetch_assoc()) {
+            echo '
+            <tr>
+                <td>'.$numbering++.'</td>
+                <td>'.$row["role"].'</td>
+                <td>'.$row['name'].'</td>
+                <td>'.$row['email'].'</td>
+                <td>'.$row['address'].'</td>
+                <td>'.$row['application_date'].'</td>
+                <td>'.$row['phone'].'</td>
+                <td><a href="../pdf/'.$row['cv'].'" target="_blank">cv</a></td>
+               <td>'.checkShortlistingStatus($row['status'],$row['id']).'<br><br> '.revertRejected($row['status'],$row['id']).'</td>
+            </tr>';
+}
+}
+if (isset($_GET['rejectId'])) {
+    $id = $_GET['rejectId'];
+    $update = $conn->query("UPDATE job_applications SET status='3' WHERE id=$id");
+    if ($update) {
+        echo "<script>window.location.assign('career');</script>";
+        
+    }else{
+        echo "Failed";
+    }
+}
+}
+
+function displayJobPosted(){
+   
+    require '../php/config.php';
+    $numbering = 1;
+    $select = $conn->query("SELECT * FROM career ORDER BY id DESC");
+    if ($select->num_rows>0) {
+        while ($row=$select->fetch_assoc()) {
+            echo '
+            <tr>
+                <td>'.$numbering++.'</td>
+                <td>'.$row["job_title"].'</td>
+                <td>'.substr($row['job_description'],0,200).'....</td>
+                <td>'.$row['job_deadline'].'</td>
+                <td>'.$row['job_type'].'</td>
+                <td>'.$row['job_location'].'</td>
+                <td> <a class="btn btn-danger col-12" href="?jobDelId='.$row['id'].'">Remove</a><br><br><a class="btn btn-info col-12" href="?editId='.$row['id'].'">Edit</a></td>
+            </tr>';
+}
+}
+}
+
+function displayLocations(){
+   
+    require '../php/config.php';
+    $select = $conn->query("SELECT * FROM job_applications");
+    if ($select->num_rows>0) {
+        while ($row=$select->fetch_assoc()) {
+            echo "<option>".$row['address']. "</option>";
+}
+}
+}
+
+
 
 
  ?>
