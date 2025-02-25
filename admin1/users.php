@@ -1,8 +1,12 @@
 <?php require 'php/check_session.php'; require 'php/uploads.php';include "php/header_footer.php";include "php/users.php";?>
 
-<?php echo getHeader("Actions"); ?>
-<!-- Tabs navs -->
-<div class="container">
+<?php echo getHeader("Actions",$name); ?>
+
+
+<!-- Tabs content -->
+<div class="tab-content content-area" id="ex-with-icons-content">
+  <!-- Tabs navs -->
+<div class="container ">
   <ul class="nav nav-tabs mt-3" id="ex-with-icons" role="tablist">
   <li class="nav-item" role="presentation">
     <a data-mdb-tab-init class="nav-link active" id="ex-with-icons-tab-1" href="#ex-with-icons-tabs-1" role="tab"
@@ -20,9 +24,6 @@
 </ul>
 </div>
 <!-- Tabs navs -->
-
-<!-- Tabs content -->
-<div class="tab-content" id="ex-with-icons-content">
   <div class="tab-pane fade show active mt-3" id="ex-with-icons-tabs-1" role="tabpanel" aria-labelledby="ex-with-icons-tab-1">
     <div class="container shadow p-4 mt-5 col-md-10">
     <div class="row">
@@ -57,11 +58,11 @@
         </div>
         <!-- Profile Settings-->
         <div class="col-lg-8 pb-5">
-            <form class="row">
+            <form class="row" method="post">
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="account-fn">First Name</label>
-                        <input class="form-control" type="text" id="account-fn" value="<?php if (isset($_SESSION['email'])) {
+                        <input name="update_name" required class="form-control" type="text" id="account-fn" value="<?php if (isset($_SESSION['email'])) {
                             echo $name;
                         } ?>" required="">
                     </div>
@@ -77,22 +78,27 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="account-phone">Phone Number</label>
-                        <input class="form-control" type="text" id="account-phone" value="+<?php if (isset($_SESSION['email'])) {
+                        <label for="account-phone">Phone Number <?php if (isset($_SESSION['email']) && $phone !="") {
+                            
+                        }else{
+                          echo "<i class='fa fa-warning text-danger'></i><span class='text-danger'>Update Phone Number</span>";
+                        } 
+                      ?></label>
+                        <input autocomplete="off" required name="update_phone" class="form-control" type="phone" id="account-phone" value="<?php if (isset($_SESSION['email'])) {
                             echo $phone;
-                        } ?>" required="">
+                        } ?>" >
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="account-pass">New Password</label>
-                        <input class="form-control" type="password" id="account-pass">
+                        <input autocomplete="off" minlength="6" required name="update_new_password" class="form-control" type="password" id="account-pass">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="account-confirm-pass">Confirm Password</label>
-                        <input class="form-control" type="password" id="account-confirm-pass">
+                        <input autocomplete="off" minlength="6" required name="update_confirm_password" class="form-control" type="password" id="account-confirm-pass">
                     </div>
                 </div>
                 <div class="col-12">
@@ -101,7 +107,7 @@
                         <div class="custom-control  d-block">
                           <button class="btn btn-style-1 btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#myModal">Add Admin</button>
                         </div>
-                        <button class="btn btn-style-1 btn-primary" type="button" data-toast="" data-toast-position="topRight" data-toast-type="success" data-toast-icon="fe-icon-check-circle" data-toast-title="Success!" data-toast-message="Your profile updated successfuly.">Update Profile</button>
+                        <button name="update_user_btn" class="btn btn-style-1 btn-primary" type="submit">Update Profile</button>
                     </div>
                 </div>
             </form>

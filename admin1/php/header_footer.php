@@ -1,5 +1,5 @@
 <?php
-function getHeader($pageName) {
+function getHeader($pageName,$name) {
 
  $current_page = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
 
@@ -30,7 +30,7 @@ echo isActive('index');
     <!-- MDB -->
    
     <script src="ckeditor3/ckeditor.js"></script>
-    <link rel="stylesheet" href="../css/style.css">
+  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.0/mdb.min.css">
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <title></title>
@@ -73,8 +73,9 @@ echo isActive('index');
     <!-- Right elements -->
     <div class="d-flex align-items-center">
       <!-- Icon -->
-      <a class="link-secondary me-3" href="#">
-        <i class="fas fa-shopping-cart"></i>
+      <a class="link-secondary me-3" href="#">Welcome, $name
+        <strong class="text-dark"></strong>
+
       </a>
 
       <!-- Notifications -->
@@ -286,7 +287,6 @@ function getFooter() {
 return <<<HTML
 <!-- Bootstrap JS and jQuery -->
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

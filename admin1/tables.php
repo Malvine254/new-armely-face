@@ -1,6 +1,6 @@
-<?php require 'php/check_session.php'; require 'php/uploads.php';include "php/header_footer.php";?>
+<?php require 'php/check_session.php'; require 'php/uploads.php';include "php/header_footer.php";include "php/users.php";?>
 
-<?php echo getHeader("Actions"); ?>
+<?php echo getHeader("Actions",$name); ?>
 <!-- Tabs navs -->
 <div class="container">
   <ul class="nav nav-tabs mb-3 mt-3" id="ex-with-icons" role="tablist">

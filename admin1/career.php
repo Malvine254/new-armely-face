@@ -1,9 +1,14 @@
 <?php require 'php/check_session.php'; require 'php/uploads.php'; include "php/header_footer.php";?>
-<?php include "php/tables.php"; ?>
+<?php include "php/tables.php";include "php/users.php"; ?>
 
-<?php echo getHeader("Actions"); ?>
+<?php echo getHeader("Actions",$name); ?>
 
-<!-- Tabs navs -->
+
+
+<!-- Tabs content -->
+<center>
+  <div class="tab-content content-area shadow p-5 mt-5 " id="ex-with-icons-content">
+    <!-- Tabs navs -->
 <div class="content-area container">
   <ul class="nav nav-tabs mb-3 mt-3" id="ex-with-icons" role="tablist">
   <li class="nav-item" role="presentation">
@@ -25,10 +30,6 @@
   
 </ul>
 <!-- Tabs navs -->
-
-<!-- Tabs content -->
-<center>
-  <div class="tab-content shadow p-5 mt-5 " id="ex-with-icons-content">
     <div class="mb-3">
       <form class="form-inline my-2 my-lg-0">
         <div class="input-group col" style="width: 350px;">

@@ -1,6 +1,6 @@
-<?php require 'php/check_session.php'; include "php/uploads.php"; include "php/header_footer.php"; ?>
+<?php require 'php/check_session.php'; include "php/uploads.php"; include "php/header_footer.php";include "php/users.php"; ?>
 
-<?php echo getHeader("Actions"); ?>
+<?php echo getHeader("Actions",$name); ?>
 
 <!-- Tabs content -->
  <!-- Main Content Area -->

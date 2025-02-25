@@ -1,6 +1,12 @@
 <?php
 function uploadNewBlog() {
-    include '../../php/config.php'; // Include database config
+    include '../../php/config.php'; 
+    session_start();
+    $email_address = $_SESSION['email'];
+    $select = $conn->query("SELECT name FROM admin WHERE email='$email_address'");
+    while ($row=$select->fetch_assoc()) {
+        $final_name = $row['name'];
+    }
 
     // Check if file is uploaded without errors
     if (!isset($_FILES["blog_image"]) || $_FILES["blog_image"]["error"] !== UPLOAD_ERR_OK) {
@@ -15,7 +21,7 @@ function uploadNewBlog() {
     // Sanitize and validate user input
     $blog_title = trim($_POST['blog_title']);
     $blog_body = trim($_POST['blog_body']);
-    $blog_author = "Malvine Owuor";
+    $blog_author = $final_name;
     $date = date("F jS, Y");
     $blog_id = rand(1000000, 10000000000);
 
