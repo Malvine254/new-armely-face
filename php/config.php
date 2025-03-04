@@ -11,7 +11,7 @@ mysqli_report(MYSQLI_REPORT_OFF);
 
 try {
     // Suppress errors using '@' operator and handle manually
-    $conn = @new mysqli($servername, $username, $password, $database);
+    $conn = @new  mysqli("localhost", "root", "", "armely_db_new");
 
     // Check for connection errors manually
     if ($conn->connect_errno) {

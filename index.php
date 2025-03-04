@@ -43,7 +43,7 @@
 </div>
 <!-- End Single Slider -->
 
-<!-- Start Single Slider -->
+<!-- Start Single Slider --> 
 <div class="single-slider lazy-bg" data-bg="images/sliders/slider-3.jpg">
     <div class="container">
         <div class="row">

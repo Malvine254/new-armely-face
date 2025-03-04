@@ -80,7 +80,7 @@ function displayAllCareerOpoortunities(){
             echo '
             <tr class="'.backgroundColor($row['status']).'">
                 <td>'.$numbering++.'</td>
-                <td>'.$row["role"].'</td>
+                <td>'.$row["position"].'</td>
                 <td>'.$row['name'].'</td>
                 <td>'.$row['email'].'</td>
                 <td>'.$row['address'].'</td>
@@ -128,7 +128,7 @@ function displayShortlistedCandidates(){
             echo '
             <tr>
                 <td>'.$numbering++.'</td>
-                <td>'.$row["role"].'</td>
+                <td>'.$row["position"].'</td>
                 <td>'.$row['name'].'</td>
                 <td>'.$row['email'].'</td>
                 <td>'.$row['address'].'</td>
@@ -184,6 +184,84 @@ function displayLocations(){
 }
 
 
+function displayBlogsTable(){
+   
+    require '../php/config.php';
+    $numbering = 1;
+    $select = $conn->query("SELECT * FROM blogs   ORDER BY id DESC");
+    if ($select->num_rows>0) {
+        while ($row=$select->fetch_assoc()) {
+            echo '
+            <tr >
+                <td>'.$numbering++.'</td>
+                <td><a href="../blog?blogId='.$row["blog_id"].'" target=_blank>'.$row["title"].'</a></td>
+                <td><img width="100" class="img-fluid" src="../'.$row['image_path'].'"></td>
+                <td>'.$row['date'].'</td>
+                <td><a href="?blogDelId='.$row['blog_id'].'" target="_blank" class="fa fa-trash"></a></td>
+               
+            </tr>';
+}
+}
 
+}
+
+function displayYoutubeVideosTable(){
+   
+    require '../php/config.php';
+    $numbering = 1;
+    $select = $conn->query("SELECT * FROM videos   ORDER BY id DESC");
+    if ($select->num_rows>0) {
+        while ($row=$select->fetch_assoc()) {
+            echo '
+            <tr >
+                <td>'.$numbering++.'</td>
+                <td>'.$row["url"].'</td>
+               
+                <td><a href="?videosDelId='.$row['id'].'" target="_blank" class="fa fa-trash"></a></td>
+               
+            </tr>';
+}
+}
+
+}
+
+if (isset($_GET['blogDelId'])) {
+    require '../php/config.php';
+    $id = $_GET['blogDelId'];
+
+    // Fetch the image filename before deleting the blog post
+    $query = $conn->query("SELECT * FROM blogs WHERE blog_id=$id");
+    if ($query->num_rows > 0) {
+        $row = $query->fetch_assoc();
+        $imagePath = "../" . $row['image_path']; // Adjust the path to match your image directory
+
+        // Delete the image file from the directory if it exists
+        if (file_exists($imagePath)) {
+            unlink($imagePath);
+        }else{
+            echo "noooooooooooooooooooooooooo";
+        }
+    }
+
+    // Now delete the blog entry from the database
+    $delete = $conn->query("DELETE FROM blogs WHERE blog_id=$id");
+
+    if ($delete) {
+        echo "<script>alert('deleted');</script>";
+    } else {
+        echo "Failed";
+    }
+}else if (isset($_GET['videosDelId'])) {
+     $videosDelId = $_GET['videosDelId'];
+     // Now delete the blog entry from the database
+    $delete = $conn->query("DELETE FROM videos WHERE id=$videosDelId");
+
+    if ($delete) {
+        echo "<script>alert('deleted');</script>";
+    } else {
+        echo "Failed";
+    }
+
+}
 
  ?>

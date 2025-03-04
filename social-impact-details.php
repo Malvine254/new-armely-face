@@ -1,10 +1,8 @@
 <?php include 'php/actions.php'; include 'php/header_footer.php';?>
-
-<?php $array_body = moreDetailsForSocialImpactPosts(); ?>
+<link rel="stylesheet" href="more_style.css">
 
 <!-- Start of Header Area -->
-<?php  echo getHeader("blog"); ?>
-<link rel="stylesheet" href="more_style.css">
+<?php  echo getHeader("social impact details"); ?>
 <!-- End Header Area -->
         
 <!-- Breadcrumbs -->
@@ -26,58 +24,127 @@
 </div>
 <!-- End Breadcrumbs -->
 
-<!-- Article Details Page -->
-<section class="article-section">
+
+<!-- Social Impact Section -->
+<section class="social-impact-section">
     <div class="container">
-        <div class="row">
-            <!-- Main Article Content -->
-            <div class="col-lg-8">
-                <!-- Featured Image -->
-                <div class="article-image">
-                    <img src="img/<?php echo $array_body['image_url']; ?>" class="img-fluid" alt="Article Featured Image">
-                </div>
-
-                <!-- Article Meta -->
-                <div class="article-meta">
-                    <span class="article-date"><?php echo $array_body['posted_date']; ?></span> • 
-                    <span class="article-read-time">4 min read</span>
-                </div>
-
-                <!-- Article Title -->
-                <h1 class="article-title">
-                   <?php echo $array_body['title']; ?>
-                </h1>
-
-                <!-- Article Content -->
-                <div class="article-content">
-                    <p>
-                        <?php echo $array_body['body']; ?>
-                    </p>
-
-                 <!--    <blockquote>
-                        "This partnership represents a crucial step in ensuring that Indigenous communities play a 
-                        significant role in Canada's transition to a low-carbon economy." – IBM Sustainability Team
-                    </blockquote>
- -->
-                 
-                </div>
+        <div class="row align-items-center">
+            <!-- Left Text Column -->
+            <div class="col-lg-8 col-md-12 text-content">
+                <h2 class="mb-2">Social Impact</h2>
+                <p class="section-description">
+                    Armely aspires to make a lasting, positive impact on the environment, 
+                    the communities in which we work and live, and business ethics. 
+                    Explore environmental, social, and governance (ESG) stories that align 
+                    with our corporate social responsibility (CSR) goals.
+                </p>
             </div>
 
-            <!-- Sidebar with Related Articles -->
+            <!-- Right Image Column -->
+            <div class="col-lg-4 col-md-12 text-center">
+                <img src="img/blog1.jpg" class="img-fluid impact-image lazy-img" alt="Social Impact">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Blog Section -->
+<section class="news-single section">
+    <div class="container">
+        
+        <div class="row">
+            <!-- Blog Posts (Left Column) -->
+            <div class="col-lg-8">
+
+               
+
+               <?php  displayNewSocialImpact(); ?>
+
+                <!-- Add more blog posts here -->
+            </div>
+
+            <!-- Sidebar (Right Column) -->
             <div class="col-lg-4">
                 <div class="sidebar">
-                    <h3 class="sidebar-title">Related Articles</h3>
-                    
-                    <!-- Related Article 1 -->
-                    <?php  relatedArticles(); ?>
+                    <img src="img/blog1.jpg" class="img-fluid lazy-img lazy-img" alt="Sidebar Image">
+                    <h4 class="sidebar-title">Got 5 minutes?</h4>
+                    <p class="sidebar-text">Join thousands of tech leaders and get actionable insights on AI, cloud, cybersecurity, and more delivered to your inbox.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-                    <!-- Author Bio -->
-                    <div class="author-box">
-                        <h4>About the Author</h4>
-                        <p><strong> <?php echo $array_body['author_name']; ?></strong> is in  <?php echo $array_body['author_title']; ?> at armely</p>
+<!-- Additional Blog Section -->
+<section class="blog-grid section">
+    <div class="container">
+        <div class="row">
+            <!-- Blog Card 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-card">
+                    <img src="img/blog3.jpg" class="img-fluid blog-card-image lazy-img lazy-img" alt="Blog Image">
+                    <div class="blog-content">
+                        <span class="date">September 15, 2022</span>
+                        <h3 class="blog-title">How IBM SkillsBuild Supercharged a Community College Student’s Career Path</h3>
+                        <p class="blog-desc">3 min read - In honor of National Online Learning Day, which recognizes the advantages and vast potential of online learning...</p>
                     </div>
                 </div>
             </div>
+
+            <!-- Blog Card 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-card">
+                    <img src="img/blog2.jpg" class="img-fluid blog-card-image lazy-img lazy-img" alt="Blog Image">
+                    <div class="blog-content">
+                        <span class="date">September 12, 2022</span>
+                        <h3 class="blog-title">People with purpose: Meet 5 IBM volunteers fighting climate change</h3>
+                        <p class="blog-desc">6 min read - People can accomplish incredible things when they combine talent, skills, and passion with purpose already fine giving...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Card 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-card">
+                    <img src="img/blog1.jpg" class="img-fluid blog-card-image lazy-img lazy-img" alt="Blog Image">
+                    <div class="blog-content">
+                        <span class="date">June 9, 2022</span>
+                        <h3 class="blog-title">The value of giving back: Honoring IBM volunteers around the world</h3>
+                        <p class="blog-desc">2 min read - IBM’s Volunteer Excellence Awards have been presented annually by our Chairman and CEO since 2005 till to date...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Section -->
+<section class="news-single section">
+    <div class="container">
+        <div class="row">
+            <!-- Blog Posts (Left Column) -->
+            <div class="col-lg-8">
+    
+               <?php displayAllSocialImpact(); ?>
+
+                <!-- Add more blog posts here -->
+            </div>
+
+           
+        </div>
+    </div>
+</section>
+
+<!-- Featured Blog Section -->
+<section class="featured-blogs section">
+    <div class="container col-10">
+        <h2 class="section-title text-center">Featured by Topic</h2>
+
+        <!-- Carousel Wrapper -->
+        <div class="owl-carousel blog-carousel">
+            <?php displayFutureSocialImpact(); ?>
+
         </div>
     </div>
 </section>

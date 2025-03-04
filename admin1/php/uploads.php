@@ -52,7 +52,7 @@ function uploadNewBlog() {
     $safe_filename = time() . "_" . $safe_filename; // Prevent filename conflicts
 
     // Define target directory
-    $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/new-armely-face/images/blogs/";
+    $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/images/blogs/";
 
     // Create directory if not exists
     if (!file_exists($target_dir)) {
@@ -97,10 +97,10 @@ function uploadNewYoutubeVideo(){
    $iframeContents = trim($_POST['iframeContents']);
 
     // Basic validation: Ensure it contains a YouTube embed link
-    if (!preg_match('/^<iframe.*src="https:\/\/www\.youtube\.com\/embed\/[a-zA-Z0-9_-]+".*<\/iframe>$/', $iframeContents)) {
-        echo "Invalid YouTube iframe.";
-        exit;
-    }
+   if (!preg_match('/^<iframe\s+[^>]*src="https:\/\/www\.youtube\.com\/embed\/[a-zA-Z0-9_-]+(\?[a-zA-Z0-9&=_-]*)?"[^>]*><\/iframe>$/', $iframeContents)) {
+    echo "Invalid YouTube iframe.";
+    exit;
+}
 
     // Securely insert into database using prepared statements
     $stmt = $conn->prepare("INSERT INTO videos (url) VALUES (?)");

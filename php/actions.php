@@ -244,14 +244,14 @@ function displayBlogFullDetals(){
 			<div class="single-main">
 				<!-- News Head -->
 				<div class="news-head">
-					<img class="lazy-img" style="height: auto; min-height: 400px;" src="'.$row['image_path'].'" alt="#">
+					<img  style="height: auto; min-height: 400px;" src="'.$row['image_path'].'" alt="#">
 				</div>
 				<!-- News Title -->
 				<h1 class="news-title"><a >'.$row['title'].'</a></h1>
 				<!-- Meta -->
 				<div class="meta">
 					<div class="meta-left">
-						<span class="author"><a href="#"><img class="lazy-img" src="images/blog/profile.svg" alt="#">'.$row['author'].'</a></span>
+						<span class="author"><a href="#"><img  src="images/blog/profile.svg" alt="#">'.$row['author'].'</a></span>
 						<span class="date"><i class="fa fa-clock-o"></i>'.$row['date'].' </span>
 					</div>
 					<div class="meta-right">
@@ -295,14 +295,14 @@ function selectblogByDefault(){
 			<div class="single-main">
 				<!-- News Head -->
 				<div class="news-head">
-					<img class="lazy-img" style="height: auto; min-height: 400px;" src="'.$row['image_path'].'" alt="#">
+					<img  style="height: auto; min-height: 400px;" src="'.$row['image_path'].'" alt="#">
 				</div>
 				<!-- News Title -->
 				<h1 class="news-title"><a >'.$row['title'].'</a></h1>
 				<!-- Meta -->
 				<div class="meta">
 					<div class="meta-left">
-						<span class="author"><a href="#"><img class="lazy-img" src="images/blog/profile.svg" alt="#">'.$row['author'].'</a></span>
+						<span class="author"><a href="#"><img  src="images/blog/profile.svg" alt="#">'.$row['author'].'</a></span>
 						<span class="date"><i class="fa fa-clock-o"></i>'.$row['date'].'</span>
 					</div>
 					<div class="meta-right">
@@ -389,7 +389,7 @@ function displayRecentBlogsOthers() {
                 // Display the blog post
                 echo '<div class="single-post data-item" >
                     <div class="image" style="height: auto !important;">
-                        <img class="lazy-img" style="height: auto !important;" src="' . $image_path . '" alt="Blog Image">
+                        <img  style="height: auto !important;" src="' . $image_path . '" alt="Blog Image">
                     </div>
                     <div class="content">
                         <h5><a href="?blogId=' . $blog_id . '">' . $title . '</a></h5>

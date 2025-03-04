@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="more_style.css">
 
 <!-- Start of Header Area -->
-<?php  echo getHeader("blog"); ?>
+<?php  echo getHeader("social impact"); ?>
 <!-- End Header Area -->
         
 <!-- Breadcrumbs -->

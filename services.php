@@ -1,7 +1,6 @@
-<?php include 'php/actions.php'; include 'php/header_footer.php';?>
-
+<?php include 'php/actions.php';?>
+<?php include 'php/header_footer.php';  echo getHeader("services");?>
 <!-- Start of Header Area -->
-<?php  echo getHeader("services"); ?>
 <!-- End Header Area -->
 
 <!-- Breadcrumbs -->

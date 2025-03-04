@@ -1,4 +1,4 @@
-<?php require 'php/check_session.php'; require 'php/uploads.php';include "php/header_footer.php";include "php/users.php";?>
+<?php require 'php/check_session.php'; require 'php/uploads.php';include "php/header_footer.php";include "php/users.php"; include "php/tables.php";?>
 
 <?php echo getHeader("Actions",$name); ?>
 <!-- Tabs navs -->
@@ -63,106 +63,35 @@
         </div>
     </form>
   </div>
-  <div class="tab-pane fade show active" id="ex-with-icons-tabs-1" role="tabpanel" aria-labelledby="ex-with-icons-tab-1">
+  <div class="tab-pane fade show active" id="ex-with-icons-tabs-1" role="tabpanel" aria-labelledby="ex-with-icons-tab-1"  style="overflow-y: scroll; height: 60vh !important;">
     <table  class="table table-bordered">
-      <div  class="table-responsive">
+      <div  class="" >
         <tr>
         <th>#</th>
         <th>Blog Title</th>
         <th>Blog Image</th>
         <th>Blog Date</th>
-        <th>Blog Body</th>
         <th>Actions</th>
       </tr>
-      <tr>
-        <td>1</td>
-        <td>Effects of climate change</td>
-        <td><img width="70" height="70" class="img-fluid" src="../images/services/service1.jpg"></td>
-        <td> 22 Nov</td>
-        <td> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor <a href="">Read More</a></td>
-        <td>
-          <a href=""> <i class="fa fa-trash"></i></a>
-          <a class="pl-2" href=""> <i  class="fa-regular fa-pen-to-square"></i></a>
-        </td> 
-      </tr>
-        <tr>
-        <td>2</td>
-        <td>Effects of climate change</td>
-        <td><img width="70" height="70" class="img-fluid" src="../images/services/service1.jpg"></td>
-        <td> 22 Nov</td>
-        <td> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor <a href="">Read More</a></td>
-        <td>
-          <a href=""> <i class="fa fa-trash"></i></a>
-          <a class="pl-2" href=""> <i  class="fa-regular fa-pen-to-square"></i></a>
-        </td> 
-          <tr>
-        <td>3</td>
-        <td>Effects of climate change</td>
-        <td><img width="70" height="70" class="img-fluid" src="../images/services/service1.jpg"></td>
-        <td> 22 Nov</td>
-        <td> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor <a href="">Read More</a></td>
-        <td>
-          <a href=""> <i class="fa fa-trash"></i></a>
-          <a class="pl-2" href=""> <i  class="fa-regular fa-pen-to-square"></i></a>
-        </td> 
-      </tr>
-      </tr>
+      <tbody >
+        <?php displayBlogsTable(); ?>
+      </tbody>
+     
       </div>
     </table>
   </div>
 
-  <div class="tab-pane fade" id="ex-with-icons-tabs-2" role="tabpanel" aria-labelledby="ex-with-icons-tab-2">
+  <div  style="overflow-y: scroll; height: 60vh !important;" class="tab-pane fade" id="ex-with-icons-tabs-2" role="tabpanel" aria-labelledby="ex-with-icons-tab-2">
     <table class="table table-bordered">
         <div  class="table-responsive">
           <tr>
           <th>#</th>
-          <th>Service Title</th>
-          <th>Service Image</th>
-          <th>Service Date</th>
-          <th>Service Body</th>
+          <th>Video Iframe</th>
           <th>Actions</th>
         </tr>
-        <tr>
-          <td>1</td>
-          <td>Effects of climate change</td>
-          <td><img width="70" height="70" class="img-fluid" src="../images/services/service1.jpg"></td>
-          <td> 22 Nov</td>
-          <td> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor <a href="">Read More</a></td>
-          <td>
-            <a href=""> <i class="fa fa-trash"></i></a>
-            <a class="pl-2" href=""> <i  class="fa-regular fa-pen-to-square"></i></a>
-          </td> 
-        </tr>
-          <tr>
-          <td>2</td>
-          <td>Effects of climate change</td>
-          <td><img width="70" height="70" class="img-fluid" src="../images/services/service1.jpg"></td>
-          <td> 22 Nov</td>
-          <td> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor <a href="">Read More</a></td>
-          <td>
-            <a href=""> <i class="fa fa-trash"></i></a>
-            <a class="pl-2" href=""> <i  class="fa-regular fa-pen-to-square"></i></a>
-          </td> 
-            <tr>
-          <td>3</td>
-          <td>Effects of climate change</td>
-          <td><img width="70" height="70" class="img-fluid" src="../images/services/service1.jpg"></td>
-          <td> 22 Nov</td>
-          <td> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor <a href="">Read More</a></td>
-          <td>
-            <a href=""> <i class="fa fa-trash"></i></a>
-            <a class="pl-2" href=""> <i  class="fa-regular fa-pen-to-square"></i></a>
-          </td> 
-        </tr>
-        </tr>
+       
         </div>
-        
+        <?php displayYoutubeVideosTable(); ?>
       </table>
   </div>
 
