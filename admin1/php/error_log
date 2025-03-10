@@ -1,0 +1,30 @@
+[12-Feb-2025 18:21:41 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in /home/lmundia/public_html/admin1/php/uploads.php:72
+Stack trace:
+#0 /home/lmundia/public_html/admin1/php/uploads.php(72): mysqli_stmt->execute()
+#1 /home/lmundia/public_html/admin1/php/uploads.php(84): uploadNewBlog()
+#2 {main}
+  thrown in /home/lmundia/public_html/admin1/php/uploads.php on line 72
+[12-Feb-2025 18:23:13 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in /home/lmundia/public_html/admin1/php/uploads.php:72
+Stack trace:
+#0 /home/lmundia/public_html/admin1/php/uploads.php(72): mysqli_stmt->execute()
+#1 /home/lmundia/public_html/admin1/php/uploads.php(84): uploadNewBlog()
+#2 {main}
+  thrown in /home/lmundia/public_html/admin1/php/uploads.php on line 72
+[12-Feb-2025 18:24:05 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in /home/lmundia/public_html/admin1/php/uploads.php:72
+Stack trace:
+#0 /home/lmundia/public_html/admin1/php/uploads.php(72): mysqli_stmt->execute()
+#1 /home/lmundia/public_html/admin1/php/uploads.php(84): uploadNewBlog()
+#2 {main}
+  thrown in /home/lmundia/public_html/admin1/php/uploads.php on line 72
+[12-Feb-2025 18:26:26 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in /home/lmundia/public_html/admin1/php/uploads.php:72
+Stack trace:
+#0 /home/lmundia/public_html/admin1/php/uploads.php(72): mysqli_stmt->execute()
+#1 /home/lmundia/public_html/admin1/php/uploads.php(84): uploadNewBlog()
+#2 {main}
+  thrown in /home/lmundia/public_html/admin1/php/uploads.php on line 72
+[12-Feb-2025 20:33:39 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Duplicate entry '0' for key 'PRIMARY' in /home/lmundia/public_html/admin1/php/uploads.php:72
+Stack trace:
+#0 /home/lmundia/public_html/admin1/php/uploads.php(72): mysqli_stmt->execute()
+#1 /home/lmundia/public_html/admin1/php/uploads.php(84): uploadNewBlog()
+#2 {main}
+  thrown in /home/lmundia/public_html/admin1/php/uploads.php on line 72
