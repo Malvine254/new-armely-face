@@ -1338,7 +1338,7 @@ function submitConsultationForm() {
             if ($stmt->execute()) {
                 $stmt->close();
                 $conn->close();
-                return "1";
+                return "19";
             } else {
                 error_log("Database Error: " . $stmt->error);
                 return "Failed to submit the form. Please try again later.";
@@ -2008,6 +2008,34 @@ function relatedArticles() {
         echo "<p>Unable to retrieve related articles at this time. Please try again later.</p>";
     }
 }
+
+
+function displayFreemiums(){
+	require 'config.php';
+	$numbering = 1;
+	$select = $conn->query("SELECT title,body,image_url,url_get_name,snippet FROM freemium ORDER BY id DESC");
+	if ($select->num_rows>0) {
+		while ($row=$select->fetch_assoc()) {
+			echo '<div class="col-lg-4 col-md-12 col-12 shadow">
+		<div class="single-table">
+			<!-- Table Head -->
+			<div class="table-head" style="height:auto">
+				<div class="icon">
+				<a href="'.$row['image_url'].'" target="_blank"><img src="'.$row['image_url'].'" style="height: 150px;"></a>
+				</div>
+				<h4 class="title">'.$row['title'].'</h4>
+				<p>'.substr($row['snippet'],0,100).'...</p>
+					<a href="service-details?name='.$row['url_get_name'].'" class="btn btn-primary">Get now</a>
+			</div>
+			
+		</div>
+</div>';
+		}
+	}else{
+		echo "
+	      Nothing found!";
+	}
+	}
 
 
 ?>

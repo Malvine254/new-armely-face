@@ -1,26 +1,73 @@
 <?php
 
-// GoDaddy Unified PHP Test Script "GEOFF" - Customized Email Test
+// 🔹 Define API Authentication Variables
+$tenantId = "588cadf4-9902-4465-86c0-8bcf04f4f102";
+$clientId = "8ec24eb7-ebe3-4614-92e4-59c0a2878e0c";
+$clientSecret = "qIr8Q~_YNgETW2OXEfYn-cMRTCzkckzRhV-Jdbez";
+$resource = "https://purview.azure.net";
+$tokenUrl = "https://login.microsoftonline.com/$tenantId/oauth2/token";
+$purviewName = "armelypurview";
+$apiVersion = "2023-09-01";
+$dataSourcesUrl = "https://$purviewName.purview.azure.com/scan/datasources?api-version=$apiVersion";
 
-// Set recipient email (change this)
-$to = "malvine.owuor@armely.com"; 
+// 🔹 Function to Request Access Token
+function getAccessToken($tokenUrl, $clientId, $clientSecret, $resource) {
+    $data = [
+        "grant_type" => "client_credentials",
+        "client_id" => $clientId,
+        "client_secret" => $clientSecret,
+        "resource" => $resource
+    ];
 
-// Email subject
-$subject = "PHP Email Test Script - GEOFF";
+    $options = [
+        "http" => [
+            "header" => "Content-Type: application/x-www-form-urlencoded",
+            "method" => "POST",
+            "content" => http_build_query($data)
+        ]
+    ];
+    
+    $context = stream_context_create($options);
+    $result = file_get_contents($tokenUrl, false, $context);
+    
+    if ($result === FALSE) {
+        die("❌ Failed to get Access Token");
+    }
 
-// Email message
-$message = "This is a test email sent using PHP mail(). If you receive this, your PHP email function works!";
+    $response = json_decode($result, true);
+    
+    return $response['access_token'] ?? die("❌ Access Token Missing");
+}
 
-// Additional headers
-$headers = "From: owuormalvine75@gmail.com\r\n";
-$headers .= "Reply-To: malvine.owuor@armely.com\r\n";
-$headers .= "X-Mailer: PHP/" . phpversion();
+// 🔹 Get Access Token
+$accessToken = getAccessToken($tokenUrl, $clientId, $clientSecret, $resource);
+echo "✅ Successfully retrieved Access Token <br>";
 
-// Send mail using PHP's mail() function
-if (mail($to, $subject, $message, $headers)) {
-    echo "✅ Email sent successfully to $to";
+// 🔹 Fetch Data Sources from Purview API
+$options = [
+    "http" => [
+        "header" => "Authorization: Bearer " . $accessToken . "\r\n" .
+                    "Content-Type: application/json\r\n",
+        "method" => "GET"
+    ]
+];
+
+$context = stream_context_create($options);
+$response = file_get_contents($dataSourcesUrl, false, $context);
+
+// 🔹 Handle API Response
+if ($response === FALSE) {
+    die("❌ Failed to retrieve Data Sources");
+}
+
+$dataSources = json_decode($response, true);
+
+if (isset($dataSources["value"]) && !empty($dataSources["value"])) {
+    echo "✅ Successfully retrieved Data Sources: <br><pre>";
+    print_r($dataSources["value"]);
+    echo "</pre>";
 } else {
-    echo "❌ Email sending failed!";
+    die("❌ No Data Sources Found");
 }
 
 ?>

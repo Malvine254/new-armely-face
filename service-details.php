@@ -39,57 +39,9 @@
 </div>
 <div class="row">
 <!-- Single Table -->
-<div class="col-lg-4 col-md-12 col-12">
-		<div class="single-table">
-			<!-- Table Head -->
-			
-			<div class="table-head" style="min-height:500px">
-				<div class="icon">
-				<a href="images/offers/sqloffer.png" target="_blank"><img src="images/offers/sqloffer.png" style="height: 150px;"></a>
-				</div>
-				<h4 class="title">SQL Health Check</h4>
-				<p>Get a free SQL health check for optimized performance. Identify issues, improve stability, and reduce downtime with tailored insights for peak database efficiency.</p>
-				<br>
-				<br>
-				<br>
-				<br>
-				<a href="service-details?name=sql" class="btn btn-primary">Get now</a>
-			</div>
-		</div>
-</div>
 
-<div class="col-lg-4 col-md-12 col-12">
-		<div class="single-table">
-			<!-- Table Head -->
-			<div class="table-head" style="min-height:500px">
-				<div class="icon">
-					<a href="images/white-papers/coewhitepaper.png" target="_blank">
-						<img src="images/white-papers/coewhitepaper.png" style="height: 150px;"></a>
-				</div>
-				<h4 class="title">Power Platform-COE</h4>
-				<p>Get free Power BI integration for real-time insights, streamlined processes, and better decisions. Enhance business performance and boost productivity with tailored dashboards.</p>
-				<br>
-				<br>
-				<br>
-				<br>
-				<a href="service-details?name=coe" class="btn btn-primary">Get now</a>
-			</div>
-		</div>
-</div>
-<div class="col-lg-4 col-md-12 col-12">
-		<div class="single-table">
-			<!-- Table Head -->
-			<div class="table-head" style="min-height:500px">
-				<div class="icon">
-				<a href="images/freemiums/sql-check.png" target="_blank"><img src="images/freemiums/sql-check.png" style="height: 150px;"></a>
-				</div>
-				<h4 class="title">PowerBI Inventory</h4>
-				<p>Get a free inventory assessment of your Power BI environment to identify usage patterns and optimize performance. This evaluation helps uncover insights into report engagement and data accessibility. Leverage built-in tools and community resources to enhance your Power BI strategy effectively.</p>
-					<a href="service-details?name=powerbi" class="btn btn-primary">Get now</a>
-			</div>
-			
-		</div>
-</div>
+<?php displayFreemiums(); ?>
+
 <!-- End Single Table-->
 
 </div>	
@@ -120,46 +72,45 @@
 				<div class="inner-content " >
 					
 					<div class="body-text">
-					<?php if ($_GET['name']=="powerbi"): ?>
+					<?php if ($_GET['name']==$_GET['name']): ?>
 						<section class="container">
-							<h3 class="default-color">PowerBI Activity </h3>
+							<h3 class="default-color">Fremium: <?php echo $_GET['name']; ?> </h3>
 							
-							<p> The Power BI Activity Dashboard is designed to give a comprehensive view of user interactions within the Power BI environment. This dashboard helps stakeholders monitor usage, identify trends, and make informed decisions regarding report distribution and access management. Here’s what it covers:</p>
+							<p> <?php 
+
+								require 'php/config.php';
+								$numbering = 1;
+								$id = $_GET['name'];
+								$select = $conn->query("SELECT title,body,image_url,url_get_name FROM freemium WHERE url_get_name='$id'");
+								if ($select->num_rows>0) {
+									while ($row=$select->fetch_assoc()) {
+										echo $row['body'];
+									}
+								}else{
+									echo "
+								      Nothing found!";
+								}
+							 ?></p>
 						 <div class="container mt-3 row">
 					        <div class="col-md-7">
-					        	<!-- Section 1 -->
-					        <div class="mb-4">
-					            <h4><strong>1. User Activity Tracking</strong></h4>
-					            <p><strong>What it Monitors:</strong> Track who is accessing reports, when, and how frequently.</p>
-					            <p><strong>Insights Gained:</strong> Identify key users, spot unusual access patterns, and understand report consumption trends.</p>
-					        </div>
-
-					        <!-- Section 2 -->
-					        <div class="mb-4">
-					            <h4><strong>2. Report Usage Patterns</strong></h4>
-					            <p><strong>What it Monitors:</strong> Detailed breakdown of report views, edits, and shares.</p>
-					            <p><strong>Insights Gained:</strong> Determine which reports are driving engagement and which may need updates or further promotion.</p>
-					        </div>
-
-					        <!-- Section 3 -->
-					        <div class="mb-4">
-					            <h4><strong>3. Access and Sharing Analytics</strong></h4>
-					            <p><strong>What it Monitors:</strong> Activities like sharing reports, publishing content, and granting access.</p>
-					            <p><strong>Insights Gained:</strong> Understand collaboration levels within teams and identify potential data governance issues.</p>
-					        </div>
+					        
 
 					       
 					        </div>
-					        <div class="col-md-5">
-					        	<h5 class="mb-5">Get the download link</h5>
+
+					        <div class="col-md-12  bg-dark">
+					        	<h5 class="mb-5 text-light pt-2">Get the download link</h5>
+					        	<label id="serviceTitle" style="display: none;"><?php if (isset($_GET['name'])) {
+					        		echo $_GET['name'];
+					        	} ?></label>
 					        	<form class="form-group" method="post" id="offers-form" >
-					        		<input id="fname" required class="form-control p-3" type="text" name="fname"  placeholder="First Name"><br>
+					        		<input id="fullName" required class="form-control p-3" type="text" name="fname"  placeholder="First Name"><br>
 					        		<input required class="form-control p-3" type="text" name="lname" placeholder="Last Name"><br>
 					        		<input required class="form-control p-3" type="email" name="email2" placeholder="Company Email"><br>
 					        		<input required  class="form-control p-3   " type="tel" name="phone2" placeholder="Phone Number"><br>
-					        		<input required  class="form-control p-3   " type="text" name="country" placeholder="Country"><br>
+					        		<input required  class="form-control p-3   " type="text" name="country" placeholder="Country"><br>  		
 					        	
-					        		<button type="submit" name="submit_offers_form" class="btn btn-primary col-lg-12">Download Now</button>
+					        		<button type="submit" name="submit_offers_form" class="btn btn-primary">Download Now</button>
 					        	</form>
 					        </div>
 					    </div>
@@ -806,154 +757,6 @@
 
 						<section  class="container">
 
-							<?php if ($_GET['name']=="sql"): ?>
-
-
-							<h3>Fremiums: SQL Server Health Checks</h3>
-							<h5 class="mt-3">Ensuring the Health of Your SQL Server</h5>
-							<p>In today's data-driven world, the reliability and performance of your SQL Server infrastructure is crucial to the success of your business. Regular SQL Server health checks are essential to identify potential issues, optimize performance, and ensure the long-term stability of your mission-critical database systems.</p>
-							<div class="row">
-							 
-					        <div class="col-md-6">
-					        	<blockquote>
-										<p> 
-										<h5 class="text-light"><i class="icofont-quote-left"></i><strong> Why Perform a SQL Server Health Check?</strong></h5> 
-										</p>
-										<p class="mt-5">A comprehensive SQL Server health check can provide valuable insights into the overall health and configuration of your SQL Server environment. By identifying and addressing potential problems early, you can:</p>
-										<ol class="ml-5">
-											<li>Improve database performance and responsiveness</li>
-											<li>Prevent unplanned downtime and ensure high availability</li>
-											<li>Identify and resolve security vulnerabilities</li>
-											<li>Optimize resource utilization and reduce operational costs</li>
-											<li>Ensure compliance with industry regulations and best practices</li>
-										</ol>	
-										<p><strong>Data Architecture and Integration</strong></p>
-										<ol class="ml-5">
-											<li>Design a scalable, resilient, and integrated data architecture that connects disparate data sources and enables seamless data flows. We'll help you leverage the right technologies and tools to power your data-driven initiatives.</li>
-										</ol>		
-										<!-- <p><strong>Data Analytics and Insights</strong></p>
-										<ol class="ml-5">
-											<li>Unlock the full potential of your data with advanced analytics and visualization capabilities. We'll help you design and deploy impactful dashboards, reports, and predictive models to drive informed decision-making.</li>
-										</ol>			
-										<p><strong>Data-Driven Culture and Capabilities</strong>
-										<ol class="ml-5">
-											<li>Foster a data-driven culture within your organization by upskilling your workforce and empowering them to make data-informed decisions. We'll help you develop robust data literacy programs and champion data-driven mindsets.</li>
-										</ol>
-										
-										</p> -->
-														
-							</blockquote>
-					   </div>
-					   <div class="col-md-6">
-					        	<h5 class="mb-5">Request for SQL Server Health Check for Free</h5>
-					        	<form class="form-group" method="post" id="sql-offer-form" >
-					        		<input id="fname" required class="form-control p-3" type="text" name="fname1"  placeholder="First Name"><br>
-					        		<input required class="form-control p-3" type="text" name="lname1" placeholder="Last Name"><br>
-					        		<input required class="form-control p-3" type="email" name="email1" placeholder="Company Email"><br>
-					        		<input required  class="form-control p-3   " type="tel" name="phone1" placeholder="Phone Number"><br>
-					        		<input required  class="form-control p-3   " type="text" name="country1" placeholder="Country"><br>
-					        	
-					        		<button type="submit" name="submit_sql_offers_form" class="btn btn-primary col-lg-12">Request Now</button>
-					        	</form>
-					        </div>
-					 </div>
-							
-							<table class="table table-bordered mt-5">
-								<tr class="default-color">
-									
-									<th>Server Configuration</th>
-									<th>Database Health Assessment</th>
-								</tr>
-								<tr>
-									
-									<td>Poor server configuration leaves your system vulnerable to security breaches, performance issues, and unexpected outages. We'll examine the hardware, operating system, and SQL Server settings to ensure optimal configuration and compliance with industry best practices.</td>
-									<td>Unidentified or ignored database issues can lead to slowdowns, crashes, and even data loss. We'll analyze the overall health and integrity of your databases, including growth trends, fragmentation, and potential data corruption issues.</td>
-								</tr>
-								
-								<tr class="default-color">
-									
-									<th> Performance Optimization</th>
-									<th>Security and Compliance Audit</th>
-								</tr>
-								<tr>
-									
-									<td>Unmaintained/Untuned SQL Server leads to system degradation leading to data loss and unanticipated downtime. We'll identify performance bottlenecks and provide recommendations for optimizing query execution, indexing, and resource utilization.</td>
-									<td><p>Unsecure data environment can lead to loss of business and revenue. We'll review your SQL Server security settings, user permissions, and backup/recovery procedures to ensure your data is protected and your infrastructure is compliant with relevant regulations.</p>
-								</tr>
-								<tr class="default-color">
-									
-									<th>Availability & Scalability</th>
-									<th>Disaster Recovery Planning</th>
-								</tr>
-								<tr>
-									
-									<td>Uninterrupted access to data and services is critical for a data platform. We review and recommend HA configuration for a SQL Environment. We'll evaluate your SQL Server's high availability and disaster recovery capabilities, as well as its ability to scale to meet future demands</td>
-									<td><p>Unpredicted systems disruptions are inevitable, without a solid DR plan, there can be significant operation and financial losses. We'll evaluate your backup and recovery strategies and provide guidance on improving your disaster recovery capabilities.</p>
-								
-									</td>
-								</tr>
-							</table>
-							<h3>Benefit from Our SQL Server Expertise</h3>
-							<p>Our team of experienced SQL Server professionals has the depth of knowledge and expertise to thoroughly evaluate the health of your SQL Server environment and provide tailored recommendations to address any issues or areas for improvement. Contact us today to schedule your SQL Server health check and take the first step towards ensuring the long-term reliability, performance, and scalability of your critical data infrastructure.</p>
-							<h3>FAQ</h3>
-							<p>For optimal performance and reliability, we recommend conducting a comprehensive SQL Server health check on a regular basis, typically once a year or more frequently depending on the size and complexity of your SQL Server environment.</p>
-							<h3>Frequency of SQL Server Health Checks</h3>
-							<ol  class="ml-5">
-								<li>Annual Review: At a minimum, we suggest performing a full SQL Server health check once a year. This allows you to proactively identify and address any issues that may have arisen over the past year, as well as plan for future growth and changes in your infrastructure.</li>
-								<li>Bi-Annual Review: For organizations with large, complex, or mission-critical SQL Server environments, we recommend performing a health check twice a year. This more frequent review helps ensure your SQL Servers are operating at peak performance and reliability, especially during periods of high demand or system changes.</li>
-								<li>Event-Driven Reviews: In addition to the scheduled annual or bi-annual reviews, it's also advisable to conduct a SQL Server health check in the following scenarios:</li>
-								<li>After major system upgrades or migrations</li>
-								<li>Prior to the launch of new applications or services</li>
-								<li>When you experience unexplained performance degradation or availability issues</li>
-								<li>Before and after important business events (e.g., fiscal year-end, holiday seasons)</li>
-							</ol>
-							<blockquote>
-								<p> 
-								<h5 class="text-light"><i class="icofont-quote-left"></i><strong> Empower Your Power Platform with a CoE-Led Health Check</strong></h5> 
-							</p>
-							<p class="mt-5">A well-designed Center of Excellence serves as the strategic hub for your Power Platform initiatives, providing governance, best practices, and subject matter expertise to drive successful deployments. By incorporating a comprehensive health check into your CoE's responsibilities, you can:</p>
-							<ol class="ml-5">
-								<li>Align with Organizational Objectives: Ensure your Power Platform investments are closely aligned with your organization's strategic goals and deliver measurable business value.</li>
-								<li>Establish Governance and Security: Assess your Power Platform governance model, security controls, and compliance measures to mitigate risks and maintain data integrity.</li>
-								<li>Optimize Application Performance: Evaluate the usability, accessibility, and performance of your Power Platform apps and solutions to improve the end-user experience.</li>
-								<li>Enhance Data and Analytics: Analyze the quality, connectivity, and utilization of your data sources, as well as the effectiveness of your Power BI dashboards and reports.</li>
-								<li>Foster Continuous Improvement: Receive recommendations for scaling your Power Platform ecosystem to accommodate evolving business requirements and changing user needs</li>
-							</ol>	
-							
-														
-							</blockquote>
-
-							<?php endif ?>
-
-							<?php if ($_GET['name']=="coe"): ?>
-							<div class="container card">	
-							<div class="p-3">
-								<div class="row">
-									<div class="col-md-6">
-								<h3>Fremiums: Power Platform CoE</h3>
-								<h5 class="mt-2">Optimize Your Power Platform Investment with a Comprehensive a Center of Excellence-Driven Health Check</h5>
-								<p>As organizations increasingly rely on the Microsoft Power Platform to drive digital transformation, establishing a Center of Excellence (CoE) is crucial for ensuring the health and optimal performance of your Power Platform environment. A Power Platform health check, guided by your CoE, can help you identify areas for improvement, unlock greater value, and maximize your return on investment.</p>
-								<h5 class="mt-2">Get the Full Potential of Your Power Platform with Your CoE</h5>
-								<p>By leveraging your Center of Excellence to conduct a comprehensive Power Platform health check, you can elevate your Microsoft 365 and Power Platform ecosystem to new heights. Our team of CoE experts will provide you with actionable insights and a roadmap to optimize your Power Platform investment and unlock greater business value.</p>
-							</div>
-
-							<div class="col-md-6">
-					        	<h5 class="mb-5">Request for COE Integration for Free</h5>
-					        	<form class="form-group" method="post" id="coe-offer-form" >
-					        		<input id="fname" required class="form-control p-3" type="text" name="fname3"  placeholder="First Name"><br>
-					        		<input required class="form-control p-3" type="text" name="lname3" placeholder="Last Name"><br>
-					        		<input required class="form-control p-3" type="email" name="email3" placeholder="Company Email"><br>
-					        		<input required  class="form-control p-3   " type="tel" name="phone3" placeholder="Phone Number"><br>
-					        		<input required  class="form-control p-3   " type="text" name="country3" placeholder="Country"><br>
-					        	
-					        		<button type="submit" name="submit_coe_offers_form" class="btn btn-primary col-lg-12">Request Now</button>
-					        	</form>
-					        </div>
-								</div>
-							</div>
-							
-							</div>
-							<?php endif ?>
 
 							<!-- start of power apps for digital services -->
 								<?php if ($_GET['name']=="powerapps"): ?>
