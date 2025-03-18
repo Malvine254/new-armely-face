@@ -620,7 +620,7 @@ if ($formattedDate !== false) {
         if (strlen($text) <= 200) {
             return $text;
         } else {
-            return substr($text, 0, 210) . "...";
+            return substr($text, 0, 150) . "...";
         }
     }
 
