@@ -285,7 +285,7 @@ $.ajax({
 
 
 $('#consultation-form-action').submit(function(event) { 
-    event.preventDefault(); // Prevent the default form submission 
+    event.preventDefault(); // Prevent the default form submission
     // Display loading message before AJAX request
       Swal.fire({
         title: 'Loading...',
@@ -473,7 +473,7 @@ $('#offers-form').submit(function(event) {
 event.preventDefault(); // Prevent the default form submission
 // Retrieve the form data
 var formData2 = $(this).serialize();
-var serviceTitle = $("#serviceTitle");
+
 // Display loading message before AJAX request
 Swal.fire({
   title: 'Loading...',

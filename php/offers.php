@@ -1,66 +1,6 @@
 <?php 
-// // submit offers form
-// if (isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['email2']) && isset($_POST['phone2']) && isset($_POST['country'])) {
-    
-//     include 'mail.php';
-
-//     $phone = $_POST['phone2'];
-    
-
-//     // Regular expression to match a basic phone number format
-//     if (preg_match("/^\+?[0-9]{10,15}$/", $phone)) {
-        
-//         require 'config.php';
-//         $category = "PowerBi Dashboard";
-//         // Using prepared statements to prevent SQL injection
-//         $stmt = $conn->prepare("INSERT INTO offers_form (fname, lname, email, phone, country,category) VALUES (?, ?, ?, ?, ?,?)");
-        
-//         if ($stmt) {
-//             // Bind parameters
-//             $stmt->bind_param("ssssss", $fname, $lname, $email, $phone, $country,$category);
-
-//             // Assign values
-//             $fname = $_POST['fname'];
-//             $lname = $_POST['lname'];
-//             $email = $_POST['email2'];
-//             $country = $_POST['country'];
-
-//             // Execute the query
-//             if ($stmt->execute()) {
-//                 // if ( sendEmail($email, $fname." ".$lname, $phone,$country, $category)==="1") {
-//                 //    sendDownloadLink($email, $category,$fname." ". $lname);
-//                 // }
-//                 sendDownloadLink($email, $category,$fname." ". $lname);
-                
-//             } else {
-//                 echo "Failed to submit the form";
-//             }
-
-//             // Close the statement
-//             $stmt->close();
-//         } else {
-//             echo "Failed to prepare the statement";
-//         }
-
-//         // Close the connection
-//         $conn->close();
-        
-//     } else {
-//         echo "Invalid phone number format.";
-//     }
-
-// } 
 
 
-
-
-
-if (isset($_POST['fname1']) && isset($_POST['lname1']) && isset($_POST['email1']) && isset($_POST['phone1']) && isset($_POST['country1'])) {
-    include '../php/config.php';
-
-    function nameIt() {
-        return isset($_GET['name']) ? htmlspecialchars($_GET['name']) : "Could not find the name";
-    }
 
     function getDownloadLink($download_link) {
         if (empty($download_link)) {
@@ -75,19 +15,25 @@ if (isset($_POST['fname1']) && isset($_POST['lname1']) && isset($_POST['email1']
         }
     }
 
+
+if (isset($_POST['fname1']) && isset($_POST['lname1']) && isset($_POST['email1']) && isset($_POST['phone1']) && isset($_POST['country1'])) {
+    include '../php/config.php';
+
+ 
     // Sanitize user inputs
     $fname1 = mysqli_real_escape_string($conn, $_POST['fname1']);
     $lname1 = mysqli_real_escape_string($conn, $_POST['lname1']);
     $email1 = mysqli_real_escape_string($conn, $_POST['email1']);
     $phone1 = mysqli_real_escape_string($conn, $_POST['phone1']);
     $country1 = mysqli_real_escape_string($conn, $_POST['country1']);
+    $category1 = mysqli_real_escape_string($conn, $_POST['category1']);
+    $subject = "Freemium Request for " .  $category1;
 
-    $subject = "Freemium Request for " . nameIt();
-
-    $select = $conn->query("SELECT * FROM freemium LIMIT 1"); // Fetch only one record
-    if ($row = $select->fetch_assoc()) {
+    $select = $conn->query("SELECT * FROM freemium WHERE url_get_name='$category1'"); // Fetch only one record
+    if ($select->num_rows>0) {
+          while ($row = $select->fetch_assoc()) {
         $passwordHash = rand(888888, 937372); // Generate a sample password hash
-
+        $link= getDownloadLink($row['download_link']);
         // Create the HTML email content
         $message = "
         <html>
@@ -138,7 +84,7 @@ if (isset($_POST['fname1']) && isset($_POST['lname1']) && isset($_POST['email1']
                 <div class='content'>
                     <h2>Hello, " . htmlspecialchars($fname1) . " " . htmlspecialchars($lname1) . "</h2>
                     <p>Click the download link below:</p>
-                    <p>Download link(s): " . getDownloadLink($row['download_link']) . "</p>  
+                    <p>Download link(s): " . $link. "</p>  
                 </div>
                 <div class='footer'>
                     <p>&copy; " . date("Y") . " Armely. All rights reserved.</p>
@@ -148,20 +94,33 @@ if (isset($_POST['fname1']) && isset($_POST['lname1']) && isset($_POST['email1']
         </html>";
 
         // Email Headers
-        $headers = "From: Armely Support <info@armely.com>\r\n";
-        $headers .= "Reply-To: malvine.owuor@armely.com\r\n";
+        $headers = "From: Armely LLC <ai.solutions@armely.com>\r\n";
+        $headers .= "Reply-To: ai.solutions@armely.com\r\n";
         $headers .= "MIME-Version: 1.0\r\n";
         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
         // Send the email
         if (mail($email1, $subject, $message, $headers)) {
-            echo "<script>alert('Invitation link has been sent to " . htmlspecialchars($fname1 . " " . $lname1) . "');</script>";
+            //echo "Invitation link has been sent to " . htmlspecialchars($fname1 . " " . $lname1) . "'";
+
+            $insert = $conn->query("INSERT INTO offers_form (fname, lname, email, phone, country,category) VALUES ('$fname1','$lname1','$email1','$phone1','$country1','$category1')");
+            if ($insert) {
+                echo 1;
+            }else{
+                echo "Server error";
+            }
+
+
+
+
         } else {
             echo "<script>alert('Failed to send email. Please check your server configuration.');</script>";
         }
-    } else {
-        echo "<script>alert('No freemium data found.');</script>";
+    } 
+    }else{
+        echo "Could not complete your request";
     }
+  
 }
 
 

@@ -75,13 +75,9 @@ $('#addBlogForm').submit(function(event) {
       data: formData,
       processData: false, // Prevent jQuery from automatically processing data
       contentType: false,
-     success: function(response2) {
-     Swal.close(); // Close the loading message before showing the next one
-     // Trim the response to remove any leading or trailing spaces
-     response2 = $.trim(response2); 
-
-    // Handle the success response
-    if (response2 === "30") { 
+      success: function(response) {
+        // Handle the success response
+        if (response==="1") {
           Swal.fire({
           title: 'Success!',
           text: "Blog was uploaded successfully",
@@ -93,14 +89,14 @@ $('#addBlogForm').submit(function(event) {
         }else{
           Swal.fire({
         title: 'Warning',
-        text: response2,
+        text: response,
         icon: 'warning',
         confirmButtonText: 'OK',
          confirmButtonColor: 'rgb(47,85,151)'
       });
         }
          
-        console.log(response2); // You can do something with the response data
+        console.log(response); // You can do something with the response data
       },
       error: function(error) {
         // Handle the error response

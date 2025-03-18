@@ -231,36 +231,31 @@
 </div>
 
 <div class="row">
-<div class="col-lg-12 col-md-6 col-12 d-flex default-background mb-5">
+<div class="col-lg-12 col-md-6 col-12 d-flex text-center default-background mb-5">
 <form class="form p-5" id="contact-form" method="post">
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-12">
 			<div class="form-group input-with-background">
-				<label class="text-start text-light">Full Name *</label>
 				<input required class="remove-input-background" name="name" type="text" placeholder="Name">
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-12">
 			<div class="form-group">
-				<label class="text-start text-light">Email Address *</label>
 				<input required class="remove-input-background" name="email" type="email" placeholder="Email">
 			</div> 
 		</div>
 		<div class="col-lg-6 col-md-6 col-12">
 			<div class="form-group">
-				<label class="text-start text-light">Phone Number *</label>
 				<input required class="remove-input-background" name="phone" type="text" placeholder="Phone">
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-12">
 			<div class="form-group">
-				<label class="text-start text-light">Organization Name *</label>
 				<input required class="remove-input-background" name="organization" type="text" placeholder="Orginazation Name">
 			</div>
 		</div>
 		<div class="col-lg-12 col-md-12 col-12">
 			<div class="form-group">
-				<label class="text-start text-light">Message *</label>
 				<textarea required class="remove-input-background" name="message" placeholder="Write Your Message Here....."></textarea>
 			</div>
 		</div>

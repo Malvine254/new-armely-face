@@ -98,17 +98,20 @@
 					       
 					        </div>
 
-					        <div class="col-md-12  bg-dark">
+					        <div class="col-md-12 default-background">
 					        	<h5 class="mb-5 text-light pt-2">Get the download link</h5>
 					        	<label id="serviceTitle" style="display: none;"><?php if (isset($_GET['name'])) {
 					        		echo $_GET['name'];
 					        	} ?></label>
 					        	<form class="form-group" method="post" id="offers-form" >
-					        		<input id="fullName" required class="form-control p-3" type="text" name="fname"  placeholder="First Name"><br>
-					        		<input required class="form-control p-3" type="text" name="lname" placeholder="Last Name"><br>
-					        		<input required class="form-control p-3" type="email" name="email2" placeholder="Company Email"><br>
-					        		<input required  class="form-control p-3   " type="tel" name="phone2" placeholder="Phone Number"><br>
-					        		<input required  class="form-control p-3   " type="text" name="country" placeholder="Country"><br>  		
+					        		<input style="display: none;" id="category1" required class="form-control p-3" type="text" name="category1"  value="<?php if (isset($_GET['name'])) {
+					        		echo $_GET['name'];
+					        	} ?>"><br>
+					        		<input id="fullName" required class="form-control p-3" type="text" name="fname1"  placeholder="First Name"><br>
+					        		<input required class="form-control p-3" type="text" name="lname1" placeholder="Last Name"><br>
+					        		<input required class="form-control p-3" type="email" name="email1" placeholder="Company Email"><br>
+					        		<input required  class="form-control p-3   " type="tel" name="phone1" placeholder="Phone Number"><br>
+					        		<input required  class="form-control p-3   " type="text" name="country1" placeholder="Country"><br>  		
 					        	
 					        		<button type="submit" name="submit_offers_form" class="btn btn-primary">Download Now</button>
 					        	</form>
