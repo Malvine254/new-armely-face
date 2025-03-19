@@ -81,7 +81,7 @@
 
 								require 'php/config.php';
 								$numbering = 1;
-								$id = $_GET['name'];
+								$id = mysqli_real_escape_string($conn,$_GET['name']);
 								$select = $conn->query("SELECT title,body,image_url,url_get_name FROM freemium WHERE title='$id'");
 								if ($select->num_rows>0) {
 									while ($row=$select->fetch_assoc()) {
