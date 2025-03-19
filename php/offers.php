@@ -29,7 +29,7 @@ if (isset($_POST['fname1']) && isset($_POST['lname1']) && isset($_POST['email1']
     $category1 = mysqli_real_escape_string($conn, $_POST['category1']);
     $subject = "Freemium Request for " .  $category1;
 
-    $select = $conn->query("SELECT * FROM freemium WHERE url_get_name='$category1'"); // Fetch only one record
+    $select = $conn->query("SELECT * FROM freemium WHERE title='$category1'"); // Fetch only one record
     if ($select->num_rows>0) {
           while ($row = $select->fetch_assoc()) {
         $passwordHash = rand(888888, 937372); // Generate a sample password hash
