@@ -74,7 +74,7 @@
 					<div class="body-text">
 					<?php if ($_GET['name']==$_GET['name']): ?>
 						<section class="container">
-							<h3 class="default-color"><?php echo $_GET['name']; ?> </h3>
+							
 							
 
 							<p> <?php 
@@ -84,6 +84,7 @@
 								$id = mysqli_real_escape_string($conn,$_GET['name']);
 								$select = $conn->query("SELECT title,body,image_url,url_get_name FROM freemium WHERE title='$id'");
 								if ($select->num_rows>0) {
+									echo '<h3 class="default-color"><'.$id.'</h3>';
 									while ($row=$select->fetch_assoc()) {
 										echo $row['body'];
 									}
@@ -92,12 +93,14 @@
 								      Nothing found!";
 								}
 							 ?></p>
+						 
+							 <?php 
+							 $id = mysqli_real_escape_string($conn,$_GET['name']);
+								$select = $conn->query("SELECT title,body,image_url,url_get_name FROM freemium WHERE title='$id'");
+								if ($select->num_rows>0): ?>
+							 	
+							
 						 <div class="container mt-3 row">
-					        <div class="col-md-7">
-					        
-
-					       
-					        </div>
 
 					        <div class="col-md-12 default-background">
 					        	<h5 class="mb-5 text-light pt-2">Get Your Free <?php echo $_GET['name']; ?></h5>
@@ -118,6 +121,10 @@
 					        	</form>
 					        </div>
 					    </div>
+
+					     <?php endif ?>
+
+
 						</section>
 						<?php endif ?>
 					
