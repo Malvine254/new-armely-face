@@ -73,7 +73,7 @@
       </div>
     </table>
   </div>
-
+ 
   <div class="tab-pane fade" id="ex-with-icons-tabs-2" role="tabpanel" aria-labelledby="ex-with-icons-tab-2"  style="height: 60vh; overflow: scroll;">
     <table class="table table-bordered myTable">
         <div  class="table-responsive">

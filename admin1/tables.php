@@ -2,7 +2,8 @@
 
 <?php echo getHeader("Actions",$name); ?>
 <!-- Tabs navs -->
-<div class="container">
+<div class="content-area">
+<div class="container ">
   <ul class="nav nav-tabs mb-3 mt-3" id="ex-with-icons" role="tablist">
   <li class="nav-item" role="presentation">
     <a data-mdb-tab-init class="nav-link active" id="ex-with-icons-tab-1" href="#ex-with-icons-tabs-1" role="tab"
@@ -33,11 +34,13 @@
       aria-controls="ex-with-icons-tabs-7" aria-selected="false"><i class="fas fa-home fa-fw me-2"></i>Edit Home Page</a>
   </li>
 </ul>
+</div>
+</div>
 <!-- Tabs navs -->
 
 <!-- Tabs content -->
 <center>
-  <div class="tab-content shadow p-5 mt-5" id="ex-with-icons-content">
+  <div class="tab-content content-area shadow col-10 p-5 mt-5" id="ex-with-icons-content">
     <div class="mb-3">
       <form class="form-inline my-2 my-lg-0">
         <div class="input-group col" style="width: 350px;">

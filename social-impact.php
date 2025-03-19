@@ -86,8 +86,8 @@
                     <img src="img/blog3.jpg" class="img-fluid blog-card-image lazy-img lazy-img" alt="Blog Image">
                     <div class="blog-content">
                         <span class="date">September 15, 2022</span>
-                        <h3 class="blog-title">How IBM SkillsBuild Supercharged a Community College Student’s Career Path</h3>
-                        <p class="blog-desc">3 min read - In honor of National Online Learning Day, which recognizes the advantages and vast potential of online learning...</p>
+                        <h3 class="blog-title">How Armely SkillsBuild Accelerated a Community College Student’s Career Journey</h3>
+                        <p class="blog-desc">3 min read - In celebration of National Online Learning Day, which highlights the benefits and limitless possibilities of online education...</p>
                     </div>
                 </div>
             </div>
@@ -98,8 +98,8 @@
                     <img src="img/blog2.jpg" class="img-fluid blog-card-image lazy-img lazy-img" alt="Blog Image">
                     <div class="blog-content">
                         <span class="date">September 12, 2022</span>
-                        <h3 class="blog-title">People with purpose: Meet 5 IBM volunteers fighting climate change</h3>
-                        <p class="blog-desc">6 min read - People can accomplish incredible things when they combine talent, skills, and passion with purpose already fine giving...</p>
+                        <h3 class="blog-title">Purpose-Driven Individuals: Meet 5 Armely Volunteers Taking Action Against Climate Change</h3>
+                        <p class="blog-desc">6 min read - Extraordinary Achievements: When Talent, Skills, and Passion Align with Purpose...</p>
                     </div>
                 </div>
             </div>
@@ -110,8 +110,8 @@
                     <img src="img/blog1.jpg" class="img-fluid blog-card-image lazy-img lazy-img" alt="Blog Image">
                     <div class="blog-content">
                         <span class="date">June 9, 2022</span>
-                        <h3 class="blog-title">The value of giving back: Honoring IBM volunteers around the world</h3>
-                        <p class="blog-desc">2 min read - IBM’s Volunteer Excellence Awards have been presented annually by our Chairman and CEO since 2005 till to date...</p>
+                        <h3 class="blog-title">The Impact of Giving Back: Celebrating Armely Volunteers Worldwide</h3>
+                        <p class="blog-desc">2 min read - Since 2018, Armely’s Volunteer Excellence Awards have been annually presented by our Chairman and CEO, continuing to this day...</p>
                     </div>
                 </div>
             </div>
@@ -154,7 +154,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- Owl Carousel JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <?php echo getFooter(); ?>
+  
 
 <script>
 $(document).ready(function(){
@@ -186,3 +186,4 @@ $(document).ready(function(){
 </script>
 
 
+  <?php echo getFooter(); ?>
