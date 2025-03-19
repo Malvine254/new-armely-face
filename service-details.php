@@ -69,19 +69,20 @@
 							<li><span>Generative AI</span></li>
 						</ul>
 					</div> -->
-				<div class="inner-content " >
+				<div class="inner-content" >
 					
 					<div class="body-text">
 					<?php if ($_GET['name']==$_GET['name']): ?>
 						<section class="container">
-							<h3 class="default-color">Fremium: <?php echo $_GET['name']; ?> </h3>
+							<h3 class="default-color"><?php echo $_GET['name']; ?> </h3>
 							
+
 							<p> <?php 
 
 								require 'php/config.php';
 								$numbering = 1;
 								$id = $_GET['name'];
-								$select = $conn->query("SELECT title,body,image_url,url_get_name FROM freemium WHERE url_get_name='$id'");
+								$select = $conn->query("SELECT title,body,image_url,url_get_name FROM freemium WHERE title='$id'");
 								if ($select->num_rows>0) {
 									while ($row=$select->fetch_assoc()) {
 										echo $row['body'];
@@ -99,7 +100,7 @@
 					        </div>
 
 					        <div class="col-md-12 default-background">
-					        	<h5 class="mb-5 text-light pt-2">Get the download link</h5>
+					        	<h5 class="mb-5 text-light pt-2">Get Your Free <?php echo $_GET['name']; ?></h5>
 					        	<label id="serviceTitle" style="display: none;"><?php if (isset($_GET['name'])) {
 					        		echo $_GET['name'];
 					        	} ?></label>

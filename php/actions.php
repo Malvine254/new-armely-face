@@ -3,7 +3,7 @@ require 'config.php';
 function submitContactForm() {
     include 'mail.php';
     global $conn;
-
+ 
     // Use filter_input() to sanitize input and trim to avoid extra spaces
     $name = trim(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING));
     $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
@@ -2118,7 +2118,7 @@ function displayFreemiums(){
 				</div>
 				<h4 class="title">'.$row['title'].'</h4>
 				<p>'.substr($row['snippet'],0,100).'...</p>
-					<a href="service-details?name='.$row['url_get_name'].'" class="btn btn-primary">Get now</a>
+					<a href="service-details?name='.$row['title'].'" class="btn btn-primary">Get now</a>
 			</div>
 			
 		</div>
