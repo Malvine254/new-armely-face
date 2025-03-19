@@ -1734,14 +1734,14 @@ function displayNewSocialImpact() {
 
     try {
         // Use a prepared statement to fetch the recent 14 blogs, selecting only the needed columns
-        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category,id,secure_id FROM social_impact WHERE category='new' ORDER BY id DESC LIMIT 3");
+        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category,id,secure_id,snippet FROM social_impact WHERE category='new' ORDER BY id DESC LIMIT 3");
         $stmt->execute();
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 // Sanitize output to prevent XSS attacks
-                $body = htmlspecialchars($row['body']);
+                $body = substr($row['snippet'],0,200);
                 $title = htmlspecialchars($row['title']);
                 $image_url = htmlspecialchars($row['image_url']);
                 $posted_date = htmlspecialchars($row['posted_date']);
@@ -1751,9 +1751,55 @@ function displayNewSocialImpact() {
                 echo ' <a href="social-impact-details?social_id='.$row['secure_id'].'"><div class="blog-post">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="img/social-impact/'.$image_url.'" class="img-fluid blog-image" alt="Blog Image">
+                            <img src="images/social-impact/'.$image_url.'" class="img-fluid blog-image" alt="Blog Image">
                         </div>
                         <div class="col-md-8">
+                            <span class="date">'.$posted_date.'</span>
+                            <h3 class="blog-title">'.$title.'</h3>
+                            <p class="blog-desc">4 min read - '.$body.'...</p>
+                        </div>
+                    </div>
+                </div></a>';
+            }
+        } else {
+            echo "No records found!";
+        }
+
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        // Log the error for debugging without exposing it to users
+        error_log("Database Error: " . $e->getMessage());
+        echo "<p>Unable to retrieve blogs at this time. Please try again later.</p>";
+    }
+}
+
+function displayNewSocialImpactSingle($secure_id) {
+    include 'config.php';
+
+    try {
+        // Use a prepared statement to fetch the recent 14 blogs, selecting only the needed columns
+        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category,id,secure_id FROM social_impact WHERE secure_id=$secure_id LIMIT 1");
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Sanitize output to prevent XSS attacks
+                $body = $row['body'];
+                $title = htmlspecialchars($row['title']);
+                $image_url = htmlspecialchars($row['image_url']);
+                $posted_date = htmlspecialchars($row['posted_date']);
+                $category = htmlspecialchars($row['category']);
+
+                // Display the blog post
+                echo ' <a href="social-impact-details?social_id='.$row['secure_id'].'"><div class="blog-post">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img src="images/social-impact/'.$image_url.'" class="img-fluid blog-image" alt="Blog Image">
+                        </div>
+                        <div class="col-md-12">
                             <span class="date">'.$posted_date.'</span>
                             <h3 class="blog-title">'.$title.'</h3>
                             <p class="blog-desc">4 min read - '.$body.'</p>
@@ -1780,31 +1826,35 @@ function displayFutureSocialImpact() {
 
     try {
         // Use a prepared statement to fetch the recent 14 blogs, selecting only the needed columns
-        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category,secure_id,author_name,author_title FROM social_impact WHERE category='future' ORDER BY id DESC ");
+        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category,secure_id,author_name,author_title,snippet FROM social_impact  ORDER BY id DESC ");
         $stmt->execute();
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 // Sanitize output to prevent XSS attacks
-                $body = htmlspecialchars($row['body']);
+                $body = substr($row['snippet'],0,150);
                 $title = htmlspecialchars($row['title']);
                 $image_url = htmlspecialchars($row['image_url']);
                 $posted_date = htmlspecialchars($row['posted_date']);
                 $category = htmlspecialchars($row['category']);
 
                 // Display the blog post
-                echo '
-            <!-- Blog Card 5 -->
-            <a href="social-impact-details?social_id='.$row['secure_id'].'">
-            <div class="blog-card">
-                <img src="img/social-impact/'.$image_url.'" alt="Blog Image" class="img-fluid">
-                <div class="blog-content">
-                    <span class="date">'.$posted_date.'</span>
-                    <h3 class="blog-title">'.$title.'</h3>
-                    <p class="blog-desc">4 min read - '.$body.'</p>
+                echo ' <!-- Blog Card 1 -->
+               
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-card">
+                 <a href="social-impact-details?social_id='.$row['secure_id'].'">
+                    <img src="images/social-impact/'.$image_url.'" class="img-fluid blog-card-image  " alt="Blog Image">
+                    <div class="blog-content">
+                        <span class="date">'.$posted_date.'</span>
+                        <h3 class="blog-title">'.$title.'</h3>
+                        <p class="blog-desc">3 min read - '.$body.'...</p>
+                    </div>
+                    </a>
                 </div>
-            </div></a>
+            </div>
+           
              ';
             }
         } else {
@@ -1827,25 +1877,23 @@ function displayGallery() {
 
     try {
         // Use a prepared statement to fetch the recent 14 blogs, selecting only the needed columns
-        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category,secure_id,author_name,author_title FROM social_impact WHERE category='future' ORDER BY id DESC ");
+        $stmt = $conn->prepare("SELECT * FROM gallery ORDER BY id DESC ");
         $stmt->execute();
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 // Sanitize output to prevent XSS attacks
-                $body = htmlspecialchars($row['body']);
-                $title = htmlspecialchars($row['title']);
+               
                 $image_url = htmlspecialchars($row['image_url']);
-                $posted_date = htmlspecialchars($row['posted_date']);
-                $category = htmlspecialchars($row['category']);
+               
 
                 // Display the blog post
                 echo '
             <!-- Blog Card 5 -->
-            <a href="img/social-impact/'.$image_url.'" target="_blank">
-            <div class="blog-card">
-                <img src="img/social-impact/'.$image_url.'" alt="Blog Image" class="img-fluid">
+            <a class=" bg-dark " href="images/gallery/'.$image_url.'" target="_blank">
+            <div class="blog-card default-background p-1">
+                <img style="max-height: 300px;" src="images/gallery/'.$image_url.'" alt="Blog Image" class="img-fluid">
                
             </div></a>
              ';
@@ -1871,24 +1919,24 @@ function displayAllSocialImpact() {
 
     try {
         // Use a prepared statement to fetch the recent 14 blogs, selecting only the needed columns
-        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category,id,secure_id FROM social_impact WHERE category='new'");
+        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category,id,secure_id,snippet FROM social_impact WHERE category='future'");
         $stmt->execute();
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 // Sanitize output to prevent XSS attacks
-                $body = htmlspecialchars($row['body']);
+                $body = substr($row['snippet'],0,200);
                 $title = htmlspecialchars($row['title']);
                 $image_url = htmlspecialchars($row['image_url']);
                 $posted_date = htmlspecialchars($row['posted_date']);
                 $category = htmlspecialchars($row['category']);
 
                 // Display the blog post
-                echo ' <a href="social-impact-details?social_id='.$row['secure_id'].'"><div class="blog-post">
+                echo ' <a ><div class="blog-post">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="img/social-impact/'.$image_url.'" class="img-fluid" alt="Blog Image">
+                            <img src="images/social-impact/'.$image_url.'" class="img-fluid" alt="Blog Image">
                         </div>
                         <div class="col-md-8">
                             <span class="date">'.$posted_date.'</span>
