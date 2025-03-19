@@ -42,12 +42,24 @@
 
             <!-- Right Image Column -->
             <div class="col-lg-4 col-md-12 text-center">
-                <img src="img/blog1.jpg" class="img-fluid impact-image lazy-img" alt="Social Impact">
+                <img src="img/blog1.jpg" class="img-fluid impact-image " alt="Social Impact">
             </div>
         </div>
     </div>
 </section>
 
+<!-- Featured Blog Section -->
+<section class="featured-blogs section">
+    <div class="container col-10">
+        <h2 class="section-title text-center">Our Gallery</h2>
+
+        <!-- Carousel Wrapper -->
+        <div class="owl-carousel blog-carousel">
+            <?php displayGallery(); ?>
+
+        </div>
+    </div>
+</section>
 
 <!-- Blog Section -->
 <section class="news-single section">
@@ -67,7 +79,7 @@
             <!-- Sidebar (Right Column) -->
             <div class="col-lg-4">
                 <div class="sidebar">
-                    <img src="img/blog1.jpg" class="img-fluid lazy-img lazy-img" alt="Sidebar Image">
+                    <img src="img/blog1.jpg" class="img-fluid  " alt="Sidebar Image">
                     <h4 class="sidebar-title">Got 5 minutes?</h4>
                     <p class="sidebar-text">Join thousands of tech leaders and get actionable insights on AI, cloud, cybersecurity, and more delivered to your inbox.</p>
                 </div>
@@ -83,7 +95,7 @@
             <!-- Blog Card 1 -->
             <div class="col-lg-4 col-md-6">
                 <div class="blog-card">
-                    <img src="img/blog3.jpg" class="img-fluid blog-card-image lazy-img lazy-img" alt="Blog Image">
+                    <img src="img/blog3.jpg" class="img-fluid blog-card-image  " alt="Blog Image">
                     <div class="blog-content">
                         <span class="date">September 15, 2022</span>
                         <h3 class="blog-title">How Armely SkillsBuild Accelerated a Community College Student’s Career Journey</h3>
@@ -95,7 +107,7 @@
             <!-- Blog Card 2 -->
             <div class="col-lg-4 col-md-6">
                 <div class="blog-card">
-                    <img src="img/blog2.jpg" class="img-fluid blog-card-image lazy-img lazy-img" alt="Blog Image">
+                    <img src="img/blog2.jpg" class="img-fluid blog-card-image  " alt="Blog Image">
                     <div class="blog-content">
                         <span class="date">September 12, 2022</span>
                         <h3 class="blog-title">Purpose-Driven Individuals: Meet 5 Armely Volunteers Taking Action Against Climate Change</h3>
@@ -107,7 +119,7 @@
             <!-- Blog Card 3 -->
             <div class="col-lg-4 col-md-6">
                 <div class="blog-card">
-                    <img src="img/blog1.jpg" class="img-fluid blog-card-image lazy-img lazy-img" alt="Blog Image">
+                    <img src="img/blog1.jpg" class="img-fluid blog-card-image " alt="Blog Image">
                     <div class="blog-content">
                         <span class="date">June 9, 2022</span>
                         <h3 class="blog-title">The Impact of Giving Back: Celebrating Armely Volunteers Worldwide</h3>
@@ -136,18 +148,6 @@
     </div>
 </section>
 
-<!-- Featured Blog Section -->
-<section class="featured-blogs section">
-    <div class="container col-10">
-        <h2 class="section-title text-center">Featured by Topic</h2>
-
-        <!-- Carousel Wrapper -->
-        <div class="owl-carousel blog-carousel">
-            <?php displayFutureSocialImpact(); ?>
-
-        </div>
-    </div>
-</section>
 
 
 <!-- jQuery (Required for Owl Carousel) -->

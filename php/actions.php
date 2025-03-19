@@ -1751,7 +1751,7 @@ function displayNewSocialImpact() {
                 echo ' <a href="social-impact-details?social_id='.$row['secure_id'].'"><div class="blog-post">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="img/social-impact/'.$image_url.'" class="img-fluid lazy-img blog-image" alt="Blog Image">
+                            <img src="img/social-impact/'.$image_url.'" class="img-fluid blog-image" alt="Blog Image">
                         </div>
                         <div class="col-md-8">
                             <span class="date">'.$posted_date.'</span>
@@ -1798,7 +1798,7 @@ function displayFutureSocialImpact() {
             <!-- Blog Card 5 -->
             <a href="social-impact-details?social_id='.$row['secure_id'].'">
             <div class="blog-card">
-                <img src="img/social-impact/'.$image_url.'" alt="Blog Image" class="lazy-img">
+                <img src="img/social-impact/'.$image_url.'" alt="Blog Image" class="img-fluid">
                 <div class="blog-content">
                     <span class="date">'.$posted_date.'</span>
                     <h3 class="blog-title">'.$title.'</h3>
@@ -1820,6 +1820,51 @@ function displayFutureSocialImpact() {
         echo "<p>Unable to retrieve blogs at this time. Please try again later.</p>";
     }
 }
+
+
+function displayGallery() {
+    include 'config.php';
+
+    try {
+        // Use a prepared statement to fetch the recent 14 blogs, selecting only the needed columns
+        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category,secure_id,author_name,author_title FROM social_impact WHERE category='future' ORDER BY id DESC ");
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Sanitize output to prevent XSS attacks
+                $body = htmlspecialchars($row['body']);
+                $title = htmlspecialchars($row['title']);
+                $image_url = htmlspecialchars($row['image_url']);
+                $posted_date = htmlspecialchars($row['posted_date']);
+                $category = htmlspecialchars($row['category']);
+
+                // Display the blog post
+                echo '
+            <!-- Blog Card 5 -->
+            <a href="img/social-impact/'.$image_url.'" target="_blank">
+            <div class="blog-card">
+                <img src="img/social-impact/'.$image_url.'" alt="Blog Image" class="img-fluid">
+               
+            </div></a>
+             ';
+            }
+        } else {
+            echo "No records found!";
+        }
+
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        // Log the error for debugging without exposing it to users
+        error_log("Database Error: " . $e->getMessage());
+        echo "<p>Unable to retrieve blogs at this time. Please try again later.</p>";
+    }
+}
+
+
 
 function displayAllSocialImpact() {
     include 'config.php';
@@ -1843,7 +1888,7 @@ function displayAllSocialImpact() {
                 echo ' <a href="social-impact-details?social_id='.$row['secure_id'].'"><div class="blog-post">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="img/social-impact/'.$image_url.'" class="img-fluid blog-image lazy-img" alt="Blog Image">
+                            <img src="img/social-impact/'.$image_url.'" class="img-fluid" alt="Blog Image">
                         </div>
                         <div class="col-md-8">
                             <span class="date">'.$posted_date.'</span>
