@@ -497,7 +497,7 @@ $.ajax({
       $("#offers-form")[0].reset();
       Swal.fire({
         title: 'Thank you!',
-        text: "Please check your email for the download link.",
+        text: "Please check your email inbox or spam folder for the download link.",
         confirmButtonColor: 'rgb(47,85,151)', 
         icon: 'success',
       });
