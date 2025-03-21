@@ -441,18 +441,16 @@ function displayCustomerStoriesTestimonials() {
 
                 // Output the customer story securely
                 echo '<div class="col-lg-4 col-md-6 col-12">
-                    <div class="single-schedule first card p-2" style="min-height: 340px; height: auto;">
+                    <div class="single-schedule first card p-2 card-shadow" style="min-height: 300px; max-height: auto;">
                         <div class="inner">
                             <div class="icon">
                                 <i class="fa fa-data"></i>
                             </div>
                             <div class="single-content p-2">
-                                <center>
                                     <img style="width: 70px; height: 70px;" src="' . $profile_path . '" 
                                     class="img-fluid rounded-circle lazy-img alt="Profile Image">
-                                </center>
-                                <div class="text-center">
-                                    <h5 class="mt-2">' . $name . '</h5>
+                                <div class="">
+                                    <h5 class="mt-2 default-color h6">' . $name . '</h5>
                                     <strong>' . $position . '</strong>
                                 </div>
                                 <span class="shorten-content">' . $body_content . '</span>
@@ -679,14 +677,14 @@ if ($formattedDate !== false) {
                // Inside the while loop
                 // Inside the while loop
 				echo '<div class="col-lg-4 col-md-6 col-12">
-				    <div class="single-service card" style="min-height: 350px; max-height: 350px;">
-				        <div class="p-2"><br>
-				        <p class="text-danger h1" id="countdown-' . $eventTimestamp . '">Loading countdown...</p>
+				    <div class="single-service card card-shadow" style="min-height: 350px; max-height: 350px;">
+				        <div class="p-2">
+				        <p class="default-background p-2 text-light h1" id="countdown-' . $eventTimestamp . '">Loading countdown...</p>
 				        <i class="icofont-calendar m-2"></i>
 				        <strong class="default-color">' . formatDateWithSuffix($start_date) . '</strong>
 				        <p><a ><b>' . $title . '</b></a></p>
 				        ' . reduceIt(strlen($title)) . '
-				        <p>' . substr($body, 0, 200) . '...</p>
+				        <p>' . substr($body, 0, 130) . '...</p>
 				        
 				        <a target="blank" ' . $background2 . ' ' . $buttonDisabled . ' class="' . $background . ' p-2 text-light d col-10">' . $buttonText . '</a>
 				        </div>
@@ -718,7 +716,7 @@ function displayServicesList() {
     // Helper function to limit text length
     function readMoreText2($text) {
         $text = htmlspecialchars($text); // Prevent XSS attacks
-        return (strlen($text) >= 200) ? substr($text, 0, 200) . "..." : $text;
+        return (strlen($text) >= 100) ? substr($text, 0, 150) . "..." : $text;
     }
 
     try {
@@ -735,8 +733,8 @@ function displayServicesList() {
                 $body = readMoreText2($row['body']);
 
                 // Output the service securely
-                echo '<div class="col-lg-4 col-md-12 col-12">
-                    <div class="single-table">
+                echo '<div class="col-lg-4 col-md-12 col-12" >
+                    <div class="single-table card-shadow" style="max-height: 350px; min-height: 340px;">
                         <a href="service-details?title=' . urlencode($title) . '">
                             <div class="table-head">
                                 <div class="icon">
@@ -817,7 +815,7 @@ function disableUrl($status,$unicord){
 
                 // Output the job listing securely
                 echo '<div class="col-lg-3 col-md-12 col-12">
-        <div class="single-table shadow text-center">
+        <div class="single-table card-shadow text-center">
             <div class="table-head">
                 <a '.disableUrl(isDeadlinePassed($job_deadline),urlencode($job_id)).'>
                     <h4 class="title">' . $job_title . '</h4>
@@ -1085,7 +1083,7 @@ function displayRecentIndustryListings() {
                 // Sanitize output to prevent XSS attacks
                 $id = htmlspecialchars($row['id']);
                 $category = htmlspecialchars($row['category']);
-                $body = htmlspecialchars(substr($row['body'], 0, 120)) . '...';
+                $body = htmlspecialchars(substr($row['body'], 0, 150)) . '...';
                 $image = htmlspecialchars($row['listing_image']);
                 $pdf_url = htmlspecialchars($row['pdf_url']);
 
@@ -1099,13 +1097,15 @@ function displayRecentIndustryListings() {
                 $pdf_link = !empty($pdf_url) ? "case_docs/" . urlencode($pdf_url) : "#";
 
                 // Output the listing securely
-                echo '<div class="single-pf card shadow p-2" style="min-height: 360px;">
-                    <img src="' . $image_path . '" alt="Industry Image" class="img-fluid lazy-img">
-                    <a href="' . $pdf_link . '" id="' . $id . '" class="btn" target="_blank">View Details</a>
-                    <h6 class="text-muted default-color mt-2">
-                        <strong>Industry: ' . $category . '</strong>
-                    </h6>
-                    <p>' . $body . '</p>
+                echo '<div class="single-pf   p-2" style="min-height: 360px;">
+                    <div class="p-4 card-shadow shadow">
+                    	<img src="' . $image_path . '" alt="Industry Image" class="img-fluid lazy-img">
+	                    <a href="' . $pdf_link . '" id="' . $id . '" class="btn" target="_blank">View Details</a>
+	                    <h6 class="  mt-2">
+	                        <strong class="default-color">Industry: ' . $category . '</strong>
+	                    </h6>
+	                    <p>' . $body . '</p>
+	                    </div>
                 </div>';
             }
         } else {
@@ -1151,12 +1151,12 @@ function displayRecentIndustryListingsAll() {
                 $pdf_link = !empty($pdf_url) ? "case_docs/" . urlencode($pdf_url) : "#";
 
                 // Output the industry listing securely
-                echo '<div class="col-md-4 mb-4 p-1">
-                    <div class="customer-story-card card m-1" style="min-height: 450px; max-height: 700px;">
+                echo '<div class="col-md-3 mb-4 p-1">
+                    <div class="customer-story-card card m-1 card-shadow" style="min-height: 450px; max-height: 450px;">
                         <img src="' . $image_path . '" class="d-block img-fluid lazy-img" alt="Industry Image">
                         <div class="p-3">
                             <strong>
-                                <p id="' . $id . '" class="text-muted h5">Industry: ' . $category . '</p>
+                                <b id="' . $id . '" class="default-color h6">Industry: ' . $category . '</b>
                             </strong>
                             <p>' . $body . '</p>
                             <div class="mt-1">
@@ -1213,12 +1213,12 @@ function displayWhitePaperListings() {
                 $pdf_link = !empty($pdf) ? "white_paper_docs/" . urlencode($pdf) : "#";
 
                 // Output the white paper listing securely
-                echo '<div class="col-md-4 mb-4 p-1">
-                    <div class="customer-story-card card m-1" style="min-height: 450px; max-height: 450px;">
+                echo '<div class="col-md-3 shadow mb-4 p-1">
+                    <div class="customer-story-card card card-shadow m-1" style="min-height: 400px; max-height: 400px;">
                         <img src="' . $image_path . '" class="d-block img-fluid lazy-img" alt="White Paper Image">
                         <div class="p-3">
                             <strong>
-                                <p class="text-muted h5">' . $title . '</p>
+                                <b class="default-color h6">' . $title . '</b>
                             </strong>
                             <p>' . $body . '</p>
                             <div class="mt-1">
@@ -1779,12 +1779,20 @@ function displayNewSocialImpactSingle($secure_id) {
     include 'config.php';
 
     try {
-        // Use a prepared statement to fetch the recent 14 blogs, selecting only the needed columns
-        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category,id,secure_id FROM social_impact WHERE secure_id=$secure_id LIMIT 1");
+        // Prepare the statement with a placeholder
+        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category, id, secure_id FROM social_impact WHERE secure_id = ? LIMIT 1");
+
+        if (!$stmt) {
+            throw new Exception("Prepare failed: " . $conn->error);
+        }
+
+        // Bind the parameter (assumes secure_id is a string)
+        $stmt->bind_param("s", $secure_id);
         $stmt->execute();
+
         $result = $stmt->get_result();
 
-        if ($result->num_rows > 0) {
+        if ($result && $result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 // Sanitize output to prevent XSS attacks
                 $body = $row['body'];
@@ -1793,8 +1801,7 @@ function displayNewSocialImpactSingle($secure_id) {
                 $posted_date = htmlspecialchars($row['posted_date']);
                 $category = htmlspecialchars($row['category']);
 
-                // Display the blog post
-                echo ' <a href="social-impact-details?social_id='.$row['secure_id'].'"><div class="blog-post">
+                echo '<a href="social-impact-details?social_id='.$row['secure_id'].'"><div class="blog-post">
                     <div class="row">
                         <div class="col-md-12">
                             <img src="images/social-impact/'.$image_url.'" class="img-fluid blog-image" alt="Blog Image">
@@ -1811,15 +1818,14 @@ function displayNewSocialImpactSingle($secure_id) {
             echo "No records found!";
         }
 
-        // Close the statement and connection
         $stmt->close();
         $conn->close();
     } catch (Exception $e) {
-        // Log the error for debugging without exposing it to users
         error_log("Database Error: " . $e->getMessage());
         echo "<p>Unable to retrieve blogs at this time. Please try again later.</p>";
     }
 }
+
 
 function displayFutureSocialImpact() {
     include 'config.php';
@@ -1891,8 +1897,8 @@ function displayGallery() {
                 // Display the blog post
                 echo '
             <!-- Blog Card 5 -->
-            <a class=" bg-dark " href="images/gallery/'.$image_url.'" target="_blank">
-            <div class="blog-card default-background p-1">
+            <a class=" " href="images/gallery/'.$image_url.'" target="_blank">
+            <div class="blog-card card-shadow p-2">
                 <img style="max-height: 300px;" src="images/gallery/'.$image_url.'" alt="Blog Image" class="img-fluid">
                
             </div></a>
@@ -2110,13 +2116,13 @@ function displayFreemiums(){
 	if ($select->num_rows>0) {
 		while ($row=$select->fetch_assoc()) {
 			echo '<div class="col-lg-4 col-md-12 col-12 shadow">
-		<div class="single-table">
+		<div class="single-table card-shadow">
 			<!-- Table Head -->
 			<div class="table-head" style="height:auto">
 				<div class="icon">
-				<a href="'.$row['image_url'].'" target="_blank"><img src="'.$row['image_url'].'" style="height: 150px;"></a>
+				<a href="'.$row['image_url'].'" target="_blank"><img src="'.$row['image_url'].'" style="height: 120px;"></a>
 				</div>
-				<h4 class="title">'.$row['title'].'</h4>
+				<h5 class="title">'.$row['title'].'</h5>
 				<p>'.substr($row['snippet'],0,100).'...</p>
 					<a href="service-details?name='.$row['title'].'" class="btn btn-primary">Get now</a>
 			</div>
@@ -2125,8 +2131,7 @@ function displayFreemiums(){
 </div>';
 		}
 	}else{
-		echo "
-	      Nothing found!";
+		echo "Nothing found!";
 	}
 	}
 

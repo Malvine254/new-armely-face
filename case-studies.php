@@ -33,7 +33,7 @@
 </div>
 </div>
 </div>
-<div class="container-fluid col-lg-10">
+<div class="container-fluid col-lg-9">
 <div class=" ">
 <div class="row">
 <?php displayRecentIndustryListingsAll(); ?>
@@ -55,7 +55,7 @@
 </div>
 </div>
 </div>
-<div class="container-fluid col-lg-10">
+<div class="container-fluid col-lg-9">
 <div class=" ">
 <div class="row">
 <?php displayWhitePaperListings(); ?>

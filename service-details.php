@@ -89,8 +89,8 @@
 										echo $row['body'];
 									}
 								}else{
-									echo "
-								      Nothing found!";
+									// echo "
+								    //   Nothing found!";
 								}
 							 ?></p>
 						 
@@ -343,7 +343,7 @@
 						<section  id="dataServices">
 							<?php if ($_GET['name']=="data-strategy"): ?>
 							<div class="container">
-							<h3>Data Services: Data Strategy</h3>
+							<h3 class="default-color">Data Strategy</h3><br>
 							<p>A well-crafted data strategy is the foundation for unlocking transformative business value. Whether you're looking to improve decision-making, enhance customer experiences, or drive operational efficiency, a strategic approach to data is the key to your success. Our holistic Data Strategy Service sets your organization on a winning path by guiding you through every step of the process, from defining your data vision to driving tangible business outcomes.</p>
 
 							<blockquote>
@@ -393,44 +393,44 @@
 								<?php endif ?>
 
 								<?php if ($_GET['name']=="data-science"): ?>
-								<div class="container">
+								<div class="container ">
 										
-									<h3>Data Services: Data Science & Analytics</h3>
+									<h3 class="default-color">Data Services: Data Science & Analytics</h3><br>
 									<p>In today's data-driven world organizations that leverage the power of data science and analytics gain a significant competitive edge. From improving decision-making to driving operational efficiency, our comprehensive data science and analytics solutions can help you transform your business.</p>
 									<p>Our team of data scientists and analytics experts are dedicated to helping you uncover the hidden insights within your data. We'll work closely with you to design and deploy customized solutions that address your unique business challenges.</p>
 								
 								<blockquote>
 									<p> 
-									<h5 class="text-light"><i class="icofont-quote-left"></i><strong> Discover Our Suite of Data Science & Analytics Services:</strong></h5> 
+									<h3 class="text-light"><i class="icofont-quote-left"></i><strong> Discover Our Suite of Data Science & Analytics Services:</strong></h3> 
 								</p>
-								<p class="mt-5"><strong>Predictive Modeling</strong></p>
+								<p class="mt-5 text-light"><strong>Predictive Modeling</strong></p>
 								<ol class="ml-5">
 									<li>Leverage advanced machine learning techniques to build predictive models that forecast future trends, identify risks, and support strategic decision-making.</li>
 								</ol>	
-								<p><strong>Prescriptive Analytics</strong></p>
+								<p class="text-light"><strong>Prescriptive Analytics</strong></p>
 								<ol class="ml-5">
 									<li>Combine data-driven insights with optimization algorithms to generate actionable recommendations that can enhance your business processes and drive better outcomes.</li>
 								</ol>		
-								<p><strong>Data Visualization & Reporting</strong></p>
+								<p class="text-light"><strong>Data Visualization & Reporting</strong></p>
 								<ol class="ml-5">
 									<li>Bring your data to life with stunning, interactive dashboards and reports that enable data-driven decision-making across your organization.</li>
 								</ol>			
-								<p><strong>Natural Language Processing</strong>
+								<p class="text-light"><strong>Natural Language Processing</strong>
 								<ol class="ml-5">
 									<li>Unlock the value of unstructured data, such as customer feedback and market intelligence, using state-of-the-art NLP techniques to extract meaningful insights.</li>
 								</ol>
 								</p>
-								<p><strong>Computer Vision</strong>
+								<p class="text-light"><strong>Computer Vision</strong>
 								<ol class="ml-5">
 									<li>Leverage the power of computer vision to automate visual inspections, enhance product quality, and improve operational efficiency in your organization.</li>
 								</ol>
 								</p>
-								<p><strong>Intelligent Automation</strong>
+								<p class="text-light"><strong>Intelligent Automation</strong>
 								<ol class="ml-5">
 									<li>Integrate data science and analytics into your business workflows to streamline processes, reduce errors, and boost productivity.</li>
 								</ol>
 								</p>
-								<p><strong>Accelerate Your Data-Driven Transformation</strong>
+								<p class="text-light"><strong>Accelerate Your Data-Driven Transformation</strong>
 								<ol class="ml-5">
 									<li>Our data science and analytics solutions are designed to help you navigate the complexities of the data landscape and unlock tangible business value. By partnering with our team of experts, you'll gain the insights, tools, and strategies needed to drive sustainable growth and stay ahead of the competition.</li>
 								</ol>
@@ -493,7 +493,7 @@
 								<div class="container-fluid mt-5">
 							    <div class="row">
 							        <!-- Left Column -->
-							        <div s class="bg-warning p-5">
+							        <div s class="default-background p-5">
 							          <div  class="video-" >
 				        		<img style="max-height: 480px; min-width: 100%;" src="images/services/fabric_two.png"><br><br>
 				        	</div>
@@ -1074,7 +1074,7 @@
 						<!-- start of snowflake for digital services -->
 							<?php if ($_GET['name']=="snowflake"): ?>
 							<div class="container">	
-							<h3 class="text-center">Digital Services: Snowflake 	<center><hr class="default-background hr" ></center></h3>
+							<h3 class="default-color">Digital Services: Snowflake </h3>
 								
 							<div class="container-fluid solutions-section text-white py-5 mt-5">
 						    <div class="row align-items-center">
@@ -1611,8 +1611,8 @@
 							<!-- start of power powerplatform for digital services -->
 							<?php if ($_GET['name']=="databricks"): ?>
 							<div class="container">	
-							<h3 class="text-center">Data Services: Databricks	<center><hr class="default-background hr" ></center></h3>
-							<center><img width="100" height="100" class="img-fluid p-2" src="https://cdn.brandfetch.io/idSUrLOWbH/theme/dark/symbol.svg?k=bfHSJFAPEG"></center>
+							<h3 class="default-color">Data Services: Databricks	<center></h3>
+							<br>
 							<p>In today’s fast-paced digital landscape, leveraging data effectively is crucial for business success. At armely, we specialize in Databricks consulting services that empower organizations to harness the full potential of their data. Our expert team is dedicated to helping you streamline your data workflows, enhance analytics capabilities, and drive innovation through data-driven insights. </p>
 							<blockquote>
 								<p> 

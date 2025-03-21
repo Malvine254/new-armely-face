@@ -33,7 +33,8 @@
                
 
                <?php if (isset($_GET['social_id'])) {
-                   $social_id = $_GET['social_id'];
+                require 'php/config.php';
+                   $social_id = mysqli_real_escape_string($conn,$_GET['social_id']);
                }  displayNewSocialImpactSingle($social_id); ?>
 
                 <!-- Add more blog posts here -->

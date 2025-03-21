@@ -60,9 +60,9 @@
                     const diffMinutes = Math.floor((diffTime % (1000 * 60 * 60)) / (1000 * 60));
                     const diffSeconds = Math.floor((diffTime % (1000 * 60)) / 1000);
 
-                    el.textContent = `${diffDays} day: ${diffHours} hr: ${diffMinutes} min: ${diffSeconds} sec`;
+                    el.textContent = `${diffDays}d : ${diffHours}h : ${diffMinutes}m : ${diffSeconds}s`;
                 } else {
-                    el.textContent = "00 day: 00 hr: 00 min: 00 sec";
+                    el.textContent = "00d : 00h : 00m : 00s";
                 }
             });
         };

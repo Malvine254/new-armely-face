@@ -1,10 +1,9 @@
 <?php include 'php/actions.php'; include 'php/header_footer.php';?>
-<link rel="stylesheet" href="more_style.css">
 
 <!-- Start of Header Area -->
 <?php  echo getHeader("social impact"); ?>
 <!-- End Header Area -->
-        
+ <link rel="stylesheet" href="more_style.css">       
 <!-- Breadcrumbs -->
 <div class="breadcrumbs overlay">
     <div class="container">
