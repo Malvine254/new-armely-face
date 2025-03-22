@@ -198,14 +198,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['reset_email'])) {
         // Send the email
         if (mail($reset_email, $subject, $message, $headers)) {
             //echo "Invitation link has been sent to " . htmlspecialchars($fname1 . " " . $lname1) . "'";
-
-            $insert = $conn->query("INSERT INTO offers_form (fname, lname, email, phone, country,category) VALUES ('$fname1','$lname1','$email1','$phone1','$country1','$category1')");
-            if ($insert) {
-                echo 100;
-            }else{
-                echo "Server error";
-            }
-
+            echo 100;
+        }else{
+            echo "Server error";
         }
 
 
