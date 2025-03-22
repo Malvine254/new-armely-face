@@ -14,17 +14,17 @@
                 <div class="card shadow">
                     <div class="card-body">
                         <h2 class="text-center mb-4">Reset Password</h2>
-                        <form class="container">
+                        <form id="reset_pass_form" class="container">
                             <div class="form-group">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Enter your User Name">
+                                    <input name="reset_email" type="text" class="form-control" placeholder="Enter your Email Address">
                                 </div>
                             </div>
                              <button type="submit" class="btn btn-primary btn-block">Reset Password</button>
-                              <p class="mt-1">Navigate back to login? <a href="login.php">Click here</a></p>
+                              <p class="mt-1">Navigate back to login? <a href="login">Click here</a></p>
                         </form>
                     </div>
                 </div>
@@ -35,5 +35,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

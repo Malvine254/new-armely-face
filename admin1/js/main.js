@@ -316,7 +316,7 @@ $('#youtubeVideoForm').submit(function(event) {
         title: 'Warning',
         text: response2,
         icon: 'warning',
-        confirmButtonText: 'OK',
+        confirmButtonText: 'OK', 
          confirmButtonColor: 'rgb(47,85,151)'
       });
         }
@@ -332,4 +332,57 @@ $('#youtubeVideoForm').submit(function(event) {
 
 
   });
+
+// submit contact form
+$('#reset_pass_form').submit(function(event) {
+event.preventDefault(); // Prevent the default form submission
+// Display loading message before AJAX request
+Swal.fire({
+  title: 'Loading...',
+  text: 'Please wait while we process your request.',
+  allowOutsideClick: false,
+  didOpen: () => {
+    Swal.showLoading();
+  }
+});
+// Retrieve the form data
+var formData = $(this).serialize();
+
+// Perform an AJAX request to submit the form data
+$.ajax({
+  type: 'POST',
+  url: 'php/uploads', // Replace with your actual server-side endpoint
+  data: formData,
+  success: function(response3) {
+    // Handle the success response
+    if (response3==="100") {
+      Swal.close(); // Close the loading message before showing the next one
+      Swal.fire({
+      title: 'Success!',
+      text: "One time password was sent successfully, check your inbox or spam folder.",
+      confirmButtonColor: 'rgb(47,85,151)', 
+      icon: 'success',
+    });
+      $("#contact-form")[0].reset();
+    }else{
+      Swal.fire({
+    title: 'Warning',
+    text: response3,
+    icon: 'warning',
+    confirmButtonText: 'OK',
+     confirmButtonColor: 'rgb(47,85,151)'
+  });
+    }
+
+
+     
+    console.log(response3); // You can do something with the response data
+  },
+  error: function(error) {
+    // Handle the error response
+    console.error('Form submission error');
+    console.error(error); // You can display an error message or perform other actions
+  }
+});
+});
 

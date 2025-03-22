@@ -34,7 +34,7 @@
                                 </div>
                             </div>
                              <button name="login_btn" type="submit" class="btn btn-primary btn-block">Login</button>
-                              <p class="mt-1">Forgot your password? <a href="reset.php">Click here</a></p>
+                              <p class="mt-1">Forgot your password? <a href="reset">Click here</a></p>
                            
                           
                         </form>
