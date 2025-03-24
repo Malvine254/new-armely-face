@@ -197,7 +197,7 @@ function displayBlogsTable(){
                 <td><a href="../blog?blogId='.$row["blog_id"].'" target=_blank>'.$row["title"].'</a></td>
                 <td><img width="100" class="img-fluid" src="../'.$row['image_path'].'"></td>
                 <td>'.$row['date'].'</td>
-                <td><a href="?blogDelId='.$row['blog_id'].'" target="_blank" class="fa fa-trash"></a></td>
+                <td><a href="?blogDelId='.$row['blog_id'].'" class="fa fa-trash"></a></td>
                
             </tr>';
 }
@@ -247,7 +247,7 @@ if (isset($_GET['blogDelId'])) {
     $delete = $conn->query("DELETE FROM blogs WHERE blog_id=$id");
 
     if ($delete) {
-        echo "<script>alert('deleted');</script>";
+        echo "<script>alert('deleted');window.location</script>";
     } else {
         echo "Failed";
     }
