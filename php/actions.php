@@ -664,7 +664,12 @@ if ($formattedDate !== false) {
                     $buttonText = "Register";
                     $buttonDisabled = "href='".$row['url']."'";
                     $background = "btn btn-danger ";
-                } else {
+                } elseif($row['recorded_url']==""){
+                	$buttonText = "No Recording Link";
+                    $buttonDisabled = "target='_blank' href='".$row['recorded_url']."'";
+                    $background = "btn btn-danger ";
+                    $background2 = 'style="background: red !important;"';
+                }else {
                     $buttonText = "View Recording";
                     $buttonDisabled = "target='_blank' href='".$row['recorded_url']."'";
                     $background = "btn btn-danger ";
