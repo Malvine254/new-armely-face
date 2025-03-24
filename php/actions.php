@@ -671,9 +671,9 @@ if ($formattedDate !== false) {
                     $background2 = 'style="background: red !important;"';
                 }else {
                     $buttonText = "View Recording";
-                    $buttonDisabled = "target='_blank' href='".$row['recorded_url']."'";
+                    $buttonDisabled = "";
                     $background = "btn btn-danger ";
-                    $background2 = 'style="background: red !important;"';
+                    $background2 = 'style="background: yellow !important;"';
 
                 }
                
