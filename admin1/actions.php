@@ -22,7 +22,7 @@
   </li>
   <li class="nav-item" role="presentation">
     <a data-mdb-tab-init class="nav-link" id="ex-with-icons-tab-4" href="#ex-with-icons-tabs-4" role="tab"
-      aria-controls="ex-with-icons-tabs-4" aria-selected="false"><i class="fas fa-list fa-fw me-2"></i>Edit Footer</a>
+      aria-controls="ex-with-icons-tabs-4" aria-selected="false"><i class="fas fa-list fa-fw me-2"></i>New Event</a>
   </li>
   <li class="nav-item" role="presentation">
     <a data-mdb-tab-init class="nav-link" id="ex-with-icons-tab-5" href="#ex-with-icons-tabs-5" role="tab"
@@ -115,26 +115,33 @@
       </div>
       </form>
       </div>
-
+      <!-- Beginning of post new event -->
       <div class="tab-pane fade" id="ex-with-icons-tabs-4" role="tabpanel" aria-labelledby="ex-with-icons-tab-4">
-         <form id="footerForm" class="row g-3 col-md-11 mt-4 shadow p-4">
+         <form method="post" id="eventsForm" class="row g-3 col-md-11 mt-4 shadow p-4">
+          <div class="col-md-4">
+            <div class="form-outline" data-mdb-input-init>
+              <input name="event_title" type="text" class="form-control" id="event_title" required />
+              <label for="event_title" class="form-label">Event Title</label>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-outline" data-mdb-input-init>
+              <input placeholder="date" name="event_date" type="date" class="form-control" id="career_image" required />
+            </div>
+          </div>
+           <div class="col-md-4">
+            <div class="form-outline" data-mdb-input-init>
+              <input placeholder="Event Url" name="event_url" type="text" class="form-control" id="event_date" required />
+            </div>
+          </div>
           <div class="col-md-12">
             <div class="form-outline" data-mdb-input-init>
-              <textarea id="footerBody"  type="text" class="form-control" id="validationDefault03" required >
-                
-              </textarea>
-              <script>
-                   CKEDITOR.replace('footerBody', {
-                      filebrowserUploadUrl: '../php/upload.php',
-                      filebrowserUploadMethod: 'form',
-                        height: '300px'
-
-                  });
-              </script>
+              <textarea rows="6" name="event_body" id="eventBody1" placeholder="Event Body..."  type="text" class="form-control"  required ></textarea>
+           
             </div>
           </div>
           <div class="col-12">
-            <button class="btn btn-primary " type="submit" data-mdb-ripple-init>Submit form</button>
+            <button name="submit_event_btn" class="btn btn-primary " type="submit" data-mdb-ripple-init>Submit form</button>
           </div>
         </form>
       </div>

@@ -1,5 +1,7 @@
 <?php
-function uploadNewBlog() {
+
+// Check if request contains required data
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES['blog_image']) && isset($_POST['blog_title']) && isset($_POST['blog_body'])) {
     include '../../php/config.php'; 
     session_start();
     $email_address = $_SESSION['email'];
@@ -11,7 +13,7 @@ function uploadNewBlog() {
     // Check if file is uploaded without errors
     if (!isset($_FILES["blog_image"]) || $_FILES["blog_image"]["error"] !== UPLOAD_ERR_OK) {
         echo "File upload error: " . $_FILES["blog_image"]["error"];
-        return;
+       
     }
 
     // Allowed image types (for security)
@@ -28,7 +30,7 @@ function uploadNewBlog() {
     // Ensure inputs are not empty
     if (empty($blog_title) || empty($blog_body)) {
         echo "Title and body cannot be empty.";
-        return;
+       
     }
 
     // Secure file handling
@@ -38,13 +40,13 @@ function uploadNewBlog() {
     // Validate file extension
     if (!in_array($file_ext, $allowed_types)) {
         echo "Invalid file type. Allowed: " . implode(', ', $allowed_types);
-        return;
+        
     }
 
     // Validate file size
     if ($_FILES['blog_image']['size'] > $max_file_size) {
         echo "File size exceeds 5MB limit.";
-        return;
+        
     }
 
     // Secure file name
@@ -66,7 +68,7 @@ function uploadNewBlog() {
     // Move the uploaded file
     if (!move_uploaded_file($_FILES['blog_image']['tmp_name'], $target_path)) {
         echo "File upload failed: " . error_get_last()['message'];
-        return;
+       
     }
 
     // Prepare SQL query
@@ -76,18 +78,13 @@ function uploadNewBlog() {
 
     // Execute query
     if ($stmt->execute()) {
-        return "19";
+        echo "1";
     } else {
-        return "Database error: " . $conn->error;
+        echo "Database error: " . $conn->error;
     }
 
     // Close statement
     $stmt->close();
-}
-
-// Check if request contains required data
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES['blog_image']) && isset($_POST['blog_title']) && isset($_POST['blog_body'])) {
-    echo uploadNewBlog();
 } 
 
 
@@ -216,6 +213,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['reset_email'])) {
   
 }
 
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['event_url']) && isset($_POST['event_date']) && isset($_POST['event_title']) && isset($_POST['event_body']) ) {
+    include '../../php/config.php';
+    $event_url     = mysqli_real_escape_string($conn,$_POST['event_url']);
+    $event_date = mysqli_real_escape_string($conn,date('d/m/Y',strtotime($_POST['event_date'])));
+    $event_title = mysqli_real_escape_string($conn,$_POST['event_title']);
+    $event_body = mysqli_real_escape_string($conn,$_POST['event_body']);
+    $submit = $conn->query("INSERT INTO events(title,body,start_date,url) VALUES('$event_title','$event_body','$event_date','$event_url')");
+    if ($submit) {
+        echo "3";
+         
+   
+    }else{
+        echo "Server Error";
+    }
+    
+}
 
 ?>
 
