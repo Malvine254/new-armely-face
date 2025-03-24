@@ -175,7 +175,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['reset_email'])) {
         <body>
             <div class='container'>
                 <div class='header'>
-                    <h1>Download Link</h1>
+                    <h1>One Time Password</h1>
                 </div>
                 <div class='content'>
                     <h2>Hello, " . htmlspecialchars($row['name']) . " </h2>

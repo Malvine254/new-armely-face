@@ -631,7 +631,7 @@ if ($formattedDate !== false) {
 
     try {
         // Use prepared statement for consistent secure querying
-        $stmt = $conn->prepare("SELECT start_date, title, body,url FROM events ORDER BY id DESC LIMIT 3");
+        $stmt = $conn->prepare("SELECT start_date, title, body,url,recorded_url FROM events ORDER BY id DESC LIMIT 3");
         $stmt->execute();
         $result = $stmt->get_result();
          function reduceIt($string){
@@ -665,8 +665,8 @@ if ($formattedDate !== false) {
                     $buttonDisabled = "href='".$row['url']."'";
                     $background = "btn btn-danger ";
                 } else {
-                    $buttonText = "Event Ended";
-                    $buttonDisabled = "";
+                    $buttonText = "View Recording";
+                    $buttonDisabled = "href='".$row['recorded_url']."'";
                     $background = "btn btn-danger ";
                     $background2 = 'style="background: red !important;"';
 
@@ -1785,6 +1785,19 @@ function displayNewSocialImpactSingle($secure_id) {
         if (!$stmt) {
             throw new Exception("Prepare failed: " . $conn->error);
         }
+        function estimateReadingTime($htmlText) {
+		    $wordsPerMinute = 200;
+		    // Strip HTML tags from the text
+		    $plainText = strip_tags($htmlText);
+
+		    // Count the number of words in the plain text
+		    $wordCount = str_word_count($plainText);
+
+		    // Calculate the reading time in minutes
+		    $readingTime = ceil($wordCount / $wordsPerMinute);
+
+		    return $readingTime;
+		}
 
         // Bind the parameter (assumes secure_id is a string)
         $stmt->bind_param("s", $secure_id);
@@ -1807,9 +1820,9 @@ function displayNewSocialImpactSingle($secure_id) {
                             <img src="images/social-impact/'.$image_url.'" class="img-fluid blog-image" alt="Blog Image">
                         </div>
                         <div class="col-md-12">
-                            <span class="date">'.$posted_date.'</span>
+                            <span class="date">'.$posted_date.' | '.estimateReadingTime($body).' min read -</span>
                             <h3 class="blog-title">'.$title.'</h3>
-                            <p class="blog-desc">4 min read - '.$body.'</p>
+                            <p class="blog-desc"> '.$body.'</p>
                         </div>
                     </div>
                 </div></a>';
@@ -1835,6 +1848,19 @@ function displayFutureSocialImpact() {
         $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category,secure_id,author_name,author_title,snippet FROM social_impact  ORDER BY id DESC ");
         $stmt->execute();
         $result = $stmt->get_result();
+        function estimateReadingTime($htmlText) {
+		    $wordsPerMinute = 200;
+		    // Strip HTML tags from the text
+		    $plainText = strip_tags($htmlText);
+
+		    // Count the number of words in the plain text
+		    $wordCount = str_word_count($plainText);
+
+		    // Calculate the reading time in minutes
+		    $readingTime = ceil($wordCount / $wordsPerMinute);
+
+		    return $readingTime;
+		}
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -1855,7 +1881,7 @@ function displayFutureSocialImpact() {
                     <div class="blog-content">
                         <span class="date">'.$posted_date.'</span>
                         <h3 class="blog-title">'.$title.'</h3>
-                        <p class="blog-desc">3 min read - '.$body.'...</p>
+                        <p class="blog-desc">'.estimateReadingTime($row['body']).' min read - '.$body.'...</p>
                     </div>
                     </a>
                 </div>
@@ -1923,11 +1949,13 @@ function displayGallery() {
 function displayAllSocialImpact() {
     include 'config.php';
 
+
     try {
         // Use a prepared statement to fetch the recent 14 blogs, selecting only the needed columns
         $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category,id,secure_id,snippet FROM social_impact WHERE category='future'");
         $stmt->execute();
         $result = $stmt->get_result();
+        
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -1947,7 +1975,7 @@ function displayAllSocialImpact() {
                         <div class="col-md-8">
                             <span class="date">'.$posted_date.'</span>
                             <h3 class="blog-title">'.$title.'</h3>
-                            <p class="blog-desc">4 min read - '.$body.'</p>
+                            <p class="blog-desc">'.estimateReadingTime($row['body']).' min read - '.$body.'</p>
                         </div>
                     </div>
                 </div></a>';
