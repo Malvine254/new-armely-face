@@ -12,7 +12,6 @@ function getUrl(...$urls) {
 //getUrl();
 
 function getHeader($pageName) {
-
  
     return '
 <!doctype html>
