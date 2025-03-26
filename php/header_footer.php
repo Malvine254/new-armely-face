@@ -54,6 +54,8 @@ function getHeader($pageName) {
         <link rel="stylesheet" href="css/animate.min.css">
 		<!-- Magnific Popup CSS -->
         <link rel="stylesheet" href="css/magnific-popup.css">
+        <script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+
 		
 		<!-- Medipro CSS -->
         <link rel="stylesheet" href="css/normalize.css"> 
@@ -502,10 +504,27 @@ return <<<HTML
 <!-- more settings  -->
 <script src="js/more-options.js"></script>
 <script>
-	new WOW().init();
-	
-  
+    document.addEventListener("DOMContentLoaded", function () {
+        // Initialize WOW.js (For animations on scroll)
+        if (typeof WOW !== "undefined") {
+            new WOW().init();
+        } else {
+            console.warn("WOW.js not found!");
+        }
+
+        // Initialize Lozad.js for Lazy Loading
+        if (typeof lozad !== "undefined") {
+            const observer = lozad();
+            observer.observe();
+        } else {
+            console.warn("Lozad.js not found!");
+        }
+
+        // Ensure that images have the 'lozad' class (This should be before initializing lozad)
+        document.querySelectorAll("img").forEach(img => img.classList.add("lozad"));
+    });
 </script>
+
 </body>
 </html>
 HTML;
