@@ -7,7 +7,7 @@
 <section class="slider">
 <div class="hero-slider">
 <!-- Start Single Slider -->
-<div class="single-slider" style="background-image:url('images/sliders/slider-1.jpg')">
+<div class="single-slider" style="background-image:url('images/sliders/slider-1.webp')">
 <div class="container">
 <div class="row">
 	<div class="col-lg-7">
@@ -21,11 +21,11 @@
 		</div>
 	</div>
 </div>
-</div>
+</div> 
 </div>
 <!-- End Single Slider -->
 <!-- Start Single Slider -->
-<div class="single-slider lazy-bg" data-bg="images/sliders/slider-2.jpg">
+<div class="single-slider lazy-bg" data-bg="images/sliders/slider-2.webp">
     <div class="container">
         <div class="row">
             <div class="col-lg-7">
@@ -44,7 +44,7 @@
 <!-- End Single Slider -->
 
 <!-- Start Single Slider --> 
-<div class="single-slider lazy-bg" data-bg="images/sliders/slider-3.jpg">
+<div class="single-slider lazy-bg" data-bg="images/sliders/slider-3.webp">
     <div class="container">
         <div class="row">
             <div class="col-lg-7">

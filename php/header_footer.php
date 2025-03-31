@@ -446,7 +446,7 @@ return <<<HTML
 <!--/ End Footer Area -->
 
 <!-- jquery Min JS -->
-<script src="js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <!-- jquery Migrate JS -->
 <script src="js/jquery-migrate-3.0.0.js"></script>
 <!-- jquery Ui JS -->
@@ -484,7 +484,7 @@ return <<<HTML
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4301EZWQ4C"></script>
 <!-- Bootstrap JS -->
-<script src="js/bootstrap.min.js"></script>
+
 <!-- Main JS -->
 <script src="js/main.js"></script>
 <!-- sweet alerts -->

@@ -1885,7 +1885,7 @@ function displayFutureSocialImpact() {
                     <img src="images/social-impact/'.$image_url.'" class="img-fluid blog-card-image  " alt="Blog Image">
                     <div class="blog-content">
                         <span class="date">'.$posted_date.'</span>
-                        <h3 class="blog-title">'.$title.'</h3>
+                        <h3 class="blog-title">'.substr($title,0,45).'...</h3>
                         <p class="blog-desc">'.estimateReadingTime($row['body']).' min read - '.$body.'...</p>
                     </div>
                     </a>
@@ -1930,7 +1930,7 @@ function displayGallery() {
             <!-- Blog Card 5 -->
             <a class=" " href="images/gallery/'.$image_url.'" target="_blank">
             <div class="blog-card card-shadow p-2">
-                <img style="max-height: 300px;" src="images/gallery/'.$image_url.'" alt="Blog Image" class="img-fluid">
+                <img style="max-height: 300px; min-height: 200px;" src="images/gallery/'.$image_url.'" alt="Blog Image" class="img-fluid">
                
             </div></a>
              ';

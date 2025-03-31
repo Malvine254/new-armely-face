@@ -1,91 +1,122 @@
 <?php
 
-// Check if request contains required data
+
+// Function to compress and convert to WebP into the correct directory
+function compressAndConvertToWebp($sourcePath, $targetDir, $safeFilename, $quality = 80)
+{
+    // Get image info
+    $imageInfo = getimagesize($sourcePath);
+    $mime = $imageInfo['mime'];
+
+    // Create image resource based on type
+    switch ($mime) {
+        case 'image/jpeg':
+            $image = imagecreatefromjpeg($sourcePath);
+            break;
+        case 'image/png':
+            $image = imagecreatefrompng($sourcePath);
+            // Optional: Remove transparency
+            $background = imagecreatetruecolor(imagesx($image), imagesy($image));
+            $white = imagecolorallocate($background, 255, 255, 255);
+            imagefill($background, 0, 0, $white);
+            imagecopy($background, $image, 0, 0, 0, 0, imagesx($image), imagesy($image));
+            imagedestroy($image);
+            $image = $background;
+            break;
+        case 'image/webp':
+            $image = imagecreatefromwebp($sourcePath);
+            break;
+        default:
+            return false;
+    }
+
+    // Destination is exactly inside $targetDir
+    $destinationPath = $targetDir . $safeFilename;
+
+    // Save the compressed .webp image
+    $result = imagewebp($image, $destinationPath, $quality);
+    imagedestroy($image);
+    return $result;
+}
+
+// Handle blog post request
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES['blog_image']) && isset($_POST['blog_title']) && isset($_POST['blog_body'])) {
     include '../../php/config.php'; 
     session_start();
     $email_address = $_SESSION['email'];
     $select = $conn->query("SELECT name FROM admin WHERE email='$email_address'");
-    while ($row=$select->fetch_assoc()) {
+    while ($row = $select->fetch_assoc()) {
         $final_name = $row['name'];
     }
 
-    // Check if file is uploaded without errors
     if (!isset($_FILES["blog_image"]) || $_FILES["blog_image"]["error"] !== UPLOAD_ERR_OK) {
         echo "File upload error: " . $_FILES["blog_image"]["error"];
-       
+        exit;
     }
 
-    // Allowed image types (for security)
     $allowed_types = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-    $max_file_size = 5 * 1024 * 1024; // 5MB limit
+    $max_file_size = 5 * 1024 * 1024;
 
-    // Sanitize and validate user input
     $blog_title = trim($_POST['blog_title']);
     $blog_body = trim($_POST['blog_body']);
     $blog_author = $final_name;
     $date = date("F jS, Y");
     $blog_id = rand(1000000, 10000000000);
 
-    // Ensure inputs are not empty
     if (empty($blog_title) || empty($blog_body)) {
         echo "Title and body cannot be empty.";
-       
+        exit;
     }
 
-    // Secure file handling
     $file_name = basename($_FILES['blog_image']['name']);
     $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
 
-    // Validate file extension
     if (!in_array($file_ext, $allowed_types)) {
         echo "Invalid file type. Allowed: " . implode(', ', $allowed_types);
-        
+        exit;
     }
 
-    // Validate file size
     if ($_FILES['blog_image']['size'] > $max_file_size) {
         echo "File size exceeds 5MB limit.";
-        
+        exit;
     }
 
-    // Secure file name
-    $safe_filename = preg_replace("/[^a-zA-Z0-9\._-]/", "_", $file_name);
-    $safe_filename = time() . "_" . $safe_filename; // Prevent filename conflicts
+    // Create safe filename with .webp extension
+    $safe_filename = preg_replace("/[^a-zA-Z0-9\._-]/", "_", pathinfo($file_name, PATHINFO_FILENAME));
+    $safe_filename = time() . "_" . $safe_filename . ".webp";
 
-    // Define target directory
+    // Prepare target directory
     $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/images/blogs/";
-
-    // Create directory if not exists
     if (!file_exists($target_dir)) {
         mkdir($target_dir, 0777, true);
     }
 
-    // Final target path
-    $target_path = $target_dir . $safe_filename;
-    $db_path = "images/blogs/" . $safe_filename; // Path stored in DB
+    // Compress & Convert to $target_dir
+    $original_tmp = $_FILES['blog_image']['tmp_name'];
 
-    // Move the uploaded file
-    if (!move_uploaded_file($_FILES['blog_image']['tmp_name'], $target_path)) {
-        echo "File upload failed: " . error_get_last()['message'];
-       
+    if (!compressAndConvertToWebp($original_tmp, $target_dir, $safe_filename, 80)) {
+        echo "Image compression/conversion failed.";
+        exit;
     }
 
-    // Prepare SQL query
+    // Prepare db path
+    $db_path = "images/blogs/" . $safe_filename;
+
+    // Insert into database
     $stmt = $conn->prepare("INSERT INTO blogs (title, author, body, `date`, image_path, blog_id) 
                             VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssss", $blog_title, $blog_author, $blog_body, $date, $db_path, $blog_id);
 
-    // Execute query
     if ($stmt->execute()) {
         echo "1";
     } else {
         echo "Database error: " . $conn->error;
     }
 
-    // Close statement
     $stmt->close();
-} 
+}
+
+
 
 
 
