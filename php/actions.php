@@ -1930,7 +1930,7 @@ function displayGallery() {
             <!-- Blog Card 5 -->
             <a class=" " href="images/gallery/'.$image_url.'" target="_blank">
             <div class="blog-card card-shadow p-2">
-                <img style="max-height: 300px; min-height: 200px;" src="images/gallery/'.$image_url.'" alt="Blog Image" class="img-fluid">
+                <img style="max-height: 300px; height: 200px;" src="images/gallery/'.$image_url.'" alt="Blog Image" class="img-fluid">
                
             </div></a>
              ';
