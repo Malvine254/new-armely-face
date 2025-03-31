@@ -1819,7 +1819,7 @@ function displayNewSocialImpactSingle($secure_id) {
                 $posted_date = htmlspecialchars($row['posted_date']);
                 $category = htmlspecialchars($row['category']);
 
-                echo '<a href="social-impact-details?social_id='.$row['secure_id'].'"><div class="blog-post">
+                echo '<a><div class="blog-post">
                     <div class="row">
                         <div class="col-md-12">
                             <img src="images/social-impact/'.$image_url.'" class="img-fluid blog-image" alt="Blog Image">
