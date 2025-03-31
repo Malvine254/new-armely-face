@@ -29,7 +29,7 @@ function getHeader($pageName) {
         <title>'.$pageName.'</title>
 		
 		<!-- Favicon -->
-       <link rel="icon" href="img/logo/logo1.png">
+       <link rel="icon" href="images/logo/logo1.png">
        <link rel="preload" as="image" href="images/sliders/slider-1.jpg">
 	   <link rel="preload" as="image" href="images/sliders/slider-2.jpg">
 	   <link rel="preload" as="image" href="images/sliders/slider-3.jpg">
