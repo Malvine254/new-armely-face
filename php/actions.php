@@ -631,7 +631,7 @@ if ($formattedDate !== false) {
 
     try {
         // Use prepared statement for consistent secure querying
-        $stmt = $conn->prepare("SELECT start_date, title, body,url,recorded_url FROM events ORDER BY id DESC LIMIT 3");
+        $stmt = $conn->prepare("SELECT start_date, title, body,url,recorded_url FROM events ORDER BY id DESC");
         $stmt->execute();
         $result = $stmt->get_result();
          function reduceIt($string){
