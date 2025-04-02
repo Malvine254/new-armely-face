@@ -244,7 +244,7 @@ function displayBlogFullDetals(){
 			<div class="single-main">
 				<!-- News Head -->
 				<div class="news-head">
-					<img  style="height: auto; min-height: 400px;" src="'.$row['image_path'].'" alt="#">
+					<img  style="height: auto; " src="'.$row['image_path'].'" alt="#">
 				</div>
 				<!-- News Title -->
 				<h1 class="news-title"><a >'.$row['title'].'</a></h1>
@@ -295,7 +295,7 @@ function selectblogByDefault(){
 			<div class="single-main">
 				<!-- News Head -->
 				<div class="news-head">
-					<img  style="height: auto; min-height: 400px;" src="'.$row['image_path'].'" alt="#">
+					<img  style="height: auto;" src="'.$row['image_path'].'" alt="#">
 				</div>
 				<!-- News Title -->
 				<h1 class="news-title"><a >'.$row['title'].'</a></h1>
