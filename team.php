@@ -1,60 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+<?php include 'php/actions.php'; include 'php/header_footer.php';?>
 
-</head>
-<body>
-    <style>
-        @import url(//fonts.googleapis.com/css?family=Montserrat:300,500);
-        .team4 {
-          font-family: "Montserrat", sans-serif;
-            color: #8d97ad;
-          font-weight: 300;
-        }
+<!-- Start of Header Area -->
+<?php  echo getHeader("events"); ?>
+<!-- End Header Area -->
+<!-- Breadcrumbs -->
+<div class="breadcrumbs overlay">
+	<div class="container">
+		<div class="bread-inner">
+			<div class="row">
+				<div class="col-12">
+					<h2>Team</h2>
+					<ul class="bread-list">
+						<li><a href="/">Home</a></li>
+						<li><i class="icofont-simple-right"></i></li>
+						<li class="active">Team</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+ 
 
-        .team4 h1, .team4 h2, .team4 h3, .team4 h4, .team4 h5, .team4 h6 {
-          color: #3e4555;
-        }
+<!-- Start service -->
+<section class="services mt-5">
 
-        .team4 .font-weight-medium {
-            font-weight: 500;
-        }
-
-        .team4 h5 {
-            line-height: 22px;
-            font-size: 18px;
-        }
-
-        .team4 .subtitle {
-            color: #8d97ad;
-            line-height: 24px;
-                font-size: 13px;
-        }
-
-        .team4 ul li a {
-          color: #8d97ad;
-          padding-right: 15px;
-          -webkit-transition: 0.1s ease-in;
-          -o-transition: 0.1s ease-in;
-          transition: 0.1s ease-in;
-        }
-
-        .team4 ul li a:hover {
-          -webkit-transform: translate3d(0px, -5px, 0px);
-          transform: translate3d(0px, -5px, 0px);
-            color: #316ce8;
-        }
-    </style>
-    <div class="py-5 team4">
+<div class="py-5 team4">
   <div class="container">
+  	<div class="section-title">
+		  <h2>Experienced & Professional Team</h2>
+		    <center><hr class="default-background hr" ></center>
+		</div>
     <div class="row justify-content-center mb-4">
       <div class="col-md-7 text-center">
-        <h3 class="mb-3">Experienced & Professional Team</h3>
         <h6 class="subtitle">You can relay on our amazing features list and also our customer services will be great experience for you without doubt and in no-time</h6>
       </div>
     </div>
@@ -157,7 +135,7 @@
     </div>
   </div>
 </div>
+</section>
+<!--/ End service -->
 
-</body>
-</html>
-
+<?php echo getFooter(); ?>

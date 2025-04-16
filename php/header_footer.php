@@ -135,6 +135,7 @@ function getHeader($pageName) {
 			            <ul class="dropdown">
 			              <li><a href="company">Company Overview</a></li>
 			              <li><a href="career">Career Opportunities</a></li>
+			              <li><a href="team">Our Team</a></li>
 			            </ul>
 			          </li>
 			          <li class="'. getUrl("services","service-details").'"><a>Services <i class="icofont-rounded-down"></i></a>
