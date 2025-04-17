@@ -261,5 +261,53 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['event_url']) && isset
     
 }
 
+
+#''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+#Start of submit teams form
+#''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+if (isset($_FILES["team_image"]["name"]) && isset($_POST['team_body']) && isset($_POST['team_title']) && isset($_POST['team_name']) && isset($_POST['x']) && isset($_POST['instagram']) && isset($_POST['facebook']) && isset($_POST['linkedin'])) {
+    include '../../php/config.php';
+    // Sanitize and validate user input
+    $team_name = isset($_POST['team_name']) ? htmlspecialchars($_POST['team_name']) : '';
+    $team_body = isset($_POST['team_body']) ? htmlspecialchars($_POST['team_body']) : '';
+    $team_title = isset($_POST['team_title']) ? htmlspecialchars($_POST['team_title']) : '';
+    $team_title = isset($_POST['team_title']) ? htmlspecialchars($_POST['team_title']) : '';
+    $x = isset($_POST['x']) ? htmlspecialchars($_POST['x']) : '';
+    $instagram = isset($_POST['instagram']) ? htmlspecialchars($_POST['instagram']) : '';
+    $facebook = isset($_POST['facebook']) ? htmlspecialchars($_POST['facebook']) : '';
+    $linkedin = isset($_POST['linkedin']) ? htmlspecialchars($_POST['linkedin']) : '';
+    $created_date = date("d-m-y h:i:sa");
+    $random_name = rand(100000,3000000);
+    $new_file_name = $random_name.".webp";
+    $target = "../../images/team/".$random_name.".webp"; 
+    if (move_uploaded_file($_FILES['team_image']['tmp_name'], $target)) {
+            // Prepare and bind the SQL statement
+            $stmt = $conn->prepare("INSERT INTO team (team_name, team_title, team_body,team_image,x,instagram,facebook,linkedin,created_date) VALUES (?, ?, ?, ?,?,?,?,?,?)");
+            $stmt->bind_param("sssssssss", $team_name, $team_title, $team_body,$new_file_name,$x,$instagram,$facebook,$linkedin,$created_date);
+
+            // Execute the statement
+            if ($stmt->execute()) {
+             echo "1";
+            } else {
+                // Log the error securely
+                error_log('Failed to insert contact form data into the database');
+
+                // Display a generic error message
+                echo "Failed to submit the form. Please try again later";
+            }
+
+            // Close the statement
+            $stmt->close();
+
+    } else{
+        echo "Failed to upload pdf, try again";
+    }
+   
+    
+
+}
+
+
+
 ?>
 

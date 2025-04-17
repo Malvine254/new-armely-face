@@ -466,3 +466,62 @@ $('#eventsForm').submit(function(event) {
     });
   });
 
+// submit teams form
+$('#teamForm').submit(function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Create FormData object
+    var formData = new FormData();
+
+    // Append file to FormData object
+    var file = $('#team_image')[0].files[0]; // Assuming 'cv' is the id of your file input
+   
+
+    // Append other form fields to FormData object
+    formData.append('team_name', $('#team_name').val());
+    formData.append('team_title', $('#team_title').val());
+    formData.append('team_image', file);
+    formData.append('team_body', $('#team_body').val());
+    formData.append('x', $('#x').val());
+    formData.append('instagram', $('#instagram').val());
+    formData.append('facebook', $('#facebook').val());
+    formData.append('linkedin', $('#linkedin').val());
+    // Display loading message before AJAX request
+    Swal.fire({
+      title: 'Loading...',
+      text: 'Please wait while we process your request.',
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+
+    // Perform an AJAX request to submit the form data
+    $.ajax({
+      type: 'POST',
+      url: 'php/uploads', // Replace with your actual server-side endpoint
+      data: formData, 
+      processData: false, // Prevent jQuery from automatically processing data
+      contentType: false,
+      success: function(response9) {
+        // Handle the success response
+        Swal.close(); // Close the loading message before showing the next one
+            Swal.fire({
+            title: 'Success!',
+            text: "Applicatioin was Successfully",
+            confirmButtonColor: 'rgb(47,85,151)', 
+            icon: 'success',
+          });
+            $("#teamForm")[0].reset();
+
+
+         
+        
+      },
+      error: function(error) {
+        // Handle the error response
+        console.error('Form submission error');
+        console.error(error); // You can display an error message or perform other actions
+      }
+    });
+  }); 

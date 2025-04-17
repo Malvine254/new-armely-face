@@ -75,7 +75,7 @@ $(document).ready(()=>{
         $('#searchResults').empty();
         
         // Array of PHP page URLs
-        var pageURLs = ['index', 'blog', 'services','applications','career','case-studies','events','customer-stories','company', 'contact','industries','privacy-policy', 'service-details','social-impact','social-impact-details','job-board'];
+        var pageURLs = ['index', 'blog', 'services','team','applications','career','case-studies','events','customer-stories','company', 'contact','industries','privacy-policy', 'service-details','social-impact','social-impact-details','job-board'];
         var resultsCount = 0;
         // Loop through each page URL
         pageURLs.forEach(function(pageURL) {
@@ -660,3 +660,5 @@ $.ajax({
 });
 
 });
+
+

@@ -26,7 +26,7 @@
   </li>
   <li class="nav-item" role="presentation">
     <a data-mdb-tab-init class="nav-link" id="ex-with-icons-tab-5" href="#ex-with-icons-tabs-5" role="tab"
-      aria-controls="ex-with-icons-tabs-5" aria-selected="false"><i class="fas fa-cogs fa-fw me-2"></i>Edit About Page</a>
+      aria-controls="ex-with-icons-tabs-5" aria-selected="false"><i class="fas fa-cogs fa-fw me-2"></i>Add Team</a>
   </li>
   <li class="nav-item" role="presentation">
     <a data-mdb-tab-init class="nav-link" id="ex-with-icons-tab-6" href="#ex-with-icons-tabs-6" role="tab"
@@ -147,21 +147,54 @@
       </div>
 
        <div class="tab-pane fade" id="ex-with-icons-tabs-5" role="tabpanel" aria-labelledby="ex-with-icons-tab-5">
-         <form class="row g-3 col-md-11 mt-4 shadow p-4">
+         <form method="post" enctype="multipart|form-data" id="teamForm" class="row g-3 col-md-11 mt-4 shadow p-4">
 
-          <div class="col-md-12">
-            <div class="form-outline" data-mdb-input-init>
-              <textarea id="editAboutBody"  type="text" class="form-control" id="validationDefault03" required ></textarea>
-              <script>
-                   CKEDITOR.replace('editAboutBody', {
-                      filebrowserUploadUrl: '../php/upload.php',
-                      filebrowserUploadMethod: 'form',
-                        height: '300px'
-
-                  });
-              </script>
-            </div>
+          <div class="col-md-4">
+          <div class="form-outline" data-mdb-input-init>
+            <input name="team_name" type="text" class="form-control" id="team_name" required />
+            <label for="team_name" class="form-label">Team Name</label>
           </div>
+        </div>
+         <div class="col-md-4">
+          <div class="form-outline" data-mdb-input-init>
+            <input name="team_title" type="text" class="form-control" id="team_title" required />
+            <label for="team_title" class="form-label">Team Title</label>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-outline" data-mdb-input-init>
+            <input accept=".jpg,.jpeg,.png" name="team_image" type="file" class="form-control" id="team_image" required />
+          </div>
+        </div>
+         <div class="col-md-3">
+          <div class="form-outline" data-mdb-input-init>
+            <input name="linkedin" type="text" class="form-control" id="linkedin" required />
+            <label for="linkedin" class="form-label">Linkedin Account Link</label>
+          </div>
+        </div>
+         <div class="col-md-3">
+          <div class="form-outline" data-mdb-input-init>
+            <input name="facebook" type="text" class="form-control" id="facebook" required />
+            <label for="facebook" class="form-label">Facebook Account Link</label>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-outline" data-mdb-input-init>
+            <input name="instagram" type="text" class="form-control" id="instagram" required />
+            <label for="instagram" class="form-label">Instagram Account Link</label>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-outline" data-mdb-input-init>
+            <input name="x" type="text" class="form-control" id="x" required />
+            <label for="x" class="form-label">X Account Link</label>
+          </div>
+        </div>
+      <div class="col-md-12">
+        <div class="form-outline" data-mdb-input-init>
+          <textarea rows="6" name="team_body" id="team_body"  type="text" class="form-control"  required placeholder="Briefly about you" ></textarea>
+        </div>
+      </div>
           <div class="col-12">
             <button class="btn btn-primary " type="submit" data-mdb-ripple-init>Submit form</button>
           </div>

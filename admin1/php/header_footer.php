@@ -31,7 +31,7 @@ function getHeader($pageName,$name) {
     />
     <!-- MDB -->
    
-    <script src="ckeditor3/ckeditor.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.0/mdb.min.css">
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
