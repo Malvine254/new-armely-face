@@ -2177,9 +2177,9 @@ function displayTeams(){
 			echo ' <!-- column  -->
 		      <div class="col-lg-4 mb-4">
 		        <!-- Row -->
-		        <div class="row card card-shadow m-1">
+		        <div class="row card card-shadow m-1" style="min-height: 400px;">
 		          <div class="col-md-12">
-		            <img style="width: 100px; height: 100px;" src="images/team/'.$row['team_image'].'" alt="wrapkit" class="img-fluid rounded-circle" />
+		           <center> <img style="width: 100px; height: 100px;" src="images/team/'.$row['team_image'].'" alt="wrapkit" class="img-fluid rounded-circle" /></center>
 		          </div>
 		          <div class="col-md-12 text-center">
 		            <div class="pt-2">
