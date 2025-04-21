@@ -2184,8 +2184,9 @@ function displayTeams(){
 		          <div class="col-md-12 text-center">
 		            <div class="pt-2">
 		              <h5 class="mt-2 font-weight-medium mb-0 default-color">'.ucwords(strtolower($row['team_name'])).'</h5>
-		              <h6 class="subtitle mb-3">'.ucwords(strtolower($row['team_title'])).'</h6>
-		              <p>'.substr($row['team_body'],0,140).'...</p>
+		              <h6 class="subtitle mb-3">'.$row['team_title'].'</h6>
+		              <p class="shorten-content">'.$row['team_body'].'</p>
+                      <a class="read-more-btn btn btn-link text-light default-background m-1">Read More <i class="fa fa-long-arrow-right"></i></a>
 		              <ul class="list-inline default-color">
 		                <li class="list-inline-item"><a href="'.$row['facebook'].'" class="text-decoration-none d-block px-1"><i class="icon-social-facebook"></i></a></li>
 		                <li class="list-inline-item"><a href="'.$row['x'].'" class="text-decoration-none d-block px-1"><i class="fab fa-x-twitter"></i></a></li>

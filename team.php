@@ -34,7 +34,7 @@
 		</div>
     <div class="row justify-content-center mb-4">
       <div class="col-md-7 text-center">
-        <h6 class="subtitle">You can relay on our amazing features list and also our customer services will be great experience for you without doubt and in no-time</h6>
+        <h6 class="subtitle">You can rely on our amazing features list and also our customer services will be great experience for you without doubt and in no-time</h6>
       </div>
     </div>
     <div class="row">
