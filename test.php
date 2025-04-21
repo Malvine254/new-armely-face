@@ -16,7 +16,7 @@ try {
     $mail->Host       = 'smtp.secureserver.net'; // GoDaddy SMTP server
     $mail->SMTPAuth   = true;
     $mail->Username   = 'ai.solutions@armely.com'; // your email
-    $mail->Password   = '@armely!234!2';      // replace with your real password
+    $mail->Password   = '';      // replace with your real password
     $mail->SMTPSecure = 'tls'; // or 'ssl' depending on GoDaddy config
     $mail->Port       = 587;   // 465 for SSL
 
