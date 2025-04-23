@@ -2236,7 +2236,7 @@ function generateBlogMetaTags($blogId) {
     <meta property="og:type" content="article" />
     <meta property="og:url" content="' . htmlspecialchars($url) . '" />
     <meta property="og:title" content="' . htmlspecialchars($title) . '" />
-    <meta property="og:description" content="' . htmlspecialchars($description) . '" />
+    <meta property="og:description" content="' . $description . '" />
     <meta property="og:image" content="' . htmlspecialchars($image) . '" />
 
     <!-- Twitter Cards -->
