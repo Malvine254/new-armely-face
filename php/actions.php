@@ -2226,7 +2226,7 @@ function generateBlogMetaTags($blogId) {
         $row = $result->fetch_assoc();
         $title = $row['title'];
         $description = $row['body'];
-        $image = $row['image_path'];
+        $image = "https://armely.com/".$row['image_path'];
         $url = 'https://armely.com/blog.php?blogId=' . urlencode($row['blog_id']);
     }
 
