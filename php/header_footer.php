@@ -23,8 +23,14 @@ function getHeader($pageName) {
 		<meta name="keywords" content="Site keywords here">
 		<meta name="description" content="">
 		<meta name="copyright" >
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		
+		'.
+
+		generateBlogMetaTags($_GET['blogId'] ?? 0)
+
+		. 
+
+	  	'
+			
 		<!-- Title -->
         <title>'.$pageName.'</title>
 		

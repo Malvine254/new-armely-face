@@ -55,7 +55,7 @@
 					<!--/ End Single Widget -->
 					
 					<!-- Single Widget -->
-					<div class="single-widget recent-post">
+					<div class="single-widget recent-post box">
 						<h3 class="title">Recent post</h3>
 						<!-- Single Post -->
 						<p style="display: none;" class="alert alert-danger" id="noResults">No results found!!</p>
@@ -72,6 +72,39 @@
 </section>
 <!--/ End Single News -->
 <?php echo getFooter(); ?>
+<!-- Load jQuery before your script -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $(".shareBtn").click(function () {
+      var social = $(this).data("social");
+      var url = encodeURIComponent(window.location.href);
+      var title = $("#blogTitle").text();
+      var shareURL;
+
+      switch (social) {
+        case "facebook":
+          shareURL = "https://www.facebook.com/sharer/sharer.php?u=" + url;
+          break;
+        case "twitter":
+          shareURL = "https://twitter.com/intent/tweet?url=" + url + "&text=" + title;
+          break;
+        case "linkedin":
+          shareURL = "https://www.linkedin.com/shareArticle?mini=true&url=" + url + "&title=" + title;
+          break;
+        case "instagram":
+          alert("Instagram sharing via browser not supported.");
+          return;
+      }
+
+      // Open in a new window
+      window.open(shareURL, "_blank", "noopener,noreferrer,width=600,height=400");
+    });
+  });
+</script>
+
+
 <script>
 	$(document).ready(function() {
   var contentDiv = $('#content');
@@ -107,32 +140,7 @@ contentDiv.on('scroll', function() {
     }
 });
 
-    // Share button click event
-    $(".shareBtn").click(function(){
-        var social = $(this).data("social");
-        var url = encodeURIComponent(window.location.href);
-        var title = $("#blogTitle").text();
-        var shareURL;
-
-        switch(social) {
-            case "facebook":
-                shareURL = "https://www.facebook.com/sharer/sharer.php?u=" + url;
-                break;
-            case "twitter":
-                shareURL = "https://twitter.com/intent/tweet?url=" + url + "&text=" + title;
-                break;
-            case "linkedin":
-                shareURL = "https://www.linkedin.com/shareArticle?url=" + url + "&title=" + title;
-                break;
-            case "instagram":
-                shareURL = "https://www.instagram.com/";
-                break;
-        }
-
-        // Open share URL in new window
-        window.open(shareURL, "_blank");
-    });
-});
+    
 
 $(document).ready(function() {
     let speechSynthesis = window.speechSynthesis;
@@ -229,6 +237,8 @@ $(document).ready(function() {
 
 
 </script>
+
+
 
 
 </body>

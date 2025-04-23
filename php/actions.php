@@ -241,9 +241,9 @@ function displayBlogFullDetals(){
 	if ($select->num_rows>0) {
 		while ($row=$select->fetch_assoc()) {
 			echo '
-			<div class="single-main">
+			<div class=" single-main ">
 				<!-- News Head -->
-				<div class="news-head">
+				<div class="news-head ">
 					<img  style="height: auto; " src="'.$row['image_path'].'" alt="#">
 				</div>
 				<!-- News Title -->
@@ -292,7 +292,7 @@ function selectblogByDefault(){
 	if ($select->num_rows>0) {
 		while ($row=$select->fetch_assoc()) {
 			echo '
-			<div class="single-main">
+			<div class="single-main main-article">
 				<!-- News Head -->
 				<div class="news-head">
 					<img  style="height: auto;" src="'.$row['image_path'].'" alt="#">
@@ -387,7 +387,7 @@ function displayRecentBlogsOthers() {
                 $clicks = htmlspecialchars($row['clicks']);
 
                 // Display the blog post
-                echo '<div class="single-post data-item" >
+                echo '<div class="single-post data-item sidebar-article" >
                     <div class="image" style="height: auto !important;">
                         <img  style="height: auto !important;" src="' . $image_path . '" alt="Blog Image">
                     </div>
@@ -420,7 +420,7 @@ function displayCustomerStoriesTestimonials() {
 
     try {
         // Use a prepared statement to fetch customer stories (best practice)
-        $stmt = $conn->prepare("SELECT id, name, position, body_content, profile FROM customer_stories");
+        $stmt = $conn->prepare("SELECT id, name, position, body_content, profile FROM customer_stories ORDER BY id DESC");
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -683,7 +683,7 @@ if ($formattedDate !== false) {
                 // Inside the while loop
 				echo '<div class="col-lg-4 col-md-6 col-12">
 				    <div class="single-service card card-shadow" style="min-height: 350px; max-height: 350px;">
-				        <div class="p-2">
+				        <div class="p-2" style="min-height: 470px;">
 				        <p class="default-background p-2 text-light h1" id="countdown-' . $eventTimestamp . '">Loading countdown...</p>
 				        <i class="icofont-calendar m-2"></i>
 				        <strong class="default-color">' . formatDateWithSuffix($start_date) . '</strong>
@@ -691,7 +691,7 @@ if ($formattedDate !== false) {
 				        ' . reduceIt(strlen($title)) . '
 				        <p>' . substr($body, 0, 130) . '...</p>
 				        
-				        <a target="blank" ' . $background2 . ' ' . $buttonDisabled . ' class="' . $background . ' p-2 text-light d col-10">' . $buttonText . '</a>
+				        <a target="blank" ' . $background2 . ' ' . $buttonDisabled . ' class=" mt-4 ' . $background . ' p-2 text-light d col-10">' . $buttonText . '</a>
 				        </div>
 				    </div>
 				</div>';
@@ -2179,7 +2179,7 @@ function displayTeams(){
 		        <!-- Row -->
 		        <div class="row card card-shadow m-1" style="min-height: 400px;">
 		          <div class="col-md-12">
-		           <center> <img style="width: 100px; height: 100px;" src="images/team/'.$row['team_image'].'" alt="wrapkit" class="img-fluid rounded-circle" /></center>
+		           <center> <a target="_blank" href="images/team/'.$row['team_image'].'"><img style="width: 150px; height: 150px;" src="images/team/'.$row['team_image'].'" alt="wrapkit" class="img-fluid rounded-circle" /></a></center>
 		          </div>
 		          <div class="col-md-12 text-center">
 		            <div class="pt-2">
@@ -2206,8 +2206,46 @@ function displayTeams(){
 	}
 	}
 
+// Add meta tags for showing blog previews for social media links
+function generateBlogMetaTags($blogId) {
+	require 'config.php';
+    // Secure query using blogId
+    $stmt = $conn->prepare("SELECT title, body, image_path, blog_id FROM blogs WHERE blog_id = ?");
+    $stmt->bind_param("i", $blogId);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
+    // Default metadata
+    $title = "Trusted source for digital excellence";
+    $description = "Beyond Imaginantion!";
+    $image = "https://armely.com/images/logo/logo1.png";
+    $url = "https://armely.com";
 
+    // If a blog is found, override metadata
+    if ($result && $result->num_rows === 1) {
+        $row = $result->fetch_assoc();
+        $title = $row['title'];
+        $description = $row['body'];
+        $image = $row['image_path'];
+        $url = 'https://armely.com/blog.php?blogId=' . urlencode($row['blog_id']);
+    }
+
+    // Return meta tags
+    return '
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="' . htmlspecialchars($url) . '" />
+    <meta property="og:title" content="' . htmlspecialchars($title) . '" />
+    <meta property="og:description" content="' . htmlspecialchars($description) . '" />
+    <meta property="og:image" content="' . htmlspecialchars($image) . '" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="' . htmlspecialchars($title) . '">
+    <meta name="twitter:description" content="' . htmlspecialchars($description) . '">
+    <meta name="twitter:image" content="' . htmlspecialchars($image) . '">
+    ';
+}
 
 
 
