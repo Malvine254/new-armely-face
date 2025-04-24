@@ -711,7 +711,7 @@ if ($formattedDate !== false) {
 					        <p class="default-background p-2 text-light h1" id="countdown-' . $eventTimestamp . '">Loading countdown...</p>
 					        <i class="icofont-calendar m-2"></i>
 					        <strong class="default-color">' . formatDateWithSuffix($start_date) . '</strong>
-					        <p><a ><b>' . CutText($title,28). '</b></a></p>
+					        <p><a ><b>' . CutText($title,20). '</b></a></p>
 					        <p>' . CutText($body, 130) . '...</p>
 					    </div>    
 				        
