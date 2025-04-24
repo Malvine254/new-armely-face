@@ -634,15 +634,37 @@ if ($formattedDate !== false) {
         $stmt = $conn->prepare("SELECT start_date, title, body,url,recorded_url FROM events ORDER BY id DESC");
         $stmt->execute();
         $result = $stmt->get_result();
-         function reduceIt($string){
-                	if ($string>30) {
-                		return "";
-                	}else{
-                		return "<br>";
-                	}
-                }
 
         if ($result->num_rows > 0) {
+
+        	function CutText($text, $characters) {
+			    $count = 0;
+			    $result = '';
+
+			    for ($i = 0; $i < strlen($text); $i++) {
+			        $char = $text[$i];
+
+			        // Check if alphanumeric
+			        if (ctype_alnum($char)) {
+			            $count++;
+			        }
+
+			        $result .= $char;
+
+			        // Stop once we reach the limit of alphanumeric characters
+			        if ($count >= $characters) {
+			            break;
+			        }
+			    }
+
+			    // If there's more content beyond the limit, append ...
+			    if ($count >= $characters && $i < strlen($text) - 1) {
+			        return $result . "...";
+			    }
+
+			    return $text;
+			}
+
             while ($row = $result->fetch_assoc()) {
                 // Sanitize the data to prevent XSS
                 $title = htmlspecialchars($row['title']);
@@ -677,19 +699,21 @@ if ($formattedDate !== false) {
 
                 }
                
+               
 
                 // Output the core value item securely
                // Inside the while loop
                 // Inside the while loop
 				echo '<div class="col-lg-4 col-md-6 col-12">
-				    <div class="single-service card card-shadow" style="min-height: 350px; max-height: 350px;">
+				    <div class="single-service card card-shadow" style="height: 350px;">
 				        <div class="p-2" style="min-height: 470px;">
-				        <p class="default-background p-2 text-light h1" id="countdown-' . $eventTimestamp . '">Loading countdown...</p>
-				        <i class="icofont-calendar m-2"></i>
-				        <strong class="default-color">' . formatDateWithSuffix($start_date) . '</strong>
-				        <p><a ><b>' . $title . '</b></a></p>
-				        ' . reduceIt(strlen($title)) . '
-				        <p>' . substr($body, 0, 130) . '...</p>
+				        <div style="height: 230px;">
+					        <p class="default-background p-2 text-light h1" id="countdown-' . $eventTimestamp . '">Loading countdown...</p>
+					        <i class="icofont-calendar m-2"></i>
+					        <strong class="default-color">' . formatDateWithSuffix($start_date) . '</strong>
+					        <p><a ><b>' . CutText($title,60). '</b></a></p>
+					        <p>' . CutText($body, 130) . '...</p>
+					    </div>    
 				        
 				        <a target="blank" ' . $background2 . ' ' . $buttonDisabled . ' class=" mt-4 ' . $background . ' p-2 text-light d col-10">' . $buttonText . '</a>
 				        </div>
