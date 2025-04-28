@@ -2195,7 +2195,7 @@ function displayFreemiums(){
 function displayTeams(){
 	require 'config.php';
 	$numbering = 1;
-	$select = $conn->query("SELECT team_title,team_body,team_image,team_name,facebook,x,linkedin,instagram FROM team");
+	$select = $conn->query("SELECT team_title,team_body,team_image,team_name,facebook,x,linkedin,instagram FROM team ORDER BY id DESC");
 	if ($select->num_rows>0) {
 		while ($row=$select->fetch_assoc()) {
 			echo ' <!-- column  -->
