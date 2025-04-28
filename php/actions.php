@@ -2195,7 +2195,7 @@ function displayFreemiums(){
 function displayTeams(){
 	require 'config.php';
 	$numbering = 1;
-	$select = $conn->query("SELECT team_title,team_body,team_image,team_name,facebook,x,linkedin,instagram FROM team ORDER BY id DESC");
+	$select = $conn->query("SELECT team_title,team_body,team_image,team_name,facebook,x,linkedin,instagram FROM team");
 	if ($select->num_rows>0) {
 		while ($row=$select->fetch_assoc()) {
 			echo ' <!-- column  -->
@@ -2209,7 +2209,7 @@ function displayTeams(){
 		            <div class="pt-2">
 		              <h5 class="mt-2 font-weight-medium mb-0 default-color">'.ucwords(strtolower($row['team_name'])).'</h5>
 		              <h6 class="subtitle mb-3">'.$row['team_title'].'</h6>
-		              <p class="shorten-content" style="min-height: 110px;">'.$row['team_body'].'</p>
+		              <p class="shorten-content" style="min-height: 120px;">'.$row['team_body'].'</p>
                       <a class="read-more-btn btn btn-link text-light default-background m-1">Read More <i class="fa fa-long-arrow-right"></i></a>
                       <hr class="default-background">
 		              <ul class="list-inline default-color">
@@ -2241,7 +2241,7 @@ function generateBlogMetaTags($blogId) {
 
     // Default metadata
     $title = "Trusted source for digital excellence";
-    $description = "Beyond Imaginantion!";
+    $description = "Beyond Imagination!";
     $image = "https://armely.com/images/logo/logo1.png";
     $url = "https://armely.com";
 
