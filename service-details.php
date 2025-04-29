@@ -454,7 +454,7 @@
 						           <div class="m-5">
 							            <h2 class="text-light">Microsoft Fabric </h2>
 							            <p class="text-light">Microsoft Fabric is an end-to-end analytics platform that provides a single, integrated environment for data professionals and businesses to collaborate on data projects. Fabric provides a set of integrated services that enable you to ingest, store, process, and analyze data in a single environment. </p>
-							            <p class="text-light">DMicrosoft Fabric provides tools for both citizen and professional data practitioners and integrates with tools the business needs to make decisions. Fabric includes the following services:Data engineering Data integration, Data warehousing, Real-time intelligence, Data science and Business intelligence  </p>
+							            <p class="text-light">Microsoft Fabric provides tools for both citizen and professional data practitioners and integrates with tools the business needs to make decisions. Fabric includes the following services:Data engineering Data integration, Data warehousing, Real-time intelligence, Data science and Business intelligence  </p>
 							            <a  href="#consultation" class="btn btn-outline-light mt-3 text-light">Request A Microsoft Fabric Solution</a>
 						          	</div>
 						        </div>
@@ -558,15 +558,39 @@
 							    </div>
 							</div>
 
-							<div class="container-fluid mt-5">
+
+							
+							</div>
+							<?php endif ?>
+
+							<?php if ($_GET['name']=="fabric_capacity"): ?>
+							<div class="container mt-5">
 							    <div class="row">
+
 							        <!-- Left Column -->
-							        <div s class="default-background p-5">
+							        <div class="default-background  p-5 row">
 							            <ul class="benefits-list text-light">
-							            	<h2 class="text-light">Estimate your Fabric capacity needs</h2><br>
-							            	<p class="text-light">Adopt a data platform that’s infused with AI at every layer to help you get more done, faster.</p><br>
-							                <ul> <li><span class="checkmark">✓</span> <b>Utilize the Fabric Capacity Estimator</b> – Input your anticipated workloads to predict the required Capacity Units (CUs) for optimal performance and cost efficiency.</li> <li><span class="checkmark">✓</span> <b>Monitor with the Capacity Metrics App</b> – Track real-time CU consumption and identify peak usage periods to inform scaling decisions.</li> <li><span class="checkmark">✓</span> <b>Understand SKU Options</b> – Familiarize yourself with available SKUs (e.g., F2 to F2048) to select a capacity that aligns with your workload demands.</li> <li><span class="checkmark">✓</span> <b>Plan for Scalability</b> – Ensure your chosen capacity can accommodate future growth and increased data processing requirements. </li> <li><span class="checkmark">✓</span> <b>Consider Cost Optimization Strategies</b> – Evaluate options like pausing unused capacities or opting for reserved pricing to manage expenses effectively.</li> </ul>
-							                <p class="text-warning"><a href="https://www.microsoft.com/en-us/microsoft-fabric/capacity-estimator">For a comprehensive assessment, you can access the Microsoft Fabric Capacity Estimator here</a></p>
+							            	<h2 class="text-light mt-3">Estimate your Fabric capacity needs</h2><br>
+							            	<p class="text-light">Adopt a unified data platform infused with AI at every layer. Accurately estimate and scale your Microsoft Fabric capacity to ensure optimized performance, informed decisions, and accelerated productivity.</p><br>
+							            	<img class="img-fluid" src="images/services/fabric_cost_estimator.png">
+							            	<hr>
+							            	
+							               <ul> 
+							               	<li><span class="checkmark">✓</span> <b>Total Size of Data When Compressed (GiB)</b> – Specify your total anticipated compressed data size, allowing Fabric to estimate appropriate storage and processing needs.</li> 
+							               	<li><span class="checkmark">✓</span> <b>Number of Daily Batch Cycles</b> – Indicate how many times each day data processing tasks occur, helping estimate workload intensity and needed processing power.</li> 
+							               	<li><span class="checkmark">✓</span> <b>Number of Tables Across All Data Sources</b> – Provide the total number of tables to assess the complexity and overhead of managing and querying your datasets.</li> 
+							               	<li><span class="checkmark">✓</span> <b>Data Factory</b> – Select this to include data integration, orchestration, and ETL workflows when estimating capacity requirements.</li>
+							               	<li><span class="checkmark">✓</span> <b>Spark Jobs</b> – Choose this option if you'll run scalable data processing tasks using Apache Spark within Fabric.</li>
+							               	<li><span class="checkmark">✓</span> <b>Data Warehouse</b> – Choose this for structured data storage and analytics at scale, aiding in efficient decision-making capabilities.</li>
+							               	<li><span class="checkmark">✓</span> <b>Ad-Hoc SQL Analytics</b> – Include this if your use cases involve frequent interactive SQL queries and exploratory analytics.</li>
+							               	<li><span class="checkmark">✓</span> <b>Data Science</b> – Select this to accommodate machine learning workloads, including model training, experimentation, and analytics.</li>
+							               	<li><span class="checkmark">✓</span> <b>Power BI</b> – Enable this to incorporate advanced visualization and interactive reporting capabilities into your Fabric estimation.</li>
+							               	<li><span class="checkmark">✓</span> <b>Power BI Embedded</b> – Include this to factor in embedding interactive Power BI analytics within your custom applications or platforms.</li>
+							               	<li><span class="checkmark">✓</span> <b>Eventstream</b> – Select if your requirements involve real-time data ingestion, streaming analytics, and event-driven processing.</li>
+							               	<li><span class="checkmark">✓</span> <b>Eventhouse</b> – Choose this to enable analysis on historical and real-time data seamlessly integrated within the Fabric environment.</li>
+							               	<li><span class="checkmark">✓</span> <b>Activator</b> – Include this for real-time, actionable insights and triggering automated responses based on analytics.</li>
+							               	<li><span class="checkmark">✓</span> <b>SQL Database in Fabric</b> – Select to estimate resources needed for running relational databases optimized within the Fabric ecosystem.</li> </ul><br>
+							                <a target="_blank" href="https://www.microsoft.com/en-us/microsoft-fabric/capacity-estimator" name="submit_offers_form" class="btn btn-primary">Estimate your Fabric capacity needs</a>
 
 							               
 							               
@@ -577,11 +601,7 @@
 							       
 							    </div>
 							</div>
-
-							
-							</div>
 							<?php endif ?>
-
 
 
 							<!-- start of snowflake for SQL and Data Engineering 	 -->

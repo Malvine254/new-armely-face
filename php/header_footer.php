@@ -64,7 +64,7 @@ function getHeader($pageName) {
 
 		
 		<!-- Medipro CSS -->
-        <link rel="stylesheet" href="css/normalize.css"> 
+        <link rel="stylesheet" href="css/normalize_1.css"> 
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="css/responsive.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -164,6 +164,7 @@ function getHeader($pageName) {
 			                   <li >
 			                      <a >Data Services <i class="icofont-rounded-right"></i></a>
 			                      <ul class="dropdown">
+			                      	  <li><a href="service-details?name=fabric_capacity">Estimate your Fabric Capacity</a></li>
 			                          <li><a href="service-details?name=fabric">Microsoft Fabric</a></li>
 			                          <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
 			                          <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
