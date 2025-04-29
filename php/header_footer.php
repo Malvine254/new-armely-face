@@ -71,6 +71,10 @@ function getHeader($pageName) {
 		
     </head>
     <body>
+    <div class="announcement-banner default-background" id="announcementBanner">
+	    📢 <b>Estimate your Fabric capacity needs!</b> Check out Microsoft Fabric SKU Estimator. <a href="https://www.microsoft.com/en-us/microsoft-fabric/capacity-estimator">Learn More</a>
+	    <span class="close-btn" onclick="closeBanner()">&times;</span>
+	</div>
 	
 		<section>	
 		<!-- Floating Action Button -->

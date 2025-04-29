@@ -558,6 +558,26 @@
 							    </div>
 							</div>
 
+							<div class="container-fluid mt-5">
+							    <div class="row">
+							        <!-- Left Column -->
+							        <div s class="default-background p-5">
+							            <ul class="benefits-list text-light">
+							            	<h2 class="text-light">Estimate your Fabric capacity needs</h2><br>
+							            	<p class="text-light">Adopt a data platform that’s infused with AI at every layer to help you get more done, faster.</p><br>
+							                <ul> <li><span class="checkmark">✓</span> <b>Utilize the Fabric Capacity Estimator</b> – Input your anticipated workloads to predict the required Capacity Units (CUs) for optimal performance and cost efficiency.</li> <li><span class="checkmark">✓</span> <b>Monitor with the Capacity Metrics App</b> – Track real-time CU consumption and identify peak usage periods to inform scaling decisions.</li> <li><span class="checkmark">✓</span> <b>Understand SKU Options</b> – Familiarize yourself with available SKUs (e.g., F2 to F2048) to select a capacity that aligns with your workload demands.</li> <li><span class="checkmark">✓</span> <b>Plan for Scalability</b> – Ensure your chosen capacity can accommodate future growth and increased data processing requirements. </li> <li><span class="checkmark">✓</span> <b>Consider Cost Optimization Strategies</b> – Evaluate options like pausing unused capacities or opting for reserved pricing to manage expenses effectively.</li> </ul>
+							                <p class="text-warning"><a href="https://www.microsoft.com/en-us/microsoft-fabric/capacity-estimator">For a comprehensive assessment, you can access the Microsoft Fabric Capacity Estimator here</a></p>
+
+							               
+							               
+							            </ul>
+  
+							        </div>
+
+							       
+							    </div>
+							</div>
+
 							
 							</div>
 							<?php endif ?>
