@@ -660,5 +660,9 @@ $.ajax({
 });
 
 });
+//close the anouncement banner
+ function closeBanner() {
+        document.getElementById('announcementBanner').style.display = 'none';
+}
 
 
