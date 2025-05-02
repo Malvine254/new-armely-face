@@ -1,4 +1,14 @@
-<?php require 'php/check_session.php'; include "php/uploads.php"; include "php/header_footer.php";include "php/users.php"; ?>
+<?php require 'php/check_session.php'; include "php/uploads.php"; include "php/header_footer.php";include "php/users.php"; include "php/tables.php"; ?>
+
+<?php 
+$blogData  = editBlogArticle(); 
+if ($blogData !== null) {
+    $blog_title = $blogData['title'];
+    $blog_body = $blogData['body'];
+} else {
+    echo "";
+} 
+?>
 
 <?php echo getHeader("Actions",$name); ?>
 
@@ -12,7 +22,7 @@
     <a data-mdb-tab-init class="nav-link active" id="ex-with-icons-tab-1" href="#ex-with-icons-tabs-1" role="tab"
       aria-controls="ex-with-icons-tabs-1" aria-selected="true"><i class="fas fa-chart-pie fa-fw me-2"></i> Add New Blog</a>
   </li>
-  <li class="nav-item" role="presentation">
+  <li class="nav-item" role="presentation" id="clickYouteVideoTab">
     <a data-mdb-tab-init class="nav-link" id="ex-with-icons-tab-2" href="#ex-with-icons-tabs-2" role="tab"
       aria-controls="ex-with-icons-tabs-2" aria-selected="false"><i class="fas fa-chart-line fa-fw me-2"></i> Add Youtube Video</a>
   </li>
@@ -40,8 +50,8 @@
     <form enctype="multipart/form-data" id="addBlogForm" class="row g-3 col-md-11 mt-2 shadow p-4" method="post">
       <div class="col-md-6">
         <div class="form-outline" data-mdb-input-init>
-          <input name="blog_title" type="text" class="form-control" id="blog_title" required />
-          <label for="blog_title" class="form-label">Blog Title</label>
+          <input name="blog_title" type="text" class="form-control" id="blog_title" required  value="<?php $blogData  = editBlogArticle(); if ($blogData !== null) {echo $blogData['title'];} else {echo "";} ?>" />
+          <label for="blog_title" class="form-label" >Blog Title</label>
         </div>
       </div>
       <div class="col-md-6">
@@ -51,7 +61,7 @@
       </div>
       <div class="col-md-12">
         <div class="form-outline" data-mdb-input-init>
-          <textarea name="blog_body" id="blogBody"  type="text" class="form-control" id="validationDefault03" required ></textarea>
+          <textarea name="blog_body" id="blogBody"  type="text" class="form-control" id="validationDefault03" required ><?php $blogData  = editBlogArticle(); if ($blogData !== null) {echo $blogData['body'];} else {echo "";} ?></textarea>
           <script>
           // Initialize CKEditor with configuration
           CKEDITOR.replace('blogBody', {
@@ -73,7 +83,7 @@
       <div class="col-md-12">
         <div class="form-outline" data-mdb-input-init>
 
-          <textarea rows="6" id="iframeContents" placeholder="video iframe contents here...."  type="text" class="form-control" required ></textarea>
+          <textarea rows="6" id="iframeContents" placeholder="video iframe contents here...."  type="text" class="form-control" required ><?php $blogData  = editVideos(); if ($blogData !== null) {echo $blogData['url'];} else {echo "";} ?></textarea>
 
         </div>
       </div>
@@ -87,7 +97,7 @@
         <form id="careerForm" class="row g-3 col-md-11 mt-4 shadow p-4">
       <div class="col-md-6">
         <div class="form-outline" data-mdb-input-init>
-          <input name="career_title" type="text" class="form-control" id="career_title" required />
+          <input name="career_title" type="text" class="form-control" id="career_title" required value="<?php $blogData  = editCareer(); if ($blogData !== null) {echo $blogData['job_title'];} else {echo "";} ?>" />
           <label for="career_title" class="form-label">Job Title</label>
         </div>
       </div>
@@ -99,7 +109,7 @@
       
       <div class="col-md-12">
         <div class="form-outline" data-mdb-input-init>
-          <textarea id="careerBody" name="career_body" type="text" class="form-control"  required >Job description here...</textarea>
+          <textarea id="careerBody" name="career_body" type="text" class="form-control"  required ><?php $blogData  = editCareer(); if ($blogData !== null) {echo $blogData['job_description'];} else {echo "Job description here...";} ?></textarea>
           <script>
                CKEDITOR.replace('careerBody', {
                   filebrowserUploadUrl: '../php/upload.php',
@@ -258,6 +268,34 @@
 
 
 <?php echo getFooter(); ?>
+<script>
+  $(document).ready(function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const type = urlParams.get('type');
+
+    if (type === "blog") {
+      console.log("Activating blog tab...");
+      const tabTriggerEl = document.querySelector('#ex-with-icons-tab-1');
+      const tab = new mdb.Tab(tabTriggerEl);  // MDB's JavaScript API
+      tab.show();
+    }else if (type === "video") {
+      console.log("Activating blog tab...");
+      const tabTriggerEl = document.querySelector('#ex-with-icons-tab-2');
+      const tab = new mdb.Tab(tabTriggerEl);  // MDB's JavaScript API
+      tab.show();
+    }else if (type === "career") {
+      console.log("Activating blog tab...");
+      const tabTriggerEl = document.querySelector('#ex-with-icons-tab-3');
+      const tab = new mdb.Tab(tabTriggerEl);  // MDB's JavaScript API
+      tab.show();
+    }
+  });
+</script>
+
+
+
+
+</script>
 
 
 

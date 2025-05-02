@@ -69,67 +69,90 @@ $('#addBlogTable').submit(function(event) {
 // .........................start of submit new blog articles...........................
 
 $('#addBlogForm').submit(function(event) {
-    event.preventDefault(); // Prevent the default form submission
-    Swal.fire({
-      title: 'Loading...',
-      text: 'Please wait while we process your request.',
-      allowOutsideClick: false,
-      didOpen: () => {
-        Swal.showLoading();
-      }
-    });
+  event.preventDefault(); // Prevent the default form submission
 
-    // Create FormData object
-    var formData = new FormData();
-
-    // Append file to FormData object
-    var blog_image = $('#blog_image')[0].files[0]; // Assuming 'cv' is the id of your file input
-    var blogBody = CKEDITOR.instances['blogBody'].getData();
-   
-    // Append other form fields to FormData object
-    formData.append('blog_title', $('#blog_title').val());
-    formData.append('blog_body', blogBody)
-    formData.append('blog_image', blog_image);
-    //alert(blogBody)
-    // Perform an AJAX request to submit the form data
-    $.ajax({
-      type: 'POST',
-      url: 'php/uploads', // Replace with your actual server-side endpoint
-      data: formData,
-      processData: false, // Prevent jQuery from automatically processing data
-      contentType: false,
-      success: function(response) {
-        // Handle the success response
-         response = $.trim(response); 
-        if (response==="1") {
-          Swal.close();
-          Swal.fire({
-          title: 'Success!',
-          text: "Blog was uploaded successfully",
-          confirmButtonColor: 'rgb(47,85,151)', 
-          icon: 'success',
-        });
-          $("#addBlogForm")[0].reset();
-          CKEDITOR.instances.blogBody.setData(''); 
-        }else{
-          Swal.fire({
-        title: 'Warning',
-        text: response,
-        icon: 'warning',
-        confirmButtonText: 'OK',
-         confirmButtonColor: 'rgb(47,85,151)'
-      });
-        }
-         
-        console.log(response); // You can do something with the response data
-      },
-      error: function(error) {
-        // Handle the error response
-        console.error('Form submission error');
-        console.error(error); // You can display an error message or perform other actions
-      }
-    });
+  Swal.fire({
+    title: 'Loading...',
+    text: 'Please wait while we process your request.',
+    allowOutsideClick: false,
+    didOpen: () => {
+      Swal.showLoading();
+    }
   });
+
+  // Create FormData object
+  var formData = new FormData();
+
+  // Append CKEditor content and image
+  var blog_image = $('#blog_image')[0].files[0];
+  var blogBody = CKEDITOR.instances['blogBody'].getData();
+
+  formData.append('blog_title', $('#blog_title').val());
+  formData.append('blog_body', blogBody);
+  formData.append('blog_image', blog_image);
+
+  // Get `editId` and `type` from URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const editId = urlParams.get('editId');
+  const type = urlParams.get('type');
+
+  // Build request URL based on GET parameters
+  let requestUrl = 'php/uploads.php';
+  if (editId && type === 'blog') {
+    requestUrl += `?editId=${encodeURIComponent(editId)}&type=blog`;
+  }
+
+  // Perform AJAX request
+  $.ajax({
+    type: 'POST',
+    url: requestUrl,
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function(response) {
+      response = $.trim(response);
+      Swal.close();
+
+      if (response === "1" || response.toLowerCase().includes("updated")) {
+        Swal.fire({
+          title: 'Success!',
+          text: "Blog was updated successfully.",
+          icon: 'success',
+          confirmButtonColor: 'rgb(47,85,151)'
+        });
+      } else if (response.toLowerCase().includes("inserted")) {
+        Swal.fire({
+          title: 'Success!',
+          text: "Blog was inserted successfully.",
+          icon: 'success',
+          confirmButtonColor: 'rgb(47,85,151)'
+        });
+      } else {
+        Swal.fire({
+          title: 'Warning',
+          text: response,
+          icon: 'warning',
+          confirmButtonText: 'OK',
+          confirmButtonColor: 'rgb(47,85,151)'
+        });
+      }
+
+      // Reset form after any valid action
+      $("#addBlogForm")[0].reset();
+      CKEDITOR.instances.blogBody.setData('');
+    },
+    error: function(error) {
+      console.error('Form submission error:', error);
+      Swal.fire({
+        title: 'Error',
+        text: 'An error occurred while submitting the form.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+        confirmButtonColor: 'rgb(47,85,151)'
+      });
+    }
+  });
+});
 
 // .........................end of submit new blog articles...........................
 
@@ -305,58 +328,67 @@ $('#footerForm').submit(function(event) {
 // .........................end of submit new blog articles...........................
 
 $('#youtubeVideoForm').submit(function(event) {
-    event.preventDefault(); // Prevent the default form submission
+  event.preventDefault(); // Prevent the default form submission
 
-    // Create FormData object
-    var formData = new FormData();
+  // Create FormData object
+  var formData = new FormData();
 
-    // Append file to FormData object
-   
-    var iframeContents = $("#iframeContents").val();
-   
-    // Append other form fields to FormData object
-  
-    formData.append('iframeContents', iframeContents);
-    //alert(blogBody)
-    // Perform an AJAX request to submit the form data
-    $.ajax({
-      type: 'POST',
-      url: 'php/uploads', // Replace with your actual server-side endpoint
-      data: formData,
-      processData: false, // Prevent jQuery from automatically processing data
-      contentType: false,
-      success: function(response2) {
-        // Handle the success response
-        if (response2==="1") {
-          Swal.fire({
+  // Get iframe value
+  var iframeContents = $("#iframeContents").val();
+  formData.append('iframeContents', iframeContents);
+
+  // Get GET parameters from URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const editId = urlParams.get('editId');
+  const type = urlParams.get('type');
+
+  // Build request URL
+  let requestUrl = 'php/uploads.php';
+  if (editId && type === 'video') {
+    requestUrl += `?editId=${encodeURIComponent(editId)}&type=video`;
+  }
+
+  // Send AJAX request
+  $.ajax({
+    type: 'POST',
+    url: requestUrl,
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function(response2) {
+      if (response2 === "1" || response2.toLowerCase().includes("updated") || response2.toLowerCase().includes("inserted")) {
+        Swal.fire({
           title: 'Success!',
-          text: "Operation was updated successfully",
-          confirmButtonColor: 'rgb(47,85,151)', 
+          text: "Operation was completed successfully.",
           icon: 'success',
+          confirmButtonColor: 'rgb(47,85,151)'
         });
-          $("#youtubeVideoForm")[0].reset();
-          CKEDITOR.instances.footerBody.setData(''); 
-        }else{
-          Swal.fire({
-        title: 'Warning',
-        text: response2,
-        icon: 'warning',
-        confirmButtonText: 'OK', 
-         confirmButtonColor: 'rgb(47,85,151)'
-      });
-        }
-         
-        console.log(response2); // You can do something with the response data
-      },
-      error: function(error) {
-        // Handle the error response
-        console.error('Form submission error');
-        console.error(error); // You can display an error message or perform other actions
+        $("#youtubeVideoForm")[0].reset();
+      } else {
+        Swal.fire({
+          title: 'Warning',
+          text: response2,
+          icon: 'warning',
+          confirmButtonText: 'OK',
+          confirmButtonColor: 'rgb(47,85,151)'
+        });
       }
-    });
 
-
+      console.log(response2);
+    },
+    error: function(error) {
+      console.error('Form submission error:', error);
+      Swal.fire({
+        title: 'Error',
+        text: 'An error occurred while submitting the form.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+        confirmButtonColor: 'rgb(47,85,151)'
+      });
+    }
   });
+});
+
 
 // submit contact form
 $('#reset_pass_form').submit(function(event) {

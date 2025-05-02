@@ -197,7 +197,7 @@ function displayBlogsTable(){
                 <td><a href="../blog?blogId='.$row["blog_id"].'" target=_blank>'.$row["title"].'</a></td>
                 <td><img width="100" class="img-fluid" src="../'.$row['image_path'].'"></td>
                 <td>'.$row['date'].'</td>
-                <td><a href="?blogDelId='.$row['blog_id'].'" class="fa fa-trash"></a></td>
+                <td><a href="actions?editId='.$row['blog_id'].'&type=blog" class="fa fa-edit p-3 "></a> <a href="?blogDelId='.$row['blog_id'].'" class="fa fa-trash text-danger"></a> </td>
                
             </tr>';
 }
@@ -217,7 +217,7 @@ function displayYoutubeVideosTable(){
                 <td>'.$numbering++.'</td>
                 <td>'.$row["url"].'</td>
                
-                <td><a href="?videosDelId='.$row['id'].'" target="_blank" class="fa fa-trash"></a></td>
+                <td><a href="actions?editId='.$row['id'].'&type=video" class="fa fa-edit p-3 "></a><a href="?videosDelId='.$row['id'].'" target="_blank" class="fa fa-trash"></a></td>
                
             </tr>';
 }
@@ -278,10 +278,86 @@ function displayAllCareerListing(){
                 <td>'.$row['job_deadline'].'</td>
                 <td>'.$row['job_type'].'</td>
                 <td>'.$row['job_location'].'</td>
-                <td><a href="?jobDelId='.$row['id'].'" target="_blank" class="fa fa-trash"></a></td>
+                <td><a href="actions?editId='.$row['id'].'&type=career" class="fa fa-edit p-3 "></a><a href="?jobDelId='.$row['id'].'" target="_blank" class="fa fa-trash text-danger"></a></td>
             </tr>';
 }
 }
 }
 
- ?>
+function editBlogArticle() {
+    require '../php/config.php';
+    global $conn; // Add this line
+
+    if (isset($_GET['type'])  && isset($_GET['editId'])) {
+        if ($_GET['type'] === "blog") {
+             $editId = intval($_GET['editId']);
+
+                $stmt = $conn->query("SELECT title, body FROM blogs WHERE blog_id = $editId");
+
+                if ($stmt && $stmt->num_rows > 0) {
+                    $row = $stmt->fetch_assoc();
+                    return [
+                        'title' => $row['title'],
+                        'body' => $row['body']
+                    ];
+                } else {
+                    return "blah blah"; // You may want to return null instead
+                }
+            }
+
+            return null;
+        }
+       
+}
+
+function editVideos() {
+    require '../php/config.php';
+    global $conn; // Add this line
+
+    if (isset($_GET['type']) && isset($_GET['editId'])) {
+        if ($_GET['type'] === "video") {
+            $editId = intval($_GET['editId']);
+
+                $stmt = $conn->query("SELECT url FROM videos WHERE id = $editId");
+
+                if ($stmt && $stmt->num_rows > 0) {
+                    $row = $stmt->fetch_assoc();
+                    return [
+                        'url' => $row['url']
+                    ];
+                } else {
+                    return "blah blah"; // You may want to return null instead
+                }
+            }
+
+            return null;
+        }
+       
+}
+
+
+function editCareer() {
+    require '../php/config.php';
+    global $conn; // Add this line
+
+    if (isset($_GET['type']) && isset($_GET['editId'])) {
+        if ($_GET['type'] === "career") {
+            $editId = intval($_GET['editId']);
+
+                $stmt = $conn->query("SELECT job_title, job_description  FROM career WHERE id = $editId");
+
+                if ($stmt && $stmt->num_rows > 0) {
+                    $row = $stmt->fetch_assoc();
+                    return [
+                        'job_title' => $row['job_title'],
+                        'job_description' => $row['job_description']
+                    ];
+                } else {
+                    return "blah blah"; // You may want to return null instead
+                }
+            }
+
+            return null;
+        }
+       
+}

@@ -81,64 +81,104 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES['blog_image']) && iss
         exit;
     }
 
-    // Create safe filename with .webp extension
     $safe_filename = preg_replace("/[^a-zA-Z0-9\._-]/", "_", pathinfo($file_name, PATHINFO_FILENAME));
     $safe_filename = time() . "_" . $safe_filename . ".webp";
 
-    // Prepare target directory
-    $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/images/blogs/";
+    $target_dir = "../../images/blogs/";
     if (!file_exists($target_dir)) {
         mkdir($target_dir, 0777, true);
     }
 
-    // Compress & Convert to $target_dir
     $original_tmp = $_FILES['blog_image']['tmp_name'];
-
     if (!compressAndConvertToWebp($original_tmp, $target_dir, $safe_filename, 80)) {
         echo "Image compression/conversion failed.";
         exit;
     }
 
-    // Prepare db path
     $db_path = "images/blogs/" . $safe_filename;
 
-    // Insert into database
-    $stmt = $conn->prepare("INSERT INTO blogs (title, author, body, `date`, image_path, blog_id) 
-                            VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $blog_title, $blog_author, $blog_body, $date, $db_path, $blog_id);
+    // ✅ Check if update
+    if (isset($_GET['editId']) && $_GET['type'] === "blog") {
+        $editId = intval($_GET['editId']);
 
-    if ($stmt->execute()) {
-        echo "1";
+        // ✅ Get old image path
+        $result = $conn->query("SELECT image_path FROM blogs WHERE blog_id = $editId");
+        if ($result && $row = $result->fetch_assoc()) {
+            $oldImagePath = "../../images/blogs" . $row['image_path'];
+            if (file_exists($oldImagePath)) {
+                unlink($oldImagePath); // ✅ Delete the old image
+            }
+        }
+
+        // ✅ Update with new data
+        $stmt = $conn->prepare("UPDATE blogs SET title = ?, author = ?, body = ?, `date` = ?, image_path = ? WHERE blog_id = ?");
+        $stmt->bind_param("ssssss", $blog_title, $blog_author, $blog_body, $date, $db_path, $editId);
+
+        if ($stmt->execute()) {
+            echo "Updated";
+        } else {
+            echo "Update error: " . $conn->error;
+        }
+
+        $stmt->close();
     } else {
-        echo "Database error: " . $conn->error;
+        // Insert new blog
+        $stmt = $conn->prepare("INSERT INTO blogs (title, author, body, `date`, image_path, blog_id) 
+                                VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssss", $blog_title, $blog_author, $blog_body, $date, $db_path, $blog_id);
+
+        if ($stmt->execute()) {
+            echo "Inserted";
+        } else {
+            echo "Insert error: " . $conn->error;
+        }
+
+        $stmt->close();
+    }
+}
+
+
+
+
+
+
+
+function uploadNewYoutubeVideo() {
+    include '../../php/config.php'; 
+
+    $iframeContents = trim($_POST['iframeContents']);
+
+    // Validate YouTube iframe format
+    if (!preg_match('/^<iframe\s+[^>]*src="https:\/\/www\.youtube\.com\/embed\/[a-zA-Z0-9_-]+(\?[a-zA-Z0-9&=_-]*)?"[^>]*><\/iframe>$/', $iframeContents)) {
+        echo "Invalid YouTube iframe.";
+        exit;
     }
 
-    $stmt->close();
-}
+    // Check if this is an update
+    if (isset($_GET['editId']) && $_GET['type'] === 'video') {
+        $editId = intval($_GET['editId']);
 
+        // Update existing video
+        $stmt = $conn->prepare("UPDATE videos SET url = ? WHERE id = ?");
+        $stmt->bind_param("si", $iframeContents, $editId);
 
+        echo $stmt->execute() ? "Updated" : "Update failed: " . $conn->error;
+        $stmt->close();
+    } else {
+        // Insert new video
+        $stmt = $conn->prepare("INSERT INTO videos (url) VALUES (?)");
+        $stmt->bind_param("s", $iframeContents);
 
+        echo $stmt->execute() ? "Inserted" : "Insert failed: " . $conn->error;
+        $stmt->close();
+    }
 
-
-function uploadNewYoutubeVideo(){
-   include '../../php/config.php'; 
-   $iframeContents = trim($_POST['iframeContents']);
-
-    // Basic validation: Ensure it contains a YouTube embed link
-   if (!preg_match('/^<iframe\s+[^>]*src="https:\/\/www\.youtube\.com\/embed\/[a-zA-Z0-9_-]+(\?[a-zA-Z0-9&=_-]*)?"[^>]*><\/iframe>$/', $iframeContents)) {
-    echo "Invalid YouTube iframe.";
-    exit;
-}
-
-    // Securely insert into database using prepared statements
-    $stmt = $conn->prepare("INSERT INTO videos (url) VALUES (?)");
-    $stmt->bind_param("s", $iframeContents);
-
-    echo $stmt->execute() ? "1" : "failed";
-
-    $stmt->close();
     $conn->close();
 }
+
+
+
+
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['iframeContents'])) {
     uploadNewYoutubeVideo();
 }
@@ -307,7 +347,4 @@ if (isset($_FILES["team_image"]["name"]) && isset($_POST['team_body']) && isset(
 
 }
 
-
-
 ?>
-

@@ -11,7 +11,7 @@
   </li>
   <li class="nav-item" role="presentation">
     <a data-mdb-tab-init class="nav-link" id="ex-with-icons-tab-2" href="#ex-with-icons-tabs-2" role="tab"
-      aria-controls="ex-with-icons-tabs-2" aria-selected="false"><i class="fas fa-chart-line fa-fw me-2"></i>Manage Services</a>
+      aria-controls="ex-with-icons-tabs-2" aria-selected="false"><i class="fas fa-chart-line fa-fw me-2"></i>Manage Videos</a>
   </li>
   <li class="nav-item" role="presentation">
     <a data-mdb-tab-init class="nav-link" id="ex-with-icons-tab-3" href="#ex-with-icons-tabs-3" role="tab"
@@ -77,7 +77,7 @@
         <th>Actions</th>
       </tr>
       <tbody >
-        <?php displayBlogsTable(); ?>
+        <?php displayBlogsTable(); ?> 
       </tbody>
      
       </div>
@@ -205,7 +205,9 @@
 <!-- Tabs content -->
 </div>
 
+
 <!-- End your project here-->
 <?php echo getFooter(); ?>
+
   
     

@@ -11,34 +11,79 @@
         <div class="col-lg-7 col-md-7">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Blog Articles Clicks</h5>
+              <h5 class="card-title">Articles Leader</h5>
 
               <!-- Line Chart -->
               <canvas  id="lineChart" style="max-height: 329px; min-height: 329px; width: auto; "></canvas>
-              <script>
+            <canvas id="lineChart"></canvas>
+
+                <script>
                 document.addEventListener("DOMContentLoaded", () => {
-                  new Chart(document.querySelector('#lineChart'), {
-                    type: 'line',
-                    data: {
-                      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                      datasets: [{
-                        label: 'Line Chart',
-                        data: [65, 59, 80, 81, 56, 55, 40],
-                        fill: false,
-                        borderColor: 'rgb(75, 192, 192)',
-                        tension: 0.1
-                      }]
-                    },
-                    options: {
-                      scales: {
-                        y: {
-                          beginAtZero: true
+                  fetch('php/line_graph.php')
+                    .then(response => response.json())
+                    .then(chartData => {
+                      const ctx = document.querySelector('#lineChart').getContext('2d');
+
+                      new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                          labels: chartData.labels,
+                          datasets: [{
+                            label: 'Total Blog Clicks Per Month',
+                            data: chartData.data,
+                            fill: false,
+                            borderColor: 'rgb(47, 85, 151)',
+                            tension: 0.3,
+                            pointRadius: 5,
+                            pointBackgroundColor: 'rgb(47, 85, 151)'
+                          }]
+                        },
+                        options: {
+                          responsive: true,
+                          plugins: {
+                            legend: { display: true },
+                            tooltip: {
+                              callbacks: {
+                                title: function(context) {
+                                  return context[0].label;
+                                },
+                                label: function(context) {
+                                  const index = context.dataIndex;
+                                  const titles = chartData.titles[index]; // Array of titles
+                                  return [
+                                    `Total Clicks: ${context.raw}`,
+                                    'Articles:',
+                                    ...titles.map(t => `• ${t}`)
+                                  ];
+                                }
+                              }
+                            }
+                          },
+                          scales: {
+                            x: {
+                              title: {
+                                display: true,
+                                text: 'Month'
+                              }
+                            },
+                            y: {
+                              beginAtZero: true,
+                              title: {
+                                display: true,
+                                text: 'Clicks'
+                              }
+                            }
+                          }
                         }
-                      }
-                    }
-                  });
+                      });
+                    })
+                    .catch(error => {
+                      console.error("Error loading blog data:", error);
+                    });
                 });
-              </script>
+                </script>
+
+
               <!-- End Line CHart -->
 
             </div>
@@ -54,30 +99,50 @@
 
               <!-- Pie Chart -->
               <canvas id="pieChart" style="max-height: 329px; min-height: 329px;"></canvas>
-              <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                  new Chart(document.querySelector('#pieChart'), {
-                    type: 'pie',
-                    data: {
-                      labels: [
-                        'Completed',
-                        'Pending',
-                        'Deployed'
-                      ],
-                      datasets: [{
-                        label: 'My First Dataset',
-                        data: [300, 50, 100],
-                        backgroundColor: [
-                          'rgb(255, 99, 132)',
-                          'rgb(54, 162, 235)',
-                          'rgb(255, 205, 86)'
-                        ],
-                        hoverOffset: 4
-                      }]
-                    }
+              <canvas id="pieChart"></canvas>
+
+                  <script>
+                  document.addEventListener("DOMContentLoaded", () => {
+                    fetch('php/piechart.php')
+                      .then(response => response.json())
+                      .then(chartData => {
+                        new Chart(document.querySelector('#pieChart'), {
+                          type: 'pie',
+                          data: {
+                            labels: chartData.labels,
+                            datasets: [{
+                              label: 'Number of Blog Articles per Author',
+                              data: chartData.data,
+                              backgroundColor: chartData.labels.map((_, i) => {
+                                // Generate distinct colors using HSL
+                                return `hsl(${(i * 60) % 360}, 70%, 60%)`;
+                              }),
+                              hoverOffset: 6
+                            }]
+                          },
+                          options: {
+                            responsive: true,
+                            plugins: {
+                              legend: {
+                                position: 'top'
+                              },
+                              tooltip: {
+                                callbacks: {
+                                  label: function(context) {
+                                    return `${context.label}: ${context.raw} articles`;
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        });
+                      })
+                      .catch(error => {
+                        console.error("Error loading pie chart data:", error);
+                      });
                   });
-                });
-              </script>
+                  </script>
+
               <!-- End Pie CHart -->
 
             </div>
