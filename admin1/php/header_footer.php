@@ -163,7 +163,7 @@ function getHeader($pageName,$name) {
       </a>
     </li>
     <li>
-      <a href="career" class="nav-link active">
+      <a href="career" class="nav-link">
         <i class="fas fa-briefcase me-2"></i> Manage Career
       </a>
     </li>

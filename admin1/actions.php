@@ -20,11 +20,11 @@ if ($blogData !== null) {
   <ul class="nav nav-tabs mb-3 mt-3" id="ex-with-icons" role="tablist">
   <li class="nav-item" role="presentation">
     <a data-mdb-tab-init class="nav-link active" id="ex-with-icons-tab-1" href="#ex-with-icons-tabs-1" role="tab"
-      aria-controls="ex-with-icons-tabs-1" aria-selected="true"><i class="fas fa-chart-pie fa-fw me-2"></i> Add New Blog</a>
+      aria-controls="ex-with-icons-tabs-1" aria-selected="true"><i class="fas fa-chart-pie fa-fw me-2"></i>New Blog</a>
   </li>
   <li class="nav-item" role="presentation" id="clickYouteVideoTab">
     <a data-mdb-tab-init class="nav-link" id="ex-with-icons-tab-2" href="#ex-with-icons-tabs-2" role="tab"
-      aria-controls="ex-with-icons-tabs-2" aria-selected="false"><i class="fas fa-chart-line fa-fw me-2"></i> Add Youtube Video</a>
+      aria-controls="ex-with-icons-tabs-2" aria-selected="false"><i class="fas fa-chart-line fa-fw me-2"></i> New Youtube Video</a>
   </li>
   <li class="nav-item" role="presentation">
     <a data-mdb-tab-init class="nav-link" id="ex-with-icons-tab-3" href="#ex-with-icons-tabs-3" role="tab"
@@ -36,11 +36,15 @@ if ($blogData !== null) {
   </li>
   <li class="nav-item" role="presentation">
     <a data-mdb-tab-init class="nav-link" id="ex-with-icons-tab-5" href="#ex-with-icons-tabs-5" role="tab"
-      aria-controls="ex-with-icons-tabs-5" aria-selected="false"><i class="fas fa-cogs fa-fw me-2"></i>Add Team</a>
+      aria-controls="ex-with-icons-tabs-5" aria-selected="false"><i class="fas fa-cogs fa-fw me-2"></i>New Team</a>
   </li>
   <li class="nav-item" role="presentation">
     <a data-mdb-tab-init class="nav-link" id="ex-with-icons-tab-6" href="#ex-with-icons-tabs-6" role="tab"
-      aria-controls="ex-with-icons-tabs-6" aria-selected="false"><i class="fas fa-users fa-fw me-2"></i>Edit Customer Stories</a>
+      aria-controls="ex-with-icons-tabs-6" aria-selected="false"><i class="fas fa-users fa-fw me-2"></i>New Customer Stories</a>
+  </li>
+   <li class="nav-item" role="presentation">
+    <a data-mdb-tab-init class="nav-link" id="ex-with-icons-tab-7" href="#ex-with-icons-tabs-7" role="tab"
+      aria-controls="ex-with-icons-tabs-7" aria-selected="false"><i class="fas fa-users fa-fw me-2"></i>New Social Impact</a>
   </li>
 
 </ul>
@@ -211,6 +215,7 @@ if ($blogData !== null) {
         </form>
         </div>
 
+
        <div class="tab-pane fade" id="ex-with-icons-tabs-6" role="tabpanel" aria-labelledby="ex-with-icons-tab-6">
        
          <form id="customerStoriesForm" method="post" enctype="multipart/form-data" class="row g-3 col-md-11 mt-4 shadow p-4">
@@ -238,6 +243,57 @@ if ($blogData !== null) {
               </textarea>
               <script>
                    CKEDITOR.replace('editCustomerBody', {
+                      filebrowserUploadUrl: '../php/upload.php',
+                      filebrowserUploadMethod: 'form',
+                        height: '300px',
+                         contentsCss: [
+                          'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css',
+                          '../css/style.css'
+                      ]
+
+                  });
+              </script>
+            </div>
+          </div>
+          <div class="col-12">
+            <button name="submitCustomerStories" class="btn btn-primary " type="submit" data-mdb-ripple-init>Submit form</button>
+          </div>
+        </form>
+      </div>
+
+
+
+       <div class="tab-pane fade" id="ex-with-icons-tabs-7" role="tabpanel" aria-labelledby="ex-with-icons-tab-7">
+       
+         <form id="socialImpactForm" method="post" enctype="multipart/form-data" class="row g-3 col-md-11 mt-4 shadow p-4">
+          <div class="col-md-4">
+            <div class="form-outline" data-mdb-input-init>
+              <input id="clientName" name="name" type="text" class="form-control" id="validationDefault07" required />
+              <label for="validationDefault07" class="form-label">Title</label>
+            </div>
+          </div>
+           <div class="col-md-4">
+            <div class="form-outline" data-mdb-input-init>
+              <input accept=".jpg, .png, .jpeg, .webp" id="clientPosition" name="position" type="file" class="form-control" id="validationDefault01" required />
+              <label for="validationDefault01" class="form-label">Anchor Image</label>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-outline" data-mdb-input-init>
+              <select class="form-control py-2 border-right-0 border col-md-12 bg-transparent" type="search" placeholder="Search..." id="example-search-input" style="outline: none;">
+              <option value="1">Future Visit</option>
+              <option value="2">New Visit</option>
+              </select>
+               <label for="validationDefault01" class="form-label">Category</label>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-outline" data-mdb-input-init>
+              <textarea name="body_content" id="newSocialImpactBody"  type="text" class="form-control" id="validationDefault03" required >
+
+              </textarea>
+              <script>
+                   CKEDITOR.replace('newSocialImpactBody', {
                       filebrowserUploadUrl: '../php/upload.php',
                       filebrowserUploadMethod: 'form',
                         height: '300px',

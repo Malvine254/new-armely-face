@@ -30,6 +30,10 @@
   
 </ul>
 <!-- Tabs navs -->
+    
+</div>
+
+  <div class="tab-content content-area">
     <div class="mb-3">
       <form class="form-inline my-2 my-lg-0">
         <div class="input-group col" style="width: 350px;">
@@ -54,9 +58,9 @@
         </div>
     </form>
   </div>
-  <div class="tab-pane fade show active" id="ex-with-icons-tabs-1" role="tabpanel" aria-labelledby="ex-with-icons-tab-1" style="height: 60vh; overflow: scroll;">
-    <table  class="table table-bordered myTable" >
-      <div  class="table-responsive" >
+    <div class="tab-pane fade show active" id="ex-with-icons-tabs-1" role="tabpanel" aria-labelledby="ex-with-icons-tab-1" style="height: 60vh; overflow: scroll;">
+    <table  class="table table-bordered" >
+      <div >
         <tr>
         <th>#</th>
         <th>Job Title</th>
@@ -73,9 +77,9 @@
       </div>
     </table>
   </div>
- 
-  <div class="tab-pane fade" id="ex-with-icons-tabs-2" role="tabpanel" aria-labelledby="ex-with-icons-tab-2"  style="height: 60vh; overflow: scroll;">
-    <table class="table table-bordered myTable">
+
+  <div class="tab-pane fade" id="ex-with-icons-tabs-2" role="tabpanel" aria-labelledby="ex-with-icons-tab-2" style="height: 60vh; overflow: scroll;">
+    <table class="table table-bordered">
         <div  class="table-responsive">
           <tr>
           <th>#</th>
@@ -91,8 +95,7 @@
         
       </table>
   </div>
-
-<div class="tab-pane fade" id="ex-with-icons-tabs-3" role="tabpanel" aria-labelledby="ex-with-icons-tab-3"  style="height: 60vh; overflow: scroll;">
+  <div class="tab-pane fade" id="ex-with-icons-tabs-3" role="tabpanel" aria-labelledby="ex-with-icons-tab-3"  style="height: 60vh; overflow: scroll;">
   <table class="table table-bordered myTable">
     <div  class="table-responsive">
       <tr>
@@ -113,33 +116,33 @@
   </table>
 </div>
 
-      <div class="tab-pane fade" id="ex-with-icons-tabs-4" role="tabpanel" aria-labelledby="ex-with-icons-tab-4"  style="height: 60vh; overflow: scroll;">
-          <table class="table table-bordered myTable">
-            <div  class="table-responsive">
-              <tr>
-                <th>#</th>
-                <th>Full Name</th>
-                <th>Email Address</th>
-                <th>Address</th>
-                <th>Phone Number</th>
-                <th>Gender</th>
-                <th>Actions</th>
-              </tr > 
-           
-            
-            </div>
-            
-          </table>
-      </div>
-
-       
-
+<div class="tab-pane fade" id="ex-with-icons-tabs-4" role="tabpanel" aria-labelledby="ex-with-icons-tab-4"  style="height: 60vh; overflow: scroll;">
+    <table class="table table-bordered myTable">
+      <div  class="table-responsive">
+        <tr>
+          <th>#</th>
+          <th>Full Name</th>
+          <th>Email Address</th>
+          <th>Address</th>
+          <th>Phone Number</th>
+          <th>Gender</th>
+          <th>Actions</th>
+        </tr > 
      
-    
-    </div>
-</center>
-<!-- Tabs content -->
+      
+      </div>
+      
+    </table>
 </div>
+
+  </div>
+
+ 
+    
+    
+</div>
+</center>
+
 
 <!-- End your project here-->
 <?php echo getFooter(); ?>

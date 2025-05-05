@@ -26,14 +26,15 @@ if ($userID) {
     $stmt->bind_param("s", $userID);
     $stmt->execute();
     $stmt->store_result();
+    $date_tracked = date('m-d-y');
 
     if ($stmt->num_rows > 0) {
         // User ID exists
         echo json_encode(array('message' => 'User already tracked'));
     } else {
         // User ID does not exist, insert new record
-        $stmt = $conn->prepare("INSERT INTO analytics (ip_address, country, user_id) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $ip, $country, $userID);
+        $stmt = $conn->prepare("INSERT INTO analytics (ip_address, country, user_id, date_tracked) VALUES (?, ?, ?)");
+        $stmt->bind_param("ssss", $ip, $country, $userID,$date_tracked);
 
         if ($stmt->execute()) {
             echo json_encode(array('ip' => $ip, 'country' => $country, 'user_id' => $userID));
