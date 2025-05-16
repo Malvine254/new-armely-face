@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES['blog_image']) && iss
     }
 
     $allowed_types = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-    $max_file_size = 5 * 1024 * 1024;
+    $max_file_size = 25 * 1024 * 1024; // 25 MB
 
     $blog_title = trim($_POST['blog_title']);
     $blog_body = trim($_POST['blog_body']);
