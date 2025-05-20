@@ -1,0 +1,115 @@
+[27-Nov-2024 11:15:18 UTC] PHP Warning:  include(../../php/config.php): Failed to open stream: No such file or directory in /home/lmundia/public_html/admin1/php/uploads.php on line 3
+[27-Nov-2024 11:15:18 UTC] PHP Warning:  include(): Failed opening '../../php/config.php' for inclusion (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/lmundia/public_html/admin1/php/uploads.php on line 3
+[27-Nov-2024 11:15:30 UTC] PHP Warning:  include(../../php/config.php): Failed to open stream: No such file or directory in /home/lmundia/public_html/admin1/php/uploads.php on line 3
+[27-Nov-2024 11:15:30 UTC] PHP Warning:  include(): Failed opening '../../php/config.php' for inclusion (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/lmundia/public_html/admin1/php/uploads.php on line 3
+[12-Feb-2025 18:20:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function returnAllLocation() in /home/lmundia/public_html/admin1/career.php:193
+Stack trace:
+#0 {main}
+  thrown in /home/lmundia/public_html/admin1/career.php on line 193
+[12-Feb-2025 18:20:27 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function returnAllLocation() in /home/lmundia/public_html/admin1/career.php:193
+Stack trace:
+#0 {main}
+  thrown in /home/lmundia/public_html/admin1/career.php on line 193
+[12-Feb-2025 18:20:50 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function returnAllLocation() in /home/lmundia/public_html/admin1/career.php:193
+Stack trace:
+#0 {main}
+  thrown in /home/lmundia/public_html/admin1/career.php on line 193
+[12-Feb-2025 18:20:59 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function returnAllLocation() in /home/lmundia/public_html/admin1/career.php:193
+Stack trace:
+#0 {main}
+  thrown in /home/lmundia/public_html/admin1/career.php on line 193
+[13-Feb-2025 19:36:26 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function returnAllLocation() in /home/lmundia/public_html/admin1/career.php:193
+Stack trace:
+#0 {main}
+  thrown in /home/lmundia/public_html/admin1/career.php on line 193
+[13-Feb-2025 19:37:20 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function returnAllLocation() in /home/lmundia/public_html/admin1/career.php:193
+Stack trace:
+#0 {main}
+  thrown in /home/lmundia/public_html/admin1/career.php on line 193
+[13-Feb-2025 19:37:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function returnAllLocation() in /home/lmundia/public_html/admin1/career.php:193
+Stack trace:
+#0 {main}
+  thrown in /home/lmundia/public_html/admin1/career.php on line 193
+[13-Feb-2025 19:40:33 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function returnAllLocation() in /home/lmundia/public_html/admin1/career.php:193
+Stack trace:
+#0 {main}
+  thrown in /home/lmundia/public_html/admin1/career.php on line 193
+[24-Feb-2025 15:07:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function returnAllLocation() in /home/lmundia/public_html/admin1/career.php:193
+Stack trace:
+#0 {main}
+  thrown in /home/lmundia/public_html/admin1/career.php on line 193
+[24-Feb-2025 15:07:28 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function returnAllLocation() in /home/lmundia/public_html/admin1/career.php:193
+Stack trace:
+#0 {main}
+  thrown in /home/lmundia/public_html/admin1/career.php on line 193
+[24-Feb-2025 15:14:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function returnAllLocation() in /home/lmundia/public_html/admin1/career.php:193
+Stack trace:
+#0 {main}
+  thrown in /home/lmundia/public_html/admin1/career.php on line 193
+[24-Feb-2025 15:15:14 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function returnAllLocation() in /home/lmundia/public_html/admin1/career.php:193
+Stack trace:
+#0 {main}
+  thrown in /home/lmundia/public_html/admin1/career.php on line 193
+[24-Feb-2025 16:13:05 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function returnAllLocation() in /home/lmundia/public_html/admin1/career.php:193
+Stack trace:
+#0 {main}
+  thrown in /home/lmundia/public_html/admin1/career.php on line 193
+[24-Feb-2025 16:13:12 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function returnAllLocation() in /home/lmundia/public_html/admin1/career.php:193
+Stack trace:
+#0 {main}
+  thrown in /home/lmundia/public_html/admin1/career.php on line 193
+[24-Feb-2025 19:20:41 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function returnAllLocation() in /home/lmundia/public_html/admin1/career.php:193
+Stack trace:
+#0 {main}
+  thrown in /home/lmundia/public_html/admin1/career.php on line 193
+[24-Feb-2025 19:29:39 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function returnAllLocation() in /home/lmundia/public_html/admin1/career.php:193
+Stack trace:
+#0 {main}
+  thrown in /home/lmundia/public_html/admin1/career.php on line 193
+[24-Feb-2025 19:47:51 UTC] Database Error: Access denied for user 'root'@'localhost' (using password: NO)
+[24-Feb-2025 19:49:39 UTC] PHP Warning:  Undefined array key "joined_date" in /home/lmundia/public_html/admin1/php/users.php on line 12
+[24-Feb-2025 19:49:39 UTC] PHP Warning:  Undefined array key "phone" in /home/lmundia/public_html/admin1/php/users.php on line 13
+[25-Feb-2025 18:35:24 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/career.php on line 4
+[25-Feb-2025 19:10:47 UTC] PHP Warning:  fsockopen(): Unable to connect to smtp.gmail.com:587 (Connection timed out) in /home/lmundia/public_html/admin1/test.php on line 5
+[25-Feb-2025 20:17:26 UTC] PHP Warning:  fsockopen(): Unable to connect to smtp.gmail.com:587 (Connection timed out) in /home/lmundia/public_html/admin1/test.php on line 5
+[25-Feb-2025 20:17:56 UTC] PHP Warning:  fsockopen(): Unable to connect to smtp.gmail.com:587 (Connection timed out) in /home/lmundia/public_html/admin1/test.php on line 5
+[25-Feb-2025 20:21:31 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/index.php on line 3
+[25-Feb-2025 20:53:03 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/index.php on line 3
+[25-Feb-2025 21:29:58 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/career.php on line 4
+[26-Feb-2025 18:57:52 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/actions.php on line 3
+[26-Feb-2025 19:02:32 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/users.php on line 3
+[26-Feb-2025 19:28:06 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/users.php on line 3
+[26-Feb-2025 19:28:07 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/users.php on line 3
+[27-Feb-2025 06:59:10 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/index.php on line 3
+[27-Feb-2025 13:22:59 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/actions.php on line 3
+[27-Feb-2025 13:23:17 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/users.php on line 3
+[27-Feb-2025 15:41:10 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/career.php on line 4
+[03-Mar-2025 04:41:06 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/index.php on line 3
+[03-Mar-2025 06:59:58 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/index.php on line 3
+[03-Mar-2025 13:35:39 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/career.php on line 4
+[03-Mar-2025 15:23:01 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/users.php on line 3
+[03-Mar-2025 16:45:06 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/career.php on line 4
+[03-Mar-2025 20:37:49 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/index.php on line 3
+[03-Mar-2025 21:01:13 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/index.php on line 3
+[04-Mar-2025 09:48:01 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/actions.php on line 3
+[04-Mar-2025 15:32:41 UTC] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in /home/lmundia/public_html/admin1/php/users.php on line 20
+[04-Mar-2025 15:32:46 UTC] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in /home/lmundia/public_html/admin1/php/users.php on line 20
+[04-Mar-2025 15:46:10 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/index.php on line 3
+[04-Mar-2025 15:51:53 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/career.php on line 4
+[04-Mar-2025 22:12:37 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/career.php on line 4
+[05-Mar-2025 07:15:17 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/index.php on line 3
+[05-Mar-2025 13:40:42 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/actions.php on line 3
+[05-Mar-2025 19:50:41 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/career.php on line 4
+[05-Mar-2025 22:03:10 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/users.php on line 3
+[07-Mar-2025 07:16:35 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/index.php on line 3
+[08-Mar-2025 12:37:52 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/index.php on line 3
+[10-Mar-2025 14:04:42 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/users.php on line 3
+[11-Mar-2025 08:04:11 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/index.php on line 3
+[11-Mar-2025 12:20:13 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/career.php on line 4
+[12-Mar-2025 16:26:23 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/career.php on line 4
+[13-Mar-2025 23:10:14 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/index.php on line 3
+[16-Mar-2025 00:48:22 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/index.php on line 3
+[16-Mar-2025 07:40:47 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/index.php on line 3
+[17-Mar-2025 20:27:27 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/career.php on line 4
+[18-Mar-2025 12:58:07 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/index.php on line 3
+[18-Mar-2025 12:59:35 UTC] PHP Warning:  Undefined variable $name in /home/lmundia/public_html/admin1/actions.php on line 3

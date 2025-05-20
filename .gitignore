@@ -1,0 +1,15 @@
+# Environment config
+.env
+
+# Composer dependencies
+/vendor/
+composer.lock
+
+# IDE and system files
+.DS_Store
+*.log
+*.bak
+
+# Secrets
+*.key
+*.pem

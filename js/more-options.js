@@ -1,0 +1,668 @@
+document.addEventListener("DOMContentLoaded", function () {
+    let lazyVideos = document.querySelectorAll(".lazy-video");
+
+    lazyVideos.forEach(video => {
+        video.addEventListener("click", function () {
+            let iframe = document.createElement("iframe");
+            iframe.setAttribute("width", "560");
+            iframe.setAttribute("height", "315");
+            iframe.setAttribute("src", video.getAttribute("data-src"));
+            iframe.setAttribute("frameborder", "0");
+            iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
+            iframe.setAttribute("allowfullscreen", "true");
+
+            // Remove existing children (thumbnail + button)
+            video.innerHTML = "";
+            video.appendChild(iframe);
+        });
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    if (!("IntersectionObserver" in window)) {
+        console.warn("IntersectionObserver not supported. Consider a polyfill.");
+        return;
+    }
+
+    // Lazy load normal images
+    let lazyImages = document.querySelectorAll(".lazy-img");
+    let lazyBGs = document.querySelectorAll(".lazy-bg");
+
+    let observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                let target = entry.target;
+
+                if (target.tagName === "IMG") {
+                    let dataSrc = target.getAttribute("data-src");
+                    
+                    if (dataSrc) {
+                        target.src = dataSrc;
+                        target.removeAttribute("data-src");
+                        target.classList.add("loaded");
+                        
+                        // Optional: Add an error handler for broken images
+                        target.onerror = function () {
+                            console.error("Image failed to load:", dataSrc);
+                            target.classList.add("error"); // Apply error styling if needed
+                        };
+                    }
+                } else {
+                    let dataBg = target.getAttribute("data-bg");
+
+                    if (dataBg) {
+                        target.style.backgroundImage = "url('" + dataBg + "')";
+                        target.removeAttribute("data-bg");
+                        target.classList.add("loaded");
+                    }
+                }
+
+                observer.unobserve(target);
+            }
+        });
+    });
+
+    lazyImages.forEach(img => observer.observe(img));
+    lazyBGs.forEach(bg => observer.observe(bg));
+});
+
+
+$(document).ready(()=>{
+	$('#searchInput').on('keyup', function() {
+       
+        var searchText = $(this).val().toLowerCase();
+        $('#searchResults').empty();
+        
+        // Array of PHP page URLs
+        var pageURLs = ['index', 'blog', 'services','team','applications','career','case-studies','events','customer-stories','company', 'contact','industries','privacy-policy', 'service-details','social-impact','social-impact-details','job-board'];
+        var resultsCount = 0;
+        // Loop through each page URL
+        pageURLs.forEach(function(pageURL) {
+            // Fetch the content of each PHP page using AJAX
+            $.ajax({
+                url: pageURL,
+                success: function(response) {
+                    var pageContent = $(response).text().toLowerCase();
+                    var matches = pageContent.match(new RegExp(searchText, 'gi'));
+                   
+                    if (matches && resultsCount < 5) {
+                        // If content found, display a link to the page with relevant snippets
+                        var pageTitle = $(response).filter('title').text();
+                        var snippets = getSnippets(pageContent, searchText);
+                        $('#searchResults').append('<div>' + snippets + '<a class="default-color" href="' + pageURL + '"> Click here to access the content</a></div><hr>');
+                         resultsCount++;
+                    }
+                }
+            });
+        });
+         // Check if no results were found
+        // if (resultsCount === 0) {
+        //     $('#searchResults').append('<div>No results found</div>');
+        // }
+    });
+// Function to get snippets of content surrounding the matched search term
+function getSnippets(content, searchText) {
+    var maxSnippetLength = 200; // Maximum length of each snippet
+    var snippetCount = 3; // Number of snippets to display
+    
+    var snippets = [];
+    var regex = new RegExp('(?:\\s|^)(.{0,' + maxSnippetLength + '}\\b' + searchText + '\\b.{0,' + maxSnippetLength + '})(?=\\s|$)', 'gi');
+    var match;
+    var snippetIndex = 0;
+    
+    while ((match = regex.exec(content)) !== null && snippetIndex < snippetCount) {
+        snippets.push(match[1]);
+        snippetIndex++;
+    }
+    
+    return snippets.join(' ... ');
+}
+// search bar for blogs
+$('#searchBar').on('input', function() {
+    var filter = $(this).val().toLowerCase();
+    var matchedItems = 0;
+    $('#noResults').hide();
+
+    $('.data-item').each(function() {
+        var text = $(this).text().toLowerCase(); 
+        if (text.includes(filter)) {
+            $(this).show();
+            matchedItems++;
+        } else {
+            $(this).hide();
+        }
+    });
+
+    // Show or hide the "No results found" message
+    if (matchedItems === 0) {
+        $('#noResults').show();
+    } else {
+        $('#noResults').hide();
+    }
+});
+
+
+})
+
+//start of cookies 
+// Automatically show the snackbar after a delay 
+setTimeout(function() {
+    $('#snackbar').addClass('show');
+}, 1000);
+
+// Close button functionality
+$('.btn-close').click(function() {
+    $('#snackbar').removeClass('show');
+});
+
+
+
+    // Function to check if the cookie ID is present and hide the snackbar
+    function checkCookieAndHideSnackbar() {
+        var userID = getCookie('userID');
+        if (userID) {
+         $('#snackbar').css("display", "none");
+        }
+    }
+
+    // Call the function initially to hide the snackbar if the cookie ID is already present
+    
+
+    // Function to periodically check for the presence of the cookie ID and hide the snackbar
+    setInterval(()=>{
+        checkCookieAndHideSnackbar();
+    }, 1000); // Check every 3 seconds (adjust as needed)
+    
+    // Rest of your code
+    $('#acceptAll').on('click', function() {
+        setCookie('userConsent', 'accepted', 365);
+        trackUser();
+        
+    });
+
+    $('#saveAllPreferences').on('click', function() {
+        setCookie('userConsent', 'accepted', 365);
+        trackUser();
+    });
+
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    function generateUUID() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random() * 16 | 0,
+                v = c === 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+
+    function trackUser() {
+        var userID = getCookie('userID');
+        if (!userID) {
+            userID = generateUUID();
+            setCookie('userID', userID, 365);
+        }
+
+        $.get("php/cookies.php", { userID: userID }, function(data) {
+            console.log("User tracked:", data);
+        }).fail(function(xhr, status, error) {
+            console.error("Error tracking user:", error);
+        });
+    }
+
+
+// submit contact form
+$('#contact-form').submit(function(event) {
+event.preventDefault(); // Prevent the default form submission
+// Display loading message before AJAX request
+Swal.fire({
+  title: 'Loading...',
+  text: 'Please wait while we process your request.',
+  allowOutsideClick: false,
+  didOpen: () => {
+    Swal.showLoading();
+  }
+});
+// Retrieve the form data
+var formData = $(this).serialize();
+
+// Perform an AJAX request to submit the form data
+$.ajax({
+  type: 'POST',
+  url: 'php/actions', // Replace with your actual server-side endpoint
+  data: formData,
+  success: function(response3) {
+    // Handle the success response
+    if (response3==="80") {
+      Swal.close(); // Close the loading message before showing the next one
+      Swal.fire({
+      title: 'Success!',
+      text: "Message was sent successfully",
+      confirmButtonColor: 'rgb(47,85,151)', 
+      icon: 'success',
+    });
+      $("#contact-form")[0].reset();
+    }else{
+      Swal.fire({
+    title: 'Warning',
+    text: response3,
+    icon: 'warning',
+    confirmButtonText: 'OK',
+     confirmButtonColor: 'rgb(47,85,151)'
+  });
+    }
+
+
+     
+    console.log(response3); // You can do something with the response data
+  },
+  error: function(error) {
+    // Handle the error response
+    console.error('Form submission error');
+    console.error(error); // You can display an error message or perform other actions
+  }
+});
+});
+
+
+$('#consultation-form-action').submit(function(event) { 
+    event.preventDefault(); // Prevent the default form submission
+    // Display loading message before AJAX request
+      Swal.fire({
+        title: 'Loading...',
+        text: 'Please wait while we process your request.',
+        allowOutsideClick: false,
+        didOpen: () => {
+          Swal.showLoading();
+        }
+      });
+    // Retrieve the form data
+    var formData = $(this).serialize();
+
+    // Perform an AJAX request to submit the form data
+    $.ajax({
+      type: 'POST',
+      url: 'php/actions', // Replace with your actual server-side endpoint
+      data: formData,
+      success: function(response2) {
+      Swal.close(); // Close the loading message before showing the next one
+      // Trim the response to remove any leading or trailing spaces
+      response2 = $.trim(response2); 
+
+        // Handle the success response
+        if (response2==="19") { 
+          Swal.fire({
+          title: 'Success!',
+          text: "Message was sent successfully",
+          confirmButtonColor: 'rgb(47,85,151)', 
+          icon: 'success',
+        });
+          $("#consultation-form-action")[0].reset();
+        }else{
+          Swal.fire({
+          title: 'Warning',
+          text: response2,
+          icon: 'warning',
+          confirmButtonText: 'OK',
+           confirmButtonColor: 'rgb(47,85,151)'
+        });
+        }
+
+
+         
+        console.log(response2); // You can do something with the response data
+      },
+      error: function(error) {
+        // Handle the error response
+        console.error('Form submission error');
+        console.error(error); // You can display an error message or perform other actions
+      }
+    });
+  });
+
+//start of read more for cards
+ $(document).ready(function(){
+    $('.shorten-content').each(function(){
+        const contentElement = $(this);
+        const fullContent = contentElement.html().trim();
+        const maxLength = 100;
+        let shortContent = fullContent;
+
+        if (fullContent.length > maxLength) {
+            shortContent = fullContent.substring(0, maxLength) + '...';
+            contentElement.html(shortContent);
+        }
+
+        contentElement.next('.read-more-btn').click(function(e){
+            e.preventDefault();
+            
+            if(contentElement.text().includes('...')) {
+                contentElement.html(fullContent);
+                $(this).html('<strong>READ LESS<i class="fa fa-long-arrow-right"></i></strong>');
+            } else {
+                contentElement.html(shortContent);
+                $(this).html('<strong>READ MORE<i class="fa fa-long-arrow-right"></i></strong>');
+            }
+        });
+    });
+});
+ // end of read more
+
+ //start of google analytics code
+ window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4301EZWQ4C');
+
+//end of google analytics code
+
+
+
+ // start of partner slider
+  $(".clients-carousel").owlCarousel({
+    autoplay: true,
+    dots: true,
+    loop: true,
+    responsive: {
+      0: {
+        items: 2
+      },
+      768: {
+        items: 4
+      },
+      900: {
+        items: 6
+      }
+    }
+  });
+
+$('#job-form').submit(function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Create FormData object
+    var formData = new FormData();
+
+    // Append file to FormData object
+    var file = $('#cv')[0].files[0]; // Assuming 'cv' is the id of your file input
+   
+
+    // Append other form fields to FormData object
+    formData.append('name', $('#name').val());
+    formData.append('email', $('#email').val());
+    formData.append('cv', file);
+    formData.append('city', $('#city').val());
+    formData.append('zip', $('#zip').val());
+    formData.append('phone', $('#phone').val());
+    formData.append('state', $('#state').val());
+    formData.append('address', $('#address').val());
+    formData.append('position', $('#position').val());
+    formData.append('type', $('#type').val());
+    // Display loading message before AJAX request
+    Swal.fire({
+      title: 'Loading...',
+      text: 'Please wait while we process your request.',
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+
+    // Perform an AJAX request to submit the form data
+    $.ajax({
+      type: 'POST',
+      url: 'php/actions', // Replace with your actual server-side endpoint
+      data: formData, 
+      processData: false, // Prevent jQuery from automatically processing data
+      contentType: false,
+      success: function(response) {
+        // Handle the success response
+        if (response==="1") {
+          Swal.close(); // Close the loading message before showing the next one
+            Swal.fire({
+            title: 'Success!',
+            text: "Applicatioin was Successfully",
+            confirmButtonColor: 'rgb(47,85,151)', 
+            icon: 'success',
+          });
+            $("#job-form")[0].reset();
+        }else{
+            Swal.fire({
+              title: 'Warning',
+              text: response,
+              icon: 'warning',
+              confirmButtonText: 'OK',
+               confirmButtonColor: 'rgb(47,85,151)'
+            });
+        }
+
+
+         
+        console.log(response); // You can do something with the response data
+      },
+      error: function(error) {
+        // Handle the error response
+        console.error('Form submission error');
+        console.error(error); // You can display an error message or perform other actions
+      }
+    });
+  }); 
+
+
+// submit offers form
+$('#offers-form').submit(function(event) {
+event.preventDefault(); // Prevent the default form submission
+// Retrieve the form data
+var formData2 = $(this).serialize();
+
+// Display loading message before AJAX request
+Swal.fire({
+  title: 'Loading...',
+  text: 'Please wait while we process your request.',
+  allowOutsideClick: false,
+  didOpen: () => {
+    Swal.showLoading();
+  }
+});
+
+// Perform an AJAX request to submit the form data
+$.ajax({
+  type: 'POST',
+  url: 'php/offers', // Replace with your actual server-side endpoint
+  data: formData2,
+  success: function(e) {
+    Swal.close(); // Close the loading message before showing the next one
+    
+    // Handle the success response
+    if (e === "1") {
+      $("#offers-form")[0].reset();
+      Swal.fire({
+        title: 'Thank you!',
+        text: "Please check your email inbox or spam folder for the download link.",
+        confirmButtonColor: 'rgb(47,85,151)', 
+        icon: 'success',
+      });
+    } else {
+      Swal.fire({
+        title: 'Warning',
+        text: e,
+        icon: 'warning',
+        confirmButtonText: 'OK',
+        confirmButtonColor: 'rgb(47,85,151)'
+      });
+    }
+
+    console.log(e); // You can do something with the response data
+  },
+  
+  error: function(error) {
+    Swal.close(); // Close the loading message in case of an error
+    // Handle the error response
+    Swal.fire({
+      title: 'Error',
+      text: 'Form submission failed. Please try again.',
+      icon: 'error',
+      confirmButtonText: 'OK',
+      confirmButtonColor: 'rgb(47,85,151)'
+    });
+    console.error('Form submission error');
+    console.error(error); // You can display an error message or perform other actions
+  }
+});
+
+
+
+});
+
+// submit sql offers form
+$('#sql-offer-form').submit(function(event) {
+event.preventDefault(); // Prevent the default form submission
+// Retrieve the form data
+var formData2 = $(this).serialize();
+
+// Display loading message before AJAX request
+Swal.fire({
+  title: 'Loading...',
+  text: 'Please wait while we process your request.',
+  allowOutsideClick: false,
+  didOpen: () => {
+    Swal.showLoading();
+  }
+});
+
+// Perform an AJAX request to submit the form data
+$.ajax({
+  type: 'POST',
+  url: 'php/offers', // Replace with your actual server-side endpoint
+  data: formData2,
+  success: function(e) {
+    Swal.close(); // Close the loading message before showing the next one
+    
+    // Handle the success response
+    if (e === "1") {
+      $("#sql-offer-form")[0].reset(); // Reset the form after successful submission
+      Swal.fire({
+        title: 'Thank you!',
+        text: "Request sent successfully.",
+        confirmButtonColor: 'rgb(47,85,151)', 
+        icon: 'success',
+      });
+    } else {
+      Swal.fire({
+        title: 'Warning',
+        text: e,
+        icon: 'warning',
+        confirmButtonText: 'OK',
+        confirmButtonColor: 'rgb(47,85,151)'
+      });
+    }
+
+    console.log(e); // You can do something with the response data
+  },
+  
+  error: function(error) {
+    Swal.close(); // Close the loading message in case of an error
+    // Handle the error response
+    Swal.fire({
+      title: 'Error',
+      text: 'Form submission failed. Please try again.',
+      icon: 'error',
+      confirmButtonText: 'OK',
+      confirmButtonColor: 'rgb(47,85,151)'
+    });
+    console.error('Form submission error');
+    console.error(error); // You can display an error message or perform other actions
+  }
+});
+
+
+
+});
+
+// submit sql offers form
+$('#coe-offer-form').submit(function(event) {
+event.preventDefault(); // Prevent the default form submission
+// Retrieve the form data
+var formData2 = $(this).serialize();
+
+// Display loading message before AJAX request
+Swal.fire({
+  title: 'Loading...',
+  text: 'Please wait while we process your request.',
+  allowOutsideClick: false,
+  didOpen: () => {
+    Swal.showLoading();
+  }
+});
+
+// Perform an AJAX request to submit the form data
+$.ajax({
+  type: 'POST',
+  url: 'php/offers', // Replace with your actual server-side endpoint
+  data: formData2,
+  success: function(e) {
+    Swal.close(); // Close the loading message before showing the next one
+    
+    // Handle the success response
+    if (e === "1") {
+      $("#coe-offer-form")[0].reset(); // Reset the form after successful submission
+      Swal.fire({
+        title: 'Thank you!',
+        text: "Request sent successfully.",
+        confirmButtonColor: 'rgb(47,85,151)', 
+        icon: 'success',
+      });
+    } else {
+      Swal.fire({
+        title: 'Warning',
+        text: e,
+        icon: 'warning',
+        confirmButtonText: 'OK',
+        confirmButtonColor: 'rgb(47,85,151)'
+      });
+    }
+
+    console.log(e); // You can do something with the response data
+  },
+  
+  error: function(error) {
+    Swal.close(); // Close the loading message in case of an error
+    // Handle the error response
+    Swal.fire({
+      title: 'Error',
+      text: 'Form submission failed. Please try again.',
+      icon: 'error',
+      confirmButtonText: 'OK',
+      confirmButtonColor: 'rgb(47,85,151)'
+    });
+    console.error('Form submission error');
+    console.error(error); // You can display an error message or perform other actions
+  }
+});
+
+});
+//close the anouncement banner
+ function closeBanner() {
+        document.getElementById('announcementBanner').style.display = 'none';
+}
+
+
