@@ -86,8 +86,9 @@
                      
     <div class="col-lg-6 col-md-4 col-12">
         <div class="form-group">
-            <select required name="position"  class="form-control remove-input-background" id="position">
-                <option selected ><?php echo mysqli_real_escape_string($conn, $_GET['title']); ?></option> 
+            <select disabled required name="position"  class="form-control remove-input-background" id="position">
+                <option selected ><?php echo addslashes($_GET['title']);
+ ?></option> 
               
              
             </select>

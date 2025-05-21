@@ -1,19 +1,9 @@
 <?php
+require __DIR__ . '/../vendor/autoload.php';
+require 'config.php'; 
 
-$autoloadPath = __DIR__ . '/../vendor/autoload.php';
-
-// Check if the autoload file exists
-if (!file_exists($autoloadPath)) {
-    // Log the error (optional: use error_log or a logging library)
-    error_log("Autoload file not found at: $autoloadPath");
-
-    // Show a user-friendly message or take alternate action
-    die('⚠️ Error: Required dependencies are missing. Please run <code>composer install</code> in the project root directory.');
-}
-
-require 'config.php';
-// Load Composer's autoloader
-require $autoloadPath;
+use Dotenv\Dotenv;
+use GuzzleHttp\Client;
 
 
 
@@ -1528,7 +1518,7 @@ function submitContactForm() {
                 'body' => json_encode($adminEmailPayload),
             ]);
 
-            //echo "80";
+            echo "80";
 
         } catch (Exception $e) {
             error_log("Email sending failed: " . $e->getMessage());
