@@ -1,10 +1,30 @@
 <?php
-require __DIR__ . '/../vendor/autoload.php';
-require 'config.php'; 
+$autoloadPath = __DIR__ . '/../vendor/autoload.php';
+
+if (file_exists($autoloadPath)) {
+    require $autoloadPath;
+} else {
+    // Optional: log the issue or display a warning (non-fatal)
+    error_log("⚠️ Skipped loading autoload.php – file not found at: $autoloadPath");
+    // You can optionally define fallbacks or continue silently
+}
+
+// Load config only if needed and available
+$configPath = __DIR__ . '/config.php';
+if (file_exists($configPath)) {
+    require $configPath;
+} else {
+    error_log("⚠️ config.php not found at: $configPath");
+}
 
 use Dotenv\Dotenv;
 use GuzzleHttp\Client;
 
+// Optional: handle undefined classes if autoload is skipped
+if (!class_exists('Dotenv\Dotenv')) {
+    // Define dummy behavior, show a notice, or handle gracefully
+    error_log("⚠️ Dotenv class not found. Functionality may be limited.");
+}
 
 
 

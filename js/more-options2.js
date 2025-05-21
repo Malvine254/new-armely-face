@@ -666,3 +666,144 @@ $.ajax({
 }
 
 
+// scroll blog
+
+$(document).ready(function () {
+  // === SHARE BUTTON LOGIC ===
+  $(".shareBtn").click(function () {
+    var social = $(this).data("social");
+    var url = encodeURIComponent(window.location.href);
+    var title = $("#blogTitle").text();
+    var shareURL;
+
+    switch (social) {
+      case "facebook":
+        shareURL = "https://www.facebook.com/sharer/sharer.php?u=" + url;
+        break;
+      case "twitter":
+        shareURL = "https://twitter.com/intent/tweet?url=" + url + "&text=" + title;
+        break;
+      case "linkedin":
+        shareURL = "https://www.linkedin.com/shareArticle?mini=true&url=" + url + "&title=" + title;
+        break;
+      case "instagram":
+        alert("Instagram sharing via browser not supported.");
+        return;
+    }
+
+    window.open(shareURL, "_blank", "noopener,noreferrer,width=600,height=400");
+  });
+
+  // === SHOW MORE SCROLL LOGIC ===
+  var contentDiv = $('#content');
+  var showMoreButton = $('#show-more');
+
+  function checkScrollable() {
+    if (contentDiv[0] && contentDiv[0].scrollHeight > contentDiv.innerHeight()) {
+      showMoreButton.show();
+    } else {
+      showMoreButton.hide();
+    }
+  }
+
+  checkScrollable();
+
+  showMoreButton.on('click', function () {
+    contentDiv.animate({
+      scrollTop: contentDiv[0].scrollHeight
+    }, 800, function () {
+      checkScrollable();
+    });
+  });
+
+  contentDiv.on('scroll', function () {
+    if (contentDiv.scrollTop() + contentDiv.innerHeight() >= contentDiv[0].scrollHeight - 1) {
+      showMoreButton.fadeOut();
+    } else {
+      showMoreButton.fadeIn();
+    }
+  });
+
+  // === TEXT-TO-SPEECH LOGIC ===
+  let speechSynthesisInstance = window.speechSynthesis;
+  let voices = speechSynthesisInstance.getVoices();
+  let isSpeaking = false;
+  let isPaused = false;
+  let lines;
+  let currentIndex = 0;
+  let currentUtterance;
+
+  $('#toggleSpeech').click(function () {
+    if (!isSpeaking) {
+      speak();
+    } else if (!isPaused) {
+      pause();
+    } else {
+      resume();
+    }
+  });
+
+  function speak() {
+    let text = $('#blog-content').text();
+    lines = text.split(/\n+/).filter(line => line.trim() !== '');
+    currentIndex = 0;
+    speakLine();
+  }
+
+  function speakLine() {
+    if (currentIndex < lines.length) {
+      let line = lines[currentIndex].trim();
+      let utterance = new SpeechSynthesisUtterance(line);
+      utterance.voice = voices[0];
+
+      utterance.onstart = function () {
+        highlightCurrentLine(line);
+      };
+
+      utterance.onend = function () {
+        removeHighlight();
+        currentIndex++;
+        if (currentIndex < lines.length && !isPaused) {
+          speakLine();
+        } else {
+          isSpeaking = false;
+          isPaused = false;
+        }
+      };
+
+      currentUtterance = utterance;
+      isSpeaking = true;
+      isPaused = false;
+      $('#volume-icons').removeClass('fa-volume-high').addClass('fa-volume-xmark');
+      speechSynthesisInstance.speak(utterance);
+    }
+  }
+
+  function pause() {
+    if (speechSynthesisInstance.speaking) {
+      speechSynthesisInstance.pause();
+      isPaused = true;
+      $('#volume-icons').removeClass('fa-volume-xmark').addClass('fa-volume-high');
+    }
+  }
+
+  function resume() {
+    if (isPaused) {
+      speechSynthesisInstance.resume();
+      isPaused = false;
+      $('#volume-icons').removeClass('fa-volume-high').addClass('fa-volume-xmark');
+    }
+  }
+
+  function highlightCurrentLine(line) {
+    removeHighlight();
+    let escapedLine = line.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    let content = $('#blog-content').html();
+    let highlightedContent = content.replace(new RegExp(escapedLine, 'g'), `<span class="bg-warning">${line}</span>`);
+    $('#blog-content').html(highlightedContent);
+  }
+
+  function removeHighlight() {
+    $('#blog-content .bg-warning').contents().unwrap();
+  }
+});

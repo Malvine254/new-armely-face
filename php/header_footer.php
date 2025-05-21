@@ -514,7 +514,8 @@ return <<<HTML
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.min.js"></script>
 <!-- more settings  -->
-<script src="js/more-options.js"></script>
+
+<script src="js/more-options2.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         // Initialize WOW.js (For animations on scroll)
