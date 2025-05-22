@@ -725,13 +725,25 @@ $(document).ready(function () {
   });
 
   // === TEXT-TO-SPEECH LOGIC ===
-  let speechSynthesisInstance = window.speechSynthesis;
-  let voices = speechSynthesisInstance.getVoices();
+  const speechSynthesisInstance = window.speechSynthesis;
+  let voices = [];
   let isSpeaking = false;
   let isPaused = false;
-  let lines;
+  let lines = [];
   let currentIndex = 0;
   let currentUtterance;
+
+  // Load voices properly (wait for them)
+  function loadVoices() {
+    voices = speechSynthesisInstance.getVoices();
+    if (!voices.length) {
+      speechSynthesisInstance.onvoiceschanged = () => {
+        voices = speechSynthesisInstance.getVoices();
+      };
+    }
+  }
+
+  loadVoices();
 
   $('#toggleSpeech').click(function () {
     if (!isSpeaking) {
@@ -744,23 +756,22 @@ $(document).ready(function () {
   });
 
   function speak() {
-    let text = $('#blog-content').text();
-    lines = text.split(/\n+/).filter(line => line.trim() !== '');
+    const text = $('#blog-content').text();
+    lines = text.split(/\n+|\.\s+/).filter(line => line.trim() !== '');
     currentIndex = 0;
+    isSpeaking = true;
+    isPaused = false;
     speakLine();
   }
 
   function speakLine() {
     if (currentIndex < lines.length) {
-      let line = lines[currentIndex].trim();
-      let utterance = new SpeechSynthesisUtterance(line);
-      utterance.voice = voices[0];
+      const line = lines[currentIndex].trim();
+      const utterance = new SpeechSynthesisUtterance(line);
+      utterance.voice = voices[0] || null;
 
-      utterance.onstart = function () {
-        highlightCurrentLine(line);
-      };
-
-      utterance.onend = function () {
+      utterance.onstart = () => highlightCurrentLine(line);
+      utterance.onend = () => {
         removeHighlight();
         currentIndex++;
         if (currentIndex < lines.length && !isPaused) {
@@ -772,8 +783,6 @@ $(document).ready(function () {
       };
 
       currentUtterance = utterance;
-      isSpeaking = true;
-      isPaused = false;
       $('#volume-icons').removeClass('fa-volume-high').addClass('fa-volume-xmark');
       speechSynthesisInstance.speak(utterance);
     }
@@ -797,10 +806,10 @@ $(document).ready(function () {
 
   function highlightCurrentLine(line) {
     removeHighlight();
-    let escapedLine = line.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    let content = $('#blog-content').html();
-    let highlightedContent = content.replace(new RegExp(escapedLine, 'g'), `<span class="bg-warning">${line}</span>`);
-    $('#blog-content').html(highlightedContent);
+    const escapedLine = line.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const content = $('#blog-content').html();
+    const highlighted = content.replace(new RegExp(escapedLine), `<span class="bg-warning">${line}</span>`);
+    $('#blog-content').html(highlighted);
   }
 
   function removeHighlight() {

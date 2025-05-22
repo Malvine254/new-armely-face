@@ -109,42 +109,73 @@
     <center><hr class="default-background hr" ></center>
    
 </div>
-  <div class="section ai">
-    <h3>Mela – Your AI Co-Pilot</h3>
-    <p>
-      <strong>Mela</strong> is a fictitious representative of an Artificial Intelligence organization used by <strong>Armely</strong> to demonstrate technical examples.
-    </p>
-    <p>
-      From intelligent assistants to AI-powered automation, Mela helps us explore how organizations can embed artificial intelligence across operations.
-      Whether it's building custom copilots in <strong>Microsoft Copilot Studio</strong> or deploying advanced machine learning models, Mela is our playground for all things AI innovation.
-    </p>
-    <h4>Use Cases Demonstrated:</h4>
-    <ul>
-      <li>Copilot Studio development</li>
-      <li>Retrieval-Augmented Generation (RAG)</li>
-      <li>Natural Language Processing (NLP)</li>
-      <li>AI governance and security</li>
-      <li>Azure OpenAI integration</li>
-    </ul>
-  </div>
+ <div class="container py-5">
+  <div class="row g-4">
 
-  <div class="section coffee">
-    <h3>Step & Sip – The Data-Driven Coffee Company</h3>
-    <p>
-      <strong>Step & Sip</strong> is a fictitious company representing a modern, data-driven coffee brand used by <strong>Armely</strong> to demonstrate technical examples.
-    </p>
-    <p>
-      Step & Sip is where caffeine meets cloud. From inventory tracking to customer analytics and personalized offers, we use Step & Sip to demonstrate how data flows from raw form to actionable insight using <strong>Microsoft Fabric</strong>, <strong>Power Platform</strong>, and advanced reporting tools.
-    </p>
-    <h4>Use Cases Demonstrated:</h4>
-    <ul>
-      <li>Microsoft Fabric Lakehouse architecture</li>
-      <li>Real-time analytics with Power BI</li>
-      <li>Customer segmentation and trend forecasting</li>
-      <li>Sales and inventory dashboards</li>
-      <li>Workflow automation with Power Automate</li>
-    </ul>
+    <!-- Mela Card -->
+    <div class="col-md-6">
+      <div class="card shadow-sm border-0 h-100">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <img src="images/logo/mela-logo.jpg" alt="Mela Logo" width="60" class="me-3 rounded p-1" />
+            <h5 class="card-title mb-0">Mela – Your AI CoPilot</h5>
+          </div>
+          <p><strong>Mela</strong> is a fictitious representative of an Artificial Intelligence organization used by <strong>Armely</strong> to demonstrate technical examples.</p>
+          <p>It showcases how organizations embed AI in workflows—from building copilots with <strong>Copilot Studio</strong> to deploying machine learning and generative AI solutions.</p>
+          <h6 class="mt-3">Use Cases Demonstrated:</h6>
+          <ul class="list-unstyled">
+            <li><i class="default-color fa-solid fa-circle-check text-success me-2"></i> Copilot Studio development</li>
+            <li><i class="default-color fa-solid fa-circle-check text-success me-2"></i> Retrieval-Augmented Generation (RAG)</li>
+            <li><i class="default-color fa-solid fa-circle-check text-success me-2"></i> Natural Language Processing (NLP)</li>
+            <li><i class="default-color fa-solid fa-circle-check text-success me-2"></i> AI governance and security</li>
+            <li><i class="default-color fa-solid fa-circle-check text-success me-2"></i> Azure OpenAI integration</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step & Sip Card -->
+    <div class="col-md-6">
+      <div class="card shadow-sm border-0 h-100">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <img src="images/logo/logo-step.png" alt="Step & Sip Logo" width="50" class="me-3 rounded m-1" />
+            <h5 class="card-title mb-0">Step & Sip – The Data-Driven Coffee Company</h5>
+          </div>
+          <p><strong>Step & Sip</strong> is a fictitious brand used by <strong>Armely</strong> to showcase modern data practices through a retail lens.</p>
+          <p>We demonstrate how coffee and data blend through real-time insights, automation, and intelligence—powered by <strong>Microsoft Fabric</strong> and <strong>Power Platform</strong>.</p>
+          <h6 class="mt-3">Use Cases Demonstrated:</h6>
+          <ul class="list-unstyled">
+            <li><i class="default-color fa-solid fa-circle-check text-success me-2"></i> Microsoft Fabric Lakehouse architecture</li>
+            <li><i class="default-color fa-solid fa-circle-check text-success me-2"></i> Power BI dashboards and insights</li>
+            <li><i class="default-color fa-solid fa-circle-check text-success me-2"></i> Customer segmentation and behavior</li>
+            <li><i class="default-color fa-solid fa-circle-check text-success me-2"></i> Inventory and sales forecasting</li>
+            <li><i class="default-color fa-solid fa-circle-check text-success me-2"></i> Workflow automation with Power Automate</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
   </div>
+</div>
+
+<style>
+  img.rounded {
+    border-radius: 8px;
+    object-fit: contain;
+  }
+  h5.card-title {
+    font-weight: 600;
+  }
+  .card-body ul li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+
+  }
+</style>
+
+
+
 
 </div>
 </div>

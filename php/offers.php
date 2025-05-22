@@ -1,129 +1,151 @@
-<?php 
+<?php
+require __DIR__ . '/../vendor/autoload.php';
 
+use Dotenv\Dotenv;
+use GuzzleHttp\Client;
 
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
 
-    function getDownloadLink($download_link) {
-        if (empty($download_link)) {
-            return "No download link available.";
-        } else {
-            $list = explode("{}", $download_link); // Ensure this is the correct delimiter
-            $links = [];
-            foreach ($list as $link) {
-                $links[] = "<a href='" . htmlspecialchars(trim($link)) . "' target='_blank'>Download Here</a>";
-            }
-            return implode("<br>", $links);
-        }
+$tenantId     = $_ENV['AZURE_TENANT_ID'];
+$clientId     = $_ENV['AZURE_CLIENT_ID'];
+$clientSecret = $_ENV['AZURE_CLIENT_SECRET'];
+$fromEmail    = 'ai.solutions@armely.com';
+$adminEmail   = $_ENV['FROM_EMAIL'];
+
+function getDownloadLink($download_link) {
+    if (empty($download_link)) {
+        return "No download link available.";
     }
-
-
-if (isset($_POST['fname1']) && isset($_POST['lname1']) && isset($_POST['email1']) && isset($_POST['phone1']) && isset($_POST['country1'])) {
-    include '../php/config.php';
-
- 
-    // Sanitize user inputs
-    $fname1 = mysqli_real_escape_string($conn, $_POST['fname1']);
-    $lname1 = mysqli_real_escape_string($conn, $_POST['lname1']);
-    $email1 = mysqli_real_escape_string($conn, $_POST['email1']);
-    $phone1 = mysqli_real_escape_string($conn, $_POST['phone1']);
-    $country1 = mysqli_real_escape_string($conn, $_POST['country1']);
-    $category1 = mysqli_real_escape_string($conn, $_POST['category1']);
-    $subject = "Freemium Request for " .  $category1;
-
-    $select = $conn->query("SELECT * FROM freemium WHERE title='$category1'"); // Fetch only one record
-    if ($select->num_rows>0) {
-          while ($row = $select->fetch_assoc()) {
-        $passwordHash = rand(888888, 937372); // Generate a sample password hash
-        $link= getDownloadLink($row['download_link']);
-        // Create the HTML email content
-        $message = "
-        <html>
-        <head>
-        <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' rel='stylesheet'>
-            <style>
-                body {
-                    font-family: Arial, sans-serif;
-                    color: #333;
-                    line-height: 1.6;
-                }
-                .container {
-                    width: auto;
-                    min-width: 600px;
-                    margin: 0 auto;
-                    padding: 20px;
-                    border: 1px solid #ddd;
-                    background-color: #f9f9f9;
-                }
-                .header {
-                    background-color: #007bff;
-                    color: white;
-                    padding: 10px;
-                    text-align: center;
-                }
-                .content {
-                    padding: 20px;
-                }
-                .content h2 {
-                    color: #007bff;
-                }
-                .content p {
-                    margin-bottom: 10px;
-                }
-                .footer {
-                    text-align: center;
-                    padding: 10px;
-                    font-size: 12px;
-                    color: #777;
-                }
-            </style>
-        </head>
-        <body>
-            <div class='container'>
-                <div class='header'>
-                    <h1>Download Link</h1>
-                </div>
-                <div class='content'>
-                    <h2>Hello, " . htmlspecialchars($fname1) . " " . htmlspecialchars($lname1) . "</h2>
-                    <p>Click the download link below:</p>
-                    <p>Download link(s): " . $link. "</p>  
-                </div>
-                <div class='footer'>
-                    <p>&copy; " . date("Y") . " Armely. All rights reserved.</p>
-                </div>
-            </div>
-        </body>
-        </html>";
-
-        // Email Headers
-        $headers = "From: Armely LLC <ai.solutions@armely.com>\r\n";
-        $headers .= "Reply-To: ai.solutions@armely.com\r\n";
-        $headers .= "MIME-Version: 1.0\r\n";
-        $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-
-        // Send the email
-        if (mail($email1, $subject, $message, $headers)) {
-            //echo "Invitation link has been sent to " . htmlspecialchars($fname1 . " " . $lname1) . "'";
-
-            $insert = $conn->query("INSERT INTO offers_form (fname, lname, email, phone, country,category) VALUES ('$fname1','$lname1','$email1','$phone1','$country1','$category1')");
-            if ($insert) {
-                echo 1;
-            }else{
-                echo "Server error";
-            }
-
-
-
-
-        } else {
-            echo "<script>alert('Failed to send email. Please check your server configuration.');</script>";
-        }
-    } 
-    }else{
-        echo "Could not complete your request";
-    }
-  
+    $list = explode("{}", $download_link);
+    $links = array_map(function ($link) {
+        return "<a href='" . htmlspecialchars(trim($link)) . "' target='_blank' style='color:#007bff;text-decoration:none;'>Download Here</a>";
+    }, $list);
+    return implode("<br>", $links);
 }
 
+function sanitizeInput($input) {
+    return htmlspecialchars(trim($input));
+}
 
+function sendGraphEmail($toEmail, $subject, $bodyHtml, $accessToken, $fromEmail) {
+    $client = new Client();
+    $payload = [
+        'message' => [
+            'subject' => $subject,
+            'body' => [
+                'contentType' => 'HTML',
+                'content' => $bodyHtml,
+            ],
+            'toRecipients' => [
+                ['emailAddress' => ['address' => $toEmail]]
+            ]
+        ],
+        'saveToSentItems' => true,
+    ];
+    return $client->post("https://graph.microsoft.com/v1.0/users/$fromEmail/sendMail", [
+        'headers' => [
+            'Authorization' => "Bearer $accessToken",
+            'Content-Type'  => 'application/json',
+        ],
+        'body' => json_encode($payload),
+    ]);
+}
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    include '../php/config.php';
 
- ?>
+    $fname1    = sanitizeInput($_POST['fname1'] ?? '');
+    $lname1    = sanitizeInput($_POST['lname1'] ?? '');
+    $email1    = filter_var($_POST['email1'], FILTER_VALIDATE_EMAIL);
+    $phone1    = sanitizeInput($_POST['phone1'] ?? '');
+    $country1  = sanitizeInput($_POST['country1'] ?? '');
+    $category1 = sanitizeInput($_POST['category1'] ?? '');
+
+    if (!$email1) {
+        echo "Invalid email.";
+        exit;
+    }
+
+    $stmt = $conn->prepare("SELECT * FROM freemium WHERE title = ?");
+    $stmt->bind_param("s", $category1);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row  = $result->fetch_assoc();
+        $link = getDownloadLink($row['download_link']);
+        $year = date("Y");
+
+        // Get Access Token
+        $client = new Client();
+        try {
+            $tokenResponse = $client->post("https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token", [
+                'form_params' => [
+                    'client_id' => $clientId,
+                    'scope' => 'https://graph.microsoft.com/.default',
+                    'client_secret' => $clientSecret,
+                    'grant_type' => 'client_credentials',
+                ],
+            ]);
+            $accessToken = json_decode($tokenResponse->getBody(), true)['access_token'];
+        } catch (Exception $e) {
+            echo "Authentication error.";
+            exit;
+        }
+
+        // 1️⃣ Email to the user
+        $userSubject = "🔓 Your Freemium Access: $category1";
+        $userBody = <<<HTML
+        <html>
+        <body style="font-family:Segoe UI, sans-serif; background-color:#f4f4f4; padding:20px;">
+           <div style="border:1px solid #ddd; border-radius:6px; max-width:600px; margin:auto; padding: 19px; background-color: white;">
+                <h2 style="background:#007bff; color:white; padding:15px; border-radius:8px 8px 0 0;">Your Download is Ready!</h2>
+                <p>Hello <strong>$fname1 $lname1</strong>,</p>
+                <p>Thank you for requesting the <strong>$category1</strong> freemium resource.</p>
+                <p>You can download it using the link(s) below:</p>
+                <p>$link</p>
+                <p>If you have any questions, reply to this email.</p>
+                <p style="text-align:center;color:#777;">&copy; $year Armely. All rights reserved.</p>
+            </div>
+        </body>
+        </html>
+        HTML;
+
+        // 2️⃣ Email to the admin
+        $adminSubject = "📥 New Freemium Download Request - $category1";
+        $adminBody = <<<HTML
+        <html>
+        <body style="font-family:Segoe UI, sans-serif; background-color:#fff; padding:20px;">
+        <div style="border:1px solid #ddd; border-radius:6px; max-width:600px; margin:auto; padding: 19px; background-color: white;">
+            <h3 style="color:#007bff;">New Freemium Request Received</h3><hr>
+            <p><strong>Name:</strong> $fname1 $lname1</p><hr>
+            <p><strong>Email:</strong> $email1</p><hr>
+            <p><strong>Phone:</strong> $phone1</p><hr>
+            <p><strong>Country:</strong> $country1</p><hr>
+            <p><strong>Category:</strong> $category1</p><hr>
+            <p><strong>Time:</strong> " . date("Y-m-d H:i:s") . "</p>
+        </div>
+        </body>
+        </html>
+        HTML;
+
+        try {
+            // Send emails
+            sendGraphEmail($email1, $userSubject, $userBody, $accessToken, $fromEmail);
+            sendGraphEmail($adminEmail, $adminSubject, $adminBody, $accessToken, $fromEmail);
+
+            // Save to DB
+            $insert = $conn->prepare("INSERT INTO offers_form (fname, lname, email, phone, country, category) VALUES (?, ?, ?, ?, ?, ?)");
+            $insert->bind_param("ssssss", $fname1, $lname1, $email1, $phone1, $country1, $category1);
+            $insert->execute();
+
+            echo 1;
+        } catch (Exception $e) {
+            echo "❌ Failed to send emails.";
+        }
+    } else {
+        echo "No freemium item found.";
+    }
+}
+?>
