@@ -1461,7 +1461,7 @@ function submitContactForm() {
     exit("Spam detected. Submission ignored.");
 	}
 	
-	$blocked_domains = ['registry.godaddy'];
+	$blocked_domains = ['registry.godaddy','kr.slembassy.gov.sl'];
 
 	$email = strtolower(trim($_POST['email']));
 	if (preg_match('/@(' . implode('|', $blocked_domains) . ')$/', $email)) {
