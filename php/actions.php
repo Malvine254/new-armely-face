@@ -1460,6 +1460,14 @@ function submitContactForm() {
     // Bot filled hidden field, ignore submission
     exit("Spam detected. Submission ignored.");
 	}
+	
+	$blocked_domains = ['registry.godaddy'];
+
+	$email = strtolower(trim($_POST['email']));
+	if (preg_match('/@(' . implode('|', $blocked_domains) . ')$/', $email)) {
+	    exit("Blocked domain.");
+	}
+
 
     if (empty($name) || empty($email) || empty($message)) {
         echo "Please fill in all required fields.";
