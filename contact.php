@@ -65,6 +65,9 @@
 									<textarea name="message" placeholder="Your Message" required=""></textarea>
 								</div>
 							</div>
+							 <!-- Honeypot field (hidden from humans) -->
+ 							 <input style="display: none;" type="text" name="website" class="honeypot">
+ 							 
 							<div class="col-md-2 col-sm-6">
 								<div class="form-group login-btn">
 									<button name="submit_form" class="btn default-background" type="submit">Send</button>

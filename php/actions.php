@@ -1455,13 +1455,20 @@ function submitContactForm() {
     $message      = trim(filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING));
 
     // Basic validation
+
+    if (!empty($_POST['website'])) {
+    // Bot filled hidden field, ignore submission
+    exit("Spam detected. Submission ignored.");
+	}
+
     if (empty($name) || empty($email) || empty($message)) {
-        echo "<script>alert('Please fill in all required fields.')</script>";
+        echo "Please fill in all required fields.";
         return;
     }
 
+
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "<script>alert('Invalid email format.')</script>";
+        echo "Invalid email format.";
         return;
     }
 
@@ -1547,7 +1554,7 @@ function submitContactForm() {
 
     } else {
         error_log("Database Error: " . $stmt->error);
-        echo "<script>alert('Failed to send the message. Please try again.')</script>";
+        echo "Failed to send the message. Please try again.";
     }
 
     
