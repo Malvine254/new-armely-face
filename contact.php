@@ -50,6 +50,7 @@
 									<input type="text" name="phone" placeholder="Phone" required="">
 								</div>
 							</div>
+
 							<div class="col-lg-6">
 								<div class="form-group">
 									<input type="text" name="subject" placeholder="Subject" required="">
@@ -67,6 +68,11 @@
 							</div>
 							 <!-- Honeypot field (hidden from humans) -->
  							 <input style="display: none;" type="text" name="website" class="honeypot">
+ 							 <div class="col-lg-12">
+								<div class="form-group">
+									<div class="g-recaptcha" data-sitekey="6Ld0Z0krAAAAAFCwIDiunmU9l68kT4Vm2cB7U7px"></div>
+								</div>
+							</div>
  							 
 							<div class="col-md-2 col-sm-6">
 								<div class="form-group login-btn">

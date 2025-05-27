@@ -232,56 +232,73 @@ $('.btn-close').click(function() {
 
 // submit contact form
 $('#contact-form').submit(function(event) {
-event.preventDefault(); // Prevent the default form submission
-// Display loading message before AJAX request
-Swal.fire({
-  title: 'Loading...',
-  text: 'Please wait while we process your request.',
-  allowOutsideClick: false,
-  didOpen: () => {
-    Swal.showLoading();
-  }
-});
-// Retrieve the form data
-var formData = $(this).serialize();
+  event.preventDefault(); // Prevent the default form submission
 
-// Perform an AJAX request to submit the form data
-$.ajax({
-  type: 'POST',
-  url: 'php/actions', // Replace with your actual server-side endpoint
-  data: formData,
-  success: function(response3) {
-    // Handle the success response
-    if (response3==="80") {
-      Swal.close(); // Close the loading message before showing the next one
-      Swal.fire({
-      title: 'Success!',
-      text: "Message was sent successfully",
-      confirmButtonColor: 'rgb(47,85,151)', 
-      icon: 'success',
+  // ✅ Get reCAPTCHA token
+  var recaptchaResponse = grecaptcha.getResponse();
+  if (!recaptchaResponse) {
+    Swal.fire({
+      title: 'CAPTCHA Required',
+      text: 'Please verify that you are not a robot.',
+      icon: 'warning',
+      confirmButtonColor: 'rgb(47,85,151)'
     });
-      $("#contact-form")[0].reset();
-    }else{
-      Swal.fire({
-    title: 'Warning',
-    text: response3,
-    icon: 'warning',
-    confirmButtonText: 'OK',
-     confirmButtonColor: 'rgb(47,85,151)'
-  });
-    }
-
-
-     
-    console.log(response3); // You can do something with the response data
-  },
-  error: function(error) {
-    // Handle the error response
-    console.error('Form submission error');
-    console.error(error); // You can display an error message or perform other actions
+    return;
   }
+
+  // ✅ Show loading message
+  Swal.fire({
+    title: 'Loading...',
+    text: 'Please wait while we process your request.',
+    allowOutsideClick: false,
+    didOpen: () => {
+      Swal.showLoading();
+    }
+  });
+
+  // ✅ Get serialized form data and append reCAPTCHA token
+  var formData = $(this).serialize() + '&g-recaptcha-response=' + recaptchaResponse;
+
+  // ✅ AJAX request
+  $.ajax({
+    type: 'POST',
+    url: 'php/actions', // Replace with your actual endpoint
+    data: formData,
+    success: function(response3) {
+      Swal.close(); // Close loading modal
+      if (response3 === "80") {
+        Swal.fire({
+          title: 'Success!',
+          text: "Message was sent successfully",
+          confirmButtonColor: 'rgb(47,85,151)',
+          icon: 'success',
+        });
+        $("#contact-form")[0].reset();
+        grecaptcha.reset(); // ✅ Reset CAPTCHA after success
+      } else {
+        Swal.fire({
+          title: 'Warning',
+          text: response3,
+          icon: 'warning',
+          confirmButtonText: 'OK',
+          confirmButtonColor: 'rgb(47,85,151)'
+        });
+      }
+      console.log(response3);
+    },
+    error: function(error) {
+      Swal.close();
+      Swal.fire({
+        title: 'Error!',
+        text: 'Form submission failed. Please try again.',
+        icon: 'error',
+        confirmButtonColor: 'rgb(47,85,151)'
+      });
+      console.error('Form submission error:', error);
+    }
+  });
 });
-});
+
 
 
 $('#consultation-form-action').submit(function(event) { 

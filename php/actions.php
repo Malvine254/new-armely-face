@@ -1460,6 +1460,7 @@ function submitContactForm() {
     // Bot filled hidden field, ignore submission
     exit("Spam detected. Submission ignored.");
 	}
+
 	
 	$blocked_domains = ['registry.godaddy','kr.slembassy.gov.sl'];
 
@@ -1468,6 +1469,17 @@ function submitContactForm() {
 	    exit("Blocked domain.");
 	}
 
+	$secretKey = $_ENV['CAPTURE_SERVER_SIDE_KEY'];
+	$recaptchaResponse = $_POST['g-recaptcha-response'];
+
+	// Verify token with Google
+	$verifyURL = "https://www.google.com/recaptcha/api/siteverify";
+	$response = file_get_contents($verifyURL . "?secret=" . $secretKey . "&response=" . $recaptchaResponse);
+	$responseData = json_decode($response);
+
+	if (!$responseData->success) {
+	    exit("reCAPTCHA failed. Try again.");
+	}
 
     if (empty($name) || empty($email) || empty($message)) {
         echo "Please fill in all required fields.";
