@@ -25,7 +25,7 @@
 				
 <!-- Start Contact Us -->
 <section class="contact-us section ">
-<div class="container col-12 col-lg-8 col-md-11">
+<div class="container col-12 col-lg-8 col-md-11 col-sm-12">
 	<div class="inner">
 		<div class="row"> 
 			<div class="col-lg-12">
@@ -36,32 +36,38 @@
 					<form class="form" id="contact-form" method="post">
 						<div class="row">
 							<div class="col-lg-6">
+								<label class="text-start">Name *</label>
 								<div class="form-group">
 									<input type="text" name="name" placeholder="Name" required="">
 								</div>
 							</div>
 							<div class="col-lg-6">
+								<label class="text-start">Email *</label>
 								<div class="form-group">
 									<input type="email" name="email" placeholder="Email" required="">
 								</div>
 							</div>
 							<div class="col-lg-6">
+								<label class="text-start">Phone Number *</label>
 								<div class="form-group">
 									<input type="text" name="phone" placeholder="Phone" required="">
 								</div>
 							</div>
 
 							<div class="col-lg-6">
+								<label class="text-start">Subject *</label>
 								<div class="form-group">
 									<input type="text" name="subject" placeholder="Subject" required="">
 								</div>
 							</div>
 								<div class="col-lg-12">
+									<label class="text-start">Organization Name *</label>
 								<div class="form-group">
 									<input type="text" name="organization" placeholder="Organization" required="">
 								</div>
 							</div>
 							<div class="col-lg-12">
+								<label class="text-start">Message *</label>
 								<div class="form-group">
 									<textarea name="message" placeholder="Your Message" required=""></textarea>
 								</div>

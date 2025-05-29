@@ -231,32 +231,45 @@
 </div>
 
 <div class="row">
-<div class="col-lg-12 col-md-6 col-12 d-flex text-center default-background mb-5">
+<div class="col-lg-12 col-md-6 col-12 d-flex default-background mb-5">
 <form class="form p-5" id="contact-form" method="post">
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-12">
+			<label class="text-start text-light">Name *</label>
 			<div class="form-group input-with-background">
 				<input required class="remove-input-background" name="name" type="text" placeholder="Name">
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-12">
+			<label class="text-start text-light">Email *</label>
 			<div class="form-group">
 				<input required class="remove-input-background" name="email" type="email" placeholder="Email">
 			</div> 
 		</div>
 		<div class="col-lg-6 col-md-6 col-12">
+			<label class="text-start text-light">Phone Number *</label>
 			<div class="form-group">
 				<input required class="remove-input-background" name="phone" type="text" placeholder="Phone">
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-12">
+			<label class="text-start text-light">Orginazation Name *</label>
 			<div class="form-group">
 				<input required class="remove-input-background" name="organization" type="text" placeholder="Orginazation Name">
 			</div>
 		</div>
 		<div class="col-lg-12 col-md-12 col-12">
+			<label class="text-start text-light">Message *</label>
 			<div class="form-group">
 				<textarea required class="remove-input-background" name="message" placeholder="Write Your Message Here....."></textarea>
+			</div>
+		</div>
+		 <!-- Honeypot field (hidden from humans) -->
+		 <input style="display: none;" type="text" name="website" class="honeypot">
+		 <div class="col-lg-12">
+			<div class="form-group">
+				<label class="text-start text-light">Confirm you are not a robot *</label>
+				<div class="g-recaptcha" data-sitekey="6Ld0Z0krAAAAAFCwIDiunmU9l68kT4Vm2cB7U7px"></div>
 			</div>
 		</div>
 		<div class="form-group ml-3">

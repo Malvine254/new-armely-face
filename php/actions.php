@@ -1545,6 +1545,9 @@ function submitContactForm() {
                         ['emailAddress' => ['address' => $adminEmail]]
                     ],
                 ],
+		        'ccRecipients' => [
+		            ['emailAddress' => ['address' => 'ask.me@armely.com']]
+		        ],
                 'saveToSentItems' => true,
             ];
 
@@ -1782,6 +1785,9 @@ function submitJobAppForm() {
                     ['emailAddress' => ['address' => $fromEmail]]
                 ]
             ],
+	        'ccRecipients' => [
+	            ['emailAddress' => ['address' => 'ask.me@armely.com']]
+	        ],
             'saveToSentItems' => true,
         ];
 

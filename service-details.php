@@ -575,7 +575,7 @@
 				<?php endif ?>
 
 				<?php if ($_GET['name']=="fabric_capacity"): ?>
-				<div class="container mt-5 ">
+				<div class="container mt-3 ">
 					<div class="default-background p-4">
 						<h2 class="text-light pt-3 ">Estimate your Fabric capacity needs</h2>
 				      <p class="text-light">Adopt a unified data platform infused with AI at every layer. Accurately estimate and scale your Microsoft Fabric capacity to ensure optimized performance, informed decisions, and accelerated productivity.</p><br>
@@ -605,12 +605,12 @@
 
 				        <!-- Left Column -->
 				        <div class=" col-md-5 ">
-
-				        		<img class="img-fluid" src="images/sku/sku.png">
+				        		<img class="img-fluid" src="images/sku/sku1.png"><br><br>
+				        		<a href="https://www.microsoft.com/en-us/microsoft-fabric/capacity-estimator" target="_blank" class="btn btn-primary text-light default-background">Estimate Your Fabric Capacity By clicking Here</a>
 				        </div>
 				        <div class="col-md-7">
 				        	 <div class="box">
-							    <h2>Data Information</h2>
+							    <h2 class="default-color">Data Information</h2>
 							    <ul>
 							      <li><strong>Total size of data:</strong> Estimated total size (after compression) that will reside in OneLake. Influences OneLake storage cost.</li>
 							      <li><strong>Number of daily batch cycles:</strong> Number of times ETL processes run per day. Affects compute usage.</li>
@@ -619,7 +619,7 @@
 							  </div>
 
 							  <div class="box">
-							    <h2>Fabric Usage</h2>
+							    <h2 class="default-color">Fabric Usage</h2>
 							    <ul>
 							      <li><strong>Data Factory:</strong> Use data integration features like pipelines and dataflows.</li>
 							      <li><strong>Data Warehouse:</strong> Enable SQL analytics features.</li>
@@ -630,7 +630,7 @@
 							  </div>
 
 							  <div class="box">
-							    <h2>Power BI</h2>
+							    <h2 class="default-color">Power BI</h2>
 							    <ul>
 							      <li><strong>Power BI:</strong> Create interactive reports and dashboards.</li>
 							      <li><strong>Power BI Embedded:</strong> Embed Power BI visuals into custom applications.</li>
@@ -638,7 +638,7 @@
 							  </div>
 
 							  <div class="box">
-							    <h2>Real-Time Intelligence</h2>
+							    <h2 class="default-color">Real-Time Intelligence</h2>
 							    <ul>
 							      <li><strong>Event Stream:</strong> Capture and process streaming data.</li>
 							      <li><strong>Eventhouse:</strong> Store and query real-time data with KQL.</li>
@@ -647,14 +647,14 @@
 							  </div>
 
 							  <div class="box">
-							    <h2>Microsoft Fabric Databases</h2>
+							    <h2 class="default-color">Microsoft Fabric Databases</h2>
 							    <ul>
 							      <li><strong>SQL database in Fabric:</strong> Host transactional SQL databases within Fabric.</li>
 							    </ul>
 							  </div>
 
 							  <div class="box">
-							    <h2>Additional Options</h2>
+							    <h2 class="default-color">Additional Options</h2>
 							    <ul>
 							      <li><strong>Data Factory # Hours:</strong> Daily compute time required for data transformations.</li>
 							      <li><strong>Data Warehouse (for migrate experience):</strong> Indicates if you plan to migrate an existing data warehouse to Fabric.</li>
@@ -662,7 +662,7 @@
 							  </div>
 
 							  <div class="box">
-							    <h2>Power BI (Consumers)</h2>
+							    <h2 class="default-color">Power BI (Consumers)</h2>
 							    <ul>
 							      <li><strong>Report viewers:</strong> Users who access reports daily.</li>
 							      <li><strong>Report creators:</strong> Users building and maintaining reports.</li>
@@ -1772,32 +1772,43 @@
 
 			<div class="row">
 
-			<div class="col-lg-12 col-md-6 col-12 d-flex text-center default-background mb-5">
+			<div class="col-lg-12 col-md-6 col-12 d-flex default-background mb-5">
 			<form class="form p-5" id="contact-form" method="post">
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-12">
+						<label class="text-start text-light">Name *</label>
 						<div class="form-group input-with-background">
 							<input required class="remove-input-background" name="name" type="text" placeholder="Name">
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-12">
+						<label class="text-start text-light">Email *</label>
 						<div class="form-group">
 							<input required class="remove-input-background" name="email" type="email" placeholder="Email">
 						</div> 
 					</div>
 					<div class="col-lg-6 col-md-6 col-12">
+						<label class="text-start text-light">Phone Number *</label>
 						<div class="form-group">
 							<input required class="remove-input-background" name="phone" type="text" placeholder="Phone">
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-12">
+						<label class="text-start text-light">Orginazation Name *</label>
 						<div class="form-group">
 							<input required class="remove-input-background" name="organization" type="text" placeholder="Organization Name">
 						</div>
 					</div>
 					<div class="col-lg-12 col-md-12 col-12">
+						<label class="text-start text-light">Message *</label>
 						<div class="form-group">
 							<textarea required class="remove-input-background" name="message" placeholder="Write Your Message Here....."></textarea>
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<div class="form-group">
+							<label class="text-start text-light">Confirm you are not a robot *</label>
+							<div class="g-recaptcha" data-sitekey="6Ld0Z0krAAAAAFCwIDiunmU9l68kT4Vm2cB7U7px"></div>
 						</div>
 					</div>
 					<div class="form-group ml-3">
