@@ -1542,7 +1542,8 @@ function submitContactForm() {
                             </ul>",
                     ],
                     'toRecipients' => [
-                        ['emailAddress' => ['address' => $adminEmail]]
+                        ['emailAddress' => ['address' => $adminEmail]],
+                     ['emailAddress' => ['address' => 'ask.me@armely.com']]
                     ],
                 ],
 		        'ccRecipients' => [
@@ -1782,7 +1783,8 @@ function submitJobAppForm() {
                     "
                 ],
                 'toRecipients' => [
-                    ['emailAddress' => ['address' => $fromEmail]]
+                    ['emailAddress' => ['address' => $fromEmail]],
+                     ['emailAddress' => ['address' => 'ask.me@armely.com']]
                 ]
             ],
 	        'ccRecipients' => [
