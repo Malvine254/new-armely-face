@@ -1,97 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Microsoft Fabric SKU Estimation Form</title>
-  <style>
-    body {
-      font-family: "Segoe UI", sans-serif;
-      background-color: #f9f9f9;
-      padding: 30px;
-      color: #333;
-    }
-    .box {
-      background-color: #fff;
-      border-left: 6px solid #0078D4;
-      padding: 20px;
-      margin-bottom: 25px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      border-radius: 6px;
-    }
-    .box h2 {
-      margin-top: 0;
-      color: #0078D4;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    ul li {
-      margin-bottom: 10px;
-    }
-  </style>
-</head>
-<body>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  .resource-card {
+    position: relative;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
 
-  <div class="box">
-    <h2>Data Information</h2>
-    <ul>
-      <li><strong>Total size of data:</strong> Estimated total size (after compression) that will reside in OneLake. Influences OneLake storage cost.</li>
-      <li><strong>Number of daily batch cycles:</strong> Number of times ETL processes run per day. Affects compute usage.</li>
-      <li><strong>Number of tables across all data sources:</strong> Helps evaluate the complexity of your data environment.</li>
-    </ul>
+  .resource-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .hot-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    animation: pulse 1.2s infinite;
+    z-index: 2;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.85; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .card-img-top {
+    height: 230px;
+    object-fit: contain;
+    padding: 20px;
+    background-color: #f8f9fa;
+  }
+
+  .card-title {
+    font-weight: 600;
+  }
+
+  .card-text {
+    color: #6c757d;
+  }
+
+  .btn-primary {
+    border-radius: 30px;
+    padding: 6px 20px;
+    font-weight: 600;
+  }
+</style>
+
+<div class="container py-4">
+  <div class="row g-4">
+    <!-- Card 1 -->
+    <div class="col-md-4">
+      <div class="card resource-card h-100 text-center">
+        <div class="hot-badge">🔥 Hot</div>
+        <img src="/mnt/data/A_2D_digital_vector_graphic_illustrates_a_data_str.png" class="card-img-top" alt="Data Strategy">
+        <div class="card-body">
+          <h5 class="card-title">Data Strategy Template</h5>
+          <p class="card-text">At Armely, our data strategy is designed to create measurable value across diverse sectors...</p>
+          <a href="#" class="btn btn-primary">Get Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-4">
+      <div class="card resource-card h-100 text-center">
+        <div class="hot-badge">🔥 Hot</div>
+        <img src="/mnt/data/A_digital_vector_graphic_design_features_SQL_HEALT.png" class="card-img-top" alt="SQL Health Check">
+        <div class="card-body">
+          <h5 class="card-title">SQL Health Check</h5>
+          <p class="card-text">In today's data-driven world, the reliability and performance of your SQL Server infrastructure is critical...</p>
+          <a href="#" class="btn btn-primary">Get Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-4">
+      <div class="card resource-card h-100 text-center">
+        <div class="hot-badge">🔥 Hot</div>
+        <img src="/mnt/data/A_flat_digital_graphic_design_illustration_feature.png" class="card-img-top" alt="PowerBI Inventory">
+        <div class="card-body">
+          <h5 class="card-title">PowerBI Inventory</h5>
+          <p class="card-text">As organizations increasingly rely on Microsoft Power Platform to drive digital transformation...</p>
+          <a href="#" class="btn btn-primary">Get Now</a>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="box">
-    <h2>Fabric Usage</h2>
-    <ul>
-      <li><strong>Data Factory:</strong> Use data integration features like pipelines and dataflows.</li>
-      <li><strong>Data Warehouse:</strong> Enable SQL analytics features.</li>
-      <li><strong>Data Science:</strong> Use machine learning models and experimentation tools.</li>
-      <li><strong>Spark Jobs:</strong> Enable big data processing via Apache Spark.</li>
-      <li><strong>Ad-Hoc SQL Analytics:</strong> Run SQL queries on OneLake without a dedicated warehouse.</li>
-    </ul>
-  </div>
-
-  <div class="box">
-    <h2>Power BI</h2>
-    <ul>
-      <li><strong>Power BI:</strong> Create interactive reports and dashboards.</li>
-      <li><strong>Power BI Embedded:</strong> Embed Power BI visuals into custom applications.</li>
-    </ul>
-  </div>
-
-  <div class="box">
-    <h2>Real-Time Intelligence</h2>
-    <ul>
-      <li><strong>Event Stream:</strong> Capture and process streaming data.</li>
-      <li><strong>Eventhouse:</strong> Store and query real-time data with KQL.</li>
-      <li><strong>Activator:</strong> Trigger real-time alerts and automated actions.</li>
-    </ul>
-  </div>
-
-  <div class="box">
-    <h2>Microsoft Fabric Databases</h2>
-    <ul>
-      <li><strong>SQL database in Fabric:</strong> Host transactional SQL databases within Fabric.</li>
-    </ul>
-  </div>
-
-  <div class="box">
-    <h2>Additional Options</h2>
-    <ul>
-      <li><strong>Data Factory # Hours:</strong> Daily compute time required for data transformations.</li>
-      <li><strong>Data Warehouse (for migrate experience):</strong> Indicates if you plan to migrate an existing data warehouse to Fabric.</li>
-    </ul>
-  </div>
-
-  <div class="box">
-    <h2>Power BI (Consumers)</h2>
-    <ul>
-      <li><strong>Report viewers:</strong> Users who access reports daily.</li>
-      <li><strong>Report creators:</strong> Users building and maintaining reports.</li>
-      <li><strong>Model size (optional):</strong> Estimated size of your Power BI dataset/model.</li>
-    </ul>
-  </div>
-
-</body>
-</html>
+</div>

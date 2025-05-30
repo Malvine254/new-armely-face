@@ -39,8 +39,15 @@
 </div>
 <div class="row">
 <!-- Single Table -->
+<div class="container py-4">
+  <div class="row g-4">
+   <?php displayFreemiums(); ?>
 
-<?php displayFreemiums(); ?>
+   
+  </div>
+</div>
+
+
 
 <!-- End Single Table-->
 
@@ -605,7 +612,7 @@
 
 				        <!-- Left Column -->
 				        <div class=" col-md-5 ">
-				        		<img class="img-fluid" src="images/sku/sku1.png"><br><br>
+				        		<img class="img-fluid" src="images/sku/sku2.png"><br><br>
 				        		<a href="https://www.microsoft.com/en-us/microsoft-fabric/capacity-estimator" target="_blank" class="btn btn-primary text-light default-background">Estimate Your Fabric Capacity By clicking Here</a>
 				        </div>
 				        <div class="col-md-7">

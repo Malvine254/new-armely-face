@@ -664,12 +664,12 @@ if ($formattedDate !== false) {
                 	$buttonText = "No Recording Link";
                     $buttonDisabled = "";
                     $background = "btn btn-warning ";
-                    $background2 = 'style="background: orange !important;"';
+                    $background2 = 'style="background: red !important;"';
                 }else {
                     $buttonText = "View Recording";
                     $buttonDisabled = "target='_blank' href='".$row['recorded_url']."'";
                     $background = "btn btn-danger ";
-                    $background2 = 'style="background: red !important;"';
+                    $background2 = 'style="background: orange !important;"';
 
                 }
                
@@ -2379,20 +2379,19 @@ function displayFreemiums(){
 	$select = $conn->query("SELECT title,body,image_url,url_get_name,snippet FROM freemium ORDER BY id DESC");
 	if ($select->num_rows>0) {
 		while ($row=$select->fetch_assoc()) {
-			echo '<div class="col-lg-4 col-md-12 col-12 shadow">
-		<div class="single-table card-shadow">
-			<!-- Table Head -->
-			<div class="table-head" style="height:auto">
-				<div class="icon">
-				<a href="'.$row['image_url'].'" target="_blank"><img src="'.$row['image_url'].'" style="height: 120px;"></a>
-				</div>
-				<h5 class="title">'.$row['title'].'</h5>
-				<p>'.substr($row['snippet'],0,100).'...</p>
-					<a href="service-details?name='.$row['title'].'" class="btn btn-primary">Get now</a>
-			</div>
+			echo ' <!-- Card 1 -->
+				    <div class="col-md-4 mb-3">
+				      <div class="card resource-card h-100 text-center">
+				        <div class="hot-badge">🔥 Hot</div>
+				        <a href="'.$row['image_url'].'"><img src="'.$row['image_url'].'" class="card-img-top" alt="Data Strategy"></a>
+				        <div class="card-body">
+				          <h5 class="card-title">'.$row['title'].'</h5>
+				          <p class="card-text">'.substr($row['snippet'],0,100).'...</p>
+				         <a href="service-details?name='.$row['title'].'" class="btn btn-primary default-background">Get now</a>
+				        </div>
+				      </div>
+				    </div>';
 			
-		</div>
-</div>';
 		}
 	}else{
 		echo "Nothing found!";
