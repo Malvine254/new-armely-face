@@ -2446,7 +2446,7 @@ function generateBlogMetaTags($blogId) {
     $result = $stmt->get_result();
 
     // Default metadata
-    $title = "Trusted source for digital excellence";
+    $title = "Trusted Source for Data, AI and Digital Excellence";
     $description = "Beyond Imagination!";
     $image = "https://armely.com/images/logo/logo1.png";
     $url = "https://armely.com";

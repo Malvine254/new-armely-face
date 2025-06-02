@@ -61,6 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $phone1    = sanitizeInput($_POST['phone1'] ?? '');
     $country1  = sanitizeInput($_POST['country1'] ?? '');
     $category1 = sanitizeInput($_POST['category1'] ?? '');
+    $time = date("Y-m-d H:i:s"); 
 
     if (!$email1) {
         echo "Invalid email.";
@@ -124,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p><strong>Phone:</strong> $phone1</p><hr>
             <p><strong>Country:</strong> $country1</p><hr>
             <p><strong>Category:</strong> $category1</p><hr>
-            <p><strong>Time:</strong> " . date("Y-m-d H:i:s") . "</p>
+            <p><strong>Time:</strong> $time</p>
         </div>
         </body>
         </html>
