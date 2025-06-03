@@ -33,7 +33,8 @@
     
 </div>
 
-  <div class="tab-content content-area">
+ <div class="tab-content " id="ex-with-icons-content ">
+  <div class="tab-pane fade show active" id="ex-with-icons-tabs-1" role="tabpanel" aria-labelledby="ex-with-icons-tab-1">
     <div class="mb-3">
       <form class="form-inline my-2 my-lg-0">
         <div class="input-group col" style="width: 350px;">
