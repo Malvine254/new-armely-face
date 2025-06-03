@@ -40,7 +40,7 @@
 
 <!-- Tabs content -->
 <center>
-  <div class="tab-content content-area shadow col-10 p-5 mt-5" id="ex-with-icons-content">
+  <div class=" content-area col-md-9  content-area shadow  mt-5" id="ex-with-icons-content">
     <div class="mb-3">
       <form class="form-inline my-2 my-lg-0">
         <div class="input-group col" style="width: 350px;">

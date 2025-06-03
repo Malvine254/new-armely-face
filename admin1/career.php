@@ -7,9 +7,8 @@
 
 <!-- Tabs content -->
 <center>
-  <div class="tab-content content-area shadow p-5 mt-5 " id="ex-with-icons-content">
-    <!-- Tabs navs -->
-<div class="content-area container">
+ <div class=" content-area col-md-9  content-area shadow  mt-5" id="ex-with-icons-content">
+  <div class="mb-3">
   <ul class="nav nav-tabs mb-3 mt-3" id="ex-with-icons" role="tablist">
   <li class="nav-item" role="presentation">
     <a data-mdb-tab-init class="nav-link active" id="ex-with-icons-tab-1" href="#ex-with-icons-tabs-1" role="tab"
@@ -33,10 +32,10 @@
     
 </div>
 
-  <div class="tab-content content-area">
+  <div class="tab-content col-md-12 mt-5">
     <div class="mb-3">
       <form class="form-inline my-2 my-lg-0">
-        <div class="input-group col" style="width: 350px;">
+        <div class="input-group col" style="width: auto;">
             <input class="form-control py-2 border-right-0 border col-md-12 bg-transparent" type="search" placeholder="Search..." id="searchInput" style="outline: none;">
             <span class="input-group-append">
                 <button class="btn btn-outline-secondary border-left-0 border" type="button" style="outline: none;">
@@ -59,7 +58,7 @@
     </form>
   </div>
     <div class="tab-pane fade show active" id="ex-with-icons-tabs-1" role="tabpanel" aria-labelledby="ex-with-icons-tab-1" style="height: 60vh; overflow: scroll;">
-    <table  class="table table-bordered" >
+    <table  class="table table-bordered myTable" >
       <div >
         <tr>
         <th>#</th>
@@ -79,7 +78,7 @@
   </div>
 
   <div class="tab-pane fade" id="ex-with-icons-tabs-2" role="tabpanel" aria-labelledby="ex-with-icons-tab-2" style="height: 60vh; overflow: scroll;">
-    <table class="table table-bordered">
+    <table class="table table-bordered myTable">
           <tr>
           <th>#</th>
           <th>Job Title</th>

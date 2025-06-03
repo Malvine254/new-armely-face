@@ -14,9 +14,9 @@ if ($blogData !== null) {
 
 <!-- Tabs content -->
  <!-- Main Content Area -->
-  <div class="content-area">
-    <!-- Tabs navs -->
-<div class="container">
+ <center>
+  <div class=" content-area col-md-9  content-area shadow  mt-5" id="ex-with-icons-content">
+    <div class="mb-3">
   <ul class="nav nav-tabs mb-3 mt-3" id="ex-with-icons" role="tablist">
   <li class="nav-item" role="presentation">
     <a data-mdb-tab-init class="nav-link active" id="ex-with-icons-tab-1" href="#ex-with-icons-tabs-1" role="tab"
@@ -48,10 +48,10 @@ if ($blogData !== null) {
   </li>
 
 </ul>
-<center>
+
   <div class="tab-content " id="ex-with-icons-content ">
   <div class="tab-pane fade show active" id="ex-with-icons-tabs-1" role="tabpanel" aria-labelledby="ex-with-icons-tab-1">
-    <form enctype="multipart/form-data" id="addBlogForm" class="row g-3 col-md-11 mt-2 shadow p-4" method="post">
+    <form enctype="multipart/form-data" id="addBlogForm" class="row g-3 col-md-11 mt-2 p-4" method="post">
       <div class="col-md-6">
         <div class="form-outline" data-mdb-input-init>
           <input name="blog_title" type="text" class="form-control" id="blog_title" required  value="<?php $blogData  = editBlogArticle(); if ($blogData !== null) {echo $blogData['title'];} else {echo "";} ?>" />
@@ -98,7 +98,7 @@ if ($blogData !== null) {
       </div>
 
       <div class="tab-pane fade" id="ex-with-icons-tabs-3" role="tabpanel" aria-labelledby="ex-with-icons-tab-3">
-        <form id="careerForm" class="row g-3 col-md-11 mt-4 shadow p-4">
+        <form id="careerForm" class="row g-3 col-md-11 mt-4  p-4">
       <div class="col-md-6">
         <div class="form-outline" data-mdb-input-init>
           <input name="career_title" type="text" class="form-control" id="career_title" required value="<?php $blogData  = editCareer(); if ($blogData !== null) {echo $blogData['job_title'];} else {echo "";} ?>" />
@@ -131,7 +131,7 @@ if ($blogData !== null) {
       </div>
       <!-- Beginning of post new event -->
       <div class="tab-pane fade" id="ex-with-icons-tabs-4" role="tabpanel" aria-labelledby="ex-with-icons-tab-4">
-         <form method="post" id="eventsForm" class="row g-3 col-md-11 mt-4 shadow p-4">
+         <form method="post" id="eventsForm" class="row g-3 col-md-11 mt-4  p-4">
           <div class="col-md-4">
             <div class="form-outline" data-mdb-input-init>
               <input name="event_title" type="text" class="form-control" id="event_title" required />
@@ -218,7 +218,7 @@ if ($blogData !== null) {
 
        <div class="tab-pane fade" id="ex-with-icons-tabs-6" role="tabpanel" aria-labelledby="ex-with-icons-tab-6">
        
-         <form id="customerStoriesForm" method="post" enctype="multipart/form-data" class="row g-3 col-md-11 mt-4 shadow p-4">
+         <form id="customerStoriesForm" method="post" enctype="multipart/form-data" class="row g-3 col-md-11 mt-4  p-4">
           <div class="col-md-4">
             <div class="form-outline" data-mdb-input-init>
               <input id="clientName" name="name" type="text" class="form-control" id="validationDefault07" required />
@@ -265,7 +265,7 @@ if ($blogData !== null) {
 
        <div class="tab-pane fade" id="ex-with-icons-tabs-7" role="tabpanel" aria-labelledby="ex-with-icons-tab-7">
        
-         <form id="socialImpactForm" method="post" enctype="multipart/form-data" class="row g-3 col-md-11 mt-4 shadow p-4">
+         <form id="socialImpactForm" method="post" enctype="multipart/form-data" class="row g-3 col-md-11 mt-4  p-4">
           <div class="col-md-4">
             <div class="form-outline" data-mdb-input-init>
               <input id="clientName" name="name" type="text" class="form-control" id="validationDefault07" required />

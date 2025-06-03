@@ -172,16 +172,23 @@ function displayJobPosted(){
 }
 }
 
-function displayLocations(){
-   
+function displayLocations() {
     require '../php/config.php';
-    $select = $conn->query("SELECT * FROM job_applications");
-    if ($select->num_rows>0) {
-        while ($row=$select->fetch_assoc()) {
-            echo "<option>".$row['address']. "</option>";
+
+    $select = $conn->query("SELECT address FROM job_applications");
+    if ($select->num_rows > 0) {
+        $seen = []; // To track lowercase versions of addresses
+        while ($row = $select->fetch_assoc()) {
+            $address = $row['address'];
+            $lowerAddress = strtolower($address);
+            if (!in_array($lowerAddress, $seen)) {
+                $seen[] = $lowerAddress;
+                echo "<option>" . htmlspecialchars($address) . "</option>";
+            }
+        }
+    }
 }
-}
-}
+
 
 
 function displayBlogsTable(){
