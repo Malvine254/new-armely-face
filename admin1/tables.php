@@ -40,7 +40,7 @@
 
 <!-- Tabs content -->
 <center>
-  <div class=" content-area col-md-9  content-area shadow  mt-5" id="ex-with-icons-content">
+  <div class="tab-content  content-area shadow col-md-9 mt-5" id="ex-with-icons-content">
     <div class="mb-3">
       <form class="form-inline my-2 my-lg-0">
         <div class="input-group col" style="width: 350px;">
@@ -53,7 +53,7 @@
         </div>
 
         <div class="input-group col" style="width: 350px;">
-            <select class="form-control py-2 border-right-0 border col-md-12 bg-transparent" type="search" placeholder="Search..." id="example-search-input" style="outline: none;">
+            <select class="form-control py-2 border-right-0 border  bg-transparent" type="search" placeholder="Search..." id="example-search-input" style="outline: none;">
               <option>Filter By</option>
               <option>Ascending</option>
               <option>Descending</option>
@@ -180,7 +180,7 @@
         </form>
       </div>
       <div class="tab-pane fade" id="ex-with-icons-tabs-7" role="tabpanel" aria-labelledby="ex-with-icons-tab-7">
-         <form class="row g-3 col-md-11 mt-4 shadow p-4">
+         <form class="row g-3 mt-4 shadow p-4">
 
           <div class="col-md-12">
             <div class="form-outline" data-mdb-input-init>
@@ -203,7 +203,7 @@
     </div>
 </center>
 <!-- Tabs content -->
-</div>
+
 
 
 <!-- End your project here-->
