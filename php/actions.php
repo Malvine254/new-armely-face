@@ -1499,7 +1499,7 @@ function submitContactForm() {
 
     // Store in database
     $stmt = $conn->prepare("INSERT INTO contacts (name, email, organization, phone, message,sent_date) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $name, $email, $organization, $phone, $message,$subject,$sent_date);
+    $stmt->bind_param("ssssss", $name, $email, $organization, $phone, $message,$subject,$sent_date);
 
     if ($stmt->execute()) {
         try {
