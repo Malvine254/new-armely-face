@@ -1446,13 +1446,18 @@ function submitContactForm() {
     $clientSecret = $_ENV['AZURE_CLIENT_SECRET'];
     $fromEmail    = $_ENV['FROM_EMAIL'];
     $adminEmail   = $fromEmail;
-
+   
+   date_default_timezone_set('America/Chicago'); // or your region
+	
     // Sanitize input
     $name         = trim(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING));
     $email        = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
     $organization = trim(filter_input(INPUT_POST, 'organization', FILTER_SANITIZE_STRING));
     $phone        = trim(filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING));
     $message      = trim(filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING));
+     $subject      = trim(filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING));
+     
+     $sent_date = date('c'); // ISO 8601 format: 2025-06-20T14:35:00+03:00
 
     // Basic validation
 
@@ -1493,8 +1498,8 @@ function submitContactForm() {
     }
 
     // Store in database
-    $stmt = $conn->prepare("INSERT INTO contacts (name, email, organization, phone, message) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $name, $email, $organization, $phone, $message);
+    $stmt = $conn->prepare("INSERT INTO contacts (name, email, organization, phone, message,sent_date) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $name, $email, $organization, $phone, $message,$subject,$sent_date);
 
     if ($stmt->execute()) {
         try {
