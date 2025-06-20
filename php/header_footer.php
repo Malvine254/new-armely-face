@@ -36,9 +36,9 @@ function getHeader($pageName) {
 		
 		<!-- Favicon -->
        <link rel="icon" href="images/logo/logo1.png">
-       <link rel="preload" as="image" href="images/sliders/slider-1.jpg">
-	   <link rel="preload" as="image" href="images/sliders/slider-2.jpg">
-	   <link rel="preload" as="image" href="images/sliders/slider-3.jpg">
+       <link rel="preload" as="image" href="images/sliders/slider-1.webp">
+	   <link rel="preload" as="image" href="images/sliders/slider-2.webp">
+	   <link rel="preload" as="image" href="images/sliders/slider-3.webp">
 		<!-- Google Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
@@ -65,15 +65,16 @@ function getHeader($pageName) {
 		
 		<!-- Medipro CSS -->
         <link rel="stylesheet" href="css/normalize_1.css"> 
-        <link rel="stylesheet" href="style2.css">
+        <link rel="stylesheet" href="style3.css">
         <link rel="stylesheet" href="css/responsive.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 		
     </head>
     <body>
     <div class="announcement-banner default-background" id="announcementBanner">
-	    📢 <b>Estimate your Fabric capacity needs!</b> Check out Microsoft Fabric SKU Estimator. <a href="service-details?name=fabric_capacity">Learn More</a>
-	    <span class="close-btn" onclick="closeBanner()">&times;</span>
+	    📢 <!--<b>Estimate your Fabric capacity needs!</b> Check out Microsoft Fabric SKU Estimator. <a href="service-details?name=fabric_capacity">Learn More</a>--->
+		    <b>Do you need AI Proof of Concept (PoC) Starter Pack ?</b> Request your AI Proof of Concept Starter Pack Today. <a href="service-details?name=pocstarter-ai">Learn More</a>
+		    <span class="close-btn" onclick="closeBanner()">&times;</span>
 	</div>
 	
 		<section>	
@@ -157,6 +158,7 @@ function getHeader($pageName) {
 			                          <li><a href="service-details?name=ai-consulting">AI Consulting</a></li>
 			                          <li><a href="service-details?name=ai-advisory">AI Advisory</a></li>
 			                          <li><a href="service-details?name=generative-ai">Generative AI</a></li>
+			                          <li><a href="service-details?name=pocstarter-ai">AI PoC Starter</a></li>
 			                      </ul>
 
 			                  </li>
@@ -517,27 +519,7 @@ return <<<HTML
 <!-- more settings  -->
 
 <script src="js/more-options3.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Initialize WOW.js (For animations on scroll)
-        if (typeof WOW !== "undefined") {
-            new WOW().init();
-        } else {
-            console.warn("WOW.js not found!");
-        }
 
-        // Initialize Lozad.js for Lazy Loading
-        if (typeof lozad !== "undefined") {
-            const observer = lozad();
-            observer.observe();
-        } else {
-            console.warn("Lozad.js not found!");
-        }
-
-        // Ensure that images have the 'lozad' class (This should be before initializing lozad)
-        document.querySelectorAll("img").forEach(img => img.classList.add("lozad"));
-    });
-</script>
 
 </body>
 </html>

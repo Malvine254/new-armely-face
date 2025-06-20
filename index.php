@@ -116,10 +116,12 @@
          	<p class="text-center">Your Reliable Hub for Digital Excellence, Committed to Caring, Building Relationships, Backed by Industry Expertise and Recognized for Award-Winning Achievements.</p>
         </div>
 
+
         <div class="owl-carousel clients-carousel">
           <?php echo displayPartnersLogo(); ?>
         </div>
       </div>
+      
 
     </section>
 

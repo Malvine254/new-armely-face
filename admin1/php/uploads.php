@@ -358,4 +358,30 @@ if (isset($_FILES["team_image"]["name"]) && isset($_POST['team_body']) && isset(
 
 }
 
+function UpdateJobPosting() {
+    include '../../php/config.php'; 
+
+
+    // Check if this is an update
+    if (isset($_GET['editId']) && $_GET['type'] === 'vidcareereo') {
+        $editId = intval($_GET['editId']);
+
+        // Update existing video
+        $stmt = $conn->prepare("UPDATE career SET url = ? WHERE id = ?");
+        $stmt->bind_param("si", $iframeContents, $editId);
+
+        echo $stmt->execute() ? "Updated" : "Update failed: " . $conn->error;
+        $stmt->close();
+    } else {
+        // Insert new video
+        $stmt = $conn->prepare("INSERT INTO videos (url) VALUES (?)");
+        $stmt->bind_param("s", $iframeContents);
+
+        echo $stmt->execute() ? "Inserted" : "Insert failed: " . $conn->error;
+        $stmt->close();
+    }
+
+    $conn->close();
+}
+
 ?>

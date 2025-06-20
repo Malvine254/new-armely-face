@@ -1,5 +1,6 @@
 <?php require 'php/check_session.php'; include "php/uploads.php"; include "php/header_footer.php";include "php/users.php"; include "php/tables.php"; ?>
 
+
 <?php 
 $blogData  = editBlogArticle(); 
 if ($blogData !== null) {
@@ -15,6 +16,7 @@ if ($blogData !== null) {
 <!-- Tabs content -->
  <!-- Main Content Area -->
  <center>
+
   <div class=" content-area col-md-9  content-area shadow  mt-5" id="ex-with-icons-content">
     <div class="mb-3">
   <ul class="nav nav-tabs mb-3 mt-3" id="ex-with-icons" role="tablist">
@@ -107,7 +109,7 @@ if ($blogData !== null) {
       </div>
       <div class="col-md-6">
         <div class="form-outline" data-mdb-input-init>
-          <input placeholder="date" name="career_image" type="date" class="form-control" id="career_image" required />
+          <input  placeholder="date" name="career_image" type="date" value="<?php $blogData  = editCareer(); if ($blogData !== null) {echo $blogData['deadline'];} else {echo "Job description here...";} ?>" class="form-control" id="career_image" required />
         </div>
       </div>
       
@@ -321,29 +323,28 @@ if ($blogData !== null) {
 
 <!-- End your project here-->
   </div>
-
-
 <?php echo getFooter(); ?>
 <script>
   $(document).ready(function () {
     const urlParams = new URLSearchParams(window.location.search);
-    const type = urlParams.get('type');
+    const type = urlParams.get("type");
 
-    if (type === "blog") {
-      console.log("Activating blog tab...");
-      const tabTriggerEl = document.querySelector('#ex-with-icons-tab-1');
-      const tab = new mdb.Tab(tabTriggerEl);  // MDB's JavaScript API
-      tab.show();
-    }else if (type === "video") {
-      console.log("Activating blog tab...");
-      const tabTriggerEl = document.querySelector('#ex-with-icons-tab-2');
-      const tab = new mdb.Tab(tabTriggerEl);  // MDB's JavaScript API
-      tab.show();
-    }else if (type === "career") {
-      console.log("Activating blog tab...");
-      const tabTriggerEl = document.querySelector('#ex-with-icons-tab-3');
-      const tab = new mdb.Tab(tabTriggerEl);  // MDB's JavaScript API
-      tab.show();
+    const tabMap = {
+      blog: '#ex-with-icons-tab-1',
+      video: '#ex-with-icons-tab-2',
+      career: '#ex-with-icons-tab-3',
+      event: '#ex-with-icons-tab-4',
+      team: '#ex-with-icons-tab-5',
+      customer: '#ex-with-icons-tab-6',
+      impact: '#ex-with-icons-tab-7'
+    };
+
+    const tabId = tabMap[type];
+
+    if (tabId && $(tabId).length) {
+      $(tabId).tab('show');  // jQuery Bootstrap-compatible tab activation
+    } else {
+      console.warn("Tab element not found or type is invalid:", type);
     }
   });
 </script>
@@ -351,7 +352,8 @@ if ($blogData !== null) {
 
 
 
-</script>
+
+
 
 
 

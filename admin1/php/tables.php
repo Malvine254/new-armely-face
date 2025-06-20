@@ -317,6 +317,8 @@ function editBlogArticle() {
        
 }
 
+
+
 function editVideos() {
     require '../php/config.php';
     global $conn; // Add this line
@@ -351,16 +353,16 @@ function editCareer() {
         if ($_GET['type'] === "career") {
             $editId = intval($_GET['editId']);
 
-                $stmt = $conn->query("SELECT job_title, job_description  FROM career WHERE id = $editId");
+                $stmt = $conn->query("SELECT job_title, job_description,job_deadline  FROM career WHERE id = $editId");
 
                 if ($stmt && $stmt->num_rows > 0) {
                     $row = $stmt->fetch_assoc();
                     return [
                         'job_title' => $row['job_title'],
-                        'job_description' => $row['job_description']
+                        'job_description' => $row['job_description'],'deadline'=>date('Y-m-d', strtotime($row['job_deadline']))
                     ];
                 } else {
-                    return "blah blah"; // You may want to return null instead
+                    return ""; // You may want to return null instead
                 }
             }
 

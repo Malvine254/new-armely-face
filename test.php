@@ -1,102 +1,107 @@
-git add .
-git commit -m "Your commit message here"
-git push origin main
+<?php include 'php/actions.php'; include 'php/header_footer.php';?>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<style>
-  .resource-card {
-    position: relative;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-  }
+<!-- Start of Header Area -->
+<?php  echo getHeader("social impact"); ?>
+<!-- End Header Area -->
+  <style>
+    body {
+      background-color: #f9fafb;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .hero {
+      background: linear-gradient(135deg, #4f46e5, #3b82f6);
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+    }
+    .section {
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      margin-bottom: 2rem;
+    }
+    .boxed-list {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .boxed-item {
+      border: 1px solid #e2e8f0;
+      background-color: #f8fafc;
+      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .boxed-item::before {
+      content: '▢';
+      color: #3b82f6;
+      font-weight: bold;
+      margin-top: 0.1rem;
+    }
+    .boxed-item strong {
+      color: #2563eb;
+    }
+    .cta-btn {
+      background-color: #3b82f6;
+      color: white;
+      font-weight: bold;
+    }
+    .cta-btn:hover {
+      background-color: #2563eb;
+    }
+  </style>
+</head>
+<body>
 
-  .resource-card:hover {
-    transform: translateY(-5px);
-  }
+  <div class="container my-5">
+    <div class="hero text-center default-background ">
+      <h1 class="display-5 fw-bold text-light">Ready to See AI in Action?</h1>
+      <p class="lead mt-3 text-light">Let’s get you started with low-risk Proof of Concept Starter Pack!</p>
+    </div>
 
-  .hot-badge {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background: linear-gradient(45deg, #ff416c, #ff4b2b);
-    color: #fff;
-    padding: 4px 10px;
-    border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    animation: pulse 1.2s infinite;
-    z-index: 2;
-  }
+    <div class="section">
+      <p>
+        Have you been wondering how AI could actually help your business? Its time to stop wondering and start seeing for yourself!
+        Our AI Proof of Concept (PoC) Starter Pack is your friendly, fast-track ticket to understanding how AI can make a real difference, specifically for what you do.
+      </p>
+      <p>
+        We get it – jumping into AI can seem like a huge leap. That's exactly why we made this Starter Pack super easy to try out.
+        It's low risk, packed with potential, and designed to give you awesome insights.
+        You'll get a clear, hands-on look at AI solving a specific challenge in your company, all ZERO commitment and ZERO budget.
+      </p>
+    </div>
 
-  @keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.1); opacity: 0.85; }
-    100% { transform: scale(1); opacity: 1; }
-  }
-
-  .card-img-top {
-    height: 230px;
-    object-fit: contain;
-    padding: 20px;
-    background-color: #f8f9fa;
-  }
-
-  .card-title {
-    font-weight: 600;
-  }
-
-  .card-text {
-    color: #6c757d;
-  }
-
-  .btn-primary {
-    border-radius: 30px;
-    padding: 6px 20px;
-    font-weight: 600;
-  }
-</style>
-
-<div class="container py-4">
-  <div class="row g-4">
-    <!-- Card 1 -->
-    <div class="col-md-4">
-      <div class="card resource-card h-100 text-center">
-        <div class="hot-badge">🔥 Hot</div>
-        <img src="/mnt/data/A_2D_digital_vector_graphic_illustrates_a_data_str.png" class="card-img-top" alt="Data Strategy">
-        <div class="card-body">
-          <h5 class="card-title">Data Strategy Template</h5>
-          <p class="card-text">At Armely, our data strategy is designed to create measurable value across diverse sectors...</p>
-          <a href="#" class="btn btn-primary">Get Now</a>
-        </div>
+    <div class="section">
+      <h4>Don’t just take our word for it! With our AI PoC Starter Pack, you will:</h4>
+      <div class="boxed-list">
+        <div class="boxed-item "><strong class="default-color">See immediate value:</strong> Witness AI solve a real problem for your business in weeks, not months.</div>
+        <div class="boxed-item"><strong class="default-color">De-risk your AI journey:</strong> Test the waters with a clear scope and predefined outcomes, minimizing uncertainty.</div>
+        <div class="boxed-item"><strong class="default-color">Gain actionable insights:</strong> Understand exactly how AI can optimize your operations, boost efficiency, or unlock new opportunities.</div>
+        <div class="boxed-item"><strong class="default-color">Empower your team:</strong> Provide concrete examples of AI's capabilities, fostering internal buy-in and innovation.</div>
+        <div class="boxed-item"><strong class="default-color">Build a strong foundation:</strong> Lay the groundwork for future, larger-scale AI initiatives with confidence.</div>
       </div>
     </div>
 
-    <!-- Card 2 -->
-    <div class="col-md-4">
-      <div class="card resource-card h-100 text-center">
-        <div class="hot-badge">🔥 Hot</div>
-        <img src="/mnt/data/A_digital_vector_graphic_design_features_SQL_HEALT.png" class="card-img-top" alt="SQL Health Check">
-        <div class="card-body">
-          <h5 class="card-title">SQL Health Check</h5>
-          <p class="card-text">In today's data-driven world, the reliability and performance of your SQL Server infrastructure is critical...</p>
-          <a href="#" class="btn btn-primary">Get Now</a>
-        </div>
+    <div class="section">
+      <h4>Just imagine…</h4>
+      <div class="boxed-list">
+        <div class="boxed-item">Quickly draft personalized internal communications, summarize documents, or generate training materials from your secure, internal data.</div>
+        <div class="boxed-item">Automate tedious manual processes like sorting inquiries or processing reports, freeing your team for strategic tasks, all without exposing sensitive data externally.</div>
+        <div class="boxed-item">Power a smart internal chatbot with AI to answer HR questions or provide policy access, all from your internal knowledge base.</div>
+        <div class="boxed-item">Streamlining data entry and validation for critical internal systems with Intelligent Automation, slashing errors and speeding up workflows, all while keeping your data strictly confidential.</div>
       </div>
     </div>
 
-    <!-- Card 3 -->
-    <div class="col-md-4">
-      <div class="card resource-card h-100 text-center">
-        <div class="hot-badge">🔥 Hot</div>
-        <img src="/mnt/data/A_flat_digital_graphic_design_illustration_feature.png" class="card-img-top" alt="PowerBI Inventory">
-        <div class="card-body">
-          <h5 class="card-title">PowerBI Inventory</h5>
-          <p class="card-text">As organizations increasingly rely on Microsoft Power Platform to drive digital transformation...</p>
-          <a href="#" class="btn btn-primary">Get Now</a>
-        </div>
-      </div>
+    <div class="section text-center">
+      <p class="fs-5">This isn't a demo; it's a personalized exploration of AI's potential for your business.</p>
+      <a href="#request" class="btn btn-lg cta-btn mt-3  default-background">Click here to request your AI Proof of Concept Starter Pack</a>
     </div>
   </div>
-</div>
+
+</body>
+</html>

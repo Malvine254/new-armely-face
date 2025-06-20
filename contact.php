@@ -57,7 +57,9 @@
 							<div class="col-lg-6">
 								<label class="text-start">Subject *</label>
 								<div class="form-group">
-									<input type="text" name="subject" placeholder="Subject" required="">
+									
+									<input type="text" name="subject" placeholder="Subject" required="" value="<?php echo isset($_GET['subject']) ? htmlspecialchars($_GET['subject'], ENT_QUOTES, 'UTF-8') : ''; ?>">
+
 								</div>
 							</div>
 								<div class="col-lg-12">

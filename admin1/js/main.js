@@ -557,3 +557,5 @@ $('#teamForm').submit(function(event) {
       }
     });
   }); 
+
+// edit manage user page tbs contents
