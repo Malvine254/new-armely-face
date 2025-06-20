@@ -1456,7 +1456,7 @@ function submitContactForm() {
     $phone        = trim(filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING));
     $message      = trim(filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING));
      $subject      = trim(filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING));
-     
+
      $sent_date = date('c'); // ISO 8601 format: 2025-06-20T14:35:00+03:00
 
     // Basic validation
@@ -1542,6 +1542,7 @@ function submitContactForm() {
                                 <li><b>Name:</b> $name</li>
                                 <li><b>Email:</b> $email</li>
                                 <li><b>Organization:</b> $organization</li>
+                                <li><b>Subject:</b> $subject</li>
                                 <li><b>Phone:</b> $phone</li>
                                 <li><b>Message:</b><br>$message</li>
                             </ul>",
