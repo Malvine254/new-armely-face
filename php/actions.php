@@ -1486,7 +1486,7 @@ function submitContactForm() {
 	    exit("reCAPTCHA failed. Try again.");
 	}
 
-    if (empty($name) || empty($subject) || empty($email) || empty($message)) {
+    if (empty($name) || empty($email) || empty($message)) {
         echo "Please fill in all required fields.";
         return;
     }
