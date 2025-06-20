@@ -1486,7 +1486,7 @@ function submitContactForm() {
 	    exit("reCAPTCHA failed. Try again.");
 	}
 
-    if (empty($name) || empty($email) || empty($message)) {
+    if (empty($name) || empty($subject) || empty($email) || empty($message)) {
         echo "Please fill in all required fields.";
         return;
     }
@@ -1498,7 +1498,7 @@ function submitContactForm() {
     }
 
     // Store in database
-    $stmt = $conn->prepare("INSERT INTO contacts (name, email, organization, phone, message,subject,sent_date) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO contacts (name, email, organization, phone, message,subject,sent_date) VALUES (?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssss", $name, $email, $organization, $phone, $message,$subject,$sent_date);
 
     if ($stmt->execute()) {
