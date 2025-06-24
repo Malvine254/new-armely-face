@@ -65,7 +65,7 @@ function getHeader($pageName) {
 		
 		<!-- Medipro CSS -->
         <link rel="stylesheet" href="css/normalize_1.css"> 
-        <link rel="stylesheet" href="style3.css">
+        <link rel="stylesheet" href="style4.css">
         <link rel="stylesheet" href="css/responsive.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 		

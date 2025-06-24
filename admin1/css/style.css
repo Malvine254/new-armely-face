@@ -215,3 +215,7 @@ a.list-group-item, .list-group-item-action {
     margin-left: 0;
   }
 }
+.default-background,
+.default-button {
+  background: #2f5597 !important
+}

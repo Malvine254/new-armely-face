@@ -93,7 +93,7 @@
 <div class="container-fluid">
 <div class="row">
 <div class="col-lg-12 col-12">
-<div class="owl-carousel portfolio-slider">
+<div class="owl-carousel portfolio-slider ">
 	
 	<?php displayRecentIndustryListings() ?>
 	
@@ -114,10 +114,10 @@
           <h2 class="section-title"><b>Our Partners</b><center><hr class="default-background hr" ></center></h2>
 
          	<p class="text-center">Your Reliable Hub for Digital Excellence, Committed to Caring, Building Relationships, Backed by Industry Expertise and Recognized for Award-Winning Achievements.</p>
-        </div>
+        </div> 
 
 
-        <div class="owl-carousel clients-carousel">
+        <div class="owl-carousel clients-carousel partner-carousel">
           <?php echo displayPartnersLogo(); ?>
         </div>
       </div>

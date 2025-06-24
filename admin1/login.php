@@ -8,14 +8,15 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="icon" href="../images/logo/logo1.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body class="d-flex align-items-center justify-content-center" style="height: 100vh;">
     <div class="container">
         <div class="row">
             <div class="col-md-6 mx-auto">
-                <div class="card shadow">
+                <div class="card shadow default-background">
                     <div class="card-body">
-                        <h2 class="text-center mb-4">Admin Login</h2>
+                        <h2 class="text-center mb-4 text-light">Admin Login</h2>
                         <form class="container" method="post">
                             <div class="form-group">
                                 <div class="input-group">
@@ -34,7 +35,7 @@
                                 </div>
                             </div>
                              <button name="login_btn" type="submit" class="btn btn-primary btn-block">Login</button>
-                              <p class="mt-1">Forgot your password? <a href="reset">Click here</a></p>
+                              <p class="mt-1 text-light ">Forgot your password? <a href="reset" class="text-primary">Click here</a></p>
                            
                           
                         </form>
