@@ -2178,18 +2178,23 @@ function displayGallery() {
                 $image_url = htmlspecialchars($row['image_url']);
                 // Convert comma-separated string into array
 			     $images_array = explode(",", $image_url);
-	    		 $first_image = htmlspecialchars(trim($images_array[0]));
-               
+	    		
 
                 // Display the blog post
-                echo '
-            <!-- Blog Card 5 -->
-            <a class=" " href="images/social-impact/'.$first_image.'" target="_blank">
-            <div class="blog-card card-shadow p-2">
-                <img style="max-height: 300px; height: 250px;" src="images/social-impact/'.$first_image.'" alt="Blog Image" class="img-fluid">
-               
-            </div></a>
-             ';
+                
+
+            	foreach ($images_array as $allimages ) {
+                	echo '
+		            <!-- Blog Card 5 -->
+		            <a class=" " href="images/social-impact/'.$allimages.'" target="_blank">
+		            <div class="blog-card card-shadow p-2">
+		                
+		                <img style="max-height: 300px; height: 250px;" src="images/social-impact/'.$allimages.'" alt="Blog Image" class="img-fluid">
+		               
+		            </div></a>';
+                }
+
+
             }
         } else {
             echo "No records found!";
