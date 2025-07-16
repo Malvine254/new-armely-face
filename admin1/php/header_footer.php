@@ -297,7 +297,7 @@ return <<<HTML
 
 <!-- MDB -->
 <script src="js/mdb.umd.min.js"></script>
-<script src="js/main.js"></script>
+<script src="js/main1.js"></script>
 
 </body>
 </html>

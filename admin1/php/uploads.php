@@ -384,4 +384,99 @@ function UpdateJobPosting() {
     $conn->close();
 }
 
+
+function handleSocialImpactUpload()
+{
+    $response = ['success' => false, 'message' => 'Unknown error'];
+
+    if (
+        isset($_POST['name'], $_POST['body_content'], $_POST['category']) &&
+        isset($_FILES['position'])
+    ) {
+        $title = $_POST['name'];
+        $body = $_POST['body_content'];
+        $category = $_POST['category'];
+        $posted_date = date("F j, Y");
+        $secure_id = rand(500000, 599999);
+        $author_name = "John Doe"; // Update as needed
+        $author_title = "Fabric Analyst"; // Update as needed
+        $snippet = strip_tags($body);
+        $snippet = substr($snippet, 0, 90);
+
+        $uploadDir = '../../images/social-impact/';
+        $allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/jpg'];
+        $uploadedImageUrls = [];
+
+        $files = $_FILES['position'];
+        $fileCount = is_array($files['name']) ? count($files['name']) : 1;
+
+        for ($i = 0; $i < $fileCount; $i++) {
+            $fileName = is_array($files['name']) ? $files['name'][$i] : $files['name'];
+            $fileType = is_array($files['type']) ? $files['type'][$i] : $files['type'];
+            $tmpName = is_array($files['tmp_name']) ? $files['tmp_name'][$i] : $files['tmp_name'];
+
+            if (in_array($fileType, $allowedTypes)) {
+                $safeName = time() . '_' . basename($fileName);
+                $targetPath = $uploadDir . $safeName;
+                if (move_uploaded_file($tmpName, $targetPath)) {
+                    $uploadedImageUrls[] = $safeName;
+                }
+            }
+        }
+
+if (count($uploadedImageUrls) > 0) {
+    $image_url = implode(',', $uploadedImageUrls); // For social_impact
+
+    include '../../php/config.php'; 
+
+    // Insert into social_impact table
+    $stmt = $conn->prepare("INSERT INTO social_impact (title, body, image_url, category, posted_date, secure_id, author_name, author_title, snippet) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssssss", $title, $body, $image_url, $category, $posted_date, $secure_id, $author_name, $author_title, $snippet);
+
+    if ($stmt->execute()) {
+        $response = ['success' => true, 'message' => 'Social Impact story added successfully'];
+
+        // Insert each image individually into gallery
+        $stmt1 = $conn->prepare("INSERT INTO gallery (image_url) VALUES (?)");
+
+        foreach ($uploadedImageUrls as $img) {
+            $cleanedImage = trim($img);
+            $stmt1->bind_param("s", $cleanedImage);
+            $stmt1->execute();
+        }
+
+        $stmt1->close();
+    } else {
+        $response['message'] = 'Insert failed: ' . $stmt->error;
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+ else {
+            $response['message'] = 'No valid image files uploaded';
+        }
+    } else {
+        $response['message'] = 'Required fields missing';
+    }
+
+    return $response;
+}
+
+// ✅ Only run the function when POST data exists
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)) {
+    echo json_encode(handleSocialImpactUpload());
+    exit;
+}
+
+
+
+
+
+
+
+
+
+
+
 ?>

@@ -276,15 +276,15 @@ if ($blogData !== null) {
           </div>
            <div class="col-md-4">
             <div class="form-outline" data-mdb-input-init>
-              <input accept=".jpg, .png, .jpeg, .webp" id="clientPosition" name="position" type="file" class="form-control" id="validationDefault01" required />
+              <input accept=".jpg, .png, .jpeg, .webp" id="clientPosition" name="position[]" multiple type="file" class="form-control" id="validationDefault01" required />
               <label for="validationDefault01" class="form-label">Anchor Image</label>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-outline" data-mdb-input-init>
-              <select class="form-control py-2 border-right-0 border col-md-12 bg-transparent" type="search" placeholder="Search..." id="example-search-input" style="outline: none;">
-              <option value="1">Future Visit</option>
-              <option value="2">New Visit</option>
+              <select name="category" class="form-control py-2 border-right-0 border col-md-12 bg-transparent" type="search" placeholder="Search..." id="example-search-input" style="outline: none;">
+              <option value="future">Future Visit</option> 
+              <option value="new">New Visit</option>
               </select>
                <label for="validationDefault01" class="form-label">Category</label>
             </div>

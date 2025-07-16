@@ -558,4 +558,67 @@ $('#teamForm').submit(function(event) {
     });
   }); 
 
-// edit manage user page tbs contents
+// Add new social impact
+
+ 
+$('#socialImpactForm').submit(function(event) {
+  event.preventDefault();
+
+  var form = $('#socialImpactForm')[0];
+  var formData = new FormData(form);
+
+  // Manually get CKEditor content (overwrite textarea value)
+  formData.set('body_content', CKEDITOR.instances['newSocialImpactBody'].getData());
+
+  $.ajax({
+    type: 'POST',
+    url: 'php/uploads.php', // Match this with your PHP script path
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function(response) {
+      try {
+        const res = JSON.parse(response); // If you return JSON
+        if (res.success) {
+          Swal.fire({
+            title: 'Success!',
+            text: res.message,
+            icon: 'success',
+            confirmButtonColor: 'rgb(47,85,151)'
+          });
+          $('#socialImpactForm')[0].reset();
+          CKEDITOR.instances.newSocialImpactBody.setData('');
+        } else {
+          Swal.fire({
+            title: 'Error',
+            text: res.message,
+            icon: 'error',
+            confirmButtonColor: 'rgb(47,85,151)'
+          });
+        }
+      } catch (e) {
+        console.error('Response is not valid JSON:', response);
+        Swal.fire({
+          title: 'Unexpected Response',
+          text: response,
+          icon: 'warning',
+          confirmButtonColor: 'rgb(47,85,151)'
+        });
+      }
+    },
+    error: function(xhr) {
+      Swal.fire({
+        title: 'Submission Failed',
+        text: xhr.statusText,
+        icon: 'error',
+        confirmButtonColor: 'rgb(47,85,151)'
+      });
+    }
+  });
+});
+
+// .........................end of submit new career banner..........................
+
+
+
+

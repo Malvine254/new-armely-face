@@ -1982,24 +1982,30 @@ function displayNewSocialImpact() {
 
     try {
         // Use a prepared statement to fetch the recent 14 blogs, selecting only the needed columns
-        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category,id,secure_id,snippet FROM social_impact WHERE category='new' ORDER BY id DESC LIMIT 3");
+        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category,id,secure_id,snippet FROM social_impact WHERE category='new' ORDER BY id DESC LIMIT 5");
         $stmt->execute();
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                // Sanitize output to prevent XSS attacks
-                $body = substr($row['snippet'],0,200);
-                $title = htmlspecialchars($row['title']);
-                $image_url = htmlspecialchars($row['image_url']);
-                $posted_date = htmlspecialchars($row['posted_date']);
-                $category = htmlspecialchars($row['category']);
+          while ($row = $result->fetch_assoc()) {
+		    // Sanitize output to prevent XSS
+		    $body = substr($row['snippet'], 0, 200);
+		    $title = htmlspecialchars($row['title']);
+		    $image_url = htmlspecialchars($row['image_url']);
+		    $posted_date = htmlspecialchars($row['posted_date']);
+		    $category = htmlspecialchars($row['category']);
+
+		    // Convert comma-separated string into array
+		     $images_array = explode(",", $image_url);
+    		 $first_image = htmlspecialchars(trim($images_array[0]));
+
+		 
 
                 // Display the blog post
                 echo ' <a href="social-impact-details?social_id='.$row['secure_id'].'"><div class="blog-post">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="images/social-impact/'.$image_url.'" class="img-fluid blog-image" alt="Blog Image">
+                            <img src="images/social-impact/'.$first_image.'" class="img-fluid blog-image" alt="Blog Image">
                         </div>
                         <div class="col-md-8">
                             <span class="date">'.$posted_date.'</span>
@@ -2060,11 +2066,14 @@ function displayNewSocialImpactSingle($secure_id) {
                 $image_url = htmlspecialchars($row['image_url']);
                 $posted_date = htmlspecialchars($row['posted_date']);
                 $category = htmlspecialchars($row['category']);
+                // Convert comma-separated string into array
+			    $images_array = explode(",", $image_url);
+	    		$first_image = htmlspecialchars(trim($images_array[0]));
 
                 echo '<a><div class="blog-post">
                     <div class="row">
                         <div class="col-md-12">
-                            <img src="images/social-impact/'.$image_url.'" class="img-fluid blog-image" alt="Blog Image">
+                            <img src="images/social-impact/'.$first_image.'" class="img-fluid blog-image" alt="Blog Image">
                         </div>
                         <div class="col-md-12">
                             <span class="date">'.$posted_date.' | '.estimateReadingTime($body).' min read -</span>
@@ -2116,6 +2125,10 @@ function displayFutureSocialImpact() {
                 $image_url = htmlspecialchars($row['image_url']);
                 $posted_date = htmlspecialchars($row['posted_date']);
                 $category = htmlspecialchars($row['category']);
+                
+                // Convert comma-separated string into array
+			     $images_array = explode(",", $image_url);
+	    		 $first_image = htmlspecialchars(trim($images_array[0]));
 
                 // Display the blog post
                 echo ' <!-- Blog Card 1 -->
@@ -2123,7 +2136,7 @@ function displayFutureSocialImpact() {
             <div class="col-lg-4 col-md-6">
                 <div class="blog-card">
                  <a href="social-impact-details?social_id='.$row['secure_id'].'">
-                    <img src="images/social-impact/'.$image_url.'" class="img-fluid blog-card-image  " alt="Blog Image">
+                    <img src="images/social-impact/'.$first_image.'" class="img-fluid blog-card-image  " alt="Blog Image">
                     <div class="blog-content">
                         <span class="date">'.$posted_date.'</span>
                         <h3 class="blog-title">'.substr($title,0,45).'...</h3>
@@ -2154,7 +2167,7 @@ function displayGallery() {
 
     try {
         // Use a prepared statement to fetch the recent 14 blogs, selecting only the needed columns
-        $stmt = $conn->prepare("SELECT * FROM gallery ORDER BY id DESC ");
+        $stmt = $conn->prepare("SELECT * FROM social_impact ORDER BY id DESC ");
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -2163,14 +2176,17 @@ function displayGallery() {
                 // Sanitize output to prevent XSS attacks
                
                 $image_url = htmlspecialchars($row['image_url']);
+                // Convert comma-separated string into array
+			     $images_array = explode(",", $image_url);
+	    		 $first_image = htmlspecialchars(trim($images_array[0]));
                
 
                 // Display the blog post
                 echo '
             <!-- Blog Card 5 -->
-            <a class=" " href="images/gallery/'.$image_url.'" target="_blank">
+            <a class=" " href="images/social-impact/'.$first_image.'" target="_blank">
             <div class="blog-card card-shadow p-2">
-                <img style="max-height: 300px; height: 250px;" src="images/gallery/'.$image_url.'" alt="Blog Image" class="img-fluid">
+                <img style="max-height: 300px; height: 250px;" src="images/social-impact/'.$first_image.'" alt="Blog Image" class="img-fluid">
                
             </div></a>
              ';
@@ -2209,12 +2225,15 @@ function displayAllSocialImpact() {
                 $image_url = htmlspecialchars($row['image_url']);
                 $posted_date = htmlspecialchars($row['posted_date']);
                 $category = htmlspecialchars($row['category']);
+                // Convert comma-separated string into array
+			    $images_array = explode(",", $image_url);
+	    		$first_image = htmlspecialchars(trim($images_array[0]));
 
                 // Display the blog post
                 echo ' <a ><div class="blog-post">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="images/social-impact/'.$image_url.'" class="img-fluid" alt="Blog Image">
+                            <img src="images/social-impact/'.$first_image.'" class="img-fluid" alt="Blog Image">
                         </div>
                         <div class="col-md-8">
                             <span class="date">'.$posted_date.'</span>
