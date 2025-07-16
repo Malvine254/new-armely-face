@@ -19,7 +19,7 @@
   </li>
   <li class="nav-item" role="presentation">
     <a data-mdb-tab-init class="nav-link" id="ex-with-icons-tab-4" href="#ex-with-icons-tabs-4" role="tab"
-      aria-controls="ex-with-icons-tabs-4" aria-selected="false"><i class="fas fa-list fa-fw me-2"></i>Edit Footer</a>
+      aria-controls="ex-with-icons-tabs-4" aria-selected="false"><i class="fas fa-list fa-fw me-2"></i>Manage Social Impact</a>
   </li>
   <li class="nav-item" role="presentation">
     <a data-mdb-tab-init class="nav-link" id="ex-with-icons-tab-5" href="#ex-with-icons-tabs-5" role="tab"
@@ -116,46 +116,20 @@
 </div>
 
       <div class="tab-pane fade" id="ex-with-icons-tabs-4" role="tabpanel" aria-labelledby="ex-with-icons-tab-4">
-         <form class="row g-3 col-md-11 mt-4 shadow p-4">
-          <div class="col-md-12">
-            <div class="form-outline" data-mdb-input-init>
-              <textarea id="footerBody"  type="text" class="form-control" id="validationDefault03" required ></textarea>
-              <script>
-                   CKEDITOR.replace('footerBody', {
-                      filebrowserUploadUrl: '../php/upload.php',
-                      filebrowserUploadMethod: 'form',
-                        height: '300px'
-
-                  });
-              </script>
-            </div>
+         <table class="table table-bordered">
+          <div  class="table-responsive">
+            <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Body</th>
+            <th>Category</th>
+            <th>Auothor</th>
+            <th>Actions</th>
+          </tr>
+          <?php displayAllSocialImpactTable(); ?>
           </div>
-          <div class="col-12">
-            <button class="btn btn-primary " type="submit" data-mdb-ripple-init>Submit form</button>
-          </div>
-        </form>
-      </div>
-
-       <div class="tab-pane fade" id="ex-with-icons-tabs-5" role="tabpanel" aria-labelledby="ex-with-icons-tab-5">
-         <form class="row g-3 col-md-11 mt-4 shadow p-4">
-
-          <div class="col-md-12">
-            <div class="form-outline" data-mdb-input-init>
-              <textarea id="editAboutBody"  type="text" class="form-control" id="validationDefault03" required ></textarea>
-              <script>
-                   CKEDITOR.replace('editAboutBody', {
-                      filebrowserUploadUrl: '../php/upload.php',
-                      filebrowserUploadMethod: 'form',
-                        height: '300px'
-
-                  });
-              </script>
-            </div>
-          </div>
-          <div class="col-12">
-            <button class="btn btn-primary " type="submit" data-mdb-ripple-init>Submit form</button>
-          </div>
-        </form>
+          
+        </table>
         </div>
 
        <div class="tab-pane fade" id="ex-with-icons-tabs-6" role="tabpanel" aria-labelledby="ex-with-icons-tab-6">

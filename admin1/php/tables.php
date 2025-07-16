@@ -269,7 +269,39 @@ if (isset($_GET['blogDelId'])) {
         echo "Failed";
     }
 
+}else if (isset($_GET['socialDelId'])) {
+    require '../php/config.php';
+    $id = intval($_GET['socialDelId']); // Always sanitize input
+
+    // Fetch the images before deleting the post
+    $query = $conn->query("SELECT image_url FROM social_impact WHERE id = $id");
+
+    if ($query->num_rows > 0) {
+        $row = $query->fetch_assoc();
+
+        // Convert comma-separated string into array
+        $images_array = explode(",", $row['image_url']);
+
+        foreach ($images_array as $img) {
+            $imagePath = "../images/social-impact/" . trim($img);
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+        }
+
+        // Now delete the post
+        $delete = $conn->query("DELETE FROM social_impact WHERE id = $id");
+
+        if ($delete) {
+            echo "<script>alert('Deleted successfully'); window.location.assign('tables');</script>";
+        } else {
+            echo "Failed to delete record from database.";
+        }
+    } else {
+        echo "No record found.";
+    }
 }
+
 
 function displayAllCareerListing(){
   
@@ -286,6 +318,26 @@ function displayAllCareerListing(){
                 <td>'.$row['job_type'].'</td>
                 <td>'.$row['job_location'].'</td>
                 <td><a href="actions?editId='.$row['id'].'&type=career" class="fa fa-edit p-3 "></a><a href="?jobDelId='.$row['id'].'" target="_blank" class="fa fa-trash text-danger"></a></td>
+            </tr>';
+}
+}
+}
+
+function displayAllSocialImpactTable(){
+  
+    require '../php/config.php';
+    $numbering = 1;
+    $select = $conn->query("SELECT * FROM social_impact  ORDER BY id DESC");
+    if ($select->num_rows>0) {
+        while ($row=$select->fetch_assoc()) {
+            echo '
+            <tr>
+                <td>'.$numbering++.'</td>
+                <td>'.$row["title"].'</td>
+                <td>'.substr($row['body'],0,200).'</td>
+                <td>'.$row['category'].'</td>
+                <td>'.$row['author_name'].'</td>
+                <td><a href="actions?editId='.$row['id'].'&type=social_impact" class="fa fa-edit p-3 "></a><a href="?socialDelId='.$row['id'].'" target="_blank" class="fa fa-trash text-danger"></a></td>
             </tr>';
 }
 }
