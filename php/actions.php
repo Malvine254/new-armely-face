@@ -1982,14 +1982,15 @@ function displayNewSocialImpact() {
 
     try {
         // Use a prepared statement to fetch the recent 14 blogs, selecting only the needed columns
-        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category,id,secure_id,snippet FROM social_impact WHERE category='new' ORDER BY id DESC LIMIT 5");
+        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category,id,secure_id,snippet FROM social_impact WHERE category='new' ORDER BY id DESC LIMIT 4");
         $stmt->execute();
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
 		    // Sanitize output to prevent XSS
-		    $body = substr($row['snippet'], 0, 200);
+		   $body = strip_tags(substr($row['body'], 0, 500));
+
 		    $title = htmlspecialchars($row['title']);
 		    $image_url = htmlspecialchars($row['image_url']);
 		    $posted_date = htmlspecialchars($row['posted_date']);
@@ -2024,7 +2025,7 @@ function displayNewSocialImpact() {
     } catch (Exception $e) {
         // Log the error for debugging without exposing it to users
         error_log("Database Error: " . $e->getMessage());
-        echo "<p>Unable to retrieve blogs at this time. Please try again later.</p>";
+        echo "<p>Unable to retrieve contents at this time. Please try again later.</p>";
     }
 }
 
@@ -2120,7 +2121,7 @@ function displayFutureSocialImpact() {
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 // Sanitize output to prevent XSS attacks
-                $body = substr($row['snippet'],0,150);
+                $body = strip_tags(substr($row['body'], 0, 300));
                 $title = htmlspecialchars($row['title']);
                 $image_url = htmlspecialchars($row['image_url']);
                 $posted_date = htmlspecialchars($row['posted_date']);
@@ -2133,13 +2134,13 @@ function displayFutureSocialImpact() {
                 // Display the blog post
                 echo ' <!-- Blog Card 1 -->
                
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-card">
+            <div class="col-lg-4 col-md-6" >
+                <div class="blog-card mb-5" style="min-height: 500px !important; max-height: 500px !important;">
                  <a href="social-impact-details?social_id='.$row['secure_id'].'">
                     <img src="images/social-impact/'.$first_image.'" class="img-fluid blog-card-image  " alt="Blog Image">
                     <div class="blog-content">
                         <span class="date">'.$posted_date.'</span>
-                        <h3 class="blog-title">'.substr($title,0,45).'...</h3>
+                        <h3 class="blog-title">'.substr($title,0,200).'...</h3>
                         <p class="blog-desc">'.estimateReadingTime($row['body']).' min read - '.$body.'...</p>
                     </div>
                     </a>
@@ -2189,7 +2190,7 @@ function displayGallery() {
 		            <a class=" " href="images/social-impact/'.$allimages.'" target="_blank">
 		            <div class="blog-card card-shadow p-2">
 		                
-		                <img style="max-height: 300px; height: 250px;" src="images/social-impact/'.$allimages.'" alt="Blog Image" class="img-fluid">
+		                <img src="images/social-impact/'.$allimages.'" alt="Blog Image" class="img-fluid">
 		               
 		            </div></a>';
                 }
@@ -2225,7 +2226,7 @@ function displayAllSocialImpact() {
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 // Sanitize output to prevent XSS attacks
-                $body = substr($row['snippet'],0,200);
+                $body = strip_tags(substr($row['body'], 0, 500));
                 $title = htmlspecialchars($row['title']);
                 $image_url = htmlspecialchars($row['image_url']);
                 $posted_date = htmlspecialchars($row['posted_date']);

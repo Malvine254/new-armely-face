@@ -40,7 +40,7 @@
 
             <!-- Right Image Column -->
             <div class="col-lg-5 col-md-12 text-center">
-                <img src="images/gallery/gallery_0.jpg" class="img-fluid impact-image " alt="Social Impact">
+                <img src="images/gallery/gallery-10.jpeg" class="img-fluid impact-image " alt="Social Impact">
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@
 
         <!-- Carousel Wrapper -->
         <div class="owl-carousel blog-carousel">
-            <?php displayGallery(); ?>
+            <?php displayGallery(); ?> 
 
         </div>
     </div>
