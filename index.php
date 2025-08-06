@@ -79,10 +79,10 @@
 </section>
 <!--/End Start schedule Area -->
 <!-- start of our brand -->
- <section id="clients" class="wow fadeInUp mt-4 mb-4 blog">
+ <section id="clients" class="wow fadeInUp blog">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title"><b>Our Trusted Brand Partners</b><center><hr class="default-background hr" ></center></h2>
+          <h2 class="section-title"><b>Brands that Trust Us</b><center><hr class="default-background hr" ></center></h2>
 
          	<p class="text-center">We’re proud to work alongside some truly trusted brands. Together, we’re focused on delivering real value, innovation, and quality. A huge thank you to our partners for their ongoing support and commitment to excellence./p>
         </div> 
@@ -120,8 +120,8 @@
             </a>
           </div>
            <div class="m-4">
-            <a href="images/brand-partners/dallas_county.jpg" target="_blank" rel="noopener noreferrer">
-                <img src="images/brand-partners/dallas_county.jpg" alt="Partner Logo" class="img-fluid lazy-img">
+            <a href="images/brand-partners/dallas_county.jpg"  target="_blank" rel="noopener noreferrer">
+                <img src="ihttps://sdn.signalhire.co/storage/company/d895/03d1/1d6b/d61b/3274/79d3/61e1/bc3c.webp"   alt="Partner Logo" class="lazy-img">
             </a>
           </div>
            <div class="m-4">
