@@ -121,7 +121,7 @@
           </div>
            <div class="m-4">
             <a href="images/brand-partners/dallas_county.jpg"  target="_blank" rel="noopener noreferrer">
-                <img src="ihttps://sdn.signalhire.co/storage/company/d895/03d1/1d6b/d61b/3274/79d3/61e1/bc3c.webp"   alt="Partner Logo" class="lazy-img">
+                <img src="images/brand-partners/dallas_county.jpg"   alt="Partner Logo" class="lazy-img">
             </a>
           </div>
            <div class="m-4">
