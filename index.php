@@ -78,7 +78,78 @@
 </div>
 </section>
 <!--/End Start schedule Area -->
-<!-- Start portfolio -->
+<!-- start of our brand -->
+ <section id="clients" class="wow fadeInUp mt-4 mb-4 blog">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title"><b>Our Trusted Brand Partners</b><center><hr class="default-background hr" ></center></h2>
+
+         	<p class="text-center">We’re proud to work alongside some truly trusted brands. Together, we’re focused on delivering real value, innovation, and quality. A huge thank you to our partners for their ongoing support and commitment to excellence./p>
+        </div> 
+
+
+        <div class="owl-carousel clients-carousel partner-carousel">
+          <div class="m-4">
+            <a href="images/brand-partners/university_of_nebrask.png" target="_blank" rel="noopener noreferrer">
+                <img src="images/brand-partners/university_of_nebrask.png" alt="Partner Logo" class="img-fluid lazy-img">
+            </a>
+          </div>
+           <div class="m-4">
+            <a href="images/brand-partners/swope_health.png" target="_blank" rel="noopener noreferrer">
+                <img src="images/brand-partners/swope_health.png" alt="Partner Logo" class="img-fluid lazy-img">
+            </a>
+          </div>
+          <div class="m-4">
+            <a href="images/brand-partners/esse_health.jpg" target="_blank" rel="noopener noreferrer">
+                <img src="images/brand-partners/esse_health.jpg" alt="Partner Logo" class="img-fluid lazy-img">
+            </a>
+          </div>
+           <div class="m-4">
+            <a href="images/brand-partners/sage_bute.webp" target="_blank" rel="noopener noreferrer">
+                <img src="images/brand-partners/sage_bute.webp" alt="Partner Logo" class="img-fluid lazy-img">
+            </a>
+          </div>
+          <div class="m-4">
+            <a href="images/brand-partners/qb_energy.jpg" target="_blank" rel="noopener noreferrer">
+                <img src="images/brand-partners/qb_energy.jpg" alt="Partner Logo" class="img-fluid lazy-img">
+            </a>
+          </div>
+           <div class="m-4">
+            <a href="images/brand-partners/frisco.jpeg" target="_blank" rel="noopener noreferrer">
+                <img src="images/brand-partners/frisco.jpeg" alt="Partner Logo" class="img-fluid lazy-img">
+            </a>
+          </div>
+           <div class="m-4">
+            <a href="images/brand-partners/dallas_county.jpg" target="_blank" rel="noopener noreferrer">
+                <img src="images/brand-partners/dallas_county.jpg" alt="Partner Logo" class="img-fluid lazy-img">
+            </a>
+          </div>
+           <div class="m-4">
+            <a href="images/brand-partners/lambda.png" target="_blank" rel="noopener noreferrer">
+                <img src="images/brand-partners/lambda.png" alt="Partner Logo" class="img-fluid lazy-img">
+            </a>
+          </div>
+          <div class="m-4">
+            <a href="images/brand-partners/homeward_bound.png" target="_blank" rel="noopener noreferrer">
+                <img src="images/brand-partners/homeward_bound.png" alt="Partner Logo" class="img-fluid lazy-img">
+            </a>
+          </div>
+          <div class="m-4">
+            <a href="images/brand-partners/mhc.png" target="_blank" rel="noopener noreferrer">
+                <img src="images/brand-partners/mhc.png" alt="Partner Logo" class="img-fluid lazy-img">
+            </a>
+          </div>
+           <div class="m-4">
+            <a href="images/brand-partners/bnsf.png" target="_blank" rel="noopener noreferrer">
+                <img src="images/brand-partners/bnsf.png" alt="Partner Logo" class="img-fluid lazy-img">
+            </a>
+          </div>
+        </div>
+      </div>
+      
+
+    </section>
+<!-- Start case studies -->
 <section class="portfolio" >
 <div class="container">
 <div class="row">
