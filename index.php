@@ -84,7 +84,7 @@
         <div class="section-header">
           <h2 class="section-title"><b>Brands that Trust Us</b><center><hr class="default-background hr" ></center></h2>
 
-         	<p class="text-center">We’re proud to work alongside some truly trusted brands. Together, we’re focused on delivering real value, innovation, and quality. A huge thank you to our partners for their ongoing support and commitment to excellence./p>
+         	<p class="text-center">We’re proud to work alongside some truly trusted brands. Together, we’re focused on delivering real value, innovation, and quality. A huge thank you to our partners for their ongoing support and commitment to excellence.</p>
         </div> 
 
 
