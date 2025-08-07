@@ -96,17 +96,17 @@
           </div>
            <div class="m-4">
             <a href="images/brand-partners/swope_health.png" target="_blank" rel="noopener noreferrer">
-                <img src="images/brand-partners/swope_health.png" alt="Partner Logo" class="img-fluid lazy-img">
+                <img src="https://swopehealth.org/wp-content/uploads/2024/03/Swope-Health-Services-244462845.png" alt="Partner Logo" class="img-fluid lazy-img">
             </a>
           </div>
           <div class="m-4">
             <a href="images/brand-partners/esse_health.jpg" target="_blank" rel="noopener noreferrer">
-                <img src="images/brand-partners/esse_health.jpg" alt="Partner Logo" class="img-fluid lazy-img">
+                <img src="https://assets.libsyn.com/content/17315963?height=250&width=250&overlay=true" alt="Partner Logo" class="img-fluid lazy-img">
             </a>
           </div>
            <div class="m-4">
             <a href="images/brand-partners/sage_bute.webp" target="_blank" rel="noopener noreferrer">
-                <img src="images/brand-partners/sage_bute.webp" alt="Partner Logo" class="img-fluid lazy-img">
+                <img src="https://www.sagebutte.com/wp-content/uploads/2024/01/Sage-Butte-Energy-logo.png" alt="Partner Logo" class="img-fluid lazy-img">
             </a>
           </div>
           <div class="m-4">
@@ -121,7 +121,7 @@
           </div>
            <div class="m-4">
             <a href="images/brand-partners/dallas_county.jpg"  target="_blank" rel="noopener noreferrer">
-                <img src="https://www.icompasstech.com/wp-content/uploads/2019/01/dallas-county-logo-768x695.png"   alt="Partner Logo" class="lazy-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrSzxH_f1lEuzqxEewHFlxbQr6jWb-ISY4eQ&s"   alt="Partner Logo" class="lazy-img">
             </a>
           </div>
            <div class="m-4">
@@ -131,17 +131,17 @@
           </div>
           <div class="m-4">
             <a href="images/brand-partners/homeward_bound.png" target="_blank" rel="noopener noreferrer">
-                <img src="images/brand-partners/homeward_bound.png" alt="Partner Logo" class="img-fluid lazy-img">
+                <img src="https://nfg-sofun.s3.amazonaws.com/uploads/ui_configuration/main_logo/12617/welcome_logo_HBI_LOGO_FINAL_Long_Form.png" alt="Partner Logo" class="img-fluid lazy-img">
             </a>
           </div>
           <div class="m-4">
             <a href="images/brand-partners/mhc.png" target="_blank" rel="noopener noreferrer">
-                <img src="images/brand-partners/mhc.png" alt="Partner Logo" class="img-fluid lazy-img">
+                <img src="https://www.moblicosolutions.com/wp-content/uploads/2024/09/Image-for-Home-Page-Hero-4-e1726688399270.png" alt="Partner Logo" class="img-fluid lazy-img">
             </a>
           </div>
            <div class="m-4">
             <a href="images/brand-partners/bnsf.png" target="_blank" rel="noopener noreferrer">
-                <img src="images/brand-partners/bnsf.png" alt="Partner Logo" class="img-fluid lazy-img">
+                <img src="https://logos-world.net/wp-content/uploads/2024/07/BNSF-Railway-Symbol.png" alt="Partner Logo" class="img-fluid lazy-img">
             </a>
           </div>
         </div>
