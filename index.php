@@ -91,7 +91,7 @@
         <div class="owl-carousel clients-carousel partner-carousel">
           <div class="m-4">
             <a href="images/brand-partners/university_of_nebrask.png" target="_blank" rel="noopener noreferrer">
-                <img src="images/brand-partners/university_of_nebrask.png" alt="Partner Logo" class="img-fluid lazy-img">
+                <img src="https://seeklogo.com/images/U/university-of-nebraska-medical-center-logo-96C422F94D-seeklogo.com.png" alt="Partner Logo" class="img-fluid lazy-img">
             </a>
           </div>
            <div class="m-4">
@@ -116,17 +116,17 @@
           </div>
            <div class="m-4">
             <a href="images/brand-partners/frisco.jpeg" target="_blank" rel="noopener noreferrer">
-                <img src="images/brand-partners/frisco.jpeg" alt="Partner Logo" class="img-fluid lazy-img">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Logo_of_Frisco%2C_Texas.svg/768px-Logo_of_Frisco%2C_Texas.svg.png?20180828011722" alt="Partner Logo" class="img-fluid lazy-img">
             </a>
           </div>
            <div class="m-4">
             <a href="images/brand-partners/dallas_county.jpg"  target="_blank" rel="noopener noreferrer">
-                <img src="images/brand-partners/dallas_county.jpg"   alt="Partner Logo" class="lazy-img">
+                <img src="https://www.icompasstech.com/wp-content/uploads/2019/01/dallas-county-logo-768x695.png"   alt="Partner Logo" class="lazy-img">
             </a>
           </div>
            <div class="m-4">
             <a href="images/brand-partners/lambda.png" target="_blank" rel="noopener noreferrer">
-                <img src="images/brand-partners/lambda.png" alt="Partner Logo" class="img-fluid lazy-img">
+                <img src="https://lambdalegal.org/wp-content/uploads/2023/02/lambda-logo-300x84.png" alt="Partner Logo" class="img-fluid lazy-img">
             </a>
           </div>
           <div class="m-4">
