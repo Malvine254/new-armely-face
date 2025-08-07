@@ -78,6 +78,28 @@
 </div>
 </section>
 <!--/End Start schedule Area -->
+<style>
+.partner-carousel .m-4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 140px; /* Adjust height depending on desired logo box size */
+  background-color: transparent; /* Optional: light grey or white if needed */
+}
+
+.partner-carousel img {
+  max-height: 150px; /* Ensures logos don’t overflow */
+  max-width: 100%;
+  object-fit: contain;
+  filter: grayscale(0); /* You can grayscale(100%) if you want muted logos */
+  transition: transform 0.3s ease;
+}
+
+.partner-carousel img:hover {
+  transform: scale(1.05);
+}
+</style>
+
 <!-- start of our brand -->
  <section id="clients" class="wow fadeInUp blog">
       <div class="container">
@@ -90,8 +112,8 @@
 
         <div class="owl-carousel clients-carousel partner-carousel">
           <div class="m-4">
-            <a href="images/brand-partners/university_of_nebrask.png" target="_blank" rel="noopener noreferrer">
-                <img src="https://seeklogo.com/images/U/university-of-nebraska-medical-center-logo-96C422F94D-seeklogo.com.png" alt="Partner Logo" class="img-fluid lazy-img">
+            <a href="images/brand-partners/university_of_nebrask1.png" target="_blank" rel="noopener noreferrer">
+                <img  src="https://cdn.freelogovectors.net/wp-content/uploads/2023/07/university_of_nebraska_medical_center_logo-freelogovectors.net_.png" class="img-fluid lazy-img">
             </a>
           </div>
            <div class="m-4">
