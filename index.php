@@ -113,7 +113,7 @@
         <div class="owl-carousel clients-carousel partner-carousel">
           <div class="m-4">
             <a href="images/brand-partners/university_of_nebrask1.png" target="_blank" rel="noopener noreferrer">
-                <img  src="https://cdn.freelogovectors.net/wp-content/uploads/2023/07/university_of_nebraska_medical_center_logo-freelogovectors.net_.png" class="img-fluid lazy-img">
+                <img  src="https://cdn.freelogovectors.net/wp-content/uploads/2023/07/university_of_nebraska_medical_center_logo-freelogovectors.net_.png" class="img-fluid lazy-img ">
             </a>
           </div>
            <div class="m-4">
