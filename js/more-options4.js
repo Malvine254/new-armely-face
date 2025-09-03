@@ -712,8 +712,8 @@ $(document).ready(function () {
   });
 
   // === SHOW MORE SCROLL LOGIC ===
-  var contentDiv = $('#content');
-  var showMoreButton = $('#show-more');
+  var contentDiv = $('.content');
+  var showMoreButton = $('.show-more');
 
   function checkScrollable() {
     if (contentDiv[0] && contentDiv[0].scrollHeight > contentDiv.innerHeight()) {

@@ -239,7 +239,7 @@ function displayBlogFullDetals(){
 					</div>
 				</div>
 				<!-- News Text -->
-				<div style="height: 120vh; overflow-y: scroll;" class="news-text scrollable-div"  id="blog-content">
+				<div style="height: 120vh; overflow-y: scroll;" class="news-text scrollable-div content"  id="blog-content">
 					'.$row['body'].'
 				</div><br>
 
@@ -253,7 +253,7 @@ function displayBlogFullDetals(){
 					</ul>
 					<!-- Next Prev -->
 					<ul class="prev-next">
-						<li id="show-more" class="show-more-button"><button class="btn btn-warning">Scroll to Read all More <i class="icofont-long-arrow-down"></i></button></li>
+						<li id="show-more" class="show-more-button show-more"><button class="btn btn-warning">Scroll to Read all More <i class="icofont-long-arrow-down"></i></button></li>
 						
 					</ul>
 					<!--/ End Next Prev -->
@@ -290,7 +290,7 @@ function selectblogByDefault(){
 					</div>
 				</div>
 				<!-- News Text -->
-				<div style="height: 120vh; overflow-y: scroll;" class="news-text scrollable-div"  id="content">
+				<div style="height: 120vh; overflow-y: scroll;" class="news-text scrollable-div content"  id="content">
 					'.$row['body'].'
 				</div><br>
 
@@ -304,7 +304,7 @@ function selectblogByDefault(){
 					</ul>
 					<!-- Next Prev -->
 					<ul class="prev-next">
-						<li id="show-more" class="show-more-button"><button class="btn btn-warning">Scroll to Read More <i class="icofont-long-arrow-down"></i></button></li>
+						<li id="show-more" class="show-more-button show-more"><button class="btn btn-warning">Scroll to Read More <i class="icofont-long-arrow-down"></i></button></li>
 						
 					</ul>
 					<!--/ End Next Prev -->

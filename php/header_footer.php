@@ -64,7 +64,7 @@ function getHeader($pageName) {
 
 		
 		<!-- Medipro CSS -->
-        <link rel="stylesheet" href="css/normalize_1.css"> 
+        <link rel="stylesheet" href="css/normalize_2.css"> 
         <link rel="stylesheet" href="style4.css">
         <link rel="stylesheet" href="css/responsive.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -363,6 +363,19 @@ return <<<HTML
         </div>
     </div>
 </div>
+
+  <div class="linkedin-follow-float">
+    <!-- LinkedIn Follow Company Plugin -->
+    <script src="https://platform.linkedin.com/in.js" type="text/javascript">
+      lang: en_US
+    </script>
+    <script type="IN/FollowCompany" data-id="22310926" data-counter="bottom"></script>
+  </div>
+
+ 
+
+
+
 <!-- End Cookies Preferences -->
 <!-- Footer Area -->
 <footer id="footer" class="footer ">
@@ -459,6 +472,8 @@ return <<<HTML
 </footer>
 <!--/ End Footer Area -->
 
+
+
 <!-- jquery Min JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <!-- jquery Migrate JS -->
@@ -518,7 +533,7 @@ return <<<HTML
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <!-- more settings  -->
 
-<script src="js/more-options3.js"></script>
+<script src="js/more-options4.js"></script>
 
 
 </body>

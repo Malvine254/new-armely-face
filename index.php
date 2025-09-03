@@ -384,5 +384,12 @@
 
 </div>
 </section>
+
+
+ 
+</head>
+
+
+
 <!-- End Appointment -->
 <?php echo getFooter(); ?>
