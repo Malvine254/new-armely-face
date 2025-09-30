@@ -23,7 +23,130 @@
 </div>
 <!-- End Breadcrumbs -->
 
+<style>
+.blog-carousel .item img {
+  border-radius: 12px;
+  object-fit: cover;
+  height: 250px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.blog-carousel .item:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+.blog-card img {
+  object-fit: cover;
+  height: 200px;
+  border-radius: 10px;
+}
+.blog-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  position: relative;
+}
+.section-title::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #0d6efd;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+.owl-carousel .owl-nav {
+  position: relative;
+  margin-top: 15px; /* space between slider and arrows */
+  text-align: right; /* align arrows to the right */
+}
+
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel .owl-nav button.owl-next {
+  background: #2f5597; /* Bootstrap primary color */
+  color: #fff !important;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 18px !important;
+  margin-left: 8px;
+  transition: all 0.3s ease;
+}
+
+.owl-carousel .owl-nav button.owl-prev:hover,
+.owl-carousel .owl-nav button.owl-next:hover {
+  background: #0b5ed7; /* darker blue on hover */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.blog-post {
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.blog-post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.blog-image {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.blog-title {
+  color: #212529;
+}
+
+.blog-title:hover {
+  color: #084196ff; /* Bootstrap primary */
+  text-decoration: underline;
+}
+.blog-image {
+  width: 100%;
+  height: 200px; /* adjust this for consistent size */
+  object-fit: cover; /* crop instead of stretch */
+  border-radius: 8px;
+}
+
+.blog-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.blog-card-image {
+  height: 150px; /* uniform image height */
+  object-fit: cover;
+}
+.card-title {
+  font-size: 1rem; /* smaller title */
+  line-height: 1.3;
+  margin-bottom: 0.5rem;/* keeps titles aligned */
+}
+.card-text {
+  font-size: 0.85rem; /* smaller body */
+  line-height: 1.4;
+}
+</style>
 <!-- Social Impact Section -->
 <section class="social-impact-section">
     <div class="container">
@@ -101,22 +224,22 @@
 </section>
 
 <!-- Blog Section -->
-<section class="news-single section">
+<!-- <section class="news-single section">
     <div class="container">
         <div class="row">
             <h2 class="section-title text-center">Future Visits</h2>
-            <!-- Blog Posts (Left Column) -->
+            
             <div class="col-lg-8">
              
-               <?php displayAllSocialImpact(); ?>
+               <?php //displayAllSocialImpact(); ?>
 
-                <!-- Add more blog posts here -->
+              
             </div>
 
            
         </div>
     </div>
-</section>
+</section> -->
 
 
 

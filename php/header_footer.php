@@ -67,6 +67,7 @@ function getHeader($pageName) {
         <link rel="stylesheet" href="css/normalize_2.css"> 
         <link rel="stylesheet" href="style4.css">
         <link rel="stylesheet" href="css/responsive.css">
+		 <link rel="stylesheet" href="css/custome.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 		
     </head>
@@ -89,7 +90,7 @@ function getHeader($pageName) {
 		  <!-- Modal content -->
 		  <div class="modal-content-chat col-lg-4">
 		    <span class="close">&times;</span>
-		    <iframe src="https://copilotstudio.microsoft.com/environments/Default-588cadf4-9902-4465-86c0-8bcf04f4f102/bots/crc65_armelyCom/webchat?__version__=2"
+		    <iframe src="https://copilotstudio.preview.microsoft.com/environments/Default-b783208a-8014-4829-9589-5324f76470c8/bots/cr44c_agent/webchat?__version__=2%22"
 		    frameborder="0" style="width: 100%; height: 80%;"></iframe>  
 		  </div>
 
@@ -142,8 +143,9 @@ function getHeader($pageName) {
 					<div class="main-menu">
 					 <nav class="navigation">
 			        <ul class="nav menu">
-			          <li class="'. getUrl("company","career","job-board","applications").'"><a >Why Us <i class="icofont-rounded-down"></i></a>
+			          <li class="'. getUrl("company","career","job-board","applications","partner").'"><a >Why Us <i class="icofont-rounded-down"></i></a>
 			            <ul class="dropdown">
+						 <li><a href="partner">Become a Partner</a></li>
 			              <li><a href="company">Company Overview</a></li>
 			              <li><a href="career">Career Opportunities</a></li>
 			              <li><a href="team">Our Team</a></li>

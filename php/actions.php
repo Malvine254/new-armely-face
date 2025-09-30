@@ -2003,18 +2003,26 @@ function displayNewSocialImpact() {
 		 
 
                 // Display the blog post
-                echo ' <a href="social-impact-details?social_id='.$row['secure_id'].'"><div class="blog-post">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="images/social-impact/'.$first_image.'" class="img-fluid blog-image" alt="Blog Image">
-                        </div>
-                        <div class="col-md-8">
-                            <span class="date">'.$posted_date.'</span>
-                            <h3 class="blog-title">'.$title.'</h3>
-                            <p class="blog-desc">4 min read - '.$body.'...</p>
-                        </div>
-                    </div>
-                </div></a>';
+                echo '<a href="social-impact-details?social_id='.$row['secure_id'].'">
+  <div class="blog-post card border-0 shadow-sm mb-4">
+    <div class="row g-0">
+      <!-- Left image -->
+      <div class="col-md-4">
+        <img src="images/social-impact/'.$first_image.'" 
+             class="blog-image" 
+             alt="Blog Image">
+      </div>
+
+      <!-- Right content -->
+      <div class="col-md-8 d-flex flex-column justify-content-center p-3">
+        <span class="date text-muted small d-block mb-1">'.$posted_date.'</span>
+        <h3 class="blog-title h5 fw-bold mb-2">'.$title.'</h3>
+        <p class="blog-desc text-muted mb-0">4 min read – '.$body.'...</p>
+      </div>
+    </div>
+  </div>
+</a>
+';
             }
         } else {
             echo "No records found!";
@@ -2033,62 +2041,108 @@ function displayNewSocialImpactSingle($secure_id) {
     include 'config.php';
 
     try {
-        // Prepare the statement with a placeholder
-        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category, id, secure_id FROM social_impact WHERE secure_id = ? LIMIT 1");
+        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category, id, secure_id, author_name, author_title 
+                                FROM social_impact WHERE secure_id = ? LIMIT 1");
 
         if (!$stmt) {
             throw new Exception("Prepare failed: " . $conn->error);
         }
+
+        // Estimate reading time helper
         function estimateReadingTime($htmlText) {
-		    $wordsPerMinute = 200;
-		    // Strip HTML tags from the text
-		    $plainText = strip_tags($htmlText);
+            $wordsPerMinute = 200;
+            $plainText = strip_tags($htmlText);
+            $wordCount = str_word_count($plainText);
+            return ceil($wordCount / $wordsPerMinute);
+        }
 
-		    // Count the number of words in the plain text
-		    $wordCount = str_word_count($plainText);
-
-		    // Calculate the reading time in minutes
-		    $readingTime = ceil($wordCount / $wordsPerMinute);
-
-		    return $readingTime;
-		}
-
-        // Bind the parameter (assumes secure_id is a string)
         $stmt->bind_param("s", $secure_id);
         $stmt->execute();
-
         $result = $stmt->get_result();
 
         if ($result && $result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                // Sanitize output to prevent XSS attacks
                 $body = $row['body'];
                 $title = htmlspecialchars($row['title']);
                 $image_url = htmlspecialchars($row['image_url']);
                 $posted_date = htmlspecialchars($row['posted_date']);
                 $category = htmlspecialchars($row['category']);
-                // Convert comma-separated string into array
-			    $images_array = explode(",", $image_url);
-	    		$first_image = htmlspecialchars(trim($images_array[0]));
+                $author_name = !empty($row['author_name']) ? htmlspecialchars($row['author_name']) : "Armely Team";
+                $author_title = !empty($row['author_title']) ? htmlspecialchars($row['author_title']) : "";
 
-                echo '<a><div class="blog-post">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <img src="images/social-impact/'.$first_image.'" class="img-fluid blog-image" alt="Blog Image">
-                        </div>
-                        <div class="col-md-12">
-                            <span class="date">'.$posted_date.' | '.estimateReadingTime($body).' min read -</span>
-                            <h3 class="blog-title">'.$title.'</h3>
-                            <p class="blog-desc"> '.$body.'</p>
+                // Pick first image
+                $images_array = explode(",", $image_url);
+                $first_image = htmlspecialchars(trim($images_array[0]));
+
+                // Build current URL for sharing
+                $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' 
+                           || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+                $currentUrl = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+
+                echo '
+                <article class="blog-post border-0 mb-4 p-4  rounded bg-white">
+                    
+                    <!-- Hero Image -->
+                    <div class="blog-hero mb-3">
+                        <img src="images/social-impact/'.$first_image.'" 
+                             class="img-fluid rounded blog-single-image w-100" 
+                             alt="Blog Image">
+                    </div>
+
+                    <!-- Post Meta -->
+                    <div class="blog-meta text-muted mb-3">
+                        <span><i class="fa fa-calendar-alt"></i> '.$posted_date.'</span> · 
+                        <span><i class="fa fa-clock"></i> '.estimateReadingTime($body).' min read</span> · 
+                        <span><i class="fa fa-folder-open"></i> '.$category.'</span>
+                    </div>
+
+                    <!-- Title -->
+                    <h2 class="fw-bold mb-3">'.$title.'</h2>
+
+                    <!-- Author -->
+                    <p class="small text-muted mb-4">By <strong>'.$author_name.'</strong> '.$author_title.'</p>
+
+                    <!-- Body -->
+                    <div class="blog-body mb-4">
+                        '.$body.'
+                    </div>
+
+                    <!-- Share Buttons -->
+                    <div class="mt-4 pt-3 border-top">
+                        <h6 class="fw-bold mb-2">Share this post:</h6>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u='.urlencode($currentUrl).'" 
+                               target="_blank" class="btn btn-sm btn-outline-primary m-1 default-background text-light">
+                               <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://twitter.com/intent/tweet?url='.urlencode($currentUrl).'&text='.urlencode($title).'" 
+                               target="_blank" class="btn btn-sm btn-outline-info m-1 default-background text-light">
+                               <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/sharing/share-offsite/?url='.urlencode($currentUrl).'" 
+                               target="_blank" class="btn btn-sm btn-outline-secondary m-1 default-background text-light">
+                               <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="mailto:?subject='.rawurlencode($title).'&body='.rawurlencode($currentUrl).'" 
+                               class="btn btn-sm btn-outline-danger m-1 default-background text-light">
+                               <i class="fa fa-envelope"></i>
+                            </a>
+                            <a href="https://api.whatsapp.com/send?text='.urlencode($title." ".$currentUrl).'" 
+                               target="_blank" class="btn btn-sm btn-outline-success m-1 default-background text-light">
+                               <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="https://t.me/share/url?url='.urlencode($currentUrl).'&text='.urlencode($title).'" 
+                               target="_blank" class="btn btn-sm btn-outline-primary m-1 default-background text-light" style="color:#0088cc; border-color:#0088cc;">
+                               <i class="fab fa-telegram-plane"></i>
+                            </a>
                         </div>
                     </div>
-                </div></a>';
+                </article>';
             }
         } else {
-            echo "No records found!";
+            echo "<p>No records found!</p>";
         }
 
-        
     } catch (Exception $e) {
         error_log("Database Error: " . $e->getMessage());
         echo "<p>Unable to retrieve blogs at this time. Please try again later.</p>";
@@ -2100,67 +2154,65 @@ function displayFutureSocialImpact() {
     include 'config.php';
 
     try {
-        // Use a prepared statement to fetch the recent 14 blogs, selecting only the needed columns
-        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category,secure_id,author_name,author_title,snippet FROM social_impact  ORDER BY id DESC ");
+        $stmt = $conn->prepare("SELECT body, title, image_url, posted_date, category, secure_id 
+                                FROM social_impact 
+                                ORDER BY id DESC LIMIT 14");
         $stmt->execute();
         $result = $stmt->get_result();
+
+        // Estimate reading time
         function estimateReadingTime($htmlText) {
-		    $wordsPerMinute = 200;
-		    // Strip HTML tags from the text
-		    $plainText = strip_tags($htmlText);
-
-		    // Count the number of words in the plain text
-		    $wordCount = str_word_count($plainText);
-
-		    // Calculate the reading time in minutes
-		    $readingTime = ceil($wordCount / $wordsPerMinute);
-
-		    return $readingTime;
-		}
+            $wordsPerMinute = 200;
+            $plainText = strip_tags($htmlText);
+            $wordCount = str_word_count($plainText);
+            return ceil($wordCount / $wordsPerMinute);
+        }
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                // Sanitize output to prevent XSS attacks
-                $body = strip_tags(substr($row['body'], 0, 300));
+                $body = strip_tags($row['body']);
                 $title = htmlspecialchars($row['title']);
                 $image_url = htmlspecialchars($row['image_url']);
                 $posted_date = htmlspecialchars($row['posted_date']);
-                $category = htmlspecialchars($row['category']);
-                
-                // Convert comma-separated string into array
-			     $images_array = explode(",", $image_url);
-	    		 $first_image = htmlspecialchars(trim($images_array[0]));
+                $secure_id = htmlspecialchars($row['secure_id']);
 
-                // Display the blog post
-                echo ' <!-- Blog Card 1 -->
-               
-            <div class="col-lg-4 col-md-6" >
-                <div class="blog-card mb-5" style="min-height: 500px !important; max-height: 500px !important;">
-                 <a href="social-impact-details?social_id='.$row['secure_id'].'">
-                    <img src="images/social-impact/'.$first_image.'" class="img-fluid blog-card-image  " alt="Blog Image">
-                    <div class="blog-content">
-                        <span class="date">'.$posted_date.'</span>
-                        <h3 class="blog-title">'.substr($title,0,200).'...</h3>
-                        <p class="blog-desc">'.estimateReadingTime($row['body']).' min read - '.$body.'...</p>
+                // First image
+                $images_array = explode(",", $image_url);
+                $first_image = htmlspecialchars(trim($images_array[0]));
+
+                // Limit characters
+                $maxTitleLength = 70;
+                $maxBodyLength  = 120;
+
+                $shortTitle = strlen($title) > $maxTitleLength ? substr($title, 0, $maxTitleLength) . "..." : $title;
+                $shortBody  = strlen($body) > $maxBodyLength ? substr($body, 0, $maxBodyLength) . "..." : $body;
+
+                echo '
+                <div class="col-lg-4 col-md-6 mb-4 d-flex">
+                    <div class="blog-card card shadow-sm flex-fill d-flex flex-column">
+                        <a href="social-impact-details?social_id='.$secure_id.'">
+                            <img src="images/social-impact/'.$first_image.'" class="card-img-top blog-card-image" alt="Blog Image">
+                        </a>
+                        <div class="card-body d-flex flex-column">
+                            <span class="date text-muted small default-color">'.$posted_date.'</span>
+                            <h3 class="card-title h6 fw-bold">'.$shortTitle.'</h3>
+                            <p class="card-text text-muted">'.estimateReadingTime($row['body']).' min read – '.$shortBody.'</p>
+                            <div class="mt-auto">
+                                <a href="social-impact-details?social_id='.$secure_id.'" class="btn btn-sm btn-outline-primary default-background col-6">Read More</a>
+                            </div>
+                        </div>
                     </div>
-                    </a>
-                </div>
-            </div>
-           
-             ';
+                </div>';
             }
         } else {
-            echo "No records found!";
+            echo "<p>No records found!</p>";
         }
-
-        // Close the statement and connection
-       
     } catch (Exception $e) {
-        // Log the error for debugging without exposing it to users
         error_log("Database Error: " . $e->getMessage());
         echo "<p>Unable to retrieve blogs at this time. Please try again later.</p>";
     }
 }
+
 
 
 function displayGallery() {
