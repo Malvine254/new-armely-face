@@ -38,7 +38,7 @@
 		</div>
     <div class="row justify-content-center mb-4">
       <div class="col-md-7 text-center">
-        <h6 class="subtitle">Three unique ways we support partners</h6>
+        <h6 class="subtitle">Three unique ways we support our partners</h6>
       </div>
     </div>
     <div class="row">
@@ -132,7 +132,7 @@
 
 <section class="partner-section">
     <div class="container">
-      <div class="row align-items-center">
+      <div class="row align-items-center p-4 mb-4">
         
         <!-- Text Column -->
         <div class="col-md-6 mb-4 mb-md-0">
@@ -158,7 +158,7 @@
         
         <!-- Image Column -->
         <div class="col-md-6 text-center">
-          <img src="images/blogs/1.png" alt="Business meeting" class="img-fluid rounded shadow">
+          <img src="images/offers/managedoffer.png" alt="Business meeting" class="img-fluid rounded shadow">
         </div>
       </div>
     </div>

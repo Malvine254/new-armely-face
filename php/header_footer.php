@@ -143,12 +143,13 @@ function getHeader($pageName) {
 					<div class="main-menu">
 					 <nav class="navigation">
 			        <ul class="nav menu">
-			          <li class="'. getUrl("company","career","job-board","applications","partner").'"><a >Why Us <i class="icofont-rounded-down"></i></a>
+			          <li class="'. getUrl("company","career","job-board","applications","social-impact","social-impact-details").'"><a >Why Us <i class="icofont-rounded-down"></i></a>
 			            <ul class="dropdown">
 						 <li><a href="partner">Become a Partner</a></li>
 			              <li><a href="company">Company Overview</a></li>
 			              <li><a href="career">Career Opportunities</a></li>
 			              <li><a href="team">Our Team</a></li>
+						   
 			            </ul>
 			          </li>
 			          <li class="'. getUrl("services","service-details").'"><a>Services <i class="icofont-rounded-down"></i></a>
@@ -214,11 +215,13 @@ function getHeader($pageName) {
 			              <li><a href="customer-stories">Customer Stories</a></li>
 			              <li><a href="case-studies">Case Studies</a></li>
 			              <li><a href="case-studies#white-papers">White Papers</a></li>
+						  <li><a href="social-impact">Social Impact</a></li>
 			            </ul>
 			          </li>
 			          <li class="'.getUrl("events").'"><a href="events">Events</a></li>
 			          <li class="'.getUrl("industries").'"><a href="industries">Industries</a></li>
-			          <li class="'.getUrl("social-impact","social-impact-details").'"><a href="social-impact">Social Impact</a></li>
+			         
+					  <li class="'.getUrl("partner","partner").'"><a href="partner">Microsoft Licensing</a></li>
 			          <li class="'.getUrl("contact").'"><a  href="contact">Contact Us</a></li>
 			          
 			        </ul>
