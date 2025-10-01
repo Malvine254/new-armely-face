@@ -145,7 +145,6 @@ function getHeader($pageName) {
 			        <ul class="nav menu">
 			          <li class="'. getUrl("company","career","job-board","applications","social-impact","social-impact-details").'"><a >Why Us <i class="icofont-rounded-down"></i></a>
 			            <ul class="dropdown">
-						 <li><a href="partner">Become a Partner</a></li>
 			              <li><a href="company">Company Overview</a></li>
 			              <li><a href="career">Career Opportunities</a></li>
 			              <li><a href="team">Our Team</a></li>
