@@ -229,8 +229,8 @@ $('.btn-close').click(function() {
         });
     }
 
-
-// submit contact form
+ 
+// submit contact form 
 $('#contact-form').submit(function(event) {
   event.preventDefault(); // Prevent the default form submission
 
@@ -833,3 +833,75 @@ $(document).ready(function () {
     $('#blog-content .bg-warning').contents().unwrap();
   }
 });
+
+
+// submit campaign form 
+$('#campaign-form').submit(function(event) {
+  event.preventDefault(); // Prevent default submission
+
+  // ✅ Get reCAPTCHA token
+  var recaptchaResponse = grecaptcha.getResponse();
+  if (!recaptchaResponse) {
+    Swal.fire({
+      title: 'CAPTCHA Required',
+      text: 'Please verify that you are not a robot.',
+      icon: 'warning',
+      confirmButtonColor: 'rgb(47,85,151)'
+    });
+    return;
+  }
+
+  // ✅ Show loading message
+  Swal.fire({
+    title: 'Loading...',
+    text: 'Please wait while we process your request.',
+    allowOutsideClick: false,
+    didOpen: () => {
+      Swal.showLoading();
+    }
+  });
+
+  // ✅ Get serialized form data and append reCAPTCHA token
+  var formData = $(this).serialize() + '&g-recaptcha-response=' + recaptchaResponse;
+
+  // ✅ AJAX request
+  $.ajax({
+    type: 'POST',
+    url: 'php/actions', // same endpoint
+    data: formData,
+    success: function(response) {
+      Swal.close(); 
+      if (response === "80") {
+        Swal.fire({
+          title: 'Success!',
+          text: "Campaign form submitted successfully",
+          confirmButtonColor: 'rgb(47,85,151)',
+          icon: 'success',
+        });
+        $("#campaign-form")[0].reset();
+        grecaptcha.reset(); 
+      } else {
+        Swal.fire({
+          title: 'Warning',
+          text: response,
+          icon: 'warning',
+          confirmButtonText: 'OK',
+          confirmButtonColor: 'rgb(47,85,151)'
+        });
+      }
+      console.log(response);
+    },
+    error: function(error) {
+      Swal.close();
+      Swal.fire({
+        title: 'Error!',
+        text: 'Form submission failed. Please try again.',
+        icon: 'error',
+        confirmButtonColor: 'rgb(47,85,151)'
+      });
+      console.error('Form submission error:', error);
+    }
+  });
+});
+
+// end of campaign form

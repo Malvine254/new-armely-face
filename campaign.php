@@ -25,7 +25,7 @@
 				
 <!-- Start Campaign Form -->
 <section class="contact-us section">
-	<div class="container col-12 col-lg-9 col-md-11 col-sm-12">
+	<div class="container col-12 col-lg-10 col-md-11 col-sm-12">
 		<div class="inner">
 			<div class="row">
 	<div class="col-lg-12 col-md-6 col-12 d-flex default-background mb-5">
@@ -78,16 +78,9 @@
 				<!-- No. of Employees -->
 				<div class="col-lg-6 col-md-6 col-12">
 					<label class="text-start text-light">No. of Employees *</label>
-					<div class="form-group input-with-background">
-						<select required class="remove-input-background" name="employees">
-							<option value="">-- Select --</option>
-							<option value="1-10">1-10</option>
-							<option value="11-50">11-50</option>
-							<option value="51-200">51-200</option>
-							<option value="201-500">201-500</option>
-							<option value="501-1000">501-1000</option>
-							<option value="1000+">1000+</option>
-						</select>
+					
+                    <div class="form-group input-with-background">
+                        <input required class="remove-input-background" name="no_of_employees" type="number" placeholder="Enter No. of Employees">
 					</div>
 				</div>
 
@@ -109,17 +102,17 @@
 
 				<!-- AI/ML Solution Today -->
 				
-                <div class="col-lg-12 col-md-12 col-12">
+                <div class="col-lg-6 col-md-6 col-12">
                     <label class="text-start text-light d-block mb-2">Does your company use any AI/ML solution today? *</label>
                     <div class=" d-flex align-items-center gap-4">
                         <div class="row">
-                           <div class="col">
-                            <input style="background-color: transparent !important; width: 20px; height: 20px;" class="" type="radio" name="ai_usage" id="ai_yes" value="Yes" required>
-                            <label class="form-check-label text-light" for="ai_yes">Yes</label>
+                           <div class="col-md-6">
+                            <input style="background-color: transparent !important; width: 20px; height: 20px;" class="form-control" type="radio" name="ai_usage" id="ai_yes" value="Yes" required>
+                            <label class="text-light" for="ai_yes">Yes</label>
                            </div> 
-                            <div class="col">
-                            <input style="background-color: transparent !important; width: 20px; height: 20px;" class="" type="radio" name="ai_usage" id="ai_no" value="No" required>
-                            <label class="form-check-label text-light" for="ai_no">No</label>
+                            <div class="col-md-6">
+                            <input style="background-color: transparent !important; width: 20px; height: 20px;" class="form-control" type="radio" name="ai_usage" id="ai_no" value="No" required>
+                            <label class="text-light" for="ai_no">No</label>
                            </div> 
                         </div>
                         
@@ -140,7 +133,7 @@
 				<!-- Submit -->
 				<div class="form-group ml-3">
 					<div class="button">
-						<button type="submit" class="btn send-message-btn" name="submit_form">Submit</button>
+						<button type="submit" class="btn btn-light" name="submit_form">Submit Form</button>
 					</div>
 				</div>
 			</div>

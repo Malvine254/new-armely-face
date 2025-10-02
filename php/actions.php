@@ -72,6 +72,8 @@ function scheduleConsultant() {
 if (isset($_POST['submit_form'])) {
 	submitContactForm();
 }
+
+
 if (isset($_POST['consultation_btn'])) {
 	scheduleConsultant();
 }
@@ -1588,7 +1590,7 @@ function submitContactForm() {
     }
 
     
-}
+} 
 
 if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['organization'])&& isset($_POST['phone']) && isset($_POST['message'])) {
     echo submitContactForm();
@@ -2559,6 +2561,166 @@ function generateBlogMetaTags($blogId) {
     <meta name="twitter:image" content="' . htmlspecialchars($image) . '">
     ';
 }
+
+function submitCampaignForm() {
+    $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+    $dotenv->load();
+    global $conn;
+
+    $tenantId     = $_ENV['AZURE_TENANT_ID'];
+    $clientId     = $_ENV['AZURE_CLIENT_ID'];
+    $clientSecret = $_ENV['AZURE_CLIENT_SECRET'];
+    $fromEmail    = $_ENV['FROM_EMAIL'];
+    $adminEmail   = $fromEmail;
+
+    date_default_timezone_set('America/Chicago');
+    
+    // Sanitize input
+    $full_name       = trim(filter_input(INPUT_POST, 'full_name', FILTER_SANITIZE_STRING));
+    $business_email  = trim(filter_input(INPUT_POST, 'business_email', FILTER_SANITIZE_EMAIL));
+    $company_name    = trim(filter_input(INPUT_POST, 'company_name', FILTER_SANITIZE_STRING));
+    $job_title       = trim(filter_input(INPUT_POST, 'job_title', FILTER_SANITIZE_STRING));
+    $industry        = trim(filter_input(INPUT_POST, 'industry', FILTER_SANITIZE_STRING));
+    $no_of_employees = trim(filter_input(INPUT_POST, 'no_of_employees', FILTER_SANITIZE_NUMBER_INT));
+    $business_problem= trim(filter_input(INPUT_POST, 'business_problem', FILTER_SANITIZE_STRING));
+    $ai_outcome      = trim(filter_input(INPUT_POST, 'ai_outcome', FILTER_SANITIZE_STRING));
+    $ai_usage        = trim(filter_input(INPUT_POST, 'ai_usage', FILTER_SANITIZE_STRING));
+    $sent_date       = date('c');
+
+    // Honeypot check
+    if (!empty($_POST['website'])) {
+        exit("Spam detected. Submission ignored.");
+    }
+
+    // Blocked domains (reuse)
+    $blocked_domains = ['registry.godaddy','kr.slembassy.gov.sl'];
+    $email_check = strtolower(trim($_POST['business_email']));
+    if (preg_match('/@(' . implode('|', $blocked_domains) . ')$/', $email_check)) {
+        exit("Blocked domain.");
+    }
+
+    // reCAPTCHA verification
+    $secretKey = $_ENV['CAPTURE_SERVER_SIDE_KEY'];
+    $recaptchaResponse = $_POST['g-recaptcha-response'];
+    $verifyURL = "https://www.google.com/recaptcha/api/siteverify";
+    $response = file_get_contents($verifyURL . "?secret=" . $secretKey . "&response=" . $recaptchaResponse);
+    $responseData = json_decode($response);
+
+    if (!$responseData->success) {
+        exit("reCAPTCHA failed. Try again.");
+    }
+
+    // Validation
+    if (empty($full_name) || empty($business_email) || empty($company_name) || empty($job_title) || empty($business_problem) || empty($ai_outcome) || empty($ai_usage)) {
+        echo "Please fill in all required fields.";
+        return;
+    }
+
+    if (!filter_var($business_email, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid email format.";
+        return;
+    }
+
+    // Store in database (create a new table "campaigns")
+    $stmt = $conn->prepare("INSERT INTO campaigns (full_name, business_email, company_name, job_title, industry, no_of_employees, business_problem, ai_outcome, ai_usage, sent_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssssssss", $full_name, $business_email, $company_name, $job_title, $industry, $no_of_employees, $business_problem, $ai_outcome, $ai_usage, $sent_date);
+
+    if ($stmt->execute()) {
+        try {
+            $client = new Client();
+
+            // Step 1: Get Microsoft Graph Access Token
+            $response = $client->post("https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token", [
+                'form_params' => [
+                    'client_id'     => $clientId,
+                    'scope'         => 'https://graph.microsoft.com/.default',
+                    'client_secret' => $clientSecret,
+                    'grant_type'    => 'client_credentials',
+                ],
+            ]);
+
+            $accessToken = json_decode($response->getBody(), true)['access_token'];
+
+            // Step 2: Email payloads
+            $userEmailPayload = [
+                'message' => [
+                    'subject' => 'Thank you for joining the AI Campaign',
+                    'body' => [
+                        'contentType' => 'HTML',
+                        'content'     => "<p>Dear $full_name,</p><p>We’ve received your campaign submission and will be in touch soon.</p><p>Best regards,<br>Team Armely</p>",
+                    ],
+                    'toRecipients' => [
+                        ['emailAddress' => ['address' => $business_email]]
+                    ],
+                ],
+                'saveToSentItems' => true,
+            ];
+
+            $adminEmailPayload = [
+                'message' => [
+                    'subject' => "New AI Campaign Submission from $full_name",
+                    'body' => [
+                        'contentType' => 'HTML',
+                        'content'     => "
+                        <p><b>New AI Campaign submission:</b></p>
+                        <ul>
+                            <li><b>Full Name:</b> $full_name</li>
+                            <li><b>Email:</b> $business_email</li>
+                            <li><b>Company:</b> $company_name</li>
+                            <li><b>Job Title:</b> $job_title</li>
+                            <li><b>Industry:</b> $industry</li>
+                            <li><b>No. of Employees:</b> $no_of_employees</li>
+                            <li><b>Business Problem:</b><br>$business_problem</li>
+                            <li><b>Desired AI Outcome:</b><br>$ai_outcome</li>
+                            <li><b>AI Usage Today:</b> $ai_usage</li>
+                        </ul>",
+                    ],
+                    'toRecipients' => [
+                        ['emailAddress' => ['address' => $adminEmail]],
+                        ['emailAddress' => ['address' => 'ask.me@armely.com']]
+                    ],
+                ],
+                'ccRecipients' => [
+                    ['emailAddress' => ['address' => 'ask.me@armely.com']]
+                ],
+                'saveToSentItems' => true,
+            ];
+
+            // Step 3: Send Emails
+            $client->post("https://graph.microsoft.com/v1.0/users/$fromEmail/sendMail", [
+                'headers' => [
+                    'Authorization' => "Bearer $accessToken",
+                    'Content-Type'  => 'application/json',
+                ],
+                'body' => json_encode($userEmailPayload),
+            ]);
+
+            $client->post("https://graph.microsoft.com/v1.0/users/$fromEmail/sendMail", [
+                'headers' => [
+                    'Authorization' => "Bearer $accessToken",
+                    'Content-Type'  => 'application/json',
+                ],
+                'body' => json_encode($adminEmailPayload),
+            ]);
+
+            echo "80";
+
+        } catch (Exception $e) {
+            error_log("Email sending failed: " . $e->getMessage());
+            echo "Message saved, but email sending failed.";
+        }
+
+    } else {
+        error_log("Database Error: " . $stmt->error);
+        echo "Failed to save submission. Please try again.";
+    }
+}
+
+// Run when campaign form fields are present
+if (isset($_POST['full_name']) && isset($_POST['business_email']) && isset($_POST['company_name']) && isset($_POST['job_title'])) {
+    echo submitCampaignForm();
+}
+
 
 // ✅ Close connection once — at the bottom, after all work is done
 $conn->close();
