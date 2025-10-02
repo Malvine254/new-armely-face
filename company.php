@@ -89,11 +89,14 @@
     <div class="col-md-3">
       <img width="250" height="250" class="img-fluid" src="images/affiliation/smb.svg">
     </div>
-     <div class="col-md-3">
-      <img   class="img-fluid mt-4" src="images/affiliation/partner.png">
-    </div>
     <div class="col-md-3 ">
       <img width="200" height="200"  class="img-fluid mt-5" src="images/affiliation/affliation1.png">
+    </div>
+    <div class="col-md-3 ">
+      <img width="200" height="200"  class="img-fluid mt-5" src="images/affiliation/fid.png">
+    </div>
+     <div class="col-md-3">
+      <img   class="img-fluid mt-4" src="images/affiliation/partner.png">
     </div>
    
 </center>
