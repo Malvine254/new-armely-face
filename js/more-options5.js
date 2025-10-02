@@ -861,6 +861,8 @@ $('#campaign-form').submit(function(event) {
     }
   });
 
+
+  
   // ✅ Get serialized form data and append reCAPTCHA token
   var formData = $(this).serialize() + '&g-recaptcha-response=' + recaptchaResponse;
 
@@ -903,5 +905,6 @@ $('#campaign-form').submit(function(event) {
     }
   });
 });
+
 
 // end of campaign form
