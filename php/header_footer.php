@@ -72,11 +72,11 @@ function getHeader($pageName) {
 		
     </head>
     <body>
-    <div class="announcement-banner default-background" id="announcementBanner">
+     <!-- <div class="announcement-banner default-background" id="announcementBanner">
 	    📢 <!--<b>Estimate your Fabric capacity needs!</b> Check out Microsoft Fabric SKU Estimator. <a href="service-details?name=fabric_capacity">Learn More</a>--->
 		    <b>Do you need AI Proof of Concept (PoC) Starter Pack ?</b> Request your AI Proof of Concept Starter Pack Today. <a href="service-details?name=pocstarter-ai">Learn More</a>
 		    <span class="close-btn" onclick="closeBanner()">&times;</span>
-	</div>
+	</div>-->
 	
 		<section>	
 		<!-- Floating Action Button -->
