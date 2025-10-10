@@ -397,7 +397,10 @@ $('#consultation-form-action').submit(function(event) {
 //end of google analytics code
 
 
-
+ gtag('config', 'AW-16698949072/p78BCKGBjaobEND71po-', {
+    'phone_conversion_number': '+1 972 460 0643'
+  });
+  
  // start of partner slider
   $(".clients-carousel").owlCarousel({
     autoplay: true,
