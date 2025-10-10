@@ -388,8 +388,11 @@ $('#consultation-form-action').submit(function(event) {
  window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
+//for google analytics
   gtag('config', 'G-4301EZWQ4C');
+
+  //for google ads
+  gtag('config', 'AW-16698949072');
 
 //end of google analytics code
 
