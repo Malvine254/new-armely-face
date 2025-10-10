@@ -537,7 +537,7 @@ return <<<HTML
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <!-- more settings  -->
 
-<script src="js/more-options5.js"></script>
+<script src="js/more-options6.js"></script>
 
 
 </body>
