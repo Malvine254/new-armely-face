@@ -109,7 +109,11 @@ function getHeader($pageName) {
 						<div class="col-lg-9 col-md-8 col-12">
 							<!-- Top Contact -->
 							<ul class="top-contact">
-								<li><i class="fa fa-phone"></i>+1 972 460 0643</li>
+								<li>
+									<i class="fa fa-phone"></i>
+									<a href="tel:+19724600643" class="text-decoration-none text-dark">+1 972 460 0643</a>
+								</li>
+
 								<li><i class="fa fa-envelope"></i><a href="mailto:info@armely.com">info@armely.com</a></li>
 								<li><i class="fa fa-user"></i><a href="https://armely.powerappsportals.com/">Customer support</a></li>
 						        <li> <span  data-toggle="modal" data-target="#exampleModal"><i  class="fa fa-search"></i> <a >Search</a> </span>
