@@ -181,6 +181,38 @@
 			<h3>AI Services: AI Consulting</h3>
 			<p>Uncertain how Artificial Intelligence (AI) can transform your business? You're not alone. AI holds immense potential for innovation and growth, but navigating its complexities can be daunting. That's where we come in.</p>
 			<p>We offer a comprehensive AI consulting service designed to empower your business to leverage the transformative power of AI. Our team of experts will guide you through every step of the AI adoption journey, ensuring a smooth and successful integration that delivers real results.</p>
+			
+
+			<!-- videos Section -->
+			<section class="">
+			<div class="container">
+			<div class="row">
+			<div class="col-lg-12">
+			<div class="section-title">
+			
+			</div>
+			</div>
+			</div>
+			<div class="row">
+			<!-- Single Table -->
+
+			 <div class="col-lg-4 col-md-12 col-12">
+			<div class="lazy-video" data-src="https://www.youtube.com/embed/LU3q52S26P8?autoplay=1">
+				<div class="play-overlay" onclick="loadVideo(this)">
+				<img src="https://img.youtube.com/vi/LU3q52S26P8/hqdefault.jpg" class="lazy-thumb" alt="Video Thumbnail">
+				<div class="play-button"></div>
+				</div>
+			</div>
+			</div>
+
+			</div>	
+			<div class="default-color h4 p-2">
+					<a class="animated-text" href="https://www.youtube.com/@armelyarmely"><strong>Explore all Videos >>></strong></a>
+				</div>
+			</div>	
+			</section>	
+			<!--/ End Pricing Table -->
+			
 			<!-- Pricing Table -->
 			<section class="pricing-table mt-5">
 			<div class="container">
@@ -194,90 +226,90 @@
 			</div>
 
 			<div class="container py-5">
-  <div class="row g-4">
+			<div class="row g-4">
 
-    <!-- Card 1 -->
-    <div class="col-md-4 p-3">
-      <div class="service-card text-center">
-        <div class="service-icon"><i class="fa-solid default-color h1 fa-stethoscope"></i></div>
-        <div class="service-title">Assessment</div>
-        <p class="service-desc">
-          We begin by collaborating with your team to understand your unique business goals, challenges and data landscape. We collaborate with all the stakeholders to identify use case and priorities considering cost, time, and revenue impact. We are developing a customized AI Strategy that aligns with your business objectives.
-        </p>
-      </div>
-    </div>
+				<!-- Card 1 -->
+				<div class="col-md-4 p-3">
+				<div class="service-card text-center">
+					<div class="service-icon"><i class="fa-solid default-color h1 fa-stethoscope"></i></div>
+					<div class="service-title">Assessment</div>
+					<p class="service-desc">
+					We begin by collaborating with your team to understand your unique business goals, challenges and data landscape. We collaborate with all the stakeholders to identify use case and priorities considering cost, time, and revenue impact. We are developing a customized AI Strategy that aligns with your business objectives.
+					</p>
+				</div>
+				</div>
 
-    <!-- Card 2 -->
-    <div class="col-md-4 p-3">
-      <div class="service-card text-center">
-        <div class="service-icon"><i class="fa-solid default-color h1 fa-brain"></i></div>
-        <div class="service-title">Define Technology</div>
-        <p class="service-desc">
-          Following the assessment, we gain a deep understanding of your business which helps our vendor agnostic approach recommendation of the best AI technology.
-        </p>
-      </div>
-    </div>
+				<!-- Card 2 -->
+				<div class="col-md-4 p-3">
+				<div class="service-card text-center">
+					<div class="service-icon"><i class="fa-solid default-color h1 fa-brain"></i></div>
+					<div class="service-title">Define Technology</div>
+					<p class="service-desc">
+					Following the assessment, we gain a deep understanding of your business which helps our vendor agnostic approach recommendation of the best AI technology.
+					</p>
+				</div>
+				</div>
 
-    <!-- Card 3 -->
-    <div class="col-md-4 p-3">
-      <div class="service-card text-center">
-        <div class="service-icon"><i class="fa-solid default-color h1 fa-database"></i></div>
-        <div class="service-title">Data Management</div>
-        <p class="service-desc">
-         AI thrives on data, our team assists with identifying the right, clean, formatted, complete and ready to use data for effective model development.
-        </p>
-      </div>
-    </div>
+				<!-- Card 3 -->
+				<div class="col-md-4 p-3">
+				<div class="service-card text-center">
+					<div class="service-icon"><i class="fa-solid default-color h1 fa-database"></i></div>
+					<div class="service-title">Data Management</div>
+					<p class="service-desc">
+					AI thrives on data, our team assists with identifying the right, clean, formatted, complete and ready to use data for effective model development.
+					</p>
+				</div>
+				</div>
 
-    <!-- Card 4 -->
-    <div class="col-md-4 p-3 p-3">
-      <div class="service-card text-center">
-        <div class="service-icon"><i class="fa-solid default-color h1 fa-robot"></i></div>
-        <div class="service-title">Model Deployment</div>
-        <p class="service-desc">
-          WOur team in collaboration with your organization develops and trains custom AI models or guides in selection of pre-trained AI models that can easily be customized to meet your needs.
-        </p>
-      </div>
-    </div>
+				<!-- Card 4 -->
+				<div class="col-md-4 p-3 p-3">
+				<div class="service-card text-center">
+					<div class="service-icon"><i class="fa-solid default-color h1 fa-robot"></i></div>
+					<div class="service-title">Model Deployment</div>
+					<p class="service-desc">
+					WOur team in collaboration with your organization develops and trains custom AI models or guides in selection of pre-trained AI models that can easily be customized to meet your needs.
+					</p>
+				</div>
+				</div>
 
-    <!-- Card 5 -->
-    <div class="col-md-4 p-3 p-3">
-      <div class="service-card text-center">
-        <div class="service-icon"><i class="fa-solid default-color h1 fa-cloud-arrow-up"></i></div>
-        <div class="service-title">Deployment</div>
-        <p class="service-desc">
-          After development, we deploy the models into your production environment ensuring smooth integration with your existing workflows.
-        </p>
-      </div>
-    </div>
+				<!-- Card 5 -->
+				<div class="col-md-4 p-3 p-3">
+				<div class="service-card text-center">
+					<div class="service-icon"><i class="fa-solid default-color h1 fa-cloud-arrow-up"></i></div>
+					<div class="service-title">Deployment</div>
+					<p class="service-desc">
+					After development, we deploy the models into your production environment ensuring smooth integration with your existing workflows.
+					</p>
+				</div>
+				</div>
 
-    <!-- Card 6 -->
-    <div class="col-md-4 p-3">
-      <div class="service-card text-center">
-        <div class="service-icon"><i class="fa-solid default-color h1 fa-life-ring"></i></div>
-        <div class="service-title">Ongoing Support</div>
-        <p class="service-desc">
-          After deployment, we provide ongoing support and training to your team empowering them to confidently deep dive into AI tools and maximize benefits.
-        </p>
-      </div>
-    </div>
-    <!-- Card 6 -->
-    <div class="col-md-4 p-3">
-      <div class="service-card text-center">
-        <div class="service-icon"><i class="fa-solid default-color h4 fa fa-lock"></i></div>
-        <div class="service-title">Monitoring & Optimization</div>
-        <p class="service-desc">
-         Our support does not stop there, we continue working with you and your team to optimize the models, re-train them to accommodate new datasets and integrate with other sources as data grows.
-        </p>
-      </div>
-    </div>
+				<!-- Card 6 -->
+				<div class="col-md-4 p-3">
+				<div class="service-card text-center">
+					<div class="service-icon"><i class="fa-solid default-color h1 fa-life-ring"></i></div>
+					<div class="service-title">Ongoing Support</div>
+					<p class="service-desc">
+					After deployment, we provide ongoing support and training to your team empowering them to confidently deep dive into AI tools and maximize benefits.
+					</p>
+				</div>
+				</div>
+				<!-- Card 6 -->
+				<div class="col-md-4 p-3">
+				<div class="service-card text-center">
+					<div class="service-icon"><i class="fa-solid default-color h4 fa fa-lock"></i></div>
+					<div class="service-title">Monitoring & Optimization</div>
+					<p class="service-desc">
+					Our support does not stop there, we continue working with you and your team to optimize the models, re-train them to accommodate new datasets and integrate with other sources as data grows.
+					</p>
+				</div>
+				</div>
 
-  </div>
-</div>			
-</div>	
+			</div>
+			</div>			
+			</div>	
 
-<?php endif ?>
-</section>	
+			<?php endif ?>
+			</section>	
 
 
 

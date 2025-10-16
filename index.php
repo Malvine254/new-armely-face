@@ -290,7 +290,7 @@
 <!-- End Blog Area -->
 
 
-<!-- Pricing Table -->
+<!-- videos Section -->
 <section class="">
 <div class="container">
 <div class="row">
@@ -311,7 +311,7 @@
 	</div>
 </div>	
 </section>	
-<!--/ End Pricing Table -->
+<!--/ End videos Section -->
 
 <!-- Start Appointment -->
 <section class="appointment">

@@ -230,23 +230,22 @@ $('.btn-close').click(function() {
     }
 
  
-// submit contact form 
+// Submit contact form
 $('#contact-form').submit(function(event) {
-  event.preventDefault(); // Prevent the default form submission
+  event.preventDefault(); // Prevent default form submission
 
-  // ✅ Get reCAPTCHA token
+  // Get reCAPTCHA token
   var recaptchaResponse = grecaptcha.getResponse();
   if (!recaptchaResponse) {
     Swal.fire({
       title: 'CAPTCHA Required',
       text: 'Please verify that you are not a robot.',
-      icon: 'warning',
       confirmButtonColor: 'rgb(47,85,151)'
     });
     return;
   }
 
-  // ✅ Show loading message
+  // Show loading message
   Swal.fire({
     title: 'Loading...',
     text: 'Please wait while we process your request.',
@@ -256,50 +255,79 @@ $('#contact-form').submit(function(event) {
     }
   });
 
-  // ✅ Get serialized form data and append reCAPTCHA token
+  // Get serialized form data and append reCAPTCHA token
   var formData = $(this).serialize() + '&g-recaptcha-response=' + recaptchaResponse;
 
-  // ✅ AJAX request
+  // AJAX request
   $.ajax({
     type: 'POST',
     url: 'php/actions', // Replace with your actual endpoint
     data: formData,
     success: function(response3) {
       Swal.close(); // Close loading modal
+
       if (response3 === "80") {
         Swal.fire({
-          title: 'Success!',
-          text: "Message was sent successfully",
-          confirmButtonColor: 'rgb(47,85,151)',
-          icon: 'success',
+          title: 'Success',
+          text: 'Message was sent successfully.',
+          confirmButtonColor: 'rgb(47,85,151)'
         });
+
+        // Reset form and CAPTCHA
         $("#contact-form")[0].reset();
-        grecaptcha.reset(); // ✅ Reset CAPTCHA after success
+        grecaptcha.reset();
+
+        // Google Analytics and Google Ads conversion tracking
+        if (typeof gtag === 'function') {
+          // Simulate virtual thank-you page view
+          gtag('event', 'page_view', {
+            page_title: 'Thank You',
+            page_location: window.location.origin + '/thank-you',
+            page_path: '/thank-you'
+          });
+
+          // Log form submission as a custom event in Analytics
+          gtag('event', 'contact_form_submitted', {
+            event_category: 'Contact',
+            event_label: 'Contact Form AJAX',
+            value: 1
+          });
+
+          // Trigger Google Ads conversion
+          gtag('event', 'conversion', {
+            send_to: 'AW-16698949072/p78BCKGBjaobEND71po-',
+            event_callback: function() {
+              console.log('Google Ads conversion recorded.');
+            }
+          });
+        }
+
       } else {
         Swal.fire({
           title: 'Warning',
           text: response3,
-          icon: 'warning',
           confirmButtonText: 'OK',
           confirmButtonColor: 'rgb(47,85,151)'
         });
       }
+
       console.log(response3);
     },
     error: function(error) {
       Swal.close();
       Swal.fire({
-        title: 'Error!',
+        title: 'Error',
         text: 'Form submission failed. Please try again.',
-        icon: 'error',
         confirmButtonColor: 'rgb(47,85,151)'
       });
       console.error('Form submission error:', error);
     }
   });
 });
+// end of contact form
 
 
+// submit consultation form
 
 $('#consultation-form-action').submit(function(event) { 
     event.preventDefault(); // Prevent the default form submission
