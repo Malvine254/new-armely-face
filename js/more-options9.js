@@ -329,60 +329,98 @@ $('#contact-form').submit(function(event) {
 
 // submit consultation form
 
-$('#consultation-form-action').submit(function(event) { 
-    event.preventDefault(); // Prevent the default form submission
-    // Display loading message before AJAX request
-      Swal.fire({
-        title: 'Loading...',
-        text: 'Please wait while we process your request.',
-        allowOutsideClick: false,
-        didOpen: () => {
-          Swal.showLoading();
-        }
-      });
-    // Retrieve the form data
-    var formData = $(this).serialize();
+// Submit contact form
+$('#contact-form').submit(function(event) {
+  event.preventDefault(); // Prevent default form submission
 
-    // Perform an AJAX request to submit the form data
-    $.ajax({
-      type: 'POST',
-      url: 'php/actions', // Replace with your actual server-side endpoint
-      data: formData,
-      success: function(response2) {
-      Swal.close(); // Close the loading message before showing the next one
-      // Trim the response to remove any leading or trailing spaces
-      response2 = $.trim(response2); 
+  // Clear previous messages
+  $('#SubmitMessage').html('').removeClass('alert-success alert-danger alert').hide();
 
-        // Handle the success response
-        if (response2==="19") { 
-          Swal.fire({
-          title: 'Success!',
-          text: "Message was sent successfully",
-          confirmButtonColor: 'rgb(47,85,151)', 
-          icon: 'success',
-        });
-          $("#consultation-form-action")[0].reset();
-        }else{
-          Swal.fire({
-          title: 'Warning',
-          text: response2,
-          icon: 'warning',
-          confirmButtonText: 'OK',
-           confirmButtonColor: 'rgb(47,85,151)'
-        });
-        }
+  // Get reCAPTCHA token
+  var recaptchaResponse = grecaptcha.getResponse();
+  if (!recaptchaResponse) {
+    $('#SubmitMessage')
+      .addClass('alert alert-danger alert-dismissible fade show')
+      .html('<strong>Error:</strong> Please verify that you are not a robot.' +
+            '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>')
+      .show();
+    return;
+  }
 
-
-         
-        console.log(response2); // You can do something with the response data
-      },
-      error: function(error) {
-        // Handle the error response
-        console.error('Form submission error');
-        console.error(error); // You can display an error message or perform other actions
-      }
-    });
+  // Show loading message
+  Swal.fire({
+    title: 'Loading...',
+    text: 'Please wait while we process your request.',
+    allowOutsideClick: false,
+    didOpen: () => {
+      Swal.showLoading();
+    }
   });
+
+  // Get serialized form data and append reCAPTCHA token
+  var formData = $(this).serialize() + '&g-recaptcha-response=' + recaptchaResponse;
+
+  // AJAX request
+  $.ajax({
+    type: 'POST',
+    url: 'php/actions', // Replace with your actual endpoint
+    data: formData,
+    success: function(response3) {
+      Swal.close(); // Close loading modal
+
+      $('#SubmitMessage').removeClass('alert-success alert-danger alert').hide();
+
+      if (response3 === "80") {
+        $('#SubmitMessage')
+          .addClass('alert alert-success')
+          .html('✅ Message was sent successfully!')
+          .show();
+
+        // Reset form and CAPTCHA
+        $("#contact-form")[0].reset();
+        grecaptcha.reset();
+
+        // Optional: Google Analytics and Ads tracking
+        if (typeof gtag === 'function') {
+          gtag('event', 'page_view', {
+            page_title: 'Thank You',
+            page_location: window.location.origin + '/thank-you',
+            page_path: '/thank-you'
+          });
+
+          gtag('event', 'contact_form_submitted', {
+            event_category: 'Contact',
+            event_label: 'Contact Form AJAX',
+            value: 1
+          });
+
+          gtag('event', 'conversion', {
+            send_to: 'AW-16698949072/p78BCKGBjaobEND71po-'
+          });
+        }
+
+      } else {
+        $('#SubmitMessage')
+          .addClass('alert alert-danger alert-dismissible fade show')
+          .html('<strong>Warning:</strong> ' + response3 +
+                '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>')
+          .show();
+      }
+
+      console.log(response3);
+    },
+    error: function(error) {
+      Swal.close();
+      $('#SubmitMessage')
+        .addClass('alert alert-danger alert-dismissible fade show')
+        .html('<strong>Error:</strong> Form submission failed. Please try again.' +
+              '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>')
+        .show();
+      console.error('Form submission error:', error);
+    }
+  });
+});
+
 
 //start of read more for cards
  $(document).ready(function(){

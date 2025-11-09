@@ -34,6 +34,7 @@
 					<p>If you have any questions please feel free to contact with us.</p>
 					<!-- Form -->
 					<form class="form" id="contact-form" method="post">
+						<p class="p-3 alert " id="SubmitMessage"></p>
 						<div class="row">
 							<div class="col-lg-6">
 								<label class="text-start">Name *</label>
