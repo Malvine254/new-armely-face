@@ -65,7 +65,7 @@ function getHeader($pageName) {
 		
 		<!-- Medipro CSS -->
         <link rel="stylesheet" href="css/normalize_2.css"> 
-        <link rel="stylesheet" href="style4.css">
+        <link rel="stylesheet" href="style5.css">
         <link rel="stylesheet" href="css/responsive.css">
 		 <link rel="stylesheet" href="css/custome.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -147,7 +147,7 @@ function getHeader($pageName) {
 					<div class="main-menu">
 					 <nav class="navigation">
 			        <ul class="nav menu">
-			          <li class="'. getUrl("company","career","job-board","applications","social-impact","social-impact-details").'"><a >Why Us <i class="icofont-rounded-down"></i></a>
+			          <li class="'. getUrl("company","career","job-board","applications","social-impact","social-impact-details").'"><a >Who We Are <i class="icofont-rounded-down"></i></a>
 			            <ul class="dropdown">
 			              <li><a href="company">Company Overview</a></li>
 			              <li><a href="career">Career Opportunities</a></li>
@@ -155,7 +155,7 @@ function getHeader($pageName) {
 						   
 			            </ul>
 			          </li>
-			          <li class="'. getUrl("services","service-details").'"><a>Services <i class="icofont-rounded-down"></i></a>
+			          <li class="'. getUrl("services","service-details").'"><a>What We Do <i class="icofont-rounded-down"></i></a>
 			              <ul class="dropdown">
 			                 <li><a href="services">All Services</a></li>
 			                  <li>
@@ -212,20 +212,22 @@ function getHeader($pageName) {
 			              </ul>
 			            </li>
 
-			          <li class="'. getUrl("blog","customer-stories","case-studies").'"><a >Insights <i class="icofont-rounded-down"></i></a>
+			          <li class="'. getUrl("blog","customer-stories","case-studies").'"><a >Knowledge Hub <i class="icofont-rounded-down"></i></a>
 			            <ul class="dropdown">
 			              <li><a href="blog">Blog Articles</a></li>
 			              <li><a href="customer-stories">Customer Stories</a></li>
 			              <li><a href="case-studies">Case Studies</a></li>
+						  <li><a href="industries">Industries</a></li>
 			              <li><a href="case-studies#white-papers">White Papers</a></li>
 						  <li><a href="social-impact">Social Impact</a></li>
+						   
 			            </ul>
 			          </li>
-			          <li class="'.getUrl("events").'"><a href="events">Events</a></li>
-			          <li class="'.getUrl("industries").'"><a href="industries">Industries</a></li>
-			         
-					  <li class="'.getUrl("partner","partner").'"><a href="partner">Microsoft Licensing</a></li>
-			          <li class="'.getUrl("contact").'"><a  href="contact">Contact Us</a></li>
+					  <li class="'.getUrl("events").'"><a href="events">Events</a></li>
+					  <li class="'.getUrl("partners").'"><a href="partners">Who We Serve</a></li>
+					 
+					  <!------<li class="'.getUrl("partner","partner").'"><a href="partner">Microsoft Licensing</a></li>!----->
+					  <li class="'.getUrl("contact").'"><a  href="contact">Let\'s Talk</a></li>
 			          
 			        </ul>
 			      </nav>
