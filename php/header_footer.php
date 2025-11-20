@@ -132,7 +132,7 @@ function getHeader($pageName) {
 			<div class="container">
 			<div class="inner">
 			<div class="row">
-				<div class="col-lg-3 col-md-3 col-12">
+				<div class="col-lg-3 col-md-23 col-12">
 					<!-- Start Logo -->
 					<div class="logo">
 						<a href="/"><span class="logo-font">armely</span></a>
@@ -224,9 +224,9 @@ function getHeader($pageName) {
 			            </ul>
 			          </li>
 					  <li class="'.getUrl("events").'"><a href="events">Events</a></li>
-					  <li class="'.getUrl("partners").'"><a href="partners">Who We Serve</a></li>
+					  <li class="'.getUrl("industries").'"><a href="industries">Who We Serve</a></li>
 					 
-					  <!------<li class="'.getUrl("partner","partner").'"><a href="partner">Microsoft Licensing</a></li>!----->
+					 <li class="'.getUrl("partner","partner").'"><a href="partner">Partners</a></li>
 					  <li class="'.getUrl("contact").'"><a  href="contact">Let\'s Talk</a></li>
 			          
 			        </ul>

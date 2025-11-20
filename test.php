@@ -1,195 +1,204 @@
-<?php include 'php/actions.php'; include 'php/header_footer.php';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Armely Mega Menu Test</title>
-
-    <!-- BOOTSTRAP -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-       /* ======================================================================================
-   ARMELY FULL-WIDTH MEGA MENU — DESKTOP ONLY
-   Mobile uses DEFAULT Bootstrap dropdown (no mega menu)
-   ====================================================================================== */
-
-/* DESKTOP ONLY (≥ 992px) */
-@media (min-width: 992px) {
-
-    /* Parent <li> must be static for full-width background */
-    .navbar-nav li {
-        position: static !important;
-    }
-
-    /* FULL-WIDTH DROPDOWN BACKGROUND */
-    .mega-menu,
-    .dropdown-menu.mega-menu {
-        position: absolute !important;
-        top: 100%;
-        left: 0 !important;
-        right: 0 !important;
-
-        width: 100vw !important;
-        margin-left: calc(50% - 50vw) !important;
-
-        background: #002040 !important;
-        padding: 0 !important;
-        border: none !important;
-        border-radius: 0 !important;
-
-        display: none !important;
-        overflow-x: hidden !important;
-        z-index: 9999 !important;
-    }
-
-    /* Show on hover (desktop only) */
-    .navbar-nav li:hover > .mega-menu {
-        display: block !important;
-    }
-
-    /* INNER CONTENT */
-    .mega-menu-inner {
-        max-width: 1300px;
-        margin: 0 auto;
-        padding: 40px 60px;
-
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 40px;
-    }
-
-    .mega-title {
-        color: #ffffff;
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 12px;
-    }
-
-    .mega-menu a {
-        display: block;
-        padding: 6px 0;
-        color: #fff;
-        font-size: 15px;
-    }
-
-    .mega-menu a:hover {
-        color: #57C8FF;
-    }
-}
-
-/* ======================================================================================
-   MOBILE MODE (≤ 991px)
-   Disable mega-menu completely → revert to NORMAL Bootstrap dropdown
-   ====================================================================================== */
-@media (max-width: 991px) {
-
-    /* Remove full-width behavior */
-    .mega-menu,
-    .dropdown-menu.mega-menu {
-        position: static !important;
-        width: 100% !important;
-        margin-left: 0 !important;
-
-        display: none !important;
-        background: white !important; /* default dropdown color */
-        padding: 10px 15px !important;
-        border: 1px solid #ddd !important;
-        border-radius: 6px !important;
-    }
-
-    /* Bootstrap handles show/hide via .show class on mobile */
-    .dropdown-menu.show {
-        display: block !important;
-    }
-
-    /* MOBILE: revert to stacked list */
-    .mega-menu-inner {
-        display: block !important;
-        padding: 5px 10px !important;
-    }
-
-    .mega-title {
-        color: #002040;
-        font-weight: 600;
-        margin-top: 12px;
-    }
-
-    .mega-menu a {
-        color: #002040 !important;
-        padding: 6px 0;
-        display: block;
-    }
-}
-
-    </style>
+    <title>Partnerships | TEKsystems</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light shadow-sm">
-    <a class="navbar-brand fw-bold fs-4" href="#">armely</a>
+/* Header */
+header {
+    background-color: #1a1a1a;
+    padding: 20px;
+}
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto">
+.navbar .logo h1 {
+    color: #fff;
+}
 
-            <!-- ===== Example Mega Menu ===== -->
-            <li class="nav-item dropdown">
-                <a class="nav-link" href="#">Services</a>
+.nav-links {
+    list-style-type: none;
+    display: flex;
+}
 
-                <!-- FULL-WIDTH MEGA DROPDOWN -->
-                <div class="dropdown-menu mega-menu">
-                    <div class="mega-menu-inner">
+.nav-links li {
+    margin-left: 20px;
+}
 
-                        <div>
-                            <div class="mega-title">AI Services</div>
-                            <a href="#">AI Consulting</a>
-                            <a href="#">AI Advisory</a>
-                            <a href="#">Generative AI</a>
-                            <a href="#">AI PoC Starter</a>
-                        </div>
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-                        <div>
-                            <div class="mega-title">Data Services</div>
-                            <a href="#">Microsoft Fabric</a>
-                            <a href="#">Databricks</a>
-                            <a href="#">Snowflake</a>
-                            <a href="#">Data Strategy</a>
-                        </div>
+/* Hero Section */
+.hero {
+    background: url('hero-image.jpg') center/cover no-repeat;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+}
 
-                        <div>
-                            <div class="mega-title">Digital Transformation</div>
-                            <a href="#">Power Apps</a>
-                            <a href="#">Power Automate</a>
-                            <a href="#">Dynamics 365</a>
-                            <a href="#">API Data Access</a>
-                        </div>
+.hero-content h2 {
+    font-size: 40px;
+    font-weight: 700;
+}
 
-                    </div>
-                </div>
-            </li>
+.hero-content p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 10px auto;
+}
 
-            <li class="nav-item"><a class="nav-link" href="#">Insights</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Industries</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-        </ul>
-    </div>
-</nav>
+/* Partnerships Section */
+.partnerships {
+    padding: 50px 0;
+    text-align: center;
+}
 
-<!-- CONTENT PLACEHOLDER -->
-<div class="container py-5">
-    <h2 class="text-center mb-4">Mega Menu Test Page</h2>
-    <p class="text-center">Hover over <strong>Services</strong> to test the full-width mega menu.</p>
-</div>
+.partnerships-header h3 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
 
-<!-- BOOTSTRAP JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+.partnerships-header p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
 
+.partner-logos {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.logo-item {
+    width: 150px;
+    height: 100px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Call to Action Section */
+.cta {
+    background-color: #006bb6;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.cta-content h3 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.cta-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.cta-content button {
+    background-color: #fff;
+    color: #006bb6;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cta-content button:hover {
+    background-color: #e5e5e5;
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+    </style>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>TEKsystems</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Transformational Partnerships</h2>
+            <p>We help organizations build the next generation of innovative solutions.</p>
+        </div>
+    </section>
+
+    <!-- Partnership Logos Section -->
+    <section class="partnerships">
+        <div class="partnerships-header">
+            <h3>Our Key Partnerships</h3>
+            <p>We work with the best to provide top-tier solutions.</p>
+        </div>
+        
+        <div class="partner-logos">
+            <!-- Replace with actual partner logos -->
+            <div class="logo-item"><img src="partner1.png" alt="Partner 1"></div>
+            <div class="logo-item"><img src="partner2.png" alt="Partner 2"></div>
+            <div class="logo-item"><img src="partner3.png" alt="Partner 3"></div>
+            <div class="logo-item"><img src="partner4.png" alt="Partner 4"></div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta">
+        <div class="cta-content">
+            <h3>Explore How We Drive Innovation</h3>
+            <p>Partner with us today to accelerate your success.</p>
+            <button>Learn More</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 TEKsystems | All Rights Reserved</p>
+    </footer>
 </body>
 </html>

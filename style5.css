@@ -4285,3 +4285,101 @@ input:checked+.slider-two:before {
 }
 
 
+
+/* ============================================
+   ARMELY – HEADER, LOGO & MENU FIXES
+   ============================================ */
+
+/* Remove default Bootstrap spacing in header */
+.header .container {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+
+/* Logo: remove all left spacing */
+.header .logo {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+/* Logo text size adjustments */
+.logo .logo-font {
+    font-size: 55px;
+}
+
+/* Keep logo aligned even when responsive */
+@media (max-width: 1200px) {
+    .logo .logo-font {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 992px) {
+    .logo .logo-font {
+        font-size: 42px;
+    }
+    .header .container {
+        padding-left: 8px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo .logo-font {
+        font-size: 36px;
+    }
+    .header .container {
+        padding-left: 5px !important;
+    }
+}
+
+/* Mobile (Slicknav active) */
+@media (max-width: 700px) {
+    .logo .logo-font {
+        font-size: 32px !important;
+    }
+
+    /* Remove left offset on mobile header */
+    .header .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .header .container {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+}
+
+/* ============================================
+   NAVIGATION MARGIN FIXES
+   ============================================ */
+
+/* Reduce spacing between menu items on desktop */
+.header .nav li a {
+    padding: 18px 10px !important;
+    font-size: 14px !important;
+}
+
+/* Dropdown alignment fix */
+.header .nav li .dropdown {
+    left: 0 !important;
+    padding-left: 0 !important;
+}
+
+/* Remove extra padding inside dropdown links */
+.header .nav li .dropdown li a {
+    padding: 8px 12px !important;
+}
+
+/* ============================================
+   TRIGGER MOBILE MENU EARLIER (700px)
+   ============================================ */
+
+@media (max-width: 700px) {
+    .main-menu {
+        display: none !important;
+    }
+    .slicknav_menu {
+        display: block !important;
+    }
+}
