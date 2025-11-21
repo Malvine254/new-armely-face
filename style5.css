@@ -4383,3 +4383,36 @@ input:checked+.slider-two:before {
         display: block !important;
     }
 }
+
+/* ============================================
+   SIDE DROPDOWN FIX (OPEN SUBMENU TO THE RIGHT)
+   ============================================ */
+
+/* Parent li must be positioned relative */
+.header .nav li {
+    position: relative;
+}
+
+/* Submenu container */
+.header .nav li .dropdown {
+    position: absolute !important;
+    top: 0 !important;
+    left: 100% !important; /* push to the right */
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s ease-in-out;
+}
+
+/* Show submenu on hover */
+.header .nav li:hover > .dropdown {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ensure width is consistent */
+.header .nav li .dropdown li a {
+    white-space: nowrap;
+}

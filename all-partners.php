@@ -51,12 +51,12 @@
                 proficiencies across a wide range of industry-leading tools.
             </p>
 
-            <ul class="custom-bullets m-3" >
-                <li><b>Vendor Agnostic:</b> We choose the right technology for your needs, not just the 
+            <ul class="custom-bullets m-3 default-color" >
+                <li class="default-color"><b>Vendor Agnostic:</b> We choose the right technology for your needs, not just the 
                     one we partner with, guaranteeing unbiased recommendations.</li>
-                <li><b>Deep Integration Knowledge:</b> Our teams specialize in creating flawless 
+                <li class="default-color"><b>Deep Integration Knowledge:</b> Our teams specialize in creating flawless 
                     interoperability, turning disparate tools into a single, cohesive business engine.</li>
-                <li><b>Certified Mastery:</b> Our consultants hold advanced certifications, ensuring that 
+                <li class="default-color"><b>Certified Mastery:</b> Our consultants hold advanced certifications, ensuring that 
                     implementation and optimization are handled with the highest level of technical 
                     competence.</li>
             </ul>
