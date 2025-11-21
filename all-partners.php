@@ -67,47 +67,33 @@
         <div class="partner-logos">
             
             <div class="partner-item">
-                <img src="https://cdn.freelogovectors.net/wp-content/uploads/2023/07/university_of_nebraska_medical_center_logo-freelogovectors.net_.png">
+                <a href="partners-details">
+                    <img src="images/partners/aws.png">
+                </a>
             </div>
 
             <div class="partner-item">
-                <img src="https://swopehealth.org/wp-content/uploads/2024/03/Swope-Health-Services-244462845.png">
+                <a href="partners-details">
+                    <img src="images/partners/td.png">
+                </a>
             </div>
 
             <div class="partner-item">
-                <img src="https://assets.libsyn.com/content/17315963?height=250&width=250&overlay=true">
+                <a href="partners-details">
+                    <img src="images/partners/snowflake1.png">
+                </a>
             </div>
 
             <div class="partner-item">
-                <img src="https://www.sagebutte.com/wp-content/uploads/2024/01/Sage-Butte-Energy-logo.png">
+               <a href="partners-details">
+                 <img src="images/partners/ms.png">
+               </a>
             </div>
 
-            <div class="partner-item">
-                <img src="images/brand-partners/qb_energy.jpg">
-            </div>
-
-            <div class="partner-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Logo_of_Frisco%2C_Texas.svg/768px-Logo_of_Frisco%2C_Texas.svg.png?20180828011722">
-            </div>
-
-            <div class="partner-item">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrSzxH_f1lEuzqxEewHFlxbQr6jWb-ISY4eQ&s">
-            </div>
-
-            <div class="partner-item">
-                <img src="https://lambdalegal.org/wp-content/uploads/2023/02/lambda-logo-300x84.png">
-            </div>
-
-            <div class="partner-item">
-                <img src="https://nfg-sofun.s3.amazonaws.com/uploads/ui_configuration/main_logo/12617/welcome_logo_HBI_LOGO_FINAL_Long_Form.png">
-            </div>
-
-            <div class="partner-item">
-                <img src="https://www.moblicosolutions.com/wp-content/uploads/2024/09/Image-for-Home-Page-Hero-4-e1726688399270.png">
-            </div>
-
-            <div class="partner-item">
-                <img src="https://logos-world.net/wp-content/uploads/2024/07/BNSF-Railway-Symbol.png">
+             <div class="partner-item">
+               <a href="partners-details">
+                 <img src="images/partners/redhat.jpg">
+               </a>
             </div>
 
         </div>

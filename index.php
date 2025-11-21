@@ -282,7 +282,7 @@
 <!-- End Single Blog -->
 
 </div>
-	<div class="default-color h4 p-2">
+	<div class="default-color h4 p-2 mt-4">
 		<a class="animated-text" href="blog"><strong>Explore all Blogs >>></strong></a>
 	</div>
 </div>

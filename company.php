@@ -14,10 +14,10 @@
       margin-bottom: 30px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-    ul {
+    /* ul {
       list-style-type: "" !;
       margin-left: 20px;
-    }
+    } */
     .coffee ul {
       list-style-type: "";
     }
