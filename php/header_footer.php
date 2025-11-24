@@ -72,11 +72,16 @@ function getHeader($pageName) {
 		
     </head>
     <body>
-    <!-- <div class="announcement-banner default-background" id="announcementBanner">
-	    📢 <b>Estimate your Fabric capacity needs!</b> Check out Microsoft Fabric SKU Estimator. <a href="service-details?name=fabric_capacity">Learn More</a>
-		    <b>Do you need AI Proof of Concept (PoC) Starter Pack ?</b> Request your AI Proof of Concept Starter Pack Today. <a href="service-details?name=pocstarter-ai">Learn More</a>
-		    <span class="close-btn" onclick="closeBanner()">&times;</span>
-	</div> -->
+   <div  class="announcement-banner default-background mb-4" id="announcementBanner">
+    <span class="banner-item">
+        🏆 <b>We Won Best AI Application – Global Hackathon!</b>
+        Explore how we built our Smart Waste Management AI solution.
+        <a target="_blank" href="https://github.com/Sammychesire/Smart-City-Waste-Management">Read More</a>
+    </span>
+
+    <span class="close-btn" onclick="closeBanner()">&times;</span>
+</div>
+
 	
 		<section>	
 		<!-- Floating Action Button -->
