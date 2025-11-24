@@ -151,7 +151,10 @@ function getHeader($pageName) {
 			            <ul class="dropdown">
 			              <li><a href="company">Company Overview</a></li>
 			              <li><a href="career">Career Opportunities</a></li>
+						  <li><a href="customer-stories">Customer Stories</a></li>
 			              <li><a href="team">Our Team</a></li>
+						  <li><a href="social-impact">Social Impact</a></li>
+						  
 						   
 			            </ul>
 			          </li>
@@ -215,11 +218,11 @@ function getHeader($pageName) {
 			          <li class="'. getUrl("blog","customer-stories","case-studies").'"><a >Knowledge Hub <i class="icofont-rounded-down"></i></a>
 			            <ul class="dropdown">
 			              <li><a href="blog">Blog Articles</a></li>
-			              <li><a href="customer-stories">Customer Stories</a></li>
+			              
 			              <li><a href="case-studies">Case Studies</a></li>
 						  <li><a href="industries">Industries</a></li>
 			              <li><a href="case-studies#white-papers">White Papers</a></li>
-						  <li><a href="social-impact">Social Impact</a></li>
+						  
 						   
 			            </ul>
 			          </li>
