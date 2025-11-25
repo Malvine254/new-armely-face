@@ -4285,7 +4285,6 @@ input:checked+.slider-two:before {
 }
 
 
-
 /* ============================================
    ARMELY – HEADER, LOGO & MENU FIXES
    ============================================ */
@@ -4307,7 +4306,6 @@ input:checked+.slider-two:before {
     font-size: 55px;
 }
 
-/* Keep logo aligned even when responsive */
 @media (max-width: 1200px) {
     .logo .logo-font {
         font-size: 48px;
@@ -4338,7 +4336,6 @@ input:checked+.slider-two:before {
         font-size: 32px !important;
     }
 
-    /* Remove left offset on mobile header */
     .header .row {
         margin-left: 0 !important;
         margin-right: 0 !important;
@@ -4354,16 +4351,10 @@ input:checked+.slider-two:before {
    NAVIGATION MARGIN FIXES
    ============================================ */
 
-/* Reduce spacing between menu items on desktop */
+/* Reduce spacing between main menu items */
 .header .nav li a {
     padding: 18px 10px !important;
     font-size: 14px !important;
-}
-
-/* Dropdown alignment fix */
-.header .nav li .dropdown {
-    left: 0 !important;
-    padding-left: 0 !important;
 }
 
 /* Remove extra padding inside dropdown links */
@@ -4385,34 +4376,63 @@ input:checked+.slider-two:before {
 }
 
 /* ============================================
-   SIDE DROPDOWN FIX (OPEN SUBMENU TO THE RIGHT)
+   DESKTOP DROPDOWN FIXES (TOP LEVEL)
    ============================================ */
 
-/* Parent li must be positioned relative */
+/* Parent menu items */
 .header .nav li {
     position: relative;
 }
 
-/* Submenu container */
+/* Top level dropdown opens DOWNWARD */
 .header .nav li .dropdown {
-    position: absolute !important;
-    top: 0 !important;
-    left: 100% !important; /* push to the right */
-    margin-left: 0 !important;
-    margin-top: 0 !important;
-
+    position: absolute;
+    top: 100%;       /* directly under the menu item */
+    left: 0;         /* align with parent */
+    margin-top: 0;
+    min-width: 220px; /* stable width */
     opacity: 0;
     visibility: hidden;
     transition: 0.2s ease-in-out;
+    z-index: 9999;
 }
 
-/* Show submenu on hover */
 .header .nav li:hover > .dropdown {
     opacity: 1;
     visibility: visible;
 }
 
-/* Ensure width is consistent */
-.header .nav li .dropdown li a {
-    white-space: nowrap;
+/* ============================================
+   NESTED DROPDOWN – OPEN TO THE RIGHT
+   ============================================ */
+
+/* NESTED DROPDOWN – OPEN RIGHT WITH NO GAP */
+.header .nav li .dropdown li {
+    position: relative;
+}
+
+.header .nav li .dropdown li .dropdown {
+    position: absolute;
+    top: 0;
+    left: 100% !important;     /* open to the RIGHT */
+    right: auto !important;
+
+    margin-left: 0 !important; /* remove gap */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    transform: translateX(0);  /* remove offset gap */
+    min-width: 220px;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.25s ease;
+    z-index: 9999;
+}
+
+/* Show submenu */
+.header .nav li .dropdown li:hover > .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
 }

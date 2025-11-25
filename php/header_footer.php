@@ -73,14 +73,14 @@ function getHeader($pageName) {
     </head>
     <body>
    <div  class="announcement-banner default-background mb-4" id="announcementBanner">
-    <span class="banner-item">
-        🏆 <b>We Won Best AI Application – Global Hackathon!</b>
-        Explore how we built our Smart Waste Management AI solution.
-        <a target="_blank" href="https://github.com/Sammychesire/Smart-City-Waste-Management">Read More</a>
-    </span>
+		<span class="banner-item">
+			🏆 <b>We Won Best AI Application – Global Hackathon!</b>
+			Explore how we built our Smart Waste Management AI solution.
+			<a target="_blank" href="https://github.com/Sammychesire/Smart-City-Waste-Management">Read More</a>
+		</span>
 
-    <span class="close-btn" onclick="closeBanner()">&times;</span>
-</div>
+		<span class="close-btn" onclick="closeBanner()">&times;</span>
+	</div>
 
 	
 		<section>	
@@ -219,7 +219,7 @@ function getHeader($pageName) {
 
 			              </ul>
 			            </li>
-
+						<li class="'.getUrl("industries").'"><a href="industries">Who We Serve</a></li>
 			          <li class="'. getUrl("blog","customer-stories","case-studies").'"><a >Knowledge Hub <i class="icofont-rounded-down"></i></a>
 			            <ul class="dropdown">
 			              <li><a href="blog">Blog Articles</a></li>
@@ -232,7 +232,6 @@ function getHeader($pageName) {
 			            </ul>
 			          </li>
 					  <li class="'.getUrl("events").'"><a href="events">Events</a></li>
-					  <li class="'.getUrl("industries").'"><a href="industries">Who We Serve</a></li>
 					 
 					 <li class="'.getUrl("all-partners","all-partners").'"><a href="all-partners">Partners</a></li>
 					  <li class="'.getUrl("contact").'"><a  href="contact">Let\'s Talk</a></li>
