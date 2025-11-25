@@ -714,18 +714,19 @@ body {
 }
 
 .slider .single-slider h1 {
-	color: #2c2d3f;
-	font-size: 38px;
+	color: #ffffff;
+	font-size: 44px;
 	font-weight: 700;
 	margin: 0;
 	padding: 0;
-	line-height: 42px
+	line-height: 48px;
 }
 
 .slider .single-slider p {
-	color: #2c2d3f;
-	margin-top: 27px;
-	font-weight: 400
+	color: #ffffff;
+	margin-top: 18px;
+	font-weight: 400;
+	opacity: 0.95;
 }
 
 .about-content .btn,
@@ -755,28 +756,76 @@ body {
 
 .pf-details .image-slider .owl-nav,
 .slider .owl-carousel .owl-nav { 
-	margin: -25px 0 0;
+	margin: 0;
 	position: absolute;
 	top: 50%;
-	width: 100%
+	left: 0;
+	width: 100%;
+	transform: translateY(-50%);
+	z-index: 4;
+}
+
+.slider {
+	position: relative;
+	overflow: hidden;
+}
+
+.slider .single-slider {
+	min-height: 480px;
+	display: flex;
+	align-items: center;
+	background-position: center;
+	background-size: cover;
+	position: relative;
+}
+
+.slider::before{
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 100%);
+	z-index: 2;
+	pointer-events: none;
+}
+
+.slider .single-slider .content,
+.slider .single-slider .text{
+	position: relative;
+	z-index: 3;
 }
 
 .slider .owl-carousel .owl-nav div {
-	height: 50px;
-	width: 50px;
-	line-height: 50px;
+	height: 44px;
+	width: 44px;
+	line-height: 44px;
 	text-align: center;
-	background: #2f5597;
-	color: #fff;
-	font-size: 26px;
+	background: rgba(255,255,255,0.85);
+	color: #2f5597;
+	font-size: 20px;
 	position: absolute;
 	margin: 0;
-	-webkit-transition: .4s;
-	-moz-transition: .4s;
-	transition: .4s;
+	-webkit-transition: .35s;
+	-moz-transition: .35s;
+	transition: .35s;
 	padding: 0;
-	border-radius: 50%
+	border-radius: 12px;
+	box-shadow: 0 8px 24px rgba(16,24,40,0.12);
+	backdrop-filter: blur(6px);
 }
+
+.slider .owl-carousel .owl-nav div:hover{
+	transform: translateY(-4px);
+	background: #2f5597;
+	color: #fff;
+}
+
+.slider .owl-carousel .owl-nav .owl-prev{ left: 18px; }
+.slider .owl-carousel .owl-nav .owl-next{ right: 18px; }
+
+/* modern dots */
+.slider .owl-dots{ position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 4; display:flex; gap:8px; }
+.slider .owl-dot button{ width:10px; height:10px; border-radius:999px; background: rgba(255,255,255,0.6); border:none; transition: all .35s; }
+.slider .owl-dot.active button, .slider .owl-dot:hover button{ width:34px; height:10px; border-radius:20px; background:#ffffff; box-shadow: 0 8px 20px rgba(16,24,40,0.12); }
 
 .contact-us .single-info:before,
 .schedule .single-schedule,
@@ -1336,20 +1385,21 @@ body {
 }
 
 .pf-details .image-slider .owl-carousel .owl-nav div {
-	height: 50px;
-	width: 50px;
-	line-height: 45px;
-	background: #fff;
+	height: 44px;
+	width: 44px;
+	line-height: 44px;
+	background: rgba(255,255,255,0.95);
 	color: #2f5597;
 	position: absolute;
 	margin: 0;
-	border-radius: 100%;
+	border-radius: 12px;
 	font-size: 20px;
 	text-align: center;
-	-webkit-transition: .4s;
-	-moz-transition: .4s;
-	transition: .4s;
-	box-shadow: 0 0 10px #0000001a
+	-webkit-transition: .35s;
+	-moz-transition: .35s;
+	transition: .35s;
+	box-shadow: 0 8px 24px rgba(16,24,40,0.08);
+	backdrop-filter: blur(6px);
 }
 
 .appointment .form-group .list li:hover,

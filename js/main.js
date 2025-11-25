@@ -48,14 +48,16 @@
 		$(".hero-slider").owlCarousel({
 			loop:true,
 			autoplay:true,
-			smartSpeed: 500,
-			autoplayTimeout:3500,
+			smartSpeed: 700,
+			autoplayTimeout:5000,
 			singleItem: true,
 			autoplayHoverPause:true,
 			items:1,
 			nav:true,
 			navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
-			dots:false,
+			dots:true,
+			animateOut: 'fadeOut',
+			animateIn: 'fadeIn'
 		});
 
 		/*===============================

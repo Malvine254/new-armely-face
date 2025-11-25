@@ -24,7 +24,100 @@
     transform: scale(1.05);
 }
 
+.carousel-item img {
+  height: 500px;
+  object-fit: cover;
+  filter: brightness(75%);
+}
+
+.carousel-caption h3 {
+  font-size: 42px;
+  font-weight: 700;
+  text-shadow: 0px 4px 20px rgba(0,0,0,0.6);
+}
+
+.carousel-caption p {
+  font-size: 18px;
+  margin-top: 10px;
+  text-shadow: 0px 4px 20px rgba(0,0,0,0.5);
+}
+
+/* Center carousel caption */
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center !important;
+    width: 100%;
+}
+
+/* Make title & subtitle readable */
+.carousel-caption h2,
+.carousel-caption h3 {
+    font-size: 48px;
+    font-weight: 700;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.carousel-caption p {
+    font-size: 20px;
+    margin-top: 15px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+/* Responsive text scaling */
+@media (max-width: 768px) {
+    .carousel-caption h2,
+    .carousel-caption h3 {
+        font-size: 28px;
+    }
+    .carousel-caption p {
+        font-size: 16px;
+    }
+}
+
 </style>
+
+<div id="modernFadeCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+  <div class="carousel-inner">
+
+    <div class="carousel-item active">
+      <img src="images/services/service5.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption">
+        <h3 class="text-light">Digital Transformation</h3>
+        <p class="text-light">Innovating with cloud, AI, and automation.lorem </p>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="images/services/service3.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption ">
+        <h3 class="text-light">AI-Powered Excellence</h3>
+        <p class="text-light">Unlock automated insights and smarter decisions.</p>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="images/services/service4.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption">
+        <h3 class="text-light">Cloud & Data Strategy</h3>
+        <p class="text-light">Future-proof your architecture.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <a class="carousel-control-prev" href="#modernFadeCarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#modernFadeCarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+
+</div>
+
 <section id="clients" class="partner-section py-5">
     <div class="container">
         <div class="section-header">
