@@ -65,7 +65,7 @@ function getHeader($pageName) {
 		
 		<!-- Medipro CSS -->
         <link rel="stylesheet" href="css/normalize_2.css"> 
-        <link rel="stylesheet" href="style5.css">
+        <link rel="stylesheet" href="style6.css">
         <link rel="stylesheet" href="css/responsive.css">
 		 <link rel="stylesheet" href="css/custome.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -225,7 +225,6 @@ function getHeader($pageName) {
 			              <li><a href="blog">Blog Articles</a></li>
 			              
 			              <li><a href="case-studies">Case Studies</a></li>
-						  <li><a href="industries">Industries</a></li>
 			              <li><a href="case-studies#white-papers">White Papers</a></li>
 						  
 						   
