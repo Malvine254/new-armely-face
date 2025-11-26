@@ -88,8 +88,8 @@ function getHeader($pageName) {
 			<!-- INITIAL POPUP ("Can we help you?") -->
 			<div id="helpPopup" class="help-popup">
 				<div class="popup-inner">
-					<h4>Can we help you?</h4>
-					<p><b>Mela AI</b> Assistant is available 24/7.</p>
+					<h4>How can we help you?</h4>
+					<p><b>Mela AI</b> is available 24/7.</p>
 
 					<button id="chatNowBtn" class="popup-btn main">Chat now</button>
 					<button id="noThanksBtn" class="popup-btn secondary">No thanks</button>
