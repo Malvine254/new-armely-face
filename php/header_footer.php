@@ -65,7 +65,7 @@ function getHeader($pageName) {
 		
 		<!-- Medipro CSS -->
         <link rel="stylesheet" href="css/normalize_2.css"> 
-        <link rel="stylesheet" href="style6.css">
+        <link rel="stylesheet" href="style7.css">
         <link rel="stylesheet" href="css/responsive.css">
 		 <link rel="stylesheet" href="css/custome.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -83,24 +83,43 @@ function getHeader($pageName) {
 	</div>
 
 	
-		<section>	
-		<!-- Floating Action Button -->
-		   <div class="floating-btn">
-		    <button id="myBtn"  style="border-radius: 50%; height: 60px; width: 60px; background-color: rgb(47,85,151);"  type="button" class="btn btn-primary btn-lg h1">
-		      <i class="fa fa-comments "></i>
-		    </button>
-		  </div>
-		<div id="myModal" class="modal-chat">
+		<section>
 
-		  <!-- Modal content -->
-		  <div class="modal-content-chat col-lg-4">
-		    <span class="close">&times;</span>
-		    <iframe src="https://copilotstudio.preview.microsoft.com/environments/Default-b783208a-8014-4829-9589-5324f76470c8/bots/cr44c_agent/webchat?__version__=2%22"
-		    frameborder="0" style="width: 100%; height: 80%;"></iframe>  
-		  </div>
+			<!-- INITIAL POPUP ("Can we help you?") -->
+			<div id="helpPopup" class="help-popup">
+				<div class="popup-inner">
+					<h4>Can we help you?</h4>
+					<p><b>Mela AI</b> Assistant is available 24/7.</p>
 
-		</div>
+					<button id="chatNowBtn" class="popup-btn main">Chat now</button>
+					<button id="noThanksBtn" class="popup-btn secondary">No thanks</button>
+
+					<img src="https://i.gifer.com/9Pa3.gif" class="agent-img">
+
+				</div>
+			</div>
+
+			<!-- SMALL FLOATING BUBBLE ("Need help? Let’s chat") -->
+			<div id="chatBubble" class="chat-bubble">
+				<img src="https://i.gifer.com/9Pa3.gif" class="agent-img-small">
+				<span>Need help? <br> Let’s chat</span>
+			</div>
+
+			<!-- MODAL (unchanged except fixing iframe closing) -->
+			<div id="myModal" class="modal-chat">
+				<div class="modal-content-chat col-lg-4">
+					<span class="close">&times;</span>
+
+					<iframe 
+						src="https://copilotstudio.preview.microsoft.com/environments/Default-b783208a-8014-4829-9589-5324f76470c8/bots/cr44c_agent/webchat?__version__=2"
+						frameborder="0"
+						style="width: 100%; height: 80%;">
+					</iframe>
+				</div>
+			</div>
+
 		</section>
+
 	
 		<!-- Header Area -->
 		<header class="header" >
@@ -549,7 +568,7 @@ return <<<HTML
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <!-- more settings  -->
 
-<script src="js/more-options9.js"></script>
+<script src="js/more-options10.js"></script>
 
 
 </body>

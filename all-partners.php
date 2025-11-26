@@ -155,42 +155,43 @@
             </ul>
         </div>
 
-
-        <!-- GRID OF LOGOS (replaces carousel) -->
-        <div class="partner-logos">
-            
-            <div class="partner-item">
-                <a href="partners-details">
-                    <img src="images/partners/aws.png">
-                </a>
-            </div>
-
-            <div class="partner-item">
-                <a href="partners-details">
-                    <img src="images/partners/td.png">
-                </a>
-            </div>
-
-            <div class="partner-item">
-                <a href="partners-details">
-                    <img src="images/partners/snowflake1.png">
-                </a>
-            </div>
-
-            <div class="partner-item">
-               <a href="partners-details">
-                 <img src="images/partners/ms.png">
-               </a>
-            </div>
-
-             <div class="partner-item">
-               <a href="partners-details">
-                 <img src="images/partners/redhat.jpg">
-               </a>
-            </div>
-
-        </div>
+<!-- GRID OF LOGOS (replaces carousel) -->
+<div class="partner-logos">
+    
+    <div class="partner-item">
+        <a href="partners-details.php?partner=aws">
+            <img src="images/partners/aws.png">
+        </a>
     </div>
+
+    <div class="partner-item">
+        <a href="partners-details.php?partner=td">
+            <img src="images/partners/td.png">
+        </a>
+    </div>
+
+    <div class="partner-item">
+        <a href="partners-details.php?partner=snowflake">
+            <img src="images/partners/snowflake1.png">
+        </a>
+    </div>
+
+    <div class="partner-item">
+        <a href="partners-details.php?partner=microsoft">
+            <img src="images/partners/ms.png">
+        </a>
+    </div>
+
+    <div class="partner-item">
+        <a href="partners-details.php?partner=redhat">
+            <img src="images/partners/redhat.jpg">
+        </a>
+    </div>
+
+</div>
+
+
+
 </section>
 <!-- Start of Footer Area -->
 

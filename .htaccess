@@ -1,3 +1,4 @@
+
 # --------------------------------------
 # 🔐 Security & Routing
 # --------------------------------------
@@ -92,3 +93,5 @@ FileETag None
     AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css application/javascript application/json
     AddOutputFilterByType BROTLI_COMPRESS image/svg+xml image/jpeg image/png image/gif
 </IfModule>
+
+

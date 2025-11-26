@@ -1,14 +1,21 @@
 <?php
+
+function getUrl(...$urls) {
+    $currentUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    // Remove file extension (if any)
+    $currentUrl = preg_replace('/\.(php|html)$/', '', $currentUrl);
+    $parts = explode("/", rtrim(parse_url($currentUrl, PHP_URL_PATH), "/"));
+    $lastSegment = end($parts);
+
+    return in_array($lastSegment, $urls) ? "active" : "";
+}
+
+
+//getUrl();
+
 function getHeader($pageName) {
-
- $current_page = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
-
-    function isActive($page) {
-        global $current_page;
-        return ($current_page === $page) ? ' class="active"' : '';
-    }
-echo isActive('index');
-    return <<<HTML
+ 
+    return '
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
@@ -17,17 +24,23 @@ echo isActive('index');
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="keywords" content="Site keywords here">
 		<meta name="description" content="">
-		<meta name='copyright' content=''>
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		
+		<meta name="copyright" >
+		'.
+
+		generateBlogMetaTags($_GET['blogId'] ?? 0)
+
+		. 
+
+	  	'
+			
 		<!-- Title -->
-        <title>$pageName</title>
+        <title>'.$pageName.'</title>
 		
 		<!-- Favicon -->
-       <link rel="icon" href="img/logo/logo1.png">
-       <link rel="preload" as="image" href="images/sliders/slider-1.jpg">
-	   <link rel="preload" as="image" href="images/sliders/slider-2.jpg">
-	   <link rel="preload" as="image" href="images/sliders/slider-3.jpg">
+       <link rel="icon" href="images/logo/logo1.png">
+       <link rel="preload" as="image" href="images/sliders/slider-1.webp">
+	   <link rel="preload" as="image" href="images/sliders/slider-2.webp">
+	   <link rel="preload" as="image" href="images/sliders/slider-3.webp">
 		<!-- Google Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
@@ -49,15 +62,28 @@ echo isActive('index');
         <link rel="stylesheet" href="css/animate.min.css">
 		<!-- Magnific Popup CSS -->
         <link rel="stylesheet" href="css/magnific-popup.css">
+        <script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+
 		
 		<!-- Medipro CSS -->
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/normalize_2.css"> 
+        <link rel="stylesheet" href="style6.css">
         <link rel="stylesheet" href="css/responsive.css">
+		 <link rel="stylesheet" href="css/custome.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 		
     </head>
     <body>
+   <div  class="announcement-banner default-background mb-4" id="announcementBanner">
+		<span class="banner-item">
+			🏆 <b>We Won Best AI Application – Global Hackathon!</b>
+			Explore how we built our Smart Waste Management AI solution.
+			<a target="_blank" href="https://github.com/Sammychesire/Smart-City-Waste-Management">Read More</a>
+		</span>
+
+		<span class="close-btn" onclick="closeBanner()">&times;</span>
+	</div>
+
 	
 		<section>	
 		<!-- Floating Action Button -->
@@ -71,7 +97,7 @@ echo isActive('index');
 		  <!-- Modal content -->
 		  <div class="modal-content-chat col-lg-4">
 		    <span class="close">&times;</span>
-		    <iframe src="https://copilotstudio.microsoft.com/environments/Default-588cadf4-9902-4465-86c0-8bcf04f4f102/bots/crc65_armelyCom/webchat?__version__=2"
+		    <iframe src="https://copilotstudio.preview.microsoft.com/environments/Default-b783208a-8014-4829-9589-5324f76470c8/bots/cr44c_agent/webchat?__version__=2%22"
 		    frameborder="0" style="width: 100%; height: 80%;"></iframe>  
 		  </div>
 
@@ -90,7 +116,11 @@ echo isActive('index');
 						<div class="col-lg-9 col-md-8 col-12">
 							<!-- Top Contact -->
 							<ul class="top-contact">
-								<li><i class="fa fa-phone"></i>+1 972 460 0643</li>
+								<li>
+									<i class="fa fa-phone"></i>
+									<a href="tel:+19724600643" class="text-decoration-none text-dark">+1 972 460 0643</a>
+								</li>
+
 								<li><i class="fa fa-envelope"></i><a href="mailto:info@armely.com">info@armely.com</a></li>
 								<li><i class="fa fa-user"></i><a href="https://armely.powerappsportals.com/">Customer support</a></li>
 						        <li> <span  data-toggle="modal" data-target="#exampleModal"><i  class="fa fa-search"></i> <a >Search</a> </span>
@@ -109,10 +139,10 @@ echo isActive('index');
 			<div class="container">
 			<div class="inner">
 			<div class="row">
-				<div class="col-lg-3 col-md-3 col-12">
+				<div class="col-lg-3 col-md-23 col-12">
 					<!-- Start Logo -->
 					<div class="logo">
-						<a href="index"><span class="logo-font">armely</span></a>
+						<a href="/"><span class="logo-font">armely</span></a>
 					</div>
 					<!-- End Logo -->
 					<!-- Mobile Nav -->
@@ -124,13 +154,18 @@ echo isActive('index');
 					<div class="main-menu">
 					 <nav class="navigation">
 			        <ul class="nav menu">
-			          <li class=""><a >Why Us <i class="icofont-rounded-down"></i></a>
+			          <li class="'. getUrl("company","career","job-board","applications","social-impact","social-impact-details").'"><a >Who We Are <i class="icofont-rounded-down"></i></a>
 			            <ul class="dropdown">
 			              <li><a href="company">Company Overview</a></li>
 			              <li><a href="career">Career Opportunities</a></li>
+						  <li><a href="customer-stories">Customer Stories</a></li>
+			              <li><a href="team">Our Team</a></li>
+						  <li><a href="social-impact">Social Impact</a></li>
+						  
+						   
 			            </ul>
 			          </li>
-			          <li><a>Services <i class="icofont-rounded-down"></i></a>
+			          <li class="'. getUrl("services","service-details").'"><a>What We Do <i class="icofont-rounded-down"></i></a>
 			              <ul class="dropdown">
 			                 <li><a href="services">All Services</a></li>
 			                  <li>
@@ -139,13 +174,15 @@ echo isActive('index');
 			                          <li><a href="service-details?name=ai-consulting">AI Consulting</a></li>
 			                          <li><a href="service-details?name=ai-advisory">AI Advisory</a></li>
 			                          <li><a href="service-details?name=generative-ai">Generative AI</a></li>
+			                          <li><a href="service-details?name=pocstarter-ai">AI PoC Starter</a></li>
 			                      </ul>
 
 			                  </li>
 			                   
-			                   <li>
+			                   <li >
 			                      <a >Data Services <i class="icofont-rounded-right"></i></a>
 			                      <ul class="dropdown">
+			                      	  <li><a href="service-details?name=fabric_capacity">Estimate your Fabric Capacity</a></li>
 			                          <li><a href="service-details?name=fabric">Microsoft Fabric</a></li>
 			                          <li><a href="service-details?name=data-science">Data Science and Analytics</a></li>
 			                          <li><a href="service-details?name=data-strategy">Data Strategy</a></li>
@@ -184,18 +221,21 @@ echo isActive('index');
 
 			              </ul>
 			            </li>
-			          <li><a >Insights <i class="icofont-rounded-down"></i></a>
+						<li class="'.getUrl("industries").'"><a href="industries">Who We Serve</a></li>
+			          <li class="'. getUrl("blog","customer-stories","case-studies").'"><a >Knowledge Hub <i class="icofont-rounded-down"></i></a>
 			            <ul class="dropdown">
 			              <li><a href="blog">Blog Articles</a></li>
-			              <li><a href="customer-stories">Customer Stories</a></li>
+			              
 			              <li><a href="case-studies">Case Studies</a></li>
 			              <li><a href="case-studies#white-papers">White Papers</a></li>
+						  
+						   
 			            </ul>
 			          </li>
-			          <li><a href="events">Events</a></li>
-			          <li><a href="industries">Industries</a></li>
-			          <li><a href="social-impact">Social Impact</a></li>
-			          <li><a href="contact">Contact Us</a></li>
+					  <li class="'.getUrl("events").'"><a href="events">Events</a></li>
+					 
+					 <li class="'.getUrl("all-partners","all-partners").'"><a href="all-partners">Partners</a></li>
+					  <li class="'.getUrl("contact").'"><a  href="contact">Let\'s Talk</a></li>
 			          
 			        </ul>
 			      </nav>
@@ -216,7 +256,7 @@ echo isActive('index');
 		<!-- End Header Area -->
 <body>
 
-HTML;
+';
 }
 
 function getFooter() {
@@ -341,6 +381,19 @@ return <<<HTML
         </div>
     </div>
 </div>
+
+  <div class="linkedin-follow-float">
+    <!-- LinkedIn Follow Company Plugin -->
+    <script src="https://platform.linkedin.com/in.js" type="text/javascript">
+      lang: en_US
+    </script>
+    <script type="IN/FollowCompany" data-id="22310926" data-counter="bottom"></script>
+  </div>
+
+ 
+
+
+
 <!-- End Cookies Preferences -->
 <!-- Footer Area -->
 <footer id="footer" class="footer ">
@@ -437,8 +490,10 @@ return <<<HTML
 </footer>
 <!--/ End Footer Area -->
 
+
+
 <!-- jquery Min JS -->
-<script src="js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <!-- jquery Migrate JS -->
 <script src="js/jquery-migrate-3.0.0.js"></script>
 <!-- jquery Ui JS -->
@@ -476,7 +531,7 @@ return <<<HTML
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4301EZWQ4C"></script>
 <!-- Bootstrap JS -->
-<script src="js/bootstrap.min.js"></script>
+
 <!-- Main JS -->
 <script src="js/main.js"></script>
 <!-- sweet alerts -->
@@ -493,13 +548,12 @@ return <<<HTML
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <!-- more settings  -->
-<script src="js/more-options.js"></script>
-<script>
-	new WOW().init();
-	
-  
-</script>
+
+<script src="js/more-options9.js"></script>
+
+
 </body>
 </html>
 HTML;
