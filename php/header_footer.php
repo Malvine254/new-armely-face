@@ -251,7 +251,7 @@ function getHeader($pageName) {
 			          </li>
 					  <li class="'.getUrl("events").'"><a href="events">Events</a></li>
 					 
-					<!------- <li class="'.getUrl("all-partners","all-partners").'"><a href="all-partners">Partners</a></li>-----!>
+					 <li class="'.getUrl("all-partners","all-partners").'"><a href="all-partners">Partners</a></li>
 					  <li class="'.getUrl("contact").'"><a  href="contact">Let\'s Talk</a></li>
 			          
 			        </ul>
