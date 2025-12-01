@@ -83,27 +83,30 @@
 
   <div class="carousel-inner">
 
+    <!-- Slide 1 -->
     <div class="carousel-item active">
-      <img src="images/services/service5.jpg" class="d-block w-100" alt="...">
+      <img src="images/services/service5.jpg" class="d-block w-100" alt="Partner Ecosystem">
       <div class="carousel-caption">
-        <h3 class="text-light">Digital Transformation</h3>
-        <p class="text-light">Innovating with cloud, AI, and automation.lorem </p>
+        <h3 class="text-light">Microsoft • AWS • Snowflake • Red Hat</h3>
+        <p class="text-light">Trusted partnerships powering enterprise innovation across cloud, AI, and digital transformation.</p>
       </div>
     </div>
 
+    <!-- Slide 2 -->
     <div class="carousel-item">
-      <img src="images/services/service3.jpg" class="d-block w-100" alt="...">
-      <div class="carousel-caption ">
-        <h3 class="text-light">AI-Powered Excellence</h3>
-        <p class="text-light">Unlock automated insights and smarter decisions.</p>
+      <img src="images/services/service3.jpg" class="d-block w-100" alt="AI and Cloud Partners">
+      <div class="carousel-caption">
+        <h3 class="text-light">Elite AI, Cloud & Data Partners</h3>
+        <p class="text-light">Accelerating business outcomes through deep expertise across Microsoft, Snowflake, AWS, and Red Hat ecosystems.</p>
       </div>
     </div>
 
+    <!-- Slide 3 -->
     <div class="carousel-item">
-      <img src="images/services/service4.jpg" class="d-block w-100" alt="...">
+      <img src="images/services/service4.jpg" class="d-block w-100" alt="Security and Infrastructure Partners">
       <div class="carousel-caption">
-        <h3 class="text-light">Cloud & Data Strategy</h3>
-        <p class="text-light">Future-proof your architecture.</p>
+        <h3 class="text-light">Cisco • Guardz • Enterprise Security</h3>
+        <p class="text-light">Strengthening your cloud, data, and infrastructure with world-class security and connectivity partners.</p>
       </div>
     </div>
 
