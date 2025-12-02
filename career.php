@@ -1,4 +1,5 @@
 <?php include 'php/actions.php'; include 'php/header_footer.php';?>
+<link rel="stylesheet" href="css/career-modern.css">
 
 <!-- Start of Header Area -->
 <?php  echo getHeader("career"); ?>
@@ -29,10 +30,12 @@
 <div class="container">
 <div class="row">
 <div class="col-lg-12">
-<div class="section-title">
-	<h2>Find Your Future Here!</h2>
-		<center><hr class="default-background hr" ></center>
-		<p>We are always looking forward to having the right resources join our growing team. We offer competitive pay and benefits along with a great working environment. Our full-time positions offer employment benefits including paid holidays, paid vacations, annual performance bonuses, and project-driven bonuses.</p>
+<div class="section-title modern-section-title">
+	<div class="title-head">
+		<h2 class="mt-3">Find Your Future Here!</h2>
+	</div>
+	<center><hr class="default-background hr" ></center>
+	<p class="lead">We’re hiring across disciplines. Competitive pay, great benefits, and a collaborative environment. Full-time roles include paid holidays, vacations, performance bonuses, and project-driven incentives.</p>
 </div>
 </div>
 </div>
@@ -40,9 +43,8 @@
 </div>	
 
 </div>
-<div class="d-flex justify-content-center ">
-    <!-- <button type="button" class="btn default-button col-md-1 col-sm-6">View More</button> -->
-    <div class="row col-md-10">
+<div class="d-flex justify-content-center careers-listing-wrap">
+	<div class="row col-md-10 col-lg-9">
 <!-- Single Table -->
 <?php displayCareerListings(); ?>
 
@@ -50,8 +52,8 @@
 
 <!-- End Single Table-->
 
-</div>	
-</div>	
+</div>
+</div>
 </section>	
 <!--/ End Pricing Table -->
 

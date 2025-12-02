@@ -678,20 +678,41 @@ if ($formattedDate !== false) {
                
 
                 // Output the core value item securely
-               // Inside the while loop
-                // Inside the while loop
-				echo '<div class="col-lg-4 col-md-6 col-12">
-				    <div class="single-service card card-shadow" style="height: 350px;">
-				        <div class="p-2" style="min-height: 470px;">
-				        <div style="height: 230px;">
-					        <p class="default-background p-2 text-light h1" id="countdown-' . $eventTimestamp . '">Loading countdown...</p>
-					        <i class="icofont-calendar m-2"></i>
-					        <strong class="default-color">' . formatDateWithSuffix($start_date) . '</strong>
-					        <p><a ><b>' . CutText($title,20). '</b></a></p>
-					        <p>' . CutText($body, 130) . '...</p>
-					    </div>    
+               // Modern event card output
+				echo '<div class="col-lg-4 col-md-6 col-12 mb-4">
+				    <div class="modern-event-card">
+				        <div class="event-card-header default-background">
+				            <div class="countdown-wrapper">
+				                <div class="countdown-label">Event Countdown</div>
+				                <div class="countdown-timer" id="countdown-' . $eventTimestamp . '">
+				                    <span class="time-block"><span class="time-value">00</span><span class="time-label">Days</span></span>
+				                    <span class="time-separator">:</span>
+				                    <span class="time-block"><span class="time-value">00</span><span class="time-label">Hrs</span></span>
+				                    <span class="time-separator">:</span>
+				                    <span class="time-block"><span class="time-value">00</span><span class="time-label">Min</span></span>
+				                    <span class="time-separator">:</span>
+				                    <span class="time-block"><span class="time-value">00</span><span class="time-label">Sec</span></span>
+				                </div>
+				            </div>
+				        </div>
 				        
-				        <a target="blank" ' . $background2 . ' ' . $buttonDisabled . ' class=" mt-4 ' . $background . ' p-2 text-light d col-10">' . $buttonText . '</a>
+				        <div class="event-card-body">
+				            <div class="event-date-badge">
+				                <i class="icofont-calendar"></i>
+				                <span>' . formatDateWithSuffix($start_date) . '</span>
+				            </div>
+				            
+				            <h5 class="event-title">' . CutText($title, 45) . '</h5>
+				            <p class="event-description">' . CutText($body, 120) . '</p>
+				        </div>
+				        
+				        <div class="event-card-footer">
+				            <a ' . $buttonDisabled . ' ' . $background2 . ' class="btn-event-action ' . ($eventTimestamp > $currentTimestamp ? "btn-register" : ($row["recorded_url"] === null ? "btn-no-recording" : "btn-recording")) . '">
+				                <span class="btn-icon">
+				                    ' . ($eventTimestamp > $currentTimestamp ? '<i class="icofont-ui-calendar"></i>' : ($row["recorded_url"] === null ? '<i class="icofont-close-circled"></i>' : '<i class="icofont-play-alt-2"></i>')) . '
+				                </span>
+				                <span class="btn-text">' . $buttonText . '</span>
+				            </a>
 				        </div>
 				    </div>
 				</div>';
@@ -816,47 +837,27 @@ function disableUrl($status,$unicord){
                 $job_type = htmlspecialchars($row['job_type']);
                 $job_deadline = htmlspecialchars($row['job_deadline']);
 
-                // Output the job listing securely
-                echo '<div class="col-lg-3 col-md-12 col-12">
-        <div class="single-table card-shadow text-center">
-            <div class="table-head">
-                <a '.disableUrl(isDeadlinePassed($job_deadline),urlencode($job_id)).'>
-                    <h4 class="title">' . $job_title . '</h4>
-                    <div class="price d-flex justify-content-center align-items-center gap-2 flex-wrap">
-                        <span><i class="fa fa-map-marker"></i> ' . $job_location . '</span><br>
-                        <span><i class="fa fa-list"></i> ' . $job_type . '</span><br>
-                        <span><i class="fa fa-clock-o"></i> ' . $job_deadline . '</span><br>
-                        '.changeStatusColor(isDeadlinePassed($job_deadline)).'
-                    </div>
-                </a>
+                // Output the job listing with modern card styling
+                echo '<div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card career-card h-100">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <h5 class="role-title mb-0">' . $job_title . '</h5>
+                                    <span class="career-badge">' . $job_type . '</span>
+                                </div>
+                                <div class="role-meta"><i class="fa fa-map-marker default-color"></i> ' . $job_location . '</div>
+                <div class="role-meta"><i class="fa fa-clock-o default-color"></i> ' . $job_deadline . ' • ' . changeStatusColor(isDeadlinePassed($job_deadline)) . '</div>
             </div>
+            <div class="card-footer">';
+                $status = isDeadlinePassed($job_deadline);
+                if ($status === 'Closed') {
+                    echo '<button class="btn btn-danger w-100" disabled>Closed</button>';
+                } else {
+                    echo '<a href="job-board?job-details=' . urlencode($job_id) . '" class="btn default-button apply-btn w-100">View Details</a>';
+                }
+                echo '</div>
         </div>
-    </div><style>.single-table {
-    text-align: center; /* Center all text */
-}
-
-.price {
-    display: flex;
-    align-items: center;  /* Align items in the center */
-    justify-content: center;  /* Center horizontally */
-    flex-wrap: wrap; /* Prevents breaking into multiple lines */
-    gap: 10px; /* Adds spacing between items */
-}
-
-.price span {
-    white-space: nowrap; /* Ensures all text remains on one line */
-    display: flex;
-    align-items: center; /* Align icon and text */
-    gap: 5px; /* Small space between icon and text */
-}
-
-.price i {
-    font-size: 14px; /* Adjust icon size */
-    color: #555; /* Adjust icon color */
-}
-</style>';
-
-            }
+    </div>';            }
         } else {
             echo "No records found!";
         }
@@ -1624,20 +1625,24 @@ function displayJobDescriptions() {
                 $job_description = $row['job_description'];
                 $job_type = htmlspecialchars($row['job_type']);
 
-                // Output the job description
+                // Output the job description with modern styling
                 echo "
-                    <div class='section-title mt-5'>
-                        <h3>
-                            <span class='default-color'>{$job_title}, </span>{$job_location}
-                            <center><hr class='default-background hr'></center>
-                        </h3>
+                    <div class='job-header mb-4'>
+                        <span class='job-type-badge'>{$job_type}</span>
+                        <h2 class='job-title mt-3'>{$job_title}</h2>
+                        <div class='job-meta'>
+                            <i class='fa fa-map-marker default-color'></i> {$job_location}
+                        </div>
                     </div>
-                    <div>{$job_description}</div>
-                    <div class='m-5'>
-                        <center><a href='applications?job-details={$job_id}&application=true&title=" . urlencode($job_title) . "' 
-                           class='btn btn-primary col-lg-2 col-sm-6 ml-5'>
-                            Apply Now
-                        </a></center>
+                    <div class='job-description-content'>{$job_description}</div>
+                    <div class='job-apply-section mt-4'>
+                        <a href='applications?job-details={$job_id}&application=true&title=" . urlencode($job_title) . "' 
+                           class='btn default-button btn-lg apply-now-btn'>
+                            <i class='fa fa-paper-plane'></i> Apply Now
+                        </a>
+                        <a href='career' class='btn btn-outline-light btn-lg ms-3 text-light'>
+                        <i class='fa fa-home'></i>
+                        Back to Careers</a>
                     </div>";
             }
         } else {

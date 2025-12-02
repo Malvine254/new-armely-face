@@ -2,6 +2,7 @@
 
 <!-- Start of Header Area -->
 <?php  echo getHeader("partners"); ?>
+<link rel="stylesheet" href="css/partners-modern.css">
 <!-- End Header Area -->
 <style>
     .partner-logos {
@@ -123,9 +124,10 @@
 
 <section id="clients" class="partner-section py-5">
     <div class="container">
-        <div class="section-header">
-            <h2 class="section-title"><b>Technology Partners</b></h2>
-            <center><hr class="default-background hr"></center>
+        <div class="section-header modern-section-title">
+           
+            <h2 class="section-title">Technology Partners</h2>
+           <center><hr class="default-background hr"></center>
 
             <p class="mt-3">
                 In today's fast-paced digital landscape, success is often achieved through strategic 
@@ -159,45 +161,45 @@
         </div>
 
 <!-- GRID OF LOGOS (replaces carousel) -->
-<div class="partner-logos">
+<div class="partner-logos modern-partner-grid">
     
-    <div class="partner-item">
+    <div class="partner-item partner-card">
         <a href="partners-details.php?partner=aws">
-            <img src="images/partners/aws.png">
+            <img src="images/partners/aws.png" alt="AWS">
         </a>
     </div>
 
-    <div class="partner-item">
+    <div class="partner-item partner-card">
         <a href="partners-details.php?partner=td">
-            <img src="images/partners/td.png">
+            <img src="images/partners/td.png" alt="TD">
         </a>
     </div>
 
-    <div class="partner-item">
+    <div class="partner-item partner-card">
         <a href="partners-details?partner=snowflake">
-            <img src="images/partners/snowflake1.png">
+            <img src="images/partners/snowflake1.png" alt="Snowflake">
         </a>
     </div>
 
-    <div class="partner-item">
+    <div class="partner-item partner-card">
         <a href="partners-details?partner=microsoft">
-            <img src="images/partners/ms.png">
+            <img src="images/partners/ms.png" alt="Microsoft">
         </a>
     </div>
 
-    <div class="partner-item">
+    <div class="partner-item partner-card">
         <a href="partners-details?partner=redhat">
-            <img src="images/partners/redhat.jpg">
+            <img src="images/partners/redhat.jpg" alt="Red Hat">
         </a>
     </div>
-     <div class="partner-item">
+     <div class="partner-item partner-card">
         <a href="partners-details?partner=cisco">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqHxfp5_IxQLcw1D8CVTi6ouBWcTy2m6sxHw&s">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqHxfp5_IxQLcw1D8CVTi6ouBWcTy2m6sxHw&s" alt="Cisco">
         </a>
     </div>
-     <div class="partner-item">
+     <div class="partner-item partner-card">
         <a href="partners-details?partner=guardz">
-            <img src="https://i0.wp.com/v2catalog.com/wp-content/uploads/2024/05/CENTRE-box-logo-01.png?fit=656%2C213&ssl=1">
+            <img src="https://i0.wp.com/v2catalog.com/wp-content/uploads/2024/05/CENTRE-box-logo-01.png?fit=656%2C213&ssl=1" alt="Guardz">
         </a>
     </div>
 </div>

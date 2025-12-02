@@ -67,8 +67,8 @@
 </section>  
 
 <!-- Start portfolio -->
-<section class="portfolio" >
-<div class="container">
+<section class="portfolio " >
+<div class=" ">
 <div class="row">
 <div class="col-lg-12">
 <div class="section-title">
@@ -78,31 +78,27 @@
 </div>
 </div>
 </div>
-<div class="container-fluid col-lg-10">
-<div class=" ">
-<center>
+
   <div class="row">
    
     <div class="col-md-3">
       <img width="250" height="250"  class="img-fluid" src="images/affiliation/mbe.svg">
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <img width="250" height="250" class="img-fluid" src="images/affiliation/smb.svg">
     </div>
-    <div class="col-md-3 ">
+    <div class="col-md-2 ">
       <img width="200" height="200"  class="img-fluid mt-5" src="images/affiliation/affliation1.png">
     </div>
-    <div class="col-md-3 ">
+    <div class="col-md-2 ">
       <img width="200" height="200"  class="img-fluid mt-5" src="images/affiliation/fid.png">
     </div>
-     <div class="col-md-3">
-      <img   class="img-fluid mt-4" src="images/affiliation/partner.png">
+     <div class="col-md-3 mt-4">
+      <img  class="img-fluid " src="images/affiliation/partner.png">
     </div>
-   
-</center>
+
 </div>
-</div>
-</div>
+
 </section>
 <!--/ End portfolio -->
 <!-- strat of  -->

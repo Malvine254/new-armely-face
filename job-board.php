@@ -1,5 +1,6 @@
 <?php include 'php/actions.php'; include 'php/header_footer.php'; if (isset($_GET['job-details'])) {}else{header('location:career');}
 ?>
+<link rel="stylesheet" href="css/job-board-modern.css">
 
 <!-- Start of Header Area -->
 <?php  echo getHeader("job board"); ?>
@@ -40,19 +41,16 @@
     </div>
 </section>
 
-<!-- Pricing Table -->
-<section class="pricing-table mt-5 pb-5 pt-5">
-<div class="container col-lg-11 col-sm-12">
-
+<!-- Job Details Section -->
+<section class="job-details-section mt-5 pb-5 pt-5">
 <div class="container">
-        <div class="row">
-            <div class="col-md-12" data-aos="fade-fade ">
-                    <div class="card p-3 col-sm-12">
-
-                    <?php displayJobDescriptions(); ?> 
-                  
-                </div> 
-
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                    <div class="card job-details-card">
+                        <div class="card-body p-4">
+                            <?php displayJobDescriptions(); ?>
+                        </div>
+                    </div>
             </div>
             
 
@@ -62,10 +60,7 @@
           <i class="fas fa-comments"></i>
         </button>
       </div>
-      <!-- scroll bar -->
-      <button  id="scrollToTopBtn" class="btn btn-primary rounded-circle" style="display:none; background: rgb(47,85,151);">
-        <i style="font-size: 2em;" class="fa-solid fa-arrow-up"></i>
-    </button>  
+     
             </div>
         </div>
 </div>	
@@ -79,10 +74,11 @@
 <div class="row">
 <div class="col-lg-12">
 
-<div class="section-title">
-	<h2 id="consultation">Schedule a consultation today	</h2>
-	<center><hr class="default-background hr" ></center>
-	
+<div class="section-title modern-section-title">
+	<div class="title-head">
+		<h2 class="mt-3" id="consultation">Schedule a consultation today</h2>
+	</div>
+	<center><hr class="hr default-background"></center>
 </div>
 </div>
 </div>
