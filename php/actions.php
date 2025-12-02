@@ -739,10 +739,10 @@ function displayServicesList() {
                 // Output the service securely
                 echo '<div class="col-lg-4 col-md-12 col-12 " >
                     <div class="single-table card-shadow default-background" style="max-height: 350px; min-height: 340px;">
-                        <a class="text-light" href="service-details?title=' . urlencode($title) . '">
+                        <a class="text-light" href="service-details?title=' . urlencode($title) . '" style="hover: text-decoration: underline;   ">
                             <div class="table-head">
-                                <div class="icon">
-                                    <i class="icofont ' . $icon . '"></i>
+                                <div class="icon text-light">
+                                    <i class="icofont text-light ' . $icon . '"></i>
                                 </div>
                                 <h4 class="title text-light">' . $title . '</h4>
                                 <div class="price text-light">
