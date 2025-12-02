@@ -737,16 +737,16 @@ function displayServicesList() {
                 $body = readMoreText2($row['body']);
 
                 // Output the service securely
-                echo '<div class="col-lg-4 col-md-12 col-12" >
-                    <div class="single-table card-shadow" style="max-height: 350px; min-height: 340px;">
-                        <a href="service-details?title=' . urlencode($title) . '">
+                echo '<div class="col-lg-4 col-md-12 col-12 " >
+                    <div class="single-table card-shadow default-background" style="max-height: 350px; min-height: 340px;">
+                        <a class="text-light" href="service-details?title=' . urlencode($title) . '">
                             <div class="table-head">
                                 <div class="icon">
                                     <i class="icofont ' . $icon . '"></i>
                                 </div>
-                                <h4 class="title">' . $title . '</h4>
-                                <div class="price">
-                                    <p>' . $body . '</p>
+                                <h4 class="title text-light">' . $title . '</h4>
+                                <div class="price text-light">
+                                    <p class="text-light">' . $body . '</p>
                                 </div>
                             </div>
                         </a>

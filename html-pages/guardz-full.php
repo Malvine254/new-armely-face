@@ -73,13 +73,15 @@ hr { border-color: #e5e7eb; }
 
 <h4 class="ms-list-title mt-4">Our Comprehensive Approach</h4>
 <p class="partner-lead">From initial assessment and deployment through 24/7 monitoring, incident response, and cyber insurance coordination, we deliver complete cybersecurity lifecycle management that protects your business and gives you peace of mind.</p>
-
+ 
+<hr class="my-5">
 <h3 class="section-title">The Guardz Unified Platform</h3>
 
 <div class="modern-grid">
     <div class="modern-card">
         <div class="card-title">AI-Native Architecture</div>
         <p class="card-desc">Built from the ground up for modern threats. Unlike platforms that simply connect third-party tools, Guardz delivers a truly unified platform with native security controls, normalized data, and integrated detection and response. The AI-native architecture correlates signals across the entire security stack to identify true threats and eliminate false positives.</p>
+        <h5>Platform Architecture:</h5>
         <ul class="card-features">
             <li>Native security controls built into the platform</li>
             <li>Unified data model across all security domains</li>
@@ -95,6 +97,7 @@ hr { border-color: #e5e7eb; }
     <div class="modern-card">
         <div class="card-title">24/7 Managed Detection and Response (MDR)</div>
         <p class="card-desc">Expert-led threat hunting with AI acceleration. Guardz MDR combines AI-automated detection with expert human analysis to deliver comprehensive threat monitoring and response. The service aggregates events from endpoint detection, identity threat detection, email security, and more into user-centric analysis for rapid incident response.</p>
+        <h5>MDR Capabilities:</h5>
         <ul class="card-features">
             <li>24/7/365 security monitoring and analysis</li>
             <li>AI-powered threat detection and triage</li>
@@ -108,13 +111,16 @@ hr { border-color: #e5e7eb; }
         <p class="card-desc"><strong>Human-in-the-Loop Model:</strong> AI handles initial triage and enrichment, but expert analysts work to make final decisions, maintain communication, and preserve client trust. Full transparency with clear logic behind every alert and logged actions ensures you stay in control.</p>
     </div>
 </div>
-
+ 
+<hr class="my-5">
 <h3 class="section-title">Comprehensive Security Coverage</h3>
 
 <div class="modern-grid">
     <div class="modern-card">
         <div class="card-title">Identity Protection & Threat Detection (ITDR)</div>
-        <p class="card-desc">Protect user identities across all platforms. Monitor and secure user identities across Microsoft 365, Google Workspace, and other cloud applications. Detect account compromises, suspicious authentication attempts, privilege escalation, and insider threats in real-time.</p>
+        <h5>Protect user identities across all platforms.</h5>
+        <p class="card-desc"> Monitor and secure user identities across Microsoft 365, Google Workspace, and other cloud applications. Detect account compromises, suspicious authentication attempts, privilege escalation, and insider threats in real-time.</p>
+        <h5>Identity Security:</h5>
         <ul class="card-features">
             <li>Continuous identity monitoring across cloud platforms</li>
             <li>Anomalous authentication detection</li>
@@ -130,7 +136,9 @@ hr { border-color: #e5e7eb; }
 
     <div class="modern-card">
         <div class="card-title">Email Security</div>
-        <p class="card-desc">Stop threats before they reach the inbox. Advanced email protection leverages AI and behavioral analysis to detect and block phishing, business email compromise (BEC), malware, ransomware, and sophisticated social engineering attacks that bypass native email security.</p>
+        <h5>Stop threats before they reach the inbox.</h5>
+        <p class="card-desc"> Advanced email protection leverages AI and behavioral analysis to detect and block phishing, business email compromise (BEC), malware, ransomware, and sophisticated social engineering attacks that bypass native email security.</p>
+        <h5> Email Protection:</h5>
         <ul class="card-features">
             <li>Advanced phishing detection</li>
             <li>Business email compromise (BEC) prevention</li>
@@ -147,7 +155,9 @@ hr { border-color: #e5e7eb; }
 
     <div class="modern-card">
         <div class="card-title">Endpoint Detection and Response (EDR)</div>
-        <p class="card-desc">Comprehensive endpoint protection powered by SentinelOne. Integrated SentinelOne EDR provides enterprise-grade endpoint protection with automated threat detection, prevention, and response across all devices including workstations, servers, and mobile devices.</p>
+        <h5>Comprehensive endpoint protection powered by SentinelOne.</h5>
+        <p class="card-desc"> Integrated SentinelOne EDR provides enterprise-grade endpoint protection with automated threat detection, prevention, and response across all devices including workstations, servers, and mobile devices.</p>
+        <h5>Endpoint Security:</h5>
         <ul class="card-features">
             <li>Real-time threat prevention and blocking</li>
             <li>Behavioral AI for zero-day threat detection</li>
@@ -167,7 +177,11 @@ hr { border-color: #e5e7eb; }
 <div class="modern-grid">
     <div class="modern-card">
         <div class="card-title">Cloud Application Security</div>
-        <p class="card-desc">Secure Microsoft 365, Google Workspace, and SaaS applications. Monitor cloud applications for misconfigurations, data exposure risks, compliance violations, and security threats. Ensure proper security settings and detect anomalous activities across your cloud estate.</p>
+        <h5>
+            Secure Microsoft 365, Google Workspace, and SaaS applications.
+        </h5>
+        <p class="card-desc"> Monitor cloud applications for misconfigurations, data exposure risks, compliance violations, and security threats. Ensure proper security settings and detect anomalous activities across your cloud estate.</p>
+        <h5>Cloud Security:</h5>
         <ul class="card-features">
             <li>Microsoft 365 security posture management</li>
             <li>Google Workspace security monitoring</li>
@@ -184,7 +198,9 @@ hr { border-color: #e5e7eb; }
 
     <div class="modern-card">
         <div class="card-title">Data Protection & Loss Prevention</div>
-        <p class="card-desc">Prevent sensitive data exposure and loss. Identify, classify, and protect sensitive data across cloud applications, email, and endpoints. Detect and prevent unauthorized data sharing, exfiltration attempts, and compliance violations.</p>
+        <h5>Prevent sensitive data exposure and loss.</h5>
+        <p class="card-desc"> Identify, classify, and protect sensitive data across cloud applications, email, and endpoints. Detect and prevent unauthorized data sharing, exfiltration attempts, and compliance violations.</p>
+        <h5>Prevent sensitive data exposure and loss.</h5>
         <ul class="card-features">
             <li>Automated data discovery and classification</li>
             <li>Sensitive data identification (PII, PHI, PCI, etc.)</li>
@@ -198,13 +214,16 @@ hr { border-color: #e5e7eb; }
         </ul>
     </div>
 </div>
-
+ 
+<hr class="my-5">
 <h3 class="section-title">Security Operations & Management</h3>
 
 <div class="modern-grid">
     <div class="modern-card">
         <div class="card-title">Automated Asset Discovery</div>
-        <p class="card-desc">Complete visibility without manual inventory. Guardz automatically discovers and monitors all digital assets across your organization including users, devices, applications, cloud services, and data repositories. Maintain real-time inventory without manual effort.</p>
+        <h5>Complete visibility without manual inventory.</h5>
+        <p class="card-desc"> Guardz automatically discovers and monitors all digital assets across your organization including users, devices, applications, cloud services, and data repositories. Maintain real-time inventory without manual effort.</p>
+        <h5>Asset Discovery:</h5>
         <ul class="card-features">
             <li>Automated user account discovery</li>
             <li>Device inventory (workstations, servers, mobile)</li>
@@ -219,7 +238,9 @@ hr { border-color: #e5e7eb; }
 
     <div class="modern-card">
         <div class="card-title">Real-Time Cyber Risk Scoring</div>
-        <p class="card-desc">Understand your security posture at a glance. Dynamic cybersecurity posture score reflects your organization's cyber risk based on detected vulnerabilities, configuration issues, user behaviors, and threat indicators. Track improvement over time and benchmark against industry standards.</p>
+        <h5>Understand your security posture at a glance.</h5>
+        <p class="card-desc"> Dynamic cybersecurity posture score reflects your organization's cyber risk based on detected vulnerabilities, configuration issues, user behaviors, and threat indicators. Track improvement over time and benchmark against industry standards.</p>
+        <h5>Risk Scoring:</h5>
         <ul class="card-features">
             <li>Real-time security posture assessment</li>
             <li>Risk score by category (identity, endpoint, email, cloud, data)</li>
@@ -234,7 +255,9 @@ hr { border-color: #e5e7eb; }
 
     <div class="modern-card">
         <div class="card-title">Automated Remediation & Response</div>
-        <p class="card-desc">Reduce mean time to remediation (MTTR). Set-and-forget automation handles routine security tasks and enables rapid response to detected threats. Customizable playbooks ensure consistent responses aligned with your security policies.</p>
+        <h5>Reduce mean time to remediation (MTTR).</h5>
+        <p class="card-desc"> Set-and-forget automation handles routine security tasks and enables rapid response to detected threats. Customizable playbooks ensure consistent responses aligned with your security policies.</p>
+        <h5>Automation Capabilities:</h5>
         <ul class="card-features">
             <li>Automated threat containment</li>
             <li>User account suspension/quarantine</li>
@@ -250,8 +273,11 @@ hr { border-color: #e5e7eb; }
     </div>
 </div>
 
+<hr class="my-5">
 <h3 class="section-title">Security Awareness Training</h3>
-<p class="partner-lead">Turn users into your first line of defense. Integrated security awareness training educates employees about cyber threats, safe computing practices, and how to recognize and report suspicious activities. Regular phishing simulations test and reinforce learning.</p>
+<h5>Turn users into your first line of defense.</h5>
+<p class="partner-lead"> Integrated security awareness training educates employees about cyber threats, safe computing practices, and how to recognize and report suspicious activities. Regular phishing simulations test and reinforce learning.</p>
+<h5>Training Features:</h5>
 <ul class="ms-list">
     <li>Role-based security training modules</li>
     <li>Simulated phishing campaigns</li>
@@ -265,8 +291,12 @@ hr { border-color: #e5e7eb; }
     <li>Quarterly refresher campaigns</li>
 </ul>
 
+
+<hr class="my-5">
 <h3 class="section-title">Cyber Insurance Integration</h3>
-<p class="partner-lead">Insurance Readiness & Coverage — Secure cyber insurance with proof of protection. Meeting cyber insurance requirements is increasingly challenging for SMBs. Guardz helps organizations demonstrate security controls, maintain compliance, and qualify for comprehensive cyber insurance coverage.</p>
+<h5>Insurance Readiness & Coverage </h5>
+<p class="partner-lead">Secure cyber insurance with proof of protection. Meeting cyber insurance requirements is increasingly challenging for SMBs. Guardz helps organizations demonstrate security controls, maintain compliance, and qualify for comprehensive cyber insurance coverage.</p>
+<h5>Insurance Benefits:</h5>
 <ul class="ms-list">
     <li>Security control verification for insurers</li>
     <li>Compliance documentation and evidence</li>
@@ -278,9 +308,15 @@ hr { border-color: #e5e7eb; }
     <li>Risk transfer capabilities</li>
     <li>Premium optimization through strong security posture</li>
 </ul>
+<h3>Risk Mitigation & Transfer</h3>
+<h5>Reduce risk and transfer remaining exposure</h5>
+<p>While Guardz protects against cyber threats, cyber insurance transfers financial risk for incidents that do occur. The platform helps organizations implement controls that reduce premiums while ensuring adequate coverage</p>
 
+<hr class="my-5">
 <h3 class="section-title">Compliance & Governance</h3>
-<p class="partner-lead">Regulatory Compliance Support — Guardz supports compliance with major regulatory frameworks including GDPR, HIPAA, PCI DSS, SOC 2, ISO 27001, and industry-specific requirements through automated controls, monitoring, and reporting.</p>
+<h5>Regulatory Compliance Support </h5>
+<p class="partner-lead">Guardz supports compliance with major regulatory frameworks including GDPR, HIPAA, PCI DSS, SOC 2, ISO 27001, and industry-specific requirements through automated controls, monitoring, and reporting.</p>
+<h5>Regulatory Compliance Support </h5>
 <ul class="ms-list">
     <li>GDPR (General Data Protection Regulation)</li>
     <li>HIPAA (Health Insurance Portability and Accountability Act)</li>
@@ -293,8 +329,27 @@ hr { border-color: #e5e7eb; }
     <li>State-specific privacy laws (CCPA, CPRA, etc.)</li>
 </ul>
 
+<h5>Compliance Capabilities: </h5>
+<ul class="ms-list">
+    <li>Automated compliance checking</li>
+    <li>Control mapping to frameworks</li>
+    <li>Evidence collection and documentation</li>
+    <li>Audit trail maintenance</li>
+    <li>Compliance dashboard and reporting</li>
+    <li>Gap analysis and remediation tracking</li>
+    <li>Policy template library</li>
+    <li>Cyber Essentials (UK)</li>
+    <li>Audit support and preparation</li>
+</ul>
+<hr class="my-5">
+<h3 class="section-title">Security Policies & Procedures</h3>
+<h5>Establish and enforce security governance</h5>
+<p>Implement comprehensive security policies and procedures that define acceptable use, data handling, incident response, and other security practices. Guardz helps enforce policies through technical controls and monitoring.</p>
+<hr class="my-5">
 <h3 class="section-title">Platform Integration & Automation</h3>
-<p class="partner-lead">PSA/RMM Integration — Guardz integrates with leading Professional Services Automation (PSA) and Remote Monitoring and Management (RMM) platforms to streamline workflows and eliminate tool switching.</p>
+<h5>Seamless integration with existing tools</h5>
+<p class="partner-lead"> Guardz integrates with leading Professional Services Automation (PSA) and Remote Monitoring and Management (RMM) platforms to streamline workflows and eliminate tool switching.</p>
+<h5> Supported Integrations:</h5>
 <ul class="ms-list">
     <li>ConnectWise Manage (PSA)</li>
     <li>Autotask (PSA)</li>
@@ -308,6 +363,7 @@ hr { border-color: #e5e7eb; }
 
 <p class="partner-lead">Distribution Through Leading Marketplaces — Access Guardz through leading technology marketplaces and distributors including Pax8, Ingram Micro, and others for simplified procurement, billing, and provisioning.</p>
 
+<hr class="my-5">
 <h3 class="section-title">Reporting & Analytics</h3>
 <p class="partner-lead">Executive & Board-Level Reporting — Translate technical security data into business-relevant insights. Executive dashboards and reports provide clear visibility into security posture, risk trends, and compliance status.</p>
 <ul class="ms-list">
@@ -321,6 +377,7 @@ hr { border-color: #e5e7eb; }
     <li>Quarterly business reviews</li>
 </ul>
 
+<hr class="my-5">
 <h4 class="ms-list-title mt-4">Operational Security Dashboards</h4>
 <ul class="ms-list">
     <li>Threat detection dashboard</li>
@@ -333,9 +390,11 @@ hr { border-color: #e5e7eb; }
     <li>Performance metrics and KPIs</li>
 </ul>
 
+<hr class="my-5">
 <h4 class="ms-list-title mt-4">Client Prospecting Reports</h4>
 <p class="partner-lead">Win new business with security assessments — Guardz provides powerful prospecting reports that assess a potential client's security posture, identify vulnerabilities, and demonstrate value before they even sign up. Help prospects understand their risk and position your services effectively.</p>
 
+<hr class="my-5">
 <h3 class="section-title">Why Guardz for SMBs?</h3>
 <p class="partner-lead">Purpose-Built for Small Business — Unlike enterprise security solutions adapted for SMBs, Guardz was designed from the beginning for small and medium-sized businesses with their unique constraints, budgets, and requirements in mind.</p>
 <p class="partner-lead">Unified, Not Aggregated — Guardz is a truly unified platform with native security controls and integrated data, not a collection of disparate tools connected by APIs. This architecture delivers better detection, faster response, and simpler management.</p>
@@ -344,6 +403,7 @@ hr { border-color: #e5e7eb; }
 <p class="partner-lead">Security + Insurance — Guardz uniquely combines cybersecurity technology with cyber insurance expertise, helping organizations both prevent attacks and transfer residual risk through appropriate insurance coverage.</p>
 <p class="partner-lead">Rapid Time to Value — Quick deployment with minimal configuration required. Automated discovery and intelligent defaults mean you're protected quickly without lengthy professional services engagements.</p>
 
+<hr class="my-5">
 <h3 class="section-title">Our Guardz Services</h3>
 
 <div class="modern-grid">
@@ -410,6 +470,7 @@ hr { border-color: #e5e7eb; }
     </div>
 </div>
 
+<hr class="my-5">
 <h3 class="section-title">Why Choose Us as Your Guardz Partner?</h3>
 <p class="partner-lead">Certified Guardz Expertise — Our team has completed comprehensive Guardz technical and sales training, ensuring deep platform knowledge and ability to maximize value from your investment.</p>
 <p class="partner-lead">Proven SMB Security Experience — Years of experience protecting small and medium-sized businesses means we understand your unique challenges, constraints, and priorities. We speak your language and align solutions with your business needs.</p>
@@ -418,6 +479,7 @@ hr { border-color: #e5e7eb; }
 <p class="partner-lead">Business-Focused Approach — We translate security into business terms, helping you understand risk, make informed decisions, and communicate security posture to stakeholders, insurers, and customers.</p>
 <p class="partner-lead">Comprehensive Cyber Services — Beyond Guardz platform management, we provide comprehensive cybersecurity consulting including security assessments, incident response planning, compliance consulting, and cyber insurance guidance.</p>
 
+<hr class="my-5">
 <h3 class="section-title">Industry Experience</h3>
 <div class="modern-grid">
     <div class="modern-card"><div class="card-title">Professional Services</div><p class="card-desc">Law firms, accounting firms, consultancies, and other professional services organizations handle sensitive client data requiring robust protection and compliance. We help professional services firms secure client information while maintaining productivity and collaboration.</p></div>
@@ -428,12 +490,14 @@ hr { border-color: #e5e7eb; }
     <div class="modern-card"><div class="card-title">Education</div><p class="card-desc">Schools, universities, and educational service providers face unique challenges including budget constraints, diverse user populations, and regulatory requirements like FERPA. We deliver affordable security for educational institutions.</p></div>
 </div>
 
+<hr class="my-5">
 <h3 class="section-title">Getting Started with Guardz</h3>
 <p class="partner-lead">Step 1: Security Assessment — We begin with a complimentary security assessment to understand your current security posture, identify gaps and vulnerabilities, and demonstrate how Guardz addresses your specific risks.</p>
 <p class="partner-lead">Step 2: Solution Design — Based on assessment findings and your requirements, we design a tailored Guardz implementation including platform configuration, policy definitions, integration planning, and deployment approach.</p>
 <p class="partner-lead">Step 3: Deployment & Training — We deploy and configure the Guardz platform, integrate with your existing tools, and train your team on platform usage, incident response procedures, and best practices.</p>
 <p class="partner-lead">Step 4: Ongoing Protection — With Guardz deployed, you receive 24/7 protection with continuous monitoring, automated response, regular optimization, and ongoing support to ensure lasting security.</p>
 
+<hr class="my-5">
 <h3 class="section-title">Ready to Protect Your Business?</h3>
 <p class="partner-lead">Stop worrying about cyber threats and insurance requirements. With Guardz and our expert partnership, you get comprehensive protection, compliance support, and peace of mind—all in one unified platform.</p>
 

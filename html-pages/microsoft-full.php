@@ -300,14 +300,14 @@ hr {
 }
 
 .dynamics-features li::before {
-    content: '✓';
+    content: '▢';
     position: absolute;
     left: 0;
     color: var(--ms-blue);
     font-weight: bold;
     font-size: 1.1rem;
 }
-
+}
 @media (max-width: 768px) {
     .dynamics-grid {
         grid-template-columns: 1fr;
@@ -315,6 +315,7 @@ hr {
 }
 </style>
 
+<hr class="my-5">
 <div class="dynamics-section">
     <div class="dynamics-header">
         <h3 class="section-title">Business Applications (Dynamics 365)</h3>
@@ -411,6 +412,7 @@ hr {
 </div>
 
 <!-- ====================== FABRIC / AI / ANALYTICS ====================== -->
+<hr class="my-5">
 <div class="dynamics-section">
     <div class="dynamics-header">
         <h3 class="section-title">Data & AI Solutions</h3>
@@ -474,9 +476,11 @@ hr {
             </ul>
         </div>
     </div>
+
 </div>
 
 <!-- ====================== COPILOT ====================== -->
+<hr class="my-5">
 <div class="dynamics-section">
     <div class="dynamics-header">
         <h3 class="section-title">Microsoft Copilot Solutions</h3>
@@ -523,9 +527,11 @@ hr {
             </ul>
         </div>
     </div>
+
 </div>
 
 <!-- ====================== LICENSING ====================== -->
+<hr class="my-5">
 <div class="dynamics-section">
     <div class="dynamics-header">
         <h3 class="section-title">Microsoft Licensing Expertise</h3>
@@ -572,9 +578,11 @@ hr {
             </ul>
         </div>
     </div>
+
 </div>
 
 <!-- ====================== DIGITAL TRANSFORMATION ====================== -->
+<hr class="my-5">
 <div class="dynamics-section">
     <div class="dynamics-header">
         <h3 class="section-title">Digital Transformation Services</h3>
@@ -634,9 +642,11 @@ hr {
             </ul>
         </div>
     </div>
+
 </div>
 
 <!-- ====================== INDUSTRIES ====================== -->
+<hr class="my-5">
 <div class="dynamics-section">
     <div class="dynamics-header">
         <h3 class="section-title">Industry Solutions</h3>
@@ -717,9 +727,11 @@ hr {
             </ul>
         </div>
     </div>
+
 </div>
 
 <!-- ====================== DIFFERENTIATORS ====================== -->
+<hr class="my-5">
 <div class="dynamics-section">
     <div class="dynamics-header">
         <h3 class="section-title">Our Differentiators</h3>
@@ -758,9 +770,11 @@ hr {
             <p class="dynamics-card-desc">Cutting-edge solutions.</p>
         </div>
     </div>
+
 </div>
 
 <!-- ====================== SUCCESS STORIES ====================== -->
+<hr class="my-5">
 <div class="dynamics-section">
     <div class="dynamics-header">
         <h3 class="section-title">Success Stories & Recognition</h3>

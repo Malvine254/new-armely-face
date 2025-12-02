@@ -304,6 +304,7 @@ hr {
     </div>
 </div>
 
+<hr class="my-5">
 <h3 class="section-title">Why Partner with Us?</h3>
 <p class="partner-lead">The AWS Partner Network (APN) brings together technology and consulting partners who leverage AWS to build solutions and services for customers. As an active APN member, we're committed to growing our AWS expertise and delivering successful customer outcomes.</p>
 <p class="partner-lead">We meet customers where they are on their cloud journey—whether just starting or executing on enterprise-wide transformation. Taking a customer-centric approach to understanding your business goals and priorities, we work collaboratively to jumpstart business transformation and maximize returns on technology investments.</p>
@@ -311,6 +312,7 @@ hr {
 <h4 class="ms-list-title mt-4">Our Comprehensive Approach</h4>
 <p class="partner-lead">From advisory, design, migration and implementation to adoption and innovation, we deliver end-to-end solutions that align with your strategic objectives.</p>
 
+<hr class="my-5">
 <h3 class="section-title mt-3">AWS Service Capabilities</h3>
 <p class="partner-lead">Our team is actively building expertise across core AWS services and solution areas to support the breadth of your business goals. We're committed to continuous learning and certification to deliver high-quality AWS solutions.</p>
 
@@ -392,6 +394,7 @@ hr {
     </div>
 </div>
 
+<hr class="my-5">
 <h3 class="section-title">AWS Service Areas</h3>
 
 <div class="modern-grid">
@@ -448,6 +451,7 @@ hr {
     </div>
 </div>
 
+<hr class="my-5">
 <h3 class="section-title">Industry Solutions</h3>
 
 <div class="modern-grid">
@@ -483,6 +487,7 @@ hr {
     </div>
 </div>
 
+<hr class="my-5">
 <h3 class="section-title">Our Service Offerings</h3>
 
 <div class="modern-grid">
@@ -528,6 +533,7 @@ hr {
     </div>
 </div>
 
+<hr class="my-5">
 <h3 class="section-title">AWS Well-Architected Framework</h3>
 <p class="partner-lead">We design and review solutions using the AWS Well-Architected Framework to ensure best practices across six pillars.</p>
 
@@ -540,6 +546,7 @@ hr {
     <div class="modern-card"><div class="card-icon">🌱</div><h5 class="card-title">Sustainability</h5><p class="card-desc">Minimize environmental impact and optimize energy use.</p></div>
 </div>
 
+<hr class="my-5">
 <h3 class="section-title">Why AWS?</h3>
 
 <div class="modern-grid">
@@ -551,6 +558,7 @@ hr {
     <div class="modern-card"><div class="card-icon">🏅</div><h5 class="card-title">Proven Track Record</h5><p class="card-desc">Trusted by millions of customers worldwide.</p></div>
 </div>
 
+<hr class="my-5">
 <h3 class="section-title">Our Differentiators</h3>
 
 <div class="modern-grid">
@@ -562,6 +570,7 @@ hr {
     <div class="modern-card"><div class="card-icon">📈</div><h5 class="card-title">Growing AWS Partnership</h5><p class="card-desc">Active investment in certifications, competencies and customer success.</p></div>
 </div>
 
+<hr class="my-5">
 <h3 class="section-title">Getting Started with AWS</h3>
 
 <div class="modern-grid">
@@ -571,6 +580,7 @@ hr {
     <div class="modern-card"><div class="card-icon">🔧</div><h5 class="card-title">Optimization & Support</h5><p class="card-desc">Continuously improve performance, security and cost efficiency.</p></div>
 </div>
 
+<hr class="my-5">
 <h3 class="section-title">Ready to Start Your AWS Journey?</h3>
 <p class="partner-lead">Whether you're exploring cloud possibilities, planning your first migration, or looking to optimize existing AWS workloads, we're here to help. Our team brings AWS expertise, proven methodologies, and commitment to your success.</p>
 

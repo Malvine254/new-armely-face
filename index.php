@@ -201,7 +201,7 @@
 <!--/ End portfolio -->
 
 
-   <section id="clients" class="wow fadeInUp blog">
+   <!-- <section id="clients" class="wow fadeInUp blog">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title"><b>Our Partners</b><center><hr class="default-background hr" ></center></h2>
@@ -216,13 +216,13 @@
       </div>
       
 
-    </section>
+    </section> -->
 
 <!--/Ens clients -->
 <!-- Start Fun-facts -->
-<div  id="fun-facts" class="fun-facts default-background section overlay">
+<div  id="fun-facts" class="fun-facts default-background section overlay mt-5">
 <div class="container default-background">
-<div class="row">
+<div class="row ">
 <div class="col-lg-4 col-md-6 col-12">
 <!-- Start Single Fun -->
 <div class="single-fun">

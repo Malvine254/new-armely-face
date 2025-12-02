@@ -301,15 +301,17 @@ hr {
       </div>
     </div>
   </div>
-</div>
+  </div>
 
-<h3 class="section-title">Why Partner With Us for Cisco Licensing?</h3>
+  <hr class="my-5">
+  <h3 class="section-title">Why Partner With Us for Cisco Licensing?</h3>
 <p class="partner-lead">Cisco licensing has evolved significantly with Smart Licensing, subscription models, and Enterprise Agreements. Organizations need expert guidance to navigate licensing complexities, avoid compliance risks, and optimize costs. Our licensing expertise ensures you purchase the right licenses, deploy them efficiently, and maintain ongoing compliance while minimizing total cost of ownership.</p>
 <p class="partner-lead">We help you at every stage of the licensing lifecycle—from initial assessment and procurement through deployment, management, optimization, and renewal. Taking a consultative approach, we align licensing decisions with your technical architecture and business objectives to ensure you're never over-licensed or under-compliant.</p>
 
 <h4 class="ms-list-title mt-4">Our Comprehensive Approach</h4>
 <p class="partner-lead">From license assessment and procurement through Smart Account management, optimization, compliance, and renewal, we deliver end-to-end licensing services that maximize value and minimize risk.</p>
 
+<hr class="my-5">
 <h3 class="section-title">Cisco Smart Licensing Expertise</h3>
 
 <div class="modern-grid">
@@ -349,6 +351,7 @@ hr {
   </div>
 </div>
 
+<hr class="my-5">
 <h3 class="section-title">Cisco Licensing Models & Programs</h3>
 
 <div class="modern-grid">
@@ -391,6 +394,7 @@ hr {
   </div>
 </div>
 
+<hr class="my-5">
 <h3 class="section-title">Product-Specific Licensing Expertise</h3>
 
 <div class="modern-grid">
@@ -433,6 +437,7 @@ hr {
   </div>
 </div>
 
+<hr class="my-5">
 <h3 class="section-title">Licensing Services & Solutions</h3>
 
 <div class="modern-grid">
@@ -474,6 +479,7 @@ hr {
   </div>
 </div>
 
+<hr class="my-5">
 <h3 class="section-title">Migration, Renewal & Optimization</h3>
 
 <div class="modern-grid">
@@ -506,6 +512,7 @@ hr {
   </div>
 </div>
 
+<hr class="my-5">
 <h3 class="section-title">Licensing Tools & Portals</h3>
 
 <div class="modern-grid">
@@ -523,6 +530,7 @@ hr {
   </div>
 </div>
 
+<hr class="my-5">
 <h3 class="section-title">Industry-Specific Licensing Solutions</h3>
 
 <div class="modern-grid">
@@ -534,6 +542,7 @@ hr {
   <div class="modern-card"><div class="card-title">Service Providers</div><p class="card-desc">Multi-tenant licensing practices and customer provisioning at scale.</p></div>
 </div>
 
+<hr class="my-5">
 <h3 class="section-title">Training & Enablement</h3>
 <div class="modern-grid">
   <div class="modern-card">
@@ -551,6 +560,7 @@ hr {
   </div>
 </div>
 
+<hr class="my-5">
 <h3 class="section-title">Why Cisco Licensing Expertise Matters</h3>
 <p class="partner-lead">Cisco licensing complexity can create cost, compliance and operational risks. Our focused licensing services reduce risk, optimize spend, and align licensing to your strategic roadmap.</p>
 
@@ -563,6 +573,7 @@ hr {
   <div class="modern-card"><div class="card-title">Relationship Management</div><p class="card-desc">Strong vendor relationships for faster resolution.</p></div>
 </div>
 
+<hr class="my-5">
 <h3 class="section-title">Success Metrics</h3>
 <div class="modern-grid">
   <div class="modern-card"><div class="card-title">Proven Results</div>
@@ -575,6 +586,7 @@ hr {
   </div>
 </div>
 
+<hr class="my-5">
 <h3 class="section-title">Ready to Optimize Your Cisco Licensing?</h3>
 <p class="partner-lead">Stop overpaying for Cisco licenses. Ensure compliance. Simplify management. Whether you're struggling with Smart Account administration, preparing for an EA negotiation, or simply want to reduce licensing costs, we have the expertise to help you succeed.</p>
 

@@ -46,7 +46,7 @@ $partners = [
         "logo" => "images/partners/ms.png",
         "lead" => "Your business deserves technology that works as hard as you do. As a certified Microsoft Solutions Partner across multiple designations—Data & AI, Digital & App Innovation, Business Applications, and Modern Work—we deliver comprehensive solutions that drive measurable business outcomes. From intelligent data platforms to enterprise-wide digital transformation, we help organizations harness the full power of the Microsoft Cloud. ",
         "content" => "",
-		"subtitle" => "Microsoft Solutions Partner for Data & AI, Digital Transformation, Dynamics 365 & Microsoft Licensing",	
+		"subtitle" => "Microsoft",	
 
 		"full" => file_get_contents("html-pages/microsoft-full.php")
     ],
@@ -62,8 +62,8 @@ $partners = [
     ],
 
         "cisco" => [
-            "name" => "Red Hat",
-            "subtitle" => "Red Hat",
+            "name" => "Cisco",
+            "subtitle" => "Cisco",
             "logo" => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqHxfp5_IxQLcw1D8CVTi6ouBWcTy2m6sxHw&s",
             "full" => file_get_contents("html-pages/cisco-full.php"),
         ],
@@ -83,6 +83,31 @@ if (!isset($partners[$partner])) {
 
 $data = $partners[$partner];
 ?>
+
+<!-- Partner quick-access menu -->
+<style>
+    .partner-menu { background:#ffffff; border-top:1px solid #e5e7eb; border-bottom:1px solid #e5e7eb; }
+    .partner-menu .container { display:flex; flex-wrap:wrap; gap:8px 12px; padding:12px 0; }
+    .partner-menu a { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:8px; text-decoration:none; color:#0f172a; border:1px solid #e5e7eb; background:#f9fafb; font-weight:600; }
+    .partner-menu a img { width:22px; height:22px; object-fit:contain; }
+    .partner-menu a:hover { background:#eef2ff; border-color:#c7d92a; }
+    .partner-menu a.active { background:#0ea5bd; color:#062238; border-color:#0ea5bd; }
+    .partner-menu a.active img { filter:brightness(0) invert(1); }
+    @media (max-width:768px){ .partner-menu a{ padding:8px 12px; font-weight:600; } }
+</style>
+
+<nav class="partner-menu p-3" aria-label="Partners menu">
+    <div class="container">
+        <?php foreach ($partners as $key => $p): ?>
+            <a href="?partner=<?= urlencode($key) ?>" class="<?= $key === $partner ? 'active' : '' ?>" aria-current="<?= $key === $partner ? 'page' : 'false' ?>">
+                <?php if (!empty($p['logo'])): ?>
+                    <img src="<?= htmlspecialchars($p['logo']) ?>" alt="<?= htmlspecialchars($p['subtitle'] ?? $p['name']) ?>">
+                <?php endif; ?>
+                <span><?= htmlspecialchars($p['subtitle'] ?? $p['name']) ?></span>
+            </a>
+        <?php endforeach; ?>
+    </div>
+</nav>
 
 <!-- Partner detail hero (modern) -->
 <style>
