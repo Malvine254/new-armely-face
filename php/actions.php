@@ -838,8 +838,8 @@ function disableUrl($status,$unicord){
                 $job_deadline = htmlspecialchars($row['job_deadline']);
 
                 // Output the job listing with modern card styling
-                echo '<div class="col-md-6 col-lg-4 mb-4">
-                        <div class="card career-card h-100">
+                echo '<div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card career-card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center justify-content-between mb-2">
                                     <h5 class="role-title mb-0">' . $job_title . '</h5>
@@ -2732,3 +2732,4 @@ $conn->close();
 
 
 ?>
+
