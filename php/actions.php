@@ -222,49 +222,69 @@ function displayBlogFullDetals(){
 	if ($select->num_rows>0) {
 		while ($row=$select->fetch_assoc()) {
 			echo '
-			<div class=" single-main ">
-				<!-- News Head -->
-				<div class="news-head ">
-					<img  style="height: auto; " src="'.$row['image_path'].'" alt="#">
+			<div class="modern-blog-card">
+				<!-- Blog Image -->
+				<div class="blog-image-wrapper">
+					<img src="'.$row['image_path'].'" alt="'.htmlspecialchars($row['title']).'">
 				</div>
-				<!-- News Title -->
-				<h1 class="news-title"><a >'.$row['title'].'</a></h1>
-				<!-- Meta -->
-				<div class="meta">
-					<div class="meta-left">
-						<span class="author"><a href="#"><img  src="images/blog/profile.svg" alt="#">'.$row['author'].'</a></span>
-						<span class="date"><i class="fa fa-clock-o"></i>'.$row['date'].' </span>
+				
+				<!-- Blog Content -->
+				<div class="blog-content-wrapper">
+					<!-- Blog Title -->
+					<h1 class="blog-title"><a href="#">'.$row['title'].'</a></h1>
+					
+					<!-- Blog Meta -->
+					<div class="blog-meta">
+						<div class="blog-meta-item">
+							<img src="images/blog/profile.svg" alt="Author">
+							<span class="blog-author">'.$row['author'].'</span>
+						</div>
+						<div class="blog-meta-item">
+							<i class="fa fa-calendar"></i>
+							<span>'.$row['date'].'</span>
+						</div>
+						<div class="blog-meta-item">
+							<i class="fa fa-eye"></i>
+							<span>'.$row['clicks'].' Views</span>
+						</div>
+						<div class="blog-meta-item">
+							<button id="toggleSpeech" class="read-aloud-btn">
+								<i class="fa fa-volume-high text-light" id="volume-icons"></i>
+								<span>Read Aloud</span>
+							</button>
+						</div>
 					</div>
-					<div class="meta-right">
-						<span id="toggleSpeech" class="comments"><a ><i class="fa-solid fa-volume-high" id="volume-icons"></i>Read Aloud</a></span>
-						<span class="views"><i class="fa fa-eye"></i>'.$row['clicks'].' Views</span>
+					
+					<!-- Blog Text -->
+					<div class="blog-text-content" id="blog-content">
+						'.$row['body'].'
 					</div>
-				</div>
-				<!-- News Text -->
-				<div style="height: 120vh; overflow-y: scroll;" class="news-text scrollable-div content"  id="blog-content">
-					'.$row['body'].'
-				</div><br>
 
-				<div class="blog-bottom">
-					<!-- Social Share -->
-					<ul class="social-share">
-						<li class="facebook"><a class="shareBtn"  data-social="facebook"><i class="fa-brands fa-facebook"></i><span>Facebook</span></a></li>
-						<li class="twitter"><a class="shareBtn" data-social="twitter"><i class="fa-brands fa-x-twitter"></i><span>Twitter</span></a></li>
-						<li class="google-plus"><a class="shareBtn"  data-social="instagram"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a></li>
-						<li class="linkedin"><a class="shareBtn"  data-social="linkedin"><i class="fa-brands fa-linkedin"></i> <span>LinkedIn</span></a> </li>
-					</ul>
-					<!-- Next Prev -->
-					<ul class="prev-next">
-						<li id="show-more" class="show-more-button show-more"><button class="btn btn-warning">Scroll to Read all More <i class="icofont-long-arrow-down"></i></button></li>
+					<!-- Blog Footer -->
+					<div class="blog-footer-actions">
+						<!-- Social Share -->
+						<ul class="blog-social-share">
+							<li class="facebook"><a class="shareBtn text-light" data-social="facebook"><i class="fa-brands fa-facebook"></i><span>Share</span></a></li>
+							<li class="twitter"><a class="shareBtn text-light" data-social="twitter"><i class="fa-brands fa-x-twitter"></i><span>Tweet</span></a></li>
+							<li class="instagram"><a class="shareBtn text-light" data-social="instagram"><i class="fa-brands fa-instagram"></i><span>Post</span></a></li>
+							<li class="linkedin"><a class="shareBtn text-light" data-social="linkedin"><i class="fa-brands fa-linkedin"></i><span>Share</span></a></li>
+						</ul>
 						
-					</ul>
-					<!--/ End Next Prev -->
+						<!-- Scroll More Button -->
+						<button id="show-more" class="scroll-more-btn show-more">
+							Scroll to Read More <i class="icofont-long-arrow-down"></i>
+						</button>
+					</div>
 				</div>
 			</div>';
 		}
 		
 	}else{
-		echo "";
+		echo '<div class="modern-blog-card">
+			<div class="blog-content-wrapper text-center">
+				<p class="text-muted">Blog post not found.</p>
+			</div>
+		</div>';
 	}
 }
 function selectblogByDefault(){
@@ -273,49 +293,69 @@ function selectblogByDefault(){
 	if ($select->num_rows>0) {
 		while ($row=$select->fetch_assoc()) {
 			echo '
-			<div class="single-main main-article">
-				<!-- News Head -->
-				<div class="news-head">
-					<img  style="height: auto;" src="'.$row['image_path'].'" alt="#">
+			<div class="modern-blog-card">
+				<!-- Blog Image -->
+				<div class="blog-image-wrapper">
+					<img src="'.$row['image_path'].'" alt="'.htmlspecialchars($row['title']).'">
 				</div>
-				<!-- News Title -->
-				<h1 class="news-title"><a >'.$row['title'].'</a></h1>
-				<!-- Meta -->
-				<div class="meta">
-					<div class="meta-left">
-						<span class="author"><a href="#"><img  src="images/blog/profile.svg" alt="#">'.$row['author'].'</a></span>
-						<span class="date"><i class="fa fa-clock-o"></i>'.$row['date'].'</span>
+				
+				<!-- Blog Content -->
+				<div class="blog-content-wrapper">
+					<!-- Blog Title -->
+					<h1 class="blog-title"><a href="#">'.$row['title'].'</a></h1>
+					
+					<!-- Blog Meta -->
+					<div class="blog-meta">
+						<div class="blog-meta-item">
+							<img src="images/blog/profile.svg" alt="Author">
+							<span class="blog-author">'.$row['author'].'</span>
+						</div>
+						<div class="blog-meta-item">
+							<i class="fa fa-calendar"></i>
+							<span>'.$row['date'].'</span>
+						</div>
+						<div class="blog-meta-item">
+							<i class="fa fa-eye"></i>
+							<span>'.$row['clicks'].' Views</span>
+						</div>
+						<div class="blog-meta-item">
+							<button id="toggleSpeech" class="read-aloud-btn">
+								<i class="fa fa-volume-high text-light" id="volume-icons"></i>
+								<span>Read Aloud</span>
+							</button>
+						</div>
 					</div>
-					<div class="meta-right">
-						<span id="toggleSpeech" class="comments"><a ><i class="fa-solid fa-volume-high" id="volume-icons"></i>Read Aloud</a></span>
-						<span class="views"><i class="fa fa-eye"></i>'.$row['clicks'].' Views</span>
+					
+					<!-- Blog Text -->
+					<div class="blog-text-content" id="content">
+						'.$row['body'].'
 					</div>
-				</div>
-				<!-- News Text -->
-				<div style="height: 120vh; overflow-y: scroll;" class="news-text scrollable-div content"  id="content">
-					'.$row['body'].'
-				</div><br>
 
-				<div class="blog-bottom">
-					<!-- Social Share -->
-					<ul class="social-share">
-						<li class="facebook"><a class="shareBtn"  data-social="facebook"><i class="fa-brands fa-facebook"></i><span>Facebook</span></a></li>
-						<li class="twitter"><a class="shareBtn" data-social="twitter"><i class="fa-brands fa-x-twitter"></i><span>Twitter</span></a></li>
-						<li class="google-plus"><a class="shareBtn"  data-social="instagram"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a></li>
-						<li class="linkedin"><a class="shareBtn"  data-social="linkedin"><i class="fa-brands fa-linkedin"></i> <span>LinkedIn</span></a> </li>
-					</ul>
-					<!-- Next Prev -->
-					<ul class="prev-next">
-						<li id="show-more" class="show-more-button show-more"><button class="btn btn-warning">Scroll to Read More <i class="icofont-long-arrow-down"></i></button></li>
+					<!-- Blog Footer -->
+					<div class="blog-footer-actions">
+						<!-- Social Share -->
+						<ul class="blog-social-share">
+							<li class="facebook"><a class="shareBtn text-light" data-social="facebook"><i class="fa-brands fa-facebook"></i><span>Share</span></a></li>
+							<li class="twitter"><a class="shareBtn text-light" data-social="twitter"><i class="fa-brands fa-x-twitter"></i><span>Tweet</span></a></li>
+							<li class="instagram"><a class="shareBtn text-light" data-social="instagram"><i class="fa-brands fa-instagram"></i><span>Post</span></a></li>
+							<li class="linkedin"><a class="shareBtn text-light" data-social="linkedin"><i class="fa-brands fa-linkedin"></i><span>Share</span></a></li>
+						</ul>
 						
-					</ul>
-					<!--/ End Next Prev -->
+						<!-- Scroll More Button -->
+						<button id="show-more" class="scroll-more-btn show-more">
+							Scroll to Read More <i class="icofont-long-arrow-down"></i>
+						</button>
+					</div>
 				</div>
 			</div>';
 		}
 		
 	}else{
-		echo "";
+		echo '<div class="modern-blog-card">
+			<div class="blog-content-wrapper text-center">
+				<p class="text-muted">No blog posts available at this time.</p>
+			</div>
+		</div>';
 	}
 }
 
@@ -352,7 +392,7 @@ function displayRecentBlogsOthers() {
     include 'config.php';
 
     try {
-        // Use a prepared statement to fetch the recent 14 blogs, selecting only the needed columns
+        // Use a prepared statement to fetch the recent blogs
         $stmt = $conn->prepare("SELECT blog_id, title, image_path, date, clicks FROM blogs ORDER BY id DESC");
         $stmt->execute();
         $result = $stmt->get_result();
@@ -366,22 +406,22 @@ function displayRecentBlogsOthers() {
                 $date = htmlspecialchars($row['date']);
                 $clicks = htmlspecialchars($row['clicks']);
 
-                // Display the blog post
-                echo '<div class="single-post data-item sidebar-article" >
-                    <div class="image" style="height: auto !important;">
-                        <img  style="height: auto !important;" src="' . $image_path . '" alt="Blog Image">
+                // Display modern sidebar blog card
+                echo '<a href="?blogId=' . $blog_id . '" class="sidebar-blog-card data-item">
+                    <div class="sidebar-blog-image">
+                        <img src="' . $image_path . '" alt="' . $title . '">
                     </div>
-                    <div class="content">
-                        <h5><a href="?blogId=' . $blog_id . '">' . $title . '</a></h5>
-                        <ul class="comment">
-                            <li><i class="fa fa-calendar" aria-hidden="true"></i>' . $date . '</li>
-                            <li><i class="fa fa-eye" aria-hidden="true"></i>' . $clicks . ' Views</li>
-                        </ul>
+                    <div class="sidebar-blog-content">
+                        <h5 class="sidebar-blog-title">' . $title . '</h5>
+                        <div class="sidebar-blog-meta">
+                            <span><i class="fa fa-calendar"></i>' . $date . '</span>
+                            <span><i class="fa fa-eye"></i>' . $clicks . ' Views</span>
+                        </div>
                     </div>
-                </div>';
+                </a>';
             }
         } else {
-            echo "No records found!";
+            echo '<p class="text-center text-muted">No blog posts found.</p>';
         }
 
         // Close the statement and connection
@@ -389,7 +429,7 @@ function displayRecentBlogsOthers() {
     } catch (Exception $e) {
         // Log the error for debugging without exposing it to users
         error_log("Database Error: " . $e->getMessage());
-        echo "<p>Unable to retrieve blogs at this time. Please try again later.</p>";
+        echo "<p class='text-center text-muted'>Unable to retrieve blogs at this time. Please try again later.</p>";
     }
 }
 

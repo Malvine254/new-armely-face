@@ -517,9 +517,7 @@
         padding: 80px 0 60px;
     }
 
-    .industries-content-section {
-        padding: 40px 0;
-    }
+   
 
     .modern-tabs-industries {
         padding: 5px;
@@ -582,4 +580,17 @@
 /* ==================== Smooth Scrolling ==================== */
 html {
     scroll-behavior: smooth;
+}
+/* Moderate, clean margins for the industries section */
+.industries-section-modern {
+    max-width: 1400px;          /* controls total width */
+    margin: 0 auto;             /* centers the content */
+    padding-left: 20px;         /* balanced small left margin */
+    padding-right: 20px;        /* balanced small right margin */
+}
+
+/* Reduce inner padding so content is not squeezed */
+.industries-section-modern .tab-content-wrapper {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
