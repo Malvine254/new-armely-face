@@ -389,7 +389,7 @@
 
 <section class="cta-section">
 	<div class="container">
-		<h2>Ready for Enterprise SQL Server Support?</h2>
+		<h2 class="text-light">Ready for Enterprise SQL Server Support?</h2>
 		<p class="text-light">Let our SQL Server experts provide the support and optimization your database infrastructure needs.</p>
 		<div class="cta-buttons">
 			<a href="#consultation" class="btn-primary">Request A SQL Server Support Solution</a>
