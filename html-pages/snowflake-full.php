@@ -5,11 +5,13 @@
 
 /* Brand Colors */
 :root {
-    --ms-blue: #0f6cbd;
-    --ms-dark: #1a1f36;
-    --ms-soft-dark: #2c3248;
-    --ms-light: #f5f8fc;
-    --ms-accent: #c7d92a;
+    --snowflake-blue: #2f5597;
+    --snowflake-dark: #1e3a6d;
+    --ms-dark: #232F3E;
+    --ms-light: #f9fafc;
+    --ms-accent: #2f5597;
+    --gradient-primary: linear-gradient(135deg, #2f5597 0%, #1e3a6d 100%);
+    --gradient-dark: linear-gradient(135deg, #232F3E 0%, #37475A 100%);
 }
 
 /* Page container spacing */
@@ -17,26 +19,66 @@
     padding: 40px 0;
 }
 
+/* Hero Section */
+.snowflake-hero {
+    background: var(--gradient-dark);
+    color: white;
+    padding: 60px 0;
+    border-radius: 16px;
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.snowflake-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(47,85,151,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.snowflake-hero-content {
+    position: relative;
+    z-index: 2;
+}
+
 /* Titles */
 .section-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 800;
     color: var(--ms-dark);
     margin-bottom: 1.2rem;
     letter-spacing: -0.5px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
 }
 
 .ms-list-title {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: var(--ms-blue);
+    color: var(--snowflake-blue);
     margin-top: 40px;
 }
 
 /* Lead text */
 .partner-lead {
-    font-size: 1.05rem;
-    line-height: 1.65;
+    font-size: 1.08rem;
+    line-height: 1.7;
     color: #4b5563;
 }
 
@@ -49,11 +91,13 @@
     padding: 35px 40px;
     margin-bottom: 40px;
     box-shadow: 0 8px 28px rgba(0,0,0,0.06);
-    transition: .3s;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
 }
 .ms-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(47,85,151,0.15);
+    border-left-color: var(--snowflake-blue);
 }
 
 /* ----------------------------
@@ -70,71 +114,104 @@
     position: relative;
 }
 .ms-list li::before {
-    content: '▢';
+    content: '▸';
     position: absolute;
     left: 0;
-    color: var(--ms-blue);
+    color: var(--snowflake-blue);
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 /* ----------------------------
    Badge Styling
    ---------------------------- */
 .partner-badge {
-    background: var(--ms-blue);
+    background: var(--gradient-primary);
     color: #fff;
-    padding: 8px 14px;
+    padding: 10px 20px;
     border-radius: 30px;
     margin: 5px;
-    font-weight: 600;
+    font-weight: 700;
     display: inline-block;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(47,85,151,0.3);
+    transition: all 0.3s ease;
+}
+
+.partner-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(47,85,151,0.4);
 }
 
 /* ----------------------------
    CTA BUTTON
    ---------------------------- */
 .btn-cta {
-    background: var(--ms-blue);
+    background: var(--gradient-primary);
     color: #ffffff !important;
-    padding: 13px 32px;
-    font-size: 1.05rem;
-    font-weight: 600;
-    border-radius: 10px;
+    padding: 16px 40px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
     text-decoration: none;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 24px rgba(47,85,151,0.4);
+    border: none;
 }
 .btn-cta:hover {
-    background: #0c5aa2;
-    transform: translateY(-3px);
+    background: linear-gradient(135deg, #1e3a6d 0%, #2f5597 100%);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(47,85,151,0.5);
+    color: #ffffff !important;
 }
 
 /* ----------------------------
    Hero Image + Branding
    ---------------------------- */
 .partner-brand-logo {
-    max-width: 220px;
-    filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.1));
+    max-width: 240px;
+    filter: drop-shadow(0px 6px 16px rgba(47,85,151,0.3));
+    transition: transform 0.3s ease;
+}
+
+.partner-brand-logo:hover {
+    transform: scale(1.05);
 }
 
 /* ----------------------------
    Section Divider line
    ---------------------------- */
 hr {
-    border-color: #e5e7eb;
+    border: none;
+    background: transparent;
+    margin: 3rem auto;
 }
 
 /* ----------------------------
    Gradient Highlight Wrapper
    ---------------------------- */
 .ms-highlight {
-    background: linear-gradient(135deg, #0f6cbd 0%, #5ea0ef 100%);
+    background: var(--gradient-dark);
     color: #fff;
-    border-radius: 14px;
-    padding: 24px 26px;
+    border-radius: 16px;
+    padding: 32px 40px;
     margin-bottom: 40px;
-    box-shadow: 0 12px 32px rgba(15,108,189,0.2);
+    box-shadow: 0 12px 40px rgba(35,47,62,0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.ms-highlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
 }
 
 /* ----------------------------
@@ -164,14 +241,14 @@ hr {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #0f6cbd, #c7d92a);
+    background: var(--gradient-primary);
     transition: height 0.35s ease;
 }
 
 .modern-card:hover {
-    transform: translateY(-8px);
-    border-color: #0f6cbd;
-    box-shadow: 0 16px 48px rgba(15, 108, 189, 0.15);
+    transform: translateY(-10px);
+    border-color: var(--snowflake-blue);
+    box-shadow: 0 20px 60px rgba(47,85,151,0.2);
 }
 
 .modern-card:hover::before {
@@ -179,8 +256,9 @@ hr {
 }
 
 .card-icon {
-    font-size: 2.4rem;
-    margin-bottom: 14px;
+    font-size: 3rem;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 4px 8px rgba(47,85,151,0.2));
 }
 
 .card-title {
@@ -214,12 +292,12 @@ hr {
 }
 
 .card-features li::before {
-    content: '▢';
+    content: '✓';
     position: absolute;
     left: 0;
-    color: var(--ms-blue);
+    color: var(--snowflake-blue);
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 .stats-grid {
@@ -230,17 +308,31 @@ hr {
 }
 
 .stat-card {
-    background: linear-gradient(135deg, #0f6cbd, #2e7dd4);
+    background: var(--gradient-primary);
     color: white;
-    border-radius: 12px;
-    padding: 28px;
+    border-radius: 16px;
+    padding: 32px;
     text-align: center;
-    box-shadow: 0 8px 24px rgba(15, 108, 189, 0.2);
-    transition: transform 0.3s ease;
+    box-shadow: 0 12px 32px rgba(47,85,151,0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    border-radius: 50%;
 }
 
 .stat-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 16px 48px rgba(47,85,151,0.4);
 }
 
 .stat-number {
@@ -283,50 +375,48 @@ hr {
 
 </style>
 
-
-<div class="mb-5">
-    
-    <div class="row align-items-center">
-            <h4 class="section-title" >Snowflake Elite Services Partner</h4>
-
-            <div class="col-lg-7">
-                <h4 class="partner-lead">Mobilize Your Data. Unleash AI. Transform Everything.</h4>
-                <p>In the age of AI and data-driven decision making, your organization needs more than just storage—you need a platform that turns data into strategic advantage. As a Snowflake Elite Services Partner, the highest tier in the Snowflake Partner Network—we help organizations unlock the full potential of the AI Data Cloud. From data warehousing to data engineering, data lakes to data sharing, AI and machine learning to data applications, we deliver end-to-end Snowflake solutions that mobilize your data and accelerate business transformation.
-                </p>
-            </div>
-
-            <div class="col-lg-5 text-center">
-                <img loading="lazy" alt="snowflake-logo" class="partner-brand-logo mb-3" src="images/partners/snowflake.png">
-
-                <div class="partner-badges mt-3 mx-auto" style="max-width:320px;">
-                    <div class="partner-badge partner-badge--premier">Elite</div>
-                    <div class="partner-badge partner-badge--partner">Services Partner</div>
+<!-- Snowflake Hero Section -->
+<div class="snowflake-hero">
+    <div class="snowflake-hero-content">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <h1 class="section-title text-white mb-4">Mobilize Your Data. Unleash AI. Transform Everything.</h1>
+                    <p class="partner-lead text-white mb-4" style="font-size: 1.2rem; opacity: 0.95;">In the age of AI and data-driven decision making, your organization needs more than just storage—you need a platform that turns data into strategic advantage. As a Snowflake Elite Services Partner, we help organizations unlock the full potential of the AI Data Cloud.</p>
+                    <div class="partner-badges mt-4">
+                        <span class="partner-badge">Elite Partner</span>
+                        <span class="partner-badge">Services Partner</span>
+                        <span class="partner-badge">Data Transformation</span>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center mt-4 mt-lg-0">
+                    <img loading="lazy" alt="Snowflake Logo" class="partner-brand-logo" src="images/partners/snowflake.png" style="max-width: 280px; filter: drop-shadow(0 8px 24px rgba(47,85,151,0.4));">
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="container">
+
+<div class="mb-5">
+    <h3 class="section-title">Snowflake Elite Services Partner</h3>
+    <p class="partner-lead">From data warehousing to data engineering, data lakes to data sharing, AI and machine learning to data applications, we deliver end-to-end Snowflake solutions that mobilize your data and accelerate business transformation.</p>
 </div>
 
 <hr class="my-5">
 
-<h3 class="section-title">Why Partner with Us?</h3>
-<p class="partner-lead">
-    Snowflake Elite Services Partners represent the pinnacle of expertise within the Snowflake ecosystem. This prestigious designation recognizes partners who have demonstrated exceptional technical proficiency, significant customer success, and deep commitment to the Snowflake Data Cloud platform.
-</p>
-<p class="partner-lead">
-    We meet you where you are on your data modernization journey—whether migrating from legacy data warehouses, consolidating disparate data sources, building AI-powered applications, or establishing data sharing ecosystems. Taking a business-outcome-focused approach, we align Snowflake's capabilities with your strategic objectives to unlock insights, reduce costs, and enable data-driven innovation.
-</p>
+<div class="ms-highlight default-background">
+    <h3 class="section-title text-white mb-4">Why Partner with Us?</h3>
+    <p class="partner-lead text-white mb-3" style="opacity: 0.95;">Snowflake Elite Services Partners represent the pinnacle of expertise within the Snowflake ecosystem. This prestigious designation recognizes partners who have demonstrated exceptional technical proficiency, significant customer success, and deep commitment to the Snowflake Data Cloud platform.</p>
+    <p class="partner-lead text-white mb-0" style="opacity: 0.95;">We meet you where you are on your data modernization journey—whether migrating from legacy data warehouses, consolidating disparate data sources, building AI-powered applications, or establishing data sharing ecosystems. Taking a business-outcome-focused approach, we align Snowflake's capabilities with your strategic objectives.</p>
+</div>
 
-<h4 class="ms-list-title mt-4">Our Comprehensive Approach</h4>
-<p class="partner-lead">
-    From strategy and architecture through migration, implementation, optimization, and managed services, we deliver integrated Snowflake solutions that maximize your data investment and create lasting competitive advantage.
-</p>
-
-<hr class="my-5">
+<h4 class="ms-list-title mt-5">Our Comprehensive Approach</h4>
+<p class="partner-lead">From strategy and architecture through migration, implementation, optimization, and managed services, we deliver integrated Snowflake solutions that maximize your data investment and create lasting competitive advantage.</p>
 
 <h2 class="section-title">Snowflake Elite Partner Designation</h2>
-<p class="partner-lead">
-    Elite tier represents the highest designation in the Snowflake Partner Network, distinguishing our exceptional expertise in maximizing business value from the AI Data Cloud.
-</p>
+<p class="partner-lead">Elite tier represents the highest designation in the Snowflake Partner Network, distinguishing our exceptional expertise in maximizing business value from the AI Data Cloud.</p>
 
 <h4 class="ms-list-title mt-4">What Elite Status Means for You</h4>
 <ul class="ms-list">

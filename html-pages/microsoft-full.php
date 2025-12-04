@@ -5,11 +5,11 @@
 
 /* Brand Colors */
 :root {
-    --ms-blue: #0f6cbd;
-    --ms-dark: #1a1f36;
+    --ms-blue: #2f5597;
+    --ms-dark: #1e3a6d;
     --ms-soft-dark: #2c3248;
     --ms-light: #f5f8fc;
-    --ms-accent: #c7d92a;
+    --ms-accent: #2f5597;
 }
 
 /* Page container spacing */
@@ -86,17 +86,17 @@
    CTA BUTTON
    ---------------------------- */
 .btn-cta {
-    background: var(--ms-blue);
+    background: #2f5597;
     color: #ffffff !important;
     padding: 13px 32px;
     font-size: 1.05rem;
     font-weight: 600;
-    border-radius: 10px;
+    border-radius: 50px;
     text-decoration: none;
     transition: 0.3s;
 }
 .btn-cta:hover {
-    background: #0c5aa2;
+    background: #1e3a6d;
     transform: translateY(-3px);
 }
 
@@ -112,19 +112,21 @@
    Section Divider line
    ---------------------------- */
 hr {
-    border-color: #e5e7eb;
+    border: none;
+    height: 0;
+    background: transparent;
 }
 
 /* ----------------------------
    Gradient Highlight Wrapper
    ---------------------------- */
 .ms-highlight {
-    background: linear-gradient(135deg, #0f6cbd 0%, #5ea0ef 100%);
+    background: linear-gradient(135deg, #2f5597 0%, #1e3a6d 100%);
     color: #fff;
     border-radius: 14px;
     padding: 24px 26px;
     margin-bottom: 40px;
-    box-shadow: 0 12px 32px rgba(15,108,189,0.2);
+    box-shadow: 0 12px 32px rgba(47,85,151,0.2);
 }
 
 /* ----------------------------
@@ -139,32 +141,90 @@ hr {
 </style>
 
 
-<div class="mb-5">
-    
-    <div class="row">
-            <h4 class="" >Microsoft Solutions Partner for Data & AI, Digital Transformation, Dynamics 365 & Microsoft Licensing </h4>
+<style>
+.ms-hero {
+    background: linear-gradient(135deg, #1e3a6d 0%, #2f5597 50%, #1e3a6d 100%);
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+}
 
-			<div class="col-lg-7">
-                <h4 class="partner-lead">Transform. Innovate. Accelerate.</h4>
-				<p>Your business deserves technology that works as hard as you do. As a certified Microsoft Solutions Partner across
-                multiple designations—Data & AI, Digital & App Innovation, Business Applications, and Modern Work—we deliver
-                comprehensive solutions that drive measurable business outcomes. From intelligent data platforms to
-                enterprise-wide digital transformation, we help organizations harness the full power of the Microsoft Cloud.
-                </p>
-			</div>
+.ms-hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(47,85,151,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+}
 
-			<div class="col-lg-5 text-center">
-				<img loading="lazy" alt="ms-logo" class=" mb-3" src="images/partners/ms.png">
+.ms-hero-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+}
 
-				<div class="partner-badges mt-3 mx-auto" style="max-width:320px;">
-					<div class="partner-badge partner-badge--premier">Premier</div>
-					<div class="partner-badge partner-badge--partner">Business Partner</div>
-				</div>
-		</div>
-	</div>
+.ms-hero-content h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.ms-hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    opacity: 0.95;
+    line-height: 1.7;
+}
+
+.ms-hero-badges {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.ms-hero-badge {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+
+.ms-hero-logo {
+    max-width: 180px;
+    filter: drop-shadow(0px 8px 20px rgba(0,0,0,0.3));
+    margin-bottom: 20px;
+}
+</style>
+
+<div class="ms-hero">
+    <div class="ms-hero-content container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <h1 class="text-light">Transform. Innovate. Accelerate.</h1>
+                <p class="text-light" >Your business deserves technology that works as hard as you do. As a certified Microsoft Solutions Partner across multiple designations, we deliver comprehensive solutions that drive measurable business outcomes.</p>
+                <div class="ms-hero-badges">
+                    <div class="ms-hero-badge">Premier Partner</div>
+                    <div class="ms-hero-badge">Business Partner</div>
+                    <div class="ms-hero-badge">Solutions Expert</div>
+                </div>
+            </div>
+            <div class="col-lg-5 text-center">
+                <img loading="lazy" alt="ms-logo" class="ms-hero-logo" src="images/partners/ms.png">
+            </div>
+        </div>
+    </div>
 </div>
 
-<h3 class="section-title">Why Partner with Us?</h3>
+<h3 class="section-title mt-4">Why Partner with Us?</h3>
 <p class="partner-lead">
     Microsoft Solutions Partners represent the highest level of capability, expertise, and commitment within the
     Microsoft ecosystem. Our multi-designation status demonstrates proven success across the full Microsoft technology
@@ -234,7 +294,7 @@ hr {
 
 .dynamics-card {
     background: linear-gradient(135deg, #f5f8fc 0%, #ffffff 100%);
-    border: 1px solid rgba(15, 108, 189, 0.1);
+    border: 1px solid rgba(47, 85, 151, 0.1);
     border-radius: 14px;
     padding: 32px;
     transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -249,14 +309,14 @@ hr {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--ms-blue), var(--ms-accent));
+    background: linear-gradient(90deg, #2f5597, #2f5597);
     transition: height 0.35s ease;
 }
 
 .dynamics-card:hover {
     transform: translateY(-8px);
-    border-color: var(--ms-blue);
-    box-shadow: 0 16px 48px rgba(15, 108, 189, 0.15);
+    border-color: #2f5597;
+    box-shadow: 0 16px 48px rgba(47, 85, 151, 0.15);
 }
 
 .dynamics-card:hover::before {
@@ -300,12 +360,13 @@ hr {
 }
 
 .dynamics-features li::before {
-    content: '▢';
+    content: '✓';
     position: absolute;
     left: 0;
-    color: var(--ms-blue);
+    color: #2f5597;
     font-weight: bold;
     font-size: 1.1rem;
+    filter: drop-shadow(0px 2px 4px rgba(47,85,151,0.3));
 }
 }
 @media (max-width: 768px) {
@@ -789,28 +850,26 @@ hr {
         margin-bottom: 30px;
     }
     
-    .stat-card {
-        background: linear-gradient(135deg, var(--ms-blue), #2e7dd4);
-        color: white;
-        border-radius: 12px;
-        padding: 28px;
-        text-align: center;
-        box-shadow: 0 8px 24px rgba(15, 108, 189, 0.2);
-        transition: transform 0.3s ease;
-    }
-    
-    .stat-card:hover {
-        transform: translateY(-6px);
-    }
-    
-    .stat-number {
-        font-size: 2.8rem;
-        font-weight: 800;
-        margin-bottom: 8px;
-        color: var(--ms-accent);
-    }
-    
-    .stat-label {
+.stat-card {
+    background: linear-gradient(135deg, #2f5597, #1e3a6d);
+    color: white;
+    border-radius: 12px;
+    padding: 28px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(47, 85, 151, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-6px);
+}
+
+.stat-number {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #ffffff;
+}    .stat-label {
         font-size: 1rem;
         font-weight: 600;
         line-height: 1.5;

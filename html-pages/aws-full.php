@@ -1,15 +1,46 @@
 <style>
 /* ============================
-   SNOWFLAKE MODERN PAGE STYLING (reused for AWS page)
+   AWS MODERN PAGE STYLING
    ============================ */
 
-/* Brand Colors */
+/* AWS Brand Colors */
 :root {
-    --ms-blue: #0f6cbd;
-    --ms-dark: #1a1f36;
-    --ms-soft-dark: #2c3248;
-    --ms-light: #f5f8fc;
-    --ms-accent: #c7d92a;
+    --aws-orange: #2f5597;
+    --aws-dark-orange: #1e3a6d;
+    --aws-dark: #232F3E;
+    --aws-light: #f9fafc;
+    --aws-blue: #146EB4;
+    --aws-accent: #2f5597;
+    --aws-gray: #545B64;
+    --gradient-primary: linear-gradient(135deg, #2f5597 0%, #1e3a6d 100%);
+    --gradient-dark: linear-gradient(135deg, #232F3E 0%, #37475A 100%);
+}
+
+/* Hero Section */
+.aws-hero {
+    background: var(--gradient-dark);
+    color: white;
+    padding: 60px 0;
+    border-radius: 16px;
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.aws-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(47,85,151,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.aws-hero-content {
+    position: relative;
+    z-index: 2;
 }
 
 /* Page container spacing */
@@ -19,24 +50,37 @@
 
 /* Titles */
 .section-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 800;
-    color: var(--ms-dark);
+    color: var(--aws-dark);
     margin-bottom: 1.2rem;
     letter-spacing: -0.5px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
 }
 
 .ms-list-title {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: var(--ms-blue);
+    color: var(--aws-orange);
     margin-top: 40px;
 }
 
 /* Lead text */
 .partner-lead {
-    font-size: 1.05rem;
-    line-height: 1.65;
+    font-size: 1.08rem;
+    line-height: 1.7;
     color: #4b5563;
 }
 
@@ -49,11 +93,13 @@
     padding: 35px 40px;
     margin-bottom: 40px;
     box-shadow: 0 8px 28px rgba(0,0,0,0.06);
-    transition: .3s;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
 }
 .ms-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(47,85,151,0.15);
+    border-left-color: var(--aws-orange);
 }
 
 /* ----------------------------
@@ -70,57 +116,95 @@
     position: relative;
 }
 .ms-list li::before {
-    content: '▢';
+    content: '▸';
     position: absolute;
     left: 0;
-    color: var(--ms-blue);
+    color: var(--aws-orange);
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 /* ----------------------------
    Badge Styling
    ---------------------------- */
 .partner-badge {
-    background: var(--ms-blue);
+    background: var(--gradient-primary);
     color: #fff;
-    padding: 8px 14px;
+    padding: 10px 20px;
     border-radius: 30px;
     margin: 5px;
-    font-weight: 600;
+    font-weight: 700;
     display: inline-block;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(47,85,151,0.3);
+    transition: all 0.3s ease;
+}
+
+.partner-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(47,85,151,0.4);
 }
 
 /* ----------------------------
    CTA BUTTON
    ---------------------------- */
 .btn-cta {
-    background: var(--ms-blue);
+    background: var(--gradient-primary);
     color: #ffffff !important;
-    padding: 13px 32px;
-    font-size: 1.05rem;
-    font-weight: 600;
-    border-radius: 10px;
+    padding: 16px 40px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
     text-decoration: none;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 24px rgba(47,85,151,0.4);
+    border: none;
 }
 .btn-cta:hover {
-    background: #0c5aa2;
-    transform: translateY(-3px);
+    background: linear-gradient(135deg, #1e3a6d 0%, #2f5597 100%);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(47,85,151,0.5);
+    color: #ffffff !important;
+}
+
+.btn-cta::after {
+    content: '→';
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-cta:hover::after {
+    transform: translateX(4px);
 }
 
 /* ----------------------------
    Hero Image + Branding
    ---------------------------- */
 .partner-brand-logo {
-    max-width: 220px;
-    filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.1));
+    max-width: 240px;
+    filter: drop-shadow(0px 6px 16px rgba(47,85,151,0.3));
+    transition: transform 0.3s ease;
+}
+
+.partner-brand-logo:hover {
+    transform: scale(1.05);
 }
 
 /* ----------------------------
    Section Divider line
    ---------------------------- */
+hr.my-5 {
+    border: none;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--aws-orange), transparent);
+    margin: 3rem auto;
+    max-width: 200px;
+    border-radius: 2px;
+}
+
 hr {
     border-color: #e5e7eb;
 }
@@ -129,12 +213,24 @@ hr {
    Gradient Highlight Wrapper
    ---------------------------- */
 .ms-highlight {
-    background: linear-gradient(135deg, #0f6cbd 0%, #5ea0ef 100%);
+    background: var(--gradient-dark);
     color: #fff;
-    border-radius: 14px;
-    padding: 24px 26px;
+    border-radius: 16px;
+    padding: 32px 40px;
     margin-bottom: 40px;
-    box-shadow: 0 12px 32px rgba(15,108,189,0.2);
+    box-shadow: 0 12px 40px rgba(35,47,62,0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.ms-highlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
 }
 
 /* ----------------------------
@@ -164,14 +260,14 @@ hr {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #0f6cbd, #c7d92a);
+    background: var(--gradient-primary);
     transition: height 0.35s ease;
 }
 
 .modern-card:hover {
-    transform: translateY(-8px);
-    border-color: #0f6cbd;
-    box-shadow: 0 16px 48px rgba(15, 108, 189, 0.15);
+    transform: translateY(-10px);
+    border-color: var(--aws-orange);
+    box-shadow: 0 20px 60px rgba(47,85,151,0.2);
 }
 
 .modern-card:hover::before {
@@ -179,8 +275,9 @@ hr {
 }
 
 .card-icon {
-    font-size: 2.4rem;
-    margin-bottom: 14px;
+    font-size: 3rem;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 4px 8px rgba(47,85,151,0.2));
 }
 
 .card-title {
@@ -214,12 +311,12 @@ hr {
 }
 
 .card-features li::before {
-    content: '▢';
+    content: '✓';
     position: absolute;
     left: 0;
-    color: var(--ms-blue);
+    color: var(--aws-orange);
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 .stats-grid {
@@ -230,17 +327,31 @@ hr {
 }
 
 .stat-card {
-    background: linear-gradient(135deg, #0f6cbd, #2e7dd4);
+    background: var(--gradient-primary);
     color: white;
-    border-radius: 12px;
-    padding: 28px;
+    border-radius: 16px;
+    padding: 32px;
     text-align: center;
-    box-shadow: 0 8px 24px rgba(15, 108, 189, 0.2);
-    transition: transform 0.3s ease;
+    box-shadow: 0 12px 32px rgba(47,85,151,0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    border-radius: 50%;
 }
 
 .stat-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 16px 48px rgba(47,85,151,0.4);
 }
 
 .stat-number {
@@ -281,35 +392,63 @@ hr {
     .stats-grid { grid-template-columns: 1fr; }
 }
 
+/* Force hide any divider lines (blue horizontal lines) */
+.divider,
+.divider::before,
+.divider::after,
+.section-title .divider,
+.section-title:after,
+.heading-line,
+.heading-line::before,
+.heading-line::after {
+    display: none !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+
 </style>
 
-
-<div class="mb-5">
-    <div class="row align-items-center">
-        <h4 class="section-title">AWS Partner Network Services Partner</h4>
-
-        <div class="col-lg-7">
-            <h4 class="partner-lead">Build. Modernize. Innovate.</h4>
-            <p>Your cloud journey goals are attainable—no matter the size or scope. As an AWS Partner Network member and growing services partner, we apply future-focused best practices and hands-on experience to help you thrive in a technology-centric world. Achieve your business transformation goals and create limitless possibilities for the future.</p>
-        </div>
-
-        <div class="col-lg-5 text-center">
-            <img loading="lazy" alt="aws-logo" class="mb-3" src="images/partners/aws.png">
-
-            <div class="partner-badges mt-3 mx-auto" style="max-width:320px;">
-                <div class="partner-badge partner-badge--premier">Services Partner</div>
-                <div class="partner-badge partner-badge--partner">AWS Partner Network</div>
+<!-- AWS Hero Section -->
+<div class="aws-hero">
+    <div class="aws-hero-content">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <h1 class="section-title text-white mb-4" style="font-size: 2.8rem;">Build. Modernize. Innovate with AWS</h1>
+                    <p class="partner-lead text-white mb-4" style="font-size: 1.2rem; opacity: 0.95;">Your cloud journey goals are attainable—no matter the size or scope. As an AWS Partner Network member and growing services partner, we apply future-focused best practices and hands-on experience to help you thrive in a technology-centric world.</p>
+                    <div class="partner-badges mt-4">
+                        <span class="partner-badge">AWS Services Partner</span>
+                        <span class="partner-badge">AWS Partner Network</span>
+                        <span class="partner-badge">Cloud Migration</span>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center mt-4 mt-lg-0">
+                    <img loading="lazy" alt="AWS Logo" class="partner-brand-logo"
+     src="images/partners/aws.png"
+     style="max-width: 280px;">
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<hr class="my-5">
-<h3 class="section-title">Why Partner with Us?</h3>
-<p class="partner-lead">The AWS Partner Network (APN) brings together technology and consulting partners who leverage AWS to build solutions and services for customers. As an active APN member, we're committed to growing our AWS expertise and delivering successful customer outcomes.</p>
-<p class="partner-lead">We meet customers where they are on their cloud journey—whether just starting or executing on enterprise-wide transformation. Taking a customer-centric approach to understanding your business goals and priorities, we work collaboratively to jumpstart business transformation and maximize returns on technology investments.</p>
+<div class="container">
 
-<h4 class="ms-list-title mt-4">Our Comprehensive Approach</h4>
+<div class="mb-5">
+    <h3 class="section-title">AWS Partner Network Services Partner</h3>
+    <p class="partner-lead">Achieve your business transformation goals and create limitless possibilities for the future with our comprehensive AWS services and expertise.</p>
+</div>
+
+<hr class="my-5">
+
+<div class="ms-highlight default-background">
+    <h3 class="section-title text-white mb-4">Why Partner with Us?</h3>
+    <p class="partner-lead text-white mb-3" style="opacity: 0.95;">The AWS Partner Network (APN) brings together technology and consulting partners who leverage AWS to build solutions and services for customers. As an active APN member, we're committed to growing our AWS expertise and delivering successful customer outcomes.</p>
+    <p class="partner-lead text-white mb-0" style="opacity: 0.95;">We meet customers where they are on their cloud journey—whether just starting or executing on enterprise-wide transformation. Taking a customer-centric approach to understanding your business goals and priorities, we work collaboratively to jumpstart business transformation and maximize returns on technology investments.</p>
+</div>
+
+<h4 class="ms-list-title mt-5">Our Comprehensive Approach</h4>
 <p class="partner-lead">From advisory, design, migration and implementation to adoption and innovation, we deliver end-to-end solutions that align with your strategic objectives.</p>
 
 <hr class="my-5">
@@ -582,11 +721,13 @@ hr {
 
 <hr class="my-5">
 <h3 class="section-title">Ready to Start Your AWS Journey?</h3>
-<p class="partner-lead">Whether you're exploring cloud possibilities, planning your first migration, or looking to optimize existing AWS workloads, we're here to help. Our team brings AWS expertise, proven methodologies, and commitment to your success.</p>
+<p class="partner-lead mb-4">Whether you're exploring cloud possibilities, planning your first migration, or looking to optimize existing AWS workloads, we're here to help. Our team brings AWS expertise, proven methodologies, and commitment to your success.</p>
 
-<a href="/contact" class="btn btn-cta mb-4">Get Started Today</a>
+<div class="text-center mb-5">
+    <a href="/contact.php" class="btn btn-cta">Get Started Today</a>
+</div>
 
-<div class="">
+<div class="ms-card">
     <h5 class="ms-list-title">Connect with our AWS team to discuss your cloud goals and discover how we can help you:</h5>
     <ul class="ms-list mt-3">
         <li>Reduce infrastructure costs with cloud migration</li>
@@ -599,7 +740,9 @@ hr {
         <li>Optimize existing AWS environments</li>
     </ul>
 
-    <p class="partner-lead mt-3">Contact us to schedule a consultation and learn how our AWS partnership can accelerate your cloud transformation.</p>
+    <p class="partner-lead mt-4">Contact us to schedule a consultation and learn how our AWS partnership can accelerate your cloud transformation.</p>
 </div>
 
-<p class="partner-lead">As an AWS Partner Network member, we're committed to helping organizations of all sizes achieve their cloud goals. With growing expertise, proven capabilities, and a customer-first approach, we're your trusted partner for building, modernizing, and innovating on AWS.</p>
+<p class="partner-lead mt-4"><strong>As an AWS Partner Network member, we're committed to helping organizations of all sizes achieve their cloud goals.</strong> With growing expertise, proven capabilities, and a customer-first approach, we're your trusted partner for building, modernizing, and innovating on AWS.</p>
+
+</div>

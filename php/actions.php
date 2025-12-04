@@ -1715,31 +1715,55 @@ function displayServicesDetails() {
         $title = filter_var(trim($_GET['title']), FILTER_SANITIZE_STRING);
 
         // Use prepared statements to prevent SQL injection
-        $stmt = $conn->prepare("SELECT intro_content, other_contents FROM services_lists WHERE title = ?");
+        // Query the actual columns that exist in the services_lists table
+        $stmt = $conn->prepare("SELECT title, image, body FROM services_lists WHERE title = ?");
+        
+        // Check if prepare was successful
+        if (!$stmt) {
+            error_log("Database Prepare Error: " . $conn->error);
+            echo "<p class='text-center text-danger'>Unable to load service details. Please try again later.</p>";
+            return;
+        }
+        
         $stmt->bind_param("s", $title);
-        $stmt->execute();
+        
+        // Check if execute was successful
+        if (!$stmt->execute()) {
+            error_log("Database Execute Error: " . $stmt->error);
+            echo "<p class='text-center text-danger'>Unable to load service details. Please try again later.</p>";
+            $stmt->close();
+            return;
+        }
+        
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 // Sanitize output to prevent XSS
-                $sanitized_title = $title;
-                $intro_content = $row['intro_content'];
-                $other_contents = $row['other_contents'];
+                $sanitized_title = htmlspecialchars($row['title']);
+                $sanitized_image = htmlspecialchars($row['image']);
+                $body_content = htmlspecialchars($row['body']);
 
                 // Display the service details
-                echo "<h2 class='mb-3 default-color'>{$sanitized_title}</h2>";
-                echo "<div>{$intro_content}</div>";
-                echo "<div>{$other_contents}</div>";
+                echo "<div class='service-detail-hero'>";
+                echo "<h1 class='mb-4 default-color'>{$sanitized_title}</h1>";
+                echo "<div class='service-icon'><i class='icofont {$sanitized_image}' style='font-size: 3rem; color: #2f5597;'></i></div>";
+                echo "</div>";
+                echo "<div class='service-body mt-4'>";
+                echo "<p>{$body_content}</p>";
+                echo "</div>";
             }
         } else {
-            echo "<p class='text-center text-danger'>Service details not found!</p>";
+            echo "<p class='text-center text-danger'>Service details not found for: " . htmlspecialchars($title) . "</p>";
+            echo "<p class='text-center'><a href='services' class='btn default-button'>Back to Services</a></p>";
         }
 
-        // Close the statement and connection
+        // Close the statement
+        $stmt->close();
         
     } else {
         echo "<p class='text-center text-warning'>No service selected.</p>";
+        echo "<p class='text-center'><a href='services' class='btn default-button'>View All Services</a></p>";
     }
 }
 
