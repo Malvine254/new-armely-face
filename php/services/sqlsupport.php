@@ -266,7 +266,7 @@
 <section class="sqlsupport-hero">
 	<div class="container">
 		<div class="sqlsupport-hero-content">
-			<h1>SQL Server Support</h1>
+			<h1 class="text-light">SQL Server Support</h1>
 			<p>Managed Support Services for SQL Databases</p>
 			<p>Ensure smooth database operations with expert SQL Server support including query optimization, troubleshooting, maintenance, and performance tuning.</p>
 		</div>
