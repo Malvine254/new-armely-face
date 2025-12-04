@@ -775,6 +775,45 @@ if ($formattedDate !== false) {
 
 
 
+// Mapping of service titles to URL parameter names (from header menu)
+function getTitleToUrlMap() {
+    return [
+        // AI Services
+        'AI Consulting' => 'ai-consulting',
+        'AI Advisory' => 'ai-advisory',
+        'Generative AI' => 'generative-ai',
+        'AI PoC Starter' => 'pocstarter-ai',
+        // Data Services
+        'Estimate your Fabric Capacity' => 'fabric_capacity',
+        'Microsoft Fabric' => 'fabric',
+        'Data Science and Analytics' => 'data-science',
+        'Data Strategy' => 'data-strategy',
+        'Databricks' => 'databricks',
+        'Snowflake' => 'snowflake',
+        'SQL & Data Warehousing' => 'sql-data-warehousing',
+        // Digital Transformation
+        'API Data Access' => 'apidataaccess',
+        'Microsoft PowerApps' => 'powerapps',
+        'Microsoft Power Automate' => 'powerautomate',
+        'Microsoft Power Virtual Agents' => 'virtualagents',
+        'Microsoft Power Pages' => 'powerplatform',
+        'Microsoft Dynamics 365' => 'dynamics365',
+        'Robotic Processing Automation' => 'roboticprocessing',
+        'SharePoint Online' => 'sharepointonline',
+        // Managed Services
+        'SQL Server Support' => 'sqlsupport',
+        'Applications Support' => 'appsupport',
+        // Advisory
+        'Freemiums' => 'freemiums',
+    ];
+}
+
+// Reverse mapping of URL names to titles
+function getUrlToTitleMap() {
+    $titleMap = getTitleToUrlMap();
+    return array_flip($titleMap);
+}
+
 function displayServicesList() {
     include 'config.php';
 
@@ -789,6 +828,7 @@ function displayServicesList() {
         $stmt = $conn->prepare("SELECT title, image, body FROM services_lists");
         $stmt->execute();
         $result = $stmt->get_result();
+        $titleToUrl = getTitleToUrlMap();
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -796,11 +836,14 @@ function displayServicesList() {
                 $title = htmlspecialchars($row['title']);
                 $icon = htmlspecialchars($row['image']);
                 $body = readMoreText2($row['body']);
+                
+                // Get the URL parameter name for this service
+                $urlName = isset($titleToUrl[$row['title']]) ? $titleToUrl[$row['title']] : strtolower(str_replace(' ', '-', $row['title']));
 
                 // Output the service securely
                 echo '<div class="col-lg-4 col-md-12 col-12 " >
                     <div class="single-table card-shadow default-background" style="max-height: 350px; min-height: 340px;">
-                        <a class="text-light" href="service-details?title=' . urlencode($title) . '" style="hover: text-decoration: underline;   ">
+                        <a class="text-light" href="service-details?name=' . htmlspecialchars($urlName) . '" style="hover: text-decoration: underline;   ">
                             <div class="table-head">
                                 <div class="icon text-light">
                                     <i class="icofont text-light ' . $icon . '"></i>
@@ -1710,9 +1753,21 @@ function joblistingNumbering($length) {
 function displayServicesDetails() {
     include 'config.php';
 
-    if (isset($_GET['title'])) {
+    if (isset($_GET['name'])) {
         // Sanitize and validate the input to prevent SQL injection and XSS
-        $title = filter_var(trim($_GET['title']), FILTER_SANITIZE_STRING);
+        $urlName = filter_var(trim($_GET['name']), FILTER_SANITIZE_STRING);
+        
+        // Convert URL name back to title using the mapping
+        $urlToTitle = getUrlToTitleMap();
+        $title = isset($urlToTitle[$urlName]) ? $urlToTitle[$urlName] : null;
+        
+        if (!$title) {
+            // Fallback: try to find by URL name as a secondary search
+            error_log("Service not found for URL name: " . $urlName);
+            echo "<p class='text-center text-danger'>Service not found.</p>";
+            echo "<p class='text-center'><a href='services' class='btn default-button'>Back to Services</a></p>";
+            return;
+        }
 
         // Use prepared statements to prevent SQL injection
         // Query the actual columns that exist in the services_lists table
