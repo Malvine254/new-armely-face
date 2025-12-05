@@ -558,7 +558,7 @@ function displayCustomerStoriesTestimonialsShort() {
                                 <div class="">
                                     <h4>' . $title . '</h4>
                                 </div>
-                                    <span style="color: white !important;" class="shorten-content text-light"> <b class="text-light">' . $body_content . '</b></span>
+                                    <span style="color: white !important;" class="shorten-content text-light"> <b class="text-light">' . $body . '</b></span>
                                 <a href="#" class="read-more-btn text-light">READ MORE <i class="fa fa-long-arrow-right"></i></a>
                             </div>
                         </div>
