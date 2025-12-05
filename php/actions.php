@@ -455,31 +455,59 @@ function displayCustomerStoriesTestimonials() {
                 // Check if the profile image exists, use a default if not
                 $profile_path = "images/customer-stories/" . $profile;
                 if (!file_exists($profile_path) || empty($profile)) {
-                    $profile_path = "images/default-profile.png";  // Default image
+                    $profile_path = "";  // Will trigger fallback
                 }
 
-                // Output the customer story securely
-                echo '<div class="col-lg-4 col-md-6 col-12">
-                    <div class="single-schedule first card p-2 card-shadow" style="min-height: 300px; max-height: auto;">
-                        <div class="inner">
-                            <div class="icon">
-                                <i class="fa fa-data"></i>
-                            </div>
-                            <div class="single-content p-2">
-                                    <img style="width: 70px; height: 70px;" src="' . $profile_path . '" 
-                                    class="img-fluid rounded-circle lazy-img alt="Profile Image">
-                                <div class="">
-                                    <h5 class="mt-2 default-color h6">' . $name . '</h5>
-                                    <strong>' . $position . '</strong>
+                // Generate initials from name
+                $name_parts = explode(' ', $name);
+                $initials = '';
+                foreach ($name_parts as $part) {
+                    if (!empty($part)) {
+                        $initials .= strtoupper(substr($part, 0, 1));
+                        if (strlen($initials) >= 2) break;
+                    }
+                }
+                if (empty($initials)) $initials = 'U';
+
+                // Output the customer story securely with modern styling
+                echo '<div class="col-lg-4 col-md-6 col-12 mb-4">
+                    <div class="modern-story-card default-background">
+                        <div class="card-header-section">
+                            <div class="customer-avatar">
+                                ' . (!empty($profile_path) ? 
+                                '<img src="' . $profile_path . '" alt="' . $name . '" class="avatar-image" onerror="this.style.display=\'none\'; this.nextElementSibling.style.display=\'flex\';">
+                                <div class="avatar-placeholder" style="display:none;" data-initials="' . $initials . '"></div>' : 
+                                '<div class="avatar-placeholder" data-initials="' . $initials . '"></div>') . '
+                                <div class="verified-badge ">
+                                    <i class="icofont-check default-color"></i>
                                 </div>
-                                <span class="shorten-content">' . $body_content . '</span>
-                                <a id="' . $id . '" class="default-color read-more-btn" href="#">
-                                    <strong>READ MORE <i class="fa fa-long-arrow-right"></i></strong>
-                                </a>
+                            </div>
+                            <div class="customer-meta">
+                                <h5 class="customer-name text-light" title="' . $name . '">' . $name . '</h5>
+                                <p class="text-light" title="' . $position . '">' . $position . '</p>
+                                <div class="rating-stars">
+                                    <i class="icofont-star"></i>
+                                    <i class="icofont-star"></i>
+                                    <i class="icofont-star"></i>
+                                    <i class="icofont-star"></i>
+                                    <i class="icofont-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="divider-line"></div>
+                        <div class="story-body">
+                            <div class="quote-wrapper">
+                                <i class="icofont-quote-left quote-mark-left text-light"></i>
+                                <div class="testimonial-content">
+                                    <span class="shorten-content">' . $body_content . '</span>
+                                    <a id="' . $id . '" class="read-more-btn" href="#">
+                                        <strong>READ MORE <i class="fa fa-long-arrow-right"></i></strong>
+                                    </a>
+                                </div>
+                                <i class="icofont-quote-right quote-mark-right text-light"></i>
                             </div>
                         </div>
                     </div>
-                    <br>
                 </div>';
             }
         } else {
@@ -530,8 +558,8 @@ function displayCustomerStoriesTestimonialsShort() {
                                 <div class="">
                                     <h4>' . $title . '</h4>
                                 </div>
-                                <p class="shorten-content">' .substr($body, 0,400)  . '</p>
-                                <a href="#" class="read-more-btn">READ MORE <i class="fa fa-long-arrow-right"></i></a>
+                                    <span style="color: white !important;" class="shorten-content text-light"> <b class="text-light">' . $body_content . '</b></span>
+                                <a href="#" class="read-more-btn text-light">READ MORE <i class="fa fa-long-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -570,7 +598,7 @@ function displayCoreValues() {
                 // Output the core value item securely
                 echo '<div class="col-lg-4 col-md-6 col-12">
                     <div class="single-service">
-                        <i class="icofont ' . $icon_font . '"></i>
+                        <i class="icofont ' . $icon_font . ' default-color"></i>
                         <h4><a href="service-details">' . $title . '</a></h4>
                         <p>' . $body . '</p>
                     </div>
@@ -921,13 +949,14 @@ function disableUrl($status,$unicord){
                 $job_deadline = htmlspecialchars($row['job_deadline']);
 
                 // Output the job listing with modern card styling
-                echo '<div class="col-12 col-md-6 col-lg-4 mb-4">
+                $jobTypeClass = strtolower(str_replace(' ', '-', $job_type));
+                echo '<div class="col-12 col-md-6 col-lg-4 mb-4 career-item" data-type="' . $jobTypeClass . '">
                         <div class="card career-card">
                             <div class="card-body">
-                                <div class="d-flex align-items-center justify-content-between mb-2">
-                                    <h5 class="role-title mb-0">' . $job_title . '</h5>
+                                <div class="career-header-wrapper">
                                     <span class="career-badge">' . $job_type . '</span>
                                 </div>
+                                <h5 class="role-title">' . $job_title . '</h5>
                                 <div class="role-meta"><i class="fa fa-map-marker default-color"></i> ' . $job_location . '</div>
                 <div class="role-meta"><i class="fa fa-clock-o default-color"></i> ' . $job_deadline . ' • ' . changeStatusColor(isDeadlinePassed($job_deadline)) . '</div>
             </div>
@@ -1232,28 +1261,28 @@ function displayRecentIndustryListingsAll() {
                 // Validate PDF link
                 $pdf_link = !empty($pdf_url) ? "case_docs/" . urlencode($pdf_url) : "#";
 
-                // Output the industry listing securely
-                echo '<div class="col-md-3 mb-4 p-1">
-                    <div class="customer-story-card card m-1 card-shadow" style="min-height: 450px; max-height: 450px;">
-                        <img src="' . $image_path . '" class="d-block img-fluid lazy-img" alt="Industry Image">
-                        <div class="p-3">
-                            <strong>
-                                <b id="' . $id . '" class="default-color h6">Industry: ' . $category . '</b>
-                            </strong>
-                            <p>' . $body . '</p>
-                            <div class="mt-1">
-                                <strong>
-                                    <a class="default-color h6" target="_blank" href="' . $pdf_link . '" id="' . $id . '">
-                                        Read More <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i>
-                                    </a>
-                                </strong>
+                // Output the industry listing with modern card styling
+                echo '<div class="col-md-4 mb-4">
+                    <div class="case-study-card">
+                        <div class="card-image-wrapper">
+                            <img src="' . $image_path . '" class="card-image lazy-img" alt="' . $category . ' Case Study">
+                            <div class="card-overlay"></div>
+                            <div class="card-badge">' . $category . '</div>
+                        </div>
+                        <div class="card-content">
+                            <h5 class="card-title">' . $category . ' Solution</h5>
+                            <p class="card-description">' . $body . '</p>
+                            <div class="card-footer">
+                                <a class="read-more-btn text-light" target="_blank" href="' . $pdf_link . '" id="' . $id . '">
+                                    Read Case Study <i class="fa fa-arrow-right"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>';
             }
         } else {
-            echo "<span class='text-center col-md-12 text-danger p-5'>No records found!</span>";
+            echo "<div class='col-12 text-center text-muted py-5'><p>No case studies available at this time.</p></div>";
         }
 
         // Close the statement and connection
@@ -1261,7 +1290,7 @@ function displayRecentIndustryListingsAll() {
     } catch (Exception $e) {
         // Log the error for debugging and display a friendly message
         error_log("Database Error: " . $e->getMessage());
-        echo "<p>Unable to load industry listings at this time. Please try again later.</p>";
+        echo "<div class='col-12 text-center text-danger py-5'><p>Unable to load case studies. Please try again later.</p></div>";
     }
 }
 
@@ -1293,28 +1322,30 @@ function displayWhitePaperListings() {
                 // Validate PDF link and set a fallback if necessary
                 $pdf_link = !empty($pdf) ? "white_paper_docs/" . urlencode($pdf) : "#";
 
-                // Output the white paper listing securely
-                echo '<div class="col-md-3 shadow mb-4 p-1">
-                    <div class="customer-story-card card card-shadow m-1" style="min-height: 400px; max-height: 400px;">
-                        <img src="' . $image_path . '" class="d-block img-fluid lazy-img" alt="White Paper Image">
-                        <div class="p-3">
-                            <strong>
-                                <b class="default-color h6">' . $title . '</b>
-                            </strong>
-                            <p>' . $body . '</p>
-                            <div class="mt-1">
-                                <strong>
-                                    <a class="default-color h6" target="_blank" href="' . $pdf_link . '" id="' . $id . '">
-                                        Read More <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i>
-                                    </a>
-                                </strong>
+                // Output the white paper listing with modern card styling
+                echo '<div class="col-md-4 mb-4">
+                    <div class="white-paper-card">
+                        <div class="card-image-wrapper">
+                            <img src="' . $image_path . '" class="card-image lazy-img" alt="' . $title . '">
+                            <div class="card-overlay"></div>
+                            <div class="card-badge white-paper-badge">
+                                <i class="icofont-document"></i> Resource
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h5 class="card-title">' . $title . '</h5>
+                            <p class="card-description">' . $body . '</p>
+                            <div class="card-footer">
+                                <a class="read-more-btn" target="_blank" href="' . $pdf_link . '" id="' . $id . '">
+                                    Download Paper <i class="fa fa-download"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>';
             }
         } else {
-            echo "<span class='text-center col-md-12 text-danger p-5'>No records found!</span>";
+            echo "<div class='col-12 text-center text-muted py-5'><p>No white papers available at this time.</p></div>";
         }
 
         // Close the statement and connection
@@ -1322,7 +1353,7 @@ function displayWhitePaperListings() {
     } catch (Exception $e) {
         // Log the error for debugging and display a user-friendly message
         error_log("Database Error: " . $e->getMessage());
-        echo "<p>Unable to load white paper listings at this time. Please try again later.</p>";
+        echo "<div class='col-12 text-center text-danger py-5'><p>Unable to load white papers. Please try again later.</p></div>";
     }
 }
 
@@ -2129,24 +2160,24 @@ function displayNewSocialImpact() {
 		 
 
                 // Display the blog post
-                echo '<a href="social-impact-details?social_id='.$row['secure_id'].'">
-  <div class="blog-post card border-0 shadow-sm mb-4">
-    <div class="row g-0">
-      <!-- Left image -->
-      <div class="col-md-4">
-        <img src="images/social-impact/'.$first_image.'" 
-             class="blog-image" 
-             alt="Blog Image">
-      </div>
-
-      <!-- Right content -->
-      <div class="col-md-8 d-flex flex-column justify-content-center p-3">
-        <span class="date text-muted small d-block mb-1">'.$posted_date.'</span>
-        <h3 class="blog-title h5 fw-bold mb-2">'.$title.'</h3>
-        <p class="blog-desc text-muted mb-0">4 min read – '.$body.'...</p>
-      </div>
+                echo '<a href="social-impact-details?social_id='.$row['secure_id'].'" class="modern-blog-post">
+    <div class="blog-image-container">
+        <img src="images/social-impact/'.$first_image.'" class="blog-post-image" alt="'.$title.'">
+        <div class="blog-image-overlay"></div>
+        <span class="blog-category-badge">'.strtoupper($category).'</span>
     </div>
-  </div>
+    <div class="blog-content-wrapper">
+        <div class="blog-date">
+            <i class="icofont-calendar"></i>
+            '.$posted_date.'
+        </div>
+        <h3 class="blog-post-title">'.$title.'</h3>
+        <p class="blog-excerpt">'.$body.'...</p>
+        <span class="read-article-btn">
+            Read Full Story
+            <i class="icofont-long-arrow-right"></i>
+        </span>
+    </div>
 </a>
 ';
             }
@@ -2205,65 +2236,88 @@ function displayNewSocialImpactSingle($secure_id) {
                            || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
                 $currentUrl = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
+                // Get initials for author avatar
+                $initials = '';
+                $name_parts = explode(' ', $author_name);
+                foreach ($name_parts as $part) {
+                    if (!empty($part)) {
+                        $initials .= strtoupper(substr($part, 0, 1));
+                        if (strlen($initials) >= 2) break;
+                    }
+                }
+
                 echo '
-                <article class="blog-post border-0 mb-4 p-4  rounded bg-white">
-                    
-                    <!-- Hero Image -->
-                    <div class="blog-hero mb-3">
-                        <img src="images/social-impact/'.$first_image.'" 
-                             class="img-fluid rounded blog-single-image w-100" 
-                             alt="Blog Image">
-                    </div>
-
-                    <!-- Post Meta -->
-                    <div class="blog-meta text-muted mb-3">
-                        <span><i class="fa fa-calendar-alt"></i> '.$posted_date.'</span> · 
-                        <span><i class="fa fa-clock"></i> '.estimateReadingTime($body).' min read</span> · 
-                        <span><i class="fa fa-folder-open"></i> '.$category.'</span>
-                    </div>
-
-                    <!-- Title -->
-                    <h2 class="fw-bold mb-3">'.$title.'</h2>
-
-                    <!-- Author -->
-                    <p class="small text-muted mb-4">By <strong>'.$author_name.'</strong> '.$author_title.'</p>
-
-                    <!-- Body -->
-                    <div class="blog-body mb-4">
-                        '.$body.'
-                    </div>
-
-                    <!-- Share Buttons -->
-                    <div class="mt-4 pt-3 border-top">
-                        <h6 class="fw-bold mb-2">Share this post:</h6>
-                        <div class="d-flex flex-wrap gap-2">
-                            <a href="https://www.facebook.com/sharer/sharer.php?u='.urlencode($currentUrl).'" 
-                               target="_blank" class="btn btn-sm btn-outline-primary m-1 default-background text-light">
-                               <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="https://twitter.com/intent/tweet?url='.urlencode($currentUrl).'&text='.urlencode($title).'" 
-                               target="_blank" class="btn btn-sm btn-outline-info m-1 default-background text-light">
-                               <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/sharing/share-offsite/?url='.urlencode($currentUrl).'" 
-                               target="_blank" class="btn btn-sm btn-outline-secondary m-1 default-background text-light">
-                               <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="mailto:?subject='.rawurlencode($title).'&body='.rawurlencode($currentUrl).'" 
-                               class="btn btn-sm btn-outline-danger m-1 default-background text-light">
-                               <i class="fa fa-envelope"></i>
-                            </a>
-                            <a href="https://api.whatsapp.com/send?text='.urlencode($title." ".$currentUrl).'" 
-                               target="_blank" class="btn btn-sm btn-outline-success m-1 default-background text-light">
-                               <i class="fab fa-whatsapp"></i>
-                            </a>
-                            <a href="https://t.me/share/url?url='.urlencode($currentUrl).'&text='.urlencode($title).'" 
-                               target="_blank" class="btn btn-sm btn-outline-primary m-1 default-background text-light" style="color:#0088cc; border-color:#0088cc;">
-                               <i class="fab fa-telegram-plane"></i>
-                            </a>
+                <!-- Article Hero -->
+                <div class="article-hero">
+                    <img src="images/social-impact/'.$first_image.'" 
+                         class="article-hero-image" 
+                         alt="'.$title.'">
+                    <div class="article-overlay">
+                        <span class="article-category text-light">'.$category.'</span>
+                        <h1 class="article-title">'.$title.'</h1>
+                        <div class="article-meta">
+                            <span class="meta-item">
+                                <i class="icofont-calendar"></i>
+                                '.$posted_date.'
+                            </span>
+                            <span class="meta-item">
+                                <i class="icofont-clock-time"></i>
+                                '.estimateReadingTime($body).' min read
+                            </span>
+                            <span class="meta-item">
+                                <i class="icofont-eye-alt"></i>
+                                Article
+                            </span>
                         </div>
                     </div>
-                </article>';
+                </div>
+
+                <!-- Author Info -->
+                <div class="author-section">
+                    <div class="author-avatar">'.$initials.'</div>
+                    <div class="author-info">
+                        <h4 class="text-light">Written by '.$author_name.'</h4>
+                        <p class="text-light">'.$author_title.'</p>
+                    </div>
+                </div>
+
+                <!-- Article Content -->
+                <div class="article-content">
+                    <div class="blog-body">
+                        '.$body.'
+                    </div>
+                </div>
+
+                <!-- Share Section -->
+                <div class="share-section">
+                    <h5><i class="icofont-share"></i> Share This Story</h5>
+                    <div class="share-buttons">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u='.urlencode($currentUrl).'" 
+                           target="_blank" class="share-btn facebook">
+                           <i class="icofont-facebook"></i>
+                        </a>
+                        <a href="https://twitter.com/intent/tweet?url='.urlencode($currentUrl).'&text='.urlencode($title).'" 
+                           target="_blank" class="share-btn twitter">
+                           <i class="icofont-twitter"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url='.urlencode($currentUrl).'" 
+                           target="_blank" class="share-btn linkedin">
+                           <i class="icofont-linkedin"></i>
+                        </a>
+                        <a href="mailto:?subject='.rawurlencode($title).'&body='.rawurlencode($currentUrl).'" 
+                           class="share-btn email">
+                           <i class="icofont-envelope"></i>
+                        </a>
+                        <a href="https://api.whatsapp.com/send?text='.urlencode($title." ".$currentUrl).'" 
+                           target="_blank" class="share-btn whatsapp">
+                           <i class="icofont-brand-whatsapp"></i>
+                        </a>
+                        <a href="https://t.me/share/url?url='.urlencode($currentUrl).'&text='.urlencode($title).'" 
+                           target="_blank" class="share-btn telegram">
+                           <i class="icofont-telegram"></i>
+                        </a>
+                    </div>
+                </div>';
             }
         } else {
             echo "<p>No records found!</p>";
@@ -2314,20 +2368,27 @@ function displayFutureSocialImpact() {
                 $shortBody  = strlen($body) > $maxBodyLength ? substr($body, 0, $maxBodyLength) . "..." : $body;
 
                 echo '
-                <div class="col-lg-4 col-md-6 mb-4 d-flex">
-                    <div class="blog-card card shadow-sm flex-fill d-flex flex-column">
-                        <a href="social-impact-details?social_id='.$secure_id.'">
-                            <img src="images/social-impact/'.$first_image.'" class="card-img-top blog-card-image" alt="Blog Image">
-                        </a>
-                        <div class="card-body d-flex flex-column">
-                            <span class="date text-muted small default-color">'.$posted_date.'</span>
-                            <h3 class="card-title h6 fw-bold">'.$shortTitle.'</h3>
-                            <p class="card-text text-muted">'.estimateReadingTime($row['body']).' min read – '.$shortBody.'</p>
-                            <div class="mt-auto">
-                                <a href="social-impact-details?social_id='.$secure_id.'" class="btn btn-sm btn-outline-primary default-background col-6">Read More</a>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <a href="social-impact-details?social_id='.$secure_id.'" class="post-grid-card">
+                        <div class="grid-card-image-wrapper">
+                            <img src="images/social-impact/'.$first_image.'" class="grid-card-image" alt="'.$title.'">
+                            <span class="grid-reading-time">
+                                <i class="icofont-clock-time"></i>
+                                '.estimateReadingTime($row['body']).' min read
+                            </span>
+                        </div>
+                        <div class="grid-card-body">
+                            <h3 class="grid-card-title">'.$shortTitle.'</h3>
+                            <p class="grid-card-excerpt">'.$shortBody.'</p>
+                            <div class="grid-card-footer">
+                                <span class="grid-card-date">
+                                    <i class="icofont-calendar"></i>
+                                    '.$posted_date.'
+                                </span>
+                                <i class="icofont-arrow-right grid-card-arrow"></i>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>';
             }
         } else {
@@ -2345,35 +2406,67 @@ function displayGallery() {
     include 'config.php';
 
     try {
-        // Use a prepared statement to fetch the recent 14 blogs, selecting only the needed columns
-        $stmt = $conn->prepare("SELECT * FROM social_impact ORDER BY id DESC ");
+        // Use a prepared statement to fetch social impact posts with their images
+        $stmt = $conn->prepare("SELECT title, image_url, posted_date, category FROM social_impact ORDER BY id DESC");
         $stmt->execute();
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                // Sanitize output to prevent XSS attacks
-               
+                $title = htmlspecialchars($row['title']);
                 $image_url = htmlspecialchars($row['image_url']);
-                // Convert comma-separated string into array
-			     $images_array = explode(",", $image_url);
-	    		
-
-                // Display the blog post
+                $posted_date = htmlspecialchars($row['posted_date']);
+                $category = htmlspecialchars($row['category']);
                 
-
-            	foreach ($images_array as $allimages ) {
-                	echo '
-		            <!-- Blog Card 5 -->
-		            <a class=" " href="images/social-impact/'.$allimages.'" target="_blank">
-		            <div class="blog-card card-shadow p-2">
-		                
-		                <img src="images/social-impact/'.$allimages.'" alt="Blog Image" class="img-fluid">
-		               
-		            </div></a>';
+                // Convert comma-separated string into array
+                $images_array = explode(",", $image_url);
+                $images_array = array_filter(array_map('trim', $images_array)); // Remove empty values
+                
+                $imageCount = count($images_array);
+                
+                if ($imageCount > 0) {
+                    // Get first image for folder cover
+                    $firstImage = $images_array[0];
+                    
+                    echo '
+                    <div class="gallery-folder">
+                        <div class="folder-header">
+                            <div class="folder-icon">
+                                <i class="icofont-folder"></i>
+                                <span class="image-count">'.$imageCount.'</span>
+                            </div>
+                            <div class="folder-info">
+                                <h3 class="folder-title">'.$title.'</h3>
+                                <div class="folder-meta">
+                                    <span class="folder-date"><i class="icofont-calendar"></i> '.$posted_date.'</span>
+                                    <span class="folder-badge">'.strtoupper($category).'</span>
+                                </div>
+                            </div>
+                            <button class="folder-toggle" onclick="toggleFolder(this)">
+                                <i class="icofont-rounded-down"></i>
+                            </button>
+                        </div>
+                        <div class="folder-content" style="display: none;">
+                            <div class="folder-images-grid">';
+                    
+                    $photoCounter = 1;
+                    foreach ($images_array as $image) {
+                        echo '
+                                <a class="folder-image-item" href="images/social-impact/'.$image.'" target="_blank">
+                                    <img src="images/social-impact/'.$image.'" alt="'.$title.' - Photo '.$photoCounter.'" class="folder-img">
+                                    <div class="image-overlay">
+                                        <span class="image-number">#'.$photoCounter.'</span>
+                                        <i class="icofont-eye"></i>
+                                    </div>
+                                </a>';
+                        $photoCounter++;
+                    }
+                    
+                    echo '
+                            </div>
+                        </div>
+                    </div>';
                 }
-
-
             }
         } else {
             echo "No records found!";

@@ -440,10 +440,10 @@ $('#contact-form').submit(function(event) {
             
             if(contentElement.text().includes('...')) {
                 contentElement.html(fullContent);
-                $(this).html('<strong>READ LESS<i class="fa fa-long-arrow-right"></i></strong>');
+                $(this).html('<strong>READ LESS <i class="fa fa-long-arrow-right"></i></strong>');
             } else {
                 contentElement.html(shortContent);
-                $(this).html('<strong>READ MORE<i class="fa fa-long-arrow-right"></i></strong>');
+                $(this).html('<strong>READ MORE <i class="fa fa-long-arrow-right"></i></strong>');
             }
         });
     });

@@ -350,37 +350,55 @@
 
 <section class="features-section-industries">
 	<div class="container">
-		<div class="row justify-content-center text-center g-4">
+		<div class="row justify-content-center text-center">
+			<div class="col-12">
+				<h3 class="features-section-title">Why Partner With Armely?</h3>
+				<p class="features-section-subtitle">Delivering industry-leading solutions across all sectors</p>
+			</div>
+		</div>
+		<div class="row justify-content-center align-items-center mt-5 g-4">
 			<div class="col-md-3 col-6">
 				<div class="feature-item">
-					<div class="feature-icon-wrapper default-background">
-						<img class="img-fluid" width="50" height="50" src="images/industry/svg1.svg" alt="Connected">
+					<div class="feature-icon-wrapper-large">
+						<div class="feature-gradient-icon">
+							<img class="img-fluid" width="60" height="60" src="images/industry/svg1.svg" alt="Connected">
+						</div>
 					</div>
-					<h6 class="feature-title">Connected</h6>
+					<h5 class="feature-title mt-3">Connected</h5>
+					<p class="feature-description">Seamlessly integrate systems and data across your organization</p>
 				</div>
 			</div>
 			<div class="col-md-3 col-6">
 				<div class="feature-item">
-					<div class="feature-icon-wrapper default-background">
-						<img class="img-fluid" width="50" height="50" src="images/industry/svg2.svg" alt="Secure">
+					<div class="feature-icon-wrapper-large">
+						<div class="feature-gradient-icon">
+							<img class="img-fluid" width="60" height="60" src="images/industry/svg2.svg" alt="Secure">
+						</div>
 					</div>
-					<h6 class="feature-title">Secure</h6>
+					<h5 class="feature-title mt-3">Secure</h5>
+					<p class="feature-description">Enterprise-grade security with compliance and data protection</p>
 				</div>
 			</div>
 			<div class="col-md-3 col-6">
 				<div class="feature-item">
-					<div class="feature-icon-wrapper default-background">
-						<img class="img-fluid" width="50" height="50" src="images/industry/svg3.svg" alt="Productive">
+					<div class="feature-icon-wrapper-large">
+						<div class="feature-gradient-icon">
+							<img class="img-fluid" width="60" height="60" src="images/industry/svg3.svg" alt="Productive">
+						</div>
 					</div>
-					<h6 class="feature-title">Productive</h6>
+					<h5 class="feature-title mt-3">Productive</h5>
+					<p class="feature-description">Streamline workflows and boost team efficiency instantly</p>
 				</div>
 			</div>
 			<div class="col-md-3 col-6">
 				<div class="feature-item">
-					<div class="feature-icon-wrapper default-background">
-						<img class="img-fluid" width="50" height="50" src="images/industry/svg4.svg" alt="Insights">
+					<div class="feature-icon-wrapper-large">
+						<div class="feature-gradient-icon">
+							<img class="img-fluid" width="60" height="60" src="images/industry/svg4.svg" alt="Insights">
+						</div>
 					</div>
-					<h6 class="feature-title">Insights</h6>
+					<h5 class="feature-title mt-3">Insights</h5>
+					<p class="feature-description">Data-driven intelligence to power strategic decisions</p>
 				</div>
 			</div>
 		</div>
@@ -392,7 +410,7 @@
 		<div class="row align-items-center justify-content-center text-center">
 			<div class="col-lg-8 col-md-10 col-sm-12">
 				<h3 class="cta-heading">Ready to Transform Your Business?</h3>
-				<p class="cta-description">Get started today, work with Armely to extend and develop solutions that will transform your business. Using our knowledge and expertise in the industry, we will partner to transform your business.</p>
+				<p class="cta-description text-light">Get started today, work with Armely to extend and develop solutions that will transform your business. Using our knowledge and expertise in the industry, we will partner to transform your business.</p>
 				<a href="contact" class="btn btn-modern-cta-white">
 					<i class="fa fa-phone"></i> Contact Us Today
 				</a>
