@@ -862,11 +862,11 @@
                 </a>
             </div>
             
-            <div class="partner-item partner-card">
+            <!-- <div class="partner-item partner-card">
                 <a href="partners-details.php?partner=guardz">
                     <img src="https://i0.wp.com/v2catalog.com/wp-content/uploads/2024/05/CENTRE-box-logo-01.png?fit=656%2C213&ssl=1" alt="Guardz">
                 </a>
-            </div>
+            </div> -->
         </div>
 
     </div>

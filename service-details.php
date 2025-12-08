@@ -135,23 +135,23 @@
 			</section>
 			<?php endif ?>
 		
-<?php if ($_GET['name']=="ai-advisory"): ?>
-<?php include 'php/services/ai-advisory.php'; ?>
-<?php endif ?>
+			<?php if ($_GET['name']=="ai-advisory"): ?>
+			<?php include 'php/services/ai-advisory.php'; ?>
+			<?php endif ?>
 
 
 
-			<?php if ($_GET['name']=="ai-consulting"): ?>
-<?php include 'php/services/ai-consulting.php'; ?>
-<?php endif ?>
-			</section>	
+						<?php if ($_GET['name']=="ai-consulting"): ?>
+			<?php include 'php/services/ai-consulting.php'; ?>
+			<?php endif ?>
+						</section>	
 
 
 
 
-			<?php if ($_GET['name']=="generative-ai"): ?>
-<?php include 'php/services/generative-ai.php'; ?>
-<?php endif ?>
+						<?php if ($_GET['name']=="generative-ai"): ?>
+			<?php include 'php/services/generative-ai.php'; ?>
+			<?php endif ?>
 
 
 
