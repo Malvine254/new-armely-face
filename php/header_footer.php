@@ -20,9 +20,10 @@ function getHeader($pageName) {
         <!-- Meta Tags -->
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="keywords" content="Site keywords here">
-		<meta name="description" content="">
-		<meta name="copyright" >
+		<meta name="keywords" content="AI Services, Digital Excellence, Cloud Solutions, Data Analytics, Microsoft Azure, Technology Partners">
+		<meta name="description" content="Armely - Your Trusted Source For Digital Excellence. We provide AI services, cloud solutions, data analytics, and technology consulting. Beyond Imagination.">
+		<meta name="copyright" content="Armely">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		'.
 
 		generateBlogMetaTags($_GET['blogId'] ?? 0)
@@ -39,36 +40,48 @@ function getHeader($pageName) {
        <link rel="preload" as="image" href="images/sliders/slider-1.webp">
 	   <link rel="preload" as="image" href="images/sliders/slider-2.webp">
 	   <link rel="preload" as="image" href="images/sliders/slider-3.webp">
+		<!-- Preconnect for external resources -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="preconnect" href="https://cdnjs.cloudflare.com">
 		<!-- Google Fonts -->
-		<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet" media="print" onload="this.media=\'all\'">
 
-		<!-- Bootstrap CSS -->
+		<!-- Bootstrap CSS - Critical -->
+		<link rel="preload" href="css/bootstrap.min.css" as="style">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<!-- Nice Select CSS -->
-		<link rel="stylesheet" href="css/nice-select.css">
-		<!-- Font Awesome CSS -->
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-		<!-- icofont CSS -->
-        <link rel="stylesheet" href="css/icofont.css">
-		<!-- Slicknav -->
-		<link rel="stylesheet" href="css/slicknav.min.css">
-		<!-- Owl Carousel CSS -->
-        <link rel="stylesheet" href="css/owl-carousel.css">
-		<!-- Datepicker CSS -->
-		<link rel="stylesheet" href="css/datepicker.css">
-		<!-- Animate CSS -->
-        <link rel="stylesheet" href="css/animate.min.css">
-		<!-- Magnific Popup CSS -->
-        <link rel="stylesheet" href="css/magnific-popup.css">
-        <script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
-
-		
-		<!-- Medipro CSS -->
-        <link rel="stylesheet" href="css/normalize_2.css"> 
+		<!-- Critical CSS -->
         <link rel="stylesheet" href="style7.css">
-        <link rel="stylesheet" href="css/responsive.css">
-		 <link rel="stylesheet" href="css/custome.css">
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+		<link rel="stylesheet" href="css/custome.css">
+		
+		<!-- Deferred CSS - Non-critical -->
+		<link rel="preload" href="css/nice-select.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
+		<link rel="preload" href="css/font-awesome.min.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
+        <link rel="preload" href="css/icofont.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
+		<link rel="preload" href="css/slicknav.min.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
+        <link rel="preload" href="css/owl-carousel.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
+		<link rel="preload" href="css/datepicker.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
+        <link rel="preload" href="css/animate.min.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
+        <link rel="preload" href="css/magnific-popup.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
+        <link rel="preload" href="css/normalize_2.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
+        <link rel="preload" href="css/responsive.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
+		
+		<!-- Fallback for browsers that don\'t support preload -->
+		<noscript>
+			<link rel=\"stylesheet\" href=\"css/nice-select.css\">
+			<link rel=\"stylesheet\" href=\"css/font-awesome.min.css\">
+			<link rel=\"stylesheet\" href=\"css/icofont.css\">
+			<link rel=\"stylesheet\" href=\"css/slicknav.min.css\">
+			<link rel=\"stylesheet\" href=\"css/owl-carousel.css\">
+			<link rel=\"stylesheet\" href=\"css/datepicker.css\">
+			<link rel=\"stylesheet\" href=\"css/animate.min.css\">
+			<link rel=\"stylesheet\" href=\"css/magnific-popup.css\">
+			<link rel=\"stylesheet\" href=\"css/normalize_2.css\">
+			<link rel=\"stylesheet\" href=\"css/responsive.css\">
+		</noscript>
+		
+        <script src=\"https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js\" defer></script>
+        <link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css\">
 		
     </head>
     <body>
@@ -544,7 +557,7 @@ return <<<HTML
 <!-- Magnific Popup JS -->
 <script src="js/jquery.magnific-popup.min.js"></script>
 <!-- Counter Up CDN JS -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4301EZWQ4C"></script>
 <script>

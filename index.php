@@ -7,7 +7,7 @@
 <section class="slider">
 <div class="hero-slider">
 <!-- Start Single Slider -->
-<div class="single-slider" style="background-image:url('images/sliders/slider-1.webp')">
+<div class="single-slider" style="background-image:url('images/sliders/slider-1.webp')" role="img" aria-label="Digital Excellence Banner">
 <div class="container">
 <div class="row">
 	<div class="col-lg-7">
@@ -66,6 +66,9 @@
 </section>
 <!--/ End Slider Area -->
 
+<!-- Main Content -->
+<main id="main-content" role="main">
+
 <!-- Start Schedule Area -->
 <section class="schedule">
 <div class="container">
@@ -113,57 +116,57 @@
         <div class="owl-carousel clients-carousel partner-carousel">
           <div class="m-4">
             <a href="images/brand-partners/university_of_nebrask1.png" target="_blank" rel="noopener noreferrer">
-                <img  src="https://cdn.freelogovectors.net/wp-content/uploads/2023/07/university_of_nebraska_medical_center_logo-freelogovectors.net_.png" class="img-fluid lazy-img ">
+                <img  src="https://cdn.freelogovectors.net/wp-content/uploads/2023/07/university_of_nebraska_medical_center_logo-freelogovectors.net_.png" class="img-fluid lazy-img" alt="University of Nebraska Medical Center logo" width="200" height="80">
             </a>
           </div>
            <div class="m-4">
             <a href="images/brand-partners/swope_health.png" target="_blank" rel="noopener noreferrer">
-                <img src="https://swopehealth.org/wp-content/uploads/2024/03/Swope-Health-Services-244462845.png" alt="Partner Logo" class="img-fluid lazy-img">
+                <img src="https://swopehealth.org/wp-content/uploads/2024/03/Swope-Health-Services-244462845.png" alt="Swope Health Services logo" class="img-fluid lazy-img" width="200" height="80">
             </a>
           </div>
           <div class="m-4">
             <a href="images/brand-partners/esse_health.jpg" target="_blank" rel="noopener noreferrer">
-                <img src="https://assets.libsyn.com/content/17315963?height=250&width=250&overlay=true" alt="Partner Logo" class="img-fluid lazy-img">
+                <img src="https://assets.libsyn.com/content/17315963?height=250&width=250&overlay=true" alt="Esse Health logo" class="img-fluid lazy-img" width="200" height="80">
             </a>
           </div>
            <div class="m-4">
             <a href="images/brand-partners/sage_bute.webp" target="_blank" rel="noopener noreferrer">
-                <img src="https://www.sagebutte.com/wp-content/uploads/2024/01/Sage-Butte-Energy-logo.png" alt="Partner Logo" class="img-fluid lazy-img">
+                <img src="https://www.sagebutte.com/wp-content/uploads/2024/01/Sage-Butte-Energy-logo.png" alt="Sage Butte Energy logo" class="img-fluid lazy-img" width="200" height="80">
             </a>
           </div>
           <div class="m-4">
             <a href="images/brand-partners/qb_energy.jpg" target="_blank" rel="noopener noreferrer">
-                <img src="images/brand-partners/qb_energy.jpg" alt="Partner Logo" class="img-fluid lazy-img">
+                <img src="images/brand-partners/qb_energy.jpg" alt="QB Energy logo" class="img-fluid lazy-img" width="200" height="80">
             </a>
           </div>
            <div class="m-4">
             <a href="images/brand-partners/frisco.jpeg" target="_blank" rel="noopener noreferrer">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Logo_of_Frisco%2C_Texas.svg/768px-Logo_of_Frisco%2C_Texas.svg.png?20180828011722" alt="Partner Logo" class="img-fluid lazy-img">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Logo_of_Frisco%2C_Texas.svg/768px-Logo_of_Frisco%2C_Texas.svg.png?20180828011722" alt="City of Frisco Texas logo" class="img-fluid lazy-img" width="200" height="80">
             </a>
           </div>
            <div class="m-4">
             <a href="images/brand-partners/dallas_county.jpg"  target="_blank" rel="noopener noreferrer">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrSzxH_f1lEuzqxEewHFlxbQr6jWb-ISY4eQ&s"   alt="Partner Logo" class="lazy-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrSzxH_f1lEuzqxEewHFlxbQr6jWb-ISY4eQ&s"   alt="Dallas County logo" class="lazy-img" width="200" height="80">
             </a>
           </div>
            <div class="m-4">
             <a href="images/brand-partners/lambda.png" target="_blank" rel="noopener noreferrer">
-                <img src="https://lambdalegal.org/wp-content/uploads/2023/02/lambda-logo-300x84.png" alt="Partner Logo" class="img-fluid lazy-img">
+                <img src="https://lambdalegal.org/wp-content/uploads/2023/02/lambda-logo-300x84.png" alt="Lambda Legal logo" class="img-fluid lazy-img" width="200" height="80">
             </a>
           </div>
           <div class="m-4">
             <a href="images/brand-partners/homeward_bound.png" target="_blank" rel="noopener noreferrer">
-                <img src="https://nfg-sofun.s3.amazonaws.com/uploads/ui_configuration/main_logo/12617/welcome_logo_HBI_LOGO_FINAL_Long_Form.png" alt="Partner Logo" class="img-fluid lazy-img">
+                <img src="https://nfg-sofun.s3.amazonaws.com/uploads/ui_configuration/main_logo/12617/welcome_logo_HBI_LOGO_FINAL_Long_Form.png" alt="Homeward Bound logo" class="img-fluid lazy-img" width="200" height="80">
             </a>
           </div>
           <div class="m-4">
             <a href="images/brand-partners/mhc.png" target="_blank" rel="noopener noreferrer">
-                <img src="https://www.moblicosolutions.com/wp-content/uploads/2024/09/Image-for-Home-Page-Hero-4-e1726688399270.png" alt="Partner Logo" class="img-fluid lazy-img">
+                <img src="https://www.moblicosolutions.com/wp-content/uploads/2024/09/Image-for-Home-Page-Hero-4-e1726688399270.png" alt="MHC logo" class="img-fluid lazy-img" width="200" height="80">
             </a>
           </div>
            <div class="m-4">
             <a href="images/brand-partners/bnsf.png" target="_blank" rel="noopener noreferrer">
-                <img src="https://logos-world.net/wp-content/uploads/2024/07/BNSF-Railway-Symbol.png" alt="Partner Logo" class="img-fluid lazy-img">
+                <img src="https://logos-world.net/wp-content/uploads/2024/07/BNSF-Railway-Symbol.png" alt="BNSF Railway logo" class="img-fluid lazy-img" width="200" height="80">
             </a>
           </div>
         </div>
@@ -220,8 +223,9 @@
 
 <!--/Ens clients -->
 <!-- Start Fun-facts -->
-<div  id="fun-facts" class="fun-facts default-background section col-md-12 mt-5">
+<section id="fun-facts" class="fun-facts default-background section col-md-12 mt-5" aria-labelledby="stats-heading">
 <div class="container ">
+<h2 id="stats-heading" class="sr-only">Customer Statistics</h2>
 <div class="row ">
 <div class="col-lg-4 col-md-6 col-12">
 <!-- Start Single Fun -->
@@ -261,7 +265,7 @@
 </div>
 </div>
 </div>
-</div>
+</section>
 <!--/ End Fun-facts -->
 <!-- Start Blog Area -->
 <section class="blog section" id="blog">
@@ -269,7 +273,7 @@
 <div class="row">
 <div class="col-lg-12">
 <div class="section-title">
-	<h2>Our Most Recent Blog Articles.</h2>
+	<h2>Our Most Recent Blog Articles</h2>
 		<center><hr class="default-background hr" ></center>
 </div>
 </div>
@@ -385,7 +389,8 @@
 </div>
 </section>
 
-
+</main>
+<!-- End Main Content -->
  
 </head>
 

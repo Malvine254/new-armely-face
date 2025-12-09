@@ -75,6 +75,13 @@ RewriteRule (.*)\.(jpe?g|png)$ $1.webp [NC,T=image/webp,E=REQUEST_image]
 
     # Disable ETag
     Header unset ETag
+    
+    # Security Headers
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header unset X-Powered-By
 </IfModule>
 FileETag None
 
