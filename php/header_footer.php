@@ -554,7 +554,10 @@ return <<<HTML
 	// GA4 config
 	gtag('config', 'G-4301EZWQ4C');
 	// Google Ads config (needed so conversion events are accepted)
-	gtag('config', 'AW-16698949072');
+	gtag('config', 'AW-16698949072', {
+		'allow_google_signals': true,
+		'allow_ad_personalization_signals': true
+	});
 </script>
 <!-- Bootstrap JS -->
 

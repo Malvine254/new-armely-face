@@ -316,7 +316,7 @@ $('#contact-form').submit(function(event) {
 
           // Fire conversion event
           gtag('event', 'conversion', {
-            send_to: 'AW-16698949072/p78BCKGBjaobEND71po-'
+            'send_to': 'AW-16698949072/xvRsCKSBjaobEND71po-'
           });
           console.log('🎯 conversion event fired');
         } else {
