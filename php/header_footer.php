@@ -533,7 +533,7 @@ return <<<HTML
 <script src="js/niceselect.js"></script>
 <!-- Tilt Jquery JS -->
 <script src="js/tilt.jquery.min.js"></script>
-<!-- Owl Carousel JS -->
+<!-- Owl Carousel JS (local) -->
 <script src="js/owl-carousel.js"></script>
 <!-- counterup JS -->
 <script src="js/jquery.counterup.min.js"></script>
@@ -565,21 +565,18 @@ return <<<HTML
 <script src="js/main.js"></script>
 <!-- sweet alerts -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js"></script>
-<!-- JavaScript Libraries -->
-<!-- Recommended -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.2/jquery-migrate.min.js"></script>
+<!-- Bootstrap Bundle JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<!-- jQuery Easing -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<!-- Superfish -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/superfish/1.7.10/js/hoverIntent.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/superfish/1.7.10/js/superfish.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<!-- jQuery Sticky -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.min.js"></script>
+<!-- Google reCAPTCHA -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <!-- more settings  -->
-
 <script src="js/more-options10-v2.js"></script>
 
 

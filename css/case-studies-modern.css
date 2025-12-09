@@ -83,7 +83,7 @@
     background: linear-gradient(135deg, rgba(47, 85, 151, 0.1) 0%, rgba(30, 58, 109, 0.1) 100%);
     color: var(--default-color);
     padding: 10px 24px;
-    border-radius: 30px;
+    border-radius: 0;
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -115,7 +115,7 @@
     height: 4px;
     background: linear-gradient(90deg, #2f5597 0%, #1e3a6d 100%);
     margin: 0 auto;
-    border-radius: 2px;
+    border-radius: 0;
 }
 
 /* ==================== Case Studies Section ==================== */
@@ -146,7 +146,7 @@
 .case-study-card,
 .white-paper-card {
     border: none;
-    border-radius: 20px;
+    border-radius: 0;
     background: #fff;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -207,7 +207,7 @@
     background: linear-gradient(135deg, #2f5597 0%, #1e3a6d 100%);
     color: #fff;
     padding: 8px 16px;
-    border-radius: 25px;
+    border-radius: 0;
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -277,7 +277,7 @@
     background: linear-gradient(135deg, #2f5597 0%, #1e3a6d 100%);
     color: #fff;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 0;
     font-weight: 700;
     font-size: 0.9rem;
     text-decoration: none;

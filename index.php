@@ -220,8 +220,8 @@
 
 <!--/Ens clients -->
 <!-- Start Fun-facts -->
-<div  id="fun-facts" class="fun-facts default-background section overlay mt-5">
-<div class="container default-background">
+<div  id="fun-facts" class="fun-facts default-background section col-md-12 mt-5">
+<div class="container ">
 <div class="row ">
 <div class="col-lg-4 col-md-6 col-12">
 <!-- Start Single Fun -->

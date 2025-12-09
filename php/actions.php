@@ -189,11 +189,11 @@ function displayRecentBlogs(){
 	$select = $conn->query("SELECT * FROM blogs ORDER BY id DESC LIMIT 3");
 	if ($select->num_rows>0) {
 		while ($row=$select->fetch_assoc()) {
-			echo '<div class="col-lg-4 col-md-6 col-12" data-aos="fade-in">
-			<div class="single-news" style="min-height: 430px; max-height: 430px;">
-					<div class="news-head">
-						<img class="lazy-img " style="min-height: 200px; max-height: 200px;" src="'.$row['image_path'].'" alt="#">
-					</div>
+            echo '<div class="col-lg-4 col-md-6 col-12" data-aos="fade-in">
+            <div class="single-news" style="block-size: 430px; max-block-size: 430px;">
+                    <div class="news-head">
+                        <img class="lazy-img " style="block-size: 200px; max-block-size: 200px;" src="'.$row['image_path'].'" alt="#">
+                    </div>
 					<div class="news-body">
 						<div class="news-content">
 							<div class="date">'.$row['date'].'.</div>
@@ -548,7 +548,7 @@ function displayCustomerStoriesTestimonialsShort() {
 
                 // Output the offer securely
                 echo '<div class="col-lg-4 col-md-6 col-12">
-                    <div class="single-schedule first" style="min-height: 400px; height: auto;">
+                    <div class="single-schedule first" style="block-size: auto; min-block-size: 400px;">
                         <div class="inner">
                             <div class="icon">
                                 <i class="fa fa-data"></i>
@@ -870,7 +870,7 @@ function displayServicesList() {
 
                 // Output the service securely
                 echo '<div class="col-lg-4 col-md-12 col-12 " >
-                    <div class="single-table card-shadow default-background" style="max-height: 350px; min-height: 340px;">
+                    <div class="single-table card-shadow default-background" style="max-block-size: 350px; min-block-size: 340px;">
                         <a class="text-light" href="service-details?name=' . htmlspecialchars($urlName) . '" style="hover: text-decoration: underline;   ">
                             <div class="table-head">
                                 <div class="icon text-light">
@@ -1014,7 +1014,7 @@ function displayMoreServicesList() {
 
                 // Output the service securely
                 echo '<div class="col-md-4 mb-4 card-item">
-                    <div style="min-height: 430px; height: auto;" class="card transparent-card">
+                    <div style="block-size: auto; min-block-size: 430px;" class="card transparent-card">
                         <div class="card-body py-4 mt-1">
                             <div class="d-flex justify-content-start mb-4">
                                 <img src="' . $image_path . '" class="shadow-1-strong lazy-img" width="100%" height="240" alt="Service Image" />
@@ -1124,7 +1124,7 @@ function displayIndustryListings() {
                 // Output the industry listing securely
                 echo '<div class="col-md-4 mb-4 p-1">
                     <div class="customer-story-card shadow m-1" data-aos="fade-right">
-                        <img style="min-height: 300px;" src="' . $image_path . '" class="d-block img-fluid lazy-img" alt="Industry Image">
+                        <img style="min-block-size: 300px;" src="' . $image_path . '" class="d-block img-fluid lazy-img" alt="Industry Image">
                         <div class="p-3">
                             <strong><p id="' . $id . '" class="text-muted">Industry: ' . $category . '</p></strong>
                             <p>' . $body . '</p>
@@ -1209,7 +1209,7 @@ function displayRecentIndustryListings() {
                 $pdf_link = !empty($pdf_url) ? "case_docs/" . urlencode($pdf_url) : "#";
 
                 // Output the listing securely
-                echo '<div class="single-pf   p-2" style="min-height: 360px;">
+                echo '<div class="single-pf   p-2" style="min-block-size: 360px;">
                     <div class="p-4 card-shadow shadow">
                     	<img src="' . $image_path . '" alt="Industry Image" class="img-fluid lazy-img">
 	                    <a href="' . $pdf_link . '" id="' . $id . '" class="btn" target="_blank">View Details</a>
@@ -2715,7 +2715,7 @@ function displayTeams(){
 			echo ' <!-- column  -->
 		      <div class="col-lg-4 mb-4">
 		        <!-- Row -->
-		        <div class="row card card-shadow m-1" style="min-height: 400px;">
+                <div class="row card card-shadow m-1" style="min-block-size: 400px;">
 		          <div class="col-md-12">
 		           <center> <a target="_blank" href="images/team/'.$row['team_image'].'"><img style="width: 150px; height: 150px;" src="images/team/'.$row['team_image'].'" alt="wrapkit" class="img-fluid rounded-circle" /></a></center>
 		          </div>
