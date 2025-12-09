@@ -53,11 +53,14 @@ function getHeader($pageName) {
 		<!-- Critical CSS -->
         <link rel="stylesheet" href="style7.css">
 		<link rel="stylesheet" href="css/custome.css">
+		<!-- Font Awesome - Critical for icons -->
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/icofont.css">
+		<!-- Font Awesome CDN for additional icons -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 		
 		<!-- Deferred CSS - Non-critical -->
 		<link rel="preload" href="css/nice-select.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
-		<link rel="preload" href="css/font-awesome.min.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
-        <link rel="preload" href="css/icofont.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
 		<link rel="preload" href="css/slicknav.min.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
         <link rel="preload" href="css/owl-carousel.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
 		<link rel="preload" href="css/datepicker.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
@@ -69,8 +72,6 @@ function getHeader($pageName) {
 		<!-- Fallback for browsers that don\'t support preload -->
 		<noscript>
 			<link rel=\"stylesheet\" href=\"css/nice-select.css\">
-			<link rel=\"stylesheet\" href=\"css/font-awesome.min.css\">
-			<link rel=\"stylesheet\" href=\"css/icofont.css\">
 			<link rel=\"stylesheet\" href=\"css/slicknav.min.css\">
 			<link rel=\"stylesheet\" href=\"css/owl-carousel.css\">
 			<link rel=\"stylesheet\" href=\"css/datepicker.css\">
@@ -81,7 +82,6 @@ function getHeader($pageName) {
 		</noscript>
 		
         <script src=\"https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js\" defer></script>
-        <link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css\">
 		
     </head>
     <body>
