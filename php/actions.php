@@ -1553,10 +1553,16 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['organizatio
 
 function submitContactForm() {
    
-	
-	// Load environment variables once
-	$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
-	$dotenv->load();
+    
+    // Load environment variables once, handle malformed .env gracefully
+    try {
+        $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+        $dotenv->load();
+    } catch (\Dotenv\Exception\InvalidFileException $e) {
+        error_log('Dotenv parse error: ' . $e->getMessage());
+        echo "Configuration error. Please fix the .env file.";
+        return;
+    }
     global $conn;
     $tenantId     = $_ENV['AZURE_TENANT_ID'];
     $clientId     = $_ENV['AZURE_CLIENT_ID'];

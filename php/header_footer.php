@@ -547,6 +547,15 @@ return <<<HTML
 <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4301EZWQ4C"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	// GA4 config
+	gtag('config', 'G-4301EZWQ4C');
+	// Google Ads config (needed so conversion events are accepted)
+	gtag('config', 'AW-16698949072');
+</script>
 <!-- Bootstrap JS -->
 
 <!-- Main JS -->
