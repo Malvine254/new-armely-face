@@ -126,7 +126,7 @@ function getHeader($pageName) {
 					<iframe 
 						src="https://copilotstudio.preview.microsoft.com/environments/Default-b783208a-8014-4829-9589-5324f76470c8/bots/cr44c_agent/webchat?__version__=2"
 						frameborder="0"
-						style="width: 100%; height: 80%;">
+						style="width: 100%; height: 100%; max-height: calc(80vh - 80px); overflow: hidden;">
 					</iframe>
 				</div>
 			</div>
