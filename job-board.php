@@ -1,4 +1,26 @@
-<?php include 'php/actions.php'; include 'php/header_footer.php'; if (isset($_GET['job-details'])) {}else{header('location:career');}
+<?php
+include 'php/actions.php';
+include 'php/header_footer.php';
+
+// Accept legacy query param (job-details) or aliases, and pretty URLs /job-board/{jobId}/{slug?}
+$jobId = $_GET['job-details'] ?? $_GET['jobId'] ?? $_GET['id'] ?? null;
+
+if (!$jobId) {
+	$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+	$segments = array_values(array_filter(explode('/', trim($path, '/'))));
+	if (isset($segments[0]) && $segments[0] === 'job-board' && isset($segments[1])) {
+		$jobId = $segments[1];
+		$_GET['job-details'] = $jobId;
+		if (isset($segments[2])) {
+			$_GET['title'] = $segments[2];
+		}
+	}
+}
+
+if (!isset($_GET['job-details'])) {
+	header('location:career');
+	exit;
+}
 ?>
 <link rel="stylesheet" href="css/job-board-modern.css">
 

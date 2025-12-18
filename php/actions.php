@@ -965,7 +965,11 @@ function disableUrl($status,$unicord){
                 if ($status === 'Closed') {
                     echo '<button class="btn btn-danger w-100" disabled>Closed</button>';
                 } else {
-                    echo '<a href="job-board?job-details=' . urlencode($job_id) . '" class="btn default-button apply-btn w-100">View Details</a>';
+                    $jobSlug = strtolower($job_title);
+                    $jobSlug = preg_replace('/[^a-z0-9]+/i', '-', $jobSlug);
+                    $jobSlug = trim($jobSlug, '-');
+                    if ($jobSlug === '') { $jobSlug = $job_id; }
+                    echo '<a href="job-board/' . urlencode($job_id) . '/' . urlencode($jobSlug) . '" class="btn default-button apply-btn w-100">View Details</a>';
                 }
                 echo '</div>
         </div>
